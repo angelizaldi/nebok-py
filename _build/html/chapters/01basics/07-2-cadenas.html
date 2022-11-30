@@ -1,0 +1,774 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Cadenas &#8212; Manual de Python</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Métodos de cadenas" href="07-3-cadenas-metodos.html" />
+    <link rel="prev" title="Cadenas" href="07-1-cadenas.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Manual de Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Manual de python para ciencia de datos.
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-ayuda.html">
+   Obtener ayuda en Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02-comentarios.html">
+   Comentarios
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-tipos-de-datos.html">
+   Tipos de datos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04-operadores-palabras.html">
+   Operadores y palabras reservadas.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05-numeros.html">
+   Números
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06-booleanos.html">
+   Valores booleanos
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="07-1-cadenas.html">
+   Cadenas
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Cadenas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="07-3-cadenas-metodos.html">
+     Métodos de cadenas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="07-4-formatos-cadenas.html">
+     Formatos de cadenas.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08-entrada-salida.html">
+   Entrada y salida de datos
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="09-1-listas.html">
+   Listas
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="09-2-listas-basico.html">
+     Listas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="09-3-list-comprehessions.html">
+     List comprehension
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/chapters/01basics/07-2-cadenas.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fchapters/01basics/07-2-cadenas.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/chapters/01basics/07-2-cadenas.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#crear-una-cadena">
+   Crear una cadena
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#concatenar-cadenas">
+   Concatenar cadenas:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#repetir-cadenas">
+   Repetir cadenas:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#verificar-membresia-de-patrones">
+   Verificar membresía de patrones
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#iterar-sobre-una-cadena">
+   Iterar sobre una cadena.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#subsetting-y-slicing">
+   Subsetting y slicing.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#convertir-una-cadena-a-una-secuencia">
+   Convertir una cadena a una secuencia:
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Cadenas</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#crear-una-cadena">
+   Crear una cadena
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#concatenar-cadenas">
+   Concatenar cadenas:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#repetir-cadenas">
+   Repetir cadenas:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#verificar-membresia-de-patrones">
+   Verificar membresía de patrones
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#iterar-sobre-una-cadena">
+   Iterar sobre una cadena.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#subsetting-y-slicing">
+   Subsetting y slicing.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#convertir-una-cadena-a-una-secuencia">
+   Convertir una cadena a una secuencia:
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="cadenas">
+<h1>Cadenas<a class="headerlink" href="#cadenas" title="Permalink to this headline">#</a></h1>
+<p>El tipo de dato es <code class="docutils literal notranslate"><span class="pre">str</span></code>, almacenan cadenas de caracteres.</p>
+<ul class="simple">
+<li><p>Sus elementos están ordenados (indexados).</p></li>
+<li><p>No se puede modificar una vez creada.</p></li>
+</ul>
+<p>Existen unas cadenas especiales:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Unicode</span>
+<span class="n">X</span> <span class="o">=</span> <span class="sa">u</span><span class="s1">&#39;text&#39;</span>
+<span class="c1">#Raw string</span>
+<span class="n">X</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;text&#39;</span>
+<span class="c1">#Bytes string</span>
+<span class="n">X</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;text&#39;</span>
+</pre></div>
+</div>
+<p><strong>Unicode</strong>
+Es para poder ingresar letras con acentos como á, ä, à, ñ u otros símbolos etc. Se utilizan los códigos unicode, que se pueden consultar en <a class="reference external" href="https://unicode-table.com/es/#basic-latin">códigos unicode</a>.</p>
+<p>Para insertar códigos unicode se debe de poner el código dentro de una cadena con prefijo <code class="docutils literal notranslate"><span class="pre">u</span></code> y el código se pone como <code class="docutils literal notranslate"><span class="pre">\u_code_</span></code>, donde <code class="docutils literal notranslate"><span class="pre">_code_</span></code> es el código de unicode:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ingresando un espacio en blanco y el signo ! con códigos unicode:</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">u</span><span class="s2">&quot;Hello</span><span class="se">\u0020</span><span class="s2">World</span><span class="se">\u0021</span><span class="s2">&quot;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello World!
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Raw string</strong> Son cadenas “crudas”, que ignoran caracteres especiales como <code class="docutils literal notranslate"><span class="pre">\n</span></code> y los imprime tal cual. Para saber más sobre caracteres especiales consulta</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Una cadena normal</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;text1 </span><span class="se">\n</span><span class="s2">text2&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>text1 
+text2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Una cadena cruda</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;text1 \ntext2&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>text1 \ntext2
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<section id="crear-una-cadena">
+<h2>Crear una cadena<a class="headerlink" href="#crear-una-cadena" title="Permalink to this headline">#</a></h2>
+<p>Para crear una variable de tipo de cadena usar comillas dobles o comillas simples para abrir y cerrar la cadena:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;text&quot;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;text&#39;</span>
+</pre></div>
+</div>
+<p>Para crear una cadena de mútiples líneas usar tres comillas dobles o tres comillas simples para abrir y cerrar la cadena:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    text</span>
+<span class="s2">    more text</span>
+<span class="s2">    &quot;&quot;&quot;</span>
+     
+<span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">    text</span>
+<span class="s1">    more text</span>
+<span class="s1">    &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Los saltos de línea (<code class="docutils literal notranslate"><span class="pre">\n</span></code>) se respetarán en la cadena.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="concatenar-cadenas">
+<h2>Concatenar cadenas:<a class="headerlink" href="#concatenar-cadenas" title="Permalink to this headline">#</a></h2>
+<p>Para concatenar cadenas se usa el operador <code class="docutils literal notranslate"><span class="pre">+</span></code>. Ya sea que se ponga la cadena tal cual o una variable de tipo <code class="docutils literal notranslate"><span class="pre">str</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span>
+<span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;World!&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="s2">&quot; &quot;</span><span class="o">+</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello World!
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">str</span></code> tiene además el método <code class="docutils literal notranslate"><span class="pre">join</span></code>para concatenar que se ve con más profundidad en “ref”.</p>
+</section>
+<hr class="docutils" />
+<section id="repetir-cadenas">
+<h2>Repetir cadenas:<a class="headerlink" href="#repetir-cadenas" title="Permalink to this headline">#</a></h2>
+<p>Para repetir una cadena <code class="docutils literal notranslate"><span class="pre">n</span> </code> veces usar el operador de multiplicación <code class="docutils literal notranslate"><span class="pre">*</span></code> con la cadena:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;text &quot;</span> <span class="o">*</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;text text text text text &#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="verificar-membresia-de-patrones">
+<h2>Verificar membresía de patrones<a class="headerlink" href="#verificar-membresia-de-patrones" title="Permalink to this headline">#</a></h2>
+<p>Se puede verificar que un patrón esté dentro de una cadena con los operadores <code class="docutils literal notranslate"><span class="pre">in</span></code> y <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code>, retornando un valor lógico. El patrón no tiene porque ser una palabra exacta, pueden ser partes de palabras o más de un palabra.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;pattern&quot;</span> <span class="ow">in</span> <span class="s2">&quot;string&quot;</span>
+<span class="s2">&quot;pattern&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="s2">&quot;string&quot;</span>
+</pre></div>
+</div>
+<p>Ejemplos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;amet&quot;</span> <span class="ow">in</span> <span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;minim&quot;</span> <span class="ow">in</span> <span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+False
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="iterar-sobre-una-cadena">
+<h2>Iterar sobre una cadena.<a class="headerlink" href="#iterar-sobre-una-cadena" title="Permalink to this headline">#</a></h2>
+<p>Las cadenas se pueden manipular como una secuencia. Esto permite que se puede usar una cadena como el rango en un <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">loop</span></code>, iterando caracter por caracter:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">string</span><span class="p">:</span>
+    <span class="n">expression</span>
+</pre></div>
+</div>
+<p>Ejemplo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="s2">&quot;abc&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a
+b
+c
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="subsetting-y-slicing">
+<h2>Subsetting y slicing.<a class="headerlink" href="#subsetting-y-slicing" title="Permalink to this headline">#</a></h2>
+<p>Al ser <code class="docutils literal notranslate"><span class="pre">str</span></code> una secuencia se pueden extraer elementos y rangos de una cadena usando corchetes. La idexación comienza en 0 y termina en <code class="docutils literal notranslate"><span class="pre">N-1</span></code>, siendo <code class="docutils literal notranslate"><span class="pre">N</span></code> la longitud de la cadena. También es posible usar números negativos ,siendo -1 igual a la última posición, -2 la penúltima posición, etc.</p>
+<p>Si <code class="docutils literal notranslate"><span class="pre">text</span></code> es un objeto de tipo <code class="docutils literal notranslate"><span class="pre">str</span></code> entonces, para hacer subsetting y slicing se usa:</p>
+<ul class="simple">
+<li><p>Un caracter específico: <br> <code class="docutils literal notranslate"><span class="pre">text[i]</span></code></p></li>
+<li><p>Un caracter específico, empezado desde el final, de derecha a izquierda: <br> <code class="docutils literal notranslate"><span class="pre">text[-i]</span></code></p></li>
+<li><p>Desde el índice <code class="docutils literal notranslate"><span class="pre">i</span></code> hasta el <code class="docutils literal notranslate"><span class="pre">j</span></code>, sin incluir el <code class="docutils literal notranslate"><span class="pre">j</span></code>: <br> <code class="docutils literal notranslate"><span class="pre">text[i:j]</span></code></p></li>
+<li><p>Desde el inicio hasta el <code class="docutils literal notranslate"><span class="pre">j</span></code>, sin incluir el <code class="docutils literal notranslate"><span class="pre">j</span></code>: <br> <code class="docutils literal notranslate"><span class="pre">text[:j]</span></code></p></li>
+<li><p>Desde la posición <code class="docutils literal notranslate"><span class="pre">i</span></code> hasta el final de la cadena: <br><code class="docutils literal notranslate"><span class="pre">text[i:]</span></code></p></li>
+<li><p>Toda la cadena: <br> <code class="docutils literal notranslate"><span class="pre">text[:]</span></code></p></li>
+<li><p>Desde el índice <code class="docutils literal notranslate"><span class="pre">i</span></code> hasta el <code class="docutils literal notranslate"><span class="pre">j</span></code>, sin incluir el <code class="docutils literal notranslate"><span class="pre">j</span></code>, cada <code class="docutils literal notranslate"><span class="pre">k</span></code> caracteres: <br> <code class="docutils literal notranslate"><span class="pre">text[i:j:k]</span></code></p></li>
+</ul>
+<p>Algunos patrones útiles:</p>
+<ul class="simple">
+<li><p>El primer caracter: <br> <code class="docutils literal notranslate"><span class="pre">text[0]</span></code></p></li>
+<li><p>El último caracter: <br> <code class="docutils literal notranslate"><span class="pre">text[-1]</span></code></p></li>
+<li><p>Toda la cadena cada <code class="docutils literal notranslate"><span class="pre">k</span></code> elementos: <br> <code class="docutils literal notranslate"><span class="pre">text[::k]</span></code></p></li>
+<li><p>Toda la cadena al revés: <br> <code class="docutils literal notranslate"><span class="pre">text[::-1]</span></code></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="convertir-una-cadena-a-una-secuencia">
+<h2>Convertir una cadena a una secuencia:<a class="headerlink" href="#convertir-una-cadena-a-una-secuencia" title="Permalink to this headline">#</a></h2>
+<p>Se puede convertir una cadena en una secuencia, donde cada elemento de la secuencia será cada caracter de la cadena con las funciones <code class="docutils literal notranslate"><span class="pre">list()</span></code> y <code class="docutils literal notranslate"><span class="pre">tuple()</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="nb">tuple</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">X</span></code> - <code class="docutils literal notranslate"><span class="pre">str</span></code>.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapters/01basics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="07-1-cadenas.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Cadenas</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="07-3-cadenas-metodos.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Métodos de cadenas</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Angel Lizaldi<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
