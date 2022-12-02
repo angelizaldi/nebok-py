@@ -5,7 +5,7 @@ Son listas que se crean a partir procesos iterativos con la estructura `for`. Si
 X = [expression for i in collection]
 ```
 donde:
-- colecction es cualquier `iterable`
+- _collection_ es cualquier `iterable`
 - _expression_ es cualquier expresión cuya evaluación retorne un objeto.
 
 Lo anterior equivale a:

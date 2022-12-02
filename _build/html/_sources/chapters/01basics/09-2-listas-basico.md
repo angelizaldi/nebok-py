@@ -19,16 +19,14 @@ X = list(x1, x2, x3, …)
 ```
 
 ---
-##  Concatenar elementos:
+##  Agregrar/Concatenar elementos:
 
-Para agregar elementos a una lista existente se puede usar el operador `+`, que sirve para concatenar listas, los nuevos elementos se agregarán al final de la lista existente.
+Para agregar elementos a una lista existente se puede usar el operador `+`, que sirve para concatenar, los nuevos elementos se agregarán al final de la primer lista.
 ```python
-X + [x1]
-X + Y
+# Si X y Y son listas, entonces W es la concatenacion de X y Y:
+W = X + Y
 ```
-donde
-- X, Y son listas
-- Si solo se quiere agregar un elemento encerrar entre corchetes para convertirlo a lista y poder concatenarlo.
+- Si solo se quiere agregar un elemento que no es una lista encerrar entre corchetes para convertirlo a lista y poder concatenarlo.
 
 ```{note}
 Otras formas de agregar elementos que serán cubiertas en los métodos:
@@ -36,35 +34,42 @@ Otras formas de agregar elementos que serán cubiertas en los métodos:
 - Para insertar algún elemento al final de la lista usar el método `list.append`.
 ```
 
+El operador `*` sirve para repetir `n` veces una lista y concatenarlas.
+```python
+# Si X es una lista y n un número entero, entonces Y es X concatenado n veces
+Y = X * n 
+```
+
 ---
 ## Eliminar Elementos:
 
 Para eliminar un elemento específico o la lista completa usar la palabra reservada `del` y el elemento que se quiere eliminar:
 ```python
-#Elimina el elemento i de la lista X
+# Eliminar el elemento i de la lista X
 del X[i]
 
-#Elimina la lista X
+# Eliminar la lista X
 del X		
 ```
 
 ```{note}
-Otras formas de eliminar elementos cubiertos en la sección de métodos:
-- Para remover un elemento usar el método `list.remove`.
+Otras formas de eliminar elementos cubiertos en la sección de métodos son:
+- Para remover un elemento específico usar el método `list.remove`.
 - Para remover un elemento de un índice en específico usar el método `list.pop`.
 ```	
 
 ---
 ## Modificar Elementos:
 
-Para modificar un valor en específico usar su índice y el operador de asignación:
+Para modificar un elemento en específico usar su índice y el operador de asignación:
 ```python
+# Si X es una lista y i es un índice válido de X, entonces para modificar el valor del elemento i
 X[i] = val
 ```
 
 Se pueden cambiar rangos completos con:
 ```python
-X[i:j] = [val1, val2, …]
+X[i:j] = [val1, val2, ...]
 ```
 
 ```{warning}
@@ -92,7 +97,7 @@ Para seleccionar elementos de una lista tener en cuenta las siguientes caracter�
 `X[i]`
 - Los índices comienza en cero (0), esto quiere decir que si quiere acceder al elemento `i`, se debe de usar `[i-1]`.
 - Se puede utilizar números negativos, de manera que se comience por el último elemento. En una lista de tamaño `N`, se puede acceder al último con `[-1]`, al penúltimo elemento `[-2]`, etc.
-- Para listas dentro de otras listas, considerar que en esencia usar X[i] devolverá otra lista, entonces para acceder a los elementos de esa otra lista usar otro [], esto es: <br/> `X[N1][N2]`
+- Para listas dentro de otras listas, considerar que en esencia usar `X[i]` devolverá otra lista, entonces para acceder a los elementos de esa otra lista usar otro `[]`, esto es: <br/> `X[N1][N2]`
 - Lo anterior se puede generalizar para cualquier número de listas anidadas.
 
 ---
@@ -111,4 +116,38 @@ Algunos patrones útiles:
 - Toda la lista cada `k` elementos: <br> `X[::k]`
 - Toda la lista al revés: <br> `X[::-1]`
 
+---
+## Unpack de listas:
 
+Se refiere a asignar a varias variables los elementos de un objeto iterable como un `list`:
+```
+x1, x2, ... , xn  = X
+```
+- X \- `list`: Una lista de longitud `N`.
+
+Si el número de variables es menor que el número de elementos se puede usar un asterisco `*`, para indicar que en esa variable se almacenen el resto de los elementos:
+```
+x1, x2, ... , *xi  = X
+```
+- X \- `list`: Una lista.
+- En ese caso la varible `xi` almacenará todos lo valores restantes en la lista.
+- El asterisco no tiene porque ir en la última variable, puede ir antes, en ese caso python asignará el número de elementos que sea necesario, para que el resto de las variables que vienen después tengan un elemento.
+
+---
+## Iteración:
+
+Para interar sobre todos los elementos de una lista se puede usar un `for loop`. Algunas opciones de iteración son:
+```python
+# Iterar sobre los elementos de la lista X:
+for ele in X:
+    ...
+        
+# Iterar sobre los índices de la lista X:
+for i in range(len(X)):
+    ...
+    
+# Iterar sobre los elementos y los índices de la lista X:
+for i, ele in enumerate(X):
+    ...
+```
+- En todos los ejemplos anteriores `i`y `ele` son nombres opcionales.

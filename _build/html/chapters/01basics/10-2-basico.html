@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Listas &#8212; Manual de Python</title>
+    <title>Tuples &#8212; Manual de Python</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="List comprehension" href="09-3-list-comprehessions.html" />
-    <link rel="prev" title="Listas" href="09-1-listas.html" />
+    <link rel="next" title="Métodos de tuple" href="10-3-metodos.html" />
+    <link rel="prev" title="Tuples" href="10-1-tuples.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -171,18 +171,18 @@ const thebe_selector_output = ".output, .cell_output"
    Entrada y salida de datos
   </a>
  </li>
- <li class="toctree-l1 current active has-children">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="09-1-listas.html">
    Listas
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="09-2-listas-basico.html">
      Listas
     </a>
    </li>
@@ -193,18 +193,18 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="10-1-tuples.html">
    Tuples
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="10-2-basico.html">
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Tuples
     </a>
    </li>
@@ -332,7 +332,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fchapters/01basics/09-2-listas-basico.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fchapters/01basics/10-2-basico.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -360,7 +360,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../_sources/chapters/01basics/09-2-listas-basico.md"
+        <a href="../../_sources/chapters/01basics/10-2-basico.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -420,28 +420,8 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#crear-una-lista">
-   Crear una lista:
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#agregrar-concatenar-elementos">
-   Agregrar/Concatenar elementos:
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#eliminar-elementos">
-   Eliminar Elementos:
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#modificar-elementos">
-   Modificar Elementos:
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#verificar-que-un-elemento-exista-en-una-lista">
-   Verificar que un elemento exista en una lista:
+  <a class="reference internal nav-link" href="#creacion-de-un-tuple">
+   Creación de un tuple
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -462,8 +442,23 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#unpack-de-listas">
-   Unpack de listas:
+  <a class="reference internal nav-link" href="#concatenar-y-multiplicar">
+   Concatenar y multiplicar:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#agregrar-y-eliminar-elementos">
+   Agregrar y eliminar elementos:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modificar-valores-de-un-tuple">
+   Modificar valores de un tuple:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unpack-de-tuples">
+   Unpack de tuples:
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -480,7 +475,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Listas</h1>
+                <h1>Tuples</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -491,28 +486,8 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#crear-una-lista">
-   Crear una lista:
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#agregrar-concatenar-elementos">
-   Agregrar/Concatenar elementos:
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#eliminar-elementos">
-   Eliminar Elementos:
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#modificar-elementos">
-   Modificar Elementos:
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#verificar-que-un-elemento-exista-en-una-lista">
-   Verificar que un elemento exista en una lista:
+  <a class="reference internal nav-link" href="#creacion-de-un-tuple">
+   Creación de un tuple
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -533,8 +508,23 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#unpack-de-listas">
-   Unpack de listas:
+  <a class="reference internal nav-link" href="#concatenar-y-multiplicar">
+   Concatenar y multiplicar:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#agregrar-y-eliminar-elementos">
+   Agregrar y eliminar elementos:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modificar-valores-de-un-tuple">
+   Modificar valores de un tuple:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unpack-de-tuples">
+   Unpack de tuples:
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -552,106 +542,39 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="listas">
-<h1>Listas<a class="headerlink" href="#listas" title="Permalink to this headline">#</a></h1>
-<p>Algunas características de las listas, correspondientes al tipo de dato <code class="docutils literal notranslate"><span class="pre">list</span></code>, son:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="tuples">
+<h1>Tuples<a class="headerlink" href="#tuples" title="Permalink to this headline">#</a></h1>
+<p>Son objetos iterables para almacener múltiples elementos en una sola variable. Algunas caractacterísticas de <code class="docutils literal notranslate"><span class="pre">tuple</span></code>:</p>
 <ul class="simple">
-<li><p>Sirven para almacenar múltiples valores de diferentes tipos en una sola variable.</p></li>
-<li><p>Sus elementos están ordenados (indexados)</p></li>
-<li><p>Sus elementos se pueden modificar.</p></li>
-<li><p>Un mismo valor puede existir múltiples veces en una lista.</p></li>
+<li><p>Los elementos están ordenados (indexados)</p></li>
+<li><p>Permiten valores duplicados.</p></li>
+<li><p>Se Puede almacenar diferentes tipos de datos en un <code class="docutils literal notranslate"><span class="pre">tuple</span></code>.</p></li>
+<li><p>No se pueden modificar (agregar, modificar o eliminar elementos) una vez creado el <code class="docutils literal notranslate"><span class="pre">tuple</span></code>.</p></li>
 </ul>
 <hr class="docutils" />
-<section id="crear-una-lista">
-<h2>Crear una lista:<a class="headerlink" href="#crear-una-lista" title="Permalink to this headline">#</a></h2>
-<p>Existen dos métodos principales para crear una lista</p>
+<section id="creacion-de-un-tuple">
+<h2>Creación de un tuple<a class="headerlink" href="#creacion-de-un-tuple" title="Permalink to this headline">#</a></h2>
+<p>Para crear un tuple existen distintas formas:</p>
 <ol class="simple">
-<li><p>Poner los elementos, separados por coma, dentro de corchetes <code class="docutils literal notranslate"><span class="pre">[]</span></code>:</p></li>
+<li><p>Poner los elementos, separados por coma directamente</p></li>
+<li><p>Poner los elementos, separados por coma de paréntesis <code class="docutils literal notranslate"><span class="pre">()</span></code>.</p></li>
+<li><p>Utilizar el constructor <code class="docutils literal notranslate"><span class="pre">tuple()</span></code>, con los elementos separados por coma</p></li>
 </ol>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>X = [x1, x2, …]
-</pre></div>
-</div>
-<ol class="simple">
-<li><p>Poner los elementos, separados por coma, dentro del constructor <code class="docutils literal notranslate"><span class="pre">list()</span></code>:</p></li>
-</ol>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>X = list(x1, x2, x3, …)
-</pre></div>
-</div>
-</section>
-<hr class="docutils" />
-<section id="agregrar-concatenar-elementos">
-<h2>Agregrar/Concatenar elementos:<a class="headerlink" href="#agregrar-concatenar-elementos" title="Permalink to this headline">#</a></h2>
-<p>Para agregar elementos a una lista existente se puede usar el operador <code class="docutils literal notranslate"><span class="pre">+</span></code>, que sirve para concatenar, los nuevos elementos se agregarán al final de la primer lista.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Si X y Y son listas, entonces W es la concatenacion de X y Y:</span>
-<span class="n">W</span> <span class="o">=</span> <span class="n">X</span> <span class="o">+</span> <span class="n">Y</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Todas las siguientes expresiones son equivalentes</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="o">...</span>
+<span class="n">X</span> <span class="o">=</span> <span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>Si solo se quiere agregar un elemento que no es una lista encerrar entre corchetes para convertirlo a lista y poder concatenarlo.</p></li>
+<li><p>Los elementos pueden ser otros tuples.</p></li>
 </ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Otras formas de agregar elementos que serán cubiertas en los métodos:</p>
-<ul class="simple">
-<li><p>Para insertar algún elemento en un índice en específico sin remplazarlo (recorriendo el resto de los elementos a la derecha) usar el método <code class="docutils literal notranslate"><span class="pre">list.insert</span></code>.</p></li>
-<li><p>Para insertar algún elemento al final de la lista usar el método <code class="docutils literal notranslate"><span class="pre">list.append</span></code>.</p></li>
-</ul>
-</div>
-<p>El operador <code class="docutils literal notranslate"><span class="pre">*</span></code> sirve para repetir <code class="docutils literal notranslate"><span class="pre">n</span></code> veces una lista y concatenarlas.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Si X es una lista y n un número entero, entonces Y es X concatenado n veces</span>
-<span class="n">Y</span> <span class="o">=</span> <span class="n">X</span> <span class="o">*</span> <span class="n">n</span> 
-</pre></div>
-</div>
-</section>
-<hr class="docutils" />
-<section id="eliminar-elementos">
-<h2>Eliminar Elementos:<a class="headerlink" href="#eliminar-elementos" title="Permalink to this headline">#</a></h2>
-<p>Para eliminar un elemento específico o la lista completa usar la palabra reservada <code class="docutils literal notranslate"><span class="pre">del</span></code> y el elemento que se quiere eliminar:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Eliminar el elemento i de la lista X</span>
-<span class="k">del</span> <span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-
-<span class="c1"># Eliminar la lista X</span>
-<span class="k">del</span> <span class="n">X</span>		
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Otras formas de eliminar elementos cubiertos en la sección de métodos son:</p>
-<ul class="simple">
-<li><p>Para remover un elemento específico usar el método <code class="docutils literal notranslate"><span class="pre">list.remove</span></code>.</p></li>
-<li><p>Para remover un elemento de un índice en específico usar el método <code class="docutils literal notranslate"><span class="pre">list.pop</span></code>.</p></li>
-</ul>
-</div>
-</section>
-<hr class="docutils" />
-<section id="modificar-elementos">
-<h2>Modificar Elementos:<a class="headerlink" href="#modificar-elementos" title="Permalink to this headline">#</a></h2>
-<p>Para modificar un elemento en específico usar su índice y el operador de asignación:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Si X es una lista y i es un índice válido de X, entonces para modificar el valor del elemento i</span>
-<span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
-</pre></div>
-</div>
-<p>Se pueden cambiar rangos completos con:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">val1</span><span class="p">,</span> <span class="n">val2</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
-</pre></div>
-</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Si se crea una lista y se asigna al objeto <code class="docutils literal notranslate"><span class="pre">X</span></code>, entonces <code class="docutils literal notranslate"><span class="pre">X</span></code> en realidad hace referencia a los elementos que se almacenan en memoria, si se asigna la lista a otro objeto <code class="docutils literal notranslate"><span class="pre">Y</span></code> con el operador de asignación <code class="docutils literal notranslate"><span class="pre">=</span></code>, entonces lo que se copia es la referencia, no los valores como tal, por lo tanto modificaciones en <code class="docutils literal notranslate"><span class="pre">Y</span></code> también afecta a <code class="docutils literal notranslate"><span class="pre">X</span></code> y vicerversa. Para que esto no suceda usar cualquiera de los siguientes opciones:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Y</span> <span class="pre">=</span> <span class="pre">list(X)</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Y</span> <span class="pre">=</span> <span class="pre">X[:]</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Y</span> <span class="pre">=</span> <span class="pre">X.copy()</span></code></p></li>
-</ul>
-<p>De esta manera modificaciones en <code class="docutils literal notranslate"><span class="pre">Y</span></code> no afectarán a <code class="docutils literal notranslate"><span class="pre">X</span></code>.</p>
-</div>
-</section>
-<hr class="docutils" />
-<section id="verificar-que-un-elemento-exista-en-una-lista">
-<h2>Verificar que un elemento exista en una lista:<a class="headerlink" href="#verificar-que-un-elemento-exista-en-una-lista" title="Permalink to this headline">#</a></h2>
-<p>Para ver si un elemento está dentro de una lista X usar el operador de membresía <code class="docutils literal notranslate"><span class="pre">in</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="ow">in</span> <span class="n">X</span>
-</pre></div>
+<p>Si se quiere crear un tuple de solo un elemento usando paréntesis, se tienen que poner una coma ‘,’ después del elemento.
+<code>
+X = (x,)
+</code></p>
 </div>
 </section>
 <hr class="docutils" />
@@ -659,17 +582,16 @@ title="Print to PDF"
 <h2>Selección de elementos:<a class="headerlink" href="#seleccion-de-elementos" title="Permalink to this headline">#</a></h2>
 <section id="subsetting">
 <h3>Subsetting:<a class="headerlink" href="#subsetting" title="Permalink to this headline">#</a></h3>
-<p>Para seleccionar elementos de una lista tener en cuenta las siguientes características:</p>
+<p>Para seleccionar elementos de una tupla tener en cuenta las siguientes características:</p>
 <ul class="simple">
-<li><p>Se utilizan corchetes <code class="docutils literal notranslate"><span class="pre">[]</span></code> para acceder a los elementos, junto con el nombre de la lista y el índice del elemento: <br/>
+<li><p>Se utilizan corchetes <code class="docutils literal notranslate"><span class="pre">[]</span></code> para acceder a los elementos, junto con el nombre de la tupla y el índice del elemento: <br/>
 <code class="docutils literal notranslate"><span class="pre">X[i]</span></code></p></li>
 <li><p>Los índices comienza en cero (0), esto quiere decir que si quiere acceder al elemento <code class="docutils literal notranslate"><span class="pre">i</span></code>, se debe de usar <code class="docutils literal notranslate"><span class="pre">[i-1]</span></code>.</p></li>
-<li><p>Se puede utilizar números negativos, de manera que se comience por el último elemento. En una lista de tamaño <code class="docutils literal notranslate"><span class="pre">N</span></code>, se puede acceder al último con <code class="docutils literal notranslate"><span class="pre">[-1]</span></code>, al penúltimo elemento <code class="docutils literal notranslate"><span class="pre">[-2]</span></code>, etc.</p></li>
-<li><p>Para listas dentro de otras listas, considerar que en esencia usar <code class="docutils literal notranslate"><span class="pre">X[i]</span></code> devolverá otra lista, entonces para acceder a los elementos de esa otra lista usar otro <code class="docutils literal notranslate"><span class="pre">[]</span></code>, esto es: <br/> <code class="docutils literal notranslate"><span class="pre">X[N1][N2]</span></code></p></li>
-<li><p>Lo anterior se puede generalizar para cualquier número de listas anidadas.</p></li>
+<li><p>Se puede utilizar números negativos, de manera que se comience por el último elemento. En una tupla de tamaño <code class="docutils literal notranslate"><span class="pre">N</span></code>, se puede acceder al último con <code class="docutils literal notranslate"><span class="pre">[-1]</span></code>, al penúltimo elemento <code class="docutils literal notranslate"><span class="pre">[-2]</span></code>, etc.</p></li>
+<li><p>Para tupls dentro de otras tuplas, considerar que en esencia usar <code class="docutils literal notranslate"><span class="pre">X[i]</span></code> devolverá otra tupla, entonces para acceder a los elementos de esa otra tupla usar otro <code class="docutils literal notranslate"><span class="pre">[]</span></code>, esto es: <br/> <code class="docutils literal notranslate"><span class="pre">X[N1][N2]</span></code></p></li>
+<li><p>Lo anterior se puede generalizar para cualquier número de tuplas anidadas.</p></li>
 </ul>
 </section>
-<hr class="docutils" />
 <section id="slicing">
 <h3>Slicing:<a class="headerlink" href="#slicing" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
@@ -691,38 +613,75 @@ title="Print to PDF"
 </section>
 </section>
 <hr class="docutils" />
-<section id="unpack-de-listas">
-<h2>Unpack de listas:<a class="headerlink" href="#unpack-de-listas" title="Permalink to this headline">#</a></h2>
-<p>Se refiere a asignar a varias variables los elementos de un objeto iterable como un <code class="docutils literal notranslate"><span class="pre">list</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="o">...</span> <span class="p">,</span> <span class="n">xn</span>  <span class="o">=</span> <span class="n">X</span>
+<section id="concatenar-y-multiplicar">
+<h2>Concatenar y multiplicar:<a class="headerlink" href="#concatenar-y-multiplicar" title="Permalink to this headline">#</a></h2>
+<p>El operador <code class="docutils literal notranslate"><span class="pre">+</span></code> sirve para concatenar tuples, los elementos se agrega al final del primer tuple.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Si X y Y son tuples, entonces W es la concatenacion de X y Y:</span>
+<span class="n">W</span> <span class="o">=</span> <span class="n">X</span> <span class="o">+</span> <span class="n">Y</span>
 </pre></div>
 </div>
-<ul class="simple">
-<li><p>X - <code class="docutils literal notranslate"><span class="pre">list</span></code>: Una lista de longitud <code class="docutils literal notranslate"><span class="pre">N</span></code>.</p></li>
-</ul>
+<p>El operador <code class="docutils literal notranslate"><span class="pre">*</span></code> sirve para repetir <code class="docutils literal notranslate"><span class="pre">n</span></code> veces un tuple y concatenarlos.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Si X es un tuple y n un número entero, entonces Y es X concatenado n veces</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">X</span> <span class="o">*</span> <span class="n">n</span> 
+</pre></div>
+</div>
+</section>
+<section id="agregrar-y-eliminar-elementos">
+<h2>Agregrar y eliminar elementos:<a class="headerlink" href="#agregrar-y-eliminar-elementos" title="Permalink to this headline">#</a></h2>
+<p>Los tuples no se pueden modificar una vez creados. Un truco para agregar/modificar un elemento es convertir el tuple en una lista y después volverlo a convertir en un tuple:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Un tuple</span>
+<span class="n">X</span> <span class="o">=</span> <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="c1"># Convertir a lista</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="c1"># Agregar los elementos o eliminar los elementos</span>
+<span class="n">Y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="k">del</span> <span class="n">Y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<span class="c1"># Convertir a tuple de vuelta</span>
+<span class="n">X</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Para eliminar todo el tuple se puede usar la palabra reservada <code class="docutils literal notranslate"><span class="pre">del</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Si X es un tuple</span>
+<span class="k">del</span> <span class="n">X</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="modificar-valores-de-un-tuple">
+<h2>Modificar valores de un tuple:<a class="headerlink" href="#modificar-valores-de-un-tuple" title="Permalink to this headline">#</a></h2>
+<p>Los tuples no se pueden modificar una vez creados. Un truco para modificar un valor es convertir el tuple en una lista y después volverlo a convertir en un tuple:</p>
+</section>
+<hr class="docutils" />
+<section id="unpack-de-tuples">
+<h2>Unpack de tuples:<a class="headerlink" href="#unpack-de-tuples" title="Permalink to this headline">#</a></h2>
+<p>Se refiere a asignar a varias variables los elementos de un objeto iterable como un <code class="docutils literal notranslate"><span class="pre">tuple</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Si X es una tupla de longitud `N`:</span>
+<span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="o">...</span> <span class="p">,</span> <span class="n">xn</span>  <span class="o">=</span> <span class="n">X</span>
+</pre></div>
+</div>
 <p>Si el número de variables es menor que el número de elementos se puede usar un asterisco <code class="docutils literal notranslate"><span class="pre">*</span></code>, para indicar que en esa variable se almacenen el resto de los elementos:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="o">...</span> <span class="p">,</span> <span class="o">*</span><span class="n">xi</span>  <span class="o">=</span> <span class="n">X</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Si X es una tupla:</span>
+<span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="o">...</span> <span class="p">,</span> <span class="o">*</span><span class="n">xi</span>  <span class="o">=</span> <span class="n">X</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>X - <code class="docutils literal notranslate"><span class="pre">list</span></code>: Una lista.</p></li>
-<li><p>En ese caso la varible <code class="docutils literal notranslate"><span class="pre">xi</span></code> almacenará todos lo valores restantes en la lista.</p></li>
+<li><p>En ese caso la varible <code class="docutils literal notranslate"><span class="pre">xi</span></code> almacenará todos lo valores restantes en la tupla.</p></li>
 <li><p>El asterisco no tiene porque ir en la última variable, puede ir antes, en ese caso python asignará el número de elementos que sea necesario, para que el resto de las variables que vienen después tengan un elemento.</p></li>
 </ul>
 </section>
 <hr class="docutils" />
 <section id="iteracion">
 <h2>Iteración:<a class="headerlink" href="#iteracion" title="Permalink to this headline">#</a></h2>
-<p>Para interar sobre todos los elementos de una lista se puede usar un <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">loop</span></code>. Algunas opciones de iteración son:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Iterar sobre los elementos de la lista X:</span>
+<p>Para interar sobre todos los elementos de un tuple se puede usar un <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">loop</span></code>. Algunas opciones de iteración son:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Iterar sobre los elementos del tuple X:</span>
 <span class="k">for</span> <span class="n">ele</span> <span class="ow">in</span> <span class="n">X</span><span class="p">:</span>
     <span class="o">...</span>
         
-<span class="c1"># Iterar sobre los índices de la lista X:</span>
+<span class="c1"># Iterar sobre los índices del tuple X:</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)):</span>
     <span class="o">...</span>
     
-<span class="c1"># Iterar sobre los elementos y los índices de la lista X:</span>
+<span class="c1"># Iterar sobre los elementos y los índices del tuple X:</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ele</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
     <span class="o">...</span>
 </pre></div>
@@ -760,17 +719,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="09-1-listas.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="10-1-tuples.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Listas</p>
+            <p class="prev-next-title">Tuples</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="09-3-list-comprehessions.html" title="next page">
+    <a class='right-next' id="next-link" href="10-3-metodos.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">List comprehension</p>
+        <p class="prev-next-title">Métodos de tuple</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
