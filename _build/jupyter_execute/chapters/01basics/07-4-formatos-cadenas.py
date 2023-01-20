@@ -5,7 +5,7 @@
 # 
 # En esta sección se explica el método `str.format()` y las "f-strings" que permiten darle un formato personalizado a las cadenas e incluir de manera dinámica variables en la cadena.
 # 
-# ```{attention} Existen otros métodos para hacer lo mismo como los `string.Template` o usando el operador `%`, pero no se cubrirán en esta página.
+# ```{important} Existen otros métodos para hacer lo mismo como los `string.Template` o usando el operador `%`, pero no se cubrirán en esta página.
 # ```
 
 # ## str.format

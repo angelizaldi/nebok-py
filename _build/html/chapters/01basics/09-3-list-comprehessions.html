@@ -52,7 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Tuples" href="10-1-tuples.html" />
+    <link rel="next" title="Métodos de listas:" href="09-4-list-methods.html" />
     <link rel="prev" title="Listas" href="09-2-listas-basico.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -191,6 +191,11 @@ const thebe_selector_output = ".output, .cell_output"
      List comprehension
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="09-4-list-methods.html">
+     Métodos de listas:
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -232,12 +237,34 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="11-3-comprehesion.html">
-     List comprehension
+     Set comprehension
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="11-4-metodos.html">
      Métodos de sets
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="12-1-diccionarios.html">
+   Diccionarios
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="12-2-basico.html">
+     Diccionarios
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="12-4-metodos.html">
+     Métodos
     </a>
    </li>
   </ul>
@@ -293,6 +320,35 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/chapters/01basics/09-3-list-comprehessions.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -359,6 +415,23 @@ title="Open an issue"
   </button>
   <div class="menu-dropdown__content">
     <ul>
+      <li>
+        <a href="../../_sources/chapters/01basics/09-3-list-comprehessions.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
       <li>
         <a href="../../_sources/chapters/01basics/09-3-list-comprehessions.md"
    class="headerbtn"
@@ -438,15 +511,34 @@ title="Print to PDF"
     <span class="n">X</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">expression</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Las list comprehension también pueden tener condicionales, tanto en la <em>expression</em> como en la parte del <em>collection</em>, de manera que solo a cierto elementos se les aplique el código o de que dependiendo del resultado de la <em>expression</em> se ponga un valor u otro. Sintaxis:</p>
+<p>Las list comprehension también pueden tener condicionales, tanto en la parte de <em>expression</em> como en la parte de <em>collection</em>, de manera que solo a cierto elementos se les aplique el código o de que dependiendo del resultado de la <em>expression</em> se ponga un valor u otro. Sintaxis:</p>
 <p>En el iterable:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="p">[</span><span class="n">expression</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">collection</span> <span class="k">if</span> <span class="n">condition</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>En la <em>expression</em>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="p">[</span><span class="n">val_true</span> <span class="k">if</span> <span class="n">condition</span> <span class="k">else</span> <span class="n">val_false</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">collection</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="p">[</span><span class="n">expression_true</span> <span class="k">if</span> <span class="n">condition</span> <span class="k">else</span> <span class="n">expression_false</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">collection</span><span class="p">]</span>
 </pre></div>
 </div>
+<p>Ejemplo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+
+<span class="n">squared_even_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="n">number</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">numbers</span> <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">squared_even_numbers</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4, 16, 36, 64, 100]
+</pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<div><p>En el código anterior hubiera sido más eficiente utilizar la función <code class="docutils literal notranslate"><span class="pre">range()</span></code> para crear la secuencia de números.</p>
+</div></blockquote>
 </section>
 
     <script type="text/x-thebe-config">
@@ -483,10 +575,10 @@ title="Print to PDF"
             <p class="prev-next-title">Listas</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="10-1-tuples.html" title="next page">
+    <a class='right-next' id="next-link" href="09-4-list-methods.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Tuples</p>
+        <p class="prev-next-title">Métodos de listas:</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

@@ -191,6 +191,82 @@ const thebe_selector_output = ".output, .cell_output"
      List comprehension
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="09-4-list-methods.html">
+     Métodos de listas:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="10-1-tuples.html">
+   Tuples
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="10-2-basico.html">
+     Tuples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="10-3-metodos.html">
+     Métodos de tuple
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="11-1-sets.html">
+   Sets
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="11-2-basico.html">
+     Sets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="11-3-comprehesion.html">
+     Set comprehension
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="11-4-metodos.html">
+     Métodos de sets
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="12-1-diccionarios.html">
+   Diccionarios
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="12-2-basico.html">
+     Diccionarios
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="12-4-metodos.html">
+     Métodos
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -403,6 +479,18 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#crear-una-cadena">
    Crear una cadena
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#unicode">
+     Unicode
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#raw-strings">
+     Raw strings
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#concatenar-cadenas">
@@ -410,28 +498,35 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#repetir-cadenas">
-   Repetir cadenas:
+  <a class="reference internal nav-link" href="#verificar-membresia">
+   Verificar membresía
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#verificar-membresia-de-patrones">
-   Verificar membresía de patrones
+  <a class="reference internal nav-link" href="#iteracion">
+   Iteración
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#iterar-sobre-una-cadena">
-   Iterar sobre una cadena.
+  <a class="reference internal nav-link" href="#seleccion-de-elementos">
+   Selección de elementos:
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#subsetting">
+     Subsetting:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#slicing">
+     Slicing:
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#subsetting-y-slicing">
-   Subsetting y slicing.
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#convertir-una-cadena-a-una-secuencia">
-   Convertir una cadena a una secuencia:
+  <a class="reference internal nav-link" href="#convertir-otro-tipo-de-secuencia">
+   Convertir otro tipo de secuencia:
   </a>
  </li>
 </ul>
@@ -457,6 +552,18 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#crear-una-cadena">
    Crear una cadena
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#unicode">
+     Unicode
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#raw-strings">
+     Raw strings
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#concatenar-cadenas">
@@ -464,28 +571,35 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#repetir-cadenas">
-   Repetir cadenas:
+  <a class="reference internal nav-link" href="#verificar-membresia">
+   Verificar membresía
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#verificar-membresia-de-patrones">
-   Verificar membresía de patrones
+  <a class="reference internal nav-link" href="#iteracion">
+   Iteración
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#iterar-sobre-una-cadena">
-   Iterar sobre una cadena.
+  <a class="reference internal nav-link" href="#seleccion-de-elementos">
+   Selección de elementos:
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#subsetting">
+     Subsetting:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#slicing">
+     Slicing:
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#subsetting-y-slicing">
-   Subsetting y slicing.
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#convertir-una-cadena-a-una-secuencia">
-   Convertir una cadena a una secuencia:
+  <a class="reference internal nav-link" href="#convertir-otro-tipo-de-secuencia">
+   Convertir otro tipo de secuencia:
   </a>
  </li>
 </ul>
@@ -500,64 +614,14 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="cadenas">
 <h1>Cadenas<a class="headerlink" href="#cadenas" title="Permalink to this headline">#</a></h1>
-<p>El tipo de dato es <code class="docutils literal notranslate"><span class="pre">str</span></code>, almacenan cadenas de caracteres.</p>
+<p>El tipo de dato <code class="docutils literal notranslate"><span class="pre">str</span></code> almacenan una secuencia de caracteres encerrados en comillas dobles o simples. <code class="docutils literal notranslate"><span class="pre">str</span></code> es considerado una secuencia. Sus principales características son:</p>
 <ul class="simple">
-<li><p>Sus elementos están ordenados (indexados).</p></li>
-<li><p>No se puede modificar una vez creada.</p></li>
+<li><p>Es inmutable: No se puede modificar una vez creada.</p></li>
+<li><p>Está indexado: Sus elementos están ordenados.</p></li>
+<li><p>Es un iterable: Se puede iterar por sus elementos y se puede utilizar la palabra reservada <code class="docutils literal notranslate"><span class="pre">in</span></code> para verificar membresía.</p></li>
+<li><p>Se puede hacer <em>subsetting</em> y <em>slicing</em> de sus caracteres.</p></li>
+<li><p>Se puede concatenar con otras cadenas.</p></li>
 </ul>
-<p>Existen unas cadenas especiales:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Unicode</span>
-<span class="n">X</span> <span class="o">=</span> <span class="sa">u</span><span class="s1">&#39;text&#39;</span>
-<span class="c1">#Raw string</span>
-<span class="n">X</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;text&#39;</span>
-<span class="c1">#Bytes string</span>
-<span class="n">X</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;text&#39;</span>
-</pre></div>
-</div>
-<p><strong>Unicode</strong>
-Es para poder ingresar letras con acentos como á, ä, à, ñ u otros símbolos etc. Se utilizan los códigos unicode, que se pueden consultar en <a class="reference external" href="https://unicode-table.com/es/#basic-latin">códigos unicode</a>.</p>
-<p>Para insertar códigos unicode se debe de poner el código dentro de una cadena con prefijo <code class="docutils literal notranslate"><span class="pre">u</span></code> y el código se pone como <code class="docutils literal notranslate"><span class="pre">\u_code_</span></code>, donde <code class="docutils literal notranslate"><span class="pre">_code_</span></code> es el código de unicode:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ingresando un espacio en blanco y el signo ! con códigos unicode:</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">u</span><span class="s2">&quot;Hello</span><span class="se">\u0020</span><span class="s2">World</span><span class="se">\u0021</span><span class="s2">&quot;</span><span class="p">)</span> 
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello World!
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>Raw string</strong> Son cadenas “crudas”, que ignoran caracteres especiales como <code class="docutils literal notranslate"><span class="pre">\n</span></code> y los imprime tal cual. Para saber más sobre caracteres especiales consulta</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Una cadena normal</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;text1 </span><span class="se">\n</span><span class="s2">text2&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>text1 
-text2
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Una cadena cruda</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;text1 \ntext2&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>text1 \ntext2
-</pre></div>
-</div>
-</div>
-</div>
 <hr class="docutils" />
 <section id="crear-una-cadena">
 <h2>Crear una cadena<a class="headerlink" href="#crear-una-cadena" title="Permalink to this headline">#</a></h2>
@@ -581,16 +645,65 @@ text2
 <ul class="simple">
 <li><p>Los saltos de línea (<code class="docutils literal notranslate"><span class="pre">\n</span></code>) se respetarán en la cadena.</p></li>
 </ul>
+<section id="unicode">
+<h3>Unicode<a class="headerlink" href="#unicode" title="Permalink to this headline">#</a></h3>
+<p>Se utiliza para poder ingresar letras con acentos como á, ä, à, ñ u otros símbolos etc. Se utilizan los códigos unicode, que se pueden consultar en <a class="reference external" href="https://unicode-table.com/es/#basic-latin">códigos unicode</a>.</p>
+<p>Para insertar códigos unicode se debe de poner el código dentro de una cadena con prefijo <code class="docutils literal notranslate"><span class="pre">u</span></code> y el código se pone como <code class="docutils literal notranslate"><span class="pre">\u_code_</span></code>, donde <code class="docutils literal notranslate"><span class="pre">_code_</span></code> es el código de unicode:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ingresando un espacio en blanco y el signo ! con códigos unicode:</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">u</span><span class="s2">&quot;Hello</span><span class="se">\u0020</span><span class="s2">World</span><span class="se">\u0021</span><span class="s2">&quot;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello World!
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="raw-strings">
+<h3>Raw strings<a class="headerlink" href="#raw-strings" title="Permalink to this headline">#</a></h3>
+<p>Son cadenas “crudas”, que ignoran <em>caracteres ilegales</em> como <code class="docutils literal notranslate"><span class="pre">\n</span></code> y los imprime tal cual. Para crear una cadena cruda se utiliza una <code class="docutils literal notranslate"><span class="pre">r</span></code> como prefijo de la cadena.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Una cadena normal</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;text1 </span><span class="se">\t</span><span class="s2">text2&quot;</span><span class="p">)</span>
+
+<span class="c1"># Una cadena cruda</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;text1 \ttext2&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>text1 	text2
+text1 \ttext2
+</pre></div>
+</div>
+</div>
+</div>
+<p>Los caracteres ilegales son:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">\’</span></code>: Comilla simple.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">\”</span></code>: Comilla doble.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">\n</span></code>: Salto de línea.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">\t</span></code>: Tabulación.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">\\</span></code>: Diagonal inversa.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">\b</span></code>: Un espacio en blanco para atrás.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">\xhh</span></code>: Valor hexadecimal.</p></li>
+</ul>
+</section>
 </section>
 <hr class="docutils" />
 <section id="concatenar-cadenas">
 <h2>Concatenar cadenas:<a class="headerlink" href="#concatenar-cadenas" title="Permalink to this headline">#</a></h2>
-<p>Para concatenar cadenas se usa el operador <code class="docutils literal notranslate"><span class="pre">+</span></code>. Ya sea que se ponga la cadena tal cual o una variable de tipo <code class="docutils literal notranslate"><span class="pre">str</span></code>:</p>
+<p>Para concatenar cadenas se usa el operador <code class="docutils literal notranslate"><span class="pre">+</span></code>. Usar únicamente con objetos de tipo <code class="docutils literal notranslate"><span class="pre">str</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span>
 <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;World!&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="s2">&quot; &quot;</span><span class="o">+</span><span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -601,11 +714,7 @@ text2
 </div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">str</span></code> tiene además el método <code class="docutils literal notranslate"><span class="pre">join</span></code>para concatenar que se ve con más profundidad en “ref”.</p>
-</section>
-<hr class="docutils" />
-<section id="repetir-cadenas">
-<h2>Repetir cadenas:<a class="headerlink" href="#repetir-cadenas" title="Permalink to this headline">#</a></h2>
-<p>Para repetir una cadena <code class="docutils literal notranslate"><span class="pre">n</span> </code> veces usar el operador de multiplicación <code class="docutils literal notranslate"><span class="pre">*</span></code> con la cadena:</p>
+<p>Para concatenar una misma cadena <code class="docutils literal notranslate"><span class="pre">n</span> </code> veces usar el operador de multiplicación <code class="docutils literal notranslate"><span class="pre">*</span></code> con la cadena:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;text &quot;</span> <span class="o">*</span> <span class="mi">5</span>
@@ -620,9 +729,9 @@ text2
 </div>
 </section>
 <hr class="docutils" />
-<section id="verificar-membresia-de-patrones">
-<h2>Verificar membresía de patrones<a class="headerlink" href="#verificar-membresia-de-patrones" title="Permalink to this headline">#</a></h2>
-<p>Se puede verificar que un patrón esté dentro de una cadena con los operadores <code class="docutils literal notranslate"><span class="pre">in</span></code> y <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code>, retornando un valor lógico. El patrón no tiene porque ser una palabra exacta, pueden ser partes de palabras o más de un palabra.</p>
+<section id="verificar-membresia">
+<h2>Verificar membresía<a class="headerlink" href="#verificar-membresia" title="Permalink to this headline">#</a></h2>
+<p>Se puede verificar que un patrón esté dentro de una cadena con los operadores <code class="docutils literal notranslate"><span class="pre">in</span></code> y <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code>, retornando un valor lógico. El patrón no tiene porque ser una palabra exacta, pueden ser partes de palabras, palabras o frases.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;pattern&quot;</span> <span class="ow">in</span> <span class="s2">&quot;string&quot;</span>
 <span class="s2">&quot;pattern&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="s2">&quot;string&quot;</span>
 </pre></div>
@@ -645,9 +754,9 @@ False
 </div>
 </section>
 <hr class="docutils" />
-<section id="iterar-sobre-una-cadena">
-<h2>Iterar sobre una cadena.<a class="headerlink" href="#iterar-sobre-una-cadena" title="Permalink to this headline">#</a></h2>
-<p>Las cadenas se pueden manipular como una secuencia. Esto permite que se puede usar una cadena como el rango en un <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">loop</span></code>, iterando caracter por caracter:</p>
+<section id="iteracion">
+<h2>Iteración<a class="headerlink" href="#iteracion" title="Permalink to this headline">#</a></h2>
+<p>Las cadenas son una secuencia, esto permite que se puede usar una cadena como el rango en un <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">loop</span></code>, iterando caracter por caracter:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">string</span><span class="p">:</span>
     <span class="n">expression</span>
 </pre></div>
@@ -670,31 +779,72 @@ c
 </div>
 </section>
 <hr class="docutils" />
-<section id="subsetting-y-slicing">
-<h2>Subsetting y slicing.<a class="headerlink" href="#subsetting-y-slicing" title="Permalink to this headline">#</a></h2>
-<p>Al ser <code class="docutils literal notranslate"><span class="pre">str</span></code> una secuencia se pueden extraer elementos y rangos de una cadena usando corchetes. La idexación comienza en 0 y termina en <code class="docutils literal notranslate"><span class="pre">N-1</span></code>, siendo <code class="docutils literal notranslate"><span class="pre">N</span></code> la longitud de la cadena. También es posible usar números negativos ,siendo -1 igual a la última posición, -2 la penúltima posición, etc.</p>
-<p>Si <code class="docutils literal notranslate"><span class="pre">text</span></code> es un objeto de tipo <code class="docutils literal notranslate"><span class="pre">str</span></code> entonces, para hacer subsetting y slicing se usa:</p>
+<section id="seleccion-de-elementos">
+<h2>Selección de elementos:<a class="headerlink" href="#seleccion-de-elementos" title="Permalink to this headline">#</a></h2>
+<section id="subsetting">
+<h3>Subsetting:<a class="headerlink" href="#subsetting" title="Permalink to this headline">#</a></h3>
+<p>Si <code class="docutils literal notranslate"><span class="pre">X</span></code> es <code class="docutils literal notranslate"><span class="pre">str</span></code> e <code class="docutils literal notranslate"><span class="pre">i</span></code> es un número entero, entonces para seleccionar caracyeres de una cadenas tener en cuenta las siguientes características:</p>
 <ul class="simple">
-<li><p>Un caracter específico: <br> <code class="docutils literal notranslate"><span class="pre">text[i]</span></code></p></li>
-<li><p>Un caracter específico, empezado desde el final, de derecha a izquierda: <br> <code class="docutils literal notranslate"><span class="pre">text[-i]</span></code></p></li>
-<li><p>Desde el índice <code class="docutils literal notranslate"><span class="pre">i</span></code> hasta el <code class="docutils literal notranslate"><span class="pre">j</span></code>, sin incluir el <code class="docutils literal notranslate"><span class="pre">j</span></code>: <br> <code class="docutils literal notranslate"><span class="pre">text[i:j]</span></code></p></li>
-<li><p>Desde el inicio hasta el <code class="docutils literal notranslate"><span class="pre">j</span></code>, sin incluir el <code class="docutils literal notranslate"><span class="pre">j</span></code>: <br> <code class="docutils literal notranslate"><span class="pre">text[:j]</span></code></p></li>
-<li><p>Desde la posición <code class="docutils literal notranslate"><span class="pre">i</span></code> hasta el final de la cadena: <br><code class="docutils literal notranslate"><span class="pre">text[i:]</span></code></p></li>
-<li><p>Toda la cadena: <br> <code class="docutils literal notranslate"><span class="pre">text[:]</span></code></p></li>
-<li><p>Desde el índice <code class="docutils literal notranslate"><span class="pre">i</span></code> hasta el <code class="docutils literal notranslate"><span class="pre">j</span></code>, sin incluir el <code class="docutils literal notranslate"><span class="pre">j</span></code>, cada <code class="docutils literal notranslate"><span class="pre">k</span></code> caracteres: <br> <code class="docutils literal notranslate"><span class="pre">text[i:j:k]</span></code></p></li>
-</ul>
-<p>Algunos patrones útiles:</p>
-<ul class="simple">
-<li><p>El primer caracter: <br> <code class="docutils literal notranslate"><span class="pre">text[0]</span></code></p></li>
-<li><p>El último caracter: <br> <code class="docutils literal notranslate"><span class="pre">text[-1]</span></code></p></li>
-<li><p>Toda la cadena cada <code class="docutils literal notranslate"><span class="pre">k</span></code> elementos: <br> <code class="docutils literal notranslate"><span class="pre">text[::k]</span></code></p></li>
-<li><p>Toda la cadena al revés: <br> <code class="docutils literal notranslate"><span class="pre">text[::-1]</span></code></p></li>
+<li><p>Se utilizan corchetes <code class="docutils literal notranslate"><span class="pre">[]</span></code> para acceder a los elementos, junto con el nombre de la variable y el índice del elemento: <br/>
+<code class="docutils literal notranslate"><span class="pre">X[i]</span></code></p></li>
+<li><p>Los índices comienza en cero (0), esto quiere decir que si quiere acceder al elemento <code class="docutils literal notranslate"><span class="pre">i</span></code>, se debe de usar <code class="docutils literal notranslate"><span class="pre">[i-1]</span></code>.</p></li>
+<li><p>Se puede utilizar números negativos, de manera que se comience por el último elemento. Se puede acceder al último caracter con <code class="docutils literal notranslate"><span class="pre">[-1]</span></code>, al penúltimo caracters <code class="docutils literal notranslate"><span class="pre">[-2]</span></code>, etc.</p></li>
 </ul>
 </section>
 <hr class="docutils" />
-<section id="convertir-una-cadena-a-una-secuencia">
-<h2>Convertir una cadena a una secuencia:<a class="headerlink" href="#convertir-una-cadena-a-una-secuencia" title="Permalink to this headline">#</a></h2>
-<p>Se puede convertir una cadena en una secuencia, donde cada elemento de la secuencia será cada caracter de la cadena con las funciones <code class="docutils literal notranslate"><span class="pre">list()</span></code> y <code class="docutils literal notranslate"><span class="pre">tuple()</span></code>.</p>
+<section id="slicing">
+<h3>Slicing:<a class="headerlink" href="#slicing" title="Permalink to this headline">#</a></h3>
+<p>Si <code class="docutils literal notranslate"><span class="pre">X</span></code> es <code class="docutils literal notranslate"><span class="pre">str</span></code> e <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">j</span></code> y <code class="docutils literal notranslate"><span class="pre">k</span></code> son números entonces, entonces:</p>
+<ul class="simple">
+<li><p>Para seleccionar un rango de caracteres consecutivos se utiliza dos puntos: <br/> <code class="docutils literal notranslate"><span class="pre">X[i:j]</span></code></p></li>
+<li><p>La selección por rango, tienen la característica que el primer elemento es inclusivo y el último es exclusivo, esto quiere decir que no se incluirá en el rango, si se usa el rango <code class="docutils literal notranslate"><span class="pre">[i:j]</span></code>, en realidad solo se accederá a <code class="docutils literal notranslate"><span class="pre">[i:j-1]</span></code>.</p></li>
+<li><p>Desde el índice <code class="docutils literal notranslate"><span class="pre">i</span></code> hasta el <code class="docutils literal notranslate"><span class="pre">j</span></code>, sin incluir el <code class="docutils literal notranslate"><span class="pre">j</span></code>: <br> <code class="docutils literal notranslate"><span class="pre">X[i:j]</span></code></p></li>
+<li><p>Desde el inicio hasta el <code class="docutils literal notranslate"><span class="pre">j</span></code>, sin incluir el <code class="docutils literal notranslate"><span class="pre">j</span></code>: <br> <code class="docutils literal notranslate"><span class="pre">X[:j]</span></code></p></li>
+<li><p>Desde la posición <code class="docutils literal notranslate"><span class="pre">i</span></code> hasta el final de la cadena: <br><code class="docutils literal notranslate"><span class="pre">X[i:]</span></code></p></li>
+<li><p>Toda la cadena: <br> <code class="docutils literal notranslate"><span class="pre">X[:]</span></code></p></li>
+<li><p>Desde el índice <code class="docutils literal notranslate"><span class="pre">i</span></code> hasta el <code class="docutils literal notranslate"><span class="pre">j</span></code>, sin incluir el <code class="docutils literal notranslate"><span class="pre">j</span></code>, cada <code class="docutils literal notranslate"><span class="pre">k</span></code> caracteres: <br> <code class="docutils literal notranslate"><span class="pre">X[i:j:k]</span></code></p></li>
+</ul>
+<p>Algunos patrones útiles:</p>
+<ul class="simple">
+<li><p>El primer caracter: <br> <code class="docutils literal notranslate"><span class="pre">X[0]</span></code></p></li>
+<li><p>El último caracter: <br> <code class="docutils literal notranslate"><span class="pre">X[-1]</span></code></p></li>
+<li><p>Toda la cadena cada <code class="docutils literal notranslate"><span class="pre">k</span></code> caracteres: <br> <code class="docutils literal notranslate"><span class="pre">X[::k]</span></code></p></li>
+<li><p>Toda la cadena al revés: <br> <code class="docutils literal notranslate"><span class="pre">X[::-1]</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ejemplos</span>
+<span class="n">X</span> <span class="o">=</span> <span class="s2">&quot;aeiou&quot;</span>
+
+<span class="c1"># Primer caracter</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># Penúltimo caracter</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="c1"># Del ínidice 0 al 2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
+
+<span class="c1"># La cadena al revés cada 2 caracteres</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">[::</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a
+o
+aei
+uia
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="convertir-otro-tipo-de-secuencia">
+<h2>Convertir otro tipo de secuencia:<a class="headerlink" href="#convertir-otro-tipo-de-secuencia" title="Permalink to this headline">#</a></h2>
+<p>Se puede convertir una cadena a cualquier otro tipo de secuencia, donde cada elemento de la secuencia será cada caracter de la cadena con las funciones <code class="docutils literal notranslate"><span class="pre">list()</span></code> y <code class="docutils literal notranslate"><span class="pre">tuple()</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 <span class="nb">tuple</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </pre></div>

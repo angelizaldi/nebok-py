@@ -1,10 +1,11 @@
 # Tuples
 
-Son objetos iterables para almacener múltiples elementos en una sola variable. Algunas caractacterísticas de `tuple`:
-- Los elementos están ordenados (indexados)
-- Permiten valores duplicados.
+Corresponde al tipo de dato `tuple`. Son sequencias para almacener múltiples elementos en una sola variable. Algunas caractacterísticas de:
 - Se Puede almacenar diferentes tipos de datos en un `tuple`.
-- No se pueden modificar (agregar, modificar o eliminar elementos) una vez creado el `tuple`. 
+- Están indexados: Los elementos están ordenados (indexados)
+- Es inmutable: No se pueden modificar una vez creado el `tuple`.
+- Permiten valores duplicados.
+- Es un iterable: Se puede iterar por sus elementos y se puede usar la palabra reservada `in` para verificar memebresía.
 
 ---
 ## Creación de un tuple
@@ -35,7 +36,7 @@ Para seleccionar elementos de una tupla tener en cuenta las siguientes caracter�
 - Se utilizan corchetes `[]` para acceder a los elementos, junto con el nombre de la tupla y el índice del elemento: <br/>
 `X[i]`
 - Los índices comienza en cero (0), esto quiere decir que si quiere acceder al elemento `i`, se debe de usar `[i-1]`.
-- Se puede utilizar números negativos, de manera que se comience por el último elemento. En una tupla de tamaño `N`, se puede acceder al último con `[-1]`, al penúltimo elemento `[-2]`, etc.
+- Se puede utilizar números negativos, de manera que se comience por el último elemento. Se puede acceder al último con `[-1]`, al penúltimo elemento `[-2]`, etc.
 - Para tupls dentro de otras tuplas, considerar que en esencia usar `X[i]` devolverá otra tupla, entonces para acceder a los elementos de esa otra tupla usar otro `[]`, esto es: <br/> `X[N1][N2]`
 - Lo anterior se puede generalizar para cualquier número de tuplas anidadas.
 
@@ -47,7 +48,7 @@ Para seleccionar elementos de una tupla tener en cuenta las siguientes caracter�
 - Desde el inicio hasta el `j`, sin incluir el `j`: <br> `X[:j]`
 - Desde la posición `i` hasta el final de la cadena: <br>`X[i:]`
 - Toda la lista: <br> `X[:]`
-- Desde el índice `i` hasta el `j`, sin incluir el `j`, cada `k` caracteres: <br> `X[i:j:k]`
+- Desde el índice `i` hasta el `j`, sin incluir el `j`, cada `k` elementos: <br> `X[i:j:k]`
 
 Algunos patrones útiles:
 - El primer elemento: <br> `X[0]`
@@ -70,16 +71,15 @@ El operador `*` sirve para repetir `n` veces un tuple y concatenarlos.
 Y = X * n 
 ```
 
-##  Agregrar y eliminar elementos:
-Los tuples no se pueden modificar una vez creados. Un truco para agregar/modificar un elemento es convertir el tuple en una lista y después volverlo a convertir en un tuple:
+##  Modificar:
+Los tuples no se pueden modificar una vez creados. Un truco para modificar una tupla es convertir la tupla en una lista y después volverla a convertir en una tupla:
 ```python
 # Un tuple
 X = (...)
 # Convertir a lista
 Y = list(X)
-# Agregar los elementos o eliminar los elementos
-Y.append(...)
-del Y[i]
+# modificar
+...
 # Convertir a tuple de vuelta
 X = tuple(Y)
 ```
@@ -89,16 +89,13 @@ Para eliminar todo el tuple se puede usar la palabra reservada `del`:
 # Si X es un tuple
 del X
 ```
----
-## Modificar valores de un tuple:
-Los tuples no se pueden modificar una vez creados. Un truco para modificar un valor es convertir el tuple en una lista y después volverlo a convertir en un tuple:
 
 ---
 ## Unpack de tuples:
 
 Se refiere a asignar a varias variables los elementos de un objeto iterable como un `tuple`:
 ```python
-# Si X es una tupla de longitud `N`:
+# Si X es una tupla de longitud n:
 x1, x2, ... , xn  = X
 ```
 

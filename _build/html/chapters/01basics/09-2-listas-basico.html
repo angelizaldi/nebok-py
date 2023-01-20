@@ -191,6 +191,11 @@ const thebe_selector_output = ".output, .cell_output"
      List comprehension
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="09-4-list-methods.html">
+     Métodos de listas:
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -232,12 +237,34 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="11-3-comprehesion.html">
-     List comprehension
+     Set comprehension
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="11-4-metodos.html">
      Métodos de sets
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="12-1-diccionarios.html">
+   Diccionarios
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="12-2-basico.html">
+     Diccionarios
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="12-4-metodos.html">
+     Métodos
     </a>
    </li>
   </ul>
@@ -554,12 +581,14 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="listas">
 <h1>Listas<a class="headerlink" href="#listas" title="Permalink to this headline">#</a></h1>
-<p>Algunas características de las listas, correspondientes al tipo de dato <code class="docutils literal notranslate"><span class="pre">list</span></code>, son:</p>
+<p>Correspnden al tipo de dato <code class="docutils literal notranslate"><span class="pre">list</span></code>. Las listas son secuencias. Algunas características de las listas, son:</p>
 <ul class="simple">
 <li><p>Sirven para almacenar múltiples valores de diferentes tipos en una sola variable.</p></li>
-<li><p>Sus elementos están ordenados (indexados)</p></li>
-<li><p>Sus elementos se pueden modificar.</p></li>
+<li><p>Es mutable: Sus elementos se pueden modificar.</p></li>
+<li><p>Está indexado: Cada elemento está asociado con un índice.</p></li>
+<li><p>Es un iterable: Se puede iterar por sus elementos y se puede usar la palabra reservada <code class="docutils literal notranslate"><span class="pre">in</span></code> para verificar memebresía.</p></li>
 <li><p>Un mismo valor puede existir múltiples veces en una lista.</p></li>
+<li><p>Se puede concatenar con otras listas</p></li>
 </ul>
 <hr class="docutils" />
 <section id="crear-una-lista">
@@ -577,6 +606,7 @@ title="Print to PDF"
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>X = list(x1, x2, x3, …)
 </pre></div>
 </div>
+<p>Otra forma de crear una lista es con <span class="xref std std-doc">09-3-list-comprehessions.md</span>.</p>
 </section>
 <hr class="docutils" />
 <section id="agregrar-concatenar-elementos">
@@ -591,7 +621,7 @@ title="Print to PDF"
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Otras formas de agregar elementos que serán cubiertas en los métodos:</p>
+<p>Otras formas de agregar elementos usando los métodos son:</p>
 <ul class="simple">
 <li><p>Para insertar algún elemento en un índice en específico sin remplazarlo (recorriendo el resto de los elementos a la derecha) usar el método <code class="docutils literal notranslate"><span class="pre">list.insert</span></code>.</p></li>
 <li><p>Para insertar algún elemento al final de la lista usar el método <code class="docutils literal notranslate"><span class="pre">list.append</span></code>.</p></li>
@@ -611,12 +641,12 @@ title="Print to PDF"
 <span class="k">del</span> <span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 
 <span class="c1"># Eliminar la lista X</span>
-<span class="k">del</span> <span class="n">X</span>		
+<span class="k">del</span> <span class="n">X</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Otras formas de eliminar elementos cubiertos en la sección de métodos son:</p>
+<p>Otras formas de eliminar elementos con métodos son:</p>
 <ul class="simple">
 <li><p>Para remover un elemento específico usar el método <code class="docutils literal notranslate"><span class="pre">list.remove</span></code>.</p></li>
 <li><p>Para remover un elemento de un índice en específico usar el método <code class="docutils literal notranslate"><span class="pre">list.pop</span></code>.</p></li>
@@ -627,7 +657,7 @@ title="Print to PDF"
 <section id="modificar-elementos">
 <h2>Modificar Elementos:<a class="headerlink" href="#modificar-elementos" title="Permalink to this headline">#</a></h2>
 <p>Para modificar un elemento en específico usar su índice y el operador de asignación:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Si X es una lista y i es un índice válido de X, entonces para modificar el valor del elemento i</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Si X es una lista e i es un índice válido de X </span>
 <span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
 </pre></div>
 </div>
@@ -637,20 +667,21 @@ title="Print to PDF"
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Si se crea una lista y se asigna al objeto <code class="docutils literal notranslate"><span class="pre">X</span></code>, entonces <code class="docutils literal notranslate"><span class="pre">X</span></code> en realidad hace referencia a los elementos que se almacenan en memoria, si se asigna la lista a otro objeto <code class="docutils literal notranslate"><span class="pre">Y</span></code> con el operador de asignación <code class="docutils literal notranslate"><span class="pre">=</span></code>, entonces lo que se copia es la referencia, no los valores como tal, por lo tanto modificaciones en <code class="docutils literal notranslate"><span class="pre">Y</span></code> también afecta a <code class="docutils literal notranslate"><span class="pre">X</span></code> y vicerversa. Para que esto no suceda usar cualquiera de los siguientes opciones:</p>
+<p>Si se crea una lista y se asigna al objeto <code class="docutils literal notranslate"><span class="pre">X</span></code>, entonces <code class="docutils literal notranslate"><span class="pre">X</span></code> en realidad hace referencia a los elementos que se almacenan en memoria, si se asigna la lista a otro objeto <code class="docutils literal notranslate"><span class="pre">Y</span></code> con el operador de asignación <code class="docutils literal notranslate"><span class="pre">=</span></code>, entonces lo que se copia es la referencia, no los valores como tal, por lo tanto modificaciones en <code class="docutils literal notranslate"><span class="pre">Y</span></code> también afectan a <code class="docutils literal notranslate"><span class="pre">X</span></code> y vicerversa. Para que esto no suceda usar cualquiera de los siguientes opciones:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Y</span> <span class="pre">=</span> <span class="pre">list(X)</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Y</span> <span class="pre">=</span> <span class="pre">X[:]</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Y</span> <span class="pre">=</span> <span class="pre">X.copy()</span></code></p></li>
 </ul>
-<p>De esta manera modificaciones en <code class="docutils literal notranslate"><span class="pre">Y</span></code> no afectarán a <code class="docutils literal notranslate"><span class="pre">X</span></code>.</p>
+<p>De esta manera modificaciones en <code class="docutils literal notranslate"><span class="pre">Y</span></code> no afectarán a <code class="docutils literal notranslate"><span class="pre">X</span></code> y viceversa.</p>
 </div>
 </section>
 <hr class="docutils" />
 <section id="verificar-que-un-elemento-exista-en-una-lista">
 <h2>Verificar que un elemento exista en una lista:<a class="headerlink" href="#verificar-que-un-elemento-exista-en-una-lista" title="Permalink to this headline">#</a></h2>
 <p>Para ver si un elemento está dentro de una lista X usar el operador de membresía <code class="docutils literal notranslate"><span class="pre">in</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="ow">in</span> <span class="n">X</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Si X es una lista</span>
+<span class="n">x</span> <span class="ow">in</span> <span class="n">X</span>
 </pre></div>
 </div>
 </section>
@@ -664,7 +695,7 @@ title="Print to PDF"
 <li><p>Se utilizan corchetes <code class="docutils literal notranslate"><span class="pre">[]</span></code> para acceder a los elementos, junto con el nombre de la lista y el índice del elemento: <br/>
 <code class="docutils literal notranslate"><span class="pre">X[i]</span></code></p></li>
 <li><p>Los índices comienza en cero (0), esto quiere decir que si quiere acceder al elemento <code class="docutils literal notranslate"><span class="pre">i</span></code>, se debe de usar <code class="docutils literal notranslate"><span class="pre">[i-1]</span></code>.</p></li>
-<li><p>Se puede utilizar números negativos, de manera que se comience por el último elemento. En una lista de tamaño <code class="docutils literal notranslate"><span class="pre">N</span></code>, se puede acceder al último con <code class="docutils literal notranslate"><span class="pre">[-1]</span></code>, al penúltimo elemento <code class="docutils literal notranslate"><span class="pre">[-2]</span></code>, etc.</p></li>
+<li><p>Se puede utilizar números negativos, de manera que se comience por el último elemento. Se puede acceder al último con <code class="docutils literal notranslate"><span class="pre">[-1]</span></code>, al penúltimo elemento <code class="docutils literal notranslate"><span class="pre">[-2]</span></code>, etc.</p></li>
 <li><p>Para listas dentro de otras listas, considerar que en esencia usar <code class="docutils literal notranslate"><span class="pre">X[i]</span></code> devolverá otra lista, entonces para acceder a los elementos de esa otra lista usar otro <code class="docutils literal notranslate"><span class="pre">[]</span></code>, esto es: <br/> <code class="docutils literal notranslate"><span class="pre">X[N1][N2]</span></code></p></li>
 <li><p>Lo anterior se puede generalizar para cualquier número de listas anidadas.</p></li>
 </ul>
@@ -679,7 +710,7 @@ title="Print to PDF"
 <li><p>Desde el inicio hasta el <code class="docutils literal notranslate"><span class="pre">j</span></code>, sin incluir el <code class="docutils literal notranslate"><span class="pre">j</span></code>: <br> <code class="docutils literal notranslate"><span class="pre">X[:j]</span></code></p></li>
 <li><p>Desde la posición <code class="docutils literal notranslate"><span class="pre">i</span></code> hasta el final de la cadena: <br><code class="docutils literal notranslate"><span class="pre">X[i:]</span></code></p></li>
 <li><p>Toda la lista: <br> <code class="docutils literal notranslate"><span class="pre">X[:]</span></code></p></li>
-<li><p>Desde el índice <code class="docutils literal notranslate"><span class="pre">i</span></code> hasta el <code class="docutils literal notranslate"><span class="pre">j</span></code>, sin incluir el <code class="docutils literal notranslate"><span class="pre">j</span></code>, cada <code class="docutils literal notranslate"><span class="pre">k</span></code> caracteres: <br> <code class="docutils literal notranslate"><span class="pre">X[i:j:k]</span></code></p></li>
+<li><p>Desde el índice <code class="docutils literal notranslate"><span class="pre">i</span></code> hasta el <code class="docutils literal notranslate"><span class="pre">j</span></code>, sin incluir el <code class="docutils literal notranslate"><span class="pre">j</span></code>, cada <code class="docutils literal notranslate"><span class="pre">k</span></code> elementos: <br> <code class="docutils literal notranslate"><span class="pre">X[i:j:k]</span></code></p></li>
 </ul>
 <p>Algunos patrones útiles:</p>
 <ul class="simple">
@@ -693,21 +724,19 @@ title="Print to PDF"
 <hr class="docutils" />
 <section id="unpack-de-listas">
 <h2>Unpack de listas:<a class="headerlink" href="#unpack-de-listas" title="Permalink to this headline">#</a></h2>
-<p>Se refiere a asignar a varias variables los elementos de un objeto iterable como un <code class="docutils literal notranslate"><span class="pre">list</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="o">...</span> <span class="p">,</span> <span class="n">xn</span>  <span class="o">=</span> <span class="n">X</span>
+<p>Se refiere a asignar a varias variables los elementos de un objeto iterable como una <code class="docutils literal notranslate"><span class="pre">list</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># X es una lista de longitud n</span>
+<span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="o">...</span> <span class="p">,</span> <span class="n">xn</span>  <span class="o">=</span> <span class="n">X</span>
 </pre></div>
 </div>
-<ul class="simple">
-<li><p>X - <code class="docutils literal notranslate"><span class="pre">list</span></code>: Una lista de longitud <code class="docutils literal notranslate"><span class="pre">N</span></code>.</p></li>
-</ul>
 <p>Si el número de variables es menor que el número de elementos se puede usar un asterisco <code class="docutils literal notranslate"><span class="pre">*</span></code>, para indicar que en esa variable se almacenen el resto de los elementos:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="o">...</span> <span class="p">,</span> <span class="o">*</span><span class="n">xi</span>  <span class="o">=</span> <span class="n">X</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># X es una lista</span>
+<span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="o">...</span> <span class="p">,</span> <span class="o">*</span><span class="n">xi</span>  <span class="o">=</span> <span class="n">X</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>X - <code class="docutils literal notranslate"><span class="pre">list</span></code>: Una lista.</p></li>
 <li><p>En ese caso la varible <code class="docutils literal notranslate"><span class="pre">xi</span></code> almacenará todos lo valores restantes en la lista.</p></li>
-<li><p>El asterisco no tiene porque ir en la última variable, puede ir antes, en ese caso python asignará el número de elementos que sea necesario, para que el resto de las variables que vienen después tengan un elemento.</p></li>
+<li><p>El asterisco no tiene porque ir en la última variable, puede ir antes, en ese caso python asignará el número de elementos que sea necesario, para que el resto de las variables tengan un elemento.</p></li>
 </ul>
 </section>
 <hr class="docutils" />
@@ -716,15 +745,15 @@ title="Print to PDF"
 <p>Para interar sobre todos los elementos de una lista se puede usar un <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">loop</span></code>. Algunas opciones de iteración son:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Iterar sobre los elementos de la lista X:</span>
 <span class="k">for</span> <span class="n">ele</span> <span class="ow">in</span> <span class="n">X</span><span class="p">:</span>
-    <span class="o">...</span>
+    <span class="n">expression</span>
         
 <span class="c1"># Iterar sobre los índices de la lista X:</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)):</span>
-    <span class="o">...</span>
+    <span class="n">expression</span>
     
 <span class="c1"># Iterar sobre los elementos y los índices de la lista X:</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ele</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
-    <span class="o">...</span>
+    <span class="n">expression</span>
 </pre></div>
 </div>
 <ul class="simple">

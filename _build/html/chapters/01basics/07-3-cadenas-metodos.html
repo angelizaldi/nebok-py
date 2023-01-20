@@ -191,6 +191,82 @@ const thebe_selector_output = ".output, .cell_output"
      List comprehension
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="09-4-list-methods.html">
+     Métodos de listas:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="10-1-tuples.html">
+   Tuples
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="10-2-basico.html">
+     Tuples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="10-3-metodos.html">
+     Métodos de tuple
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="11-1-sets.html">
+   Sets
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="11-2-basico.html">
+     Sets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="11-3-comprehesion.html">
+     Set comprehension
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="11-4-metodos.html">
+     Métodos de sets
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="12-1-diccionarios.html">
+   Diccionarios
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="12-2-basico.html">
+     Diccionarios
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="12-4-metodos.html">
+     Métodos
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -501,12 +577,12 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="metodos-de-cadenas">
 <h1>Métodos de cadenas<a class="headerlink" href="#metodos-de-cadenas" title="Permalink to this headline">#</a></h1>
 <p>En esta sección se explicarán algunos de los métodos de <code class="docutils literal notranslate"><span class="pre">str</span></code>, con ejemplos. Para información más detallada de todos los métodos visitar la <a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#string-methods">página</a> oficial.</p>
-<p>Los ejemplos suponen que el método se aplica directamente sobre un objeto que es <code class="docutils literal notranslate"><span class="pre">str</span></code>, pero es posible usar el objeto como argumento usando x, por ejemplo, en lugar de usar <code class="docutils literal notranslate"><span class="pre">X.upper()</span></code> se puede usar:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">str</span><span class="o">.</span><span class="n">upper</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<p>Los ejemplos suponen que el método se aplica directamente sobre un objeto que es <code class="docutils literal notranslate"><span class="pre">str</span></code>, pero es posible usar el objeto como argumento, por ejemplo, en lugar de usar <code class="docutils literal notranslate"><span class="pre">X.upper()</span></code> se puede usar:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># X es str</span>
+<span class="nb">str</span><span class="o">.</span><span class="n">upper</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">X</span></code> - <code class="docutils literal notranslate"><span class="pre">str</span></code>.</p></li>
 <li><p>En ese caso el primer argumento debe de ser la cadena.</p></li>
 </ul>
 <hr class="docutils" />

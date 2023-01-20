@@ -3,30 +3,42 @@
 
 format: jb-book
 root: intro
-chapters:
-  - file: chapters/01basics/01-ayuda
-  - file: chapters/01basics/02-comentarios
-  - file: chapters/01basics/03-tipos-de-datos
-  - file: chapters/01basics/04-operadores-palabras
-  - file: chapters/01basics/05-numeros
-  - file: chapters/01basics/06-booleanos
-  - file: chapters/01basics/07-1-cadenas
-    sections:
-    - file: chapters/01basics/07-2-cadenas
-    - file: chapters/01basics/07-3-cadenas-metodos
-    - file: chapters/01basics/07-4-formatos-cadenas
-  - file: chapters/01basics/08-entrada-salida
-  - file: chapters/01basics/09-1-listas
-    sections:
-    - file: chapters/01basics/09-2-listas-basico
-    - file: chapters/01basics/09-3-list-comprehessions
-    - file: chapters/01basics/09-2-list-methods
-  - file: chapters/01basics/10-1-tuples
-    sections:
-    - file: chapters/01basics/10-2-basico
-    - file: chapters/01basics/10-3-metodos
-  - file: chapters/01basics/11-1-sets
-    sections:
-    - file: chapters/01basics/11-2-basico
-    - file: chapters/01basics/11-3-comprehesion
-    - file: chapters/01basics/11-4-metodos
+parts:
+  - caption: Built-in
+    chapters:
+    - file: parts/01-built-in/00-built-in
+      sections:
+      - file: parts/01-built-in/01-ayuda
+      - file: parts/01-built-in/02-comentarios
+      - file: parts/01-built-in/03-tipos-datos
+      - file: parts/01-built-in/04-operadores-palabras
+      - file: parts/01-built-in/05-entrada-salida
+      - file: parts/01-built-in/00-tipos
+        sections:
+        - file: parts/01-built-in/06-booleanos
+        - file: parts/01-built-in/07-numeros
+        - file: parts/01-built-in/08-cadenas
+        - file: parts/01-built-in/09-listas
+        - file: parts/01-built-in/10-tuples
+        - file: parts/01-built-in/11-sets
+        - file: parts/01-built-in/12-diccionarios
+      - file: parts/01-built-in/00-estructuras
+        sections:
+        - file: parts/01-built-in/13-if-else
+        - file: parts/01-built-in/14-for-loop
+        - file: parts/01-built-in/15-do-while
+      - file: parts/01-built-in/16-funciones
+      - file: parts/01-built-in/17-try-except
+      - file: parts/01-built-in/18-context
+      - file: parts/01-built-in/19-io
+      - file: parts/01-built-in/20-modulos
+      - file: parts/01-built-in/00-avanzado
+        sections:
+        - file: parts/01-built-in/21-decorators
+        - file: parts/01-built-in/22-generators
+        - file: parts/01-built-in/23-iterators
+        - file: parts/01-built-in/24-oop
+    - file: parts/02-metodos-built-in/00-paquetes
+      sections:
+      - file: parts/02-metodos-built-in/01-collections
+      - file: parts/02-metodos-built-in/02-datetime

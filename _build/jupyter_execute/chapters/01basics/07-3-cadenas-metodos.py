@@ -5,11 +5,11 @@
 # 
 # En esta sección se explicarán algunos de los métodos de `str`, con ejemplos. Para información más detallada de todos los métodos visitar la [página](https://docs.python.org/3.8/library/stdtypes.html#string-methods) oficial.
 # 
-# Los ejemplos suponen que el método se aplica directamente sobre un objeto que es `str`, pero es posible usar el objeto como argumento usando x, por ejemplo, en lugar de usar `X.upper()` se puede usar:
+# Los ejemplos suponen que el método se aplica directamente sobre un objeto que es `str`, pero es posible usar el objeto como argumento, por ejemplo, en lugar de usar `X.upper()` se puede usar:
 # ```python
+# # X es str
 # str.upper(X)
 # ```
-# - `X` \- `str`.
 # - En ese caso el primer argumento debe de ser la cadena.
 
 # ---

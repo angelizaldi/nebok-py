@@ -1,4 +1,4 @@
-# List comprehension
+# Set comprehension
 
 Son sets que se crean a partir procesos iterativos con la estructura `for`. Sintaxis:
 ```python

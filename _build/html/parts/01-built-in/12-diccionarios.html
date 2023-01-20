@@ -1,0 +1,1090 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diccionarios &#8212; Manual de Python</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Estructuras de control" href="00-estructuras.html" />
+    <link rel="prev" title="Sets" href="11-sets.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Manual de Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Manual de python para ciencia de datos.
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Built-in
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00-built-in.html">
+   Python estándar
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01-ayuda.html">
+     Obtener ayuda
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02-comentarios.html">
+     Comentarios
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03-tipos-datos.html">
+     Tipos de datos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04-operadores-palabras.html">
+     Operadores y palabras reservadas.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05-entrada-salida.html">
+     Entrada y salida de datos
+    </a>
+   </li>
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="00-tipos.html">
+     Tipos Built-In
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3">
+      <a class="reference internal" href="06-booleanos.html">
+       Valores booleanos
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="07-numeros.html">
+       Números
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="08-cadenas.html">
+       Cadenas
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="09-listas.html">
+       Listas
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="10-tuples.html">
+       Tuples
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="11-sets.html">
+       Sets
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       Diccionarios
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="00-estructuras.html">
+     Estructuras de control
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="13-if-else.html">
+       If … Else.
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="14-for-loop.html">
+       For Loop.
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="15-do-while.html">
+       Do While
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="16-funciones.html">
+     Funciones
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="17-try-except.html">
+     Exceptions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="18-context.html">
+     Context Managers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="19-io.html">
+     Importación y expotación de archivos.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="20-modulos.html">
+     Paquetes y Módulos.
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="00-avanzado.html">
+     Temas avanzados
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="21-decorators.html">
+       Decorators
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="22-generators.html">
+       Generators
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="23-iterators.html">
+       Iterators
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="24-oop.html">
+       Programación orientada a objetos
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="25-func-built-in.html">
+     Funciones built-in
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02-modulos-built-in/00-paquetes.html">
+   Paquetes built-in
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-modulos-built-in/01-collections.html">
+     Collections
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-modulos-built-in/02-datetime.html">
+     Datetime
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-modulos-built-in/03-itertools.html">
+     Itertools
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-modulos-built-in/04-json.html">
+     JSON
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-modulos-built-in/06-pickle.html">
+     Pickle
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-modulos-built-in/regular-expression.html">
+     Regular Expressions
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fparts/01-built-in/12-diccionarios.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/parts/01-built-in/12-diccionarios.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#crear-un-diccionario">
+   Crear un diccionario:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#agregrar-elementos">
+   Agregrar elementos:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#eliminar-elementos">
+   Eliminar Elementos:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modificar-elementos">
+   Modificar Elementos:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#verificar-membresia">
+   Verificar membresía:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#seleccion-de-elementos">
+   Selección de elementos:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#iteracion">
+   Iteración:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dict-comprehesions">
+   Dict comprehesions:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#metodos">
+   Métodos
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#acceder-a-contenido">
+     Acceder a contenido
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#agregar-elementos">
+     Agregar elementos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Eliminar elementos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#otros">
+     Otros
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Diccionarios</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#crear-un-diccionario">
+   Crear un diccionario:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#agregrar-elementos">
+   Agregrar elementos:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#eliminar-elementos">
+   Eliminar Elementos:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modificar-elementos">
+   Modificar Elementos:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#verificar-membresia">
+   Verificar membresía:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#seleccion-de-elementos">
+   Selección de elementos:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#iteracion">
+   Iteración:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dict-comprehesions">
+   Dict comprehesions:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#metodos">
+   Métodos
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#acceder-a-contenido">
+     Acceder a contenido
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#agregar-elementos">
+     Agregar elementos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Eliminar elementos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#otros">
+     Otros
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="diccionarios">
+<h1>Diccionarios<a class="headerlink" href="#diccionarios" title="Permalink to this headline">#</a></h1>
+<p>Correspnden al tipo de dato <code class="docutils literal notranslate"><span class="pre">list</span></code>. Las listas son un <code class="docutils literal notranslate"><span class="pre">iterable</span></code>. Algunas características de las diccionarios, son:</p>
+<ul class="simple">
+<li><p>Utilizan un formato <code class="docutils literal notranslate"><span class="pre">key-value</span></code> para almacenar valores.</p></li>
+<li><p>Es mutable: Se puede modificar una vez creado.</p></li>
+<li><p>Sus elementos no están ordenados.</p></li>
+<li><p>Es un iterable: Se puede iterar por sus elementos y se puede utilizar la palabra reservada <code class="docutils literal notranslate"><span class="pre">in</span></code> para verificar membresía de llaves.</p></li>
+<li><p>Se puede hacer <em>subsetting</em>.</p></li>
+</ul>
+<hr class="docutils" />
+<div class="section" id="crear-un-diccionario">
+<h2>Crear un diccionario:<a class="headerlink" href="#crear-un-diccionario" title="Permalink to this headline">#</a></h2>
+<p>Existen dos métodos principales para crear una diccionario</p>
+<ol class="simple">
+<li><p>Poner los elementos en un par <code class="docutils literal notranslate"><span class="pre">key:</span> <span class="pre">value</span></code>, separados por coma, dentro de llaves <code class="docutils literal notranslate"><span class="pre">{}</span></code>:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="p">{</span><span class="n">key1</span><span class="p">:</span> <span class="n">value1</span><span class="p">,</span> <span class="n">key2</span><span class="p">:</span> <span class="n">value2</span><span class="p">,</span> <span class="o">...</span><span class="p">}</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Poner los elementos en un par <code class="docutils literal notranslate"><span class="pre">key=value</span></code>, separados por coma, dentro del constructor <code class="docutils literal notranslate"><span class="pre">dict()</span></code>:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">key1</span><span class="o">=</span><span class="n">value1</span><span class="p">,</span> <span class="n">key2</span><span class="o">=</span><span class="n">value2</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>En ambos casos las <em>key</em> deben de ser de un tipo inmutable, lo más común es usar cadenas, números o valor <code class="docutils literal notranslate"><span class="pre">bool</span></code> y además deben de ser únicas, es decir, no puede haber dos o más elementos con la misma llave.</p></li>
+<li><p>Los <em>value</em> pueden ser cualquier tipo de objeto.</p></li>
+</ul>
+<p>Otra forma de crear un diccionario es con <span class="xref std std-ref">dict-comp</span>.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="agregrar-elementos">
+<h2>Agregrar elementos:<a class="headerlink" href="#agregrar-elementos" title="Permalink to this headline">#</a></h2>
+<p>Para agregar elementos a un diccionario simplemente poner entre corchetes el nombre de la nueva llave y con el operador de asignación darle un valor.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Si X es un diccionario:</span>
+<span class="n">X</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Otras formas de agregar elementos usando métodos:</p>
+<ul class="simple">
+<li><p>Para agregar algún elemento al diccionario usar el método <code class="docutils literal notranslate"><span class="pre">dict.append</span></code>.</p></li>
+</ul>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="eliminar-elementos">
+<h2>Eliminar Elementos:<a class="headerlink" href="#eliminar-elementos" title="Permalink to this headline">#</a></h2>
+<p>Para eliminar un elemento específico o el diccionario completo usar la palabra reservada <code class="docutils literal notranslate"><span class="pre">del</span></code> y el elemento que se quiere eliminar:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Eliminar el par key-value que corresponde a la llave &#39;key&#39; del diccionario X</span>
+<span class="k">del</span> <span class="n">X</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]</span> 
+
+<span class="c1"># Eliminar el diccionario X</span>
+<span class="k">del</span> <span class="n">X</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Otras formas de eliminar elementos con métodos son:</p>
+<ul class="simple">
+<li><p>Para remover un elemento específico usar el método <code class="docutils literal notranslate"><span class="pre">dict.pop</span></code>.</p></li>
+<li><p>Para remover un elemento de un índice en específico usar el método <code class="docutils literal notranslate"><span class="pre">dict.popitem</span></code>.</p></li>
+<li><p>Para remover un elemento de un índice en específico usar el método <code class="docutils literal notranslate"><span class="pre">dict.clear</span></code>.</p></li>
+</ul>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="modificar-elementos">
+<h2>Modificar Elementos:<a class="headerlink" href="#modificar-elementos" title="Permalink to this headline">#</a></h2>
+<p>Para modificar el valor de una llave en específico usar el nombre de la llave y el operador de asignación:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Modifcar el valor correspondiento a la llave `key`</span>
+<span class="n">X</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Otra forma de modificar valores con método es:</p>
+<ul class="simple">
+<li><p>Modificar el valor de una llave en específico <code class="docutils literal notranslate"><span class="pre">dict.update</span></code>.</p></li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Al crear un diccionario el objeto <code class="docutils literal notranslate"><span class="pre">X</span></code> en realidad hace referencia a los elementos que se almacenan en memoria, si se asigna el diccionario a otro objeto <code class="docutils literal notranslate"><span class="pre">Y</span></code> con el operador de asignación, entonces lo que se copia es la referencia, no los valores como tal, entonces modificaciones en <code class="docutils literal notranslate"><span class="pre">Y</span></code> también afecta a <code class="docutils literal notranslate"><span class="pre">X</span></code> y vicerversa. Para que esto no suceda se puede usar:</p>
+<ul class="simple">
+<li><p>Y = dict(X)</p></li>
+<li><p>Y = X.copy()</p></li>
+</ul>
+<p>De esta manera modificaciones en <code class="docutils literal notranslate"><span class="pre">Y</span></code> no afectarán a <code class="docutils literal notranslate"><span class="pre">X</span></code> y viceversa</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="verificar-membresia">
+<h2>Verificar membresía:<a class="headerlink" href="#verificar-membresia" title="Permalink to this headline">#</a></h2>
+<p>Para ver si un elemento está dentro de un diccionario usar el operador de membresía <code class="docutils literal notranslate"><span class="pre">in</span></code> junto con el nombre de la llave del elemento:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verificar que &#39;key&#39; exista en X.</span>
+<span class="s2">&quot;key&quot;</span> <span class="ow">in</span> <span class="n">X</span>
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="seleccion-de-elementos">
+<h2>Selección de elementos:<a class="headerlink" href="#seleccion-de-elementos" title="Permalink to this headline">#</a></h2>
+<p>Para acceder a los elementos de un diccionario se puede utilizar el nombre de la <em>key</em>, entre corchetes:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># X es un diccionario</span>
+<span class="n">X</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Otras formas de acceder a valores con métodos sin:</p>
+<ul class="simple">
+<li><p>Acceder a un elemento con una llave en específico: <code class="docutils literal notranslate"><span class="pre">dict.get</span></code>.</p></li>
+<li><p>Acceder a los los valores: <code class="docutils literal notranslate"><span class="pre">dict.values</span></code></p></li>
+<li><p>Acceder a todas las llaves: <code class="docutils literal notranslate"><span class="pre">dict.keys</span></code></p></li>
+<li><p>Accedes a todos los pares <code class="docutils literal notranslate"><span class="pre">key-value</span></code>: <code class="docutils literal notranslate"><span class="pre">dict.items</span></code></p></li>
+</ul>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="iteracion">
+<h2>Iteración:<a class="headerlink" href="#iteracion" title="Permalink to this headline">#</a></h2>
+<p>Para interar sobre todos los elementos de un diccionario se puede usar un <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">loop</span></code>. Algunas opciones de iteración son:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Iterar sobre las llaves del diccionario X:</span>
+<span class="c1"># Opción 1:</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">X</span><span class="p">:</span>
+    <span class="n">expression</span>
+   
+<span class="c1"># Opción 2:</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">X</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="n">expression</span>
+        
+<span class="c1"># Iterar sobre los valoes del diccionario X:</span>
+<span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">X</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+    <span class="n">expression</span>
+    
+<span class="c1"># Iterar sobre los pares key-value del diccionario X:</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">X</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">expression</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>En todos los ejemplos anteriores <code class="docutils literal notranslate"><span class="pre">key</span></code> y <code class="docutils literal notranslate"><span class="pre">value</span></code> son nombres opcionales.</p></li>
+<li><p>Notar que se se itera directamente en un diccionario por default se iterará sobre las llaves.</p></li>
+</ul>
+<hr class="docutils" />
+<p>label(dict-comp)=</p>
+</div>
+<div class="section" id="dict-comprehesions">
+<h2>Dict comprehesions:<a class="headerlink" href="#dict-comprehesions" title="Permalink to this headline">#</a></h2>
+<p>Son diccionarios que se crean a partir procesos iterativos con la estructura for. Sintaxis.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="p">{</span><span class="n">key_expression</span> <span class="p">:</span> <span class="n">value_expression</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">collection</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Los diccionarios también pueden tener condicionales, en la parte de <em>collection</em>, de manera que solo a cierto elementos se les aplique el código. Sintaxis de las condicionales:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="p">{</span><span class="n">key_expression</span> <span class="p">:</span> <span class="n">value_expression</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">collection</span> <span class="k">if</span> <span class="n">condition</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="metodos">
+<h2>Métodos<a class="headerlink" href="#metodos" title="Permalink to this headline">#</a></h2>
+<p>En esta sección se presentan los métodos correspondientes a la clase <code class="docutils literal notranslate"><span class="pre">dict</span></code>.</p>
+<hr class="docutils" />
+<div class="section" id="acceder-a-contenido">
+<h3>Acceder a contenido<a class="headerlink" href="#acceder-a-contenido" title="Permalink to this headline">#</a></h3>
+<p>Métodos para acceder a los valores de las llaves, valores o ambos.</p>
+<hr class="docutils" />
+<p><strong>get</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">dict.get()</span></code>: Retorna el valor de una llave especifica.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="p">[</span><span class="n">value</span> <span class="o">=</span> <span class="kc">None</span><span class="p">])</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">X</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">dict</span></code>: Diccionario.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">key</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">object</span></code>: Es el nombre de la llave.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">value</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">object</span></code>, <code class="docutils literal notranslate"><span class="pre">None</span></code>: Es un valor que se regresará si la llave no existe.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">object</span></code>.</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>items</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">dict.items()</span></code>: Retorna una lista que contiene un <code class="docutils literal notranslate"><span class="pre">tuple</span></code> para cada par llave-valor.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">X</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">dict</span></code>: Diccionario.</p></li>
+<li><p>No tiene argumentos.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">list</span></code> de <code class="docutils literal notranslate"><span class="pre">tuple</span></code>.</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>keys</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">dict.keys()</span></code>: Retorna una lista que contiene todas las llaves del diccionario.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">X</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">dict</span></code>: Diccionario.</p></li>
+<li><p>No tiene argumentos.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">list</span></code>.</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>values</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">dict.values()</span></code>: Retorna una lista con los valores del diccionario.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">X</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">dict</span></code>: Diccionario.</p></li>
+<li><p>No tiene argumentos.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">list</span></code>.</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>setdefault</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">dict.setdefault()</span></code>: Retorna el valor de una llave especificada, si la llave no existe, inserta la llave con el valor especificado <em>in-place</em>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="p">[</span><span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">])</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">X</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">dict</span></code>: Diccionario.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">key</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">object</span></code>: Es el nombre de la llave.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">value</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">object</span></code>: Es el valor que tendrá la llave si la llave no existe.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">object</span></code>, <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="agregar-elementos">
+<h3>Agregar elementos<a class="headerlink" href="#agregar-elementos" title="Permalink to this headline">#</a></h3>
+<p>Métodos para agregar elementos a un diccionario existente.</p>
+<hr class="docutils" />
+<p><strong>update</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">dict.update()</span></code>: Actualiza el diccionario con las llaves y valores especificados <em>in-place</em>. También se puede utilizar para actualizar el valor de una llave.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">iterable</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">X</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">dict</span></code>: Diccionario.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">iterable</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">dict</span></code> o <code class="docutils literal notranslate"><span class="pre">iterable</span></code>: Un objeto con pares llaves-valor que se insertarán al diccionario.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h3>Eliminar elementos<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<p>Métodos para eliminar elementos de un diccionario existente.</p>
+<hr class="docutils" />
+<p><strong>clear</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">dict.clear()</span></code>: Remueve todos los elementos del diccionario <em>in-place</em>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">X</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">dict</span></code>: Diccionario.</p></li>
+<li><p>No tiene argumentos.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>pop</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">dict.pop()</span></code>: Remueve un elemento de una llave en específico y retorna el valor.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="p">[</span><span class="n">default</span><span class="p">])</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">X</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">dict</span></code>: Diccionario.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">key</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">object</span></code>: Es el nombre de la llave.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">default</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">object</span></code>: Es un valor a retornar si la llave no existe. Si no se especifica este argumento y la llave no existe entonces se producirá un error.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">object</span></code>.</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>popitem</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">dict.popitem()</span></code>: Remueve y retorna el último par llave-valor del diccionario (python 3.7+).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">popitem</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">X</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">dict</span></code>: Diccionario.</p></li>
+<li><p>No tiene argumentos.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tuple</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="otros">
+<h3>Otros<a class="headerlink" href="#otros" title="Permalink to this headline">#</a></h3>
+<p>Otros métodos del tipo <code class="docutils literal notranslate"><span class="pre">dict</span></code>.</p>
+<hr class="docutils" />
+<p><strong>copy</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">dict.copy()</span></code>: Crea una copia del diccionario.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">X</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">dict</span></code>: Diccionario.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dict</span></code>.</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>fromkeys</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">dict.fromkeys()</span></code>: Crea un diccionario con las llaves y valores especificados.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="n">keys</span><span class="p">,</span> <span class="p">[</span><span class="n">values</span><span class="o">=</span><span class="kc">None</span><span class="p">])</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">keys</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">iterable</span></code>: Objeto.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">values</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">None</span></code>, <code class="docutils literal notranslate"><span class="pre">object</span></code>: Es un valor default para todos los elementos.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dict</span></code>.</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./parts/01-built-in"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="11-sets.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Sets</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="00-estructuras.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Estructuras de control</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Angel Lizaldi<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

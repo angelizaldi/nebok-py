@@ -52,7 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="List comprehension" href="11-3-comprehesion.html" />
+    <link rel="next" title="Set comprehension" href="11-3-comprehesion.html" />
     <link rel="prev" title="Sets" href="11-1-sets.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -191,6 +191,11 @@ const thebe_selector_output = ".output, .cell_output"
      List comprehension
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="09-4-list-methods.html">
+     Métodos de listas:
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -232,12 +237,34 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="11-3-comprehesion.html">
-     List comprehension
+     Set comprehension
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="11-4-metodos.html">
      Métodos de sets
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="12-1-diccionarios.html">
+   Diccionarios
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="12-2-basico.html">
+     Diccionarios
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="12-4-metodos.html">
+     Métodos
     </a>
    </li>
   </ul>
@@ -430,13 +457,8 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#agregrar-y-eliminar-elementos">
-   Agregrar y eliminar elementos:
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#modificar-valores-de-un-set">
-   Modificar valores de un set:
+  <a class="reference internal nav-link" href="#agregar-y-eliminar-elementos">
+   Agregar y eliminar elementos:
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -474,13 +496,8 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#agregrar-y-eliminar-elementos">
-   Agregrar y eliminar elementos:
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#modificar-valores-de-un-set">
-   Modificar valores de un set:
+  <a class="reference internal nav-link" href="#agregar-y-eliminar-elementos">
+   Agregar y eliminar elementos:
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -500,20 +517,33 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="sets">
 <h1>Sets<a class="headerlink" href="#sets" title="Permalink to this headline">#</a></h1>
-<p>Son objetos iterables para almacener múltiples elementos en una sola variable. Algunas características del tipo de dato<code class="docutils literal notranslate"> <span class="pre">set</span></code> son:</p>
+<p>Corresponde al tipo <code class="docutils literal notranslate"><span class="pre">set</span></code>. Son objetos iterables para almacener múltiples elementos en una sola variable. Algunas características del tipo de dato<code class="docutils literal notranslate"> <span class="pre">set</span></code> son:</p>
 <ul class="simple">
 <li><p>Se pueden almacenar diferentes tipos de datos en un <code class="docutils literal notranslate"><span class="pre">set</span></code>.</p></li>
-<li><p>Los elementos no están ordenados (no están indexados), por lo tanto no se puede acceder a ellos por medio de índices.</p></li>
+<li><p>Los elementos no están ordenados, por lo tanto no se puede acceder a ellos por medio de índices.</p></li>
 <li><p>No permite valores duplicados.</p></li>
-<li><p>No se pueden modificar los elementos una vez creado el <code class="docutils literal notranslate"><span class="pre">set</span></code>.</p></li>
+<li><p>Es mutable: Se pueden modificar una vez creado el <code class="docutils literal notranslate"><span class="pre">set</span></code>.</p></li>
 </ul>
 <hr class="docutils" />
 <section id="creacion">
 <h2>Creación<a class="headerlink" href="#creacion" title="Permalink to this headline">#</a></h2>
-<p>Para crear un <code class="docutils literal notranslate"><span class="pre">set</span></code> poner los elementos, separados por coma, dentro de llaves <code class="docutils literal notranslate"><span class="pre">{}</span></code>:</p>
+<p>Existen dos métodos principales para crear una sets:</p>
+<ol class="simple">
+<li><p>Poner los elementos, separados por coma, dentro de llaves <code class="docutils literal notranslate"><span class="pre">{}</span></code>:</p></li>
+</ol>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="p">{</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">xn</span><span class="p">}</span>
 </pre></div>
 </div>
+<ol class="simple">
+<li><p>Poner los elementos, separados por coma, dentro del constructor <code class="docutils literal notranslate"><span class="pre">set()</span></code>:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>X = set(x1, x2, x3, …)
+</pre></div>
+</div>
+<blockquote>
+<div><p>Recordar que los elementos deben de ser únicos.</p>
+</div></blockquote>
+<p>Otra forma de crear un <code class="docutils literal notranslate"><span class="pre">set</span></code> es con <span class="xref std std-doc">11-3-comprehesion.md</span>.</p>
 </section>
 <hr class="docutils" />
 <section id="seleccion-de-elementos">
@@ -521,18 +551,24 @@ title="Print to PDF"
 <p>No se puede extraer los elementos de un set. La única forma para acceder a los elementos de un set es en un <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">loop</span></code> o conviertiendo el <code class="docutils literal notranslate"><span class="pre">set</span></code> en <code class="docutils literal notranslate"><span class="pre">list</span></code>:</p>
 </section>
 <hr class="docutils" />
-<section id="agregrar-y-eliminar-elementos">
-<h2>Agregrar y eliminar elementos:<a class="headerlink" href="#agregrar-y-eliminar-elementos" title="Permalink to this headline">#</a></h2>
+<section id="agregar-y-eliminar-elementos">
+<h2>Agregar y eliminar elementos:<a class="headerlink" href="#agregar-y-eliminar-elementos" title="Permalink to this headline">#</a></h2>
 <p>Para agregar y eliminar elementos de un <code class="docutils literal notranslate"><span class="pre">set</span></code> usar los siguientes métodos:</p>
 <ul class="simple">
-<li><p>Agregar:</p></li>
+<li><p>Agregar:</p>
+<ul>
 <li><p>Agregar un elemento al set usar el método <code class="docutils literal notranslate"><span class="pre">set.add</span></code>.</p></li>
 <li><p>Concatenar sets usar el método <code class="docutils literal notranslate"><span class="pre">set.update</span></code>.</p></li>
-<li><p>Eliminar:</p></li>
+</ul>
+</li>
+<li><p>Eliminar:</p>
+<ul>
 <li><p>Eliminar todos los elementos usar el método <code class="docutils literal notranslate"><span class="pre">set.clear</span></code>.</p></li>
 <li><p>Eliminar un elemento específico usar el método <code class="docutils literal notranslate"><span class="pre">set.discard</span></code>.</p></li>
 <li><p>Eliminar y retornar un elemento específico usar el método <code class="docutils literal notranslate"><span class="pre">set.pop</span></code>.</p></li>
 <li><p>Eliminar un elemento específico y retornar error si no existe usar el método <code class="docutils literal notranslate"><span class="pre">set.remove</span></code>.</p></li>
+</ul>
+</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -543,11 +579,6 @@ title="Print to PDF"
 <span class="k">del</span> <span class="n">X</span>
 </pre></div>
 </div>
-</section>
-<hr class="docutils" />
-<section id="modificar-valores-de-un-set">
-<h2>Modificar valores de un set:<a class="headerlink" href="#modificar-valores-de-un-set" title="Permalink to this headline">#</a></h2>
-<p>Los sets no se pueden modificar una vez creados. Un truco para modificar un valor es convertir el set en una lista y después volverlo a convertir en un set. Notar que el nuevo valor no puede existir ya en el <code class="docutils literal notranslate"><span class="pre">set</span></code>.</p>
 </section>
 <hr class="docutils" />
 <section id="iteracion-en-sets">
@@ -602,7 +633,7 @@ title="Print to PDF"
     <a class='right-next' id="next-link" href="11-3-comprehesion.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">List comprehension</p>
+        <p class="prev-next-title">Set comprehension</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
