@@ -14,10 +14,12 @@ kernelspec:
 
 El tipo de dato `str` almacenan una secuencia de caracteres encerrados entre comillas dobles o simples. `str` es considerado una secuencia. Sus principales características son:
 - Es inmutable: No se puede modificar una vez creada.
-- Está indexado: Se puede acceder a sus elementos por medio de un índice.
+- Está indexado: Se puede acceder a sus elementos por medio de un índice, por lo tanto sus elementos están ordenados.
 - Es un iterable: Se puede iterar por sus elementos y se puede utilizar la palabra reservada `in` para verificar membresía.
 - Se puede hacer _subsetting_ y _slicing_ de sus caracteres.
 - Se puede concatenar con otras cadenas.
+
+Para más información visitar la [documentación](https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str) de Python.
 
 ---
 ## Crear una cadena
@@ -25,24 +27,30 @@ El tipo de dato `str` almacenan una secuencia de caracteres encerrados entre com
 Para crear una variable de tipo de cadena usar comillas dobles o comillas simples para abrir y cerrar la cadena:
 ```python
 # Formas de crear una cadena simple
-x = "text"
-x = 'text'
+X = "text"
+X = 'text'
 ```
 
 Para crear una cadena de mútiples líneas usar tres comillas dobles o tres comillas simples para abrir y cerrar la cadena:
 ```python
 # Formas de crear una cadena de múltiples lineas
-x = """
+X = """
     text
     more text
     """
      
-x = '''
+X = '''
     text
     more text
     '''
 ```
 - Los saltos de línea (`\n`) se respetarán en la cadena.
+
+También se puede crear la representación en cadena de otro objeto con la función `str()`:
+```python
+# X es la representación en cadena de Y
+X = str(Y)
+```
 
 ---
 ### Unicode

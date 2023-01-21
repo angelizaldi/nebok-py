@@ -18,7 +18,9 @@ Correspnden al tipo de dato `list`. Las listas son secuencias. Algunas caracter�
 - Está indexado: Cada elemento está asociado con un índice y por lo tanto sus elementos están ordenados.
 - Es un iterable: Se puede iterar por sus elementos y se puede usar la palabra reservada `in` para verificar memebresía.
 - Un mismo valor puede existir múltiples veces en una lista.
-- Se puede concatenar con otras listas
+- Se puede concatenar con otras listas.
+
+Para más información visitar la [documentación](https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range) de Python.
 
 ---
 ## Crear una lista:
@@ -46,7 +48,7 @@ De esta manera modificaciones en `Y` no afectarán a `X` y viceversa.
 ```
 
 ---
-##  Agregrar/Concatenar elementos:
+##  Agregar/Concatenar elementos:
 
 Para agregar elementos a una lista existente se puede usar el operador `+`, que sirve para concatenar listas, los nuevos elementos se agregarán al final de la lista.
 ```python
@@ -121,8 +123,8 @@ Para seleccionar elementos de una lista tener en cuenta las siguientes caracter�
 - Se utilizan corchetes `[]` para acceder a los elementos, junto con el nombre de la lista y el índice del elemento: <br/>
 `X[i]`
 - Los índices comienza en cero (0), esto quiere decir que si quiere acceder al elemento `n`, se debe de usar `[n-1]`.
-- Se puede utilizar índices negativos, para hacer subsetting de derecha a izquierda, comenzando por el último caracter. Por ejemplo, se puede acceder al último caracter con `[-1]`, al penúltimo caracter elemento `[-2]`, etc.
-- Para listas dentro de otras listas, considerar que en esencia usar `X[i]` devolverá otra lista, entonces para acceder a los elementos de esa otra lista usar otro `[]`, esto es: <br/> `X[N1][N2]`
+- Se puede utilizar índices negativos, para hacer subsetting de derecha a izquierda, comenzando por el último elemento. Por ejemplo, se puede acceder al último elemento con `[-1]`, al penúltimo elemento con `[-2]`, etc.
+- Para listas dentro de otras listas, considerar que en esencia usar `X[i]` devolverá otra lista, entonces para acceder a los elementos de esa otra lista usar otro `[]`, esto es: <br/> `X[n1][n2]`
 - Lo anterior se puede generalizar para cualquier número de listas anidadas.
 
 Algunos patrones útiles:
@@ -134,12 +136,12 @@ Algunos patrones útiles:
 ### Slicing:
 Para seleccionar un rango de elementos consecutivos tener en cuenta las siguientes características:
 - Se utiliza dos puntos, indicando los indices de inicio, fin y el paso: <br/> `X[i:j:k]`
-- La selección por rango, tienen la característica que el primer elemento es inclusivo y el último es exclusivo, esto quiere decir que no se incluirá en el rango, si se usa el rango `[i:j]`, en realidad solo se accederá a `[i:j-1]`.
+- La selección por rango, tienen la característica que el primer elemento es inclusivo y el último es exclusivo, esto quiere decir que no se incluirá en el rango, si se usa el rango `[m:n]`, en realidad solo se accederá a `[m:n-1]`.
 
 Algunos patrones útiles:
 - Desde el índice `i` hasta el `j`, sin incluir el `j`: <br> `X[i:j]`
 - Desde el inicio hasta el `j`, sin incluir el `j`: <br> `X[:j]`
-- Desde la posición `i` hasta el final de la cadena: <br>`X[i:]`
+- Desde la posición `i` hasta el final de la tupla: <br>`X[i:]`
 - Toda la lista: <br> `X[:]`
 - Desde el índice `i` hasta el `j`, sin incluir el `j`, cada `k` elementos: <br> `X[i:j:k]`
 - Toda la lista cada `k` elementos: <br> `X[::k]`
@@ -179,7 +181,7 @@ for i in range(len(X)):
 for i, ele in enumerate(X):
     expression
 ```
-- En todos los ejemplos anteriores `i`y `ele` son nombres opcionales.
+- En todos los ejemplos anteriores `i` y `ele` son nombres opcionales.
 
 ---
 (list-comp)=
