@@ -1,3 +1,15 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
 # Sets
 
 Corresponde al tipo `set`. Son objetos iterables para almacener múltiples elementos en una sola variable. Algunas características del tipo de dato` set` son:
@@ -36,7 +48,7 @@ Otra forma de crear un `set` es con ref`{set-comp}`.
 No se puede extraer los elementos de un set. La única forma para acceder a los elementos de un set es en un `for loop` (ver {ref}`iteracion-sets`) o conviertiendo el `set` en `list` o alguna otra secuencia.
 
 ---
-##  Agregar y eliminar elementos:
+##  Agregar y eliminar elementos
 
 Para agregar y eliminar elementos de un `set` usar los siguientes métodos:
 - Para agregar:
@@ -50,7 +62,7 @@ Para agregar y eliminar elementos de un `set` usar los siguientes métodos:
   - Eliminar un elemento específico y retornar error si no existe usar el método `set.remove`.
  
 ```{note}
-Para más información de esos métodos consultar la sección de métodos de sets.
+Para más información de esos métodos consultar la sección de {ref}`Metodos-Agregar <set-metodos-agregar>` y {ref}`Metodos-Eliminar <set-metodos-eliminar>`.
 ```
 
 Para eliminar todo el `set` (no solo sus elementos) se puede usar la palabra reservada `del`:
@@ -60,8 +72,18 @@ del X
 ```
 
 ---
+## Verificar que un elemento exista en un set:
+Para verificar si un elemento está dentro de un `set` usar el operador de membresía `in`:
+```python
+# Si X es un set
+x in X
+```
+- Alternativamente se puede usar `not in`.
+
+---
 (iteracion-sets)=
-## Iteración en sets:
+## Iteración en sets
+
 Para interar sobre todos los elementos de una `set` se puede usar un `for loop`. 
 ```python
 # Iterar sobre los elementos del set X:
@@ -71,6 +93,19 @@ for ele in X:
 
 ```{caution} Como los sets no están indexados el orden en el que aparecen los elementos puede diferir si se itera un mismo set varias veces.
 ```
+
+---
+## Operaciones entre conjuntos
+
+Los `set` básicamente son la representación de un conjunto matemático en Python, es decir, una colección de elementos únicos. Por ello se puede realizar operaciones entre sets de la misma manera como se hacen operaciones entre conjuntos. A continuación se enlistan las operaciones disponibles:
+- **Unión**: Para determinar la unión de dos sets se usa el operador `|`: <br> `X|Y`
+- **Intersección**: Para determinar la intersección de dos sets se usa el operador `&`: <br> `X&Y`.
+- **Diferencia**: Para determinar la diferenca de dos sets se usa el operador `-`: <br> `X-Y`.
+- **Diferencia simétrica**: Para determinar la diferencia simétrica de dos sets se usa el operador `^`: <br> `X^Y`.
+- **Subconjunto propio**: Para determinar si un set es un subcojunto propio se puede usar los operadores `<` o `>`: <br> `X<Y` o `X>Y`.
+- **Subconjunto**: Para determinar si un set es un subcojunto se puede usar los operadores `<=` o `>=`: <br> `X<=Y` o `X>=Y`.
+
+Todos estos operadores tienen sus métodos equivalente los cuales se pueden encontrar en {ref}`Metodos-Operaciones <set-metodos-operaciones>` y {ref}`Metodos-Información <set-metodos-informacion>`.
 
 ---
 (set-comp)=
@@ -97,21 +132,21 @@ X = {val_true if condition else val_false for i in collection}
 ```
 
 ---
-## Métodos de sets.
+## Métodos de sets
 
 En esta sección se enlistan los métodos del tipo `set` por categorias. 
 
 Tener en cuenta que los métodos generalmente se aplican sobre un objeto de tipo `set`, por ejemplo, si `X` es `set`, entonces se utiliza <code>X.<i>method_name</i></code>. Sin embargo es posible usar el `set` como argumento de <code>set.<i>method_name</i></code>. Por ejemplo.
 
 ```{code-cell} ipython3
-# Definir una lista
-X = ["a", "a", "b", "c"]
+# Definir el set
+X = {"a", "b", "c"}
 
 # Usar el metodo sobre el objeto
-print(X.count("a"))
+print(X.difference({"a", "c"}))
 
 # Equivale a:
-print(list.count(X, "a"))
+print(set.difference(X, {"a", "c"}))
 ```
 - Tener en cuenta que en la segunda forma el `set` siempre debe de ser el primer argumento.
 
@@ -122,6 +157,7 @@ Métodos para agregar elementos a un `set`.
 
 ```{list-table} Agregar
 :header-rows: 1
+:name: set-metodos-agregar
 
 * - Funciones
   - Descripción
@@ -136,6 +172,7 @@ Métodos para eliminar elementos de un `set`.
 
 ```{list-table} Eliminar
 :header-rows: 1
+:name: set-metodos-eliminar
 
 * - Funciones
   - Descripción
@@ -156,15 +193,16 @@ Métodos para recuperar información sobre el `set` en relación con otros objet
 
 ```{list-table} Información
 :header-rows: 1
+:name: set-metodos-informacion
 
 * - Funciones
   - Descripción
 * - [issuperset](https://docs.python.org/3/library/stdtypes.html#frozenset.issuperset)(other)
-  - Retorna `True` si cada elemento en `other` está en el conjunto.
+  - Retorna `True` si cada elemento en `other` está en el conjunto. Equivale al operador `>`.
 * - [isdisjoint](https://docs.python.org/3/library/stdtypes.html#frozenset.isdisjoint)(other)
   - Devuelve `True` si el conjunto no tiene elementos en común con `other`. Los conjuntos son disjuntos si y sólo si su intersección es el conjunto vacío.
 * - [issubset](https://docs.python.org/3/library/stdtypes.html#frozenset.issubset)(other)
-  - Retorna `True` si cada elemento del conjunto está en `other`.
+  - Retorna `True` si cada elemento del conjunto está en `other`. Equivale al operador `<`.
 ```
 
 ---
@@ -174,6 +212,7 @@ Métodos para realizar operaciones entre conjuntos y que retornan un nuevo `set`
 
 ```{list-table} Operaciones
 :header-rows: 1
+:name: set-metodos-operaciones
 
 * - Funciones
   - Descripción
@@ -221,3 +260,8 @@ Método para realizar la copia de un `set`.
   - Devuelve una copia superficial del `set`.
 ```
 
+---
+## Funciones útiles para listas
+
+Algunas funciones built-in útiles para sets son:
+- `len()`: Encontrar la longitud (número de elementos) del `set`.

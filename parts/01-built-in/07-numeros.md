@@ -16,6 +16,8 @@ Existen tres tipos de datos numéricos en python `int`, `float` y `complex`.
 2.
 ```
 
+Se pueden usar las funciones `int()` y `float` para convertir otros objetos en números enteros o flotantes, respectivamente, por ejemplo, para convertir valores `bool` o `str` a números.
+
 ---
 ## Notación científica
 
