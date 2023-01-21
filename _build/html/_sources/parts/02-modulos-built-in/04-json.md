@@ -23,7 +23,7 @@ with open(filename, "w") as outfile:
 Para importar un archivo `.json` y convertirlo a un objeto de Python, usar:
 
 ```python
-with open(filename, ‘r’) as json_file:
+with open(filename, "r") as json_file:
     X = json.load(json_file)
 ```
 - _filename_ \- `path`, `str`: Es la ruta donde se exportará el archivo, incluyendo nombre y la extensión `.json`.

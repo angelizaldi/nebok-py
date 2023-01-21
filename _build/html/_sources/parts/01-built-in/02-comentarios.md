@@ -1,11 +1,11 @@
 # Comentarios
 
-Para insertar comentarios simples de una sola línea se utiliza el símbolo de gato `#`:
+Para insertar comentarios de una línea se utiliza el símbolo de gato `#`:
 ```python
 # Esto es un comentario
 ```
    
-Para hacer comentarios de múltples líneas se utilizan tres comillas para abrir y cerrar el comentario `""" … """`:
+Para hacer comentarios de múltples líneas se utilizan tres comillas para abrir y cerrar el comentario `""" ... """`:
 
 ```python
 """
@@ -14,4 +14,3 @@ de múltiples
 lineas
 """
 ```
-- En realidad es una cadena de múltiples lineas. Pero se puede usar como comentario ya que no afecta el funcionamiento del programa.

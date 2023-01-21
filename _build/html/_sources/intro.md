@@ -1,11 +1,8 @@
-# Manual de python para ciencia de datos.
+# Manual de Python.
 
-Este documento pretender ser una guía de referencia para el uso de Python para la ciencia de datos. La intención de este documento en presentar la información de manera resumida, sin entrar en tecnicismos y de manera simple e informal.
+Este sitio pretende presentar de manera sintetizada conceptos y aplicaciones de Python orientado a ciencia de datos. La intención es que sitio sirva como referencia para personas que ya están familiarizadas con el uso de Python. 
 
-Este manual **no** es:
-- Un curso.
-- Un libro de python.
-- Turoriales de python (aunque sí se incluyen algunos).
+Este sitio no pretende explicar detallamente los temas tratados ni entrar en tecnicismos
 
 ```{tableofcontents}
 ````

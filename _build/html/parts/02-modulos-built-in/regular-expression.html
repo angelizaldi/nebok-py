@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Regular Expressions &#8212; Manual de Python</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -88,6 +89,11 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/nebok-logo.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Manual de Python</h1>
@@ -102,7 +108,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    Manual de python para ciencia de datos.
+                    Manual de Python.
                 </a>
             </li>
         </ul>
@@ -168,7 +174,7 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../01-built-in/08-cadenas.html">
+      <a class="reference internal" href="../01-built-in/cadenas.html">
        Cadenas
       </a>
      </li>
@@ -639,7 +645,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="regular-expressions">
+  <section class="tex2jax_ignore mathjax_ignore" id="regular-expressions">
 <h1>Regular Expressions<a class="headerlink" href="#regular-expressions" title="Permalink to this headline">#</a></h1>
 <p>Un “<em>regular expression</em>” es una secuencia de caracteres para identificar y extraer patrones en cadenas. Para usar “regular expressions” es necesario importar el módulo {re}.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
@@ -651,7 +657,7 @@ title="Print to PDF"
 <li><p>Metacaracteres y secuencias especiales.</p></li>
 </ul>
 <p>Si una o más partes de la cadena coinciden con el patrón entonces se dice que hay un “<em>Match</em>”.</p>
-<div class="section" id="greedy-y-non-greedy">
+<section id="greedy-y-non-greedy">
 <h2>Greedy y Non-Greedy<a class="headerlink" href="#greedy-y-non-greedy" title="Permalink to this headline">#</a></h2>
 <p>Se refiere a la manera como se realiza la búsqueda del patrón, cuando se utilizan los metacaracteres <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">?</span></code> o <code class="docutils literal notranslate"><span class="pre">{num,</span> <span class="pre">num}</span></code> en un patrón, para ello se agrega un <code class="docutils literal notranslate"><span class="pre">?</span></code> extra.</p>
 <ul class="simple">
@@ -698,24 +704,24 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="capturando-grupos">
+</section>
+<section id="capturando-grupos">
 <h2>Capturando grupos<a class="headerlink" href="#capturando-grupos" title="Permalink to this headline">#</a></h2>
 <p>Si se desea recuperar solo una parte del patrón usado, y no todo, se puede encerrar entre paréntesis el grupo de caracteres que se desea recuperar. Un patrón puede tener uno o más grupos.</p>
-</div>
-<div class="section" id="flags">
+</section>
+<section id="flags">
 <h2>Flags<a class="headerlink" href="#flags" title="Permalink to this headline">#</a></h2>
-</div>
-<div class="section" id="funciones">
+</section>
+<section id="funciones">
 <h2>Funciones<a class="headerlink" href="#funciones" title="Permalink to this headline">#</a></h2>
-</div>
-<div class="section" id="objeto-regular-expression">
+</section>
+<section id="objeto-regular-expression">
 <h2>Objeto Regular Expression<a class="headerlink" href="#objeto-regular-expression" title="Permalink to this headline">#</a></h2>
-</div>
-<div class="section" id="objeto-match">
+</section>
+<section id="objeto-match">
 <h2>Objeto Match<a class="headerlink" href="#objeto-match" title="Permalink to this headline">#</a></h2>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

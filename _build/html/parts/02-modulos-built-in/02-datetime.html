@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Datetime &#8212; Manual de Python</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -89,6 +90,11 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/nebok-logo.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Manual de Python</h1>
@@ -103,7 +109,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    Manual de python para ciencia de datos.
+                    Manual de Python.
                 </a>
             </li>
         </ul>
@@ -169,7 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../01-built-in/08-cadenas.html">
+      <a class="reference internal" href="../01-built-in/cadenas.html">
        Cadenas
       </a>
      </li>
@@ -792,7 +798,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="datetime">
+  <section class="tex2jax_ignore mathjax_ignore" id="datetime">
 <h1>Datetime<a class="headerlink" href="#datetime" title="Permalink to this headline">#</a></h1>
 <p>Es un módulo para trabajar con datos de tipo fecha. Es necesario importar el módulo <code class="docutils literal notranslate"><span class="pre">datetime</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar todo el módulo</span>
@@ -807,7 +813,7 @@ title="Print to PDF"
 <li><p>Estos solo son dos ejemplos de como importar el módulo, se puede usar cualquier rutina de importación, como importar con alias, importar funciones, constantes específicas, etc.</p></li>
 </ul>
 <hr class="docutils" />
-<div class="section" id="iso-8601">
+<section id="iso-8601">
 <h2>ISO 8601<a class="headerlink" href="#iso-8601" title="Permalink to this headline">#</a></h2>
 <p>Muchos métodos de este módulo utilizan el formato ISO 8601, el cual es el siguiente:</p>
 <blockquote>
@@ -821,9 +827,9 @@ title="Print to PDF"
 <li><p>MM: Minutos de dos dígitos, desde 00 a 59.</p></li>
 <li><p>SS: Segundos de dos dígitos, desde 00 a 59.</p></li>
 </ul>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="funciones">
+<section id="funciones">
 <h2>Funciones<a class="headerlink" href="#funciones" title="Permalink to this headline">#</a></h2>
 <p>Funciones del módulo <code class="docutils literal notranslate"><span class="pre">datetime</span></code>.</p>
 <p><a name='strptime'></a>
@@ -842,9 +848,9 @@ title="Print to PDF"
 <li><p><code class="docutils literal notranslate"><span class="pre">datetime</span></code>.</p></li>
 </ul>
 <p><br><br></p>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="clases">
+<section id="clases">
 <h2>Clases<a class="headerlink" href="#clases" title="Permalink to this headline">#</a></h2>
 <p>Existen diferentes tipos de datos de fecha y tiempo, cada tipo es una clase dentro del módulo <code class="docutils literal notranslate"><span class="pre">datetime</span></code> y cada clase tiene métodos y atributos diferentes:</p>
 <ul class="simple">
@@ -859,9 +865,9 @@ title="Print to PDF"
 <p class="admonition-title">Warning</p>
 <p>En este sitio solo se presentarán las clases <code class="docutils literal notranslate"><span class="pre">date</span></code>, <code class="docutils literal notranslate"><span class="pre">time</span></code>, <code class="docutils literal notranslate"><span class="pre">datetime</span></code> y <code class="docutils literal notranslate"><span class="pre">timedelta</span></code>. Para más información sobre el módulo en general visitar la <a class="reference external" href="https://docs.python.org/3.8/library/datetime.html#module-datetime">página oficial</a> de Python.</p>
 </div>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="id1">
+<section id="id1">
 <h2>Datetime<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -885,7 +891,7 @@ title="Print to PDF"
 </ul>
 <p><br><br></p>
 <hr class="docutils" />
-<div class="section" id="atributos-de-instancia">
+<section id="atributos-de-instancia">
 <h3>Atributos de instancia<a class="headerlink" href="#atributos-de-instancia" title="Permalink to this headline">#</a></h3>
 <p>Los atributos de istancia se aplican directamente sobre un objeto <code class="docutils literal notranslate"><span class="pre">datetime</span></code></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">part_name</span>
@@ -906,15 +912,15 @@ title="Print to PDF"
 </ul>
 </li>
 </ul>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="metodos">
+<section id="metodos">
 <h3>Métodos<a class="headerlink" href="#metodos" title="Permalink to this headline">#</a></h3>
-<div class="section" id="metodos-de-clase">
+<section id="metodos-de-clase">
 <h4>Métodos de clase<a class="headerlink" href="#metodos-de-clase" title="Permalink to this headline">#</a></h4>
 <p>Son métodos que se aplican directamente sobre la clase <code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code>.</p>
 <table class="table" id="id12">
-<caption><span class="caption-number">Table 16 </span><span class="caption-text">TITLE</span><a class="headerlink" href="#id12" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-number">Table 23 </span><span class="caption-text">TITLE</span><a class="headerlink" href="#id12" title="Permalink to this table">#</a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -942,13 +948,13 @@ title="Print to PDF"
 </tr>
 </tbody>
 </table>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="metodos-de-instancia">
+<section id="metodos-de-instancia">
 <h4>Métodos de instancia<a class="headerlink" href="#metodos-de-instancia" title="Permalink to this headline">#</a></h4>
 <p>Son métodos que se aplican directamente en instancias (objetos) de la clase <code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code>.</p>
 <table class="table" id="id13">
-<caption><span class="caption-number">Table 17 </span><span class="caption-text">TITLE</span><a class="headerlink" href="#id13" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-number">Table 24 </span><span class="caption-text">TITLE</span><a class="headerlink" href="#id13" title="Permalink to this table">#</a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -997,11 +1003,11 @@ title="Print to PDF"
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 <hr class="docutils" />
-<div class="section" id="date">
+<section id="date">
 <h2>Date<a class="headerlink" href="#date" title="Permalink to this headline">#</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -1024,7 +1030,7 @@ title="Print to PDF"
 </ul>
 <p><br><br></p>
 <hr class="docutils" />
-<div class="section" id="id2">
+<section id="id2">
 <h3>Atributos de instancia<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
 <p>Los atributos de istancia se aplican directamente sobre un objeto de la clase <code class="docutils literal notranslate"><span class="pre">datetime.date</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">part_name</span>
@@ -1040,15 +1046,15 @@ title="Print to PDF"
 </ul>
 </li>
 </ul>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="id3">
+<section id="id3">
 <h3>Métodos<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
-<div class="section" id="id4">
+<section id="id4">
 <h4>Métodos de clase<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h4>
 <p>Son métodos que se aplican directamente sobre la clase <code class="docutils literal notranslate"><span class="pre">datetime.date</span></code>.</p>
 <table class="table" id="id14">
-<caption><span class="caption-number">Table 18 </span><span class="caption-text">TITLE</span><a class="headerlink" href="#id14" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-number">Table 25 </span><span class="caption-text">TITLE</span><a class="headerlink" href="#id14" title="Permalink to this table">#</a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -1073,13 +1079,13 @@ title="Print to PDF"
 </tr>
 </tbody>
 </table>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="id5">
+<section id="id5">
 <h4>Métodos de instancia<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h4>
 <p>Son métodos que se aplican directamente en instancias (objetos) de la clase <code class="docutils literal notranslate"><span class="pre">datetime.date</span></code>.</p>
 <table class="table" id="id15">
-<caption><span class="caption-number">Table 19 </span><span class="caption-text">TITLE</span><a class="headerlink" href="#id15" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-number">Table 26 </span><span class="caption-text">TITLE</span><a class="headerlink" href="#id15" title="Permalink to this table">#</a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -1113,11 +1119,11 @@ title="Print to PDF"
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 <hr class="docutils" />
-<div class="section" id="time">
+<section id="time">
 <h2>Time<a class="headerlink" href="#time" title="Permalink to this headline">#</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -1140,7 +1146,7 @@ title="Print to PDF"
 </ul>
 <p><br><br></p>
 <hr class="docutils" />
-<div class="section" id="id6">
+<section id="id6">
 <h3>Atributos de instancia<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
 <p>Los atributos de istancia se aplican directamente sobre un objeto <code class="docutils literal notranslate"><span class="pre">datetime.time</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">part_name</span>
@@ -1158,14 +1164,14 @@ title="Print to PDF"
 </ul>
 </li>
 </ul>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="id7">
+<section id="id7">
 <h3>Métodos<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
-<div class="section" id="id8">
+<section id="id8">
 <h4>Métodos de clase<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h4>
 <table class="table" id="id16">
-<caption><span class="caption-number">Table 20 </span><span class="caption-text">TITLE</span><a class="headerlink" href="#id16" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-number">Table 27 </span><span class="caption-text">TITLE</span><a class="headerlink" href="#id16" title="Permalink to this table">#</a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -1181,13 +1187,13 @@ title="Print to PDF"
 </tr>
 </tbody>
 </table>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="id9">
+<section id="id9">
 <h4>Métodos de instancia<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h4>
 <p>Son métodos que se aplican directamente en instancias (objetos) de la clase <code class="docutils literal notranslate"><span class="pre">datetime.time</span></code>.</p>
 <table class="table" id="id17">
-<caption><span class="caption-number">Table 21 </span><span class="caption-text">TITLE</span><a class="headerlink" href="#id17" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-number">Table 28 </span><span class="caption-text">TITLE</span><a class="headerlink" href="#id17" title="Permalink to this table">#</a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -1212,10 +1218,10 @@ title="Print to PDF"
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-</div>
-<div class="section" id="timedelta">
+</section>
+</section>
+</section>
+<section id="timedelta">
 <h2>Timedelta<a class="headerlink" href="#timedelta" title="Permalink to this headline">#</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -1237,7 +1243,7 @@ title="Print to PDF"
 </ul>
 <p><br><br></p>
 <hr class="docutils" />
-<div class="section" id="id10">
+<section id="id10">
 <h3>Atributos de instancia<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h3>
 <p>Los atributos de istancia se aplican directamente sobre un objeto <code class="docutils literal notranslate"><span class="pre">datetime.timedelta</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">part_name</span>
@@ -1253,8 +1259,8 @@ title="Print to PDF"
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="id11">
+</section>
+<section id="id11">
 <h3>Atributos de instancia<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h3>
 <p>Son métodos que se aplican directamente en instancias (objetos) de la clase <code class="docutils literal notranslate"><span class="pre">datetime.timedelta</span></code>.</p>
 <hr class="docutils" />
@@ -1272,14 +1278,14 @@ title="Print to PDF"
 <li><p><code class="docutils literal notranslate"><span class="pre">int</span></code>.</p></li>
 </ul>
 <p><br><br></p>
-</div>
-</div>
+</section>
+</section>
 <hr class="docutils" />
-<div class="section" id="codigos-de-fechas">
+<section id="codigos-de-fechas">
 <h2>Códigos de fechas<a class="headerlink" href="#codigos-de-fechas" title="Permalink to this headline">#</a></h2>
 <p>A continuación se presentan los códigos de fechas y tiempo que usan funciones y métodos como <code class="docutils literal notranslate"><span class="pre">strftime()</span></code> o <code class="docutils literal notranslate"><span class="pre">.strptime()</span></code>. Esta no es una lista completa, para una lista completa visitar la siguiente <a class="reference external" href="https://strftime.org/">página</a>.</p>
 <table class="table" id="date-codes">
-<caption><span class="caption-number">Table 22 </span><span class="caption-text">Códigos de fechas.</span><a class="headerlink" href="#date-codes" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-number">Table 29 </span><span class="caption-text">Códigos de fechas.</span><a class="headerlink" href="#date-codes" title="Permalink to this table">#</a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -1331,9 +1337,9 @@ title="Print to PDF"
 </tr>
 </tbody>
 </table>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="listado-de-metodos">
+<section id="listado-de-metodos">
 <h2>Listado de métodos.<a class="headerlink" href="#listado-de-metodos" title="Permalink to this headline">#</a></h2>
 <p>Este es un listado completo de todas las clases. Se recomienda visitar la sección de cada clase para encontrar un método en particular.</p>
 <p><strong>Datetime</strong></p>
@@ -1878,8 +1884,8 @@ title="Print to PDF"
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">str</span></code>.</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

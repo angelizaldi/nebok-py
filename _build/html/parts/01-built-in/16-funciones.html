@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Funciones &#8212; Manual de Python</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -89,6 +90,11 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/nebok-logo.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Manual de Python</h1>
@@ -103,7 +109,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    Manual de python para ciencia de datos.
+                    Manual de Python.
                 </a>
             </li>
         </ul>
@@ -169,7 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="08-cadenas.html">
+      <a class="reference internal" href="cadenas.html">
        Cadenas
       </a>
      </li>
@@ -718,7 +724,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="funciones">
+  <section class="tex2jax_ignore mathjax_ignore" id="funciones">
 <h1>Funciones<a class="headerlink" href="#funciones" title="Permalink to this headline">#</a></h1>
 <p>Es un bloque de código que solo se ejecuta si es llamado.</p>
 <ul class="simple">
@@ -730,7 +736,7 @@ title="Print to PDF"
 <p>En Python las funciones se consideran un objeto.</p>
 </div>
 <hr class="docutils" />
-<div class="section" id="crear-una-funcion">
+<section id="crear-una-funcion">
 <h2>Crear una función:<a class="headerlink" href="#crear-una-funcion" title="Permalink to this headline">#</a></h2>
 <p>La sintaxis para crear una función es la siguiente:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">function_name</span><span class="p">(</span><span class="n">arg1</span><span class="o">=</span><span class="n">val1</span><span class="p">,</span> <span class="n">arg2</span><span class="o">=</span><span class="n">val2</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span>
@@ -765,16 +771,16 @@ title="Print to PDF"
 <li><p>Se recomiendan que las funciones solo realicen una acción.</p></li>
 <li><p>No usar objetos mutables como argumentos por default.</p></li>
 </ol>
-<div class="section" id="version-simplificada">
+<section id="version-simplificada">
 <h3>Versión simplificada<a class="headerlink" href="#version-simplificada" title="Permalink to this headline">#</a></h3>
 <p>Existe una versión simplificada de una sola línea, útil para funciones que solo retornan una expresión. La sintaxis es:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_function</span><span class="p">(</span><span class="n">args</span><span class="p">):</span> <span class="k">return</span> <span class="n">expression</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 <hr class="docutils" />
-<div class="section" id="funciones-lambda">
+<section id="funciones-lambda">
 <h2>Funciones Lambda<a class="headerlink" href="#funciones-lambda" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Es una función anónima pequeña.</p></li>
@@ -799,9 +805,9 @@ title="Print to PDF"
 <span class="k">def</span> <span class="nf">X</span><span class="p">(</span><span class="n">args</span><span class="p">):</span> <span class="k">return</span> <span class="n">expression</span>
 </pre></div>
 </div>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="docstrings">
+<section id="docstrings">
 <h2>Docstrings<a class="headerlink" href="#docstrings" title="Permalink to this headline">#</a></h2>
 <p>Estilo Numpy.
 El formato general para una descripción siguiendo el estilo numpy es:</p>
@@ -829,9 +835,9 @@ El formato general para una descripción siguiendo el estilo numpy es:</p>
 <li><p>Usar la función <code class="docutils literal notranslate"><span class="pre">inspect.getdoc()</span></code> del módulo <code class="docutils literal notranslate"><span class="pre">inspect</span></code> (es necesario importarlo).</p></li>
 </ul>
 </div>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="argumentos">
+<section id="argumentos">
 <h2>Argumentos.<a class="headerlink" href="#argumentos" title="Permalink to this headline">#</a></h2>
 <p>En Python al llamar o definir una función sus argumentos pueden ser definidos usando su nombre o su posición. Si no se utilizan los <em>keywords</em> al llamar la función, el orden como se ingresen los argumentos debe de ser el mismo que en la forma como se definió la función. Si se utilizan los <em>keywords</em> entonces se pueden poner en cualquier orden</p>
 <p>Por ejemplo, si una función se definió como:</p>
@@ -860,11 +866,11 @@ El formato general para una descripción siguiendo el estilo numpy es:</p>
 <li><p>En este caso todos los argumentos antes del <code class="docutils literal notranslate"><span class="pre">*</span> </code>se pueden definir por <em>keyword</em> o por posición, pero todos los argumentos después del <code class="docutils literal notranslate"><span class="pre">*</span></code> se deben definir por <em>keyword</em>.</p></li>
 <li><p>El asterístico se puede poner en cualquier parte, incluso al principio.</p></li>
 </ul>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="argumentos-arbitrarios">
+<section id="argumentos-arbitrarios">
 <h2>Argumentos arbitrarios:<a class="headerlink" href="#argumentos-arbitrarios" title="Permalink to this headline">#</a></h2>
-<div class="section" id="posicionales">
+<section id="posicionales">
 <h3>Posicionales:<a class="headerlink" href="#posicionales" title="Permalink to this headline">#</a></h3>
 <p>Si no se sabe cuántos argumentos posicionales serán necesarios pasar a la función, se puede usar <code class="docutils literal notranslate"><span class="pre">*args</span></code> al momento de definir la función, de esta forma la función recibe un <code class="docutils literal notranslate"><span class="pre">tuple</span></code> de argumentos y se accede a ellos de la misma manera como se accede a los tuples:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">keyword1</span><span class="o">=</span><span class="n">val1</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span>
@@ -936,10 +942,10 @@ nombre: Juan, edad: 20, sexo: Hombre
 </div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 <hr class="docutils" />
-<div class="section" id="retornar-valores">
+<section id="retornar-valores">
 <h2>Retornar valores:<a class="headerlink" href="#retornar-valores" title="Permalink to this headline">#</a></h2>
 <p>Para que la función retorne un valor es necesario usar la palabra reservada return:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">function_name</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">args2</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span>
@@ -973,18 +979,18 @@ bar
 </div>
 </div>
 </div>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="sentencia-pass">
+<section id="sentencia-pass">
 <h2>Sentencia Pass:<a class="headerlink" href="#sentencia-pass" title="Permalink to this headline">#</a></h2>
 <p>Una función no puede estar vacía. Si por alguna razón se necesita que una función esté vacía, se tiene que usar la palabra reservada <code class="docutils literal notranslate"><span class="pre">pass</span></code>, para evitar un error.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_function</span><span class="p">():</span>
     <span class="k">pass</span>
 </pre></div>
 </div>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="llamar-a-una-funcion">
+<section id="llamar-a-una-funcion">
 <h2>Llamar a una función:<a class="headerlink" href="#llamar-a-una-funcion" title="Permalink to this headline">#</a></h2>
 <p>Para llamar a un función simplemente se usa su nombre y entre paréntesis los valores de los parámetros (en caso de que existan).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">function_name</span><span class="p">(</span><span class="n">val1</span><span class="p">,</span> <span class="n">val2</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
@@ -1010,9 +1016,9 @@ bar
 <span class="n">Y</span><span class="p">[</span><span class="s1">&#39;keyi&#39;</span><span class="p">](</span><span class="n">arg1</span><span class="o">=</span><span class="n">val1</span><span class="p">,</span> <span class="n">arg2</span><span class="o">=</span><span class="n">val2</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="recursion">
+<section id="recursion">
 <h2>Recursión<a class="headerlink" href="#recursion" title="Permalink to this headline">#</a></h2>
 <p>La recursión sucede cuando dentró de una función, la función se llama a sí misma. Se debe de tener cuidado de que la función termine en algún momento y de que no se consuma demasiada memoria para procesarla.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_function</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
@@ -1027,9 +1033,9 @@ bar
 <p class="admonition-title">Caution</p>
 <p>Por default el número máximo de recursiones es de 1000.</p>
 </div>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="obtener-codigo-de-una-funcion">
+<section id="obtener-codigo-de-una-funcion">
 <h2>Obtener código de una función.<a class="headerlink" href="#obtener-codigo-de-una-funcion" title="Permalink to this headline">#</a></h2>
 <p>Para obtener el código de una función es necesario importar el módulo <code class="docutils literal notranslate"><span class="pre">inspect</span></code>, posteriormente usar la función <code class="docutils literal notranslate"><span class="pre">getsource()</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">inspect</span>
@@ -1040,9 +1046,9 @@ bar
 <ul class="simple">
 <li><p>Siendo <em>function_name</em> el nombre de una función.</p></li>
 </ul>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="atributos">
+<section id="atributos">
 <h2>Atributos<a class="headerlink" href="#atributos" title="Permalink to this headline">#</a></h2>
 <p>Atributos del objeto tipo <code class="docutils literal notranslate"><span class="pre">function</span></code>.</p>
 <hr class="docutils" />
@@ -1090,8 +1096,8 @@ bar
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">str</span></code>.</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

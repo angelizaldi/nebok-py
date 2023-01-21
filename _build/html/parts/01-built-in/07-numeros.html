@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Números &#8212; Manual de Python</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -51,7 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Cadenas" href="08-cadenas.html" />
+    <link rel="next" title="Cadenas" href="cadenas.html" />
     <link rel="prev" title="Valores booleanos" href="06-booleanos.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -89,6 +90,11 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/nebok-logo.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Manual de Python</h1>
@@ -103,7 +109,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    Manual de python para ciencia de datos.
+                    Manual de Python.
                 </a>
             </li>
         </ul>
@@ -169,7 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="08-cadenas.html">
+      <a class="reference internal" href="cadenas.html">
        Cadenas
       </a>
      </li>
@@ -506,8 +512,8 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#numeros-flotantes">
-   Números flotantes
+  <a class="reference internal nav-link" href="#numeros-enteros-y-flotantes">
+   Números enteros y flotantes
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -550,8 +556,8 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#numeros-flotantes">
-   Números flotantes
+  <a class="reference internal nav-link" href="#numeros-enteros-y-flotantes">
+   Números enteros y flotantes
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -584,25 +590,29 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="numeros">
+  <section class="tex2jax_ignore mathjax_ignore" id="numeros">
 <h1>Números<a class="headerlink" href="#numeros" title="Permalink to this headline">#</a></h1>
 <p>Existen tres tipos de datos numéricos en python <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code> y <code class="docutils literal notranslate"><span class="pre">complex</span></code>.</p>
 <hr class="docutils" />
-<div class="section" id="numeros-flotantes">
-<h2>Números flotantes<a class="headerlink" href="#numeros-flotantes" title="Permalink to this headline">#</a></h2>
-<p>Para que un valor sea <code class="docutils literal notranslate"><span class="pre">float</span></code> se debe de agregar un punto <code class="docutils literal notranslate"><span class="pre">.</span></code> al número, sino lo incluye ya.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># esto es un tipo de dato int:</span>
+<section id="numeros-enteros-y-flotantes">
+<h2>Números enteros y flotantes<a class="headerlink" href="#numeros-enteros-y-flotantes" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Los números enteros corresponden al tipo <code class="docutils literal notranslate"><span class="pre">int</span></code>. Están limitados solo por la memoria disponible en la computadora.</p></li>
+<li><p>Los números con decimales corresponden al tipo <code class="docutils literal notranslate"><span class="pre">float</span></code>.</p></li>
+<li><p>Para que un valor sea <code class="docutils literal notranslate"><span class="pre">float</span></code> se debe de agregar un punto <code class="docutils literal notranslate"><span class="pre">.</span></code> al número, sino lo incluye ya, por ejemplo:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tipo de dato &quot;int&quot;</span>
 <span class="mi">2</span>
 
-<span class="c1"># esto es un tipo de dato float:</span>
+<span class="c1"># Tipo de dato &quot;float&quot;</span>
 <span class="mf">2.</span>
 </pre></div>
 </div>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="notacion-cientifica">
+<section id="notacion-cientifica">
 <h2>Notación científica<a class="headerlink" href="#notacion-cientifica" title="Permalink to this headline">#</a></h2>
-<p>Es posible indicar los números en en notación científica. Ejemplos:</p>
+<p>Es posible indicar los números en notación científica. Ejemplos:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Formas de representar el número 1000.0</span>
 <span class="mf">1e3</span>
 <span class="mf">1E3</span> 
@@ -611,9 +621,9 @@ title="Print to PDF"
 <span class="mf">1e-3</span>
 </pre></div>
 </div>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="valor-infinito">
+<section id="valor-infinito">
 <h2>Valor infinito<a class="headerlink" href="#valor-infinito" title="Permalink to this headline">#</a></h2>
 <p>Se pueden crear valores que representen el infito con:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Infinito positivo</span>
@@ -631,11 +641,11 @@ title="Print to PDF"
 <li><p><code class="docutils literal notranslate"><span class="pre">numpy.inf</span></code>: Librería <code class="docutils literal notranslate"><span class="pre">numpy</span></code>.</p></li>
 </ul>
 </div>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="nan-not-a-number">
+<section id="nan-not-a-number">
 <h2>NaN - Not a Number<a class="headerlink" href="#nan-not-a-number" title="Permalink to this headline">#</a></h2>
-<p>Se puede crear un <code class="docutils literal notranslate"><span class="pre">NaN</span></code> (“Not a Number”) con:</p>
+<p>Se puede crear un <code class="docutils literal notranslate"><span class="pre">NaN</span></code> (”<em>Not a Number</em>”) con:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">float</span><span class="p">(</span><span class="s2">&quot;NaN&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -647,9 +657,9 @@ title="Print to PDF"
 <li><p><code class="docutils literal notranslate"><span class="pre">numpy.nan</span></code>: Librería <code class="docutils literal notranslate"><span class="pre">numpy</span></code>.</p></li>
 </ul>
 </div>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="numeros-complejos">
+<section id="numeros-complejos">
 <h2>Números complejos.<a class="headerlink" href="#numeros-complejos" title="Permalink to this headline">#</a></h2>
 <p>Se agrega una jota <code class="docutils literal notranslate"><span class="pre">j</span></code> al final del número. Ejemplos:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Un número imaginario.</span>
@@ -659,8 +669,8 @@ title="Print to PDF"
 <span class="mi">3</span><span class="o">+</span><span class="mi">5</span><span class="n">j</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -696,7 +706,7 @@ title="Print to PDF"
             <p class="prev-next-title">Valores booleanos</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="08-cadenas.html" title="next page">
+    <a class='right-next' id="next-link" href="cadenas.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Cadenas</p>

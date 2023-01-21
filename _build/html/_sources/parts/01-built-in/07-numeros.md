@@ -3,20 +3,24 @@
 Existen tres tipos de datos numéricos en python `int`, `float` y `complex`. 
 
 ---
-## Números flotantes
-Para que un valor sea `float` se debe de agregar un punto `.` al número, sino lo incluye ya.
+## Números enteros y flotantes
 
+- Los números enteros corresponden al tipo `int`. Están limitados solo por la memoria disponible en la computadora.
+- Los números con decimales corresponden al tipo `float`.
+- Para que un valor sea `float` se debe de agregar un punto `.` al número, sino lo incluye ya, por ejemplo:
 ```python
-# esto es un tipo de dato int:
+# Tipo de dato "int"
 2
 
-# esto es un tipo de dato float:
+# Tipo de dato "float"
 2.
 ```
 
 ---
 ## Notación científica
-Es posible indicar los números en en notación científica. Ejemplos:
+
+Es posible indicar los números en notación científica. Ejemplos:
+
 ```python
 # Formas de representar el número 1000.0
 1e3
@@ -28,7 +32,9 @@ Es posible indicar los números en en notación científica. Ejemplos:
 
 ---
 ## Valor infinito
+
 Se pueden crear valores que representen el infito con:
+
 ```python
 # Infinito positivo
 float("inf")
@@ -45,7 +51,8 @@ Otras forma de crear un valor que represente el infinito:
 
 ---
 ## NaN - Not a Number
-Se puede crear un `NaN` ("Not a Number") con:
+
+Se puede crear un `NaN` ("_Not a Number_") con:
 ```python
 float("NaN")
 ```
@@ -56,9 +63,9 @@ Otras forma de crear un valor que represente un "Not a Number":
 - `numpy.nan`: Librería `numpy`.
 ```
 
-
 ---
 ## Números complejos. 
+
 Se agrega una jota `j` al final del número. Ejemplos:
 ```python
 # Un número imaginario.

@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>JSON &#8212; Manual de Python</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -89,6 +90,11 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/nebok-logo.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Manual de Python</h1>
@@ -103,7 +109,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    Manual de python para ciencia de datos.
+                    Manual de Python.
                 </a>
             </li>
         </ul>
@@ -169,7 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../01-built-in/08-cadenas.html">
+      <a class="reference internal" href="../01-built-in/cadenas.html">
        Cadenas
       </a>
      </li>
@@ -554,13 +560,13 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="json">
+  <section class="tex2jax_ignore mathjax_ignore" id="json">
 <h1>JSON<a class="headerlink" href="#json" title="Permalink to this headline">#</a></h1>
 <p>Protocolos para la serialización y deserialización de objetos de Python en JSON’s. Es necesario importarlo.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
 </pre></div>
 </div>
-<div class="section" id="exportar">
+<section id="exportar">
 <h2>Exportar<a class="headerlink" href="#exportar" title="Permalink to this headline">#</a></h2>
 <p>Para exportar un objeto de Python como un archivo <code class="docutils literal notranslate"><span class="pre">.json</span></code> se puede usar:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear conexión, exportar y cerrar conexión</span>
@@ -573,12 +579,12 @@ title="Print to PDF"
 <li><p>X <code class="docutils literal notranslate"><span class="pre">dict</span></code>: Objeto que se va a serializar.</p></li>
 <li><p><em>outfile</em> es un nombre opcional.</p></li>
 </ul>
-</div>
-<div class="section" id="importar">
+</section>
+<section id="importar">
 <h2>Importar<a class="headerlink" href="#importar" title="Permalink to this headline">#</a></h2>
 <p>Para importar un archivo <code class="docutils literal notranslate"><span class="pre">.json</span></code> y convertirlo a un objeto de Python, usar:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>with open(filename, ‘r’) as json_file:
-    X = json.load(json_file)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">json_file</span><span class="p">:</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">json_file</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -586,8 +592,8 @@ title="Print to PDF"
 <li><p><em>X</em> objeto en el que se almacenará el JSON.</p></li>
 <li><p><em>json_file</em> es un nombre opcional.</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

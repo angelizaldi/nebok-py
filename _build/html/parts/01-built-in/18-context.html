@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Context Managers &#8212; Manual de Python</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -89,6 +90,11 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/nebok-logo.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Manual de Python</h1>
@@ -103,7 +109,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    Manual de python para ciencia de datos.
+                    Manual de Python.
                 </a>
             </li>
         </ul>
@@ -169,7 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="08-cadenas.html">
+      <a class="reference internal" href="cadenas.html">
        Cadenas
       </a>
      </li>
@@ -554,7 +560,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="context-managers">
+  <section class="tex2jax_ignore mathjax_ignore" id="context-managers">
 <h1>Context Managers<a class="headerlink" href="#context-managers" title="Permalink to this headline">#</a></h1>
 <p>Un “administrador de contextos” es una función especial, que permite establecer un contexto, ejecutar código y remover el contexto de manera automática. La forma de utilizarlo es con la palabra reservada <code class="docutils literal notranslate"><span class="pre">with</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">context_manager</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="k">as</span> <span class="n">variable</span><span class="o">-</span><span class="n">name</span><span class="p">:</span>
@@ -567,7 +573,7 @@ title="Print to PDF"
 <li><p><code class="docutils literal notranslate"><span class="pre">_variable-name_</span></code>: Es el nombre con el que se hará referencia al <em>context-manager</em> la <em>expression</em>. No es obligatorio ponerlo, pero se recomienda si <em>context-manager</em> retorna un objeto.</p></li>
 <li><p>Algunos context managers comunes son: <code class="docutils literal notranslate"><span class="pre">open()</span></code>, <code class="docutils literal notranslate"><span class="pre">pandas.ReadExcel()</span></code>, etc.</p></li>
 </ul>
-<div class="section" id="crear-un-administrador-de-contextos">
+<section id="crear-un-administrador-de-contextos">
 <h2>Crear un administrador de contextos:<a class="headerlink" href="#crear-un-administrador-de-contextos" title="Permalink to this headline">#</a></h2>
 <p>Para crear un context manager basado en un función, se debe de definir la función y usar un “<em>decorator</em>”:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@contextlib</span><span class="o">.</span><span class="n">contextmanager</span>
@@ -588,8 +594,8 @@ title="Print to PDF"
 <li><p>Se puede agregar código para inicializar el administrador. Por ejemplo, establecer una conexión con un archivo.</p></li>
 <li><p>Se puede agregar código para finalizar el administrador. Por ejemplo, finalizar una conexión con un archivo.</p></li>
 </ul>
-</div>
-<div class="section" id="patrones">
+</section>
+<section id="patrones">
 <h2>Patrones:<a class="headerlink" href="#patrones" title="Permalink to this headline">#</a></h2>
 <p>Los administradores de contextos suelen seguir unos patrones dependiendo de la acción que realicen, es decir, si realizan la primera deben realizar la segunda, algunos son:</p>
 <ul class="simple">
@@ -601,8 +607,8 @@ title="Print to PDF"
 <li><p>Setup - Teardown.</p></li>
 <li><p>Connect - Disconnect.</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

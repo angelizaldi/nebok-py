@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Importación y expotación de archivos. &#8212; Manual de Python</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -89,6 +90,11 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/nebok-logo.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Manual de Python</h1>
@@ -103,7 +109,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    Manual de python para ciencia de datos.
+                    Manual de Python.
                 </a>
             </li>
         </ul>
@@ -169,7 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="08-cadenas.html">
+      <a class="reference internal" href="cadenas.html">
        Cadenas
       </a>
      </li>
@@ -598,11 +604,11 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="importacion-y-expotacion-de-archivos">
+  <section class="tex2jax_ignore mathjax_ignore" id="importacion-y-expotacion-de-archivos">
 <h1>Importación y expotación de archivos.<a class="headerlink" href="#importacion-y-expotacion-de-archivos" title="Permalink to this headline">#</a></h1>
 <p>Se refiere a importar datos desde una fuente externa para poder trabajar con esos datos directamente desde python. existen diversas formas de importar archivos a python, pero en esta sección solo se explicará la función <code class="docutils literal notranslate"><span class="pre">open()</span></code>.</p>
 <hr class="docutils" />
-<div class="section" id="funcion-open">
+<section id="funcion-open">
 <h2>Función open:<a class="headerlink" href="#funcion-open" title="Permalink to this headline">#</a></h2>
 <p>Es la función principal para trabajar con archivos en Python, permite leer, crear y modificar archivos de texto y archivos binarios.</p>
 <p><strong>open</strong>:</p>
@@ -656,12 +662,12 @@ file.close()
     <span class="n">lines</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="metodos-del-objeto-file">
+<section id="metodos-del-objeto-file">
 <h2>Métodos del objeto file.<a class="headerlink" href="#metodos-del-objeto-file" title="Permalink to this headline">#</a></h2>
 <p>En esta parte se enlistan la mayoría de los métodos del objeto tipo <code class="docutils literal notranslate"><span class="pre">file</span></code> que es el objeto retornado por <code class="docutils literal notranslate"><span class="pre">open()</span></code>.</p>
-<div class="section" id="cerrar-conexion">
+<section id="cerrar-conexion">
 <h3>Cerrar conexión<a class="headerlink" href="#cerrar-conexion" title="Permalink to this headline">#</a></h3>
 <p><strong>close</strong>:</p>
 <p><code class="docutils literal notranslate"><span class="pre">file.close()</span></code>: Cierra la conexión con un archivo.</p>
@@ -676,9 +682,9 @@ file.close()
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
 </ul>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="informacion">
+<section id="informacion">
 <h3>Información<a class="headerlink" href="#informacion" title="Permalink to this headline">#</a></h3>
 <p>Métodos para obtener información de la conexión.</p>
 <hr class="docutils" />
@@ -737,8 +743,8 @@ file.close()
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">bool</span></code>.</p></li>
 </ul>
-</div>
-<div class="section" id="lectura">
+</section>
+<section id="lectura">
 <h3>Lectura<a class="headerlink" href="#lectura" title="Permalink to this headline">#</a></h3>
 <p>Métodos para lectura de archivos.</p>
 <p><strong>read</strong>:</p>
@@ -800,8 +806,8 @@ file.close()
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
 </ul>
-</div>
-<div class="section" id="escritura">
+</section>
+<section id="escritura">
 <h3>Escritura<a class="headerlink" href="#escritura" title="Permalink to this headline">#</a></h3>
 <p>Métodos para la escritura de archivos.</p>
 <p><strong>write</strong>:</p>
@@ -831,9 +837,9 @@ file.close()
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
 </ul>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

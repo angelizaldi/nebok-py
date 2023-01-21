@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Generators &#8212; Manual de Python</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -89,6 +90,11 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/nebok-logo.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Manual de Python</h1>
@@ -103,7 +109,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    Manual de python para ciencia de datos.
+                    Manual de Python.
                 </a>
             </li>
         </ul>
@@ -169,7 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="08-cadenas.html">
+      <a class="reference internal" href="cadenas.html">
        Cadenas
       </a>
      </li>
@@ -544,7 +550,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="generators">
+  <section class="tex2jax_ignore mathjax_ignore" id="generators">
 <h1>Generators<a class="headerlink" href="#generators" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p>Es una función que retorna un <code class="docutils literal notranslate"><span class="pre">iterator</span></code>, sobre el cual se puede iterar un elemento a la vez.</p></li>
@@ -582,7 +588,7 @@ title="Print to PDF"
     <span class="o">...</span>
 </pre></div>
 </div>
-<div class="section" id="generator-expression">
+<section id="generator-expression">
 <h2>Generator Expression:<a class="headerlink" href="#generator-expression" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Es como un <em>list comprehenssion</em>, pero en lugar de devolver una lista, devuelve un objeto <code class="docutils literal notranslate"><span class="pre">generator</span></code></p></li>
@@ -610,8 +616,8 @@ sum(expression for i in iterable)
 Es posible usar condicionales dentro del generator expression al igual que con list comprehenssions.
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

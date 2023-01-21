@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Exceptions &#8212; Manual de Python</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -89,6 +90,11 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/nebok-logo.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Manual de Python</h1>
@@ -103,7 +109,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    Manual de python para ciencia de datos.
+                    Manual de Python.
                 </a>
             </li>
         </ul>
@@ -169,7 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="08-cadenas.html">
+      <a class="reference internal" href="cadenas.html">
        Cadenas
       </a>
      </li>
@@ -564,7 +570,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="exceptions">
+  <section class="tex2jax_ignore mathjax_ignore" id="exceptions">
 <h1>Exceptions<a class="headerlink" href="#exceptions" title="Permalink to this headline">#</a></h1>
 <p>Se puede probar que algún bloque del código tenga un error, en caso de que así sea realizar alguna acción en específico. Para ello se usan las palabras reservadas <code class="docutils literal notranslate"><span class="pre">Try</span></code> y <code class="docutils literal notranslate"><span class="pre">Except</span></code>. Es útil para evitar que el programa se detenga en caso de que surja un error.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
@@ -593,7 +599,7 @@ title="Print to PDF"
 <li><p>Se puede especificar un bloque como el anterior múltiples veces para diferentes errores.</p></li>
 <li><p>Se puede indicar un bloque general para todos lo demás errores.</p></li>
 </ul>
-<div class="section" id="sentencias-else-y-finally">
+<section id="sentencias-else-y-finally">
 <h2>Sentencias Else y Finally:<a class="headerlink" href="#sentencias-else-y-finally" title="Permalink to this headline">#</a></h2>
 <p>Existen otras sentencias que se pueden usar junto con try y except:</p>
 <ul class="simple">
@@ -618,8 +624,8 @@ title="Print to PDF"
     <span class="n">expression_finally</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="arrojar-un-error">
+</section>
+<section id="arrojar-un-error">
 <h2>Arrojar un error:<a class="headerlink" href="#arrojar-un-error" title="Permalink to this headline">#</a></h2>
 <p>Se puede arrojar un error en caso de que se cumpla alguna condición, para ello se utiliza <code class="docutils literal notranslate"><span class="pre">raise</span></code> y <code class="docutils literal notranslate"><span class="pre">Exception()</span></code>. Tener en cuentea que al arrojar un error se detiene la ejecución del programa y se lanza un mensaje.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">condition</span><span class="p">:</span>
@@ -637,8 +643,8 @@ title="Print to PDF"
 <ul class="simple">
 <li><p>Para ver los tipos de errores checar la seccion de Exceptions. También se pueden poner error personalizados creados con clases.</p></li>
 </ul>
-</div>
-<div class="section" id="lista-de-excepciones">
+</section>
+<section id="lista-de-excepciones">
 <h2>Lista de excepciones<a class="headerlink" href="#lista-de-excepciones" title="Permalink to this headline">#</a></h2>
 <p>Algunas excepciones built-in en python son:</p>
 <table class="table" id="label-to-reference">
@@ -702,8 +708,8 @@ title="Print to PDF"
 <ul class="simple">
 <li><p>Para una lista completa visitar <a class="reference external" href="https://docs.python.org/3.10/library/exceptions.html#exception-hierarchy">la página oficial</a> de Python.</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

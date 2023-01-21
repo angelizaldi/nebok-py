@@ -6,7 +6,7 @@ En esta sección se cubren las funciones para impimir valores en la consola o pa
 
 `print()`: Imprime en la consola objetos de python. Para ello utiliza los métodos `__str__()` o `__repr__()` de cada clase de cada objeto.
 ```python
-print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False)
+print(*objects, sep=' ', end='\n', file=None, flush=False)
 ```
 
 **Parámetros:**
@@ -16,6 +16,7 @@ print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False)
 
 **Retorna:**
 -  `None`.
+
 
 ---
 **input**:
@@ -29,4 +30,5 @@ input(prompt)
 - **`prompt`** \- `str`: Es el mensaje que se le mostrará al usuario al momento de solicitar que ingrese datos.
 
 **Retorna:**
--  `object`.
+-  `str`.
+

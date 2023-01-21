@@ -63,7 +63,6 @@ Otras forma de crear un valor que represente un "Not a Number":
 - `numpy.nan`: Librería `numpy`.
 ```
 
-
 ---
 ## Números complejos. 
 

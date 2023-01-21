@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Iterators &#8212; Manual de Python</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -89,6 +90,11 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/nebok-logo.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Manual de Python</h1>
@@ -103,7 +109,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    Manual de python para ciencia de datos.
+                    Manual de Python.
                 </a>
             </li>
         </ul>
@@ -169,7 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="08-cadenas.html">
+      <a class="reference internal" href="cadenas.html">
        Cadenas
       </a>
      </li>
@@ -507,7 +513,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="iterators">
+  <section class="tex2jax_ignore mathjax_ignore" id="iterators">
 <h1>Iterators<a class="headerlink" href="#iterators" title="Permalink to this headline">#</a></h1>
 <p>Un <code class="docutils literal notranslate"><span class="pre">iterator</span></code> es un objeto que es iterable, es decir que se puede acceder a sus elementos uno por uno. Técnicamente hablando, en Python un iterator es un objeto que se le puede aplicar los protócolos <code class="docutils literal notranslate"><span class="pre">__iter__()</span></code> y <code class="docutils literal notranslate"><span class="pre">__next__()</span></code>.</p>
 <p>Se puede obtener un <code class="docutils literal notranslate"><span class="pre">iterator</span></code> de los objetos iterables (<code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, <code class="docutils literal notranslate"><span class="pre">set</span></code>, <code class="docutils literal notranslate"><span class="pre">dict</span></code> y <code class="docutils literal notranslate"><span class="pre">str</span></code>)  con <code class="docutils literal notranslate"><span class="pre">iter()</span></code>.</p>
@@ -540,7 +546,7 @@ title="Print to PDF"
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">object</span></code>.</p></li>
 </ul>
-</div>
+</section>
 
     <script type="text/x-thebe-config">
     {

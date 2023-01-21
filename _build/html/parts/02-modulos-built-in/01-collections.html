@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Collections &#8212; Manual de Python</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -89,6 +90,11 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/nebok-logo.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Manual de Python</h1>
@@ -103,7 +109,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    Manual de python para ciencia de datos.
+                    Manual de Python.
                 </a>
             </li>
         </ul>
@@ -169,7 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../01-built-in/08-cadenas.html">
+      <a class="reference internal" href="../01-built-in/cadenas.html">
        Cadenas
       </a>
      </li>
@@ -676,7 +682,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="collections">
+  <section class="tex2jax_ignore mathjax_ignore" id="collections">
 <h1>Collections<a class="headerlink" href="#collections" title="Permalink to this headline">#</a></h1>
 <p>Es un módulo que provee de “<em>containers</em>” especializados que expanden las funcionalidades de las listas, diccionacios, tuplas y sets. Es necesario importarlo.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar todo el módulo</span>
@@ -697,7 +703,7 @@ title="Print to PDF"
 </ul>
 </div>
 <hr class="docutils" />
-<div class="section" id="counter">
+<section id="counter">
 <h2>Counter<a class="headerlink" href="#counter" title="Permalink to this headline">#</a></h2>
 <p>Es una subclase de <code class="docutils literal notranslate"><span class="pre">dict</span></code> que permite conocer el número de veces que se repite un elemento en un objeto <code class="docutils literal notranslate"><span class="pre">iterable</span></code>.</p>
 <p><strong>Counter</strong>:</p>
@@ -722,11 +728,11 @@ title="Print to PDF"
 <li><p>val1, val2, … - <code class="docutils literal notranslate"><span class="pre">int</span></code>: Son el número de veces que se repite ese elemento. Puede ser cero o incluso números negativos.</p></li>
 </ul>
 <hr class="docutils" />
-<div class="section" id="metodos">
+<section id="metodos">
 <h3>Métodos<a class="headerlink" href="#metodos" title="Permalink to this headline">#</a></h3>
 <p>Los métodos de <code class="docutils literal notranslate"><span class="pre">dict</span></code> están disponibles para <code class="docutils literal notranslate"><span class="pre">Counter</span></code> a excepción de <code class="docutils literal notranslate"><span class="pre">.fromkeys()</span></code>, mientras que el método <code class="docutils literal notranslate"><span class="pre">.update()</span></code> tiene un comportamiento diferente. Los métodos exclusivos de <code class="docutils literal notranslate"><span class="pre">Counter</span></code> son:</p>
 <table class="table" id="id2">
-<caption><span class="caption-number">Table 10 </span><span class="caption-text">Métodos de Counter</span><a class="headerlink" href="#id2" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-number">Table 17 </span><span class="caption-text">Métodos de Counter</span><a class="headerlink" href="#id2" title="Permalink to this table">#</a></caption>
 <colgroup>
 <col style="width: 33%" />
 <col style="width: 33%" />
@@ -811,10 +817,10 @@ title="Print to PDF"
 <li><p><code class="docutils literal notranslate"><span class="pre">int</span></code>.</p></li>
 </ul>
 <p><br><br></p>
-</div>
-</div>
+</section>
+</section>
 <hr class="docutils" />
-<div class="section" id="deque">
+<section id="deque">
 <h2>Deque<a class="headerlink" href="#deque" title="Permalink to this headline">#</a></h2>
 <p>Es similar <code class="docutils literal notranslate"><span class="pre">list</span></code> pero optimizado para eliminar y agregar elementos.</p>
 <p><strong>deque</strong>:</p>
@@ -832,7 +838,7 @@ title="Print to PDF"
 <li><p><code class="docutils literal notranslate"><span class="pre">deque</span></code>.</p></li>
 </ul>
 <hr class="docutils" />
-<div class="section" id="atributos">
+<section id="atributos">
 <h3>Atributos<a class="headerlink" href="#atributos" title="Permalink to this headline">#</a></h3>
 <p><strong>maxlen</strong>:</p>
 <p><code class="docutils literal notranslate"><span class="pre">collections.deque.maxlen()</span></code>: Retorna la longitud máxima que puede tener el deque. Si no tiene longitud máxima retorna <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
@@ -848,14 +854,14 @@ title="Print to PDF"
 <li><p><code class="docutils literal notranslate"><span class="pre">int</span></code> o <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
 </ul>
 <p><br><br></p>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="id1">
+<section id="id1">
 <h3>Métodos<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
-<div class="section" id="agregar-elementos">
+<section id="agregar-elementos">
 <h4>Agregar elementos<a class="headerlink" href="#agregar-elementos" title="Permalink to this headline">#</a></h4>
 <table class="table" id="id3">
-<caption><span class="caption-number">Table 11 </span><span class="caption-text">Agregar elementos.</span><a class="headerlink" href="#id3" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-number">Table 18 </span><span class="caption-text">Agregar elementos.</span><a class="headerlink" href="#id3" title="Permalink to this table">#</a></caption>
 <colgroup>
 <col style="width: 33%" />
 <col style="width: 33%" />
@@ -890,11 +896,11 @@ title="Print to PDF"
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="eliminar-elementos">
+</section>
+<section id="eliminar-elementos">
 <h4>Eliminar elementos<a class="headerlink" href="#eliminar-elementos" title="Permalink to this headline">#</a></h4>
 <table class="table" id="id4">
-<caption><span class="caption-number">Table 12 </span><span class="caption-text">Eliminar elementos.</span><a class="headerlink" href="#id4" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-number">Table 19 </span><span class="caption-text">Eliminar elementos.</span><a class="headerlink" href="#id4" title="Permalink to this table">#</a></caption>
 <colgroup>
 <col style="width: 33%" />
 <col style="width: 33%" />
@@ -921,11 +927,11 @@ title="Print to PDF"
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="informacion">
+</section>
+<section id="informacion">
 <h4>Información<a class="headerlink" href="#informacion" title="Permalink to this headline">#</a></h4>
 <table class="table" id="id5">
-<caption><span class="caption-number">Table 13 </span><span class="caption-text">Información.</span><a class="headerlink" href="#id5" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-number">Table 20 </span><span class="caption-text">Información.</span><a class="headerlink" href="#id5" title="Permalink to this table">#</a></caption>
 <colgroup>
 <col style="width: 33%" />
 <col style="width: 33%" />
@@ -948,11 +954,11 @@ title="Print to PDF"
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="modificar">
+</section>
+<section id="modificar">
 <h4>Modificar<a class="headerlink" href="#modificar" title="Permalink to this headline">#</a></h4>
 <table class="table" id="id6">
-<caption><span class="caption-number">Table 14 </span><span class="caption-text">Modificar</span><a class="headerlink" href="#id6" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-number">Table 21 </span><span class="caption-text">Modificar</span><a class="headerlink" href="#id6" title="Permalink to this table">#</a></caption>
 <colgroup>
 <col style="width: 33%" />
 <col style="width: 33%" />
@@ -975,11 +981,11 @@ title="Print to PDF"
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="otros">
+</section>
+<section id="otros">
 <h4>Otros<a class="headerlink" href="#otros" title="Permalink to this headline">#</a></h4>
 <table class="table" id="id7">
-<caption><span class="caption-number">Table 15 </span><span class="caption-text">Otros métodos.</span><a class="headerlink" href="#id7" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-number">Table 22 </span><span class="caption-text">Otros métodos.</span><a class="headerlink" href="#id7" title="Permalink to this table">#</a></caption>
 <colgroup>
 <col style="width: 33%" />
 <col style="width: 33%" />
@@ -1002,8 +1008,8 @@ title="Print to PDF"
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="listado-de-metodos">
+</section>
+<section id="listado-de-metodos">
 <h4>Listado de métodos<a class="headerlink" href="#listado-de-metodos" title="Permalink to this headline">#</a></h4>
 <hr class="docutils" />
 <p><a name='append'></a>
@@ -1240,10 +1246,10 @@ title="Print to PDF"
 <li><p><code class="docutils literal notranslate"><span class="pre">list</span></code>.</p></li>
 </ul>
 <p><br><br></p>
-</div>
-</div>
-</div>
-<div class="section" id="default-dict">
+</section>
+</section>
+</section>
+<section id="default-dict">
 <h2>Default dict<a class="headerlink" href="#default-dict" title="Permalink to this headline">#</a></h2>
 <p>Es una subclase de <code class="docutils literal notranslate"><span class="pre">dict</span></code>, es como un diccionario que permite que si se trata de acceder a un key que no existe, en lugar de arrojar un error, crea esa <em>key</em> como un tipo de dato específico.</p>
 <p><strong>defaultdict</strong>:</p>
@@ -1261,8 +1267,8 @@ title="Print to PDF"
 </ul>
 <p><br><br></p>
 <p>Los métodos y la funcionalidad de <code class="docutils literal notranslate"><span class="pre">defaultdict</span></code> es la misma que la de <span class="xref std std-doc">../01-built-in/12-diccionarios.md</span>, a excepción de lo anteriormente explicado.</p>
-</div>
-<div class="section" id="named-tuple">
+</section>
+<section id="named-tuple">
 <h2>Named tuple<a class="headerlink" href="#named-tuple" title="Permalink to this headline">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">namedtuple</span></code> es como un <code class="docutils literal notranslate"><span class="pre">tuple</span></code> pero sus elementos tienen nombre, lo que permite que se pueda acceder a los elementos por el nombre.</p>
 <p><strong>namedtuple</strong>:</p>
@@ -1304,8 +1310,8 @@ title="Print to PDF"
 <span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Entrada y salida de datos &#8212; Manual de Python</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -89,6 +90,11 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/nebok-logo.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Manual de Python</h1>
@@ -103,7 +109,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    Manual de python para ciencia de datos.
+                    Manual de Python.
                 </a>
             </li>
         </ul>
@@ -169,7 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="08-cadenas.html">
+      <a class="reference internal" href="cadenas.html">
        Cadenas
       </a>
      </li>
@@ -507,12 +513,12 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="entrada-y-salida-de-datos">
+  <section class="tex2jax_ignore mathjax_ignore" id="entrada-y-salida-de-datos">
 <h1>Entrada y salida de datos<a class="headerlink" href="#entrada-y-salida-de-datos" title="Permalink to this headline">#</a></h1>
 <p>En esta sección se cubren las funciones para impimir valores en la consola o para solicitar el ingreso de datos desde la consola.</p>
 <p><strong>print</strong>:</p>
 <p><code class="docutils literal notranslate"><span class="pre">print()</span></code>: Imprime en la consola objetos de python. Para ello utiliza los métodos <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> o <code class="docutils literal notranslate"><span class="pre">__repr__()</span></code> de cada clase de cada objeto.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">objects</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><strong>Parámetros:</strong></p>
@@ -537,9 +543,9 @@ title="Print to PDF"
 </ul>
 <p><strong>Retorna:</strong></p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">object</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">str</span></code>.</p></li>
 </ul>
-</div>
+</section>
 
     <script type="text/x-thebe-config">
     {

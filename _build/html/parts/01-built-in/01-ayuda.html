@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Obtener ayuda &#8212; Manual de Python</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -89,6 +90,11 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/nebok-logo.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Manual de Python</h1>
@@ -103,7 +109,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    Manual de python para ciencia de datos.
+                    Manual de Python.
                 </a>
             </li>
         </ul>
@@ -169,7 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="08-cadenas.html">
+      <a class="reference internal" href="cadenas.html">
        Cadenas
       </a>
      </li>
@@ -506,28 +512,6 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ayuda-de-clases-funciones-y-objetos">
-   Ayuda de clases, funciones y objetos:
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#clases">
-     Clases:
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#funciones">
-     Funciones
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#metodos-y-atributos">
-     Métodos y atributos
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#enlistar-metodos-y-atributos-de-clases">
    Enlistar métodos y atributos de clases:
   </a>
@@ -552,28 +536,6 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ayuda-de-clases-funciones-y-objetos">
-   Ayuda de clases, funciones y objetos:
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#clases">
-     Clases:
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#funciones">
-     Funciones
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#metodos-y-atributos">
-     Métodos y atributos
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#enlistar-metodos-y-atributos-de-clases">
    Enlistar métodos y atributos de clases:
   </a>
@@ -588,85 +550,61 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="obtener-ayuda">
+  <section class="tex2jax_ignore mathjax_ignore" id="obtener-ayuda">
 <h1>Obtener ayuda<a class="headerlink" href="#obtener-ayuda" title="Permalink to this headline">#</a></h1>
-<div class="section" id="ayuda-de-clases-funciones-y-objetos">
-<h2>Ayuda de clases, funciones y objetos:<a class="headerlink" href="#ayuda-de-clases-funciones-y-objetos" title="Permalink to this headline">#</a></h2>
-<p>Para obtener ayuda sobre algún objeto, clase, función, etc usar la función <code class="docutils literal notranslate"><span class="pre">help()</span></code> o el operador <code class="docutils literal notranslate"><span class="pre">?</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lo siguiente también se puede poner como: x?</span>
-<span class="n">help</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>donde:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">_x_</span></code> es un objeto, una clase, una función, un método de una clase, etc.</p></li>
-</ul>
-<p>La información que se retorna depende del tipo de objeto que se haya usado como argumento.</p>
-<hr class="docutils" />
-<div class="section" id="clases">
-<h3>Clases:<a class="headerlink" href="#clases" title="Permalink to this headline">#</a></h3>
-<p>Retorna una descripción, los atributos, métodos, etc. La forma como se indique la clase depende si es built-in o es importada. Si es importada se debe de poner tal cual como fue importada. Ejemplos:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-
-<span class="c1"># Una clase built-in:</span>
-<span class="n">help</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
-
-<span class="c1"># Una clase de un módulo importado con un alias:</span>
-<span class="n">help</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<hr class="docutils" />
-<div class="section" id="funciones">
-<h3>Funciones<a class="headerlink" href="#funciones" title="Permalink to this headline">#</a></h3>
-<p>Retorna información sobre la función, sus argumentos, el objeto retornado, etc. Se pone el nombre de la función sin paréntesis. Si es importada se debe de poner la librería o módulo o el alías con la que se importó la librería o módulo. Ejemplos:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">random</span>
-
-<span class="c1">#Función built-in:</span>
-<span class="n">help</span><span class="p">(</span><span class="nb">print</span><span class="p">)</span>
-
-<span class="c1"># Función de una librería importada con un alias:</span>
-<span class="n">help</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">)</span>
-
-<span class="c1"># Función de un módulo importado de una librería:</span>
-<span class="n">help</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<hr class="docutils" />
-<div class="section" id="metodos-y-atributos">
-<h3>Métodos y atributos<a class="headerlink" href="#metodos-y-atributos" title="Permalink to this headline">#</a></h3>
-<p>Retorna información sobre los métodos, sus argumentos y valores retornados o información sobre el atributo. Se pone la clase, punto y el nombre del atributo o método, este último sin paréntesis. Ejemplos:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-
-<span class="c1"># Método de una clase built-in:</span>
-<span class="n">help</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">upper</span><span class="p">)</span>
-
-<span class="c1"># Atributo de una clase importada:</span>
-<span class="n">help</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
-
-<span class="c1"># Método de una clase importada:</span>
-<span class="n">help</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<hr class="docutils" />
-<div class="section" id="enlistar-metodos-y-atributos-de-clases">
-<h2>Enlistar métodos y atributos de clases:<a class="headerlink" href="#enlistar-metodos-y-atributos-de-clases" title="Permalink to this headline">#</a></h2>
-<p>Para conocer todos las funciones que tiene una librería o todos los métodos y atributos que tiene una clase usar la función <code class="docutils literal notranslate"><span class="pre">dir()</span></code>. Algunos ejemplos:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<p>Para obtener ayuda sobre algún objeto usar la función <code class="docutils literal notranslate"><span class="pre">help()</span></code> o el operador <code class="docutils literal notranslate"><span class="pre">?</span></code>. Ejemplos</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar algunas librerias</span>
+<span class="kn">import</span> <span class="nn">math</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">random</span>
 
-<span class="c1"># Enlistar todas las funciones y clases de una librería importada:</span>
+<span class="c1"># Obtener ayuda de una librería importada</span>
+<span class="n">help</span><span class="p">(</span><span class="n">math</span><span class="p">)</span>
+
+<span class="c1"># Obtener ayuda de de una librería importada con un alias</span>
+<span class="n">help</span><span class="p">(</span><span class="n">pd</span><span class="p">)</span>
+
+<span class="c1"># Obtener ayuda de un módulo importado de una librería</span>
+<span class="n">help</span><span class="p">(</span><span class="n">random</span><span class="p">)</span>
+
+<span class="c1"># Obtener ayuda de una clase built-in</span>
+<span class="n">help</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+
+<span class="c1"># Obtener ayuda de una clase importada.</span>
+<span class="n">help</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">)</span>
+
+<span class="c1"># Obtener ayuda de un objeto.</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">list</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="n">help</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Obtener ayuda de una función built-in.</span>
+<span class="n">help</span><span class="p">(</span><span class="nb">zip</span><span class="p">)</span>
+
+<span class="c1"># Obtener ayuda de una función importada.</span>
+<span class="n">help</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">object</span></code> es la instancia, clase, función, método, etc.</p></li>
+</ul>
+<hr class="docutils" />
+<section id="enlistar-metodos-y-atributos-de-clases">
+<h2>Enlistar métodos y atributos de clases:<a class="headerlink" href="#enlistar-metodos-y-atributos-de-clases" title="Permalink to this headline">#</a></h2>
+<p>Para conocer todos las funciones y constantes que tiene una librería o todos los métodos y atributos que tiene una clase usar la función <code class="docutils literal notranslate"><span class="pre">dir()</span></code>. Algunos ejemplos:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar algunas librerias</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">random</span>
+
+<span class="c1"># Enlistar todas las funciones y clases de una librería importada</span>
 <span class="nb">dir</span><span class="p">(</span><span class="n">math</span><span class="p">)</span>
 
-<span class="c1"># Enlistar todas las funciones y clases de una librería importada con un alias:</span>
+<span class="c1"># Enlistar todas las funciones y clases de una librería importada </span>
+<span class="c1"># con un alias:</span>
 <span class="nb">dir</span><span class="p">(</span><span class="n">pd</span><span class="p">)</span>
 
-<span class="c1"># Enlistar todas las funciones y clases de un módulo importado de una librería:</span>
+<span class="c1"># Enlistar todas las funciones y clases de un módulo importado de </span>
+<span class="c1"># una librería</span>
 <span class="nb">dir</span><span class="p">(</span><span class="n">random</span><span class="p">)</span>
 
 <span class="c1"># Enlistar todos los métodos y atributos de una clase built-in</span>
@@ -674,10 +612,14 @@ title="Print to PDF"
 
 <span class="c1"># Enlistar todos los métodos y atributos de una clase importada.</span>
 <span class="nb">dir</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">)</span>
+
+<span class="c1"># Enlistar todos los métodos y atributos de un objeto</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">list</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="nb">dir</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

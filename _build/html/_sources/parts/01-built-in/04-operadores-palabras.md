@@ -13,6 +13,10 @@ Operadores para realizar operaciones aritméticas entre números.
 |Módulo|`%`|Retorna el residuo de una división|
 |División parte entera|`//`|Rertorna el cociente de una división|
 
+
+```{attention} El operador `+` también se usa para concatenar secuencias (`list`, `tuple` y `str`) y `*` se utiliza para repetir secuencias.
+```
+
 ---
 ## Comparación
 Operadores para la comparación de valores.
@@ -47,7 +51,8 @@ Operaciones para asignación de valores.
 
 Existen otros como `<<` y `>>`.
 
-### Ejemplos:
+**Ejemplo**
+
 |X|Y|X&Y|X\|Y|~X|X^Y|
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |1|1|1|1|0|0|
@@ -93,27 +98,29 @@ Palabras reservadas para verificar que un elemento esté dentro de una secuencia
 ---
 ## Operadores * y **
 
-- El operador `*` como prefijo de variables se utiliza para desempacar listas o tuples.
-- El operador `**` como prefijo de variables se utiliza para desempacar diccionarios.
-- Si se usa `*` como prefijo de un `iterable` al llamar una función equivale a poner los elementos del iterable como argumentos de la función. Por ejemplo:
+En esta parte se explica el uso de `*` y `**` para desempacar secuencias y diccionarios como argumentos de funciones. Para información más completa sobre estos operadores visitar [este artículo](https://treyhunner.com/2018/10/asterisks-in-python-what-they-are-and-how-to-use-them/) de Trey Hunner.
+
+Si se usa `*` como prefijo de una `secuencia` al llamar una función equivale a poner los elementos de la secuencia como argumentos de la función. Por ejemplo:
 ```python
-x=['a','b','c']
-# Lo siguiente equivale a: print(‘a’,’b’,’c’)
-print(*x)
+# Definir la secuencia
+x = ['a','b','c']
+
+# Desempacar la secuencia usando "*"
+print(*x) # Equivale a: print('a', 'b', 'c')
 ```
 
-- Si se usa `**` como prefijo de un `dict` al llamar una función equivale a poner los `key=value` del diccionario como argumentos de la función. Por ejemplo:
+Si se usa `**` como prefijo de un `dict` al llamar una función equivale a poner los `key=value` del diccionario como argumentos con nombre de la función. Por ejemplo:
 ```python
-x={'key1': 'value1', 'key2': 'value2'}
-# Lo siguiente equivale a: function(key1=value1, key2=value2)
-function(**x) 
+# Definir el diccionario
+x = {'key1': 'value1', 'key2': 'value2'}
+
+# Desempacar el diccionario
+function(**x) # Equivale a: function(key1=value1, key2=value2)
 ```
 
-```{note}
-Si key o value son `str` no se pasan como `str`, sino simplemente sus valores.
+```{caution}
+Notar que los _keys_ del diccionario serán los nombres de los parámetros en la función.
 ```
-
-Para información más completa sobre estos operadores visitar el siguiente [artículo](https://treyhunner.com/2018/10/asterisks-in-python-what-they-are-and-how-to-use-them/).
 
 ---
 ## Palabras reservadas
@@ -149,14 +156,13 @@ Cuando se utiliza `assert`, se puede agregar un mensaje en caso de que haya un e
 ```python
 assert expression, message
 ```
-- `expression`:  </br> Cualquier expresión que retorne `bool`. </br>
-</br>
-- `message`: `str` </br> Cualquier mensaje que se quiera retornar en caso de que `expression` sea `False`.
+- `expression`: Cualquier expresión que retorne `bool`. 
+- `message` \- `str`: Cualquier mensaje que se quiera retornar en caso de que `expression` sea `False`.
 
 ---
 ## Jerarquía de operadores
 
-A continuación se presenta la jerarquía de operadores, es decir, los operadores que se ejecutarán primero en el código. Esta tabla está basada en la [tabla](https://www.programiz.com/python-programming/precedence-associativity) de programiz.com.
+A continuación se presenta la jerarquía de operadores, es decir, los operadores que se ejecutarán primero en el código. Esta tabla está basada en la [esta tabla](https://www.programiz.com/python-programming/precedence-associativity) de programiz.com.
 
 |Jerarquía|Operadores|
 |:----------:|:----------:|

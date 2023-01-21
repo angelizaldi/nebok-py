@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Paquetes y Módulos. &#8212; Manual de Python</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -89,6 +90,11 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/nebok-logo.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Manual de Python</h1>
@@ -103,7 +109,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    Manual de python para ciencia de datos.
+                    Manual de Python.
                 </a>
             </li>
         </ul>
@@ -169,7 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="08-cadenas.html">
+      <a class="reference internal" href="cadenas.html">
        Cadenas
       </a>
      </li>
@@ -554,7 +560,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="paquetes-y-modulos">
+  <section class="tex2jax_ignore mathjax_ignore" id="paquetes-y-modulos">
 <h1>Paquetes y Módulos.<a class="headerlink" href="#paquetes-y-modulos" title="Permalink to this headline">#</a></h1>
 <p>Un <strong>módulo</strong> es un archivo de python <em>.py</em>, que contiene una seríe de funciones, variables y/o contantes. Un <strong>paquete</strong> es un conjunto de módulos. Es posible importar módulos y paquetes a un script para tener acceso a todo el contenido del módulo o paquete.</p>
 <div class="admonition attention">
@@ -615,7 +621,7 @@ title="Print to PDF"
 <li><p>No es una buena practica importar de esta manera.</p></li>
 </ul>
 <hr class="docutils" />
-<div class="section" id="utilizar-las-funciones-variables-y-o-constantes-de-un-modulo">
+<section id="utilizar-las-funciones-variables-y-o-constantes-de-un-modulo">
 <h2>Utilizar las funciones, variables y/o constantes de un módulo:<a class="headerlink" href="#utilizar-las-funciones-variables-y-o-constantes-de-un-modulo" title="Permalink to this headline">#</a></h2>
 <p>Para utilizar las funciones, variables y/o constantes de un módulo o paquete importado se tiene que usar el nombre del paquete/módulo o aquel que se le asignó con <code class="docutils literal notranslate"><span class="pre">as</span></code>, seguido de un punto ‘.’, seguido del nombre de la función con sus respectivos argumentos (si existen).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Usando funciones u otros objetos importados</span>
@@ -626,9 +632,9 @@ title="Print to PDF"
 <ul class="simple">
 <li><p>Este es un ejemplo general, la sintaxis dependerá de cómo se importó el paquete, módulo o función/objeto.</p></li>
 </ul>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="modulos-locales">
+<section id="modulos-locales">
 <h2>Módulos locales:<a class="headerlink" href="#modulos-locales" title="Permalink to this headline">#</a></h2>
 <p>Se puede importar un archivo de python (<em>.py</em>) local a la sesión para poder utilizar las constantes, funciones, etc. definidas en el archivo. Para ello el archivo debe de estar en el directorio de la sesión y simplemente importarlo como un módulo.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">script</span>
@@ -640,8 +646,8 @@ title="Print to PDF"
 <li><p><em>script</em> es el nombre del archivo .py en el mismo directorio.</p></li>
 <li><p><em>obji</em> son funciones, constante, etc. en el archivo.</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

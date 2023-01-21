@@ -17,6 +17,7 @@ print(*objects, sep=' ', end='\n', file=None, flush=False)
 **Retorna:**
 -  `None`.
 
+
 ---
 **input**:
 
@@ -29,5 +30,5 @@ input(prompt)
 - **`prompt`** \- `str`: Es el mensaje que se le mostrará al usuario al momento de solicitar que ingrese datos.
 
 **Retorna:**
--  `object`.
+-  `str`.
 

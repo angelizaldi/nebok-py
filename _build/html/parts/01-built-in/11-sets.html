@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Sets &#8212; Manual de Python</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -91,6 +92,11 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/nebok-logo.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Manual de Python</h1>
@@ -105,7 +111,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    Manual de python para ciencia de datos.
+                    Manual de Python.
                 </a>
             </li>
         </ul>
@@ -171,7 +177,7 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="08-cadenas.html">
+      <a class="reference internal" href="cadenas.html">
        Cadenas
       </a>
      </li>
@@ -650,7 +656,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="sets">
+  <section class="tex2jax_ignore mathjax_ignore" id="sets">
 <h1>Sets<a class="headerlink" href="#sets" title="Permalink to this headline">#</a></h1>
 <p>Corresponde al tipo <code class="docutils literal notranslate"><span class="pre">set</span></code>. Son objetos iterables para almacener múltiples elementos en una sola variable. Algunas características del tipo de dato<code class="docutils literal notranslate"> <span class="pre">set</span></code> son:</p>
 <ul class="simple">
@@ -660,7 +666,7 @@ title="Print to PDF"
 <li><p>Es mutable: Se pueden modificar una vez creado el <code class="docutils literal notranslate"><span class="pre">set</span></code>.</p></li>
 </ul>
 <hr class="docutils" />
-<div class="section" id="creacion">
+<section id="creacion">
 <h2>Creación<a class="headerlink" href="#creacion" title="Permalink to this headline">#</a></h2>
 <p>Existen dos métodos principales para crear una sets:</p>
 <ol class="simple">
@@ -680,14 +686,14 @@ title="Print to PDF"
 <div><p>Recordar que los elementos deben de ser únicos.</p>
 </div></blockquote>
 <p>Otra forma de crear un <code class="docutils literal notranslate"><span class="pre">set</span></code> es con ref<code class="docutils literal notranslate"><span class="pre">{set-comp}</span></code>.</p>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="seleccion-de-elementos">
+<section id="seleccion-de-elementos">
 <h2>Selección de elementos<a class="headerlink" href="#seleccion-de-elementos" title="Permalink to this headline">#</a></h2>
 <p>No se puede extraer los elementos de un set. La única forma para acceder a los elementos de un set es en un <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">loop</span></code> o conviertiendo el <code class="docutils literal notranslate"><span class="pre">set</span></code> en <code class="docutils literal notranslate"><span class="pre">list</span></code>:</p>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="agregar-y-eliminar-elementos">
+<section id="agregar-y-eliminar-elementos">
 <h2>Agregar y eliminar elementos:<a class="headerlink" href="#agregar-y-eliminar-elementos" title="Permalink to this headline">#</a></h2>
 <p>Para agregar y eliminar elementos de un <code class="docutils literal notranslate"><span class="pre">set</span></code> usar los siguientes métodos:</p>
 <ul class="simple">
@@ -715,9 +721,9 @@ title="Print to PDF"
 <span class="k">del</span> <span class="n">X</span>
 </pre></div>
 </div>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="iteracion-en-sets">
+<section id="iteracion-en-sets">
 <h2>Iteración en sets:<a class="headerlink" href="#iteracion-en-sets" title="Permalink to this headline">#</a></h2>
 <p>Para interar sobre todos los elementos de una <code class="docutils literal notranslate"><span class="pre">set</span></code> se puede usar un <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">loop</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Iterar sobre los elementos de la lista X:</span>
@@ -731,8 +737,8 @@ title="Print to PDF"
 </div>
 <hr class="docutils" />
 <p>label(set-comp)=</p>
-</div>
-<div class="section" id="set-comprehension">
+</section>
+<section id="set-comprehension">
 <h2>Set comprehension<a class="headerlink" href="#set-comprehension" title="Permalink to this headline">#</a></h2>
 <p>Son sets que se crean a partir procesos iterativos con la estructura <code class="docutils literal notranslate"><span class="pre">for</span></code>. Sintaxis:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="p">{</span><span class="n">expression</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">collection</span><span class="p">}</span>
@@ -758,13 +764,13 @@ title="Print to PDF"
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="p">{</span><span class="n">val_true</span> <span class="k">if</span> <span class="n">condition</span> <span class="k">else</span> <span class="n">val_false</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">collection</span><span class="p">}</span>
 </pre></div>
 </div>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="metodos-de-sets">
+<section id="metodos-de-sets">
 <h2>Métodos de sets.<a class="headerlink" href="#metodos-de-sets" title="Permalink to this headline">#</a></h2>
 <p>Aquí se enlistas todos los métodos del tipo <code class="docutils literal notranslate"><span class="pre">set</span></code>.</p>
 <hr class="docutils" />
-<div class="section" id="agregar-elementos">
+<section id="agregar-elementos">
 <h3>Agregar elementos<a class="headerlink" href="#agregar-elementos" title="Permalink to this headline">#</a></h3>
 <p>Métodos para agregar elementos a un set. Revisar también el método <code class="docutils literal notranslate"><span class="pre">str.update</span></code> en <a class="reference internal" href="#subsection-op-conjuntos"><span class="std std-ref">Operaciones entre conjuntos in-place</span></a>.</p>
 <hr class="docutils" />
@@ -782,9 +788,9 @@ title="Print to PDF"
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
 </ul>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="eliminar-elementos">
+<section id="eliminar-elementos">
 <h3>Eliminar Elementos<a class="headerlink" href="#eliminar-elementos" title="Permalink to this headline">#</a></h3>
 <p>Métodos para eliminar elementos de un set.</p>
 <hr class="docutils" />
@@ -845,9 +851,9 @@ title="Print to PDF"
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
 </ul>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="informacion">
+<section id="informacion">
 <h3>Información<a class="headerlink" href="#informacion" title="Permalink to this headline">#</a></h3>
 <p>Métodos que retornan información sobre la interacción de dos conjuntos.</p>
 <hr class="docutils" />
@@ -894,9 +900,9 @@ title="Print to PDF"
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">bool</span></code>.</p></li>
 </ul>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="operaciones-entre-conjuntos">
+<section id="operaciones-entre-conjuntos">
 <h3>Operaciones entre conjuntos<a class="headerlink" href="#operaciones-entre-conjuntos" title="Permalink to this headline">#</a></h3>
 <p>Métodos para las operaciones entre dos o más conjuntos (sets) que retornan un objeto nuevo con el resultado.</p>
 <hr class="docutils" />
@@ -980,8 +986,8 @@ title="Print to PDF"
 <li><p><code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
 </ul>
 <hr class="docutils" />
-</div>
-<div class="section" id="operaciones-entre-conjuntos-in-place">
+</section>
+<section id="operaciones-entre-conjuntos-in-place">
 <span id="subsection-op-conjuntos"></span><h3>Operaciones entre conjuntos in-place<a class="headerlink" href="#operaciones-entre-conjuntos-in-place" title="Permalink to this headline">#</a></h3>
 <p>Métodos para las operaciones entre dos o más conjuntos (sets), que actualizan los valores de uno de ellos en lugar de retornar un objeto con el resultado.</p>
 <hr class="docutils" />
@@ -1064,9 +1070,9 @@ title="Print to PDF"
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
 </ul>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

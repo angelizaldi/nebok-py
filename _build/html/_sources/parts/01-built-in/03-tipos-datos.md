@@ -7,14 +7,14 @@ Los principales tipos de datos built-in de Python se resumen a continuación:
     - `float`: Números flotantes.
     - `complex`: Números complejos.
 - Booleanos
-    - `bool`: Representa un valor booleano, es decir `True`o `False`.
+    - `bool`: Valores booleanos. Se puede considerar con un subtipo numérico.
 - Secuencias:
-    - `list`: Lista.
-    - `tuple`: Tuplas.
-    - Cadenas:
-        - `str`: Cadenas de caracteres.
+    - `list`: Contenedor de objetos mutable.
+    - `tuple`: Contenedor de objetos inmutable.
+- Cadenas:
+    - `str`: Cadenas de caracteres.
 - Sets
-    - `set`: Set, conjunto de valores únicos.
-    - `frozenset`: Versión inmutable de un set, es decir, no se puede modificar una vez creado.
+    - `set`: Contenedor de objetos únicos mutable.
+    - `frozenset`: Versión inmutable de un set.
 - Mappings :
     - `dict`: Diccionario.

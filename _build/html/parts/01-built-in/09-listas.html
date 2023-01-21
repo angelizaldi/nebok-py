@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Listas &#8212; Manual de Python</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -52,7 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Tuples" href="10-tuples.html" />
-    <link rel="prev" title="Cadenas" href="08-cadenas.html" />
+    <link rel="prev" title="Cadenas" href="cadenas.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -89,6 +90,11 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/nebok-logo.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Manual de Python</h1>
@@ -103,7 +109,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    Manual de python para ciencia de datos.
+                    Manual de Python.
                 </a>
             </li>
         </ul>
@@ -169,7 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="08-cadenas.html">
+      <a class="reference internal" href="cadenas.html">
        Cadenas
       </a>
      </li>
@@ -758,7 +764,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="listas">
+  <section class="tex2jax_ignore mathjax_ignore" id="listas">
 <h1>Listas<a class="headerlink" href="#listas" title="Permalink to this headline">#</a></h1>
 <p>Correspnden al tipo de dato <code class="docutils literal notranslate"><span class="pre">list</span></code>. Las listas son secuencias. Algunas características de las listas, son:</p>
 <ul class="simple">
@@ -770,7 +776,7 @@ title="Print to PDF"
 <li><p>Se puede concatenar con otras listas</p></li>
 </ul>
 <hr class="docutils" />
-<div class="section" id="crear-una-lista">
+<section id="crear-una-lista">
 <h2>Crear una lista:<a class="headerlink" href="#crear-una-lista" title="Permalink to this headline">#</a></h2>
 <p>Existen dos métodos principales para crear una lista</p>
 <ol class="simple">
@@ -786,9 +792,9 @@ title="Print to PDF"
 </pre></div>
 </div>
 <p>Otra forma de crear una lista es con <a class="reference internal" href="#list-comp"><span class="std std-ref">List comprehension</span></a>.</p>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="agregrar-concatenar-elementos">
+<section id="agregrar-concatenar-elementos">
 <h2>Agregrar/Concatenar elementos:<a class="headerlink" href="#agregrar-concatenar-elementos" title="Permalink to this headline">#</a></h2>
 <p>Para agregar elementos a una lista existente se puede usar el operador <code class="docutils literal notranslate"><span class="pre">+</span></code>, que sirve para concatenar, los nuevos elementos se agregarán al final de la primer lista.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Si X y Y son listas, entonces W es la concatenacion de X y Y:</span>
@@ -811,9 +817,9 @@ title="Print to PDF"
 <span class="n">Y</span> <span class="o">=</span> <span class="n">X</span> <span class="o">*</span> <span class="n">n</span> 
 </pre></div>
 </div>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="eliminar-elementos">
+<section id="eliminar-elementos">
 <h2>Eliminar Elementos:<a class="headerlink" href="#eliminar-elementos" title="Permalink to this headline">#</a></h2>
 <p>Para eliminar un elemento específico o la lista completa usar la palabra reservada <code class="docutils literal notranslate"><span class="pre">del</span></code> y el elemento que se quiere eliminar:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Eliminar el elemento i de la lista X</span>
@@ -831,9 +837,9 @@ title="Print to PDF"
 <li><p>Para remover un elemento de un índice en específico usar el método <code class="docutils literal notranslate"><span class="pre">list.pop</span></code>.</p></li>
 </ul>
 </div>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="modificar-elementos">
+<section id="modificar-elementos">
 <h2>Modificar Elementos:<a class="headerlink" href="#modificar-elementos" title="Permalink to this headline">#</a></h2>
 <p>Para modificar un elemento en específico usar su índice y el operador de asignación:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Si X es una lista e i es un índice válido de X </span>
@@ -854,20 +860,20 @@ title="Print to PDF"
 </ul>
 <p>De esta manera modificaciones en <code class="docutils literal notranslate"><span class="pre">Y</span></code> no afectarán a <code class="docutils literal notranslate"><span class="pre">X</span></code> y viceversa.</p>
 </div>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="verificar-que-un-elemento-exista-en-una-lista">
+<section id="verificar-que-un-elemento-exista-en-una-lista">
 <h2>Verificar que un elemento exista en una lista:<a class="headerlink" href="#verificar-que-un-elemento-exista-en-una-lista" title="Permalink to this headline">#</a></h2>
 <p>Para ver si un elemento está dentro de una lista X usar el operador de membresía <code class="docutils literal notranslate"><span class="pre">in</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Si X es una lista</span>
 <span class="n">x</span> <span class="ow">in</span> <span class="n">X</span>
 </pre></div>
 </div>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="seleccion-de-elementos">
+<section id="seleccion-de-elementos">
 <h2>Selección de elementos:<a class="headerlink" href="#seleccion-de-elementos" title="Permalink to this headline">#</a></h2>
-<div class="section" id="subsetting">
+<section id="subsetting">
 <h3>Subsetting:<a class="headerlink" href="#subsetting" title="Permalink to this headline">#</a></h3>
 <p>Para seleccionar elementos de una lista tener en cuenta las siguientes características:</p>
 <ul class="simple">
@@ -878,9 +884,9 @@ title="Print to PDF"
 <li><p>Para listas dentro de otras listas, considerar que en esencia usar <code class="docutils literal notranslate"><span class="pre">X[i]</span></code> devolverá otra lista, entonces para acceder a los elementos de esa otra lista usar otro <code class="docutils literal notranslate"><span class="pre">[]</span></code>, esto es: <br/> <code class="docutils literal notranslate"><span class="pre">X[N1][N2]</span></code></p></li>
 <li><p>Lo anterior se puede generalizar para cualquier número de listas anidadas.</p></li>
 </ul>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="slicing">
+<section id="slicing">
 <h3>Slicing:<a class="headerlink" href="#slicing" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>Para seleccionar un rango de elementos consecutivos se utiliza dos puntos: <br/> <code class="docutils literal notranslate"><span class="pre">X[i:j]</span></code></p></li>
@@ -898,10 +904,10 @@ title="Print to PDF"
 <li><p>Toda la lista cada <code class="docutils literal notranslate"><span class="pre">k</span></code> elementos: <br> <code class="docutils literal notranslate"><span class="pre">X[::k]</span></code></p></li>
 <li><p>Toda la lista al revés: <br> <code class="docutils literal notranslate"><span class="pre">X[::-1]</span></code></p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 <hr class="docutils" />
-<div class="section" id="unpack-de-listas">
+<section id="unpack-de-listas">
 <h2>Unpack de listas:<a class="headerlink" href="#unpack-de-listas" title="Permalink to this headline">#</a></h2>
 <p>Se refiere a asignar a varias variables los elementos de un objeto iterable como una <code class="docutils literal notranslate"><span class="pre">list</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># X es una lista de longitud n</span>
@@ -917,9 +923,9 @@ title="Print to PDF"
 <li><p>En ese caso la varible <code class="docutils literal notranslate"><span class="pre">xi</span></code> almacenará todos lo valores restantes en la lista.</p></li>
 <li><p>El asterisco no tiene porque ir en la última variable, puede ir antes, en ese caso python asignará el número de elementos que sea necesario, para que el resto de las variables tengan un elemento.</p></li>
 </ul>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="iteracion">
+<section id="iteracion">
 <h2>Iteración:<a class="headerlink" href="#iteracion" title="Permalink to this headline">#</a></h2>
 <p>Para interar sobre todos los elementos de una lista se puede usar un <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">loop</span></code>. Algunas opciones de iteración son:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Iterar sobre los elementos de la lista X:</span>
@@ -939,8 +945,8 @@ title="Print to PDF"
 <li><p>En todos los ejemplos anteriores <code class="docutils literal notranslate"><span class="pre">i</span></code>y <code class="docutils literal notranslate"><span class="pre">ele</span></code> son nombres opcionales.</p></li>
 </ul>
 <hr class="docutils" />
-</div>
-<div class="section" id="list-comprehension">
+</section>
+<section id="list-comprehension">
 <span id="list-comp"></span><h2>List comprehension<a class="headerlink" href="#list-comprehension" title="Permalink to this headline">#</a></h2>
 <p>Son listas que se crean a partir procesos iterativos con la estructura <code class="docutils literal notranslate"><span class="pre">for</span></code>. Sintaxis:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="p">[</span><span class="n">expression</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">collection</span><span class="p">]</span>
@@ -985,8 +991,8 @@ title="Print to PDF"
 <ul class="simple">
 <li><p>En el código anterior hubiera sido más eficiente utilizar la función <code class="docutils literal notranslate"><span class="pre">range()</span></code> para crear la secuencia de números.</p></li>
 </ul>
-</div>
-<div class="section" id="metodos-de-listas">
+</section>
+<section id="metodos-de-listas">
 <h2>Métodos de listas:<a class="headerlink" href="#metodos-de-listas" title="Permalink to this headline">#</a></h2>
 <p>Los métodos aquí explicados suponen que el método se aplica directamente sobre una lista, pero es posible usar la lista como argumento usando <code>list.<i>method_name</i>()</code>, por ejemplo, en lugar de usar <code class="docutils literal notranslate"><span class="pre">X.append(Y)</span></code> se puede usar:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
@@ -998,7 +1004,7 @@ title="Print to PDF"
 <li><p>En ese caso el primer argumento debe de ser la lista.</p></li>
 </ul>
 <hr class="docutils" />
-<div class="section" id="agregar-elementos">
+<section id="agregar-elementos">
 <h3>Agregar Elementos:<a class="headerlink" href="#agregar-elementos" title="Permalink to this headline">#</a></h3>
 <p><strong>append</strong>:</p>
 <p><code class="docutils literal notranslate"><span class="pre">list.append()</span></code>: Agrega un elemento al final una lista “in-place”, el elemento es un número, una cadena, una lista, etc. también se puede utilizar el operador <code class="docutils literal notranslate"><span class="pre">+</span></code>.</p>
@@ -1045,9 +1051,9 @@ title="Print to PDF"
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">none</span></code>.</p></li>
 </ul>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="id1">
+<section id="id1">
 <h3>Eliminar Elementos<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
 <p><strong>pop</strong>:</p>
 <p><code class="docutils literal notranslate"><span class="pre">list.pop()</span></code>: Remueve un elemento de una posición en específico, retorna ese elemento y recorre el resto de los elementos a la izquierda.</p>
@@ -1078,9 +1084,9 @@ title="Print to PDF"
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">none</span></code>.</p></li>
 </ul>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="informacion">
+<section id="informacion">
 <h3>Información<a class="headerlink" href="#informacion" title="Permalink to this headline">#</a></h3>
 <p><strong>count</strong>:</p>
 <p><code class="docutils literal notranslate"><span class="pre">list.count()</span></code>: Devuelve el número de veces que hay un elemento específico en la lista, el elemento es un número, una cadena, etc.</p>
@@ -1113,9 +1119,9 @@ title="Print to PDF"
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">int</span></code>.</p></li>
 </ul>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="modificar">
+<section id="modificar">
 <h3>Modificar<a class="headerlink" href="#modificar" title="Permalink to this headline">#</a></h3>
 <p><strong>reverse</strong>:</p>
 <p><code class="docutils literal notranslate"><span class="pre">list.reverse()</span></code>: Modifica el orden de la lista de manera inversa “in-place”.</p>
@@ -1150,9 +1156,9 @@ title="Print to PDF"
 <p class="admonition-title">Note</p>
 <p>Si quieres asignar la lista ordenada a otra variable utilizar la función built-in <code class="docutils literal notranslate"><span class="pre">sorted()</span></code>.</p>
 </div>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="otros">
+<section id="otros">
 <h3>Otros<a class="headerlink" href="#otros" title="Permalink to this headline">#</a></h3>
 <p><strong>clear</strong>:</p>
 <p><code class="docutils literal notranslate"><span class="pre">list.clear()</span></code>: Remueve todos los elementos de la lista.</p>
@@ -1181,9 +1187,9 @@ title="Print to PDF"
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">list</span></code>.</p></li>
 </ul>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1212,7 +1218,7 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="08-cadenas.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="cadenas.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>

@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Comentarios &#8212; Manual de Python</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -89,6 +90,11 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/nebok-logo.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Manual de Python</h1>
@@ -103,7 +109,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    Manual de python para ciencia de datos.
+                    Manual de Python.
                 </a>
             </li>
         </ul>
@@ -169,7 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="08-cadenas.html">
+      <a class="reference internal" href="cadenas.html">
        Cadenas
       </a>
      </li>
@@ -507,13 +513,13 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="comentarios">
+  <section class="tex2jax_ignore mathjax_ignore" id="comentarios">
 <h1>Comentarios<a class="headerlink" href="#comentarios" title="Permalink to this headline">#</a></h1>
-<p>Para insertar comentarios simples de una sola línea se utiliza el símbolo de gato <code class="docutils literal notranslate"><span class="pre">#</span></code>:</p>
+<p>Para insertar comentarios de una línea se utiliza el símbolo de gato <code class="docutils literal notranslate"><span class="pre">#</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Esto es un comentario</span>
 </pre></div>
 </div>
-<p>Para hacer comentarios de múltples líneas se utilizan tres comillas para abrir y cerrar el comentario <code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;</span> <span class="pre">…</span> <span class="pre">&quot;&quot;&quot;</span></code>:</p>
+<p>Para hacer comentarios de múltples líneas se utilizan tres comillas para abrir y cerrar el comentario <code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;</span> <span class="pre">...</span> <span class="pre">&quot;&quot;&quot;</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Esto es un comentario</span>
 <span class="sd">de múltiples</span>
@@ -521,10 +527,7 @@ title="Print to PDF"
 <span class="sd">&quot;&quot;&quot;</span>
 </pre></div>
 </div>
-<ul class="simple">
-<li><p>En realidad es una cadena de múltiples lineas. Pero se puede usar como comentario ya que no afecta el funcionamiento del programa.</p></li>
-</ul>
-</div>
+</section>
 
     <script type="text/x-thebe-config">
     {

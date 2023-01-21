@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Tuples &#8212; Manual de Python</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -89,6 +90,11 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/nebok-logo.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Manual de Python</h1>
@@ -103,7 +109,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    Manual de python para ciencia de datos.
+                    Manual de Python.
                 </a>
             </li>
         </ul>
@@ -169,7 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="08-cadenas.html">
+      <a class="reference internal" href="cadenas.html">
        Cadenas
       </a>
      </li>
@@ -642,7 +648,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="tuples">
+  <section class="tex2jax_ignore mathjax_ignore" id="tuples">
 <h1>Tuples<a class="headerlink" href="#tuples" title="Permalink to this headline">#</a></h1>
 <p>Corresponde al tipo de dato <code class="docutils literal notranslate"><span class="pre">tuple</span></code>. Son sequencias para almacener múltiples elementos en una sola variable. Algunas caractacterísticas de:</p>
 <ul class="simple">
@@ -653,7 +659,7 @@ title="Print to PDF"
 <li><p>Es un iterable: Se puede iterar por sus elementos y se puede usar la palabra reservada <code class="docutils literal notranslate"><span class="pre">in</span></code> para verificar memebresía.</p></li>
 </ul>
 <hr class="docutils" />
-<div class="section" id="creacion-de-un-tuple">
+<section id="creacion-de-un-tuple">
 <h2>Creación de un tuple<a class="headerlink" href="#creacion-de-un-tuple" title="Permalink to this headline">#</a></h2>
 <p>Para crear un tuple existen distintas formas:</p>
 <ol class="simple">
@@ -677,11 +683,11 @@ title="Print to PDF"
 X = (x,)
 </code></p>
 </div>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="seleccion-de-elementos">
+<section id="seleccion-de-elementos">
 <h2>Selección de elementos:<a class="headerlink" href="#seleccion-de-elementos" title="Permalink to this headline">#</a></h2>
-<div class="section" id="subsetting">
+<section id="subsetting">
 <h3>Subsetting:<a class="headerlink" href="#subsetting" title="Permalink to this headline">#</a></h3>
 <p>Para seleccionar elementos de una tupla tener en cuenta las siguientes características:</p>
 <ul class="simple">
@@ -692,8 +698,8 @@ X = (x,)
 <li><p>Para tupls dentro de otras tuplas, considerar que en esencia usar <code class="docutils literal notranslate"><span class="pre">X[i]</span></code> devolverá otra tupla, entonces para acceder a los elementos de esa otra tupla usar otro <code class="docutils literal notranslate"><span class="pre">[]</span></code>, esto es: <br/> <code class="docutils literal notranslate"><span class="pre">X[N1][N2]</span></code></p></li>
 <li><p>Lo anterior se puede generalizar para cualquier número de tuplas anidadas.</p></li>
 </ul>
-</div>
-<div class="section" id="slicing">
+</section>
+<section id="slicing">
 <h3>Slicing:<a class="headerlink" href="#slicing" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>Para seleccionar un rango de elementos consecutivos se utiliza dos puntos: <br/> <code class="docutils literal notranslate"><span class="pre">X[i:j]</span></code></p></li>
@@ -711,10 +717,10 @@ X = (x,)
 <li><p>Toda la lista cada <code class="docutils literal notranslate"><span class="pre">k</span></code> elementos: <br> <code class="docutils literal notranslate"><span class="pre">X[::k]</span></code></p></li>
 <li><p>Toda la lista al revés: <br> <code class="docutils literal notranslate"><span class="pre">X[::-1]</span></code></p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 <hr class="docutils" />
-<div class="section" id="concatenar-y-multiplicar">
+<section id="concatenar-y-multiplicar">
 <h2>Concatenar y multiplicar:<a class="headerlink" href="#concatenar-y-multiplicar" title="Permalink to this headline">#</a></h2>
 <p>El operador <code class="docutils literal notranslate"><span class="pre">+</span></code> sirve para concatenar tuples, los elementos se agrega al final del primer tuple.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Si X y Y son tuples, entonces W es la concatenacion de X y Y:</span>
@@ -726,8 +732,8 @@ X = (x,)
 <span class="n">Y</span> <span class="o">=</span> <span class="n">X</span> <span class="o">*</span> <span class="n">n</span> 
 </pre></div>
 </div>
-</div>
-<div class="section" id="modificar">
+</section>
+<section id="modificar">
 <h2>Modificar:<a class="headerlink" href="#modificar" title="Permalink to this headline">#</a></h2>
 <p>Los tuples no se pueden modificar una vez creados. Un truco para modificar una tupla es convertir la tupla en una lista y después volverla a convertir en una tupla:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Un tuple</span>
@@ -745,9 +751,9 @@ X = (x,)
 <span class="k">del</span> <span class="n">X</span>
 </pre></div>
 </div>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="unpack-de-tuples">
+<section id="unpack-de-tuples">
 <h2>Unpack de tuples:<a class="headerlink" href="#unpack-de-tuples" title="Permalink to this headline">#</a></h2>
 <p>Se refiere a asignar a varias variables los elementos de un objeto iterable como un <code class="docutils literal notranslate"><span class="pre">tuple</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Si X es una tupla de longitud n:</span>
@@ -763,9 +769,9 @@ X = (x,)
 <li><p>En ese caso la varible <code class="docutils literal notranslate"><span class="pre">xi</span></code> almacenará todos lo valores restantes en la tupla.</p></li>
 <li><p>El asterisco no tiene porque ir en la última variable, puede ir antes, en ese caso python asignará el número de elementos que sea necesario, para que el resto de las variables que vienen después tengan un elemento.</p></li>
 </ul>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="iteracion">
+<section id="iteracion">
 <h2>Iteración:<a class="headerlink" href="#iteracion" title="Permalink to this headline">#</a></h2>
 <p>Para interar sobre todos los elementos de un tuple se puede usar un <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">loop</span></code>. Algunas opciones de iteración son:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Iterar sobre los elementos del tuple X:</span>
@@ -784,13 +790,13 @@ X = (x,)
 <ul class="simple">
 <li><p>En todos los ejemplos anteriores <code class="docutils literal notranslate"><span class="pre">i</span></code>y <code class="docutils literal notranslate"><span class="pre">ele</span></code> son nombres opcionales.</p></li>
 </ul>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="metodos-de-tuple">
+<section id="metodos-de-tuple">
 <h2>Métodos de tuple<a class="headerlink" href="#metodos-de-tuple" title="Permalink to this headline">#</a></h2>
 <p>En esta sección se verán los métodos del tipo <code class="docutils literal notranslate"><span class="pre">tuple</span></code>.</p>
 <hr class="docutils" />
-<div class="section" id="informacion">
+<section id="informacion">
 <h3>Información<a class="headerlink" href="#informacion" title="Permalink to this headline">#</a></h3>
 <p>Métodos que retornan información sobre el <code class="docutils literal notranslate"><span class="pre">tuple</span></code> o sus elementos.</p>
 <hr class="docutils" />
@@ -823,9 +829,9 @@ X = (x,)
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">int</span></code>.</p></li>
 </ul>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

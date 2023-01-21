@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>If … Else. &#8212; Manual de Python</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -89,6 +90,11 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/nebok-logo.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Manual de Python</h1>
@@ -103,7 +109,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    Manual de python para ciencia de datos.
+                    Manual de Python.
                 </a>
             </li>
         </ul>
@@ -169,7 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="08-cadenas.html">
+      <a class="reference internal" href="cadenas.html">
        Cadenas
       </a>
      </li>
@@ -564,7 +570,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="if-else">
+  <section class="tex2jax_ignore mathjax_ignore" id="if-else">
 <h1>If … Else.<a class="headerlink" href="#if-else" title="Permalink to this headline">#</a></h1>
 <p>Se utiliza usando las palabras reservada <code class="docutils literal notranslate"><span class="pre">if</span></code> y <code class="docutils literal notranslate"><span class="pre">else</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">condition</span><span class="p">:</span>
@@ -593,7 +599,7 @@ title="Print to PDF"
 </pre></div>
 </div>
 <hr class="docutils" />
-<div class="section" id="version-simplificada">
+<section id="version-simplificada">
 <h2>Versión simplificada:<a class="headerlink" href="#version-simplificada" title="Permalink to this headline">#</a></h2>
 <p>También conocida como “<em>ternary operators</em>” o “<em>conditional expressions</em>”, son una forma de escribir una estructura <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">else</span></code> en una sola línea. Es útil cuando solo tienes una línea que ejecutar, existen dos versiones principales:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Version 1:</span>
@@ -621,9 +627,9 @@ title="Print to PDF"
 <li><p>En la versión de tupla, basicamente es un <code class="docutils literal notranslate"><span class="pre">tuple</span></code> con dos elementos y se hace <em>subsetting</em>, con base a una comparación lógica, de manera que si es falsa se elija el elemento con índice cero y si es cierta, se elige el elemento con índice uno. Lo mismo se podría hacer con una lista.</p></li>
 <li><p>En diccionario, es similar, pero en lugar de hacer subsetting por índice, lo hace por el nombre de la <em>key</em>.</p></li>
 </ul>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="operadores-logicos">
+<section id="operadores-logicos">
 <h2>Operadores logicos.<a class="headerlink" href="#operadores-logicos" title="Permalink to this headline">#</a></h2>
 <p>Se puede utilizar los operadores <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code> y <code class="docutils literal notranslate"><span class="pre">not</span></code> en las condiciones de las estructuras <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">else</span></code>:</p>
 <ul class="simple">
@@ -631,17 +637,17 @@ title="Print to PDF"
 <li><p><code class="docutils literal notranslate"><span class="pre">or</span></code>: Se usa para verificar que al menos una condición sea <code class="docutils literal notranslate"><span class="pre">True</span></code>. Para que la expresión retorne <code class="docutils literal notranslate"><span class="pre">False</span></code>, todas las condiciones tienen que ser <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">not</span></code>: Se usa para invertir el resultado de la expresión, de manera que convierte <code class="docutils literal notranslate"><span class="pre">True</span></code> en <code class="docutils literal notranslate"><span class="pre">False</span></code> y viceversa.</p></li>
 </ul>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="pass">
+<section id="pass">
 <h2>Pass<a class="headerlink" href="#pass" title="Permalink to this headline">#</a></h2>
 <p>Las estructuras <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">else</span></code> no pueden estar vacías, pero por si alguna razón no se tiene que tomar ninguna acción se puede usar la sentencia <code class="docutils literal notranslate"><span class="pre">pass</span></code> para evitar errores:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">condicion</span><span class="p">:</span>
     <span class="k">pass</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
