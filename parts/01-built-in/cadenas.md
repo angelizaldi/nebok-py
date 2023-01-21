@@ -53,7 +53,7 @@ Para insertar códigos unicode se debe de poner el código dentro de una cadena 
 
 ```{code-cell} ipython3
 # Ingresando un espacio en blanco y el símbolo "!" con códigos unicode:
-print(u"Hello\u0020World\u0021") 
+print(u"Hola\u0020mundo\u0021") 
 ```
 
 ---
@@ -85,8 +85,8 @@ Los caracteres ilegales son:
 Para concatenar cadenas se usa el operador `+`. Usar únicamente con objetos de tipo `str`:
 ```{code-cell} ipython3
 # Definir las cadenas
-x = "Hello"
-y = "World!"
+x = "Hola"
+y = "mundo!"
 
 # Concatenar las cadenas
 print(x + " " + y)
@@ -128,12 +128,18 @@ for i in string:
 
 ### Subsetting:
 Para seleccionar caracteres individuales de una cadena tener en cuenta las siguientes características:
-- Se utilizan corchetes `[]` para acceder a los caracteres, junto con la cadena y el índice del elemento. Los índices comienza en cero (0), esto quiere decir que si quiere acceder al caracter `n`, se debe de usar `[n-1]`: <br/>
-- Se puede utilizar números negativos, para hacer subsetting de derecha a izquierd, comenzano por el último caracter. Por ejemplo, se puede acceder al último caracter con `[-1]`, al penúltimo caracter elemento `[-2]`, etc.
+- Se utilizan corchetes `[]` para acceder a los caracteres, junto con la cadena y el índice del elemento. 
+- Los índices comienza en cero (0), esto quiere decir que si quiere acceder al caracter `n`, se debe de usar `[n-1]`. <br/>
+- Se puede utilizar índices negativos, para hacer subsetting de derecha a izquierda, comenzando por el último caracter. Por ejemplo, se puede acceder al último caracter con `[-1]`, al penúltimo caracter elemento `[-2]`, etc.
+
+Algunos patrones útiles:
+- El primer caracter: <br> `X[0]`
+- El caracter _n_: <br> `X[n-1]`
+- El último caracter: <br> `X[-1]`
 
 ---
 ### Slicing:
-Para seleccionar un rango de caracteres consecutivos se utiliza
+Para seleccionar un rango de caracteres consecutivos tener en cuenta las siguientes características:
 - Se utiliza dos puntos, indicando los indices de inicio, fin y el paso: <br/> `X[i:j:k]`
 - La selección por rango, tienen la característica que el primer elemento es inclusivo y el último es exclusivo, esto quiere decir que no se incluirá en el rango, si se usa el rango `[i:j]`, en realidad solo se accederá a `[i:j-1]`.
 
@@ -143,18 +149,31 @@ Algunos patrones útiles:
 - Desde la posición `i` hasta el final de la cadena: <br>`X[i:]`
 - Toda la cadena: <br> `X[:]`
 - Desde el índice `i` hasta el `j`, sin incluir el `j`, cada `k` caracteres: <br> `X[i:j:k]`
-- El primer caracter: <br> `X[0]`
-- El último caracter: <br> `X[-1]`
 - Toda la cadena cada `k` caracteres: <br> `X[::k]`
 - Toda la cadena al revés: <br> `X[::-1]`
 
 ---
 ## Métodos de cadenas
 
-En esta sección se presentan de manera compacta los métodos del tipo `str`.
+En esta sección se enlistan los métodos del tipo `str` por categorias. 
+
+Tener en cuenta que los métodos generalmente se aplican sobre un objeto de tipo `str`, por ejemplo, si `X` es `str`, entonces se utiliza <code>X.<i>method_name</i></code>. Sin embargo es posible usar la cadena como argumento de <code>str.<i>method_name</i></code>. Por ejemplo.
+
+```{code-cell} ipython3
+# Definir una cadena
+X = "hola mundo"
+
+# Usar el metodo sobre el objeto
+print(X.upper())
+
+# Equivale a:
+print(str.upper(X))
+```
+- Tener en cuenta que en la segunda forma la cadena siempre debe de ser el primer argumento.
+
 
 ---
-### Buscar
+### Buscar subcadenas
 
 Métodos para buscar subcadenas en una cadena.
 
@@ -163,18 +182,18 @@ Métodos para buscar subcadenas en una cadena.
 
 * - Funciones
   - Descripción
-* - [index](https://docs.python.org/3/library/stdtypes.html#str.index)`(sub[, start[, end]])`
+* - [index](https://docs.python.org/3/library/stdtypes.html#str.index)(sub[, start[, end]])
   - Devuelve la primer posición de la cadena donde se encuentra una subcadena. Si no encuentra la subcadena devuelve `ValueError`.
-* - [find](https://docs.python.org/3/library/stdtypes.html#str.find)`(sub[, start[, end]])`
+* - [find](https://docs.python.org/3/library/stdtypes.html#str.find)(sub[, start[, end]])
   - Devuelve el primer índice en la cadena donde se encuentra la subcadena `sub`. Devuelve -1 si no se encuentra `sub`.
-* - [rfind](https://docs.python.org/3/library/stdtypes.html#str.rfind)`(sub[, start[, end]])`
+* - [rfind](https://docs.python.org/3/library/stdtypes.html#str.rfind)(sub[, start[, end]])
   - Devuelve el índice más grande en la cadena donde se encuentra la subcadena `sub`. Devuelve -1 si no se encuentra `sub`.
-* - [rindex](https://docs.python.org/3/library/stdtypes.html#str.rindex)`(sub[, start[, end]])`
+* - [rindex](https://docs.python.org/3/library/stdtypes.html#str.rindex)(sub[, start[, end]])
   - Devuelve el índice más grande en la cadena donde se encuentra la subcadena `sub`. Devuelve `ValueError` si no se encuentra `sub`.
 ```
 
 ---
-### Formato
+### Formato de la cadena
 
 Métodos para modificar el formato de una cadena.
 
@@ -183,34 +202,34 @@ Métodos para modificar el formato de una cadena.
 
 * - Funciones
   - Descripción
-* - [zfill](https://docs.python.org/3/library/stdtypes.html#str.zfill)`(width)`
+* - [zfill](https://docs.python.org/3/library/stdtypes.html#str.zfill)(width)
   - Retorna una cadena agregando ceros al principio de la cadena (si es necesario), para que tenga una longitud específica.
-* - [ljust](https://docs.python.org/3/library/stdtypes.html#str.ljust)`(width[, fillchar])`
+* - [ljust](https://docs.python.org/3/library/stdtypes.html#str.ljust)(width[, fillchar])
   - Justifica el texto a la izquierda, agregando caracteres al final de la cadena para que tenga una longitud determinada.
-* - [rjust](https://docs.python.org/3/library/stdtypes.html#str.rjust)`(width[, fillchar])`
+* - [rjust](https://docs.python.org/3/library/stdtypes.html#str.rjust)(width[, fillchar])
   - Justifica el texto a la derecha, agregando caracteres al principio de la cadena para que tenga una longitud determinada.
-* - [title](https://docs.python.org/3/library/stdtypes.html#str.title)`()`
+* - [title](https://docs.python.org/3/library/stdtypes.html#str.title)()
   - Devuelve una versión de título de la cadena donde las palabras comienzan con mayúscula y los caracteres restantes son minúsculas.
-* - [upper](https://docs.python.org/3/library/stdtypes.html#str.upper)`()`
+* - [upper](https://docs.python.org/3/library/stdtypes.html#str.upper)()
   - Convierte una cadena en mayúsculas.
-* - [swapcase](https://docs.python.org/3/library/stdtypes.html#str.swapcase)`()`
+* - [swapcase](https://docs.python.org/3/library/stdtypes.html#str.swapcase)()
   - Devuelve una copia de la cadena con caracteres en mayúsculas convertidos a minúsculas y viceversa.
-* - [casefold](https://docs.python.org/3/library/stdtypes.html#str.casefold)`()`
+* - [casefold](https://docs.python.org/3/library/stdtypes.html#str.casefold)()
   - Retorna una copia de la cadena con todos los caracteres en minúsculas.
-* - [format](https://docs.python.org/3/library/stdtypes.html#str.format)`(*args, **kwargs)`
+* - [format](https://docs.python.org/3/library/stdtypes.html#str.format)(*args, **kwargs)
   - Realice una operación de formato de cadena.
-* - [center](https://docs.python.org/3/library/stdtypes.html#str.center)`(width[, fillchar])`
+* - [center](https://docs.python.org/3/library/stdtypes.html#str.center)(width[, fillchar])
   - Retorna una cadena agregando caracteres al princio y al final, para que tenga una longitud determinada y la cadena original esté al centro.
-* - [format_map](https://docs.python.org/3/library/stdtypes.html#str.format_map)`(mapping)`
+* - [format_map](https://docs.python.org/3/library/stdtypes.html#str.format_map)(mapping)
   - Similar a `str.format(**mapping)`, excepto que el mapeo es utilizado directamente y no copiado a un `dict`. Esto es útil si, por ejemplo, el mapeo es una subclase `dict`.
-* - [lower](https://docs.python.org/3/library/stdtypes.html#str.lower)`()`
+* - [lower](https://docs.python.org/3/library/stdtypes.html#str.lower)()
   - Devuelve una copia de la cadena con todos los caracteres en mayúsculas convertidos a minúsculas.
-* - [capitalize](https://docs.python.org/3/library/stdtypes.html#str.capitalize)`()`
+* - [capitalize](https://docs.python.org/3/library/stdtypes.html#str.capitalize)()
   - Devuelve una copia de la cadena con su primer carácter en mayúscula y el resto en minúsculas.
 ```
 
 ---
-### Información
+### Información de la cadena
 
 Métodos para obtener información sobre la cadena.
 
@@ -219,35 +238,35 @@ Métodos para obtener información sobre la cadena.
 
 * - Funciones
   - Descripción
-* - [isdigit](https://docs.python.org/3/library/stdtypes.html#str.isdigit)`()`
+* - [isdigit](https://docs.python.org/3/library/stdtypes.html#str.isdigit)()
   - Devuelve `True` si todos los caracteres de la cadena son dígitos y hay al menos un carácter, `False` en caso contrario.
-* - [isprintable](https://docs.python.org/3/library/stdtypes.html#str.isprintable)`()`
+* - [isprintable](https://docs.python.org/3/library/stdtypes.html#str.isprintable)()
   - Retorna `True` si todos los caracteres en la cadena son imprimibles o si es una cadena vacía, `False` en caso contrario.
-* - [isspace](https://docs.python.org/3/library/stdtypes.html#str.isspace)`()`
+* - [isspace](https://docs.python.org/3/library/stdtypes.html#str.isspace)()
   - Retorna `True` si solo hay espacios en blanco en la cadena y hay al menos un carácter, `False` en caso contrario.
-* - [isupper](https://docs.python.org/3/library/stdtypes.html#str.isupper)`()`
+* - [isupper](https://docs.python.org/3/library/stdtypes.html#str.isupper)()
   - Retorna `True` si todos los caracteres son mayúsculas y hay al menos un caracter alfabético en mayúsculas, `False` en caso contrario.
-* - [count](https://docs.python.org/3/library/stdtypes.html#str.count)`(sub[, start[, end]])`
+* - [count](https://docs.python.org/3/library/stdtypes.html#str.count)(sub[, start[, end]])
   - Devuelve el número de ocurrencias no superpuestas de la subcadena `sub` en el rango [`start`, `end`].
-* - [istitle](https://docs.python.org/3/library/stdtypes.html#str.istitle)`()`
+* - [istitle](https://docs.python.org/3/library/stdtypes.html#str.istitle)()
   - Retorna `True` si la cadena es una cadena con título y hay al menos una carácter.
-* - [startswith](https://docs.python.org/3/library/stdtypes.html#str.startswith)`(prefix[, start[, end]])`
+* - [startswith](https://docs.python.org/3/library/stdtypes.html#str.startswith)(prefix[, start[, end]])
   - Devuelve `True` si la cadena comienza con el prefijo; de lo contrario, devuelve `False`.
-* - [islower](https://docs.python.org/3/library/stdtypes.html#str.islower)`()`
+* - [islower](https://docs.python.org/3/library/stdtypes.html#str.islower)()
   - Retorna `True` si todos los caracteres en la cadena están en minúsculas y hay al menos un carácter en minúsculas, de lo contrario retornar `False`.
-* - [isdecimal](https://docs.python.org/3/library/stdtypes.html#str.isdecimal)`()`
+* - [isdecimal](https://docs.python.org/3/library/stdtypes.html#str.isdecimal)()
   - Retorna `True` si todos los caracteres en la cadena son caracteres decimales y hay al menos un carácter, `False` de lo contrario.
-* - [isidentifier](https://docs.python.org/3/library/stdtypes.html#str.isidentifier)`()`
+* - [isidentifier](https://docs.python.org/3/library/stdtypes.html#str.isidentifier)()
   - Retorna `True` si la cadena es un identificador válido.
 * - [endswith](https://docs.python.org/3/library/stdtypes.html#str.endswith)`(suffix[, start[, end]])`
   - Retorna `True` si la cadena termina con algún sufijo en específico.
-* - [isalpha](https://docs.python.org/3/library/stdtypes.html#str.isalpha)`()`
+* - [isalpha](https://docs.python.org/3/library/stdtypes.html#str.isalpha)()
   - Devuelve `True` si todos los caracteres de la cadena son alfabéticos y hay al menos un carácter, `False` en caso contrario.
-* - [isascii](https://docs.python.org/3/library/stdtypes.html#str.isascii)`()`
+* - [isascii](https://docs.python.org/3/library/stdtypes.html#str.isascii)()
   - Retorna `True` si la cadena está vacía o todos los caracteres de la cadena son ASCII, `False` en caso contrario.
-* - [isalnum](https://docs.python.org/3/library/stdtypes.html#str.isalnum)`()`
+* - [isalnum](https://docs.python.org/3/library/stdtypes.html#str.isalnum)()
   - Retorna `True` si todos los caracteres de la cadena son alfanuméricos.
-* - [isnumeric](https://docs.python.org/3/library/stdtypes.html#str.isnumeric)`()`
+* - [isnumeric](https://docs.python.org/3/library/stdtypes.html#str.isnumeric)()
   - Retorna `True` si todos los caracteres de la cadena son numéricos.
 ```
 
@@ -261,11 +280,11 @@ Otros métodos para cadenas.
 
 * - Funciones
   - Descripción
-* - [maketrans](https://docs.python.org/3/library/stdtypes.html#str.maketrans)`(x[, y[, z]])`
+* - [maketrans](https://docs.python.org/3/library/stdtypes.html#str.maketrans)(x[, y[, z]])
   - Este método estático devuelve una tabla de traducción utilizable para `str.translate()`.
-* - [translate](https://docs.python.org/3/library/stdtypes.html#str.translate)`(table)`
+* - [translate](https://docs.python.org/3/library/stdtypes.html#str.translate)(table)
   - Devuelve una copia de la cadena en la que se ha mapeado cada carácter de acuerdo al mapeo indicado en `str.maketrans()`.
-* - [encode](https://docs.python.org/3/library/stdtypes.html#str.encode)`(encoding='utf-8', errors='strict')`
+* - [encode](https://docs.python.org/3/library/stdtypes.html#str.encode)(encoding='utf-8', errors='strict')
   - Devuelve la cadena codificada en bytes.
 ```
 
@@ -279,13 +298,13 @@ Métodos para reemplazar o remover subcadenas dentro de una cadena.
 
 * - Funciones
   - Descripción
-* - [removeprefix](https://docs.python.org/3/library/stdtypes.html#str.removeprefix)`(prefix, /)`
+* - [removeprefix](https://docs.python.org/3/library/stdtypes.html#str.removeprefix)(prefix, /)
   - Devuelve una copia de la cadena eliminando el prefijo `prefix` al inicio de la cadena, si existe.
 * - [expandtabs](https://docs.python.org/3/library/stdtypes.html#str.expandtabs)`(tabsize=8)`
   - Devuelve una copia de la cadena donde todos los caracteres de tabulación se reemplazan por uno o más espacios.
-* - [removesuffix](https://docs.python.org/3/library/stdtypes.html#str.removesuffix)`(suffix, /)`
+* - [removesuffix](https://docs.python.org/3/library/stdtypes.html#str.removesuffix)(suffix, /)
   - Retorna una copia de la cadena eliminando el sufijo `suffix` al final de la cadena, si existe.
-* - [replace](https://docs.python.org/3/library/stdtypes.html#str.replace)`(old, new[, count])`
+* - [replace](https://docs.python.org/3/library/stdtypes.html#str.replace)(old, new[, count])
   - Devuelve una copia de la cadena con todas las apariciones de la subcadena `old` reemplazada por `new`. Si se da el argumento opcional `count`, solo las primeras `count` ocurrencias son reemplazadas.
 ```
 
@@ -299,17 +318,17 @@ Métodos para separar cadenas o para crear cadenas desde iterables.
 
 * - Funciones
   - Descripción
-* - [join](https://docs.python.org/3/library/stdtypes.html#str.join)`(iterable)`
+* - [join](https://docs.python.org/3/library/stdtypes.html#str.join)(iterable)
   - Devuelve una cadena que es la concatenación de las cadenas en un iterable. Se generará un `TypeError` si hay valores que no sean cadenas en el iterable.
-* - [split](https://docs.python.org/3/library/stdtypes.html#str.split)`(sep=None, maxsplit=- 1)`
+* - [split](https://docs.python.org/3/library/stdtypes.html#str.split)(sep=None, maxsplit=- 1)
   - Devuelve una lista de las palabras de la cadena, utilizando `sep` como cadena delimitadora. Si se da `maxsplit`, como máximo se realizan `maxsplit` divisiones. Por default se usan espacios en blanco como separador.
-* - [rsplit](https://docs.python.org/3/library/stdtypes.html#str.rsplit)`(sep=None, maxsplit=- 1)`
+* - [rsplit](https://docs.python.org/3/library/stdtypes.html#str.rsplit)(sep=None, maxsplit=- 1)
   - Devuelve una lista de las palabras de la cadena, utilizando `sep` como cadena delimitadora. Si se da `maxsplit`, como máximo se realizan `maxsplit` divisiones. Por default se usan espacios en blanco como separador.
-* - [splitlines](https://docs.python.org/3/library/stdtypes.html#str.splitlines)`(keepends=False)`
+* - [splitlines](https://docs.python.org/3/library/stdtypes.html#str.splitlines)(keepends=False)
   - Devuelve una lista de las líneas de la cadena, separando por los saltos de línea.
-* - [partition](https://docs.python.org/3/library/stdtypes.html#str.partition)`(sep)`
+* - [partition](https://docs.python.org/3/library/stdtypes.html#str.partition)(sep)
   - Divide la cadena en la primera aparición de `sep` y devuelva un `tuple` de 3 elementos que contiene la parte anterior al separador, el propio separador y la parte después del separador.
-* - [rpartition](https://docs.python.org/3/library/stdtypes.html#str.rpartition)`(sep)`
+* - [rpartition](https://docs.python.org/3/library/stdtypes.html#str.rpartition)(sep)
   - Divide la cadena en la última aparición de `sep` y devuelva un `tuple` de 3 elementos que contiene la parte anterior al separador, el propio separador y la parte después del separador.
 ```
 
@@ -323,18 +342,18 @@ Métodos para eliminar caracteres al inicio, final o ambos de una cadena.
 
 * - Funciones
   - Descripción
-* - [strip](https://docs.python.org/3/library/stdtypes.html#str.strip)`([chars])`
+* - [strip](https://docs.python.org/3/library/stdtypes.html#str.strip)([chars])
   - Elimina los espacios en blanco o un conjunto de caracteres, al principio y final de una cadena.
-* - [lstrip](https://docs.python.org/3/library/stdtypes.html#str.lstrip)`([chars])`
+* - [lstrip](https://docs.python.org/3/library/stdtypes.html#str.lstrip)([chars])
   - Elimina los espacios en blanco o un conjunto de caracteres en específico al principio de la cadena. Retorna una copia de la cadena.
-* - [rstrip](https://docs.python.org/3/library/stdtypes.html#str.rstrip)`([chars])`
+* - [rstrip](https://docs.python.org/3/library/stdtypes.html#str.rstrip)([chars])
   - Elimina los espacios en blanco o un conjunto de caracteres en específico al final de la cadena.
 ```
 
 ---
 ## Formatos de cadenas.
 
-En esta sección se explica el método `str.format()` y las "f-strings" que permiten darle un formato personalizado a las cadenas e incluir de manera dinámica variables en la cadena.
+En esta sección se explica el método `str.format()` y las "_f-strings_" que permiten darle un formato personalizado a las cadenas e incluir de manera dinámica variables en la cadena.
 
 :::{warning} 
 Existen otros métodos para hacer lo mismo como los `string.Template` o usando el operador `%`, pero no se cubrirán en esta página.
@@ -350,7 +369,7 @@ Es un método que sirve para imprimir valores de variables en algún formato en 
 
 Existen tres formas principales de usar este método:
 
-**índices**
+**1. índices**
 
 - Dentro de la cadena se usa `{0}`, `{1}`, `{2}`, ..., que indican los índices de los argumentos de `str.format()`, donde 0 es el primer argumento, 1 el segundo, etc. 
 - Un mismo índice `{i}` se puede poner múltiples veces, de manera que lo imprima más de una vez en una misma cadena. 
@@ -371,7 +390,7 @@ print(cadena.format(nombre, version))
 ```
 
 ---
-**nombres**
+**2. nombres**
 
 - En la cadena, los campos `{}` deben de tener nombres, los cuales se deben especificar en `str.format()` como un par  `name=val`.
 
@@ -381,7 +400,7 @@ Ejemplo:
 nombre = "Python"
 version = 11
 
-# Definir la platilla
+# Definir la plantilla
 cadena = "Lenguaje: {languaje}\nVersión: {version}"
 
 # Imprimir la cadena con los valores de las variables
@@ -389,7 +408,7 @@ print(cadena.format(languaje=nombre, version=version))
 ```
 
 ---
-**diccionario**
+**3. diccionario**
 
 - El argumento de `str.format()` es un diccionario y en los campos `{}` se accede a los valores del diccionario recuperando el valor con los nombres de las llaves del diccionario. 
 - Los nombres de las llaves dentro de la cadena no se deben de poner entre comillas.
@@ -399,7 +418,7 @@ Ejemplo:
 # Definir el diccionario
 my_dict = {"nombre": "Python", "version": 11}
 
-# Definir la platilla
+# Definir la plantilla
 cadena = "Lenguaje: {x[nombre]}\nVersión: {x[version]}"
 
 # Imprimir la cadena con los valores del diccionario
@@ -409,11 +428,11 @@ print(cadena.format(x=my_dict))
 ---
 ### f-strings
 
-Es una alternativa al método `str.format()`, está disponible en Python 3.6+. Requiere una sintaxis más sencilla y es más rápida, para ello se agrega el prefijo `f` a una cadena. Al igual que con el método `str.format()` se utilizan llaves `{}` para insertar los valores de las variables, pero el en caso de la f-string se ponen directamente las variables o expresiones.
+Es una alternativa al método `str.format()`, está disponible en Python 3.6+. Requiere una sintaxis más sencilla y es más rápida, para ello se agrega el prefijo `f` a una cadena. Al igual que con el método `str.format()` se utilizan llaves `{}` para insertar los valores de las variables, pero en el caso de las f-string se ponen directamente las variables o expresiones.
 
 **Sintaxis**:
 ```python
-f"text ... {expression} ..."
+f"... {expression} ..."
 ```
 - _expression_: Es un valor, un objeto o incluso funciones y/o métodos que retornen un objeto imprimible. El valor mostrado será el mismo que el del método `__str__()` o `__repr__()` de la clase del objeto.
 
@@ -427,7 +446,7 @@ version = 11
 print(f"Lenguaje: {nombre}\nVersión: {version}")
 ```
 
-Se puede relaizar una conversión en la cadena, algunas conversiones disponibles son:
+Se puede realizar una conversión en los campos `{}`, algunas conversiones disponibles son:
 - `!s`: Version en cadena.
 - `!r`: Cadena en versión imprimible, es decir, entre comillas, (solo funciona si la expresión es `str`).
 - `!a`: Como `!r` pero ignora los caracteres non-ASCII.
@@ -446,8 +465,11 @@ print(f"Lenguaje: {nombre!r}\nVersión: {version!s}")
 
 Para dar formatos en el método `str.format()` y en f-string, se utiliza dos puntos y el formato que se quiere dar dentro de las llaves `{}`:
 ```python
-f"text ... {expression:format}"
-"text ... {expression:format} ...".format(...)
+# f-string
+f"... {expression:format}"
+
+# método format
+"... {expression:format} ...".format(...)
 ```
 - <code><i> format </i></code>: Es el formato que se quiere dar.
 
@@ -487,7 +509,8 @@ Los formatos disponibles son:
 - _N_: Son números enteros, suelen ser opcionales.
 - _expression_: Es la expresión, número, cadena, etc. a la que se le dará formato.
 
-Ejemplos_
+**Ejemplos***
+
 ```{code-cell} ipython3
 # Definir la variable
 x = 1897.9876

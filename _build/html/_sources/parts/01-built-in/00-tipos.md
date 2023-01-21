@@ -1,5 +1,6 @@
 # Tipos Built-In
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ac pellentesque elit, vel laoreet mauris. Morbi sed facilisis ligula. Aliquam ut accumsan leo, vitae commodo ligula. Nulla ipsum purus, accumsan et rutrum id, varius vitae sem. Nam ac erat ut justo elementum lobortis sed ac ipsum. Etiam malesuada odio eu ex consectetur, nec pretium nisl finibus. Donec malesuada tempor pulvinar. Ut pharetra sapien convallis facilisis scelerisque.
+En esta sección se presentan los prinicipales tipos buit-in de Python. Tener en cuenta que no es una lista extensiva de todos los tipos built-in de python, solo de los principales presentados en la [documentación](https://docs.python.org/3/library/stdtypes.html) de Python.
 
-Donec aliquet leo in gravida luctus. Suspendisse ultricies tincidunt enim tempus laoreet. Maecenas eget mi tristique purus aliquet eleifend vitae rutrum metus. Praesent ac euismod nulla. Duis ultrices, elit sit amet fermentum dictum, purus odio maximus risus, quis fringilla erat dui mollis libero. Morbi eget ipsum ac dui faucibus elementum in eu nisl. Nullam pellentesque risus non facilisis luctus. Suspendisse volutpat sapien lorem, in lobortis erat gravida non. Aliquam hendrerit velit non purus rhoncus, nec pretium magna blandit. Cras sed dictum lectus. Nunc consectetur, dolor sed molestie mattis, tellus eros venenatis sem, id porta quam arcu non erat. Praesent eu arcu lorem. 
+```{tableofcontents}
+````
