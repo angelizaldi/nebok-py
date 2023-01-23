@@ -489,12 +489,36 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tabla-de-contenido">
+   Tabla de contenido
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -506,6 +530,19 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tabla-de-contenido">
+   Tabla de contenido
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -516,6 +553,8 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="python-estandar">
 <h1>Python estándar<a class="headerlink" href="#python-estandar" title="Permalink to this headline">#</a></h1>
 <p>Esta sección presenta la librería estándar que viene por default en todas las distribuciones de Python. Para más información sobre la librería estándar consultar la <a class="reference external" href="https://docs.python.org/3/library/index.html">documentación</a> de Python.</p>
+<section id="tabla-de-contenido">
+<h2>Tabla de contenido<a class="headerlink" href="#tabla-de-contenido" title="Permalink to this headline">#</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="01-ayuda.html">Obtener ayuda</a></li>
@@ -543,6 +582,7 @@ title="Print to PDF"
 <li class="toctree-l1"><a class="reference internal" href="25-func-built-in.html">Funciones built-in</a></li>
 </ul>
 </div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">

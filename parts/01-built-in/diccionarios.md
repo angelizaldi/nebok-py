@@ -12,7 +12,7 @@ kernelspec:
 
 # Diccionarios
 
-Correspnden al tipo de dato `dict`. Algunas características de las diccionarios, son:
+Corresponde al tipo de dato `dict`. Algunas características de las diccionarios son:
 - Utilizan un formato `key-value` para almacenar valores.
 - Es mutable: Se puede modificar una vez creado.
 - Sus elementos no están ordenados.
@@ -25,16 +25,15 @@ Para más información visitar la [documentación](https://docs.python.org/3/lib
 ## Crear un diccionario
 
 Existen dos métodos principales para crear una diccionario
+
 **1.** Poner los elementos en un par `key: value`, separados por coma, dentro de llaves `{}`:
 ```python
 # Crear un diccionario con llaves
 X = {key1: value1, key2: value2, ...}
 ```
-**2.** Usar la función `dict()`, para ellos existen diversas formas de definir el diccionario:
-```python
-# Usando key=value
-X = dict(key1=value1, key2=value2, ...)
 
+**2.** Usar la función `dict()`. Para ello existen diversas formas de definir el diccionario:
+```python
 # Usando key=value dentro de dict()
 X = dict(key1=value1, key2=value2, ...)
 
@@ -89,7 +88,7 @@ del X
 Otras formas de eliminar elementos con métodos son:
 - Para remover un elemento específico usar el método `dict.pop`.
 - Para remover un elemento de un índice en específico usar el método `dict.popitem`.
-- Para remover un elemento de un índice en específico usar el método `dict.clear`.
+- Para eliminar todos los elementos usar el método `dict.clear`.
 
 Revisar {ref}`Metodos-Eliminar <dict-metodos-eliminar>`
 ```
@@ -123,11 +122,11 @@ X['key']
 ```
 
 ```{note}
-Otras formas de acceder a valores con métodos sin:
+Otras formas de acceder a valores con métodos:
 - Acceder a un elemento con una llave en específico: `dict.get`.
 - Acceder a los los valores: `dict.values`
 - Acceder a todas las llaves: `dict.keys`
-- Accedes a todos los pares `key-value`: `dict.items`
+- Acceder a todos los pares `key-value`: `dict.items`
 
 Revisar {ref}`Metodos-Acceder <dict-metodos-acceder>`
 ```
@@ -135,7 +134,7 @@ Revisar {ref}`Metodos-Acceder <dict-metodos-acceder>`
 ---
 ## Iteración
 
-Para interar sobre los elementos de un diccionario se puede usar un `for loop`. Algunas opciones de iteración son:
+Para iterar sobre los elementos de un diccionario se puede usar un `for loop`. Algunas opciones de iteración son:
 ```python
 # Iterar sobre las llaves del diccionario X:
 # Opción 1:
@@ -195,7 +194,7 @@ print(dict.keys(X))
 
 Métodos para recuperar las llaves, los valores o ambos de un diccionario.
 
-```{list-table} Acceder
+```{list-table}
 :header-rows: 1
 :name: dict-metodos-acceder
 
@@ -216,7 +215,7 @@ Métodos para recuperar las llaves, los valores o ambos de un diccionario.
 
 Métodos para agregar elementos a un diccionario.
 
-```{list-table} Agregar
+```{list-table}
 :header-rows: 1
 :name: dict-metodos-agregar
 
@@ -231,7 +230,7 @@ Métodos para agregar elementos a un diccionario.
 
 Métodos para eliminar elementos de un diccionario.
 
-```{list-table} Eliminar
+```{list-table}
 :header-rows: 1
 :name: dict-metodos-eliminar
 
@@ -250,7 +249,7 @@ Métodos para eliminar elementos de un diccionario.
 
 Otros métodos de diccionarios.
 
-```{list-table} Otros
+```{list-table}
 :header-rows: 1
 
 * - Funciones

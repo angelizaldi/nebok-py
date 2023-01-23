@@ -12,7 +12,7 @@ kernelspec:
 
 # Cadenas
 
-El tipo de dato `str` almacenan una secuencia de caracteres encerrados entre comillas dobles o simples. `str` es considerado una secuencia. Sus principales características son:
+El tipo de dato `str` almacenan una secuencia de caracteres encerrados entre comillas dobles o simples. `str` es considerado un escalas y una secuencia. Sus principales características son:
 - Es inmutable: No se puede modificar una vez creada.
 - Está indexado: Se puede acceder a sus elementos por medio de un índice, por lo tanto sus elementos están ordenados.
 - Es un iterable: Se puede iterar por sus elementos y se puede utilizar la palabra reservada `in` para verificar membresía.
@@ -57,9 +57,9 @@ X = str(Y)
 
 Se utiliza para poder ingresar letras o símbolos especiales. Se utilizan los códigos unicode, que se pueden consultar en [códigos unicode](https://unicode-table.com/es/#basic-latin).
 
-Para insertar códigos unicode se debe de poner el código dentro de una cadena con el prefijo `u` y el código se pone como <code>\u<i>code</i></code>, donde <code>\u<i>code</i></code> es el código de unicode. Ejemplo:
+Para insertar códigos unicode se debe de poner el código dentro de una cadena con el prefijo `u` y el código se pone como <code>\u<i>code</i></code>, donde <code><i>code</i></code> es el código de unicode. Ejemplo:
 
-```{code-cell} ipython3
+```{code-cell} python3
 # Ingresando un espacio en blanco y el símbolo "!" con códigos unicode:
 print(u"Hola\u0020mundo\u0021") 
 ```
@@ -67,9 +67,9 @@ print(u"Hola\u0020mundo\u0021")
 ---
 ### Raw strings
 
-Son cadenas "crudas", que ignoran _caracteres ilegales_ como `\n` y los imprime tal cual. Para crear una cadena cruda se utiliza una `r` como prefijo de la cadena.
+Son cadenas "crudas", que ignoran _caracteres especiales como `\n` y los imprime tal cual. Para crear una cadena cruda se utiliza una `r` como prefijo de la cadena.
 
-```{code-cell} ipython3
+```{code-cell} python3
 # Una cadena normal
 print("text1\ttext2")
 
@@ -77,7 +77,7 @@ print("text1\ttext2")
 print(r"text1\ttext2")
 ```
 
-Los caracteres ilegales son:
+Los caracteres especiales son:
 - `\'`: Comilla simple.
 - `\"`: Comilla doble.
 - `\n`: Salto de línea.
@@ -90,8 +90,8 @@ Los caracteres ilegales son:
 ---
 ## Concatenar y repetir cadenas:
 
-Para concatenar cadenas se usa el operador `+`. Usar únicamente con objetos de tipo `str`:
-```{code-cell} ipython3
+Para concatenar cadenas se usa el operador `+`. Usar únicamente con objetos de tipo `str`.
+```{code-cell} python3
 # Definir las cadenas
 x = "Hola"
 y = "mundo!"
@@ -99,11 +99,29 @@ y = "mundo!"
 # Concatenar las cadenas
 print(x + " " + y)
 ```
+- Como se puede observar se puede concatenar variables de tipo `str` junto con cadenas directamente entre comillas simples o dobles.
+
+<br>
+
+Para concatenar cadenas en múltiples líneas se debe de encerrar las cadenas entre paréntesis:
+```{code-cell} python3
+# Definir las cadenas
+x = "Hola"
+y = "mundo!"
+
+# Concatenar las cadenas
+cadena = (x +
+          " " +
+          y)
+print(cadena)
+```
+
+<br>
 
 Para concatenar una misma cadena `n` veces usar el operador de multiplicación `*` con la cadena:
 ```{code-cell} ipython3
-# Repetir "text " 5 veces 
-print("text " * 5)
+# Repetir "hola " 5 veces 
+print("hola " * 5)
 ```
 
 ---
@@ -145,6 +163,23 @@ Algunos patrones útiles:
 - El caracter _n_: <br> `X[n-1]`
 - El último caracter: <br> `X[-1]`
 
+<br>
+
+**Ejemplo**
+```{code-cell} ipython3
+# Definir la cadena
+X = 'abcde'
+
+# Seleccionar primer elemento
+print(X[0])
+
+# Seleccionar el elemento 3, i.e, el índice 2
+print(X[2])
+
+# Seleccionar último elemento
+print(X[-1]) 
+```
+
 ---
 ### Slicing:
 Para seleccionar un rango de caracteres consecutivos tener en cuenta las siguientes características:
@@ -159,6 +194,26 @@ Algunos patrones útiles:
 - Desde el índice `i` hasta el `j`, sin incluir el `j`, cada `k` caracteres: <br> `X[i:j:k]`
 - Toda la cadena cada `k` caracteres: <br> `X[::k]`
 - Toda la cadena al revés: <br> `X[::-1]`
+
+<br>
+
+**Ejemplo**
+```{code-cell} ipython3
+# Definir la cadena
+X = 'abcde'
+
+# Seleccionar la primeras 3 letras
+print(X[:3])
+
+# Seleccionar las útlimas 2 letras
+print(X[-2:]) #  print(X[len(X)-2:])->print(X[3:])
+
+# Seleccionar las letras en posiciones (no indices) pares
+print(X[1::2]) 
+
+# Revertir la cadena
+print(X[::-1]) 
+```
 
 ---
 ## Métodos de cadenas
@@ -185,7 +240,7 @@ print(str.upper(X))
 
 Métodos para buscar subcadenas en una cadena.
 
-```{list-table} Buscar
+```{list-table}
 :header-rows: 1
 
 * - Funciones
@@ -205,7 +260,7 @@ Métodos para buscar subcadenas en una cadena.
 
 Métodos para modificar el formato de una cadena.
 
-```{list-table} Formato
+```{list-table}
 :header-rows: 1
 
 * - Funciones
@@ -241,7 +296,7 @@ Métodos para modificar el formato de una cadena.
 
 Métodos para obtener información sobre la cadena.
 
-```{list-table} Información
+```{list-table}
 :header-rows: 1
 
 * - Funciones
@@ -283,7 +338,7 @@ Métodos para obtener información sobre la cadena.
 
 Otros métodos para cadenas.
 
-```{list-table} Otros
+```{list-table}
 :header-rows: 1
 
 * - Funciones
@@ -301,7 +356,7 @@ Otros métodos para cadenas.
 
 Métodos para reemplazar o remover subcadenas dentro de una cadena.
 
-```{list-table} Reemplazar
+```{list-table}
 :header-rows: 1
 
 * - Funciones
@@ -321,7 +376,7 @@ Métodos para reemplazar o remover subcadenas dentro de una cadena.
 
 Métodos para separar cadenas o para crear cadenas desde iterables.
 
-```{list-table} Separar y Unir
+```{list-table}
 :header-rows: 1
 
 * - Funciones
@@ -345,7 +400,7 @@ Métodos para separar cadenas o para crear cadenas desde iterables.
 
 Métodos para eliminar caracteres al inicio, final o ambos de una cadena.
 
-```{list-table} Strip
+```{list-table}
 :header-rows: 1
 
 * - Funciones
@@ -440,7 +495,7 @@ Es una alternativa al método `str.format()`, está disponible en Python 3.6+. R
 
 **Sintaxis**:
 ```python
-f"... {expression} ..."
+f"texto {expression} texto"
 ```
 - _expression_: Es un valor, un objeto o incluso funciones y/o métodos que retornen un objeto imprimible. El valor mostrado será el mismo que el del método `__str__()` o `__repr__()` de la clase del objeto.
 
@@ -471,7 +526,7 @@ print(f"Lenguaje: {nombre!r}\nVersión: {version!s}")
 
 ### Formatos
 
-Para dar formatos en el método `str.format()` y en f-string, se utiliza dos puntos y el formato que se quiere dar dentro de las llaves `{}`:
+Para dar formatos en el método `str.format()` y en f-strings, se utiliza dos puntos y el formato que se quiere dar dentro de las llaves `{}`:
 ```python
 # f-string
 f"... {expression:format}"
@@ -517,6 +572,8 @@ Los formatos disponibles son:
 - _N_: Son números enteros, suelen ser opcionales.
 - _expression_: Es la expresión, número, cadena, etc. a la que se le dará formato.
 
+<br>
+
 **Ejemplos***
 
 ```{code-cell} ipython3
@@ -524,9 +581,13 @@ Los formatos disponibles son:
 x = 1897.9876
 
 # Diversos formatos que se pueden aplicar a "x".
-print(f"Sin formato: {x}")
-print(f"Separar los miles: {x:,}")
-print(f"Notación científica con 1 décimal: {x:.1e}")
-print(f"Con tres décimales (redondea): {x:.3f}")
-print(f"Combinación de separación de miles y 2 décimales: {x:,.2f}")
+print(f"Sin formato: {x}", end="\n"*2)
+
+print(f"Separar los miles: {x:,}", end="\n"*2)
+
+print(f"Notación científica con 1 décimal: {x:.1e}", end="\n"*2)
+
+print(f"Con tres décimales (redondea): {x:.3f}", end="\n"*2)
+
+print(f"Combinación de separación de miles y 2 décimales: {x:,.2f}", end="\n"*2)
 ```

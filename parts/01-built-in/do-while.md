@@ -1,7 +1,8 @@
-# Do While
+# While
 
 El cíclo `while` ejecuta un código mientras una condición sea `True`.
 ```python
+# Plantilla básica de un while
 while condition:
     expression
 ```
@@ -10,8 +11,8 @@ while condition:
 ```{warning} Es muy importante que se respete la indentación, esa es la forma como Python determina qué parte del código forma parte de cada bloque de la estructura. Los dos puntos indican el inicio de un bloque que debe de estar indentado.
 ```
 
-```{warning} El ciclo `while` necesita una variable que se vaya actualizando en el código de la estructura y que se utilice en la condición. Excepto si se usa la sentencia `break`.
-```
+:::{attention} Es común que el ciclo `while` necesite una variable que se vaya actualizando en el código de la estructura y que se utilice en la condición. El valor de esta variable determinará cuando se termina el cíclo.
+:::
 
 ---
 ## Sentencias
@@ -22,6 +23,7 @@ Son palabras reservadas para manipular el comportamiento del cíclo:
 - `pass`: Un cíclo `for` no puede estar vacío, si por alguna razón se necesita un `for` vacío usar `pass` para evitar un error.
 - `else`: Se ejecuta un código una vez que el cíclo ya se terminó de ejecutar. Esta parte no se ejecuta si se usa un `break`. La sintaxis es:
 ```python
+# Plantilla básica de un while - else
 while condition:
     expression
 else:

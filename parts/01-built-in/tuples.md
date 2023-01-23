@@ -27,7 +27,7 @@ Para más información visitar la [documentación](https://docs.python.org/3/lib
 
 Para crear un `tuple` existen distintas formas:
 1. Poner los elementos, separados por coma directamente
-2. Poner los elementos, separados por coma de paréntesis `()`.
+2. Poner los elementos, separados por coma entre paréntesis `()`.
 3. Utilizar la función `tuple()` para convertir un iterable a un `tuple`.
 ```python
 # Las siguientes expresiones son equivalentes
@@ -45,7 +45,7 @@ X = tuple(Y)
 ---
 ##  Concatenar y multiplicar:
 
-El operador `+` sirve para concatenar tuplas, los elementos se agrega al final `tuple`.
+El operador `+` sirve para concatenar tuplas, los elementos se agrega al final del `tuple`.
 ```python
 # Si X y Y son tuples, entonces W es la concatenacion de X y Y:
 W = X + Y
@@ -84,6 +84,23 @@ Algunos patrones útiles:
 - El elemento _n_: <br> `X[n-1]`
 - El último elemento: <br> `X[-1]`
 
+<br>
+
+**Ejemplo**
+```{code-cell} ipython3
+# Definir el tuple
+X = ("a", "b", "c", "d", "e")
+
+# Seleccionar primer elemento
+print(X[0])
+
+# Seleccionar el elemento 3, i.e, el índice 2
+print(X[2])
+
+# Seleccionar último elemento
+print(X[-1]) 
+```
+
 ### Slicing:
 Para seleccionar un rango de elementos consecutivos tener en cuenta las siguientes características:
 - Se utiliza dos puntos, indicando los indices de inicio, fin y el paso: <br/> `X[i:j:k]`
@@ -98,6 +115,26 @@ Algunos patrones útiles:
 - Toda la tupla cada `k` elementos: <br> `X[::k]`
 - Toda la tupla al revés: <br> `X[::-1]`
 
+<br>
+
+**Ejemplo**
+```{code-cell} ipython3
+# Definir el tuple
+X = ("a", "b", "c", "d", "e")
+
+# Seleccionar la primeras 3 letras
+print(X[:3])
+
+# Seleccionar las útlimas 2 letras
+print(X[-2:]) #  print(X[len(X)-2:])->print(X[3:])
+
+# Seleccionar las letras en posiciones (no indices) pares
+print(X[1::2]) 
+
+# Revertir el tuple
+print(X[::-1]) 
+```
+
 ##  Modificar tuples:
 Los tuples no se pueden modificar una vez creados. Un truco para modificar una tupla es convertir la tupla en una lista y después volverla a convertir en una tupla:
 ```python
@@ -107,7 +144,7 @@ X = (...)
 # Convertir a lista
 Y = list(X)
 
-# modificar
+# Modificar
 expression
 
 # Convertir a tuple de vuelta

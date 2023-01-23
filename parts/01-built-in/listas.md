@@ -23,7 +23,7 @@ Correspnden al tipo de dato `list`. Las listas son secuencias. Algunas caracter�
 Para más información visitar la [documentación](https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range) de Python.
 
 ---
-## Crear una lista:
+## Crear una lista
 Existen dos métodos principales para crear una lista
 1. Poner los elementos, separados por coma, dentro de corchetes `[]`:
 ```python
@@ -48,7 +48,7 @@ De esta manera modificaciones en `Y` no afectarán a `X` y viceversa.
 ```
 
 ---
-##  Agregar/Concatenar elementos:
+##  Agregar/Concatenar elementos
 
 Para agregar elementos a una lista existente se puede usar el operador `+`, que sirve para concatenar listas, los nuevos elementos se agregarán al final de la lista.
 ```python
@@ -73,7 +73,7 @@ Y = X * n
 ```
 
 ---
-## Eliminar Elementos:
+## Eliminar Elementos
 
 Para eliminar un elemento específico o la lista completa usar la palabra reservada `del` y el elemento que se quiere eliminar:
 ```python
@@ -93,7 +93,7 @@ Para más información revisar {ref}`Metodos-Eliminar <list-metodos-eliminar>`
 ```
 
 ---
-## Modificar Elementos:
+## Modificar Elementos
 
 Para modificar un elemento en específico usar su índice y el operador de asignación:
 ```python
@@ -103,11 +103,16 @@ X[i] = val
 
 Se pueden cambiar rangos completos con:
 ```python
-X[i:j] = [val1, val2, ...]
+# Modificar elementos en los índices de i a j
+X[i:j] = [vali, ..., valj]
+
+# También se puede usar
+X[i:j] = vali, ..., valj
 ```
+- El número de índices y de valores debe ser el mismo.
 
 ---
-## Verificar que un elemento exista en una lista:
+## Verificar que un elemento exista en una lista
 Para verificar si un elemento está dentro de una lista usar el operador de membresía `in`:
 ```python
 # Si X es una lista
@@ -116,9 +121,9 @@ x in X
 - Alternativamente se puede usar `not in`.
 
 ---
-## Selección de elementos: 
+## Selección de elementos 
 
-### Subsetting:
+### Subsetting
 Para seleccionar elementos de una lista tener en cuenta las siguientes características:
 - Se utilizan corchetes `[]` para acceder a los elementos, junto con el nombre de la lista y el índice del elemento: <br/>
 `X[i]`
@@ -132,6 +137,23 @@ Algunos patrones útiles:
 - El elemento _n_: <br> `X[n-1]`
 - El último elemento: <br> `X[-1]`
 
+<br>
+
+**Ejemplo**
+```{code-cell} ipython3
+# Definir la lista
+X = ["a", "b", "c", "d", "e"]
+
+# Seleccionar primer elemento
+print(X[0])
+
+# Seleccionar el elemento 3, i.e, el índice 2
+print(X[2])
+
+# Seleccionar último elemento
+print(X[-1]) 
+```
+
 ---
 ### Slicing:
 Para seleccionar un rango de elementos consecutivos tener en cuenta las siguientes características:
@@ -141,11 +163,31 @@ Para seleccionar un rango de elementos consecutivos tener en cuenta las siguient
 Algunos patrones útiles:
 - Desde el índice `i` hasta el `j`, sin incluir el `j`: <br> `X[i:j]`
 - Desde el inicio hasta el `j`, sin incluir el `j`: <br> `X[:j]`
-- Desde la posición `i` hasta el final de la tupla: <br>`X[i:]`
+- Desde la posición `i` hasta el final de la lista: <br>`X[i:]`
 - Toda la lista: <br> `X[:]`
 - Desde el índice `i` hasta el `j`, sin incluir el `j`, cada `k` elementos: <br> `X[i:j:k]`
 - Toda la lista cada `k` elementos: <br> `X[::k]`
 - Toda la lista al revés: <br> `X[::-1]`
+
+<br>
+
+**Ejemplo**
+```{code-cell} ipython3
+# Definir la lista
+X = ["a", "b", "c", "d", "e"]
+
+# Seleccionar la primeras 3 letras
+print(X[:3])
+
+# Seleccionar las útlimas 2 letras
+print(X[-2:]) #  print(X[len(X)-2:])->print(X[3:])
+
+# Seleccionar las letras en posiciones (no indices) pares
+print(X[1::2]) 
+
+# Revertir la lista
+print(X[::-1]) 
+```
 
 ---
 ## Unpack de listas:
@@ -167,7 +209,7 @@ x1, x2, ... , *xi  = X
 ---
 ## Iteración:
 
-Para interar sobre todos los elementos de una lista se puede usar un `for loop`. Algunas opciones de iteración son:
+Para iterar sobre todos los elementos de una lista se puede usar un `for loop`. Algunas opciones de iteración son:
 ```python
 # Iterar sobre los elementos de la lista X:
 for ele in X:
@@ -181,7 +223,7 @@ for i in range(len(X)):
 for i, ele in enumerate(X):
     expression
 ```
-- En todos los ejemplos anteriores `i` y `ele` son nombres opcionales.
+- En todos los ejemplos anteriores `i` y `ele` son nombres arbitrarios.
 
 ---
 (list-comp)=
@@ -189,6 +231,7 @@ for i, ele in enumerate(X):
 
 Son listas que se crean a partir procesos iterativos con la estructura `for`. Sintaxis:
 ```python
+# Plantilla de una list comprehesion
 X = [expression for i in collection]
 ```
 donde:
@@ -197,6 +240,7 @@ donde:
 
 Lo anterior equivale a:
 ```python
+# Una list comprehesion equivale a:
 X = []
 for i in collection:
     X.append(expression)
@@ -216,6 +260,8 @@ X = [expression_true if condition else expression_false for i in collection]
 
 - Una list comprehesion puede tener ambos tipos de condicionales al mismo tiempo.
 
+<br>
+
 **Ejemplo**: Encontrar los elementos al cuadrado de una lista numérica, solo si el número es par.
 ```{code-cell} ipython3
 # Definir una lista
@@ -227,7 +273,7 @@ pares_cuadrados = [numero**2 for numero in numeros if numero % 2 == 0]
 # Imprimir la lista
 print(pares_cuadrados)
 ```
-* En el código anterior hubiera sido más eficiente utilizar la función `range()` para crear la secuencia de números, es decir, `numeros = range(11)`.
+* En el código anterior hubiera sido más eficiente utilizar la función `range()` para crear la secuencia de números, es decir, `numeros = range(1, 11)`.
 
 ## Métodos de listas:
 
@@ -252,7 +298,7 @@ print(list.count(X, "a"))
 
 Métodos para agregar elementos a una lista.
 
-```{list-table} Agregar
+```{list-table}
 :header-rows: 1
 :name: list-metodos-agregar
 
@@ -271,7 +317,7 @@ Métodos para agregar elementos a una lista.
 
 Métodos para eliminar elementos de una lista.
 
-```{list-table} Eliminar
+```{list-table}
 :header-rows: 1
 :name: list-metodos-eliminar
 
@@ -290,7 +336,7 @@ Métodos para eliminar elementos de una lista.
 
 Métodos para obtener información sobre una lista.
 
-```{list-table} Información
+```{list-table}
 :header-rows: 1
 
 * - Funciones
@@ -298,7 +344,7 @@ Métodos para obtener información sobre una lista.
 * - [count](https://docs.python.org/3/library/stdtypes.html#common-sequence-operations)(x)
   - Retorna el número total de ocurrencias de `x` en la lista.
 * - [index](https://docs.python.org/3/library/stdtypes.html#common-sequence-operations)(x[, i[, j]])
-  - Indice de la primera aparición de `x` en la lista (en o después índice `i` y antes del índice `j`). Retorna `ValueError` si `x` no está en la lista. 
+  - Indice de la primera aparición de `x` en la lista (en o después del índice `i` y antes del índice `j`). Retorna `ValueError` si `x` no está en la lista. 
 ```
 
 ---
@@ -306,7 +352,7 @@ Métodos para obtener información sobre una lista.
 
 Métodos para ordenar una lista.
 
-```{list-table} Ordenar
+```{list-table}
 :header-rows: 1
 
 * - Funciones
@@ -322,7 +368,7 @@ Métodos para ordenar una lista.
 
 Métodos para copiar una lista.
 
-```{list-table} Otros
+```{list-table}
 :header-rows: 1
 
 * - Funciones

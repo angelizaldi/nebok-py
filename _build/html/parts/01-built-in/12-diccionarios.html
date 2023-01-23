@@ -385,6 +385,35 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/parts/01-built-in/12-diccionarios.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -452,6 +481,23 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
+        <a href="../../_sources/parts/01-built-in/12-diccionarios.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
         <a href="../../_sources/parts/01-built-in/12-diccionarios.md"
    class="headerbtn"
    data-toggle="tooltip"
@@ -513,37 +559,37 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#crear-un-diccionario">
-   Crear un diccionario:
+   Crear un diccionario
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#agregrar-elementos">
-   Agregrar elementos:
+   Agregrar elementos
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#eliminar-elementos">
-   Eliminar Elementos:
+   Eliminar Elementos
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#modificar-elementos">
-   Modificar Elementos:
+   Modificar Elementos
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#verificar-membresia">
-   Verificar membresía:
+   Verificar membresía
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#seleccion-de-elementos">
-   Selección de elementos:
+   Selección de elementos
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#iteracion">
-   Iteración:
+   Iteración
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -557,8 +603,8 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#acceder-a-contenido">
-     Acceder a contenido
+    <a class="reference internal nav-link" href="#acceder-a-elementos">
+     Acceder a elementos
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -577,6 +623,11 @@ title="Print to PDF"
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#funciones-utiles-para-diccionarios">
+   Funciones útiles para diccionarios
+  </a>
  </li>
 </ul>
 
@@ -599,37 +650,37 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#crear-un-diccionario">
-   Crear un diccionario:
+   Crear un diccionario
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#agregrar-elementos">
-   Agregrar elementos:
+   Agregrar elementos
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#eliminar-elementos">
-   Eliminar Elementos:
+   Eliminar Elementos
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#modificar-elementos">
-   Modificar Elementos:
+   Modificar Elementos
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#verificar-membresia">
-   Verificar membresía:
+   Verificar membresía
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#seleccion-de-elementos">
-   Selección de elementos:
+   Selección de elementos
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#iteracion">
-   Iteración:
+   Iteración
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -643,8 +694,8 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#acceder-a-contenido">
-     Acceder a contenido
+    <a class="reference internal nav-link" href="#acceder-a-elementos">
+     Acceder a elementos
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -664,6 +715,11 @@ title="Print to PDF"
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#funciones-utiles-para-diccionarios">
+   Funciones útiles para diccionarios
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -676,7 +732,7 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="diccionarios">
 <h1>Diccionarios<a class="headerlink" href="#diccionarios" title="Permalink to this headline">#</a></h1>
-<p>Correspnden al tipo de dato <code class="docutils literal notranslate"><span class="pre">list</span></code>. Las listas son un <code class="docutils literal notranslate"><span class="pre">iterable</span></code>. Algunas características de las diccionarios, son:</p>
+<p>Correspnden al tipo de dato <code class="docutils literal notranslate"><span class="pre">dict</span></code>. Algunas características de las diccionarios, son:</p>
 <ul class="simple">
 <li><p>Utilizan un formato <code class="docutils literal notranslate"><span class="pre">key-value</span></code> para almacenar valores.</p></li>
 <li><p>Es mutable: Se puede modificar una vez creado.</p></li>
@@ -684,31 +740,48 @@ title="Print to PDF"
 <li><p>Es un iterable: Se puede iterar por sus elementos y se puede utilizar la palabra reservada <code class="docutils literal notranslate"><span class="pre">in</span></code> para verificar membresía de llaves.</p></li>
 <li><p>Se puede hacer <em>subsetting</em>.</p></li>
 </ul>
+<p>Para más información visitar la <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#mapping-types-dict">documentación</a> de Python.</p>
 <hr class="docutils" />
 <section id="crear-un-diccionario">
-<h2>Crear un diccionario:<a class="headerlink" href="#crear-un-diccionario" title="Permalink to this headline">#</a></h2>
-<p>Existen dos métodos principales para crear una diccionario</p>
-<ol class="simple">
-<li><p>Poner los elementos en un par <code class="docutils literal notranslate"><span class="pre">key:</span> <span class="pre">value</span></code>, separados por coma, dentro de llaves <code class="docutils literal notranslate"><span class="pre">{}</span></code>:</p></li>
-</ol>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="p">{</span><span class="n">key1</span><span class="p">:</span> <span class="n">value1</span><span class="p">,</span> <span class="n">key2</span><span class="p">:</span> <span class="n">value2</span><span class="p">,</span> <span class="o">...</span><span class="p">}</span>
+<h2>Crear un diccionario<a class="headerlink" href="#crear-un-diccionario" title="Permalink to this headline">#</a></h2>
+<p>Existen dos métodos principales para crear una diccionario
+<strong>1.</strong> Poner los elementos en un par <code class="docutils literal notranslate"><span class="pre">key:</span> <span class="pre">value</span></code>, separados por coma, dentro de llaves <code class="docutils literal notranslate"><span class="pre">{}</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear un diccionario con llaves</span>
+<span class="n">X</span> <span class="o">=</span> <span class="p">{</span><span class="n">key1</span><span class="p">:</span> <span class="n">value1</span><span class="p">,</span> <span class="n">key2</span><span class="p">:</span> <span class="n">value2</span><span class="p">,</span> <span class="o">...</span><span class="p">}</span>
 </pre></div>
 </div>
-<ol class="simple">
-<li><p>Poner los elementos en un par <code class="docutils literal notranslate"><span class="pre">key=value</span></code>, separados por coma, dentro del constructor <code class="docutils literal notranslate"><span class="pre">dict()</span></code>:</p></li>
-</ol>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">key1</span><span class="o">=</span><span class="n">value1</span><span class="p">,</span> <span class="n">key2</span><span class="o">=</span><span class="n">value2</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+<p><strong>2.</strong> Usar la función <code class="docutils literal notranslate"><span class="pre">dict()</span></code>, para ellos existen diversas formas de definir el diccionario:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Usando key=value</span>
+<span class="n">X</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">key1</span><span class="o">=</span><span class="n">value1</span><span class="p">,</span> <span class="n">key2</span><span class="o">=</span><span class="n">value2</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+
+<span class="c1"># Usando key=value dentro de dict()</span>
+<span class="n">X</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">key1</span><span class="o">=</span><span class="n">value1</span><span class="p">,</span> <span class="n">key2</span><span class="o">=</span><span class="n">value2</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+
+<span class="c1"># Usando una lista de tupla con valor key, value</span>
+<span class="n">X</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="n">key1</span><span class="p">,</span> <span class="n">value1</span><span class="p">),</span> <span class="p">(</span><span class="n">key2</span><span class="p">,</span> <span class="n">value2</span><span class="p">),</span> <span class="o">...</span><span class="p">])</span>
 </pre></div>
 </div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
 <ul class="simple">
-<li><p>En ambos casos las <em>key</em> deben de ser de un tipo inmutable, lo más común es usar cadenas, números o valor <code class="docutils literal notranslate"><span class="pre">bool</span></code> y además deben de ser únicas, es decir, no puede haber dos o más elementos con la misma llave.</p></li>
+<li><p>Las <em>key</em> de un diccionario deben de ser de un tipo inmutable, lo más común es usar cadenas, números o valores <code class="docutils literal notranslate"><span class="pre">bool</span></code> y además deben de ser únicas, es decir, no puede haber dos o más elementos con la misma llave.</p></li>
 <li><p>Los <em>value</em> pueden ser cualquier tipo de objeto.</p></li>
 </ul>
-<p>Otra forma de crear un diccionario es con <span class="xref std std-ref">dict-comp</span>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Al crear un diccionario el objeto <code class="docutils literal notranslate"><span class="pre">X</span></code> en realidad hace referencia a los elementos que se almacenan en memoria, si se asigna el diccionario a otro objeto <code class="docutils literal notranslate"><span class="pre">Y</span></code> con el operador de asignación, es decir <code class="docutils literal notranslate"><span class="pre">Y=X</span></code>, entonces lo que se copia es la referencia, no los valores como tal, entonces modificaciones en <code class="docutils literal notranslate"><span class="pre">Y</span></code> también afecta a <code class="docutils literal notranslate"><span class="pre">X</span></code> y vicerversa. Para que esto no suceda se puede usar:</p>
+<ul class="simple">
+<li><p>Y = dict(X)</p></li>
+<li><p>Y = X.copy()</p></li>
+</ul>
+<p>De esta manera modificaciones en <code class="docutils literal notranslate"><span class="pre">Y</span></code> no afectarán a <code class="docutils literal notranslate"><span class="pre">X</span></code> y viceversa</p>
+</div>
+<p>Otra forma de crear un diccionario es con <a class="reference internal" href="#dict-comp"><span class="std std-ref">Dict comprehesions:</span></a>.</p>
 </section>
 <hr class="docutils" />
 <section id="agregrar-elementos">
-<h2>Agregrar elementos:<a class="headerlink" href="#agregrar-elementos" title="Permalink to this headline">#</a></h2>
+<h2>Agregrar elementos<a class="headerlink" href="#agregrar-elementos" title="Permalink to this headline">#</a></h2>
 <p>Para agregar elementos a un diccionario simplemente poner entre corchetes el nombre de la nueva llave y con el operador de asignación darle un valor.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Si X es un diccionario:</span>
 <span class="n">X</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
@@ -716,17 +789,18 @@ title="Print to PDF"
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Otras formas de agregar elementos usando métodos:</p>
+<p>Otra forma de agregar elementos con métodos es:</p>
 <ul class="simple">
-<li><p>Para agregar algún elemento al diccionario usar el método <code class="docutils literal notranslate"><span class="pre">dict.append</span></code>.</p></li>
+<li><p>Agregar elementos desde otro objeto: <code class="docutils literal notranslate"><span class="pre">dict.update</span></code>.</p></li>
 </ul>
+<p>Revisar <a class="reference internal" href="#dict-metodos-agregar"><span class="std std-ref">Metodos-Agregar</span></a></p>
 </div>
 </section>
 <hr class="docutils" />
 <section id="eliminar-elementos">
-<h2>Eliminar Elementos:<a class="headerlink" href="#eliminar-elementos" title="Permalink to this headline">#</a></h2>
+<h2>Eliminar Elementos<a class="headerlink" href="#eliminar-elementos" title="Permalink to this headline">#</a></h2>
 <p>Para eliminar un elemento específico o el diccionario completo usar la palabra reservada <code class="docutils literal notranslate"><span class="pre">del</span></code> y el elemento que se quiere eliminar:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Eliminar el par key-value que corresponde a la llave &#39;key&#39; del diccionario X</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Eliminar el par key-value del diccionario X</span>
 <span class="k">del</span> <span class="n">X</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]</span> 
 
 <span class="c1"># Eliminar el diccionario X</span>
@@ -741,45 +815,33 @@ title="Print to PDF"
 <li><p>Para remover un elemento de un índice en específico usar el método <code class="docutils literal notranslate"><span class="pre">dict.popitem</span></code>.</p></li>
 <li><p>Para remover un elemento de un índice en específico usar el método <code class="docutils literal notranslate"><span class="pre">dict.clear</span></code>.</p></li>
 </ul>
+<p>Revisar <a class="reference internal" href="#dict-metodos-eliminar"><span class="std std-ref">Metodos-Eliminar</span></a></p>
 </div>
 </section>
 <hr class="docutils" />
 <section id="modificar-elementos">
-<h2>Modificar Elementos:<a class="headerlink" href="#modificar-elementos" title="Permalink to this headline">#</a></h2>
+<h2>Modificar Elementos<a class="headerlink" href="#modificar-elementos" title="Permalink to this headline">#</a></h2>
 <p>Para modificar el valor de una llave en específico usar el nombre de la llave y el operador de asignación:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Modifcar el valor correspondiento a la llave `key`</span>
 <span class="n">X</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
 </pre></div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Otra forma de modificar valores con método es:</p>
-<ul class="simple">
-<li><p>Modificar el valor de una llave en específico <code class="docutils literal notranslate"><span class="pre">dict.update</span></code>.</p></li>
-</ul>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Al crear un diccionario el objeto <code class="docutils literal notranslate"><span class="pre">X</span></code> en realidad hace referencia a los elementos que se almacenan en memoria, si se asigna el diccionario a otro objeto <code class="docutils literal notranslate"><span class="pre">Y</span></code> con el operador de asignación, entonces lo que se copia es la referencia, no los valores como tal, entonces modificaciones en <code class="docutils literal notranslate"><span class="pre">Y</span></code> también afecta a <code class="docutils literal notranslate"><span class="pre">X</span></code> y vicerversa. Para que esto no suceda se puede usar:</p>
-<ul class="simple">
-<li><p>Y = dict(X)</p></li>
-<li><p>Y = X.copy()</p></li>
-</ul>
-<p>De esta manera modificaciones en <code class="docutils literal notranslate"><span class="pre">Y</span></code> no afectarán a <code class="docutils literal notranslate"><span class="pre">X</span></code> y viceversa</p>
-</div>
 </section>
 <hr class="docutils" />
 <section id="verificar-membresia">
-<h2>Verificar membresía:<a class="headerlink" href="#verificar-membresia" title="Permalink to this headline">#</a></h2>
-<p>Para ver si un elemento está dentro de un diccionario usar el operador de membresía <code class="docutils literal notranslate"><span class="pre">in</span></code> junto con el nombre de la llave del elemento:</p>
+<h2>Verificar membresía<a class="headerlink" href="#verificar-membresia" title="Permalink to this headline">#</a></h2>
+<p>Para verificar si una llave existe en un diccionario usar el operador de membresía <code class="docutils literal notranslate"><span class="pre">in</span></code> junto con el nombre de la llave del elemento:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verificar que &#39;key&#39; exista en X.</span>
 <span class="s2">&quot;key&quot;</span> <span class="ow">in</span> <span class="n">X</span>
 </pre></div>
 </div>
+<ul class="simple">
+<li><p>Alternativamente se puede usar <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code>.</p></li>
+</ul>
 </section>
 <hr class="docutils" />
 <section id="seleccion-de-elementos">
-<h2>Selección de elementos:<a class="headerlink" href="#seleccion-de-elementos" title="Permalink to this headline">#</a></h2>
+<h2>Selección de elementos<a class="headerlink" href="#seleccion-de-elementos" title="Permalink to this headline">#</a></h2>
 <p>Para acceder a los elementos de un diccionario se puede utilizar el nombre de la <em>key</em>, entre corchetes:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># X es un diccionario</span>
 <span class="n">X</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]</span>
@@ -794,12 +856,13 @@ title="Print to PDF"
 <li><p>Acceder a todas las llaves: <code class="docutils literal notranslate"><span class="pre">dict.keys</span></code></p></li>
 <li><p>Accedes a todos los pares <code class="docutils literal notranslate"><span class="pre">key-value</span></code>: <code class="docutils literal notranslate"><span class="pre">dict.items</span></code></p></li>
 </ul>
+<p>Revisar <a class="reference internal" href="#dict-metodos-acceder"><span class="std std-ref">Metodos-Acceder</span></a></p>
 </div>
 </section>
 <hr class="docutils" />
 <section id="iteracion">
-<h2>Iteración:<a class="headerlink" href="#iteracion" title="Permalink to this headline">#</a></h2>
-<p>Para interar sobre todos los elementos de un diccionario se puede usar un <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">loop</span></code>. Algunas opciones de iteración son:</p>
+<h2>Iteración<a class="headerlink" href="#iteracion" title="Permalink to this headline">#</a></h2>
+<p>Para interar sobre los elementos de un diccionario se puede usar un <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">loop</span></code>. Algunas opciones de iteración son:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Iterar sobre las llaves del diccionario X:</span>
 <span class="c1"># Opción 1:</span>
 <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">X</span><span class="p">:</span>
@@ -809,7 +872,7 @@ title="Print to PDF"
 <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">X</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
     <span class="n">expression</span>
         
-<span class="c1"># Iterar sobre los valoes del diccionario X:</span>
+<span class="c1"># Iterar sobre los valores del diccionario X:</span>
 <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">X</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
     <span class="n">expression</span>
     
@@ -820,18 +883,17 @@ title="Print to PDF"
 </div>
 <ul class="simple">
 <li><p>En todos los ejemplos anteriores <code class="docutils literal notranslate"><span class="pre">key</span></code> y <code class="docutils literal notranslate"><span class="pre">value</span></code> son nombres opcionales.</p></li>
-<li><p>Notar que se se itera directamente en un diccionario por default se iterará sobre las llaves.</p></li>
+<li><p>Notar que si se itera directamente en un diccionario por default se iterará sobre las llaves.</p></li>
 </ul>
 <hr class="docutils" />
-<p>label(dict-comp)=</p>
 </section>
 <section id="dict-comprehesions">
-<h2>Dict comprehesions:<a class="headerlink" href="#dict-comprehesions" title="Permalink to this headline">#</a></h2>
-<p>Son diccionarios que se crean a partir procesos iterativos con la estructura for. Sintaxis.</p>
+<span id="dict-comp"></span><h2>Dict comprehesions:<a class="headerlink" href="#dict-comprehesions" title="Permalink to this headline">#</a></h2>
+<p>Son diccionarios que se crean a partir procesos iterativos con la estructura <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">loop</span></code>. Sintaxis.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="p">{</span><span class="n">key_expression</span> <span class="p">:</span> <span class="n">value_expression</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">collection</span><span class="p">}</span>
 </pre></div>
 </div>
-<p>Los diccionarios también pueden tener condicionales, en la parte de <em>collection</em>, de manera que solo a cierto elementos se les aplique el código. Sintaxis de las condicionales:</p>
+<p>Los diccionarios pueden tener condicionales, en la parte de <em>collection</em>, de manera que solo a ciertos elementos se les aplique el código. Sintaxis de las condicionales:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="p">{</span><span class="n">key_expression</span> <span class="p">:</span> <span class="n">value_expression</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">collection</span> <span class="k">if</span> <span class="n">condition</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -839,191 +901,148 @@ title="Print to PDF"
 <hr class="docutils" />
 <section id="metodos">
 <h2>Métodos<a class="headerlink" href="#metodos" title="Permalink to this headline">#</a></h2>
-<p>En esta sección se presentan los métodos correspondientes a la clase <code class="docutils literal notranslate"><span class="pre">dict</span></code>.</p>
-<hr class="docutils" />
-<section id="acceder-a-contenido">
-<h3>Acceder a contenido<a class="headerlink" href="#acceder-a-contenido" title="Permalink to this headline">#</a></h3>
-<p>Métodos para acceder a los valores de las llaves, valores o ambos.</p>
-<hr class="docutils" />
-<p><strong>get</strong>:</p>
-<p><code class="docutils literal notranslate"><span class="pre">dict.get()</span></code>: Retorna el valor de una llave especifica.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="p">[</span><span class="n">value</span> <span class="o">=</span> <span class="kc">None</span><span class="p">])</span>
+<p>En esta sección se enlistan los métodos del tipo <code class="docutils literal notranslate"><span class="pre">dict</span></code> por categorias.</p>
+<p>Tener en cuenta que los métodos generalmente se aplican sobre un objeto de tipo <code class="docutils literal notranslate"><span class="pre">dict</span></code>, por ejemplo, si <code class="docutils literal notranslate"><span class="pre">X</span></code> es <code class="docutils literal notranslate"><span class="pre">dict</span></code>, entonces se utiliza <code>X.<i>method_name</i></code>. Sin embargo es posible usar el diccionario como argumento de <code>dict.<i>method_name</i></code>. Por ejemplo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definir el diccionario</span>
+<span class="n">X</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+
+<span class="c1"># Usar el metodo sobre el objeto</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+<span class="c1"># Equivale a:</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">dict</span><span class="o">.</span><span class="n">keys</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
 </pre></div>
 </div>
-<p><strong>Parámetros:</strong></p>
-<ul class="simple">
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">X</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">dict</span></code>: Diccionario.</p></li>
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">key</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">object</span></code>: Es el nombre de la llave.</p></li>
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">value</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">object</span></code>, <code class="docutils literal notranslate"><span class="pre">None</span></code>: Es un valor que se regresará si la llave no existe.</p></li>
-</ul>
-<p><strong>Retorna:</strong></p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">object</span></code>.</p></li>
-</ul>
-<hr class="docutils" />
-<p><strong>items</strong>:</p>
-<p><code class="docutils literal notranslate"><span class="pre">dict.items()</span></code>: Retorna una lista que contiene un <code class="docutils literal notranslate"><span class="pre">tuple</span></code> para cada par llave-valor.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;])
+dict_keys([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;])
 </pre></div>
 </div>
-<p><strong>Parámetros:</strong></p>
+</div>
+</div>
 <ul class="simple">
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">X</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">dict</span></code>: Diccionario.</p></li>
-<li><p>No tiene argumentos.</p></li>
-</ul>
-<p><strong>Retorna:</strong></p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">list</span></code> de <code class="docutils literal notranslate"><span class="pre">tuple</span></code>.</p></li>
+<li><p>Tener en cuenta que en la segunda forma el diccionario siempre debe de ser el primer argumento.</p></li>
 </ul>
 <hr class="docutils" />
-<p><strong>keys</strong>:</p>
-<p><code class="docutils literal notranslate"><span class="pre">dict.keys()</span></code>: Retorna una lista que contiene todas las llaves del diccionario.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
-</pre></div>
-</div>
-<p><strong>Parámetros:</strong></p>
-<ul class="simple">
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">X</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">dict</span></code>: Diccionario.</p></li>
-<li><p>No tiene argumentos.</p></li>
-</ul>
-<p><strong>Retorna:</strong></p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">list</span></code>.</p></li>
-</ul>
-<hr class="docutils" />
-<p><strong>values</strong>:</p>
-<p><code class="docutils literal notranslate"><span class="pre">dict.values()</span></code>: Retorna una lista con los valores del diccionario.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
-</pre></div>
-</div>
-<p><strong>Parámetros:</strong></p>
-<ul class="simple">
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">X</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">dict</span></code>: Diccionario.</p></li>
-<li><p>No tiene argumentos.</p></li>
-</ul>
-<p><strong>Retorna:</strong></p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">list</span></code>.</p></li>
-</ul>
-<hr class="docutils" />
-<p><strong>setdefault</strong>:</p>
-<p><code class="docutils literal notranslate"><span class="pre">dict.setdefault()</span></code>: Retorna el valor de una llave especificada, si la llave no existe, inserta la llave con el valor especificado <em>in-place</em>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="p">[</span><span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">])</span>
-</pre></div>
-</div>
-<p><strong>Parámetros:</strong></p>
-<ul class="simple">
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">X</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">dict</span></code>: Diccionario.</p></li>
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">key</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">object</span></code>: Es el nombre de la llave.</p></li>
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">value</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">object</span></code>: Es el valor que tendrá la llave si la llave no existe.</p></li>
-</ul>
-<p><strong>Retorna:</strong></p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">object</span></code>, <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
-</ul>
+<section id="acceder-a-elementos">
+<h3>Acceder a elementos<a class="headerlink" href="#acceder-a-elementos" title="Permalink to this headline">#</a></h3>
+<p>Métodos para recuperar las llaves, los valores o ambos de un diccionario.</p>
+<table class="table" id="dict-metodos-acceder">
+<caption><span class="caption-number">Table 20 </span><span class="caption-text">Acceder</span><a class="headerlink" href="#dict-metodos-acceder" title="Permalink to this table">#</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Funciones</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict.keys">keys</a>()</p></td>
+<td><p>Devuelve una <code class="docutils literal notranslate"><span class="pre">view</span></code> de las llaves del diccionario.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict.get">get</a>(key[, default])</p></td>
+<td><p>Devuelve el valor de la llave si la llave está en el diccionario, de lo contrario, el valor predeterminado. Si no se proporciona el valor predeterminado, el valor predeterminado es <code class="docutils literal notranslate"><span class="pre">None</span></code>, de modo que este método nunca retorn <code class="docutils literal notranslate"><span class="pre">KeyError</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict.values">values</a>()</p></td>
+<td><p>Devuelve una <code class="docutils literal notranslate"><span class="pre">view</span></code> de los valores del diccionario.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict.items">items</a>()</p></td>
+<td><p>Devuelve una <code class="docutils literal notranslate"><span class="pre">view</span></code> de los elementos del diccionario (clave, valor).</p></td>
+</tr>
+</tbody>
+</table>
 </section>
+<hr class="docutils" />
 <section id="agregar-elementos">
 <h3>Agregar elementos<a class="headerlink" href="#agregar-elementos" title="Permalink to this headline">#</a></h3>
-<p>Métodos para agregar elementos a un diccionario existente.</p>
-<hr class="docutils" />
-<p><strong>update</strong>:</p>
-<p><code class="docutils literal notranslate"><span class="pre">dict.update()</span></code>: Actualiza el diccionario con las llaves y valores especificados <em>in-place</em>. También se puede utilizar para actualizar el valor de una llave.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">iterable</span><span class="p">)</span>
-</pre></div>
-</div>
-<p><strong>Parámetros:</strong></p>
-<ul class="simple">
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">X</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">dict</span></code>: Diccionario.</p></li>
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">iterable</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">dict</span></code> o <code class="docutils literal notranslate"><span class="pre">iterable</span></code>: Un objeto con pares llaves-valor que se insertarán al diccionario.</p></li>
-</ul>
-<p><strong>Retorna:</strong></p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
-</ul>
+<p>Métodos para agregar elementos a un diccionario.</p>
+<table class="table" id="dict-metodos-agregar">
+<caption><span class="caption-number">Table 21 </span><span class="caption-text">Agregar</span><a class="headerlink" href="#dict-metodos-agregar" title="Permalink to this table">#</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Funciones</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict.update">update</a>([other])</p></td>
+<td><p>Actualiza el diccionario con los pares llave/valor de <code class="docutils literal notranslate"><span class="pre">other</span></code>, sobrescribiendo llaves existentes. Realiza la operación in-place.</p></td>
+</tr>
+</tbody>
+</table>
 </section>
+<hr class="docutils" />
 <section id="id1">
 <h3>Eliminar elementos<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
-<p>Métodos para eliminar elementos de un diccionario existente.</p>
-<hr class="docutils" />
-<p><strong>clear</strong>:</p>
-<p><code class="docutils literal notranslate"><span class="pre">dict.clear()</span></code>: Remueve todos los elementos del diccionario <em>in-place</em>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
-</pre></div>
-</div>
-<p><strong>Parámetros:</strong></p>
-<ul class="simple">
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">X</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">dict</span></code>: Diccionario.</p></li>
-<li><p>No tiene argumentos.</p></li>
-</ul>
-<p><strong>Retorna:</strong></p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
-</ul>
-<hr class="docutils" />
-<p><strong>pop</strong>:</p>
-<p><code class="docutils literal notranslate"><span class="pre">dict.pop()</span></code>: Remueve un elemento de una llave en específico y retorna el valor.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="p">[</span><span class="n">default</span><span class="p">])</span>
-</pre></div>
-</div>
-<p><strong>Parámetros:</strong></p>
-<ul class="simple">
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">X</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">dict</span></code>: Diccionario.</p></li>
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">key</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">object</span></code>: Es el nombre de la llave.</p></li>
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">default</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">object</span></code>: Es un valor a retornar si la llave no existe. Si no se especifica este argumento y la llave no existe entonces se producirá un error.</p></li>
-</ul>
-<p><strong>Retorna:</strong></p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">object</span></code>.</p></li>
-</ul>
-<hr class="docutils" />
-<p><strong>popitem</strong>:</p>
-<p><code class="docutils literal notranslate"><span class="pre">dict.popitem()</span></code>: Remueve y retorna el último par llave-valor del diccionario (python 3.7+).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">popitem</span><span class="p">()</span>
-</pre></div>
-</div>
-<p><strong>Parámetros:</strong></p>
-<ul class="simple">
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">X</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">dict</span></code>: Diccionario.</p></li>
-<li><p>No tiene argumentos.</p></li>
-</ul>
-<p><strong>Retorna:</strong></p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">tuple</span></code>.</p></li>
-</ul>
+<p>Métodos para eliminar elementos de un diccionario.</p>
+<table class="table" id="dict-metodos-eliminar">
+<caption><span class="caption-number">Table 22 </span><span class="caption-text">Eliminar</span><a class="headerlink" href="#dict-metodos-eliminar" title="Permalink to this table">#</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Funciones</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict.popitem">popitem</a>()</p></td>
+<td><p>Elimina y devuelve un par (clave, valor) del diccionario. Los pares se devuelven en orden LIFO.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict.clear">clear</a>()</p></td>
+<td><p>Remueve todos los elementos del diccionario.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict.pop">pop</a>(key[, default])</p></td>
+<td><p>Si la llave está en el diccionario, elimina la llave y retorna su valor, de lo contrario, retorna <code class="docutils literal notranslate"><span class="pre">default</span></code>. Si no se proporciona el valor <code class="docutils literal notranslate"><span class="pre">default</span></code> y la llave no está en el diccionario, se genera un <code class="docutils literal notranslate"><span class="pre">KeyError</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
 </section>
+<hr class="docutils" />
 <section id="otros">
 <h3>Otros<a class="headerlink" href="#otros" title="Permalink to this headline">#</a></h3>
-<p>Otros métodos del tipo <code class="docutils literal notranslate"><span class="pre">dict</span></code>.</p>
-<hr class="docutils" />
-<p><strong>copy</strong>:</p>
-<p><code class="docutils literal notranslate"><span class="pre">dict.copy()</span></code>: Crea una copia del diccionario.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-</pre></div>
-</div>
-<p><strong>Parámetros:</strong></p>
-<ul class="simple">
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">X</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">dict</span></code>: Diccionario.</p></li>
-</ul>
-<p><strong>Retorna:</strong></p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">dict</span></code>.</p></li>
-</ul>
-<hr class="docutils" />
-<p><strong>fromkeys</strong>:</p>
-<p><code class="docutils literal notranslate"><span class="pre">dict.fromkeys()</span></code>: Crea un diccionario con las llaves y valores especificados.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="n">keys</span><span class="p">,</span> <span class="p">[</span><span class="n">values</span><span class="o">=</span><span class="kc">None</span><span class="p">])</span>
-</pre></div>
-</div>
-<p><strong>Parámetros:</strong></p>
-<ul class="simple">
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">keys</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">iterable</span></code>: Objeto.</p></li>
-<li><p><strong><code class="docutils literal notranslate"><span class="pre">values</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">None</span></code>, <code class="docutils literal notranslate"><span class="pre">object</span></code>: Es un valor default para todos los elementos.</p></li>
-</ul>
-<p><strong>Retorna:</strong></p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">dict</span></code>.</p></li>
-</ul>
+<p>Otros métodos de diccionarios.</p>
+<table class="table" id="id2">
+<caption><span class="caption-number">Table 23 </span><span class="caption-text">Otros</span><a class="headerlink" href="#id2" title="Permalink to this table">#</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Funciones</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict.copy">copy</a>()</p></td>
+<td><p>Devuelve una copia superficial del diccionario.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict.setdefault">setdefault</a>(key[, default])</p></td>
+<td><p>Retorna el valor de una llave especificada, si la llave no existe, inserta la llave con el valor especificado.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict.fromkeys">fromkeys</a>(iterable[, value])</p></td>
+<td><p>Crea un nuevo diccionario con llaves del <code class="docutils literal notranslate"><span class="pre">iterable</span></code> y los valores se establecen como <code class="docutils literal notranslate"><span class="pre">value</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
 </section>
+</section>
+<hr class="docutils" />
+<section id="funciones-utiles-para-diccionarios">
+<h2>Funciones útiles para diccionarios<a class="headerlink" href="#funciones-utiles-para-diccionarios" title="Permalink to this headline">#</a></h2>
+<p>Algunas funciones built-in útiles para dicionarios son:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">len()</span></code>: Encontrar la longitud (número de elementos) del diccionario.</p></li>
+</ul>
 </section>
 </section>
 

@@ -14,8 +14,8 @@ Operadores para realizar operaciones aritméticas entre números.
 |División parte entera|`//`|Rertorna el cociente de una división|
 
 
-```{attention} El operador `+` también se usa para concatenar secuencias (`list`, `tuple` y `str`) y `*` se utiliza para repetir secuencias.
-```
+:::{attention} El operador `+` también se usa para concatenar secuencias (`list`, `tuple` y `str`) y `*` se utiliza para repetir secuencias.
+:::
 
 ---
 ## Comparación
@@ -123,6 +123,26 @@ Notar que los _keys_ del diccionario serán los nombres de los parámetros en la
 ```
 
 ---
+## Jerarquía de operadores
+
+A continuación se presenta la jerarquía de operadores, es decir, los operadores que se ejecutarán primero en el código. Esta tabla está basada en la [esta tabla](https://www.programiz.com/python-programming/precedence-associativity) de programiz.com.
+
+|Jerarquía|Operadores|
+|:----------:|:----------:|
+|1|`()`|
+|2|`**`|
+|3|`~x`, `+x`, `-x`|	
+|4|`*`, `/`, `//`, `%`|
+|5|`+`, `-`|
+|6|`&`|	
+|7|`^`|	
+|8|`\|`|	
+|9|`==`, `!=`, `>`, `>=`, `<`, `<=`, `is`, `is not`, `in`, `not in`|
+|10|`not`|
+|11|`and`|
+|12|`or`|
+
+---
 ## Palabras reservadas
 
 Son palabras que tienen un significado especial para python.
@@ -158,36 +178,4 @@ assert expression, message
 ```
 - `expression`: Cualquier expresión que retorne `bool`. 
 - `message` \- `str`: Cualquier mensaje que se quiera retornar en caso de que `expression` sea `False`.
-
----
-## Jerarquía de operadores
-
-A continuación se presenta la jerarquía de operadores, es decir, los operadores que se ejecutarán primero en el código. Esta tabla está basada en la [esta tabla](https://www.programiz.com/python-programming/precedence-associativity) de programiz.com.
-
-|Jerarquía|Operadores|
-|:----------:|:----------:|
-|1|`()`|
-|2|`**`|
-|3|`~x`, `+x`, `-x`|	
-|4|`*`, `/`, `//`, `%`|
-|5|`+`, `-`|
-|6|`&`|	
-|7|`^`|	
-|8|`\|`|	
-|9|`==`, `!=`, `>`, `>=`, `<`, `<=`, `is`, `is not`, `in`, `not in`|
-|10|`not`|
-|11|`and`|
-|12|`or`|
-
-
-
-
-
-
-
-
-
-
-
-
 

@@ -1,6 +1,6 @@
 # Paquetes y Módulos.
 
-Un **módulo** es un archivo de python _.py_, que contiene una seríe de funciones, variables y/o contantes. Un **paquete** es un conjunto de módulos. Es posible importar módulos y paquetes a un script para tener acceso a todo el contenido del módulo o paquete.
+Un **módulo** es un archivo de Python, con extensión _.py_, que contiene una seríe de funciones, variables y/o contantes. Un **paquete** es un conjunto de módulos. Es posible importar módulos y paquetes a un script para tener acceso a todo el contenido del módulo o paquete.
 
 ```{attention} Antes de importar un módulo/paquete externo se tuvo que haber instalado.
 ```
@@ -18,17 +18,16 @@ Se puede importar el módulo/paquete con un nombre distinto usando `as`.
 import package_name as alias
 ```
 - _package_name_ es el nombre del módulo.
-- _alias_ es un nombre personalizado.
+- _alias_ es un nombre arbitrario.
 
 Se puede importar un módulo específico de un paquete
 ```python
 # Importar módulo de un paquete con un alias
-# El alias es opcional
 import package_name.module_name as alias
 ```
 - _package_name_ es el nombre del paquete.
 - _module_name_ es el nombre del módulo.
-- _alias_ es un nombre personalizado opcional.
+- _alias_ es un nombre arbitrario opcional.
 
 Se puede importar una o más funciones en específico de la siguiente manera:
 ```python
@@ -69,9 +68,10 @@ package_name.module_name.variable_name
 
 Se puede importar un archivo de python (_.py_) local a la sesión para poder utilizar las constantes, funciones, etc. definidas en el archivo. Para ello el archivo debe de estar en el directorio de la sesión y simplemente importarlo como un módulo.
 ```python
+# Ejemplos de importación de un script local
 import script
 import script as alias
 from script import obj1, obj2, ...
 ```
 - _script_ es el nombre del archivo .py en el mismo directorio.
-- _obji_ son funciones, constante, etc. en el archivo.
+- _obji_ son funciones, constantes, etc. en el archivo.

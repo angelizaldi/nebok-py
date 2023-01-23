@@ -489,12 +489,36 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#clasificacion-de-los-tipos-de-datos">
+   Clasificación de los tipos de datos
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -506,6 +530,19 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#clasificacion-de-los-tipos-de-datos">
+   Clasificación de los tipos de datos
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -543,7 +580,7 @@ title="Print to PDF"
 <li><p>Sets</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">set</span></code>: Contenedor de objetos únicos mutable.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">frozenset</span></code>: Versión inmutable de un set.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">frozenset</span></code>: Contenedor de objetos únicos inmutable.</p></li>
 </ul>
 </li>
 <li><p>Mappings :</p>
@@ -552,6 +589,42 @@ title="Print to PDF"
 </ul>
 </li>
 </ul>
+<section id="clasificacion-de-los-tipos-de-datos">
+<h2>Clasificación de los tipos de datos<a class="headerlink" href="#clasificacion-de-los-tipos-de-datos" title="Permalink to this headline">#</a></h2>
+<p>Tener en cuenta la siguiente claficación:</p>
+<ul class="simple">
+<li><p>Escalares (<code class="docutils literal notranslate"><span class="pre">scalar</span></code>): Son tipos que almacenan un solo valor, incluye a:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">float</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">complex</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">None</span></code>
+<br></p></li>
+</ul>
+</li>
+<li><p>Secuencias (<code class="docutils literal notranslate"><span class="pre">sequence</span></code>): Son tipos que tienen una colección ordenada de elementos, incluye a:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">list</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tuple</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">range</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">str</span></code>
+<br></p></li>
+</ul>
+</li>
+<li><p>Iterables (<code class="docutils literal notranslate"><span class="pre">iterable</span></code>): Son tipos sobre los que se puede iterar, incluye a:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">list</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tuple</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">range</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">set</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dict</span></code></p></li>
+</ul>
+</li>
+</ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">

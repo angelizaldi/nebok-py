@@ -1,7 +1,9 @@
 # Book settings
 title: Manual de Python
-author: Angel Lizaldi
+author: Nebok
+copyright: "2023"
 logo: 'nebok-logo.png'
+exclude_patterns: [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints", alt-toc]
 
 # Force re-execution of notebooks on each build.
 execute:
@@ -26,5 +28,6 @@ repository:
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
-  use_issues_button: true
-  use_repository_button: true
+  favicon: 'nebok-favicon.png'
+  use_issues_button: false
+  use_repository_button: false

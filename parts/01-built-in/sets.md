@@ -15,7 +15,7 @@ kernelspec:
 Corresponde al tipo `set`. Son objetos iterables para almacener múltiples elementos en una sola variable. Algunas características del tipo de dato` set` son:
 - Se pueden almacenar diferentes tipos de datos en un `set`.
 - Los elementos no están ordenados, por lo tanto no se puede acceder a ellos por medio de índices.
-- Un mismo valor **no** puede existir múltiples veces en una `set`.
+- Un mismo valor **no** puede existir múltiples veces en un `set`.
 - Es mutable: Se pueden modificar una vez creado el `set`. 
 - Es un iterable: Se puede iterar por sus elementos y se puede usar la palabra reservada `in` para verificar memebresía.
 
@@ -38,9 +38,9 @@ X = {x1, x2, ..., xn}
 # Convertir el iterable Y a un set
 X = set(Y)
 ```
-- Si `Y` tenía elementos repetidos, entonces solo se mantendrá una copia de ellos en `X`.
+- Si `Y` tenía elementos repetidos, `X` tendrá solo los elementos únicos.
 
-Otra forma de crear un `set` es con ref`{set-comp}`.
+Otra forma de crear un `set` es con {ref}`set-comp`.
 
 ---
 ## Selección de elementos
@@ -91,7 +91,7 @@ for ele in X:
     ...
 ```
 
-```{caution} Como los sets no están indexados el orden en el que aparecen los elementos puede diferir si se itera un mismo set varias veces.
+```{caution} Como los elementos de un set no están ordenados, entonces el orden en el que aparecen los elementos puede diferir si se itera un mismo set varias veces.
 ```
 
 ---
@@ -155,7 +155,7 @@ print(set.difference(X, {"a", "c"}))
 
 Métodos para agregar elementos a un `set`. 
 
-```{list-table} Agregar
+```{list-table}
 :header-rows: 1
 :name: set-metodos-agregar
 
@@ -170,7 +170,7 @@ Métodos para agregar elementos a un `set`.
 
 Métodos para eliminar elementos de un `set`. 
 
-```{list-table} Eliminar
+```{list-table} 
 :header-rows: 1
 :name: set-metodos-eliminar
 
@@ -191,7 +191,7 @@ Métodos para eliminar elementos de un `set`.
 
 Métodos para recuperar información sobre el `set` en relación con otros objetos.
 
-```{list-table} Información
+```{list-table} 
 :header-rows: 1
 :name: set-metodos-informacion
 
@@ -210,7 +210,7 @@ Métodos para recuperar información sobre el `set` en relación con otros objet
 
 Métodos para realizar operaciones entre conjuntos y que retornan un nuevo `set`.
 
-```{list-table} Operaciones
+```{list-table} 
 :header-rows: 1
 :name: set-metodos-operaciones
 
@@ -231,7 +231,7 @@ Métodos para realizar operaciones entre conjuntos y que retornan un nuevo `set`
 
 Métodos para realizar operaciones entre conjuntos y que actualizan un `set` en lugar de retornar uno nuevo. Básicamente realizan las operaciones in-place.
 
-```{list-table} Operaciones-inplace
+```{list-table}
 :header-rows: 1
 
 * - Funciones
@@ -251,7 +251,7 @@ Métodos para realizar operaciones entre conjuntos y que actualizan un `set` en 
 
 Método para realizar la copia de un `set`.
 
-```{list-table} Copiar
+```{list-table}
 :header-rows: 1
 
 * - Funciones

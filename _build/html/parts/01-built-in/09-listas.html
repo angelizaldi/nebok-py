@@ -563,8 +563,8 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#agregrar-concatenar-elementos">
-   Agregrar/Concatenar elementos:
+  <a class="reference internal nav-link" href="#agregar-concatenar-elementos">
+   Agregar/Concatenar elementos:
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -620,18 +620,18 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#agregar">
-     Agregar
+    <a class="reference internal nav-link" href="#agregar-elementos">
+     Agregar elementos
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#eliminar">
-     Eliminar
+    <a class="reference internal nav-link" href="#id1">
+     Eliminar elementos
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#informacion">
-     Información
+    <a class="reference internal nav-link" href="#informacion-de-la-lista">
+     Información de la lista
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -676,8 +676,8 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#agregrar-concatenar-elementos">
-   Agregrar/Concatenar elementos:
+  <a class="reference internal nav-link" href="#agregar-concatenar-elementos">
+   Agregar/Concatenar elementos:
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -733,18 +733,18 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#agregar">
-     Agregar
+    <a class="reference internal nav-link" href="#agregar-elementos">
+     Agregar elementos
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#eliminar">
-     Eliminar
+    <a class="reference internal nav-link" href="#id1">
+     Eliminar elementos
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#informacion">
-     Información
+    <a class="reference internal nav-link" href="#informacion-de-la-lista">
+     Información de la lista
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -783,8 +783,9 @@ title="Print to PDF"
 <li><p>Está indexado: Cada elemento está asociado con un índice y por lo tanto sus elementos están ordenados.</p></li>
 <li><p>Es un iterable: Se puede iterar por sus elementos y se puede usar la palabra reservada <code class="docutils literal notranslate"><span class="pre">in</span></code> para verificar memebresía.</p></li>
 <li><p>Un mismo valor puede existir múltiples veces en una lista.</p></li>
-<li><p>Se puede concatenar con otras listas</p></li>
+<li><p>Se puede concatenar con otras listas.</p></li>
 </ul>
+<p>Para más información visitar la <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range">documentación</a> de Python.</p>
 <hr class="docutils" />
 <section id="crear-una-lista">
 <h2>Crear una lista:<a class="headerlink" href="#crear-una-lista" title="Permalink to this headline">#</a></h2>
@@ -814,8 +815,8 @@ title="Print to PDF"
 </div>
 </section>
 <hr class="docutils" />
-<section id="agregrar-concatenar-elementos">
-<h2>Agregrar/Concatenar elementos:<a class="headerlink" href="#agregrar-concatenar-elementos" title="Permalink to this headline">#</a></h2>
+<section id="agregar-concatenar-elementos">
+<h2>Agregar/Concatenar elementos:<a class="headerlink" href="#agregar-concatenar-elementos" title="Permalink to this headline">#</a></h2>
 <p>Para agregar elementos a una lista existente se puede usar el operador <code class="docutils literal notranslate"><span class="pre">+</span></code>, que sirve para concatenar listas, los nuevos elementos se agregarán al final de la lista.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Si X y Y son listas, entonces W es la concatenacion de X y Y:</span>
 <span class="n">W</span> <span class="o">=</span> <span class="n">X</span> <span class="o">+</span> <span class="n">Y</span>
@@ -896,8 +897,8 @@ title="Print to PDF"
 <li><p>Se utilizan corchetes <code class="docutils literal notranslate"><span class="pre">[]</span></code> para acceder a los elementos, junto con el nombre de la lista y el índice del elemento: <br/>
 <code class="docutils literal notranslate"><span class="pre">X[i]</span></code></p></li>
 <li><p>Los índices comienza en cero (0), esto quiere decir que si quiere acceder al elemento <code class="docutils literal notranslate"><span class="pre">n</span></code>, se debe de usar <code class="docutils literal notranslate"><span class="pre">[n-1]</span></code>.</p></li>
-<li><p>Se puede utilizar índices negativos, para hacer subsetting de derecha a izquierda, comenzando por el último caracter. Por ejemplo, se puede acceder al último caracter con <code class="docutils literal notranslate"><span class="pre">[-1]</span></code>, al penúltimo caracter elemento <code class="docutils literal notranslate"><span class="pre">[-2]</span></code>, etc.</p></li>
-<li><p>Para listas dentro de otras listas, considerar que en esencia usar <code class="docutils literal notranslate"><span class="pre">X[i]</span></code> devolverá otra lista, entonces para acceder a los elementos de esa otra lista usar otro <code class="docutils literal notranslate"><span class="pre">[]</span></code>, esto es: <br/> <code class="docutils literal notranslate"><span class="pre">X[N1][N2]</span></code></p></li>
+<li><p>Se puede utilizar índices negativos, para hacer subsetting de derecha a izquierda, comenzando por el último elemento. Por ejemplo, se puede acceder al último elemento con <code class="docutils literal notranslate"><span class="pre">[-1]</span></code>, al penúltimo elemento con <code class="docutils literal notranslate"><span class="pre">[-2]</span></code>, etc.</p></li>
+<li><p>Para listas dentro de otras listas, considerar que en esencia usar <code class="docutils literal notranslate"><span class="pre">X[i]</span></code> devolverá otra lista, entonces para acceder a los elementos de esa otra lista usar otro <code class="docutils literal notranslate"><span class="pre">[]</span></code>, esto es: <br/> <code class="docutils literal notranslate"><span class="pre">X[n1][n2]</span></code></p></li>
 <li><p>Lo anterior se puede generalizar para cualquier número de listas anidadas.</p></li>
 </ul>
 <p>Algunos patrones útiles:</p>
@@ -913,13 +914,13 @@ title="Print to PDF"
 <p>Para seleccionar un rango de elementos consecutivos tener en cuenta las siguientes características:</p>
 <ul class="simple">
 <li><p>Se utiliza dos puntos, indicando los indices de inicio, fin y el paso: <br/> <code class="docutils literal notranslate"><span class="pre">X[i:j:k]</span></code></p></li>
-<li><p>La selección por rango, tienen la característica que el primer elemento es inclusivo y el último es exclusivo, esto quiere decir que no se incluirá en el rango, si se usa el rango <code class="docutils literal notranslate"><span class="pre">[i:j]</span></code>, en realidad solo se accederá a <code class="docutils literal notranslate"><span class="pre">[i:j-1]</span></code>.</p></li>
+<li><p>La selección por rango, tienen la característica que el primer elemento es inclusivo y el último es exclusivo, esto quiere decir que no se incluirá en el rango, si se usa el rango <code class="docutils literal notranslate"><span class="pre">[m:n]</span></code>, en realidad solo se accederá a <code class="docutils literal notranslate"><span class="pre">[m:n-1]</span></code>.</p></li>
 </ul>
 <p>Algunos patrones útiles:</p>
 <ul class="simple">
 <li><p>Desde el índice <code class="docutils literal notranslate"><span class="pre">i</span></code> hasta el <code class="docutils literal notranslate"><span class="pre">j</span></code>, sin incluir el <code class="docutils literal notranslate"><span class="pre">j</span></code>: <br> <code class="docutils literal notranslate"><span class="pre">X[i:j]</span></code></p></li>
 <li><p>Desde el inicio hasta el <code class="docutils literal notranslate"><span class="pre">j</span></code>, sin incluir el <code class="docutils literal notranslate"><span class="pre">j</span></code>: <br> <code class="docutils literal notranslate"><span class="pre">X[:j]</span></code></p></li>
-<li><p>Desde la posición <code class="docutils literal notranslate"><span class="pre">i</span></code> hasta el final de la cadena: <br><code class="docutils literal notranslate"><span class="pre">X[i:]</span></code></p></li>
+<li><p>Desde la posición <code class="docutils literal notranslate"><span class="pre">i</span></code> hasta el final de la tupla: <br><code class="docutils literal notranslate"><span class="pre">X[i:]</span></code></p></li>
 <li><p>Toda la lista: <br> <code class="docutils literal notranslate"><span class="pre">X[:]</span></code></p></li>
 <li><p>Desde el índice <code class="docutils literal notranslate"><span class="pre">i</span></code> hasta el <code class="docutils literal notranslate"><span class="pre">j</span></code>, sin incluir el <code class="docutils literal notranslate"><span class="pre">j</span></code>, cada <code class="docutils literal notranslate"><span class="pre">k</span></code> elementos: <br> <code class="docutils literal notranslate"><span class="pre">X[i:j:k]</span></code></p></li>
 <li><p>Toda la lista cada <code class="docutils literal notranslate"><span class="pre">k</span></code> elementos: <br> <code class="docutils literal notranslate"><span class="pre">X[::k]</span></code></p></li>
@@ -963,7 +964,7 @@ title="Print to PDF"
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>En todos los ejemplos anteriores <code class="docutils literal notranslate"><span class="pre">i</span></code>y <code class="docutils literal notranslate"><span class="pre">ele</span></code> son nombres opcionales.</p></li>
+<li><p>En todos los ejemplos anteriores <code class="docutils literal notranslate"><span class="pre">i</span></code> y <code class="docutils literal notranslate"><span class="pre">ele</span></code> son nombres opcionales.</p></li>
 </ul>
 <hr class="docutils" />
 </section>
@@ -1045,11 +1046,11 @@ title="Print to PDF"
 </div>
 </div>
 <ul class="simple">
-<li><p>Tener en cuenta que de la segunda forma la lista siempre debe de ser el primer argumento.</p></li>
+<li><p>Tener en cuenta que en la segunda forma la lista siempre debe de ser el primer argumento.</p></li>
 </ul>
 <hr class="docutils" />
-<section id="agregar">
-<h3>Agregar<a class="headerlink" href="#agregar" title="Permalink to this headline">#</a></h3>
+<section id="agregar-elementos">
+<h3>Agregar elementos<a class="headerlink" href="#agregar-elementos" title="Permalink to this headline">#</a></h3>
 <p>Métodos para agregar elementos a una lista.</p>
 <table class="table" id="list-metodos-agregar">
 <caption><span class="caption-number">Table 8 </span><span class="caption-text">Agregar</span><a class="headerlink" href="#list-metodos-agregar" title="Permalink to this table">#</a></caption>
@@ -1076,8 +1077,8 @@ title="Print to PDF"
 </table>
 </section>
 <hr class="docutils" />
-<section id="eliminar">
-<h3>Eliminar<a class="headerlink" href="#eliminar" title="Permalink to this headline">#</a></h3>
+<section id="id1">
+<h3>Eliminar elementos<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
 <p>Métodos para eliminar elementos de una lista.</p>
 <table class="table" id="list-metodos-eliminar">
 <caption><span class="caption-number">Table 9 </span><span class="caption-text">Eliminar</span><a class="headerlink" href="#list-metodos-eliminar" title="Permalink to this table">#</a></caption>
@@ -1104,11 +1105,11 @@ title="Print to PDF"
 </table>
 </section>
 <hr class="docutils" />
-<section id="informacion">
-<h3>Información<a class="headerlink" href="#informacion" title="Permalink to this headline">#</a></h3>
+<section id="informacion-de-la-lista">
+<h3>Información de la lista<a class="headerlink" href="#informacion-de-la-lista" title="Permalink to this headline">#</a></h3>
 <p>Métodos para obtener información sobre una lista.</p>
-<table class="table" id="id1">
-<caption><span class="caption-number">Table 10 </span><span class="caption-text">Información</span><a class="headerlink" href="#id1" title="Permalink to this table">#</a></caption>
+<table class="table" id="id2">
+<caption><span class="caption-number">Table 10 </span><span class="caption-text">Información</span><a class="headerlink" href="#id2" title="Permalink to this table">#</a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -1132,8 +1133,8 @@ title="Print to PDF"
 <section id="ordenar">
 <h3>Ordenar<a class="headerlink" href="#ordenar" title="Permalink to this headline">#</a></h3>
 <p>Métodos para ordenar una lista.</p>
-<table class="table" id="id2">
-<caption><span class="caption-number">Table 11 </span><span class="caption-text">Ordenar</span><a class="headerlink" href="#id2" title="Permalink to this table">#</a></caption>
+<table class="table" id="id3">
+<caption><span class="caption-number">Table 11 </span><span class="caption-text">Ordenar</span><a class="headerlink" href="#id3" title="Permalink to this table">#</a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -1157,8 +1158,8 @@ title="Print to PDF"
 <section id="copiar">
 <h3>Copiar<a class="headerlink" href="#copiar" title="Permalink to this headline">#</a></h3>
 <p>Métodos para copiar una lista.</p>
-<table class="table" id="id3">
-<caption><span class="caption-number">Table 12 </span><span class="caption-text">Otros</span><a class="headerlink" href="#id3" title="Permalink to this table">#</a></caption>
+<table class="table" id="id4">
+<caption><span class="caption-number">Table 12 </span><span class="caption-text">Otros</span><a class="headerlink" href="#id4" title="Permalink to this table">#</a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
