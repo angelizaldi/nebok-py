@@ -1,0 +1,1956 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Datetime &#8212; Manual de Python</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Itertools" href="03-itertools.html" />
+    <link rel="prev" title="Collections" href="01-collections.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/nebok-logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Manual de Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Manual de Python.
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Built-in
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01-built-in/built-in-index.html">
+   Python estándar
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/ayuda.html">
+     Obtener ayuda
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/comentarios.html">
+     Comentarios
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/tipos-datos.html">
+     Tipos de datos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/operadores-palabras.html">
+     Operadores y palabras reservadas.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/entrada-salida.html">
+     Entrada y salida de datos
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../01-built-in/tipos-index.html">
+     Tipos Built-In
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/booleanos.html">
+       Valores booleanos
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/numeros.html">
+       Números
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/cadenas.html">
+       Cadenas
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/listas.html">
+       Listas
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/tuples.html">
+       Tuples
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/sets.html">
+       Sets
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/diccionarios.html">
+       Diccionarios
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../01-built-in/estructuras-index.html">
+     Estructuras de control
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/if-else.html">
+       If … Else.
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/for-loop.html">
+       For Loop.
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/do-while.html">
+       Do While
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/16-funciones.html">
+     Funciones
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/17-try-except.html">
+     Exceptions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/18-context.html">
+     Context Managers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/19-io.html">
+     Importación y expotación de archivos.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/20-modulos.html">
+     Paquetes y Módulos.
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../01-built-in/00-avanzado.html">
+     Temas avanzados
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/21-decorators.html">
+       Decorators
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/22-generators.html">
+       Generators
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/23-iterators.html">
+       Iterators
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/24-oop.html">
+       Programación orientada a objetos
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/25-func-built-in.html">
+     Funciones built-in
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00-paquetes.html">
+   Paquetes built-in
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01-collections.html">
+     Collections
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Datetime
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03-itertools.html">
+     Itertools
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04-json.html">
+     JSON
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06-pickle.html">
+     Pickle
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="regular-expression.html">
+     Regular Expressions
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fparts/02-modulos-built-in/02-datetime.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/parts/02-modulos-built-in/02-datetime.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#iso-8601">
+   ISO 8601
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#funciones">
+   Funciones
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#clases">
+   Clases
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Datetime
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#atributos-de-instancia">
+     Atributos de instancia
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metodos">
+     Métodos
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#metodos-de-clase">
+       Métodos de clase
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#metodos-de-instancia">
+       Métodos de instancia
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#date">
+   Date
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Atributos de instancia
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Métodos
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id4">
+       Métodos de clase
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id5">
+       Métodos de instancia
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#time">
+   Time
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     Atributos de instancia
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     Métodos
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id8">
+       Métodos de clase
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id9">
+       Métodos de instancia
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#timedelta">
+   Timedelta
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     Atributos de instancia
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     Atributos de instancia
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#codigos-de-fechas">
+   Códigos de fechas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#listado-de-metodos">
+   Listado de métodos.
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Datetime</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#iso-8601">
+   ISO 8601
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#funciones">
+   Funciones
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#clases">
+   Clases
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Datetime
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#atributos-de-instancia">
+     Atributos de instancia
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metodos">
+     Métodos
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#metodos-de-clase">
+       Métodos de clase
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#metodos-de-instancia">
+       Métodos de instancia
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#date">
+   Date
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Atributos de instancia
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Métodos
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id4">
+       Métodos de clase
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id5">
+       Métodos de instancia
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#time">
+   Time
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     Atributos de instancia
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     Métodos
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id8">
+       Métodos de clase
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id9">
+       Métodos de instancia
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#timedelta">
+   Timedelta
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     Atributos de instancia
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     Atributos de instancia
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#codigos-de-fechas">
+   Códigos de fechas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#listado-de-metodos">
+   Listado de métodos.
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="datetime">
+<h1>Datetime<a class="headerlink" href="#datetime" title="Permalink to this headline">#</a></h1>
+<p>Es un módulo para trabajar con datos de tipo fecha. Es necesario importar el módulo <code class="docutils literal notranslate"><span class="pre">datetime</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar todo el módulo</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="c1"># Importar una clase específica</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">class_name</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><em>class_name</em> es el nombre de clase que se desea importar,</p></li>
+<li><p>Estos solo son dos ejemplos de como importar el módulo, se puede usar cualquier rutina de importación, como importar con alias, importar funciones, constantes específicas, etc.</p></li>
+</ul>
+<hr class="docutils" />
+<section id="iso-8601">
+<h2>ISO 8601<a class="headerlink" href="#iso-8601" title="Permalink to this headline">#</a></h2>
+<p>Muchos métodos de este módulo utilizan el formato ISO 8601, el cual es el siguiente:</p>
+<blockquote>
+<div><p>YYYY-MM-DDTHH:MM:SS</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>YYYY: Año de cuatro dígitos, desde 0000 a 9999.</p></li>
+<li><p>MM: Mes de dos dígitos, del 01 a 12.</p></li>
+<li><p>DD: Día de dos dígitos, del 01 al 31.</p></li>
+<li><p>HH: Horas de dos dígitos, desde 00 a 23.</p></li>
+<li><p>MM: Minutos de dos dígitos, desde 00 a 59.</p></li>
+<li><p>SS: Segundos de dos dígitos, desde 00 a 59.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="funciones">
+<h2>Funciones<a class="headerlink" href="#funciones" title="Permalink to this headline">#</a></h2>
+<p>Funciones del módulo <code class="docutils literal notranslate"><span class="pre">datetime</span></code>.</p>
+<p><a name='strptime'></a>
+<strong>strptime</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">datetime.strptime()</span></code>: Retorna un objeto datetime, pasando una cadena que contiene la fecha, e indicando las partes como códigos.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">date_string</span><span class="p">,</span> <span class="nb">format</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">date_string</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">str</span></code>: La fecha. Los números que sean de un solo dígito (1-9) deben de tener un 0 antes.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">format</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">str</span></code>: Contiene los <a class="reference internal" href="#date-codes"><span class="std std-ref">Códigos de fechas.</span></a> de la fecha, respetando la forma como está escrita en date_string, por ejemplo, si <code class="docutils literal notranslate"><span class="pre">date_string</span></code> = “21 June, 2018” entonces <code class="docutils literal notranslate"><span class="pre">format=“%d</span> <span class="pre">%B,</span> <span class="pre">%Y”</span></code>.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">datetime</span></code>.</p></li>
+</ul>
+<p><br><br></p>
+</section>
+<hr class="docutils" />
+<section id="clases">
+<h2>Clases<a class="headerlink" href="#clases" title="Permalink to this headline">#</a></h2>
+<p>Existen diferentes tipos de datos de fecha y tiempo, cada tipo es una clase dentro del módulo <code class="docutils literal notranslate"><span class="pre">datetime</span></code> y cada clase tiene métodos y atributos diferentes:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">date</span></code>: (año, mes, día), Asume el calendario gregoriano.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">time</span></code>: (hora, minuto, segundo, microsegundo, zona horaria), Asume que cada día tiene exactamente 24 horas, cada hora 60 minutos y cada minuto 60 segundos.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">datetime</span></code>: (año, mes, día, hora, minuto, segundo, microsegundo, zona horaria), Combinación de <code class="docutils literal notranslate"><span class="pre">date</span></code> y <code class="docutils literal notranslate"><span class="pre">time</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">timedelta</span></code>: Representa la diferencia de dos fechas o tiempos. Se pueden hacer operaciones aritméticas con ojetos timedelta.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tzinfo</span></code>: Objetos con información sobre la zona horaria.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">timezone</span></code>: Implementar la clase base abstracta <code class="docutils literal notranslate"><span class="pre">tzinfo</span></code> como un desfase dijo de UTC.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>En este sitio solo se presentarán las clases <code class="docutils literal notranslate"><span class="pre">date</span></code>, <code class="docutils literal notranslate"><span class="pre">time</span></code>, <code class="docutils literal notranslate"><span class="pre">datetime</span></code> y <code class="docutils literal notranslate"><span class="pre">timedelta</span></code>. Para más información sobre el módulo en general visitar la <a class="reference external" href="https://docs.python.org/3.8/library/datetime.html#module-datetime">página oficial</a> de Python.</p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="id1">
+<h2>Datetime<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>En este sitio no se documenta todas las características de la clase <code class="docutils literal notranslate"><span class="pre">datetime</span></code>, para un tratado completo visitar la <a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime-objects">página oficial</a> de Python.</p>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">datetime</span></code> es una clase que representa fechas y tiempo. Para crear una fecha y tiempo se puede usar el constructor o algunos métodos de clase también lo permiten.</p>
+<p><strong>datetime</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">datetime.datetime()</span></code>: Retorna una fecha y tiempo dando los parámetros individuales.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">,</span> <span class="n">hour</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">minute</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">second</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">microsecond</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">tzinfo</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">fold</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">year</span></code></strong>, <strong><code class="docutils literal notranslate"><span class="pre">month</span></code></strong>, <strong><code class="docutils literal notranslate"><span class="pre">day</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">int</span></code>: Parámetros obligatorios.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">hour</span></code></strong>, <strong><code class="docutils literal notranslate"><span class="pre">minute</span></code></strong>, <strong><code class="docutils literal notranslate"><span class="pre">second</span></code></strong>, <strong><code class="docutils literal notranslate"><span class="pre">microsecond</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">int</span></code>: Parámetros opcionales, por default son cero.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">tzinfo</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">timezone</span></code>: Es la zona horaria, puedes usar un objeto creado con <code class="docutils literal notranslate"><span class="pre">datetime.timezone()</span></code> o usar una cadena, para ver las zonas horarias disponibles ver <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">Zonas Horarias</a>.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">datetime</span></code>.</p></li>
+</ul>
+<p><br><br></p>
+<hr class="docutils" />
+<section id="atributos-de-instancia">
+<h3>Atributos de instancia<a class="headerlink" href="#atributos-de-instancia" title="Permalink to this headline">#</a></h3>
+<p>Los atributos de istancia se aplican directamente sobre un objeto <code class="docutils literal notranslate"><span class="pre">datetime</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">part_name</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>X - <code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code>: Objeto.</p></li>
+<li><p><em>part_name</em> es el nombre de la parte que se quiere recuperar, las opciones son:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">year</span></code>: Retorna el año.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">month</span></code>: Retorna el mes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">day</span></code>: Retornar el día.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hour</span></code>: Retorna las horas.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">minute</span></code>: Retorna los minutos.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">seconds</span></code>: Retorna los segundos.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">microsecond</span></code>: Retorna los microsegundos.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tzinfo</span></code>: Retorna la zona horaria.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="metodos">
+<h3>Métodos<a class="headerlink" href="#metodos" title="Permalink to this headline">#</a></h3>
+<section id="metodos-de-clase">
+<h4>Métodos de clase<a class="headerlink" href="#metodos-de-clase" title="Permalink to this headline">#</a></h4>
+<p>Son métodos que se aplican directamente sobre la clase <code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code>.</p>
+<table class="table" id="id12">
+<caption><span class="caption-number">Table 39 </span><span class="caption-text">TITLE</span><a class="headerlink" href="#id12" title="Permalink to this table">#</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Funciones</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="#now">now</a>(<code class="docutils literal notranslate"><span class="pre">tz=None</span></code>)</p></td>
+<td><p>Retorna la fecha y hora actual del sistema.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="#today">today</a>(``)</p></td>
+<td><p>Retorna la fecha actual del sistema. incluirá información del tiempo y la zona horaria.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="#fromtimestamp">fromtimestamp</a>(<code class="docutils literal notranslate"><span class="pre">timestamp,</span> <span class="pre">[tz=None]</span></code>)</p></td>
+<td><p>Retorna la fecha y tiempo correspondiente a un timestamp.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="#fromisoformat">fromisoformat</a>(<code class="docutils literal notranslate"><span class="pre">date_string</span></code>)</p></td>
+<td><p>Retorna una fecha pasando una cadena que representa una fecha en ISO 8601.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="#fromisocalender">fromisocalender</a>(<code class="docutils literal notranslate"><span class="pre">year,</span> <span class="pre">week,</span> <span class="pre">day</span></code>)</p></td>
+<td><p>Retorna una fecha pasando sus elementos individuales, excluyendo los elementos correspondientes al tiempo.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<hr class="docutils" />
+<section id="metodos-de-instancia">
+<h4>Métodos de instancia<a class="headerlink" href="#metodos-de-instancia" title="Permalink to this headline">#</a></h4>
+<p>Son métodos que se aplican directamente en instancias (objetos) de la clase <code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code>.</p>
+<table class="table" id="id13">
+<caption><span class="caption-number">Table 40 </span><span class="caption-text">TITLE</span><a class="headerlink" href="#id13" title="Permalink to this table">#</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Funciones</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="#replace">replace</a>(<code class="docutils literal notranslate"><span class="pre">part=val,</span> <span class="pre">...</span></code>)</p></td>
+<td><p>Retorna la misma fecha con una modificación en los elementos…</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="#strftime">strftime</a>(<code class="docutils literal notranslate"><span class="pre">format</span></code>)</p></td>
+<td><p>Retorna una cadena con una fecha en un formato personalizado.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="#date">date</a>(``)</p></td>
+<td><p>Retorna la fecha de un objeto, excluyendo el tiempo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="#time">time</a>(``)</p></td>
+<td><p>Retorna el tiempo de un objeto, excluyendo la fecha.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="#timetz">X.timetz</a>(``)</p></td>
+<td><p>Retorna el tiempo con información de la zona horaria de un objeto.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="#tzname">tzname</a>(``)</p></td>
+<td><p>Retorna el nombre de la zona horaria de un objeto.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="#timestamp">timestamp</a>(``)</p></td>
+<td><p>Retorna cuántos segundos han pasado desde el primero de enero de 1970…</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="#weekday">weekday</a>(``)</p></td>
+<td><p>Retorna el día de la semana de la fecha. Lunes es cero, domingo es…</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="#isoweekday">isoweekday</a>(``)</p></td>
+<td><p>Retorna el día de la semana de la fecha. Lunes es uno, domingo es…</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="#isocalender">isocalender</a>(<code class="docutils literal notranslate"> </code>)</p></td>
+<td><p>Retorna un <code class="docutils literal notranslate"><span class="pre">tuple</span></code> con los elementos de la fecha respetando ISO.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="#isoformat">isoformat</a>(``)</p></td>
+<td><p>Retorna una cadena con los elementos de la fecha, respetando ISO 8601.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="#astimezone">astimezone</a>(<code class="docutils literal notranslate"><span class="pre">tz</span> <span class="pre">=</span> <span class="pre">None</span></code>)</p></td>
+<td><p>Retorna la fecha y tiempo en una nueva zona horaria. Modifica los…</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="date">
+<h2>Date<a class="headerlink" href="#date" title="Permalink to this headline">#</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>En este sitio no se documenta todas las características de la clase <code class="docutils literal notranslate"><span class="pre">date</span></code>, para un tratado completo visitar la <a class="reference external" href="https://docs.python.org/3.11/library/datetime.html#date-objects">página oficial</a> de Python.</p>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">date</span></code> es una clase que representa fechas. Para crear una fecha se puede usar el constructor o algunos métodos de clase también lo permiten.</p>
+<hr class="docutils" />
+<p><strong>date</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">datetime.date()</span></code>: Retorna una fecha dando los parámetros individuales.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">year</span></code></strong>, <strong><code class="docutils literal notranslate"><span class="pre">month</span></code></strong>, <strong><code class="docutils literal notranslate"><span class="pre">day</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">int</span></code>: Valores correspondientes al año, mes y día.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">date</span></code>.</p></li>
+</ul>
+<p><br><br></p>
+<hr class="docutils" />
+<section id="id2">
+<h3>Atributos de instancia<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<p>Los atributos de istancia se aplican directamente sobre un objeto de la clase <code class="docutils literal notranslate"><span class="pre">datetime.date</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">part_name</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>X - <code class="docutils literal notranslate"><span class="pre">datetime.date</span></code>: Objeto.</p></li>
+<li><p><em>part_name</em> es el nombre de la parte que se quiere recuperar, las opciones son:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">year</span></code>: Retorna el año.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">month</span></code>: Retorna el mes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">day</span></code>: Retornar el día.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="id3">
+<h3>Métodos<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<section id="id4">
+<h4>Métodos de clase<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h4>
+<p>Son métodos que se aplican directamente sobre la clase <code class="docutils literal notranslate"><span class="pre">datetime.date</span></code>.</p>
+<table class="table" id="id14">
+<caption><span class="caption-number">Table 41 </span><span class="caption-text">TITLE</span><a class="headerlink" href="#id14" title="Permalink to this table">#</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Funciones</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="#today_d">today</a>(``)</p></td>
+<td><p>Retorna la fecha actual del sistema.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="#fromtimestamp_d">fromtimestamp</a>(<code class="docutils literal notranslate"><span class="pre">timestamp</span></code>)</p></td>
+<td><p>Retorna la fecha correspondiente a un timestamp.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="#fromisoformat_d">fromisoformat</a>(<code class="docutils literal notranslate"><span class="pre">date_string</span></code>)</p></td>
+<td><p>Retorna una fecha pasando una cadena que representa una fecha en ISO 8601.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="#fromisocalender_d">fromisocalender</a>(<code class="docutils literal notranslate"><span class="pre">year,</span> <span class="pre">week,</span> <span class="pre">day</span></code>)</p></td>
+<td><p>Retorna una fecha pasando sus elementos individuales, excluyendo los elementos correspondientes al tiempo.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<hr class="docutils" />
+<section id="id5">
+<h4>Métodos de instancia<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h4>
+<p>Son métodos que se aplican directamente en instancias (objetos) de la clase <code class="docutils literal notranslate"><span class="pre">datetime.date</span></code>.</p>
+<table class="table" id="id15">
+<caption><span class="caption-number">Table 42 </span><span class="caption-text">TITLE</span><a class="headerlink" href="#id15" title="Permalink to this table">#</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Funciones</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="#replace_d">replace</a>(<code class="docutils literal notranslate"><span class="pre">part=val,</span> <span class="pre">...</span></code>)</p></td>
+<td><p>Retorna la misma fecha con una modificación en los elementos…</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="#strftime_d">strftime</a>(<code class="docutils literal notranslate"><span class="pre">format</span></code>)</p></td>
+<td><p>Retorna una cadena con una fecha en un formato personalizado.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="#date_d">date</a>(``)</p></td>
+<td><p>Retorna la fecha de un objeto.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="#weekday_d">weekday</a>(``)</p></td>
+<td><p>Retorna el día de la semana de la fecha. Lunes es cero, domingo es…</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="#isoweekday_d">isoweekday</a>(``)</p></td>
+<td><p>Retorna el día de la semana de la fecha. Lunes es uno, domingo es…</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="#isocalender_d">isocalender</a>(``)</p></td>
+<td><p>Retorna un <code class="docutils literal notranslate"><span class="pre">tuple</span></code> con los elementos de la fecha respetando ISO.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="#isoformat_d">isoformat</a>(``)</p></td>
+<td><p>Retorna una cadena con los elementos de la fecha, respetando ISO 8601.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="time">
+<h2>Time<a class="headerlink" href="#time" title="Permalink to this headline">#</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>En este sitio no se documenta todas las características de la clase <code class="docutils literal notranslate"><span class="pre">time</span></code>, para un tratado completo visitar la <a class="reference external" href="https://docs.python.org/3.11/library/datetime.html#time-objects">página oficial</a> de Python.</p>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">time</span></code> es una clase que representa tiempos. Para crear un tiempo se puede usar el constructor o algunos métodos de clase también lo permiten.</p>
+<p><strong>time</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">datetime.time()</span></code>: Retorna una fecha y tiempo dando los parámetros individuales.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">datetime</span><span class="o">.</span><span class="n">time</span><span class="p">(</span><span class="n">hour</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">minute</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">second</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">microsecond</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">tzinfo</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">fold</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">hour</span></code></strong>, <strong><code class="docutils literal notranslate"><span class="pre">minute</span></code></strong>, <strong><code class="docutils literal notranslate"><span class="pre">second</span></code></strong>, <strong><code class="docutils literal notranslate"><span class="pre">microsecond</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">int</span></code>: Parámetros, por default son cero.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">tzinfo</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">timezone</span></code>: Es la zona horaria, puedes usar un objeto creado con <code class="docutils literal notranslate"><span class="pre">datetime.timezone()</span></code> o usar una cadena, para ver las zonas horarias disponibles ver <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">Zonas Horarias</a>.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">time</span></code>.</p></li>
+</ul>
+<p><br><br></p>
+<hr class="docutils" />
+<section id="id6">
+<h3>Atributos de instancia<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
+<p>Los atributos de istancia se aplican directamente sobre un objeto <code class="docutils literal notranslate"><span class="pre">datetime.time</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">part_name</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>X - <code class="docutils literal notranslate"><span class="pre">datetime.time</span></code>: Objeto.</p></li>
+<li><p><em>part_name</em> es el nombre de la parte que se quiere recuperar, las opciones son:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">hour</span></code>: Retorna las horas.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">minute</span></code>: Retorna los minutos.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">seconds</span></code>: Retorna los segundos.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">microsecond</span></code>: Retorna los microsegundos.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tzinfo</span></code>: Retorna la zona horaria.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="id7">
+<h3>Métodos<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
+<section id="id8">
+<h4>Métodos de clase<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h4>
+<table class="table" id="id16">
+<caption><span class="caption-number">Table 43 </span><span class="caption-text">TITLE</span><a class="headerlink" href="#id16" title="Permalink to this table">#</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Funciones</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="#fromisoformat_t">fromisoformat</a>(<code class="docutils literal notranslate"><span class="pre">time_string</span></code>)</p></td>
+<td><p>Retorna un tiempo pasando una cadena que representa un tiempo en ISO 8601.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<hr class="docutils" />
+<section id="id9">
+<h4>Métodos de instancia<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h4>
+<p>Son métodos que se aplican directamente en instancias (objetos) de la clase <code class="docutils literal notranslate"><span class="pre">datetime.time</span></code>.</p>
+<table class="table" id="id17">
+<caption><span class="caption-number">Table 44 </span><span class="caption-text">TITLE</span><a class="headerlink" href="#id17" title="Permalink to this table">#</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Funciones</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="#replace_t">replace</a>(<code class="docutils literal notranslate"><span class="pre">part=val,</span> <span class="pre">...</span></code>)</p></td>
+<td><p>Retorna el mismo tiempo con una modificación en los elementos…</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="#strftime_t">strftime</a>(<code class="docutils literal notranslate"><span class="pre">format</span></code>)</p></td>
+<td><p>Retorna una cadena con el tiempo en un formato personalizado.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="#tzname">tzname</a>(``)</p></td>
+<td><p>Retorna el nombre de la zona horaria de un objeto.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="#isoformat">isoformat</a>(``)</p></td>
+<td><p>Retorna una cadena con los elementos del tiempo, respetando ISO 8601.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+<section id="timedelta">
+<h2>Timedelta<a class="headerlink" href="#timedelta" title="Permalink to this headline">#</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>En este sitio no se documenta todas las características de la clase <code class="docutils literal notranslate"><span class="pre">timedelta</span></code>, para un tratado completo visitar la <a class="reference external" href="https://docs.python.org/3.11/library/datetime.html#timedelta-objects">página oficial</a> de Python.</p>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">timedelta</span></code> es una clase que representa diferencias entre tiempos o fechas.</p>
+<p><strong>timedelta</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">datetime.timedelta()</span></code>: Crea objetos timedelta.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">seconds</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">microseconds</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">milliseconds</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">minutes</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">hours</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">weeks</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">days</span></code></strong>, <strong><code class="docutils literal notranslate"><span class="pre">seconds</span></code></strong>, <strong><code class="docutils literal notranslate"><span class="pre">microseconds</span></code></strong>, <strong><code class="docutils literal notranslate"><span class="pre">milliseconds</span></code></strong>, <strong><code class="docutils literal notranslate"><span class="pre">minutes</span></code></strong>, <strong><code class="docutils literal notranslate"><span class="pre">hours</span></code></strong>, <strong><code class="docutils literal notranslate"><span class="pre">weeks</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">float</span></code> o <code class="docutils literal notranslate"><span class="pre">int</span></code>: Pueden ser números negativos.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">timedelta</span></code>.</p></li>
+</ul>
+<p><br><br></p>
+<hr class="docutils" />
+<section id="id10">
+<h3>Atributos de instancia<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h3>
+<p>Los atributos de istancia se aplican directamente sobre un objeto <code class="docutils literal notranslate"><span class="pre">datetime.timedelta</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">part_name</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>X - <code class="docutils literal notranslate"><span class="pre">datetime.time</span></code>: Objeto.</p></li>
+<li><p><em>part_name</em> es el nombre de la parte que se quiere recuperar, las opciones son:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">days</span></code>: Retorna los días.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">seconds</span></code>: Retorna los segundos.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">microsecond</span></code>: Retorna los microsegundos.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id11">
+<h3>Atributos de instancia<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h3>
+<p>Son métodos que se aplican directamente en instancias (objetos) de la clase <code class="docutils literal notranslate"><span class="pre">datetime.timedelta</span></code>.</p>
+<hr class="docutils" />
+<p><strong>total_seconds</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">timedelta.total_seconds()</span></code>: Retorna el objeto timedelta en segundos.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">X</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">timedelta</span></code>: Objeto.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span></code>.</p></li>
+</ul>
+<p><br><br></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="codigos-de-fechas">
+<h2>Códigos de fechas<a class="headerlink" href="#codigos-de-fechas" title="Permalink to this headline">#</a></h2>
+<p>A continuación se presentan los códigos de fechas y tiempo que usan funciones y métodos como <code class="docutils literal notranslate"><span class="pre">strftime()</span></code> o <code class="docutils literal notranslate"><span class="pre">.strptime()</span></code>. Esta no es una lista completa, para una lista completa visitar la siguiente <a class="reference external" href="https://strftime.org/">página</a>.</p>
+<table class="table" id="date-codes">
+<caption><span class="caption-number">Table 45 </span><span class="caption-text">Códigos de fechas.</span><a class="headerlink" href="#date-codes" title="Permalink to this table">#</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Códigos.</p></th>
+<th class="head"><p>Elemento.</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%A</span></code>.</p></td>
+<td><p>Nombre día de la semana completo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%w</span></code>.</p></td>
+<td><p>Número de la semana (del 0-6, donde 0 es domingo).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%d</span></code>.</p></td>
+<td><p>Día de mes (1-31).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%b</span></code>.</p></td>
+<td><p>Nombre abreviado del mes.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%B</span></code>.</p></td>
+<td><p>Nombre completo del mes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%m</span></code>.</p></td>
+<td><p>Número del mes (1-12).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%y</span></code>.</p></td>
+<td><p>Año abreviado.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%Y</span></code>.</p></td>
+<td><p>Año completo.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%H</span></code>.</p></td>
+<td><p>Hora (0-24).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%I</span></code>.</p></td>
+<td><p>Hora (0-12).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%M</span></code>.</p></td>
+<td><p>Minutos (0-60).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%S</span></code>.</p></td>
+<td><p>Segundos (0-60).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%Z</span></code>.</p></td>
+<td><p>Nombre de la zona Horaria.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<hr class="docutils" />
+<section id="listado-de-metodos">
+<h2>Listado de métodos.<a class="headerlink" href="#listado-de-metodos" title="Permalink to this headline">#</a></h2>
+<p>Este es un listado completo de todas las clases. Se recomienda visitar la sección de cada clase para encontrar un método en particular.</p>
+<p><strong>Datetime</strong></p>
+<hr class="docutils" />
+<p><a name='now'></a>
+<strong>now</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">datetime.now()</span></code>: Retorna la fecha y hora actual del sistema.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">tz</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">tz</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">timezone</span></code>: Se puede especificar la zona horaria.</p></li>
+<li><p>• Es similar a <code class="docutils literal notranslate"><span class="pre">datetime.today()</span></code> si <code class="docutils literal notranslate"><span class="pre">tz=None</span></code>.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">datetime</span></code>.</p></li>
+</ul>
+<p><br><br></p>
+<hr class="docutils" />
+<p><a name='today'></a>
+<strong>today</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">datetime.today()</span></code>: Retorna la fecha actual del sistema. incluirá información del tiempo y la zona horaria.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p>No tiene argumentos.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">datime</span></code>.</p></li>
+</ul>
+<p><br><br></p>
+<hr class="docutils" />
+<p><a name='fromtimestamp'></a>
+<strong>fromtimestamp</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">datetime.fromtimestamp()</span></code>: Retorna la fecha y tiempo correspondiente a un timestamp.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">timestamp</span><span class="p">,</span> <span class="p">[</span><span class="n">tz</span><span class="o">=</span><span class="kc">None</span><span class="p">])</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">timestamp</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">int</span></code>: Segundos que han pasado desde el primero de enero de 1970.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">tz</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">str</span></code>: Zona horara.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">datetime</span></code>.</p></li>
+</ul>
+<p><br><br></p>
+<hr class="docutils" />
+<p><a name='fromisoformat'></a>
+<strong>fromisoformat</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">datetime.fromisoformat()</span></code>: Retorna una fecha pasando una cadena que representa una fecha en ISO 8601.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="n">date_string</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">date_string</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">str</span></code>: Cadena con la fecha respetando ISO 8601.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">datetime</span></code>.</p></li>
+</ul>
+<p><br><br></p>
+<hr class="docutils" />
+<p><a name='fromisocalender'></a>
+<strong>fromisocalender</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">datetime.fromisocalender()</span></code>: Retorna una fecha pasando sus elementos individuales, excluyendo los elementos correspondientes al tiempo.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromisocalender</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">week</span><span class="p">,</span> <span class="n">day</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">year</span></code></strong>, <strong><code class="docutils literal notranslate"><span class="pre">month</span></code></strong>, <strong><code class="docutils literal notranslate"><span class="pre">day</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">int</span></code>: Valores correspondientes al año, mes y día.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">datetime</span></code>.</p></li>
+</ul>
+<p><br><br></p>
+<hr class="docutils" />
+<p><a name='replace'></a>
+<strong>replace</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">datetime.replace()</span></code>: Retorna la misma fecha con una modificación en los elementos especificados. Si se modifica la zona horaria (<code class="docutils literal notranslate"><span class="pre">tzinfo</span></code>), no se modificará la hora, solo la información de la zona horaria, para modificar la hora, usar el método <code class="docutils literal notranslate"><span class="pre">datetime.datetime.astimezone()</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">part</span><span class="o">=</span><span class="n">val</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">X</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">datetime</span></code>: Objeto.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">part</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">arg</span></code>: Es el nombre de la parte de la fecha a remplazar, separa con comas las partes. Puede ser: <code class="docutils literal notranslate"><span class="pre">year</span></code>, <code class="docutils literal notranslate"><span class="pre">month</span></code>, <code class="docutils literal notranslate"><span class="pre">day</span></code>, <code class="docutils literal notranslate"><span class="pre">hour</span></code>, <code class="docutils literal notranslate"><span class="pre">minute</span></code>, <code class="docutils literal notranslate"><span class="pre">second</span></code>, <code class="docutils literal notranslate"><span class="pre">microsecond</span></code>, <code class="docutils literal notranslate"><span class="pre">tzinfo</span></code>.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">val</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">int</span></code> o <code class="docutils literal notranslate"><span class="pre">float</span></code>: Valor nuevo de <code class="docutils literal notranslate"><span class="pre">part</span></code>.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">datetime</span></code>.</p></li>
+</ul>
+<p><br><br></p>
+<hr class="docutils" />
+<p><a name='strftime'></a>
+<strong>strftime</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">datetime.strftime()</span></code>: Retorna una cadena con la en una fecha en un formato personalizado.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="nb">format</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">X</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">datetime</span></code>: Objeto.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">format</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">str</span></code>: Formato de la fecha usando los <a class="reference internal" href="#date-codes"><span class="std std-ref">Códigos de fechas.</span></a>.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">str</span></code>.</p></li>
+</ul>
+<p><br><br></p>
+<hr class="docutils" />
+<p><a name='date'></a>
+<strong>date</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">datetime.date()</span></code>: Retorna la fecha de un objeto, excluyendo el tiempo.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">X</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">datetime</span></code>: Objeto.</p></li>
+<li><p>No tiene argumentos.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">date</span></code>.</p></li>
+</ul>
+<p><br><br></p>
+<hr class="docutils" />
+<p><a name='time'></a>
+<strong>time</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">datetime.time()</span></code>: Retorna el tiempo de un objeto, excluyendo la fecha.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">X</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">datetime</span></code>: Objeto.</p></li>
+<li><p>No tiene argumentos.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">time</span></code>.</p></li>
+</ul>
+<p><br><br></p>
+<hr class="docutils" />
+<p><a name='timetz'></a>
+<strong>timetz</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">datetime.timetz()</span></code>: Retorna el tiempo con información de la zona horaria de un objeto.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">timetz</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">X</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">datetime</span></code>: Objeto.</p></li>
+<li><p>No tiene argumentos.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">time</span></code>.</p></li>
+</ul>
+<p><br><br></p>
+<hr class="docutils" />
+<p><a name='tzname'></a>
+<strong>tzname</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">datetime.tzname()</span></code>: Retorna el nombre de la zona horaria, de X <code class="docutils literal notranslate"><span class="pre">datetime</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">tzname</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">X</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">datetime</span></code>: Objeto.</p></li>
+<li><p>No tiene argumentos.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">None</span></code> o <code class="docutils literal notranslate"><span class="pre">str</span></code>.</p></li>
+</ul>
+<p><br><br></p>
+<hr class="docutils" />
+<p><a name='timestamp'></a>
+<strong>timestamp</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">datetime.timestamp</span></code>: Retorna cuántos segundos han pasado desde el primero de enero de 1970 de la fecha.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">timestamp</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">X</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">datetime</span></code>: Objeto.</p></li>
+<li><p>No tiene argumentos.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">float</span></code>.</p></li>
+</ul>
+<p><br><br></p>
+<hr class="docutils" />
+<p><a name='weekday'></a>
+<strong>weekday</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">datetime.weekday()</span></code>: Retorna el día de la semana de la fecha. Lunes es cero, domingo es seis.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">weekday</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">X</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">datetime</span></code>: Objeto.</p></li>
+<li><p>No tiene argumentos.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span></code>.</p></li>
+</ul>
+<p><br><br></p>
+<hr class="docutils" />
+<p><a name='isoweekday'></a>
+<strong>isoweekday</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">datetime.isoweekday()</span></code>: Retorna el día de la semana de la fecha. Lunes es uno, domingo es siete.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">isoweekday</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">X</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">datetime</span></code>: Objeto.</p></li>
+<li><p>No tiene argumentos.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span></code>.</p></li>
+</ul>
+<p><br><br></p>
+<hr class="docutils" />
+<p><a name='isocalender'></a>
+<strong>isocalender</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">datetime.isocalender()</span></code>: Retorna un <code class="docutils literal notranslate"><span class="pre">tuple</span></code> con los elementos de la fecha respetando ISO.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">isocalender</span><span class="p">(</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">X</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">datetime</span></code>: Objeto.</p></li>
+<li><p>No tiene argumentos.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tuple</span></code>.</p></li>
+</ul>
+<p><br><br></p>
+<hr class="docutils" />
+<p><a name='isoformat'></a>
+<strong>isoformat</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">datetime.isoformat()</span></code>: Retorna una cadena con los elementos de la fecha, respetando ISO 8601.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">X</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">datetime</span></code>: Objeto.</p></li>
+<li><p>No tiene argumentos.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">str</span></code>.</p></li>
+</ul>
+<p><br><br></p>
+<hr class="docutils" />
+<p><a name='astimezone'></a>
+<strong>astimezone</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">datetime.astimezone()</span></code>: Retorna la fecha y tiempo en una nueva zona horaria. Modifica los valores para sincronizarlos con la zona horaria.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span><span class="n">tz</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">X</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">datetime</span></code>: Objeto.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">tz</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">timezone</span></code>: La nueva zona horaria a usar.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">datetime</span></code>.</p></li>
+</ul>
+<p><br><br></p>
+<p><strong>Date</strong></p>
+<hr class="docutils" />
+<p><a name='today_d'></a>
+<strong>today</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">date.today()</span></code>: Retorna la fecha actual del sistema. incluirá información del tiempo y la zona horaria.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p>No tiene argumentos.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">date</span></code>.</p></li>
+</ul>
+<p><br><br></p>
+<hr class="docutils" />
+<p><a name='fromtimestamp_d'></a>
+<strong>fromtimestamp</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">date.fromtimestamp()</span></code>: Retorna la fecha y tiempo correspondiente a un timestamp.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">timestamp</span><span class="p">,</span> <span class="p">[</span><span class="n">tz</span><span class="o">=</span><span class="kc">None</span><span class="p">])</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">timestamp</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">int</span></code>: Segundos que han pasado desde el primero de enero de 1970.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">tz</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">str</span></code>: Zona horara.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">date</span></code>.</p></li>
+</ul>
+<p><br><br></p>
+<hr class="docutils" />
+<p><a name='fromisoformat_d'></a>
+<strong>fromisoformat</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">date.fromisoformat()</span></code>: Retorna una fecha pasando una cadena que representa una fecha en ISO 8601.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="n">date_string</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">date_string</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">str</span></code>: Cadena con la fecha respetando ISO 8601.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">date</span></code>.</p></li>
+</ul>
+<p><br><br></p>
+<hr class="docutils" />
+<p><a name='fromisocalender_d'></a>
+<strong>fromisocalender</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">date.fromisocalender()</span></code>: Retorna una fecha pasando sus elementos individuales, excluyendo los elementos correspondientes al tiempo.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">fromisocalender</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">week</span><span class="p">,</span> <span class="n">day</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">year</span></code></strong>, <strong><code class="docutils literal notranslate"><span class="pre">month</span></code></strong>, <strong><code class="docutils literal notranslate"><span class="pre">day</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">int</span></code>: Valores correspondientes al año, mes y día.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">date</span></code>.</p></li>
+</ul>
+<p><br><br></p>
+<hr class="docutils" />
+<p><a name='replace_d'></a>
+<strong>replace</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">date.replace()</span></code>: Retorna la misma fecha con una modificación en los elementos especificados.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">part</span><span class="o">=</span><span class="n">val</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">X</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">date</span></code>: Objeto.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">part</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">arg</span></code>: Es el nombre de la parte de la fecha a remplazar, separa con comas las partes. Puede ser: <code class="docutils literal notranslate"><span class="pre">year</span></code>, <code class="docutils literal notranslate"><span class="pre">month</span></code> y <code class="docutils literal notranslate"><span class="pre">day</span></code>.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">val</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">int</span></code> o <code class="docutils literal notranslate"><span class="pre">float</span></code>: Valor nuevo de <code class="docutils literal notranslate"><span class="pre">part</span></code>.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">date</span></code>.</p></li>
+</ul>
+<p><br><br></p>
+<hr class="docutils" />
+<p><a name='strftime_d'></a>
+<strong>strftime</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">date.strftime()</span></code>: Retorna una cadena con la en una fecha en un formato personalizado.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="nb">format</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">X</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">date</span></code>: Objeto.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">format</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">str</span></code>: Formato de la fecha usando los <a class="reference internal" href="#date-codes"><span class="std std-ref">Códigos de fechas.</span></a>.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">str</span></code>.</p></li>
+</ul>
+<p><br><br></p>
+<hr class="docutils" />
+<p><a name='weekday_d'></a>
+<strong>weekday</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">date.weekday()</span></code>: Retorna el día de la semana de la fecha. Lunes es cero, domingo es seis.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">weekday</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">X</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">date</span></code>: Objeto.</p></li>
+<li><p>No tiene argumentos.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span></code>.</p></li>
+</ul>
+<p><br><br></p>
+<hr class="docutils" />
+<p><a name='isoweekday_d'></a>
+<strong>isoweekday</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">date.isoweekday()</span></code>: Retorna el día de la semana de la fecha. Lunes es uno, domingo es siete.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">isoweekday</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">X</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">date</span></code>: Objeto.</p></li>
+<li><p>No tiene argumentos.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span></code>.</p></li>
+</ul>
+<p><br><br></p>
+<hr class="docutils" />
+<p><a name='isocalender_d'></a>
+<strong>isocalender</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">date.isocalender()</span></code>: Retorna un <code class="docutils literal notranslate"><span class="pre">tuple</span></code> con los elementos de la fecha respetando ISO.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">isocalender</span><span class="p">(</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">X</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">date</span></code>: Objeto.</p></li>
+<li><p>No tiene argumentos.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tuple</span></code>.</p></li>
+</ul>
+<p><br><br></p>
+<hr class="docutils" />
+<p><a name='isoformat_d'></a>
+<strong>isoformat</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">date.isoformat()</span></code>: Retorna una cadena con los elementos de la fecha, respetando ISO 8601.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">X</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">date</span></code>: Objeto.</p></li>
+<li><p>No tiene argumentos.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">str</span></code>.</p></li>
+</ul>
+<p><br><br></p>
+<p><strong>time</strong></p>
+<hr class="docutils" />
+<p><a name='fromisoformat_t'></a>
+<strong>fromisoformat</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">time.fromisoformat()</span></code>: Retorna un tiempo pasando una cadena que representa un tiempo en ISO 8601.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">datetime</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="n">time_string</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">time_string</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">str</span></code>: Cadena con el tiempo respetando ISO 8601.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">time</span></code>.</p></li>
+</ul>
+<p><br><br></p>
+<hr class="docutils" />
+<p><a name='replace_t'></a>
+<strong>replace</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">datetime.replace()</span></code>: Retorna el mismo tiempo con una modificación en los elementos especificados.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">part</span><span class="o">=</span><span class="n">val</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">X</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">time</span></code>: Objeto.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">part</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">arg</span></code>: Es el nombre de la parte del tiempo a remplazar, separa con comas las partes. Puede ser: <code class="docutils literal notranslate"><span class="pre">hour</span></code>, <code class="docutils literal notranslate"><span class="pre">minute</span></code>, <code class="docutils literal notranslate"><span class="pre">second</span></code>, <code class="docutils literal notranslate"><span class="pre">microsecond</span></code>, <code class="docutils literal notranslate"><span class="pre">tzinfo</span></code>.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">val</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">int</span></code> o <code class="docutils literal notranslate"><span class="pre">float</span></code>: Valor nuevo de <code class="docutils literal notranslate"><span class="pre">part</span></code>.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">time</span></code>.</p></li>
+</ul>
+<p><br><br></p>
+<hr class="docutils" />
+<p><a name='strftime_t'></a>
+<strong>strftime</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">time.strftime()</span></code>: Retorna una cadena con el tiempo en un formato personalizado.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="nb">format</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">X</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">time</span></code>: Objeto.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">format</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">str</span></code>: Formato de la fecha usando los <a class="reference internal" href="#date-codes"><span class="std std-ref">Códigos de fechas.</span></a>.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">str</span></code>.</p></li>
+</ul>
+<p><br><br></p>
+<hr class="docutils" />
+<p><a name='tzname_t'></a>
+<strong>tzname</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">datetime.tzname()</span></code>: Retorna el nombre de la zona horaria de un objeto.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">tzname</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">X</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">time</span></code>: Objeto.</p></li>
+<li><p>No tiene argumentos.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">None</span></code> o <code class="docutils literal notranslate"><span class="pre">str</span></code>.</p></li>
+</ul>
+<p><br><br></p>
+<hr class="docutils" />
+<p><a name='isoformat_t'></a>
+<strong>isoformat</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">time.isoformat()</span></code>: Retorna una cadena con los elementos del tiempo, respetando ISO 8601.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">X</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">time</span></code>: Objeto.</p></li>
+<li><p>No tiene argumentos.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">str</span></code>.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./parts/02-modulos-built-in"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="01-collections.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Collections</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="03-itertools.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Itertools</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Angel Lizaldi<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
