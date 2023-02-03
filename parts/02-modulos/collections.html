@@ -1,0 +1,1306 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Collections &#8212; Manual de Python</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/nebok-favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Datetime" href="datetime.html" />
+    <link rel="prev" title="Módulos built-in" href="modulos-index.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/nebok-logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Manual de Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Manual de Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Built-in
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01-built-in/built-in-index.html">
+   Python estándar
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/ayuda.html">
+     Obtener ayuda
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/comentarios.html">
+     Comentarios
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/entrada-salida.html">
+     Entrada y salida de datos
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../01-built-in/tipos-index.html">
+     Tipos Built-In
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/booleanos.html">
+       Valores booleanos
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/numeros.html">
+       Números
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/cadenas.html">
+       Cadenas
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/listas.html">
+       Listas
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/tuples.html">
+       Tuples
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/sets.html">
+       Sets
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/diccionarios.html">
+       Diccionarios
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../01-built-in/estructuras-index.html">
+     Estructuras de control
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/if-else.html">
+       If … Else.
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/for-loop.html">
+       For Loop.
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/do-while.html">
+       While
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/funciones.html">
+     Funciones
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/try-except.html">
+     Exceptions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/context.html">
+     Context Managers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/io.html">
+     Lectura y escritura de archivos.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/modulos.html">
+     Paquetes y Módulos.
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../01-built-in/avanzado-index.html">
+     Temas avanzados
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/decorators.html">
+       Decorators
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/iterators.html">
+       Iterators
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/generators.html">
+       Generators
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/oop.html">
+       Programación orientada a objetos
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/func-built-in.html">
+     Funciones built-in
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="modulos-index.html">
+   Módulos built-in
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Collections
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="datetime.html">
+     Datetime
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="itertools.html">
+     Itertools
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="regular-expression.html">
+     Regular Expressions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01-built-in/anexos-index.html">
+   Anexos
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/anexos-tipos-datos.html">
+     Tipos de datos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/anexos-operadores-palabras.html">
+     Operadores y palabras reservadas.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/anexo-formatos-cadenas.html">
+     Formatos de cadena
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/anexos-excepciones.html">
+     Excepciones
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/parts/02-modulos/collections.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/parts/02-modulos/collections.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="../../_sources/parts/02-modulos/collections.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#counter">
+   Counter
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#crear-un-counter">
+     Crear un Counter
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metodos">
+     Métodos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejemplo-de-uso">
+     Ejemplo de uso
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deque">
+   Deque
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#crear-un-deque">
+     Crear un deque
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#atributos">
+     Atributos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Métodos
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#agregar-elementos">
+       Agregar elementos
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#eliminar-elementos">
+       Eliminar elementos
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#informacion">
+       Información
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#modificar">
+       Modificar
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#copiar">
+       Copiar
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#default-dict">
+   Default dict
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#crear-un-default-dict">
+     Crear un default dict
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#named-tuple">
+   Named tuple
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#crear-un-namedtuple">
+     Crear un namedtuple
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Collections</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#counter">
+   Counter
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#crear-un-counter">
+     Crear un Counter
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metodos">
+     Métodos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejemplo-de-uso">
+     Ejemplo de uso
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deque">
+   Deque
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#crear-un-deque">
+     Crear un deque
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#atributos">
+     Atributos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Métodos
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#agregar-elementos">
+       Agregar elementos
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#eliminar-elementos">
+       Eliminar elementos
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#informacion">
+       Información
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#modificar">
+       Modificar
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#copiar">
+       Copiar
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#default-dict">
+   Default dict
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#crear-un-default-dict">
+     Crear un default dict
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#named-tuple">
+   Named tuple
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#crear-un-namedtuple">
+     Crear un namedtuple
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="collections">
+<h1>Collections<a class="headerlink" href="#collections" title="Permalink to this headline">#</a></h1>
+<p>Es un módulo que provee de “<em>containers</em>” especializados que expanden las funcionalidades de las listas, diccionarios, tuplas y sets. Es necesario importarlo.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar todo el módulo</span>
+<span class="kn">import</span> <span class="nn">collections</span>
+
+<span class="c1"># Importar una clase específica</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">class_name</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><em>class_name</em> es el nombre de la clase que se desea importar.</p></li>
+</ul>
+<br>
+<p>A continuación se presenta una lista completa de los contenedores especializados de este módulo.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>Contenedor</p></th>
+<th class="text-align:left head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p><a class="reference external" href="https://docs.python.org/3/library/collections.html#namedtuple-factory-function-for-tuples-with-named-fields">namedtuple</a></p></td>
+<td class="text-align:left"><p>Función de fábrica para crear subclases de tuplas con campos nombrados</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><a class="reference external" href="https://docs.python.org/3/library/collections.html#deque-objects">deque</a></p></td>
+<td class="text-align:left"><p>Contenedor similar a <code class="docutils literal notranslate"><span class="pre">list</span></code> con inserciones y eliminaciones rápidas en ambos extremos</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><a class="reference external" href="https://docs.python.org/3/library/collections.html#chainmap-objects">ChainMap</a></p></td>
+<td class="text-align:left"><p>Clase similar a un diccionario para crear una vista única de varios mapeos</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><a class="reference external" href="https://docs.python.org/3/library/collections.html#counter-objects">Counter</a></p></td>
+<td class="text-align:left"><p>Subclase de diccionario para contar objetos hashable</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><a class="reference external" href="https://docs.python.org/3/library/collections.html#ordereddict-objects">OrderedDict</a></p></td>
+<td class="text-align:left"><p>Subclase de diccionario que recuerda el orden en que se agregaron las entradas</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><a class="reference external" href="https://docs.python.org/3/library/collections.html#defaultdict-objects">defaultdict</a></p></td>
+<td class="text-align:left"><p>Subclase de diccionario que llama a una función de fábrica para proporcionar valores faltantes</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><a class="reference external" href="https://docs.python.org/3/library/collections.html#userdict-objects">UserDict</a></p></td>
+<td class="text-align:left"><p>Envoltorio alrededor de objetos <code class="docutils literal notranslate"><span class="pre">dict</span></code> para facilitar la subclasificación de diccionarios</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><a class="reference external" href="https://docs.python.org/3/library/collections.html#userlist-objects">UserList</a></p></td>
+<td class="text-align:left"><p>Envoltorio alrededor de objetos <code class="docutils literal notranslate"><span class="pre">list</span></code> para facilitar la subclasificación de listas</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><a class="reference external" href="https://docs.python.org/3/library/collections.html#userstring-objects">UserString</a></p></td>
+<td class="text-align:left"><p>Envoltorio alrededor de objetos <code class="docutils literal notranslate"><span class="pre">str</span></code> para facilitar la subclasificación de cadenas</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>En esta sección solo se presentarán algunas clases de este módulo y de cada clase solo se presentarán algunos métodos y atributos. Para más información presionar en el nombre de cada contenedor lo cual lleva a la documentación oficial de Python.</p>
+</div>
+<hr class="docutils" />
+<section id="counter">
+<h2>Counter<a class="headerlink" href="#counter" title="Permalink to this headline">#</a></h2>
+<p>Es una subclase de <code class="docutils literal notranslate"><span class="pre">dict</span></code> que permite conocer el número de veces que se repite un elemento en un objeto <code class="docutils literal notranslate"><span class="pre">iterable</span></code>.</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.Counter">Counter</a>([iterable-or-mapping])</p></td>
+<td><p>Un <code class="docutils literal notranslate"><span class="pre">Counter</span></code> es una subclase de <code class="docutils literal notranslate"><span class="pre">dict</span></code> para contar objetos hashable. Es una colección donde los elementos se almacenan como claves de diccionario y sus recuentos se almacenan como valores de diccionario.</p></td>
+</tr>
+</tbody>
+</table>
+<section id="crear-un-counter">
+<h3>Crear un Counter<a class="headerlink" href="#crear-un-counter" title="Permalink to this headline">#</a></h3>
+<p>Para crear un objeto <code class="docutils literal notranslate"><span class="pre">Counter</span></code> se usa el constructor <code class="docutils literal notranslate"><span class="pre">collections.Counter()</span></code>, existen dos formas de crear el <code class="docutils literal notranslate"><span class="pre">Counter</span></code></p>
+<p><strong>1.</strong> Desde un <code class="docutils literal notranslate"><span class="pre">iterable</span></code>: Se pasa como argumento un objeto iterable. En este caso se retornará el <code class="docutils literal notranslate"><span class="pre">Counter</span></code> con el número de veces que aparece cada elemento en el iterable.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar el módulo</span>
+<span class="kn">import</span> <span class="nn">collections</span>
+
+<span class="c1"># Si Y es un iterable</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">Counter</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>2.</strong> Desde un <em>mapping</em>: Se pasa como argumento un diccionario o pares <code class="docutils literal notranslate"><span class="pre">key=value</span></code> separados por coma. En este caso se indica directamente el recuento (<code class="docutils literal notranslate"><span class="pre">value</span></code>) de cada elemento <code class="docutils literal notranslate"><span class="pre">key</span></code> en el <code class="docutils literal notranslate"><span class="pre">Counter</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar el módulo</span>
+<span class="kn">import</span> <span class="nn">collections</span>
+
+<span class="c1"># Crear un counter con key=value</span>
+<span class="n">collections</span><span class="o">.</span><span class="n">Counter</span><span class="p">(</span><span class="s1">&#39;key1&#39;</span><span class="o">=</span><span class="n">val1</span><span class="p">,</span> <span class="s1">&#39;key2&#39;</span><span class="o">=</span><span class="n">val2</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>‘<em>key1</em>’, ‘<em>key2</em>’, … - <code class="docutils literal notranslate"><span class="pre">str</span></code>: Son los nombres que tendrán las llaves.</p></li>
+<li><p>val1, val2, … - <code class="docutils literal notranslate"><span class="pre">int</span></code>: Son los recuentos de los elemento. Puede ser cero o incluso números negativos.</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Si se tienen dos objetos <code class="docutils literal notranslate"><span class="pre">Counter</span></code> con <em>keys</em> en común se pueden sumar sus respectivos recuentos con el operador <code class="docutils literal notranslate"><span class="pre">+</span></code>.</p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="metodos">
+<h3>Métodos<a class="headerlink" href="#metodos" title="Permalink to this headline">#</a></h3>
+<p>Los métodos de <code class="docutils literal notranslate"><span class="pre">dict</span></code> están disponibles para <code class="docutils literal notranslate"><span class="pre">Counter</span></code> a excepción de <code class="docutils literal notranslate"><span class="pre">dict.fromkeys()</span></code>, mientras que el método <code class="docutils literal notranslate"><span class="pre">.update()</span></code> tiene un comportamiento diferente. Los métodos exclusivos de <code class="docutils literal notranslate"><span class="pre">Counter</span></code> son:</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Funciones</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.Counter.elements">elements</a>()</p></td>
+<td><p>Retorna un <code class="docutils literal notranslate"><span class="pre">iterator</span></code> con los elementos del <code class="docutils literal notranslate"><span class="pre">Counter</span></code> repitiendo cada uno tantas veces como su contador.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.Counter.most_common">most_common</a>([n])</p></td>
+<td><p>Devuelve una lista de los <code class="docutils literal notranslate"><span class="pre">n</span></code> elementos más comunes y sus recuentos de la más comunes a los menos. Si se omite <code class="docutils literal notranslate"><span class="pre">n</span></code> o es <code class="docutils literal notranslate"><span class="pre">None</span></code>, <code class="docutils literal notranslate"><span class="pre">most_common()</span></code> devuelve todos los elementos del contador.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.Counter.subtract">subtract</a>([iterable-or-mapping])</p></td>
+<td><p>Los elementos se sustraen de un iterable o de otro mapeo (o contador). Como <code class="docutils literal notranslate"><span class="pre">dict.update()</span></code> pero resta cuentas en su lugar de reemplazarlos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.Counter.total">total</a>()</p></td>
+<td><p>Devuelve la suma de los recuentos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.Counter.update">update</a>([iterable-or-mapping])</p></td>
+<td><p>Los elementos se cuentan desde un iterable o se agregan desde otro mapeo (o contador). Como <code class="docutils literal notranslate"><span class="pre">dict.update()</span></code> pero agrega cuentas en lugar de reemplazarlos.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<hr class="docutils" />
+<section id="ejemplo-de-uso">
+<h3>Ejemplo de uso<a class="headerlink" href="#ejemplo-de-uso" title="Permalink to this headline">#</a></h3>
+<p>A continuación se presenta un ejemplo en el que se crea un objeto <code class="docutils literal notranslate"><span class="pre">Counter</span></code> desde una lista y se imprime el elemento que más se repite</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># importar la clase Counter </span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+
+<span class="c1"># Definir una lista</span>
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">]</span>
+
+<span class="c1"># Crear el objeto Counter a partir de la lista</span>
+<span class="n">word_count</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+
+<span class="c1"># Imprimir word_count</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">word_count</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Imprimir solo el elemento con mas repeticiones</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Elemento más común: </span><span class="si">{</span><span class="n">word_count</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Counter({&#39;banana&#39;: 3, &#39;apple&#39;: 2, &#39;orange&#39;: 2})
+
+Elemento más común: [(&#39;banana&#39;, 3)]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="deque">
+<h2>Deque<a class="headerlink" href="#deque" title="Permalink to this headline">#</a></h2>
+<p>Es un objeto similar a <code class="docutils literal notranslate"><span class="pre">list</span></code> pero optimizado para eliminar y agregar elementos.</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.deque">deque</a>([iterable[, maxlen]])</p></td>
+<td><p>Devuelve un nuevo objeto <code class="docutils literal notranslate"><span class="pre">deque</span></code> inicializado de izquierda a derecha (usando <code class="docutils literal notranslate"><span class="pre">append()</span></code>) con datos de <code class="docutils literal notranslate"><span class="pre">iterable</span></code>. Si no se especifica iterable, el <code class="docutils literal notranslate"><span class="pre">deque</span></code> estará vacío.</p></td>
+</tr>
+</tbody>
+</table>
+<section id="crear-un-deque">
+<h3>Crear un deque<a class="headerlink" href="#crear-un-deque" title="Permalink to this headline">#</a></h3>
+<p>Para crear un objeto <code class="docutils literal notranslate"><span class="pre">deque</span></code> se debe pasar como argumento un objeto iterable al constructor <code class="docutils literal notranslate"><span class="pre">collections.deque(iterable,</span> <span class="pre">maxlen)</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar el módulo</span>
+<span class="kn">import</span> <span class="nn">collections</span>
+
+<span class="c1"># Crear un deque desde el iterable Y</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">deque</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Y - <code class="docutils literal notranslate"><span class="pre">iterable</span></code>: Un objeto iterable. Si no se especifica, se inicializa un deque vacío.</p></li>
+<li><p>Se puede además especificar el parámetro <strong><code class="docutils literal notranslate"><span class="pre">maxlen</span></code></strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>) que representa la longitud máxima que puede tener el <code class="docutils literal notranslate"><span class="pre">deque</span></code>, si no se especifica, entonces el <code class="docutils literal notranslate"><span class="pre">deque</span></code> puede crecer hasta una longitud arbitraria.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="atributos">
+<h3>Atributos<a class="headerlink" href="#atributos" title="Permalink to this headline">#</a></h3>
+<p>Atributos de instancia de la clase <code class="docutils literal notranslate"><span class="pre">deque</span></code>.</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Atributo</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.deque.maxlen">maxlen</a>()</p></td>
+<td><p>Retorna la longitud máxima que puede tener el <code class="docutils literal notranslate"><span class="pre">deque</span></code>. Si no tiene longitud máxima retorna <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<hr class="docutils" />
+<section id="id1">
+<h3>Métodos<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<p>Métodos de instancia de la clase <code class="docutils literal notranslate"><span class="pre">deque</span></code>.</p>
+<hr class="docutils" />
+<section id="agregar-elementos">
+<h4>Agregar elementos<a class="headerlink" href="#agregar-elementos" title="Permalink to this headline">#</a></h4>
+<p>Métodos para agregar elementos.</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Funciones</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.deque.append">append</a>(x)</p></td>
+<td><p>Agrega un elemento <code class="docutils literal notranslate"><span class="pre">x</span></code> al final del <code class="docutils literal notranslate"><span class="pre">deque</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.deque.appendleft">appendleft</a>(x)</p></td>
+<td><p>Agrega un elemento <code class="docutils literal notranslate"><span class="pre">x</span></code> al incio de un <code class="docutils literal notranslate"><span class="pre">deque</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.deque.extend">extend</a>(iterable)</p></td>
+<td><p>Agrega elementos de un objeto iterable al final del <code class="docutils literal notranslate"><span class="pre">deque</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.deque.extendleft">extendleft</a>(iterable)</p></td>
+<td><p>Agrega elementos de un objeto iterable al incio del <code class="docutils literal notranslate"><span class="pre">deque</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.deque.insert">insert</a>(i, x)</p></td>
+<td><p>Inserta un elemento a un índice en específico, recorriendo el resto de los elementos a la derecha. Si el elemento provoca que se viole <code class="docutils literal notranslate"><span class="pre">maxlen</span></code> se arroja un <code class="docutils literal notranslate"><span class="pre">IndexError</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<hr class="docutils" />
+<section id="eliminar-elementos">
+<h4>Eliminar elementos<a class="headerlink" href="#eliminar-elementos" title="Permalink to this headline">#</a></h4>
+<p>Métodos para eliminar elementos.</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Funciones</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.deque.clear">clear</a>()</p></td>
+<td><p>Elimina todos los elementos del <code class="docutils literal notranslate"><span class="pre">deque</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.deque.pop">pop</a>()</p></td>
+<td><p>Remueve y retorna el último elemento. Si el <code class="docutils literal notranslate"><span class="pre">deque</span></code> no tiene elementos genera un <code class="docutils literal notranslate"><span class="pre">IndexError</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.deque.popleft">popleft</a>()</p></td>
+<td><p>Remueve y retorna el primer elemento del <code class="docutils literal notranslate"><span class="pre">deque</span></code>. Si no hay elementos presentes se genera un <code class="docutils literal notranslate"><span class="pre">IndexError</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.deque.remove">remove</a>(value)</p></td>
+<td><p>Elimina la primer coincidencia de un elemento en la lista. Si no se encuentra el elemento se retorna un error <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<hr class="docutils" />
+<section id="informacion">
+<h4>Información<a class="headerlink" href="#informacion" title="Permalink to this headline">#</a></h4>
+<p>Métodos que retornan información sobre el objeto <code class="docutils literal notranslate"><span class="pre">deque</span></code>.</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Funciones</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.deque.count">count</a>(x)</p></td>
+<td><p>Devuelve el número de veces que hay un elemento específico <code class="docutils literal notranslate"><span class="pre">x</span></code> en el <code class="docutils literal notranslate"><span class="pre">deque</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.deque.index">index</a>(x[, start[, stop]])</p></td>
+<td><p>Devuelve el índice en el que se encuentra el elemento <code class="docutils literal notranslate"><span class="pre">x</span></code>. Retorna <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> si el elemento no se encuentra.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<hr class="docutils" />
+<section id="modificar">
+<h4>Modificar<a class="headerlink" href="#modificar" title="Permalink to this headline">#</a></h4>
+<p>Métodos para modificar el <code class="docutils literal notranslate"><span class="pre">deque</span></code>.</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Funciones</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.deque.reverse">reverse</a>()</p></td>
+<td><p>Modifica el orden del <code class="docutils literal notranslate"><span class="pre">deque</span></code> de manera inversa in-place.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.deque.rotate">rotate</a>(n=1)</p></td>
+<td><p>Desplaza los elementos a la derecha o izquierda <code class="docutils literal notranslate"><span class="pre">n</span></code> posiciones.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<hr class="docutils" />
+<section id="copiar">
+<h4>Copiar<a class="headerlink" href="#copiar" title="Permalink to this headline">#</a></h4>
+<p>Métodos para crear una copia del objeto.</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Funciones</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.deque.copy">copy</a>()</p></td>
+<td><p>Retorna una copia superficial del <code class="docutils literal notranslate"><span class="pre">deque</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="default-dict">
+<h2>Default dict<a class="headerlink" href="#default-dict" title="Permalink to this headline">#</a></h2>
+<p>Es una subclase de <code class="docutils literal notranslate"><span class="pre">dict</span></code>, es como un diccionario que permite que si se trata de acceder a un key que no existe, en lugar de arrojar un error, crea esa <em>key</em> como un tipo de dato específico. El valor que tendrá esa <em>key</em> dependerá del tipo de dato especificado.</p>
+<p>Los métodos y la funcionalidad de <code class="docutils literal notranslate"><span class="pre">defaultdict</span></code> es la misma que la de <code class="docutils literal notranslate"><span class="pre">dict</span></code>, a excepción de lo anteriormente explicado.</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.defaultdict">defaultdict</a>(default_factory=None, /[, …])</p></td>
+<td><p>Crea un diccionario con valores por default de determinado tipo de dato, lo que permite que si se trata de acceder a un key que no existe, en lugar de arrojar un error, se crea ese elemento con el valor por default del tipo de dato.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+<section id="crear-un-default-dict">
+<h3>Crear un default dict<a class="headerlink" href="#crear-un-default-dict" title="Permalink to this headline">#</a></h3>
+<p>Para crear un <code class="docutils literal notranslate"><span class="pre">defaultdict</span></code> se puede usar la función <code class="docutils literal notranslate"><span class="pre">collections.defaultdict()</span></code> cuyo argumento es un tipo de dato.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar el módulo</span>
+<span class="kn">import</span> <span class="nn">collections</span>
+
+<span class="c1"># Crear un defaultdict de &quot;dtype&quot;</span>
+<span class="n">collections</span><span class="o">.</span><span class="n">dafaultdict</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">dtype</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">dtype</span></code>: Es el nombre del tipo que tendrá el valor por default, por ejemplo <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>, etc. El valor que tendrá esa key será el mismo que el retornado por el constructor de <code class="docutils literal notranslate"><span class="pre">dtype</span></code>, por ejemplo, si <code class="docutils literal notranslate"><span class="pre">dtype=int</span></code> entonces el valor de la <em>key</em> será <code class="docutils literal notranslate"><span class="pre">int()</span></code> que es el número 0.</p></li>
+</ul>
+<br>
+<p><strong>Ejemplo</strong>: En el siguiente ejemplo se usa la clase <code class="docutils literal notranslate"><span class="pre">defaultdict</span></code> para contar el número de veces que aparece cada letra en la palabra “mississippi”. Básicamente la forma como funciona es que si se trata de acceder a una letra que todavía no está en el <code class="docutils literal notranslate"><span class="pre">defaultdict</span></code> entonces creará una llave nueva con el valor de 0 (porque es de tipo <code class="docutils literal notranslate"><span class="pre">int</span></code>) y le suma uno. Pero si ya existe la llave entonces simplemente le suma uno al valor de la llave.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar la clase</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+
+<span class="c1"># Definir una cadena</span>
+<span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;mississippi&#39;</span>
+
+<span class="c1"># Definir un defaultdict de tipo int</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+<span class="c1"># Crear keys con base a &quot;s&quot;</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+    <span class="n">d</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    
+<span class="c1"># Imprimir d</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>defaultdict(&lt;class &#39;int&#39;&gt;, {&#39;m&#39;: 1, &#39;i&#39;: 4, &#39;s&#39;: 4, &#39;p&#39;: 2})
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="named-tuple">
+<h2>Named tuple<a class="headerlink" href="#named-tuple" title="Permalink to this headline">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">namedtuple</span></code> es como un <code class="docutils literal notranslate"><span class="pre">tuple</span></code> pero sus elementos tienen nombre, lo que permite que se pueda acceder a los elementos por el nombre.</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.namedtuple">namedtuple</a>(typename, field_names, *, rename=False, defaults=None, module=None)</p></td>
+<td><p>Devuelve una nueva subclase de <code class="docutils literal notranslate"><span class="pre">tuple</span></code> denominada <code class="docutils literal notranslate"><span class="pre">typename</span></code>. La nueva subclase se usa para crear objetos similares a <code class="docutils literal notranslate"><span class="pre">tuple</span></code> que tienen campos accesibles mediante nombres, además de ser indexables e iterables.</p></td>
+</tr>
+</tbody>
+</table>
+<section id="crear-un-namedtuple">
+<h3>Crear un namedtuple<a class="headerlink" href="#crear-un-namedtuple" title="Permalink to this headline">#</a></h3>
+<p>Para crear un <code class="docutils literal notranslate"><span class="pre">namedtuple</span></code> se puede usar la función <code class="docutils literal notranslate"><span class="pre">collections.namedtuple</span></code>. Esta función recibe como argumento una cadena que será el nombre del <code class="docutils literal notranslate"><span class="pre">tuple</span></code> y una cadena o lista de cadenas que serán los nombres de cada uno de los elementos.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar el módulo</span>
+<span class="kn">import</span> <span class="nn">collections</span>
+
+<span class="c1"># Crear un namedtuple</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">namedtuple</span><span class="p">(</span><span class="n">typename</span><span class="p">,</span> <span class="n">field_names</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">typename</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">str</span></code>: Es el nombre que tendrá el <code class="docutils literal notranslate"><span class="pre">tuple</span></code>.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">field_names</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">list</span></code> de <code class="docutils literal notranslate"><span class="pre">str</span></code> o <code class="docutils literal notranslate"><span class="pre">str</span></code>: Es el nombre que tendrá cada elemento</p>
+<ul>
+<li><p>Si es una lista, cada nombre está separado por coma.</p></li>
+<li><p>Si es cadena, los nombres de separan por coma o especios: <code class="docutils literal notranslate"><span class="pre">&quot;name1,</span> <span class="pre">name2,</span> <span class="pre">...&quot;</span></code> o <code class="docutils literal notranslate"><span class="pre">&quot;name1</span> <span class="pre">name2</span> <span class="pre">...&quot;</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+<p>Posteriormente para llenar el <code class="docutils literal notranslate"><span class="pre">namedtuple</span></code> se usa:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">(</span><span class="n">name1</span><span class="o">=</span><span class="n">val1</span><span class="p">,</span> <span class="n">name2</span><span class="o">=</span><span class="n">val2</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><em>name1</em>, <em>name2</em>, …: Son los nombre de los elementos que se pusieron en <code class="docutils literal notranslate"><span class="pre">field_names</span></code> en la función <code class="docutils literal notranslate"><span class="pre">collections.namedtuple()</span></code>.</p></li>
+<li><p><em>val1</em>, <em>val2</em> - <code class="docutils literal notranslate"><span class="pre">object</span></code>: Son los valores que tendrán esos campos. Se pueden poner los valores por nombre o por posición.</p></li>
+</ul>
+<p>Para acceder a los elementos del <code class="docutils literal notranslate"><span class="pre">namedtuple</span></code> se puede usar:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Acceder al elemento i con su nombre con notación &quot;.&quot;</span>
+<span class="n">X</span><span class="o">.</span><span class="n">name</span>
+
+<span class="c1"># Acceder al elemento i con su nombre con notación &quot;[]&quot;</span>
+<span class="n">X</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+
+<span class="c1"># Acceder al elemento i con su índice</span>
+<span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><em>name</em> es un nombre válido de <code class="docutils literal notranslate"><span class="pre">X</span></code>.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./parts/02-modulos"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="modulos-index.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Módulos built-in</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="datetime.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Datetime</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Nebok<br/>
+  
+      &copy; Copyright 2023.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

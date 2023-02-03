@@ -7,7 +7,7 @@ for key in iterable:
     expression
 ```
 - _key_ es un nombre arbitrario. Ese nombre es el que se utilizará dentro de código para hacer referencia al elemento del iterable en cada iteración.
-- _iterable_ es un un objeto `iterable` (consultar [Tipos de datos](tipos-datos.md)). En algunos casos _iterable_ retorna 2 o más objetos en cada iteración, se debe de poner tantos _keys_ como objetos retornados separados por coma.
+- _iterable_ es un un objeto `iterable` (consultar [Tipos de datos](anexos-tipos-datos.md)). En algunos casos _iterable_ retorna 2 o más objetos en cada iteración, se debe de poner tantos _keys_ como objetos retornados separados por coma.
 - Se puede poner más de un iterable, en ese caso se deben de poner la cantidad de keys correspondientes.
 
 ```{warning} Es muy importante que se respete la indentación, esa es la forma como Python determina qué parte del código forma parte de cada bloque de la estructura. Los dos puntos indican el inicio de un bloque que debe de estar indentado.

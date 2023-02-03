@@ -1,0 +1,1715 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Regular Expressions &#8212; Manual de Python</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/nebok-favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Anexos" href="../01-built-in/anexos-index.html" />
+    <link rel="prev" title="Itertools" href="itertools.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/nebok-logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Manual de Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Manual de Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Built-in
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01-built-in/built-in-index.html">
+   Python estándar
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/ayuda.html">
+     Obtener ayuda
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/comentarios.html">
+     Comentarios
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/entrada-salida.html">
+     Entrada y salida de datos
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../01-built-in/tipos-index.html">
+     Tipos Built-In
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/booleanos.html">
+       Valores booleanos
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/numeros.html">
+       Números
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/cadenas.html">
+       Cadenas
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/listas.html">
+       Listas
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/tuples.html">
+       Tuples
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/sets.html">
+       Sets
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/diccionarios.html">
+       Diccionarios
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../01-built-in/estructuras-index.html">
+     Estructuras de control
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/if-else.html">
+       If … Else.
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/for-loop.html">
+       For Loop.
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/do-while.html">
+       While
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/funciones.html">
+     Funciones
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/try-except.html">
+     Exceptions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/context.html">
+     Context Managers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/io.html">
+     Lectura y escritura de archivos.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/modulos.html">
+     Paquetes y Módulos.
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../01-built-in/avanzado-index.html">
+     Temas avanzados
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/decorators.html">
+       Decorators
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/iterators.html">
+       Iterators
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/generators.html">
+       Generators
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/oop.html">
+       Programación orientada a objetos
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/func-built-in.html">
+     Funciones built-in
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="modulos-index.html">
+   Módulos built-in
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="collections.html">
+     Collections
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="datetime.html">
+     Datetime
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="itertools.html">
+     Itertools
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Regular Expressions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01-built-in/anexos-index.html">
+   Anexos
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/anexos-tipos-datos.html">
+     Tipos de datos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/anexos-operadores-palabras.html">
+     Operadores y palabras reservadas.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/anexo-formatos-cadenas.html">
+     Formatos de cadena
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/anexos-excepciones.html">
+     Excepciones
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/parts/02-modulos/regular-expression.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/parts/02-modulos/regular-expression.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="../../_sources/parts/02-modulos/regular-expression.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#buscar-patrones-usando-regex">
+   Buscar patrones usando regex
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#busqueda-greedy-y-non-greedy">
+   Búsqueda greedy y non-greedy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#capturando-grupos">
+   Capturando grupos
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#capturando-un-grupo">
+     Capturando un grupo
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#capturando-multiples-grupos">
+     Capturando múltiples grupos
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sustituyendo-patrones">
+   Sustituyendo patrones
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#flags">
+   Flags
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#funciones">
+   Funciones
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objeto-regular-expression">
+   Objeto Regular Expression
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#crear-un-objeto-pattern">
+     Crear un objeto Pattern
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#atributos">
+     Atributos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metodos">
+     Métodos
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objeto-match">
+   Objeto Match
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Atributos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Métodos
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#caracteres-especiales">
+   Caracteres especiales
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#secuencias-especiales">
+   Secuencias especiales
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Regular Expressions</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#buscar-patrones-usando-regex">
+   Buscar patrones usando regex
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#busqueda-greedy-y-non-greedy">
+   Búsqueda greedy y non-greedy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#capturando-grupos">
+   Capturando grupos
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#capturando-un-grupo">
+     Capturando un grupo
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#capturando-multiples-grupos">
+     Capturando múltiples grupos
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sustituyendo-patrones">
+   Sustituyendo patrones
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#flags">
+   Flags
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#funciones">
+   Funciones
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objeto-regular-expression">
+   Objeto Regular Expression
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#crear-un-objeto-pattern">
+     Crear un objeto Pattern
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#atributos">
+     Atributos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metodos">
+     Métodos
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objeto-match">
+   Objeto Match
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Atributos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Métodos
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#caracteres-especiales">
+   Caracteres especiales
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#secuencias-especiales">
+   Secuencias especiales
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="regular-expressions">
+<h1>Regular Expressions<a class="headerlink" href="#regular-expressions" title="Permalink to this headline">#</a></h1>
+<p>Una “<em>expresión regular</em>” es una secuencia de caracteres para identificar y extraer patrones en cadenas. Para usar <em>regular expressions</em> es necesario importar el módulo <code class="docutils literal notranslate"><span class="pre">re</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar el módulo</span>
+<span class="kn">import</span> <span class="nn">re</span>
+</pre></div>
+</div>
+<p>Un patrón en expresiones regulares se conforma de:</p>
+<ul class="simple">
+<li><p>Texto: Coincide tal cual como se indique en la cadena.</p></li>
+<li><p><a class="reference internal" href="#caracteres-especiales"><span class="std std-ref">Caracteres especiales</span></a> y <a class="reference internal" href="#sec-especiales"><span class="std std-ref">Secuencias especiales</span></a>: Son metacaracteres que significan algo en especial. Visitar sus respectivas secciones para más información.</p></li>
+</ul>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Los patrones de expresiones regulares se indican utilizando cadenas <em>crudas</em> (<em>“raw strings”</em>).</p>
+</div>
+<p>Si una o más partes de la cadena coinciden con el patrón entonces se dice que hay un “<em>Match</em>”.</p>
+<br>
+<hr class="docutils" />
+<section id="buscar-patrones-usando-regex">
+<h2>Buscar patrones usando regex<a class="headerlink" href="#buscar-patrones-usando-regex" title="Permalink to this headline">#</a></h2>
+<p>Para buscar un patrón usando regular expressions se puede hacer principalmente de dos formas.</p>
+<p><strong>1.</strong> Usar directamente las <a class="reference internal" href="#funciones"><span class="std std-ref">Funciones</span></a> para buscar patrones. Por ejemplo <code class="docutils literal notranslate"><span class="pre">re.search()</span></code>, <code class="docutils literal notranslate"><span class="pre">re.match()</span></code> o <code class="docutils literal notranslate"><span class="pre">re.findall()</span></code>. En este caso se debe de proveer tanto del patrón a buscar como de la cadena donde se va a buscar el patrón. Ejemplo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar el módulo</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="c1"># Definir una cadena</span>
+<span class="n">X</span> <span class="o">=</span> <span class="s2">&quot;abc 123 xyz&quot;</span>
+
+<span class="c1"># Buscar un patrón en la cadena</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d+&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Imprimir resultado</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>123
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>2.</strong> Usar la función <code class="docutils literal notranslate"><span class="pre">re.compile()</span></code> para compilar un patrón y retornar un objeto <code class="docutils literal notranslate"><span class="pre">Pattern</span></code> y posteriormente usar los <a class="reference internal" href="#pattern-metodos"><span class="std std-ref">Métodos</span></a> de <code class="docutils literal notranslate"><span class="pre">Pattern</span></code> para buscar coincidencias como <code class="docutils literal notranslate"><span class="pre">Pattern.search()</span></code>, <code class="docutils literal notranslate"><span class="pre">Pattern.match()</span></code> o <code class="docutils literal notranslate"><span class="pre">Pattern.findall()</span></code>. En este caso, el patrón a buscar se indica en la función <code class="docutils literal notranslate"><span class="pre">re.compile()</span></code> y la cadena donde se va a buscar se indica como argumento de los métodos de <code class="docutils literal notranslate"><span class="pre">Pattern</span></code>. Esta opción es particularmente útil si se utilizará en múltiples ocasiones un mismo patrón. Ejemplo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar el módulo</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="c1"># Definir una cadena</span>
+<span class="n">X</span> <span class="o">=</span> <span class="s2">&quot;abc 123 xyz&quot;</span>
+
+<span class="c1"># Compilar un patrón</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d+&quot;</span><span class="p">)</span>
+
+<span class="c1"># Buscar el patrón en X</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Imprimir el patrón encontrado</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>123
+</pre></div>
+</div>
+</div>
+</div>
+<p><br><br></p>
+</section>
+<hr class="docutils" />
+<section id="busqueda-greedy-y-non-greedy">
+<h2>Búsqueda greedy y non-greedy<a class="headerlink" href="#busqueda-greedy-y-non-greedy" title="Permalink to this headline">#</a></h2>
+<p>Se refiere a la manera como se realiza la búsqueda del patrón, cuando se utilizan los caracteres especiales (cuantificadores) <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">?</span></code> o <code class="docutils literal notranslate"><span class="pre">{min,</span> <span class="pre">max}</span></code> en un patrón, para ello se agrega un <code class="docutils literal notranslate"><span class="pre">?</span></code> extra.</p>
+<ul class="simple">
+<li><p><strong>Greedy</strong>: Coincide la mayor cantidad de caracteres posibles. Retorna el match más largo. Los caracteres especiales <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">?</span></code> o <code class="docutils literal notranslate"><span class="pre">{min,</span> <span class="pre">max}</span></code> son greedy por default.</p></li>
+<li><p><strong>Non-greedy</strong>: Coincide la menor cantidad de caracteres posibles. Retorna el match más corto. Se agrega el metacaracter <code class="docutils literal notranslate"><span class="pre">?</span></code>.</p></li>
+</ul>
+<p>La forma como funciona es que los caracteres especiales <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">?</span></code> o <code class="docutils literal notranslate"><span class="pre">{min,</span> <span class="pre">max}</span></code> tienen dos posibles opciones. Tomando a <code class="docutils literal notranslate"><span class="pre">+</span></code> como ejemplo, significa <strong>una vez</strong> o <strong>más veces</strong> el caracter a la izquierda. Por default se buscará que sea <strong>más veces</strong>, pero si se agrega un <code class="docutils literal notranslate"><span class="pre">?</span></code> entonces se forzará a que sea <strong>una vez</strong>. De tal forma que tenemos:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">+</span></code>: Más de una vez.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">+?</span></code>: Una vez.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*</span></code>: Más de una vez.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*?</span></code>: Cero veces.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{min,</span> <span class="pre">max}</span></code>: <em>max</em> veces.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{min,</span> <span class="pre">max}?</span></code>: <em>min</em> veces.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">?</span></code>: Una vez.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">??</span></code>: Cero veces.</p></li>
+</ul>
+<br>
+<p><em><strong>Ejemplo</strong></em>: En este ejemplo se puede observar cómo se modifica la búsqueda de patrones dependiendo de si es una búsqueda greedy o non-greedy. El patrón que se está buscando son caracteres numéricos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar el módulo</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="c1"># Definir la cadena</span>
+<span class="n">cadena</span> <span class="o">=</span> <span class="s2">&quot;123abc&quot;</span>
+
+<span class="c1"># Cualquier dígito una o **mas veces** -&gt; &quot;123&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d+&quot;</span><span class="p">,</span> <span class="n">cadena</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Cualquier dígito **una** o mas veces -&gt; &quot;1&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d+?&quot;</span><span class="p">,</span> <span class="n">cadena</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span> 
+
+<span class="c1"># Cualquier dígito cero o **mas veces** -&gt; &quot;123&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d*&quot;</span><span class="p">,</span> <span class="n">cadena</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span> 
+
+<span class="c1"># Cualquier dígito **cero** o mas veces -&gt; &quot;&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d*?&quot;</span><span class="p">,</span> <span class="n">cadena</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span> 
+
+<span class="c1"># Cualquier dígito cero o **una vez** -&gt; &quot;1&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d?&quot;</span><span class="p">,</span> <span class="n">cadena</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span> 
+
+<span class="c1"># Cualquier dígito **cero** o una vez -&gt; &quot;&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d??&quot;</span><span class="p">,</span> <span class="n">cadena</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span> 
+
+<span class="c1"># Cualquier dígito mínimo 2 y máximo **3 veces** -&gt; &quot;123&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d{2,3}&quot;</span><span class="p">,</span> <span class="n">cadena</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span> 
+
+<span class="c1"># Cualquier dígito mínimo **2** y máximo 3 veces -&gt; &quot;12&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d{2,3}?&quot;</span><span class="p">,</span> <span class="n">cadena</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>123
+
+1
+
+123
+
+
+
+1
+
+
+
+123
+
+12
+</pre></div>
+</div>
+</div>
+</div>
+<p><br><br></p>
+</section>
+<section id="capturando-grupos">
+<h2>Capturando grupos<a class="headerlink" href="#capturando-grupos" title="Permalink to this headline">#</a></h2>
+<p>Si se desea recuperar solo una parte del patrón usado, y no todo, se puede encerrar entre paréntesis el grupo de caracteres que se desea recuperar. Un patrón puede tener uno o más grupos.</p>
+<hr class="docutils" />
+<section id="capturando-un-grupo">
+<h3>Capturando un grupo<a class="headerlink" href="#capturando-un-grupo" title="Permalink to this headline">#</a></h3>
+<p>La funcionalidad general cuando solo se captura un solo grupo es la siguiente:</p>
+<p>Si se usa <code class="docutils literal notranslate"><span class="pre">re.search()</span></code> o <code class="docutils literal notranslate"><span class="pre">Pattern.search()</span></code> se recupera solo la primer coincidencia que satisface el patrón en la cadena.</p>
+<p>El método <code class="docutils literal notranslate"><span class="pre">Match.group()</span></code> retorna el grupo capturado, el cual recibe como argumento un número entero, tener en cuenta lo siguiente:</p>
+<ul class="simple">
+<li><p>Si no se indica ningún argumento equivale a usar cero <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
+<li><p>Si se indica cero <code class="docutils literal notranslate"><span class="pre">0</span></code> entonces se retorna toda la primer coincidencia con el patrón, no solo el grupo, sino todo el patrón.</p></li>
+<li><p>Si se indica uno <code class="docutils literal notranslate"><span class="pre">1</span></code> entonces se retorna solo la primer coincidencia del grupo.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar el módulo</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="c1"># Definir una cadena</span>
+<span class="n">X</span> <span class="o">=</span> <span class="s2">&quot;abc 123 #&amp;@ 789&quot;</span>
+
+<span class="c1"># Compilar el patrón definiendo un grupo</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(\d+)&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Recuperar el patrón</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Patrón: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Recuperar el grupo</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Grupo: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Patrón: 123
+Grupo: 123
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>En en el ejemplo anterior, el patrón <code class="docutils literal notranslate"><span class="pre">\d+</span></code> significa que se debe coincidir con uno o más dígitos.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">result.group(0)</span></code> y <code class="docutils literal notranslate"><span class="pre">result.group(1)</span></code> retornan el mismo resultado porque el patrón <code class="docutils literal notranslate"><span class="pre">r&quot;(\d+)&quot;</span></code> es igual al grupo capturado (todo el patrón está entre paréntesis).</p></li>
+</ul>
+<p>Si se indica un patrón más complejo el resultado será diferente.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar el módulo</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="c1"># Definir una cadena</span>
+<span class="n">X</span> <span class="o">=</span> <span class="s2">&quot;abc 123 #&amp;@ 789&quot;</span>
+
+<span class="c1"># Compilar el patrón definiendo un grupo</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\w+ (\d+)&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Recuperar el patrón</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Patrón: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Recuperar el grupo</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Grupo: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Patrón: abc 123
+
+Grupo: 123
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como se comentó anteriormente, <code class="docutils literal notranslate"><span class="pre">re.seach()</span></code> solo retorna la primer coincidencia. Si se desea recuperar todas las coincidencias se puede usar la función <code class="docutils literal notranslate"><span class="pre">re.findall()</span></code> o el método <code class="docutils literal notranslate"><span class="pre">Pattern.findall()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar el módulo</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="c1"># Definir una cadena</span>
+<span class="n">X</span> <span class="o">=</span> <span class="s2">&quot;abc 123 #&amp;@ 789&quot;</span>
+
+<span class="c1"># Compilar el patrón definiendo un grupo</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(\d+)&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Recuperar el patrón</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Resultado de </span><span class="se">\&#39;</span><span class="s2">(\d+)\´: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Compilar el patrón definiendo un grupo</span>
+<span class="n">result2</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\w+ (\d+)&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Recuperar el patrón</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Resultado de </span><span class="se">\&#39;</span><span class="s2">\w+ (\d+)\´: </span><span class="si">{</span><span class="n">result2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Resultado de &#39;(\d+)\´: [&#39;123&#39;, &#39;789&#39;]
+
+Resultado de &#39;\w+ (\d+)\´: [&#39;123&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">result</span></code> retorna dos coincidencias porque hay dos subcadenas en <code class="docutils literal notranslate"><span class="pre">X</span></code> que representan uno o más dígitos.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">result2</span></code> retorna solo una coincidencia porque solo hay una subcadena que representa uno o más dígitos y que están después de uno o más caracteres alfabéticos, seguido de un espacio en blanco, lo cual solo se satisface con “123”.</p></li>
+</ul>
+<br>
+</section>
+<hr class="docutils" />
+<section id="capturando-multiples-grupos">
+<h3>Capturando múltiples grupos<a class="headerlink" href="#capturando-multiples-grupos" title="Permalink to this headline">#</a></h3>
+<p>Es posible recuperar dos o más grupos. Tener en cuenta que para recuperar un grupo específico se debe indicar su índice en el mismo orden en el que aparece en el patrón</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar el módulo</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="c1"># Definir una cadena</span>
+<span class="n">X</span> <span class="o">=</span> <span class="s2">&quot;abc 123 #&amp;@ xyz 789&quot;</span>
+
+<span class="c1"># Compilar el patrón definiendo un grupo</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(\w+) (\d+)&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Recuperar el patrón buscado</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Patrón: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Recuperar el grupo 1</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Grupo 1: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Recuperar el grupo 2</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Grupo 2: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Patrón: abc 123
+
+Grupo 1: abc
+
+Grupo 2: 123
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si se usa <code class="docutils literal notranslate"><span class="pre">re.findall()</span></code> o <code class="docutils literal notranslate"><span class="pre">Pattern.findall()</span></code> entonces se recupera una lista de tuplas con las coindidencias:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar el módulo</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="c1"># Definir una cadena</span>
+<span class="n">X</span> <span class="o">=</span> <span class="s2">&quot;abc 123 #&amp;@ xyz 789&quot;</span>
+
+<span class="c1"># Compilar el patrón definiendo dos grupos</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(\w+) (\d+)&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Recuperar los grupos</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Resultado de </span><span class="se">\&#39;</span><span class="s2">\w+ (\d+)\´: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Resultado de &#39;\w+ (\d+)\´: [(&#39;abc&#39;, &#39;123&#39;), (&#39;xyz&#39;, &#39;789&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+<p><br><br></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="sustituyendo-patrones">
+<h2>Sustituyendo patrones<a class="headerlink" href="#sustituyendo-patrones" title="Permalink to this headline">#</a></h2>
+<p>En esta sección se cubre lo básico de cómo usar la función <code class="docutils literal notranslate"><span class="pre">re.sub()</span></code> para reemplazar patrones en una cadena por otros. La función <code class="docutils literal notranslate"><span class="pre">re.sub()</span></code> reemplaza todos los patrones encontrados por otra expresión, se puede limitar el número de reemplazos con el parámetro <code class="docutils literal notranslate"><span class="pre">count</span></code>.</p>
+<p>En su forma más simple reemplaza todas las coincidencias por otra cadena. Por ejemplo, reemplazar todos las subcadenas que sean dígitos por un “-“.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar el módulo</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="c1"># Definir una cadena</span>
+<span class="n">X</span> <span class="o">=</span> <span class="s2">&quot;abc 123 #&amp;@ xyz 789&quot;</span>
+
+<span class="c1"># Encontrar el patrón</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d+&quot;</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Imprimir resultado</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>abc - #&amp;@ xyz -
+</pre></div>
+</div>
+</div>
+</div>
+<p>Es posible recuperar la coincidencia usando grupos para incluirla en el reemplazo utilizando <code class="docutils literal notranslate"><span class="pre">\1</span></code> para recuperar el primer grupo, <code class="docutils literal notranslate"><span class="pre">\2</span></code> para el segundo grupo, etc. Por ejemplo, reemplazar todas las subcadenas que sean dígitos por la misma subcadena entre paréntesis</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar el módulo</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="c1"># Definir una cadena</span>
+<span class="n">X</span> <span class="o">=</span> <span class="s2">&quot;abc 123 #&amp;@ 789&quot;</span>
+
+<span class="c1"># Encontrar el patrón </span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(\d+)&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;(\1)&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Imprimir resultado</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>abc (123) #&amp;@ (789)
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Un mismo grupo se puede utilizar más de una vez en el reemplazo. Por ejemplo, si en lugar de usar <code class="docutils literal notranslate"><span class="pre">r&quot;(\1)&quot;</span></code> se usará <code class="docutils literal notranslate"><span class="pre">r&quot;(\1-\1)&quot;</span></code>, entonces <code class="docutils literal notranslate"><span class="pre">123</span></code> se reemplazaría por <code class="docutils literal notranslate"><span class="pre">(123-123)</span></code>.</p></li>
+</ul>
+<p>Tener en cuenta que lo que se reemplaza es toda la coincidencia, no solo el grupo. En el siguiente ejemplo el patrón es uno o más caracteres alfabéticos, un espacio y uno o más dígitos y se cambiarán el orden en que aparece el patrón.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar el módulo</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="c1"># Definir una cadena</span>
+<span class="n">X</span> <span class="o">=</span> <span class="s2">&quot;abc 123 xyz 789&quot;</span>
+
+<span class="c1"># Encontrar el patrón</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(\w+) (\d+)&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;\2 \1&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Imprimir resultado</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>123 abc 789 xyz
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>En este ejemplo hay dos coincidencias <code class="docutils literal notranslate"><span class="pre">abc</span> <span class="pre">123</span></code> y <code class="docutils literal notranslate"><span class="pre">xyz</span> <span class="pre">789</span></code>, por lo tanto lo que se intercambia es el orden en cada coincidencia.</p></li>
+</ul>
+<p>Finalmente, es posible usar una función para reemplazar la coincidencia, esta función recibe como parámetro un objeto <code class="docutils literal notranslate"><span class="pre">Match</span></code>. En el siguiente ejemplo se busca uno o más caracteres alfabéticos y se reemplaza por la misma cadena pero en mayúsculas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar el módulo</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="c1"># Definir una cadena</span>
+<span class="n">X</span> <span class="o">=</span> <span class="s2">&quot;abc 123 #&amp;@ 789 zyx&quot;</span>
+
+<span class="c1"># Encontrar el patrón &quot;abc&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(\w+)&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">match</span><span class="p">:</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">()</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span> <span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Imprimir resultado</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ABC 123 #&amp;@ 789 ZYX
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>En este ejemplo hay dos coincidencias con el patrón <code class="docutils literal notranslate"><span class="pre">abc</span></code> y <code class="docutils literal notranslate"><span class="pre">zxy</span></code>.</p></li>
+<li><p>En este ejemplo en particular usar <code class="docutils literal notranslate"><span class="pre">match.group()</span></code> equivale a usar <code class="docutils literal notranslate"><span class="pre">match.group(0)</span></code> y <code class="docutils literal notranslate"><span class="pre">match.group(1)</span></code>.</p></li>
+</ul>
+<p><br><br></p>
+</section>
+<hr class="docutils" />
+<section id="flags">
+<h2>Flags<a class="headerlink" href="#flags" title="Permalink to this headline">#</a></h2>
+<p>A continuación se presenta una lista de <code class="docutils literal notranslate"><span class="pre">flags</span></code> para modificar el comportamiento de las <a class="reference internal" href="#funciones"><span class="std std-ref">Funciones</span></a> o de los métodos de objetos como <a class="reference internal" href="#objeto-match"><span class="std std-ref">Objeto Match</span></a> o <a class="reference internal" href="#objeto-pattern"><span class="std std-ref">Objeto Regular Expression</span></a>. Las flags se ponen como argumentos de las funciones como <code class="docutils literal notranslate"><span class="pre">re.search()</span></code>, <code class="docutils literal notranslate"><span class="pre">re.match()</span></code> o <code class="docutils literal notranslate"><span class="pre">re.find_all()</span></code> o de los métodos del objeto <code class="docutils literal notranslate"><span class="pre">Pattern</span></code>.</p>
+<p><strong>Ejemplo</strong>: A continuación se ejemplifica como usar la flag <code class="docutils literal notranslate"><span class="pre">re.I</span></code> para no hacer distintinción entre mayúsculas y minúsculas al momento de hacer una búsqueda</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar el módulo</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="c1"># Definir una cadena</span>
+<span class="n">X</span> <span class="o">=</span> <span class="s2">&quot;abc 123 ABC 456 AbC&quot;</span>
+
+<span class="c1"># Encontrar el patrón &quot;abc&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;abc&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Imprimir resultado</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Resultado de buscar </span><span class="se">\&#39;</span><span class="s2">abc</span><span class="se">\&#39;</span><span class="s2">: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Ignorando minúsculas y mayúsculas</span>
+<span class="n">result2</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;abc&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">)</span>
+
+<span class="c1"># Imprimir resultado</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Resultado de buscar </span><span class="se">\&#39;</span><span class="s2">abc</span><span class="se">\&#39;</span><span class="s2"> con re.I: </span><span class="si">{</span><span class="n">result2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Resultado de buscar &#39;abc&#39;: [&#39;abc&#39;]
+Resultado de buscar &#39;abc&#39; con re.I: [&#39;abc&#39;, &#39;ABC&#39;, &#39;AbC&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Listado de flags:</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>La mayoría de las flags tienen 2 posibles formas de representarlas, aquí solo se presenta una de esas formas. Presionar en el nombre de cada flag para dirigirse a la documentación de Python para obtener más información.</p>
+</div>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Flag</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/re.html#re.A">A</a></p></td>
+<td><p>Hace que <code class="docutils literal notranslate"><span class="pre">\w</span></code>, <code class="docutils literal notranslate"><span class="pre">\W</span></code>, <code class="docutils literal notranslate"><span class="pre">\b</span></code>, <code class="docutils literal notranslate"><span class="pre">\B</span></code>, <code class="docutils literal notranslate"><span class="pre">\d</span></code>, <code class="docutils literal notranslate"><span class="pre">\D</span></code>, <code class="docutils literal notranslate"><span class="pre">\s</span></code> y <code class="docutils literal notranslate"><span class="pre">\S</span></code> realicen solo coincidencias ASCII en lugar de coincidencias Unicode completas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/re.html#re.DEBUG">DEBUG</a></p></td>
+<td><p>Muestra información de depuración sobre la expresión compilada.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/re.html#re.I">I</a></p></td>
+<td><p>Indica que se realicen las coincidencias sin distinción entre mayúsculas y minúsculas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/re.html#re.L">L</a></p></td>
+<td><p>Hace que <code class="docutils literal notranslate"><span class="pre">\w</span></code>, <code class="docutils literal notranslate"><span class="pre">\W</span></code>, <code class="docutils literal notranslate"><span class="pre">\b</span></code>, <code class="docutils literal notranslate"><span class="pre">\B</span></code> y coincidencias sin distinción entre mayúsculas y minúsculas dependientes de la configuración regional actual.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/re.html#re.M">M</a></p></td>
+<td><p>Hace que el carácter de patrón ‘^’ coincide con el principio de la cadena y al comienzo de cada línea (inmediatamente después de cada salto de línea); y el carácter de patrón ‘$’ coincide al final de la cadena y al final final de cada línea (inmediatamente antes de cada salto de línea).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/re.html#re.NOFLAG">NOFLAG</a></p></td>
+<td><p>Indica que no se aplique ningúna flag, el valor es 0.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/re.html#re.S">S</a></p></td>
+<td><p>Indica que el carácter especial ‘.’ coincida con cualquier carácter, incluido un nueva línea (<code class="docutils literal notranslate"><span class="pre">\n</span></code>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/re.html#re.X">X</a></p></td>
+<td><p>Esta flag permite escribir expresiones regulares que se ven mejor y son más legible al permitir separar visualmente secciones lógicas del patrón y añadir comentarios.</p></td>
+</tr>
+</tbody>
+</table>
+<p><br><br></p>
+<hr class="docutils" />
+</section>
+<section id="funciones">
+<span id="id1"></span><h2>Funciones<a class="headerlink" href="#funciones" title="Permalink to this headline">#</a></h2>
+<p>A Continuación se presenta una lista de funciones del módulo <code class="docutils literal notranslate"><span class="pre">re</span></code>.</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/re.html#re.compile">compile</a>(pattern, flags=0)</p></td>
+<td><p>Compila un patrón de expresión regular en un objeto de expresión regular, que se puede usar para hacer coincidir usando <code class="docutils literal notranslate"><span class="pre">match()</span></code>, <code class="docutils literal notranslate"><span class="pre">search()</span></code> y otros métodos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/re.html#re.escape">escape</a>(pattern)</p></td>
+<td><p>Para indicar que se ignores caracteres especiales en el patrón.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/re.html#re.findall">findall</a>(pattern, string, flags=0)</p></td>
+<td><p>Devuelve todas las coincidencias no superpuestas del patrón en la cadena como <code class="docutils literal notranslate"><span class="pre">list</span></code>. Si no se encuentran coincidencias entonces devuélve una lista vacía. Cuando <code class="docutils literal notranslate"><span class="pre">pattern</span></code> tiene grupos, retorma <code class="docutils literal notranslate"><span class="pre">list</span></code> de <code class="docutils literal notranslate"><span class="pre">tuples</span></code>, donde cada elemento del <code class="docutils literal notranslate"><span class="pre">tuple</span></code> es un grupo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/re.html#re.finditer">finditer</a>(pattern, string, flags=0)</p></td>
+<td><p>Retorna un <code class="docutils literal notranslate"><span class="pre">iterator</span></code> que produce objetos <code class="docutils literal notranslate"><span class="pre">match</span></code> sobre todas las coincidencias que no se superponen para el patrón en la cadena.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/re.html#re.fullmatch">fullmatch</a>(pattern, string, flags=0)</p></td>
+<td><p>Si toda la cadena coincide con el patrón de expresión regular, devuelve un objeto <code class="docutils literal notranslate"><span class="pre">match</span></code> correspondiente. Retorna <code class="docutils literal notranslate"><span class="pre">None</span></code> si la cadena no coincide con el patrón.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/re.html#re.match">match</a>(pattern, string, flags=0)</p></td>
+<td><p>Retorna un objeto <code class="docutils literal notranslate"><span class="pre">match</span></code> si se encuentra un patrón al principio de una cadena. Retorna <code class="docutils literal notranslate"><span class="pre">None</span></code> si la cadena no coincide con el patrón.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/re.html#re.purge">purge</a>()</p></td>
+<td><p>Borre la caché de expresiones regulares.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/re.html#re.search">search</a>(pattern, string, flags=0)</p></td>
+<td><p>Retorna un objeto <code class="docutils literal notranslate"><span class="pre">match</span></code> si se encuentra un patrón en una cadena. Si hay más de una coincidencia, solo devolverá la información de la primera coincidencia.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/re.html#re.split">split</a>(pattern, string, maxsplit=0, flags=0)</p></td>
+<td><p>Divide la cadena por las ocurrencias del patrón. Si los paréntesis de captura son utilizado en el patrón, también se devuelve el texto de todos los grupos en el patrón como parte de la lista resultante.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/re.html#re.sub">sub</a>(pattern, repl, string, count=0, flags=0)</p></td>
+<td><p>Reemplaza un patrón por otro en una cadena. Por default reemplaza todos los patrones que se encuentren.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/re.html#re.subn">subn</a>(pattern, repl, string, count=0, flags=0)</p></td>
+<td><p>Realiza la misma operación que <code class="docutils literal notranslate"><span class="pre">sub()</span></code>, pero devuelva un <code class="docutils literal notranslate"><span class="pre">tuple</span></code> <code class="docutils literal notranslate"><span class="pre">(new_string,</span> <span class="pre">number_of_subs_made)</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<p><br><br></p>
+<hr class="docutils" />
+</section>
+<section id="objeto-regular-expression">
+<span id="objeto-pattern"></span><h2>Objeto Regular Expression<a class="headerlink" href="#objeto-regular-expression" title="Permalink to this headline">#</a></h2>
+<p>Los objetos de regular expression <code class="docutils literal notranslate"><span class="pre">Pattern</span></code> son objetos que son retornados por la función <code class="docutils literal notranslate"><span class="pre">re.compile()</span></code>. Estos objetos se pueden usar para buscar coincidencias.</p>
+<section id="crear-un-objeto-pattern">
+<h3>Crear un objeto Pattern<a class="headerlink" href="#crear-un-objeto-pattern" title="Permalink to this headline">#</a></h3>
+<p>Para crear un objeto <code class="docutils literal notranslate"><span class="pre">Pattern</span></code> se debe de usar la función <code class="docutils literal notranslate"><span class="pre">re.compile()</span></code>, donde se indique la expresión regular a buscar.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar el módulo</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="c1"># Crear el objeto</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$a\d*&quot;</span><span class="p">)</span>
+
+<span class="c1"># Imprimir el tipo de pattern</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">pattern</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;re.Pattern&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Posteriormente se pueden usar sus atributos y métodos para recuperar información sobre el objeto o realizar búsqueda de patrones, entre otras acciones.</p>
+<br>
+</section>
+<hr class="docutils" />
+<section id="atributos">
+<h3>Atributos<a class="headerlink" href="#atributos" title="Permalink to this headline">#</a></h3>
+<p>A continuación se presenta una lista de los atributos de instancia de <code class="docutils literal notranslate"><span class="pre">Pattern</span></code>.</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Atributo</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/re.html#re.Pattern.flags">flags</a></p></td>
+<td><p>Las flags de coincidencia de expresiones regulares.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/re.html#re.Pattern.groupindex">groupindex</a></p></td>
+<td><p>Un diccionario que mapea cualquier nombre de grupo simbólico definido por <code class="docutils literal notranslate"><span class="pre">(?P&lt;id&gt;)</span></code> para agrupar números.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/re.html#re.Pattern.groups">groups</a></p></td>
+<td><p>El número de grupos de captura en el patrón.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/re.html#re.Pattern.pattern">pattern</a></p></td>
+<td><p>La cadena de patrón a partir de la cual se compiló el objeto <code class="docutils literal notranslate"><span class="pre">Pattern</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<br>
+<hr class="docutils" />
+</section>
+<section id="metodos">
+<span id="pattern-metodos"></span><h3>Métodos<a class="headerlink" href="#metodos" title="Permalink to this headline">#</a></h3>
+<p>A continuación se presenta una lista de los métodos de instancia de <code class="docutils literal notranslate"><span class="pre">Pattern</span></code>.</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/re.html#re.Pattern.findall">findall</a>(string[, pos[, endpos]])</p></td>
+<td><p>Devuelve todas las coincidencias no superpuestas del patrón en la cadena como <code class="docutils literal notranslate"><span class="pre">list</span></code>. Si no se encuentran coincidencias entonces devuélve una lista vacía. Cuando <code class="docutils literal notranslate"><span class="pre">pattern</span></code> tiene grupos, retorma <code class="docutils literal notranslate"><span class="pre">list</span></code> de <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, donde cada elemento del <code class="docutils literal notranslate"><span class="pre">tuple</span></code> es un grupo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/re.html#re.Pattern.finditer">finditer</a>(string[, pos[, endpos]])</p></td>
+<td><p>Retorna un <code class="docutils literal notranslate"><span class="pre">iterator</span></code> que produce objetos <code class="docutils literal notranslate"><span class="pre">match</span></code> sobre todas las coincidencias que no se superponen para el patrón en la cadena.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/re.html#re.Pattern.fullmatch">fullmatch</a>(string[, pos[, endpos]])</p></td>
+<td><p>Si toda la cadena coincide con el patrón de expresión regular, devuelve un objeto <code class="docutils literal notranslate"><span class="pre">match</span></code> correspondiente. Retorna <code class="docutils literal notranslate"><span class="pre">None</span></code> si la cadena no coincide con el patrón.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/re.html#re.Pattern.match">match</a>(string[, pos[, endpos]])</p></td>
+<td><p>Retorna un objeto <code class="docutils literal notranslate"><span class="pre">match</span></code> si se encuentra un patrón al principio de una cadena. Retorna <code class="docutils literal notranslate"><span class="pre">None</span></code> si la cadena no coincide con el patrón.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/re.html#re.Pattern.search">search</a>(string[, pos[, endpos]])</p></td>
+<td><p>Retorna un objeto <code class="docutils literal notranslate"><span class="pre">match</span></code> si se encuentra un patrón en una cadena. Si hay más de una coincidencia, solo devolverá la información de la primera coincidencia.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/re.html#re.Pattern.split">split</a>(string, maxsplit=0)</p></td>
+<td><p>Divide la cadena por las ocurrencias del patrón. Si los paréntesis de captura son utilizado en el patrón, también se devuelve el texto de todos los grupos en el patrón como parte de la lista resultante.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/re.html#re.Pattern.sub">sub</a>(repl, string, count=0)</p></td>
+<td><p>Reemplaza un patrón por otro en una cadena. Por default reemplaza todos los patrones que se encuentren.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/re.html#re.Pattern.subn">subn</a>(repl, string, count=0)</p></td>
+<td><p>Realiza la misma operación que <code class="docutils literal notranslate"><span class="pre">sub()</span></code>, pero devuelva un <code class="docutils literal notranslate"><span class="pre">tuple</span></code> <code class="docutils literal notranslate"><span class="pre">(new_string,</span> <span class="pre">number_of_subs_made)</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<p><br><br></p>
+<hr class="docutils" />
+</section>
+</section>
+<section id="objeto-match">
+<span id="id2"></span><h2>Objeto Match<a class="headerlink" href="#objeto-match" title="Permalink to this headline">#</a></h2>
+<p>Los objetos <code class="docutils literal notranslate"><span class="pre">Match</span></code> son objetos que son retornados por funciones como <code class="docutils literal notranslate"><span class="pre">re.match()</span></code> o <code class="docutils literal notranslate"><span class="pre">re.search()</span></code> o por métodos como <code class="docutils literal notranslate"><span class="pre">Pattern.match()</span></code> o <code class="docutils literal notranslate"><span class="pre">Pattern.search()</span></code>. En ellos está contenida la información de la primer coincidencia de un patrón.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar el módulo</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="c1"># Definir una cadena</span>
+<span class="n">X</span> <span class="o">=</span> <span class="s2">&quot;abc 123 xyz&quot;</span>
+
+<span class="c1"># Compilar un patrón</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d+&quot;</span><span class="p">)</span>
+
+<span class="c1"># Buscar el patrón en X</span>
+<span class="n">M</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Imprimir el tipo de M</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">M</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Imprimir el patrón encontrado</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;re.Match&#39;&gt;
+
+123
+</pre></div>
+</div>
+</div>
+</div>
+<p>Posteriormente se pueden usar sus atributos y métodos para recuperar información sobre el objeto, entre otras acciones.</p>
+<br>
+<hr class="docutils" />
+<section id="id3">
+<h3>Atributos<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<p>A continuación se presenta una lista de los atributos de instancia de <code class="docutils literal notranslate"><span class="pre">Match</span></code>.</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Atributo</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/re.html#re.Match.endpos">endpos</a></p></td>
+<td><p>El valor de <code class="docutils literal notranslate"><span class="pre">endpos</span></code> que se pasó a <code class="docutils literal notranslate"><span class="pre">search()</span></code> o <code class="docutils literal notranslate"><span class="pre">match()</span></code> de un objeto <code class="docutils literal notranslate"><span class="pre">regex</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/re.html#re.Match.lastgroup">lastgroup</a></p></td>
+<td><p>El nombre del último grupo de captura coincidente, o <code class="docutils literal notranslate"><span class="pre">None</span></code> si el grupo no tienen un nombre, o si ningún grupo coincidió en absoluto.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/re.html#re.Match.lastindex">lastindex</a></p></td>
+<td><p>El índice del último grupo de captura coincidente, o <code class="docutils literal notranslate"><span class="pre">None</span></code> si no hay grupo que coincidió en absoluto.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/re.html#re.Match.pos">pos</a></p></td>
+<td><p>El valor de <code class="docutils literal notranslate"><span class="pre">pos</span></code> que se pasó a los métodos <code class="docutils literal notranslate"><span class="pre">search()</span></code> o <code class="docutils literal notranslate"><span class="pre">match()</span></code> de un objeto <code class="docutils literal notranslate"><span class="pre">regex</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/re.html#re.Match.re">re</a></p></td>
+<td><p>Retorna el objeto <code class="docutils literal notranslate"><span class="pre">regex</span></code> (el patrón) cuyo <code class="docutils literal notranslate"><span class="pre">match()</span></code> o <code class="docutils literal notranslate"><span class="pre">search()</span></code> produjo esta instancia de <code class="docutils literal notranslate"><span class="pre">match</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/re.html#re.Match.string">string</a></p></td>
+<td><p>La cadena pasada a <code class="docutils literal notranslate"><span class="pre">match()</span></code> o <code class="docutils literal notranslate"><span class="pre">search()</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<br>
+</section>
+<hr class="docutils" />
+<section id="id4">
+<h3>Métodos<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
+<p>A continuación se presenta una lista de los métodos de instancia de <code class="docutils literal notranslate"><span class="pre">Match</span></code>.</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/re.html#re.Match.start">end</a>([group])</p></td>
+<td><p>Retorna la posición en la cadena, donde termina la coincidencia.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/re.html#re.Match.expand">expand</a>(template)</p></td>
+<td><p>Devuelve la cadena obtenida al hacer sustitución usando <em>backslash</em> en la plantilla de cadena <code class="docutils literal notranslate"><span class="pre">template</span></code>, como lo hace el método <code class="docutils literal notranslate"><span class="pre">sub()</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/re.html#re.Match.group">group</a>([group1, …])</p></td>
+<td><p>Devuelve uno o más subgrupos de la coincidencia.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/re.html#re.Match.groupdict">groupdict</a>(default=None)</p></td>
+<td><p>Devuelve un diccionario que contiene todos los subgrupos con nombre de la coincidencia, la <em>key</em> es el nombre del subgrupo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/re.html#re.Match.groups">groups</a>(default=None)</p></td>
+<td><p>Devuelve una tupla que contiene todos los subgrupos de la coincidencia.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/re.html#re.Match.span">span</a>([group])</p></td>
+<td><p>Para una coincidencia <code class="docutils literal notranslate"><span class="pre">m</span></code>, retorna la posición inicial y final de la primer coincidencia del patrón <code class="docutils literal notranslate"><span class="pre">(m.start(group),</span> <span class="pre">m.end(group))</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/re.html#re.Match.start">start</a>([group])</p></td>
+<td><p>Retorna la posición en la cadena, donde empieza la coincidencia.</p></td>
+</tr>
+</tbody>
+</table>
+<p><br><br></p>
+<hr class="docutils" />
+</section>
+</section>
+<section id="caracteres-especiales">
+<span id="id5"></span><h2>Caracteres especiales<a class="headerlink" href="#caracteres-especiales" title="Permalink to this headline">#</a></h2>
+<p>A continuación se presenta una lista de caracteres especiales para conformar las expresiones regulares. Para más información consultar la <a class="reference external" href="https://docs.python.org/3/library/re.html#regular-expression-syntax">documentacón</a> de Python.</p>
+<table class="table" id="table-caracteres-especiales">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Carácter</p></th>
+<th class="head"><p>Descripción</p></th>
+<th class="head"><p>Ejemplo</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">[]</span></code></p></td>
+<td><p>Un conjunto de caracteres. Se busca cualquier caracter contenido en el conjunto. Aquí no se pueden poner metaracteres ni secuencias especiales. Para representar rangos de letras y números usar a-z, A-Z y 0-9.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[a-m]</span></code>: De la “a” a la “m”. <br>
+<code class="docutils literal notranslate"><span class="pre">[^a-c]</span></code>: Cualquier carácter excepto “a”, “b” o “c”. En este caso <code class="docutils literal notranslate"><span class="pre">^</span></code> es negación. <br>
+<code class="docutils literal notranslate"><span class="pre">[#$&amp;]</span></code>: Cualquier carácter “#”, “$” o “&amp;”.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">\</span></code></p></td>
+<td><p>Para insertar <a class="reference internal" href="#sec-especiales"><span class="std std-ref">Secuencias especiales</span></a>. También para poder incluir caracteres como los caracteres especiales.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">\d</span></code> : Un número del 0-9. <br>
+<code class="docutils literal notranslate"><span class="pre">\.$</span></code>: La cadena termine con un punto. <br>
+<code class="docutils literal notranslate"><span class="pre">\$\d+</span></code>: La cadena contiene un símbolo “$” seguido de uno o más dígitos.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">.</span></code></p></td>
+<td><p>Cualquier carácter. Excepto una línea nueva. Para también incluir saltos de línea usar la flag <code class="docutils literal notranslate"><span class="pre">S</span></code> o <code class="docutils literal notranslate"><span class="pre">DOTALL</span></code>.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">he..o</span></code>: Cualquier cadena que empiece con “he”, seguido de dos caracteres cualesquiera y termine con “o”.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">^</span></code></p></td>
+<td><p>La cadena empiece con.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">^he</span></code>: La cadena mpiece con “he”.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">$</span></code></p></td>
+<td><p>La cadena termine con.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">llo$</span></code>: La cadena ermine con “llo”.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">*</span></code></p></td>
+<td><p>Cero o más ocurrencias del caracter a la izquierda.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">aix*</span></code>: El patrón “ai” seguido por cero o más “x”.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">+</span></code></p></td>
+<td><p>Una o más ocurrencias del caracter a la izquierda.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">aix+</span></code>: El patrón “ai” seguido por una o más “x”.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">?</span></code></p></td>
+<td><p>Cero o una ocurrencia del caracter a la izquierda.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">aix?</span></code>: El patrón “ai” seguido por cero o una “x”.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">{}</span></code></p></td>
+<td><p>Número específico de ocurrencias del caracter a la izquierda.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">al{N}</span></code>: Buscar el patrón “a” seguido por <em>N</em> “l”. <br>
+<code class="docutils literal notranslate"><span class="pre">al{N,M}</span></code>: Buscar el patrón “a” seguido por mínimo <em>N</em> “l” y máximo <em>M</em> “l”. Si se omite <em>M</em> sería infinto y si se omite <em>N</em> sería cero.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">|</span></code></p></td>
+<td><p>O</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">falls|stays</span></code>: Buscar cualquiera de esos dos patrones.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">()</span></code></p></td>
+<td><p>Agrupar sub-patrones</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(a|b|c)xz</span></code>: Busque el patrón “a”, “b” o “c” seguido de “xz”. Indican el comienzo y fin de un grupo.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+<section id="secuencias-especiales">
+<span id="sec-especiales"></span><h2>Secuencias especiales<a class="headerlink" href="#secuencias-especiales" title="Permalink to this headline">#</a></h2>
+<p>A continuación se presenta una lista de secuencias especiales que utilizan el símbolo “<code class="docutils literal notranslate"><span class="pre">\</span></code>” para conformar las expresiones regulares. Para más información consultar la <a class="reference external" href="https://docs.python.org/3/library/re.html#regular-expression-syntax">documentacón</a> de Python.</p>
+<table class="table" id="table-secuencias-especiales">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Secuencia</p></th>
+<th class="head"><p>Descripción</p></th>
+<th class="head"><p>Ejemplo</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">\A</span></code></p></td>
+<td><p>Retorna una coincidencia si los caracteres específicados están al principio de una cadena.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">r&quot;\Athe&quot;</span></code>: La cadena empiece con “the”.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">\b</span></code></p></td>
+<td><p>Retorna una coincidencia si los caracteres específicados están presentes al principio o al final de una palabra de la cadena.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">r&quot;\bain&quot;</span></code>: Alguna palabra de la cadena empiece con “ain”. <br>
+<code class="docutils literal notranslate"><span class="pre">r&quot;ain\b&quot;</span></code>: Alguna palabra de la cadena termine con “ain”.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">\B</span></code></p></td>
+<td><p>Retorna una coincidencia si los caracteres específicados están presentes, pero NO están al princio o al final de las palabras de una cadena.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">r&quot;\Bain&quot;</span></code>: “ain” esté presente en la cadena, pero no al pincipio de ninguna palabra. <br>
+<code class="docutils literal notranslate"><span class="pre">r&quot;ain\B&quot;</span></code>: “ain” esté presente en la cadena, pero no al final de ninguna palabra.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">\d</span></code></p></td>
+<td><p>Representa un carácter numérico del 0-9.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">r&quot;\d&quot;</span></code>: La cadena contiene dígitos (0-9).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">\D</span></code></p></td>
+<td><p>Representa un caracter que no sea numérico.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">r&quot;\D&quot;</span></code>: La cadena no contiene dígitos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">\s</span></code></p></td>
+<td><p>Representa una caracter que sea un espacio en blanco (<code class="docutils literal notranslate"><span class="pre">\n</span></code>, <code class="docutils literal notranslate"><span class="pre">\t</span></code>, <code class="docutils literal notranslate"><span class="pre">'</span> <span class="pre">'</span></code>, etc.).</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">r&quot;\s&quot;</span></code>: La cadena contiene espacios en blanco.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">\S</span></code></p></td>
+<td><p>Representa una caracter que no sea un espacio en blanco (<code class="docutils literal notranslate"><span class="pre">\n</span></code>, <code class="docutils literal notranslate"><span class="pre">\t</span></code>, <code class="docutils literal notranslate"><span class="pre">'</span> <span class="pre">'</span></code>, etc.).</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">r&quot;\S&quot;</span></code>: La cadena no contiene espacios en blanco.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">\w</span></code></p></td>
+<td><p>Representa un caracter que sea a-Z, 0-9 o guión bajo “_”.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">r&quot;\w&quot;</span></code>: La cadena contiene caracteres de a-Z, 0-9 o “_”.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">\W</span></code></p></td>
+<td><p>Representa un caracter que no sea a-Z, 0-9 o guión bajo “_”.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">r&quot;\W&quot;</span></code>: La cadena no contiene caracteres de a-Z, 0-9 o “_”.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">\Z</span></code></p></td>
+<td><p>Retorna una coincidencia si los caracteres específicados están al final de una cadena</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">r&quot;/Zend&quot;</span></code>: La cadena termina con “end”.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./parts/02-modulos"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="itertools.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Itertools</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../01-built-in/anexos-index.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Anexos</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Nebok<br/>
+  
+      &copy; Copyright 2023.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

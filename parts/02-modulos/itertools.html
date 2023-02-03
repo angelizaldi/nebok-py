@@ -1,0 +1,978 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Itertools &#8212; Manual de Python</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/nebok-favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Regular Expressions" href="regular-expression.html" />
+    <link rel="prev" title="Datetime" href="datetime.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/nebok-logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Manual de Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Manual de Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Built-in
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01-built-in/built-in-index.html">
+   Python estándar
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/ayuda.html">
+     Obtener ayuda
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/comentarios.html">
+     Comentarios
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/entrada-salida.html">
+     Entrada y salida de datos
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../01-built-in/tipos-index.html">
+     Tipos Built-In
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/booleanos.html">
+       Valores booleanos
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/numeros.html">
+       Números
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/cadenas.html">
+       Cadenas
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/listas.html">
+       Listas
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/tuples.html">
+       Tuples
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/sets.html">
+       Sets
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/diccionarios.html">
+       Diccionarios
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../01-built-in/estructuras-index.html">
+     Estructuras de control
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/if-else.html">
+       If … Else.
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/for-loop.html">
+       For Loop.
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/do-while.html">
+       While
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/funciones.html">
+     Funciones
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/try-except.html">
+     Exceptions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/context.html">
+     Context Managers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/io.html">
+     Lectura y escritura de archivos.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/modulos.html">
+     Paquetes y Módulos.
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../01-built-in/avanzado-index.html">
+     Temas avanzados
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/decorators.html">
+       Decorators
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/iterators.html">
+       Iterators
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/generators.html">
+       Generators
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01-built-in/oop.html">
+       Programación orientada a objetos
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/func-built-in.html">
+     Funciones built-in
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="modulos-index.html">
+   Módulos built-in
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="collections.html">
+     Collections
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="datetime.html">
+     Datetime
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Itertools
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="regular-expression.html">
+     Regular Expressions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01-built-in/anexos-index.html">
+   Anexos
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/anexos-tipos-datos.html">
+     Tipos de datos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/anexos-operadores-palabras.html">
+     Operadores y palabras reservadas.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/anexo-formatos-cadenas.html">
+     Formatos de cadena
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-built-in/anexos-excepciones.html">
+     Excepciones
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/parts/02-modulos/itertools.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/parts/02-modulos/itertools.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="../../_sources/parts/02-modulos/itertools.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#iterators-combinatorios">
+   Iterators combinatorios
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejemplo-de-combinations">
+     Ejemplo de combinations()
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejemplo-de-product">
+     Ejemplo de product()
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#iterator-infinitos">
+   Iterator Infinitos
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejemplo-de-count">
+     Ejemplo de count()
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#iterators-finitios">
+   Iterators finitios
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejemplo-de-groupby">
+     Ejemplo de groupby()
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Itertools</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#iterators-combinatorios">
+   Iterators combinatorios
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejemplo-de-combinations">
+     Ejemplo de combinations()
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejemplo-de-product">
+     Ejemplo de product()
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#iterator-infinitos">
+   Iterator Infinitos
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejemplo-de-count">
+     Ejemplo de count()
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#iterators-finitios">
+   Iterators finitios
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejemplo-de-groupby">
+     Ejemplo de groupby()
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="itertools">
+<h1>Itertools<a class="headerlink" href="#itertools" title="Permalink to this headline">#</a></h1>
+<p>Es un módulo que provee varias funciones para construir <code class="docutils literal notranslate"><span class="pre">iterators</span></code>. Es necesario importarlo.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar todo el módulo</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+
+<span class="c1"># Importar una función específica</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">function_name</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><em>function_name</em> es el nombre de la función que se desea importar.</p></li>
+</ul>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>En esta sección se presentan ejemplos de unas cuantas funciones seleccionadas. Si se tiene duda de qué hace una función o cómo utilizar una función usar el link que viene en el nombre de cada función para dirigirse a la documentación de Python donde vienen más ejemplos de uso.</p>
+</div>
+<p><br><br></p>
+<hr class="docutils" />
+<section id="iterators-combinatorios">
+<h2>Iterators combinatorios<a class="headerlink" href="#iterators-combinatorios" title="Permalink to this headline">#</a></h2>
+<p>A continuación se presenta una lista de funciones que retornan combinaciones, permutaciones o productos cartesianos de iterables.</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/itertools.html#itertools.combinations">combinations</a>(iterable, r)</p></td>
+<td><p>Retorna secuencias de todos las combinaciones posibles, sin reemplazo e ignorando el orden, de <em>r</em> de elementos de <code class="docutils literal notranslate"><span class="pre">iterable</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/itertools.html#itertools.combinations_with_replacement">combinations_with_replacement</a>(iterable, r)</p></td>
+<td><p>Retorna combinaciones de longitud <code class="docutils literal notranslate"><span class="pre">r</span></code> de los elementos de <code class="docutils literal notranslate"><span class="pre">iterable</span></code> permitiendo que los elementos individuales se repitan más de una vez.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/itertools.html#itertools.permutations">permutations</a>(iterable, r=None)</p></td>
+<td><p>Retorna secuencias de todos las combinaciones posibles, donde el orden importa (permutaciones), sin reemplazo, de <em>r</em> elementos consecutivos del <code class="docutils literal notranslate"><span class="pre">iterable</span></code> de entrada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/itertools.html#itertools.product">product</a>(*iterables, repeat=1)</p></td>
+<td><p>Crea un <code class="docutils literal notranslate"><span class="pre">iterator</span></code> con el producto cartesiano de los iterables de entrada.</p></td>
+</tr>
+</tbody>
+</table>
+<br>
+<hr class="docutils" />
+<section id="ejemplo-de-combinations">
+<h3>Ejemplo de combinations()<a class="headerlink" href="#ejemplo-de-combinations" title="Permalink to this headline">#</a></h3>
+<p>A continuación se presenta un ejemplo de uso de <code class="docutils literal notranslate"><span class="pre">itertools.combinations()</span></code>. Tener en cuenta que la funcionalidad de esta función es similar a la de <code class="docutils literal notranslate"><span class="pre">itertools.permutations()</span></code> y <code class="docutils literal notranslate"><span class="pre">itertools.combinations_with_replacement()</span></code> pero con resultados diferentes.</p>
+<p>En este ejemplo se define una cadena con 5 caracteres y se pretende conocer todas las combinaciones tomando 2 elementos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar función</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">combinations</span>
+
+<span class="c1"># Definir un iterable</span>
+<span class="n">X</span> <span class="o">=</span> <span class="s2">&quot;abcde&quot;</span>
+
+<span class="c1"># Calcular combinaciones</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">combinations</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Visualizar el resultado</span>
+<span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;a&#39;, &#39;b&#39;)
+(&#39;a&#39;, &#39;c&#39;)
+(&#39;a&#39;, &#39;d&#39;)
+(&#39;a&#39;, &#39;e&#39;)
+(&#39;b&#39;, &#39;c&#39;)
+(&#39;b&#39;, &#39;d&#39;)
+(&#39;b&#39;, &#39;e&#39;)
+(&#39;c&#39;, &#39;d&#39;)
+(&#39;c&#39;, &#39;e&#39;)
+(&#39;d&#39;, &#39;e&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<br>
+</section>
+<hr class="docutils" />
+<section id="ejemplo-de-product">
+<h3>Ejemplo de product()<a class="headerlink" href="#ejemplo-de-product" title="Permalink to this headline">#</a></h3>
+<p>A continuación se presenta un ejemplo de uso de <code class="docutils literal notranslate"><span class="pre">itertools.product()</span></code>.</p>
+<p>En este ejemplo se definen dos cadenas, cada una con 3 caracteres y se pretende conocer el producto cartesiano de ambas cadenas. El producto cartesiano son todas las posibles combinaciones entre los elementos de dos o más iterables donde el primer elemento del producto cartesiano solo pueden ser elementos del primer <code class="docutils literal notranslate"><span class="pre">iterable</span></code>, el segundo elemento solo pueden ser elementos del segundo <code class="docutils literal notranslate"><span class="pre">iterable</span></code>, etc.</p>
+<p>Equivale a <code class="docutils literal notranslate"><span class="pre">for-loops</span></code> anidados, por ejemplo <code class="docutils literal notranslate"><span class="pre">[*product(A,</span> <span class="pre">B)]</span></code> equivale a <code class="docutils literal notranslate"><span class="pre">[(a,</span> <span class="pre">b)</span> <span class="pre">for</span> <span class="pre">a</span> <span class="pre">in</span> <span class="pre">A</span> <span class="pre">for</span> <span class="pre">b</span> <span class="pre">in</span> <span class="pre">B]</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar función</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
+
+<span class="c1"># Definir los iterables</span>
+<span class="n">X</span> <span class="o">=</span> <span class="s2">&quot;abc&quot;</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="s2">&quot;123&quot;</span>
+
+<span class="c1"># Calcular el producto cartesiano</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">product</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+
+<span class="c1"># Visualizar el resultado</span>
+<span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;a&#39;, &#39;1&#39;)
+(&#39;a&#39;, &#39;2&#39;)
+(&#39;a&#39;, &#39;3&#39;)
+(&#39;b&#39;, &#39;1&#39;)
+(&#39;b&#39;, &#39;2&#39;)
+(&#39;b&#39;, &#39;3&#39;)
+(&#39;c&#39;, &#39;1&#39;)
+(&#39;c&#39;, &#39;2&#39;)
+(&#39;c&#39;, &#39;3&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p><br><br></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="iterator-infinitos">
+<h2>Iterator Infinitos<a class="headerlink" href="#iterator-infinitos" title="Permalink to this headline">#</a></h2>
+<p>A continuación se presenta una lista de funciones que generan <code class="docutils literal notranslate"><span class="pre">iterators</span></code> infinitos.</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/itertools.html#itertools.count">count</a>(start=0, step=1)</p></td>
+<td><p>Crea un <code class="docutils literal notranslate"><span class="pre">iterator</span></code> que retorna valores espaciados uniformemente que comiencen en <code class="docutils literal notranslate"><span class="pre">start</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/itertools.html#itertools.cycle">cycle</a>(iterable)</p></td>
+<td><p>Crea un <code class="docutils literal notranslate"><span class="pre">iterator</span></code> que devuelve los elementos de <code class="docutils literal notranslate"><span class="pre">iterable</span></code> y guarda una copia de cada uno. Cuando se agota el <code class="docutils literal notranslate"><span class="pre">iterable</span></code>, devuelve la copia guardada de los elementos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/itertools.html#itertools.repeat">repeat</a>(object[, times])</p></td>
+<td><p>Crea un <code class="docutils literal notranslate"><span class="pre">iterator</span></code> que devuelve <code class="docutils literal notranslate"><span class="pre">object</span></code> una y otra vez.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+<section id="ejemplo-de-count">
+<h3>Ejemplo de count()<a class="headerlink" href="#ejemplo-de-count" title="Permalink to this headline">#</a></h3>
+<p>A continuación se presenta un ejemplo de uso de <code class="docutils literal notranslate"><span class="pre">itertools.count()</span></code>.</p>
+<p>En este ejemplo se define un <code class="docutils literal notranslate"><span class="pre">iterator</span></code> que comience en 2 y aumente en 2 en cada elemento. Tener en cuenta que este un <code class="docutils literal notranslate"><span class="pre">iterator</span></code> infinito.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar función</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">count</span>
+
+<span class="c1"># Definir el iterator</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">count</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Visualizar primeros 3 resultados</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Primer elemento: </span><span class="si">{</span><span class="nb">next</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Segundo elemento: </span><span class="si">{</span><span class="nb">next</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Tercer elemento: </span><span class="si">{</span><span class="nb">next</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;...&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Primer elemento: 2
+Segundo elemento: 4
+Tercer elemento: 6
+...
+</pre></div>
+</div>
+</div>
+</div>
+<p><br><br></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="iterators-finitios">
+<h2>Iterators finitios<a class="headerlink" href="#iterators-finitios" title="Permalink to this headline">#</a></h2>
+<p>A continuación se presenta una lista de funciones que retornan <code class="docutils literal notranslate"><span class="pre">iterators</span></code> finitos, cuya logitud está determinada por el <code class="docutils literal notranslate"><span class="pre">iterable</span></code> más corto pasado como argumento.</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/itertools.html#itertools.accumulate">accumulate</a>(iterable[, func, *, initial=None])</p></td>
+<td><p>Crea un <code class="docutils literal notranslate"><span class="pre">iterator</span></code> que devuelve sumas acumuladas, o resultados acumulados de otras funciones binarias (especificadas a través del argumento <code class="docutils literal notranslate"><span class="pre">func</span></code>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/itertools.html#itertools.chain">chain</a>(*iterables)</p></td>
+<td><p>Crea un <code class="docutils literal notranslate"><span class="pre">iterator</span></code> que devuelve los elementos desde el primer <code class="docutils literal notranslate"><span class="pre">iterable</span></code> hasta que sea agotado, luego continúa con el siguiente <code class="docutils literal notranslate"><span class="pre">iterable</span></code>, hasta que todos los iterables estén exhaustos. Se utiliza para tratar secuencias consecutivas como una sola secuencia.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/itertools.html#itertools.compress">compress</a>(data, selectors)</p></td>
+<td><p>Crea un <code class="docutils literal notranslate"><span class="pre">iterator</span></code> que filtra los elementos de <code class="docutils literal notranslate"><span class="pre">data</span></code> y devuelve solo aquellos que tienen un elemento correspondiente en <code class="docutils literal notranslate"><span class="pre">selectors</span></code> que se evalúe como <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/itertools.html#itertools.dropwhile">dropwhile</a>(predicate, iterable)</p></td>
+<td><p>Crea un <code class="docutils literal notranslate"><span class="pre">iterator</span></code> que elimina elementos del <code class="docutils literal notranslate"><span class="pre">iterable</span></code> siempre que <code class="docutils literal notranslate"><span class="pre">predicate</span></code> sea <code class="docutils literal notranslate"><span class="pre">True</span></code>; después, devuelve todos los elementos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/itertools.html#itertools.filterfalse">filterfalse</a>(predicate, iterable)</p></td>
+<td><p>Crea un <code class="docutils literal notranslate"><span class="pre">iterator</span></code> que filtra los elementos de <code class="docutils literal notranslate"><span class="pre">iterable</span></code> y devuelve solo aquellos para cuyo <code class="docutils literal notranslate"><span class="pre">predicate</span></code> es <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/itertools.html#itertools.groupby">groupby</a>(iterable, key=None)</p></td>
+<td><p>Genera un <code class="docutils literal notranslate"><span class="pre">iterator</span></code> tomando una función y una <code class="docutils literal notranslate"><span class="pre">iterable</span></code> y agrupa elementos consecutivos en el <code class="docutils literal notranslate"><span class="pre">iterable</span></code>, dependiendo del valor retornado por <code class="docutils literal notranslate"><span class="pre">key</span></code>. La <code class="docutils literal notranslate"><span class="pre">key</span></code> por default es una función de identidad y devuelve el elemento sin cambios.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/itertools.html#itertools.islice">islice</a>(iterable, start, stop[, step])</p></td>
+<td><p>Crea un <code class="docutils literal notranslate"><span class="pre">iterator</span></code> que devuelve elementos específicos de <code class="docutils literal notranslate"><span class="pre">iterable</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/itertools.html#itertools.pairwise">pairwise</a>(iterable)</p></td>
+<td><p>Devuelve pares superpuestos sucesivos tomados de <code class="docutils literal notranslate"><span class="pre">iterable</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/itertools.html#itertools.starmap">starmap</a>(function, iterable)</p></td>
+<td><p>Crea un <code class="docutils literal notranslate"><span class="pre">iterator</span></code> que calcula <code class="docutils literal notranslate"><span class="pre">function</span></code> usando los argumentos obtenidos de <code class="docutils literal notranslate"><span class="pre">iterable</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/itertools.html#itertools.takewhile">takewhile</a>(predicate, iterable)</p></td>
+<td><p>Crea un <code class="docutils literal notranslate"><span class="pre">iterator</span></code> que devuelve elementos de <code class="docutils literal notranslate"><span class="pre">iterable</span></code> siempre que <code class="docutils literal notranslate"><span class="pre">predicate</span></code> sea <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/itertools.html#itertools.tee">tee</a>(iterable, n=2)</p></td>
+<td><p>Devuelve <code class="docutils literal notranslate"><span class="pre">n</span></code> <code class="docutils literal notranslate"><span class="pre">iterators</span></code> independientes de un solo <code class="docutils literal notranslate"><span class="pre">iterable</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/itertools.html#itertools.zip_longest">zip_longest</a>(*iterables, fillvalue=None)</p></td>
+<td><p>Crea un <code class="docutils literal notranslate"><span class="pre">iterator</span></code> que combina elementos de cada uno de los iterables. Si los iterables tienen una longitud desigual, los valores faltantes se completan con <code class="docutils literal notranslate"><span class="pre">fillvalue</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+<section id="ejemplo-de-groupby">
+<h3>Ejemplo de groupby()<a class="headerlink" href="#ejemplo-de-groupby" title="Permalink to this headline">#</a></h3>
+<p>A continuación se presenta un ejemplo de uso de <code class="docutils literal notranslate"><span class="pre">itertools.groupby()</span></code>.</p>
+<p>En este ejemplo se define un iterable que contiene <code class="docutils literal notranslate"><span class="pre">tuples</span></code> cuyo primer elemento es una letra y el segundo elemento es un número, se pretende agrupar todos los tuples que tienen la misma letra.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># importar función</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">groupby</span>
+
+<span class="c1"># Definir un iterable</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)]</span>
+
+<span class="c1"># Calcular el groupby</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">groupby</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># Ver el resultado</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Key: </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">, Grupo: </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">group</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Key: a, Grupo: [(&#39;a&#39;, 1), (&#39;a&#39;, 2)]
+Key: b, Grupo: [(&#39;b&#39;, 3), (&#39;b&#39;, 4), (&#39;b&#39;, 5)]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./parts/02-modulos"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="datetime.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Datetime</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="regular-expression.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Regular Expressions</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Nebok<br/>
+  
+      &copy; Copyright 2023.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
