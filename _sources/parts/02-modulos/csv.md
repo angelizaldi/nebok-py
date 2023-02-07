@@ -1,4 +1,4 @@
-# CSV
+# csv
 
 Este módulo implementa clases para leer archivos csv y escribir datos tabulares en archivos csv. Es necesario importar el módulo.
 ```python
