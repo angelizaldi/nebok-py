@@ -22,10 +22,6 @@ Un patrón en expresiones regulares se conforma de:
 - Texto: Coincide tal cual como se indique en la cadena.
 - {ref}`caracteres-especiales` y {ref}`sec-especiales`: Son metacaracteres que significan algo en especial. Visitar sus respectivas secciones para más información.
 
-:::{attention}
-Los patrones de expresiones regulares se indican utilizando cadenas _crudas_ (_"raw strings"_). 
-:::
-
 Si una o más partes de la cadena coinciden con el patrón entonces se dice que hay un "_Match_".
 
 <br>
@@ -34,6 +30,11 @@ Si una o más partes de la cadena coinciden con el patrón entonces se dice que 
 ## Buscar patrones usando regex
 
 Para buscar un patrón usando regular expressions se puede hacer principalmente de dos formas.
+
+:::{attention}
+Los patrones de expresiones regulares se indican utilizando cadenas _crudas_ (_"raw strings"_), es decir, como `r'regex_pattern'`.
+:::
+
 
 **1.** Usar directamente las {ref}`funciones` para buscar patrones. Por ejemplo `re.search()`, `re.match()` o `re.findall()`. En este caso se debe de proveer tanto del patrón a buscar como de la cadena donde se va a buscar el patrón. Ejemplo:
 
@@ -196,13 +197,13 @@ X = "abc 123 #&@ 789"
 result = re.findall(r"(\d+)", X)
 
 # Recuperar el patrón
-print(f"Resultado de \'(\d+)\´: {result}", end="\n"*2)
+print(f"Resultado de r\'(\d+)\': {result}", end="\n"*2)
 
 # Compilar el patrón definiendo un grupo
 result2 = re.findall(r"\w+ (\d+)", X)
 
 # Recuperar el patrón
-print(f"Resultado de \'\w+ (\d+)\´: {result2}")
+print(f"Resultado de r\'\w+ (\d+)\': {result2}")
 ```
 - `result` retorna dos coincidencias porque hay dos subcadenas en `X` que representan uno o más dígitos.
 - `result2` retorna solo una coincidencia porque solo hay una subcadena que representa uno o más dígitos y que están después de uno o más caracteres alfabéticos, seguido de un espacio en blanco, lo cual solo se satisface con "123".
@@ -247,7 +248,7 @@ X = "abc 123 #&@ xyz 789"
 result = re.findall(r"(\w+) (\d+)", X)
 
 # Recuperar los grupos
-print(f"Resultado de \'\w+ (\d+)\´: {result}")
+print(f"Resultado de r\'\w+ (\d+)\': {result}")
 ```
 
 <br><br>
@@ -333,32 +334,9 @@ print(result)
 
 A continuación se presenta una lista de `flags` para modificar el comportamiento de las {ref}`funciones` o de los métodos de objetos como {ref}`objeto-match` o {ref}`objeto-pattern`. Las flags se ponen como argumentos de las funciones como `re.search()`, `re.match()` o `re.find_all()` o de los métodos del objeto `Pattern`.
 
-**Ejemplo**: A continuación se ejemplifica como usar la flag `re.I` para no hacer distintinción entre mayúsculas y minúsculas al momento de hacer una búsqueda
-
-
-```{code-cell} python3
-# Importar el módulo
-import re
-
-# Definir una cadena
-X = "abc 123 ABC 456 AbC"
-
-# Encontrar el patrón "abc"
-result = re.findall(r"abc", X)
-
-# Imprimir resultado
-print(f"Resultado de buscar \'abc\': {result}")
-
-# Ignorando minúsculas y mayúsculas
-result2 = re.findall(r"abc", X, re.I)
-
-# Imprimir resultado
-print(f"Resultado de buscar \'abc\' con re.I: {result2}")
-```
-
 Listado de flags:
 
-:::{attention}
+:::{warning}
 La mayoría de las flags tienen 2 posibles formas de representarlas, aquí solo se presenta una de esas formas. Presionar en el nombre de cada flag para dirigirse a la documentación de Python para obtener más información.
 :::
 
@@ -384,6 +362,34 @@ La mayoría de las flags tienen 2 posibles formas de representarlas, aquí solo 
   - Indica que el carácter especial '.' coincida con cualquier carácter, incluido un nueva línea (`\n`).
 * - [X](https://docs.python.org/3/library/re.html#re.X)
   - Esta flag permite escribir expresiones regulares que se ven mejor y son más legible al permitir separar visualmente secciones lógicas del patrón y añadir comentarios.
+```
+
+<br>
+
+---
+### Ejemplo de uso: 
+
+A continuación se ejemplifica como usar la flag `re.I` para no hacer distintinción entre mayúsculas y minúsculas al momento de hacer una búsqueda. Notar que esta misma flag también se puede expresar como `re.IGNORECASE`.
+
+
+```{code-cell} python3
+# Importar el módulo
+import re
+
+# Definir una cadena
+X = "abc 123 ABC 456 AbC"
+
+# Encontrar el patrón "abc"
+result = re.findall(r"abc", X)
+
+# Imprimir resultado
+print(f"Resultado de buscar \'abc\': {result}")
+
+# Ignorando minúsculas y mayúsculas
+result2 = re.findall(r"abc", X, re.I)
+
+# Imprimir resultado
+print(f"Resultado de buscar \'abc\' con re.I: {result2}")
 ```
 
 <br><br>

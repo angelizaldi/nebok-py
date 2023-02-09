@@ -53,8 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/nebok-favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Anexos" href="../01-built-in/anexos-index.html" />
-    <link rel="prev" title="Itertools" href="itertools.html" />
+    <link rel="next" title="Statistics" href="statistics.html" />
+    <link rel="prev" title="Random" href="random.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -299,6 +299,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="csv.html">
+     csv
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="datetime.html">
      Datetime
     </a>
@@ -308,9 +313,44 @@ const thebe_selector_output = ".output, .cell_output"
      Itertools
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="json.html">
+     JSON
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="math.html">
+     Math
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="os.html">
+     os
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="os-path.html">
+     os.path
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pickle.html">
+     Pickle
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="random.html">
+     Random
+    </a>
+   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Regular Expressions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="statistics.html">
+     Statistics
     </a>
    </li>
   </ul>
@@ -561,6 +601,13 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#flags">
    Flags
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejemplo-de-uso">
+     Ejemplo de uso:
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#funciones">
@@ -671,6 +718,13 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#flags">
    Flags
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejemplo-de-uso">
+     Ejemplo de uso:
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#funciones">
@@ -748,16 +802,16 @@ title="Print to PDF"
 <li><p>Texto: Coincide tal cual como se indique en la cadena.</p></li>
 <li><p><a class="reference internal" href="#caracteres-especiales"><span class="std std-ref">Caracteres especiales</span></a> y <a class="reference internal" href="#sec-especiales"><span class="std std-ref">Secuencias especiales</span></a>: Son metacaracteres que significan algo en especial. Visitar sus respectivas secciones para más información.</p></li>
 </ul>
-<div class="admonition attention">
-<p class="admonition-title">Attention</p>
-<p>Los patrones de expresiones regulares se indican utilizando cadenas <em>crudas</em> (<em>“raw strings”</em>).</p>
-</div>
 <p>Si una o más partes de la cadena coinciden con el patrón entonces se dice que hay un “<em>Match</em>”.</p>
 <br>
 <hr class="docutils" />
 <section id="buscar-patrones-usando-regex">
 <h2>Buscar patrones usando regex<a class="headerlink" href="#buscar-patrones-usando-regex" title="Permalink to this headline">#</a></h2>
 <p>Para buscar un patrón usando regular expressions se puede hacer principalmente de dos formas.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Los patrones de expresiones regulares se indican utilizando cadenas <em>crudas</em> (<em>“raw strings”</em>), es decir, como <code class="docutils literal notranslate"><span class="pre">r'regex_pattern'</span></code>.</p>
+</div>
 <p><strong>1.</strong> Usar directamente las <a class="reference internal" href="#funciones"><span class="std std-ref">Funciones</span></a> para buscar patrones. Por ejemplo <code class="docutils literal notranslate"><span class="pre">re.search()</span></code>, <code class="docutils literal notranslate"><span class="pre">re.match()</span></code> o <code class="docutils literal notranslate"><span class="pre">re.findall()</span></code>. En este caso se debe de proveer tanto del patrón a buscar como de la cadena donde se va a buscar el patrón. Ejemplo:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -971,20 +1025,20 @@ Grupo: 123
 <span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(\d+)&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
 
 <span class="c1"># Recuperar el patrón</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Resultado de </span><span class="se">\&#39;</span><span class="s2">(\d+)\´: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Resultado de r</span><span class="se">\&#39;</span><span class="s2">(\d+)</span><span class="se">\&#39;</span><span class="s2">: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="c1"># Compilar el patrón definiendo un grupo</span>
 <span class="n">result2</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\w+ (\d+)&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
 
 <span class="c1"># Recuperar el patrón</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Resultado de </span><span class="se">\&#39;</span><span class="s2">\w+ (\d+)\´: </span><span class="si">{</span><span class="n">result2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Resultado de r</span><span class="se">\&#39;</span><span class="s2">\w+ (\d+)</span><span class="se">\&#39;</span><span class="s2">: </span><span class="si">{</span><span class="n">result2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Resultado de &#39;(\d+)\´: [&#39;123&#39;, &#39;789&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Resultado de r&#39;(\d+)&#39;: [&#39;123&#39;, &#39;789&#39;]
 
-Resultado de &#39;\w+ (\d+)\´: [&#39;123&#39;]
+Resultado de r&#39;\w+ (\d+)&#39;: [&#39;123&#39;]
 </pre></div>
 </div>
 </div>
@@ -1044,12 +1098,12 @@ Grupo 2: 123
 <span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(\w+) (\d+)&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
 
 <span class="c1"># Recuperar los grupos</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Resultado de </span><span class="se">\&#39;</span><span class="s2">\w+ (\d+)\´: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Resultado de r</span><span class="se">\&#39;</span><span class="s2">\w+ (\d+)</span><span class="se">\&#39;</span><span class="s2">: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Resultado de &#39;\w+ (\d+)\´: [(&#39;abc&#39;, &#39;123&#39;), (&#39;xyz&#39;, &#39;789&#39;)]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Resultado de r&#39;\w+ (\d+)&#39;: [(&#39;abc&#39;, &#39;123&#39;), (&#39;xyz&#39;, &#39;789&#39;)]
 </pre></div>
 </div>
 </div>
@@ -1169,39 +1223,9 @@ Grupo 2: 123
 <section id="flags">
 <h2>Flags<a class="headerlink" href="#flags" title="Permalink to this headline">#</a></h2>
 <p>A continuación se presenta una lista de <code class="docutils literal notranslate"><span class="pre">flags</span></code> para modificar el comportamiento de las <a class="reference internal" href="#funciones"><span class="std std-ref">Funciones</span></a> o de los métodos de objetos como <a class="reference internal" href="#objeto-match"><span class="std std-ref">Objeto Match</span></a> o <a class="reference internal" href="#objeto-pattern"><span class="std std-ref">Objeto Regular Expression</span></a>. Las flags se ponen como argumentos de las funciones como <code class="docutils literal notranslate"><span class="pre">re.search()</span></code>, <code class="docutils literal notranslate"><span class="pre">re.match()</span></code> o <code class="docutils literal notranslate"><span class="pre">re.find_all()</span></code> o de los métodos del objeto <code class="docutils literal notranslate"><span class="pre">Pattern</span></code>.</p>
-<p><strong>Ejemplo</strong>: A continuación se ejemplifica como usar la flag <code class="docutils literal notranslate"><span class="pre">re.I</span></code> para no hacer distintinción entre mayúsculas y minúsculas al momento de hacer una búsqueda</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar el módulo</span>
-<span class="kn">import</span> <span class="nn">re</span>
-
-<span class="c1"># Definir una cadena</span>
-<span class="n">X</span> <span class="o">=</span> <span class="s2">&quot;abc 123 ABC 456 AbC&quot;</span>
-
-<span class="c1"># Encontrar el patrón &quot;abc&quot;</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;abc&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
-
-<span class="c1"># Imprimir resultado</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Resultado de buscar </span><span class="se">\&#39;</span><span class="s2">abc</span><span class="se">\&#39;</span><span class="s2">: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="c1"># Ignorando minúsculas y mayúsculas</span>
-<span class="n">result2</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;abc&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">)</span>
-
-<span class="c1"># Imprimir resultado</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Resultado de buscar </span><span class="se">\&#39;</span><span class="s2">abc</span><span class="se">\&#39;</span><span class="s2"> con re.I: </span><span class="si">{</span><span class="n">result2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Resultado de buscar &#39;abc&#39;: [&#39;abc&#39;]
-Resultado de buscar &#39;abc&#39; con re.I: [&#39;abc&#39;, &#39;ABC&#39;, &#39;AbC&#39;]
-</pre></div>
-</div>
-</div>
-</div>
 <p>Listado de flags:</p>
-<div class="admonition attention">
-<p class="admonition-title">Attention</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
 <p>La mayoría de las flags tienen 2 posibles formas de representarlas, aquí solo se presenta una de esas formas. Presionar en el nombre de cada flag para dirigirse a la documentación de Python para obtener más información.</p>
 </div>
 <table class="table">
@@ -1241,8 +1265,43 @@ Resultado de buscar &#39;abc&#39; con re.I: [&#39;abc&#39;, &#39;ABC&#39;, &#39;
 </tr>
 </tbody>
 </table>
+<br>
+<hr class="docutils" />
+<section id="ejemplo-de-uso">
+<h3>Ejemplo de uso:<a class="headerlink" href="#ejemplo-de-uso" title="Permalink to this headline">#</a></h3>
+<p>A continuación se ejemplifica como usar la flag <code class="docutils literal notranslate"><span class="pre">re.I</span></code> para no hacer distintinción entre mayúsculas y minúsculas al momento de hacer una búsqueda. Notar que esta misma flag también se puede expresar como <code class="docutils literal notranslate"><span class="pre">re.IGNORECASE</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar el módulo</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="c1"># Definir una cadena</span>
+<span class="n">X</span> <span class="o">=</span> <span class="s2">&quot;abc 123 ABC 456 AbC&quot;</span>
+
+<span class="c1"># Encontrar el patrón &quot;abc&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;abc&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Imprimir resultado</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Resultado de buscar </span><span class="se">\&#39;</span><span class="s2">abc</span><span class="se">\&#39;</span><span class="s2">: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Ignorando minúsculas y mayúsculas</span>
+<span class="n">result2</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;abc&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">)</span>
+
+<span class="c1"># Imprimir resultado</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Resultado de buscar </span><span class="se">\&#39;</span><span class="s2">abc</span><span class="se">\&#39;</span><span class="s2"> con re.I: </span><span class="si">{</span><span class="n">result2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Resultado de buscar &#39;abc&#39;: [&#39;abc&#39;]
+Resultado de buscar &#39;abc&#39; con re.I: [&#39;abc&#39;, &#39;ABC&#39;, &#39;AbC&#39;]
+</pre></div>
+</div>
+</div>
+</div>
 <p><br><br></p>
 <hr class="docutils" />
+</section>
 </section>
 <section id="funciones">
 <span id="id1"></span><h2>Funciones<a class="headerlink" href="#funciones" title="Permalink to this headline">#</a></h2>
@@ -1673,17 +1732,17 @@ Resultado de buscar &#39;abc&#39; con re.I: [&#39;abc&#39;, &#39;ABC&#39;, &#39;
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="itertools.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="random.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Itertools</p>
+            <p class="prev-next-title">Random</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../01-built-in/anexos-index.html" title="next page">
+    <a class='right-next' id="next-link" href="statistics.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Anexos</p>
+        <p class="prev-next-title">Statistics</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

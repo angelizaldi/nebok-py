@@ -299,6 +299,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../02-modulos/csv.html">
+     csv
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../02-modulos/datetime.html">
      Datetime
     </a>
@@ -309,8 +314,43 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../02-modulos/json.html">
+     JSON
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-modulos/math.html">
+     Math
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-modulos/os.html">
+     os
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-modulos/os-path.html">
+     os.path
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-modulos/pickle.html">
+     Pickle
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-modulos/random.html">
+     Random
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../02-modulos/regular-expression.html">
      Regular Expressions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-modulos/statistics.html">
+     Statistics
     </a>
    </li>
   </ul>
@@ -628,7 +668,7 @@ title="Print to PDF"
 <p>Para usar la función <code class="docutils literal notranslate"><span class="pre">open()</span></code> se puede hacer de dos formas principales.</p>
 <p><strong>1. Sin administrador de contextos</strong>. En esta caso se establece una conexión con un archivo, y se almacenará en una variable esa conexión, con ese objeto se puede usar los métodos de <code class="docutils literal notranslate"><span class="pre">file</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Establecer conexión</span>
-<span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;path/to/file.ext&quot;</span><span class="p">)</span>
+<span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;path/to/file.ext&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;mode&quot;</span><span class="p">)</span>
 
 <span class="c1"># Usar métodos, por ejempo .read()</span>
 <span class="n">lines</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
@@ -639,7 +679,7 @@ title="Print to PDF"
 </div>
 <p><strong>2. Con administrador de contextos</strong>: En este caso se utiliza un administrador de contextos el cual creará la conexión con el archivo y cerrará la conexión automáticamente:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Establecer conexión</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;path/to/file.ext&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;path/to/file.ext&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;mode&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
     <span class="c1"># Usar métodos, por ejempo .read()</span>
     <span class="n">lines</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 </pre></div>

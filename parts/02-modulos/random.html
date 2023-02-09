@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Módulos built-in &#8212; Manual de Python</title>
+    <title>Random &#8212; Manual de Python</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -53,8 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/nebok-favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Collections" href="collections.html" />
-    <link rel="prev" title="Funciones built-in" href="../01-built-in/func-built-in.html" />
+    <link rel="next" title="Regular Expressions" href="regular-expression.html" />
+    <link rel="prev" title="Pickle" href="pickle.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -284,7 +284,7 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+  <a class="reference internal" href="modulos-index.html">
    Módulos built-in
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
@@ -292,7 +292,7 @@ const thebe_selector_output = ".output, .cell_output"
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="collections.html">
      Collections
@@ -338,8 +338,8 @@ const thebe_selector_output = ".output, .cell_output"
      Pickle
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="random.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Random
     </a>
    </li>
@@ -460,7 +460,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../_sources/parts/02-modulos/modulos-index.md"
+        <a href="../../_sources/parts/02-modulos/random.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -520,8 +520,23 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tabla-de-contenido">
-   Tabla de contenido
+  <a class="reference internal nav-link" href="#distribuciones">
+   Distribuciones
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#numeros-aleatorios">
+   Numeros-aleatorios
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#muestreo-y-shuffle">
+   Muestreo y Shuffle
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#semillas">
+   Semillas
   </a>
  </li>
 </ul>
@@ -533,7 +548,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Módulos built-in</h1>
+                <h1>Random</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -544,8 +559,23 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tabla-de-contenido">
-   Tabla de contenido
+  <a class="reference internal nav-link" href="#distribuciones">
+   Distribuciones
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#numeros-aleatorios">
+   Numeros-aleatorios
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#muestreo-y-shuffle">
+   Muestreo y Shuffle
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#semillas">
+   Semillas
   </a>
  </li>
 </ul>
@@ -558,31 +588,154 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="modulos-built-in">
-<h1>Módulos built-in<a class="headerlink" href="#modulos-built-in" title="Permalink to this headline">#</a></h1>
-<p>En esta sección se presentan algunos de los módulos built-in que vienen con la librería estándar de Python, por lo que no es necesario instalarlos, pero sí es necesario importarlos a la sesión. Tener en cuenta que no se cubren todos los módulos existentes y de cada módulo solo se ven algunas funcionalidades.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="random">
+<h1>Random<a class="headerlink" href="#random" title="Permalink to this headline">#</a></h1>
+<p>Es un módulo que provee de funciones para muestreos aleatorios y generación de números pseudo aleatorios de distintas distribuciones de probabilidad. Es necesario importar el módulo.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar todo el módulo</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="c1"># Importar una función específica</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">function_name</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><em>function_name</em> es el nombre de la función que se desea importar.</p></li>
+</ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>En esta sección no se incluyen todos los módulos de la librería estándar de Python. Para una lista completa visitar la <a class="reference external" href="https://docs.python.org/3/library/index.html">documentación</a> de Python.</p>
+<p>Esta sección no cubre todas las funciones y clases disponibles del módulo <code class="docutils literal notranslate"><span class="pre">random</span></code>. Para más información de este módulo visitar la <a class="reference external" href="https://docs.python.org/3/library/random.html#module-random">documentación</a> de Python.</p>
 </div>
-<section id="tabla-de-contenido">
-<h2>Tabla de contenido<a class="headerlink" href="#tabla-de-contenido" title="Permalink to this headline">#</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="collections.html">Collections</a></li>
-<li class="toctree-l1"><a class="reference internal" href="csv.html">csv</a></li>
-<li class="toctree-l1"><a class="reference internal" href="datetime.html">Datetime</a></li>
-<li class="toctree-l1"><a class="reference internal" href="itertools.html">Itertools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="json.html">JSON</a></li>
-<li class="toctree-l1"><a class="reference internal" href="math.html">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="os.html">os</a></li>
-<li class="toctree-l1"><a class="reference internal" href="os-path.html">os.path</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pickle.html">Pickle</a></li>
-<li class="toctree-l1"><a class="reference internal" href="random.html">Random</a></li>
-<li class="toctree-l1"><a class="reference internal" href="regular-expression.html">Regular Expressions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="statistics.html">Statistics</a></li>
-</ul>
-</div>
+<hr class="docutils" />
+<section id="distribuciones">
+<h2>Distribuciones<a class="headerlink" href="#distribuciones" title="Permalink to this headline">#</a></h2>
+<p>Funciones para generar números aleatorios de distribuciones de probabilidad específicas.</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/random.html#random.betavariate">betavariate</a>(alpha, beta)</p></td>
+<td><p>Distribución beta. Las condiciones de los parámetros son <code class="docutils literal notranslate"><span class="pre">alpha</span></code> &gt; 0 y <code class="docutils literal notranslate"><span class="pre">beta</span></code> &gt; 0. Los valores devueltos oscilan entre 0 y 1.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/random.html#random.expovariate">expovariate</a>(lambd)</p></td>
+<td><p>Distribución exponencial. <code class="docutils literal notranslate"><span class="pre">lambd</span></code> es igual a 1.0 entre la media deseada, debe ser distinto de cero.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/random.html#random.gammavariate">gammavariate</a>(alpha, beta)</p></td>
+<td><p>Distribución gamma. Condiciones en los parámetros son <code class="docutils literal notranslate"><span class="pre">alpha</span></code> &gt; 0 y <code class="docutils literal notranslate"><span class="pre">beta</span></code> &gt; 0.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/random.html#random.gauss">gauss</a>(mu=0.0, sigma=1.0)</p></td>
+<td><p>Distribución normal, <code class="docutils literal notranslate"><span class="pre">mu</span></code> es la media, y <code class="docutils literal notranslate"><span class="pre">sigma</span></code> es la desviación estándar. Es un poco más rápida que la función <code class="docutils literal notranslate"><span class="pre">normalvariate()</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/random.html#random.lognormvariate">lognormvariate</a>(mu, sigma)</p></td>
+<td><p>Distribución lognormal. El logaritmo natural de este distribución es una distribución normal con media <code class="docutils literal notranslate"><span class="pre">mu</span></code> y desviación estándar <code class="docutils literal notranslate"><span class="pre">sigma</span></code>. <code class="docutils literal notranslate"><span class="pre">mu</span></code> puede tomar cualquier valor y <code class="docutils literal notranslate"><span class="pre">sigma</span></code> debe ser mayor que cero.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/random.html#random.normalvariate">normalvariate</a>(mu=0.0, sigma=1.0)</p></td>
+<td><p>Distribución normal. <code class="docutils literal notranslate"><span class="pre">mu</span></code> es la media y <code class="docutils literal notranslate"><span class="pre">sigma</span></code> es la desviación estándar.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/random.html#random.paretovariate">paretovariate</a>(alpha)</p></td>
+<td><p>Distribución de Pareto. <code class="docutils literal notranslate"><span class="pre">alpha</span></code> es el parámetro de forma.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/random.html#random.triangular">triangular</a>(low, high, mode)</p></td>
+<td><p>Devuelve un número <code class="docutils literal notranslate"><span class="pre">float</span></code> aleatorio N tal que <code class="docutils literal notranslate"><span class="pre">low</span></code> &lt;= N &lt;= <code class="docutils literal notranslate"><span class="pre">high</span></code> y con <code class="docutils literal notranslate"><span class="pre">mode</span></code> especificado entre esos límites. El argumento de <code class="docutils literal notranslate"><span class="pre">mode</span></code> por defecto es el punto medio.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/random.html#random.uniform">uniform</a>(a, b)</p></td>
+<td><p>Retorna un número <code class="docutils literal notranslate"><span class="pre">float</span></code> aleatorio N tal que a &lt;= N &lt;= b para a &lt;= b y b &lt;= N &lt;= a para b &lt; a.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/random.html#random.vonmisesvariate">vonmisesvariate</a>(mu, kappa)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">mu</span></code> es el ángulo medio, expresado en radianes entre 0 y 2*pi, y <code class="docutils literal notranslate"><span class="pre">kappa</span></code> es el parámetro de concentración, que debe ser mayor o igual a cero. Si <code class="docutils literal notranslate"><span class="pre">kappa</span></code> es igual a cero, esta distribución se reduce a un ángulo aleatorio uniforme en el rango de 0 a 2*pi.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/random.html#random.weibullvariate">weibullvariate</a>(alpha, beta)</p></td>
+<td><p>Distribución Weibull. <code class="docutils literal notranslate"><span class="pre">alpha</span></code> es el parámetro de escala y <code class="docutils literal notranslate"><span class="pre">beta</span></code> es el parámetro de forma.</p></td>
+</tr>
+</tbody>
+</table>
+<br>
+</section>
+<hr class="docutils" />
+<section id="numeros-aleatorios">
+<h2>Numeros-aleatorios<a class="headerlink" href="#numeros-aleatorios" title="Permalink to this headline">#</a></h2>
+<p>Funciones para generar números aleatorios.</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/random.html#random.randint">randint</a>(a, b)</p></td>
+<td><p>Devuelve un entero aleatorio N tal que a &lt;= N &lt;= b. Alias para <code class="docutils literal notranslate"><span class="pre">randrange(a,</span> <span class="pre">b+1)</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/random.html#random.random">random</a>()</p></td>
+<td><p>Devuelve un número <code class="docutils literal notranslate"><span class="pre">float</span></code> aleatorio en el rango [0.0, 1.0).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/random.html#random.randrange">randrange</a>(start, stop[, step])</p></td>
+<td><p>Devuelve un número aleatorio del rango <code class="docutils literal notranslate"><span class="pre">(start,</span> <span class="pre">stop,</span> <span class="pre">step)</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<br>
+</section>
+<hr class="docutils" />
+<section id="muestreo-y-shuffle">
+<h2>Muestreo y Shuffle<a class="headerlink" href="#muestreo-y-shuffle" title="Permalink to this headline">#</a></h2>
+<p>Funciones para hacer muestreo aleatorio con reemplazado o sin reemplazo y para reordenar aleatoriamente secuencias.</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/random.html#random.choice">choice</a>(seq)</p></td>
+<td><p>Devuelve un elemento aleatorio de la secuencia no vacía <code class="docutils literal notranslate"><span class="pre">seq</span></code>. Si <code class="docutils literal notranslate"><span class="pre">seq</span></code> está vacía, genera <code class="docutils literal notranslate"><span class="pre">IndexError</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/random.html#random.choices">choices</a>(population, weights=None, *, cum_weights=None, k=1)</p></td>
+<td><p>Devuelve una lista de tamaño <code class="docutils literal notranslate"><span class="pre">k</span></code> de elementos aleatorios de <code class="docutils literal notranslate"><span class="pre">population</span></code> (<code class="docutils literal notranslate"><span class="pre">sequence</span></code> o <code class="docutils literal notranslate"><span class="pre">iterable</span></code>) con reemplazo. Si <code class="docutils literal notranslate"><span class="pre">population</span></code> está vacía, genera <code class="docutils literal notranslate"><span class="pre">IndexError</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/random.html#random.sample">sample</a>(population, k, *, counts=None)</p></td>
+<td><p>Devuelve una lista de longitud <code class="docutils literal notranslate"><span class="pre">k</span></code> de elementos únicos elegidos de <code class="docutils literal notranslate"><span class="pre">population</span></code> (<code class="docutils literal notranslate"><span class="pre">sequence</span></code> o <code class="docutils literal notranslate"><span class="pre">iterable</span></code>). Se utiliza para muestreo aleatorio sin reemplazo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/random.html#random.shuffle">shuffle</a>(x)</p></td>
+<td><p>Reordena los elementos de <code class="docutils literal notranslate"><span class="pre">x</span></code> (<code class="docutils literal notranslate"><span class="pre">sequence</span></code> o <code class="docutils literal notranslate"><span class="pre">iterable</span></code>) de manera aleatoria <em>in-place</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<br>
+</section>
+<hr class="docutils" />
+<section id="semillas">
+<h2>Semillas<a class="headerlink" href="#semillas" title="Permalink to this headline">#</a></h2>
+<p>Función para establecer la semilla del generados de números aleatorios para reproducibilidad.</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/random.html#random.seed">seed</a>(a=None, version=2)</p></td>
+<td><p>Inicializa el generador de números aleatorios.</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 </section>
 
@@ -613,17 +766,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../01-built-in/func-built-in.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="pickle.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Funciones built-in</p>
+            <p class="prev-next-title">Pickle</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="collections.html" title="next page">
+    <a class='right-next' id="next-link" href="regular-expression.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Collections</p>
+        <p class="prev-next-title">Regular Expressions</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

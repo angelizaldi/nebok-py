@@ -34,7 +34,7 @@ Para usar la función `open()` se puede hacer de dos formas principales.
 **1. Sin administrador de contextos**. En esta caso se establece una conexión con un archivo, y se almacenará en una variable esa conexión, con ese objeto se puede usar los métodos de `file`.
 ```python
 # Establecer conexión
-file = open("path/to/file.ext")
+file = open("path/to/file.ext", mode="mode")
 
 # Usar métodos, por ejempo .read()
 lines = file.read()
@@ -46,7 +46,7 @@ file.close()
 **2. Con administrador de contextos**: En este caso se utiliza un administrador de contextos el cual creará la conexión con el archivo y cerrará la conexión automáticamente:
 ```python
 # Establecer conexión
-with open("path/to/file.ext") as file:
+with open("path/to/file.ext", mode="mode") as file:
     # Usar métodos, por ejempo .read()
     lines = file.read()
 ```
