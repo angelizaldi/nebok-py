@@ -46,16 +46,16 @@ Si se usa un `for loop` en un objeto generator, se obtendrá cada elemento del g
 # Iterando sobre un generator:
 X = generator_name(args):
 for i in X
-    expressions
+    # for body
     
 # Se puede iterar directamente sobre el generator:
 for i in generator_name(args):
-    expressions
+    # for body
 ```
 
 <br>
 
-**Ejemplo**: En el siguiente ejemplo se defini un generator que genera una secuencia de números. En este ejemplo se recupera el primer elemento con `next()` y el resto dentro de un `for loop`.
+**Ejemplo**: En el siguiente ejemplo se define un generator que genera una secuencia de números. En este ejemplo se recupera el primer elemento con `next()` y el resto dentro de un `for loop`.
 
 ```{code-cell} python3
 # Definir el generator
@@ -81,10 +81,13 @@ print(next(X, "empty"))
 ```
 - Después de agotar todos los elementos en el `for loop`, si se trata de recuperar otro elemento se retorna un error `StopIteration` o en este caso, un valor por default.
 
+<br/>
+
+---
 ## Generator Expression:
 
-- Es como un _list comprehenssion_, pero en lugar de devolver una lista, devuelve un objeto `generator`.
-- El generator expression produce un solo elemento, cada vez que es llamado con `next()`. 
+Es como un _list comprehenssion_, pero en lugar de devolver una lista, devuelve un objeto `generator`.
+- Un _generator expression_ produce un solo elemento, cada vez que es llamado con `next()`. 
 - Es útil si se van a generar muchos valores, en ese caso es mejor generarlos poco a poco. 
 - La sintaxis es similar a las _lists comprehenssion_, pero se usan paréntesis
 ```python
@@ -98,7 +101,7 @@ X = (expression for i in iterable)
 
 :::{tip} Los generator expression pueden ser usados como argumento de funciones que reciben un `iterable`, en ese caso, no es necesario poner los paréntesis.
 
-<code> python
+<code>
 sum(expression for i in iterable) 
 </code>
 

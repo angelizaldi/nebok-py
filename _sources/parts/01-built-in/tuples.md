@@ -22,12 +22,14 @@ Corresponde al tipo de dato `tuple`. Los tuples son una secuencia. Algunas carac
 
 Para más información visitar la [documentación](https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range) de Python.
 
+<br>
+
 ---
 ## Crear un tuple
 
 Para crear un `tuple` existen distintas formas:
 1. Poner los elementos, separados por coma directamente
-2. Poner los elementos, separados por coma entre paréntesis `()`.
+2. Poner los elementos, separados por coma de paréntesis `()`.
 3. Utilizar la función `tuple()` para convertir un iterable a un `tuple`.
 ```python
 # Las siguientes expresiones son equivalentes
@@ -42,10 +44,12 @@ X = tuple(Y)
 ```{warning} Si se quiere crear un tuple de solo un elemento usando paréntesis, se tienen que poner una coma ‘,’ después del elemento, es decir, <code> X = (x,) </code>
 ```
 
+<br>
+
 ---
 ##  Concatenar y multiplicar:
 
-El operador `+` sirve para concatenar tuplas, los elementos se agrega al final del `tuple`.
+El operador `+` sirve para concatenar tuplas, los elementos se agrega al final `tuple`.
 ```python
 # Si X y Y son tuples, entonces W es la concatenacion de X y Y:
 W = X + Y
@@ -58,6 +62,8 @@ El operador `*` sirve para repetir `n` veces un `tuple` y concatenarlos.
 Y = X * n 
 ```
 
+<br>
+
 ---
 ## Verificar que un elemento exista en un tuple:
 Para verificar si un elemento está dentro de un `tuple` usar el operador de membresía `in`:
@@ -66,6 +72,8 @@ Para verificar si un elemento está dentro de un `tuple` usar el operador de mem
 x in X
 ```
 - Alternativamente se puede usar `not in`.
+
+<br>
 
 ---
 ## Selección de elementos: 
@@ -84,23 +92,6 @@ Algunos patrones útiles:
 - El elemento _n_: <br> `X[n-1]`
 - El último elemento: <br> `X[-1]`
 
-<br>
-
-**Ejemplo**
-```{code-cell} ipython3
-# Definir el tuple
-X = ("a", "b", "c", "d", "e")
-
-# Seleccionar primer elemento
-print(X[0])
-
-# Seleccionar el elemento 3, i.e, el índice 2
-print(X[2])
-
-# Seleccionar último elemento
-print(X[-1]) 
-```
-
 ### Slicing:
 Para seleccionar un rango de elementos consecutivos tener en cuenta las siguientes características:
 - Se utiliza dos puntos, indicando los indices de inicio, fin y el paso: <br/> `X[i:j:k]`
@@ -117,24 +108,6 @@ Algunos patrones útiles:
 
 <br>
 
-**Ejemplo**
-```{code-cell} ipython3
-# Definir el tuple
-X = ("a", "b", "c", "d", "e")
-
-# Seleccionar la primeras 3 letras
-print(X[:3])
-
-# Seleccionar las útlimas 2 letras
-print(X[-2:]) #  print(X[len(X)-2:])->print(X[3:])
-
-# Seleccionar las letras en posiciones (no indices) pares
-print(X[1::2]) 
-
-# Revertir el tuple
-print(X[::-1]) 
-```
-
 ##  Modificar tuples:
 Los tuples no se pueden modificar una vez creados. Un truco para modificar una tupla es convertir la tupla en una lista y después volverla a convertir en una tupla:
 ```python
@@ -144,7 +117,7 @@ X = (...)
 # Convertir a lista
 Y = list(X)
 
-# Modificar
+# modificar
 expression
 
 # Convertir a tuple de vuelta
@@ -156,6 +129,8 @@ Para eliminar todo el tuple se puede usar la palabra reservada `del`:
 # Si X es un tuple
 del X
 ```
+
+<br>
 
 ---
 ## Unpack de tuples:
@@ -173,6 +148,8 @@ x1, x2, ... , *xi  = X
 ```
 - En ese caso la varible `xi` almacenará todos lo valores restantes en la tupla.
 - El asterisco no tiene porque ir en la última variable, puede ir antes, en ese caso python asignará el número de elementos que sea necesario, para que el resto de las variables que vienen después tengan un elemento.
+
+<br>
 
 ---
 ## Iteración:
@@ -192,6 +169,8 @@ for i, ele in enumerate(X):
     ...
 ```
 - En todos los ejemplos anteriores `i` y `ele` son nombres opcionales.
+
+<br>
 
 ---
 ## Métodos de tuple
@@ -227,6 +206,8 @@ Métodos para recuperar información sobre el `tuple`.
 * - [index](https://docs.python.org/3/library/stdtypes.html#common-sequence-operations)(x[, i[, j]])
   - Devuelve el índice en el que se encuentra un elemento `x`.
 ```
+
+<br>
 
 ---
 ## Funciones útiles para listas

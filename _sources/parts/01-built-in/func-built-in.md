@@ -14,11 +14,11 @@ kernelspec:
 
 En esta sección se presentan algunas funciones que ya vienen incluídas y no es necesario importar ningún paquete o módulo. Las funciones están presentadas por categorías.
 
-```{warning} Esta sección no incluye todas las funciones built-in de python, sino algunas de las más importantes. Para un listado completo de las funciones built-in de python 3.9 visitar la [pagina oficial de Python](https://docs.python.org/3.9/library/functions.html).
+```{warning} Esta sección no incluye todas las funciones built-in de python, sino algunas de las más importantes. Para un listado completo de las funciones built-in de python visitar la [pagina oficial de Python](https://docs.python.org/3/library/index.html).
 ```
 
 ---
-## Cadenas y Números
+## Cadenas
 
 Funciones útiles para recuperar códigos Unicode o para recuperar representacios de cadenas de números.
 

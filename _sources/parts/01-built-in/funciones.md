@@ -19,21 +19,24 @@ Es un bloque de código que solo se ejecuta si es llamado.
 ```{note}
 En Python las funciones se consideran un objeto.
 ```
+
+<br/>
+
 ---
-## Crear una función:
+## Crear una función
 
 La sintaxis para crear una función es la siguiente:
 ```python
 # Plantilla de una función
 def function_name(param1=val1, param2=val2, ...):
     """docstring"""
-    body
+    # function body
     return value
 ```
 - _function_name_ es el nombre de la función.
-- _"""docstring"""_ es opcional, pero se recomienda ponerlo, sirve para describir qué hace la función, describir los parámetros, describir el objeto retornado, describir los errores arrojados (si hay) y notas extras o ejemplos de uso. Consultar {ref}`docstrings`.
-- _param1_, _param2_, etc. son los parámetros de la función. Definir los parámetros es opcional. El nombre de los parámetros (_keywords_) son los que se usarán dentro de la función y también se pueden usar al momento de llamar la función. Consultar {ref}`parametros`.
-- _val1_, _val2_, etc. son los valores por default correspondientes a los parámetros _param1_, _param2_, etc. Darle valores por default a los parámetros es opcional.
+- _"""docstring"""_ es opcional, pero se recomienda ponerlo, sirve para describir qué hace la función, describir los parámetros, describir el objeto retornado, describir los errores arrojados (si hay) y notas extras o ejemplos de uso (todo en ese orden). Consultar {ref}`docstrings`.
+- _param1_, _param2_, etc. son los parámetros de la función. Asignar valor a los parámetros es opcional, el nombre de los parámetros (_keywords_) son los que se usarán dentro de la función y también se pueden usar al momento de llamar la función. Consultar {ref}`parametros`.
+- _val1_, _val2_, etc. son los valores por defuult correspondientes a los parámetros _param1_, _param2_, etc. Darle valores por default a los parámetros es opcional.
 - Retornar un valor es opcional. Consultar {ref}`retornar`.
 
 También es posible declarar el tipo de dato de cada parámetro y el tipo de dato del valor que retorna la función, usando dos puntos y el nombre del tipo de dato (`str`, `int`, etc.), para cada parámetro y `->` para la función:
@@ -62,10 +65,12 @@ Existe una versión simplificada de una sola línea, útil para funciones que so
 def my_function(params): return expression
 ```
 
+<br/>
+
 ---
 ## Funciones Lambda
 
-Son funciones anónimas (no tiene nombre). Se suelen usar como argumento de funciones que reciben funciones como parámetros. Algunas caracterísicas de las funciones lambda son:
+Son funciones anónimas (no tienen nombre). Se suelen usar como argumento de funciones que reciben funciones como parámetros. Algunas caracterísicas de las funciones lambda son:
 - Puede tomar cualquier número de parámetros pero solo retornar una expresión.
 - Se retorna la expresión evaluada.
 
@@ -82,17 +87,19 @@ Se puede asignar la función a una variable (ya no sería anónima), en este cas
 X = lambda params: expression
 
 # Se puede llamar a esta función de la siguiente manera:
-X(params)
+X(args)
 
 # Declarar la función así equivaldría a:
 def X(params): return expression
 ```
 
+<br/>
+
 ---
 (docstrings)=
 ## Docstrings
 
-Los docstrings son una cadena al inicio de una función que incluye información sobre la función. Entre la información que suele incluir incluir es:
+Los docstrings son una cadena al inicio de una función que incluye información sobre la función. Entre la información que se suele incluir está:
 - Describir qué hace la función.
 - Describir los parámetros.
 - Describir el objeto retornado.
@@ -126,6 +133,8 @@ dtype del tipo de objeto retornado
 - Usar la función `inspect.getdoc()` del módulo `inspect` (es necesario importarlo).
 ```
 
+<br/>
+
 ---
 (parametros)=
 ## Parámetros
@@ -136,9 +145,9 @@ Por ejemplo:
 ```python
 # Si una función se definió como:
 def my_function(param1, param2, param3):
-    body
+    # function body
 
-# Definir los argumentos por posición, implica que:
+# Definir los parámetros por posición, implica que:
 my_function(val1, val2, val3)
 
 # Equivale a:
@@ -160,6 +169,8 @@ def my_function(params, *, keyword_params, ...):
 - En este caso todos los parámetros antes del `* `se pueden definir por _keyword_ o por posición, pero todos los parámetros después del `*` se deben definir por _keyword_.
 - El `*` se puede poner en cualquier parte, incluso al principio.
 
+<br/>
+
 ---
 (params-arb)=
 ### Parámetros arbitrarios
@@ -168,7 +179,9 @@ def my_function(params, *, keyword_params, ...):
 
 Si no se sabe cuántos parámetros posicionales serán necesarios pasar a la función, se puede usar `*args` al momento de definir la función, de esta forma la función recibe un `tuple` de parámetros y se accede a ellos de la misma manera como se accede a los tuples:
 ```python
+# Definir función con *args
 def my_function(*args, keyword1=val1, ...):
+    # function body
 ```
 - `args` es un nombre arbitario del parámetro, ese nombre se usará dentro de la función. Será un `tuple` dentro de la función.
 - Cada argumento se separa con una coma y deben de ser todos del mismo tipo de dato.
@@ -178,36 +191,35 @@ def my_function(*args, keyword1=val1, ...):
 :::{warning} Si los parámetro por _keyword_ no tienen valores por default, al llamar a la función se tiene que definir por keywords y no por posición, porque si no se indica el nombre se supondrá que forma parte de `*args`.
 :::
 
-<br>
-
 **Ejemplo**: A continuación se define una función que recibe un número arbitrario de números y un valor inicial y calcula la multiplicación del valor inicial y todos los números recibidos.
+
 ```python
 # Definir la función
-def producto(*numeros, inicial=1):
-    total = inicial
-    for n in numeros:
+def product(*numbers, initial=1):
+    total = initial
+    for n in numbers:
         total *= n
     return total
 
 # Llamando la función
-print(producto(4, 4))
+print(product(4, 4))
 
 # Llamando la función indicando el paramtro por keyword
-producto(4, 5, 2, inicial=3)
+product(4, 5, 2, initial=3)
 ```
-- En el ejemplo anterior si no se indicará `inicial=3` y solo se pusiera el 3, entonces el 3 formaría parte de `*numeros`.
+- En el ejemplo anterior si no se indicará `initial=3` y solo se pusiera el 3, entonces el 3 formaría parte de `*numbers`.
 
 ---
 #### Keywords
 
 Si no se sabe cuántos _keywords_ necesita la función se puede usar `**kwargs` al momento de definir la función. De esta manera se pasará un `dict` a la función con los keywords y sus respectivos valores, dentro de la función se accederá a ellos con el nombre haciendo subsetting del diccionario.
-
 ```python
+# Definir función con **kwargs
 def my_function(**kwargs):
-    ...
+    # function body
 ```
 - `kwargs` es un nombre arbitrario del parámetro, se recomienda usar ese tal cual, ese nombre se usará dentro de la función. Será un diccionario dentro de la función.
-- Al momento de llamar la función se tienen que pasar las _keywords_ y sus valores en pares `keyword=value`.
+- Al momento de llamar la función se tienen que pasar las _keywords_ y sus valores en pares `keyword=value`:
 ```python
 # AL llamar una función con **kwargs usar keyword=value
 my_function(keyword1=val1, ...)
@@ -219,8 +231,6 @@ X = {"keyword1": val1, ...}
 # Desempacar los keyword-value en la función
 my_function(**X) # Equivale a my_function(keyword1=val1, ...)
 ```
-
-<br>
 
 **Ejemplo**: A continuación se define una función que recibe una cantidad arbitraria de `key-value` y concatena los resultados, separados por coma y un espacio.
 ```{code-cell} ipython3
@@ -237,18 +247,21 @@ items = {"nombre": "Juan", "edad": 20, "sexo": "Hombre"}
 print(atributos(**items))
 ```
 
+<br/>
+
 ---
 (retornar)=
 ## Retornar valores
 
 Para que la función retorne un valor es necesario usar la palabra reservada `return`:
 ```python
+# Definir función que retorne un valor
 def function_name(param1, param2, ...):
-    body
+    # function body
     return value
 ```
 - `return` es la última línea que se ejecutará en el código, una vez aparezca un `return` el resto de la función (en caso de que exista) ya no se ejecutará.
-- Si se quiere retornar más de un valor se recomienda que estén dentro de un `tuple`. Recordar que para crear un tuple, basta con separar los elementos con coma, no es necesario usar los paréntesis, es decir, `return a, b, c == return (a, b, c)`.
+- Si se quiere retornar más de un valor se recomienda que estén dentro de un `tuple`. Recordar que para crear un tuple, basta con separar los elementos con coma, no es necesario usar los paréntesis, es decir, `return a, b, c` equivale a `return (a, b, c)`.
 - También es posible retornar un `dict` en lugar de un `tuple`.
 - Si una función no retorna ningún valor, implícitamente retornará `None`.
 - Se puede retornar toda clase de objetos, incluyendo otras funciones. Si se retorna una función y se asigna a un objeto entonces ese objeto funcionará como la función que se retornó, ejemplo:
@@ -264,14 +277,19 @@ X = print2
 X("foo", "bar")
 ```
 
+<br/>
+
 ---
 ## Sentencia Pass
 
 Una función no puede estar vacía. Si por alguna razón se necesita que una función esté vacía, se tiene que usar la palabra reservada `pass`, para evitar un error.
 ```python
+# Definir función vacía
 def my_function():
     pass
 ```
+
+<br/>
 
 ---
 ## Llamar a una función
@@ -309,6 +327,8 @@ Y = {'key1': function1, 'key2': function2, ...}
 # Llamar a una función por su key
 Y['keyi'](param1=val1, param2=val2, ...)
 ```
+
+<br/>
 
 ---
 ## Scopes
@@ -350,6 +370,7 @@ print("global:", x)
 - Como `inner_function()` modifica el valor de la variable `nonlocal x` entonces ahora la variable no local `x` vale 10, en lugar de 5. El valor de la variable global no cambia porque no se accedió a ella y por lo tanto no se modificó.
 - Notar que si en lugar de usar `nonlocal x` se usará `global x` dentro de `inner_function`, entonces `x` valdría 15 en `inner_function` y en el ambien global, pero no en `outerfunction`, porque se estaría accediendo a la variable global `x = 15` y después de la modificación tanto "inner x" como "global x" valdrían 20, pero "outer x" seguiría valiendo 5.
 
+<br/>
 
 ---
 ## Recursión
@@ -357,11 +378,11 @@ print("global:", x)
 La recursión sucede cuando dentró de una función, la función se llama a sí misma. Se debe de tener cuidado de que la función termine en algún momento y de que no se consuma demasiada memoria para procesarla.
 ```python
 def my_function(...):
-    body
+    # function body
         
     my_function(...)
         
-    body
+    # function body
 ```
 
 ```{caution} 
@@ -384,8 +405,10 @@ def factorial(n):
 print(factorial(5))
 ```
 
+<br/>
+
 ---
-## Obtener código de una función
+## Recuperar código de una función
 
 Para obtener el código de una función es necesario importar el módulo `inspect`, posteriormente usar la función `getsource()`.
 ```python
@@ -400,6 +423,8 @@ print(lines)
 ```
 - Siendo _function_name_ el nombre de una función.
 
+<br/>
+
 ---
 ## Atributos
 
@@ -408,7 +433,7 @@ Las funciones son objetos de tipo `function`, por lo tanto tienen algunos atribu
 | Atributo    | Descripción |
 | :---: | :--- |
 | `__doc__` | Retorna el docstring de la función. |
-| `__name__` | Retorn el nombre con el cual esta función fue definida. |
+| `__name__` | Retorna el nombre con el cual esta función fue definida. |
 | `__defaults__` | `tuple` de cualquier valor predeterminado para los parámetros posicionales o _keywords_. |
 | `__kwdefaults__` | Mapeo de cualquier valor predeterminado para los parámetros _keywords_. |
 | `__module__` | Nombre del módulo en el cual esta función fue definida. |

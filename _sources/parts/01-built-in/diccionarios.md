@@ -12,7 +12,7 @@ kernelspec:
 
 # Diccionarios
 
-Corresponde al tipo de dato `dict`. Algunas características de las diccionarios son:
+Corresponde al tipo de dato `dict`. Algunas características de las diccionarios, son:
 - Utilizan un formato `key-value` para almacenar valores.
 - Es mutable: Se puede modificar una vez creado.
 - Sus elementos no están ordenados.
@@ -21,10 +21,13 @@ Corresponde al tipo de dato `dict`. Algunas características de las diccionarios
 
 Para más información visitar la [documentación](https://docs.python.org/3/library/stdtypes.html#mapping-types-dict) de Python.
 
+<br/>
+
 ---
 ## Crear un diccionario
 
-Existen dos métodos principales para crear una diccionario
+Existen dos métodos principales para crear una diccionario:
+
 
 **1.** Poner los elementos en un par `key: value`, separados por coma, dentro de llaves `{}`:
 ```python
@@ -32,12 +35,12 @@ Existen dos métodos principales para crear una diccionario
 X = {key1: value1, key2: value2, ...}
 ```
 
-**2.** Usar la función `dict()`. Para ello existen diversas formas de definir el diccionario:
+**2.** Usar la función `dict()`, para ello existen diversas formas de definir el diccionario:
 ```python
 # Usando key=value dentro de dict()
 X = dict(key1=value1, key2=value2, ...)
 
-# Usando una lista de tupla con valor key, value
+# Usando una lista de tuplas con pares (key, value)
 X = dict([(key1, value1), (key2, value2), ...])
 ```
 
@@ -48,13 +51,15 @@ X = dict([(key1, value1), (key2, value2), ...])
 
 ```{warning}
 Al crear un diccionario el objeto `X` en realidad hace referencia a los elementos que se almacenan en memoria, si se asigna el diccionario a otro objeto `Y` con el operador de asignación, es decir `Y=X`, entonces lo que se copia es la referencia, no los valores como tal, entonces modificaciones en `Y` también afecta a `X` y vicerversa. Para que esto no suceda se puede usar:
-- Y = dict(X)
-- Y = X.copy()
+- `Y = dict(X)`
+- `Y = X.copy()`
 
 De esta manera modificaciones en `Y` no afectarán a `X` y viceversa
 ```
 
 Otra forma de crear un diccionario es con {ref}`dict-comp`.
+
+<br/>
 
 ---
 ##  Agregrar elementos
@@ -66,11 +71,13 @@ X['key'] = val
 ```
 
 ```{note}
-Otra forma de agregar elementos con métodos es:
-- Agregar elementos desde otro objeto: `dict.update`.
+Otra forma de agregar elementos con métodos es con:
+- Agregar elementos desde otro objeto: `dict.update()`.
 
 Revisar {ref}`Metodos-Agregar <dict-metodos-agregar>`
 ```
+
+<br/>
 
 ---
 ## Eliminar Elementos
@@ -86,21 +93,25 @@ del X
 
 ```{note}
 Otras formas de eliminar elementos con métodos son:
-- Para remover un elemento específico usar el método `dict.pop`.
-- Para remover un elemento de un índice en específico usar el método `dict.popitem`.
-- Para eliminar todos los elementos usar el método `dict.clear`.
+- Para remover un elemento específico usar el método `dict.pop()`.
+- Para remover un elemento de un índice en específico usar el método `dict.popitem()`.
+- Para remover un elemento de un índice en específico usar el método `dict.clear()`.
 
 Revisar {ref}`Metodos-Eliminar <dict-metodos-eliminar>`
 ```
+
+<br/>
 
 ---
 ## Modificar Elementos
 
 Para modificar el valor de una llave en específico usar el nombre de la llave y el operador de asignación:
 ```python
-# Modifcar el valor correspondiento a la llave `key`
+# Modificar el valor correspondiento a la llave `key`
 X['key'] = val
 ```
+
+<br/>
 
 ---
 ## Verificar membresía
@@ -112,6 +123,8 @@ Para verificar si una llave existe en un diccionario usar el operador de membres
 ```
 - Alternativamente se puede usar `not in`.
 
+<br/>
+
 ---
 ## Selección de elementos
 
@@ -122,14 +135,16 @@ X['key']
 ```
 
 ```{note}
-Otras formas de acceder a valores con métodos:
-- Acceder a un elemento con una llave en específico: `dict.get`.
-- Acceder a los los valores: `dict.values`
-- Acceder a todas las llaves: `dict.keys`
-- Acceder a todos los pares `key-value`: `dict.items`
+Otras formas de acceder a valores con métodos son:
+- Acceder a un elemento con una llave en específico: `dict.get()`.
+- Acceder a todos los valores: `dict.values()`
+- Acceder a todas las llaves: `dict.keys()`
+- Accedes a todos los pares `key-value`: `dict.items()`
 
 Revisar {ref}`Metodos-Acceder <dict-metodos-acceder>`
 ```
+
+<br/>
 
 ---
 ## Iteración
@@ -139,26 +154,28 @@ Para iterar sobre los elementos de un diccionario se puede usar un `for loop`. A
 # Iterar sobre las llaves del diccionario X:
 # Opción 1:
 for key in X:
-    expression
+    # for body
    
 # Opción 2:
 for key in X.keys():
-    expression
+    # for body
         
 # Iterar sobre los valores del diccionario X:
 for value in X.values():
-    expression
+    # for body
     
 # Iterar sobre los pares key-value del diccionario X:
 for key, value in X.items():
-    expression
+    # for body
 ```
 - En todos los ejemplos anteriores `key` y `value` son nombres opcionales.
 - Notar que si se itera directamente en un diccionario por default se iterará sobre las llaves.
 
+<br/>
+
 ---
 (dict-comp)=
-## Dict comprehesions:
+## Dict comprehesions
 
 Son diccionarios que se crean a partir procesos iterativos con la estructura `for loop`. Sintaxis.
 ```python
@@ -169,6 +186,8 @@ Los diccionarios pueden tener condicionales, en la parte de _collection_, de man
 ```python
 X = {key_expression : value_expression for i in collection if condition]
 ```
+
+<br/>
 
 ---
 ## Métodos
@@ -194,7 +213,7 @@ print(dict.keys(X))
 
 Métodos para recuperar las llaves, los valores o ambos de un diccionario.
 
-```{list-table}
+```{list-table} Acceder
 :header-rows: 1
 :name: dict-metodos-acceder
 
@@ -210,12 +229,14 @@ Métodos para recuperar las llaves, los valores o ambos de un diccionario.
   - Devuelve una `view` de los elementos del diccionario (clave, valor).
 ```
 
+<br/>
+
 ---
 ### Agregar elementos
 
 Métodos para agregar elementos a un diccionario.
 
-```{list-table}
+```{list-table} Agregar
 :header-rows: 1
 :name: dict-metodos-agregar
 
@@ -225,12 +246,14 @@ Métodos para agregar elementos a un diccionario.
   - Actualiza el diccionario con los pares llave/valor de `other`, sobrescribiendo llaves existentes. Realiza la operación in-place.
 ```
 
+<br/>
+
 ---
 ### Eliminar elementos
 
 Métodos para eliminar elementos de un diccionario.
 
-```{list-table}
+```{list-table} Eliminar
 :header-rows: 1
 :name: dict-metodos-eliminar
 
@@ -244,12 +267,14 @@ Métodos para eliminar elementos de un diccionario.
   - Si la llave está en el diccionario, elimina la llave y retorna su valor, de lo contrario, retorna `default`. Si no se proporciona el valor `default` y la llave no está en el diccionario, se genera un `KeyError`.
 ```
 
+<br/>
+
 ---
 ### Otros
 
 Otros métodos de diccionarios.
 
-```{list-table}
+```{list-table} Otros
 :header-rows: 1
 
 * - Funciones
@@ -261,6 +286,8 @@ Otros métodos de diccionarios.
 * - [fromkeys](https://docs.python.org/3/library/stdtypes.html#dict.fromkeys)(iterable[, value])
   - Crea un nuevo diccionario con llaves del `iterable` y los valores se establecen como `value`.
 ```
+
+<br/>
 
 ---
 ## Funciones útiles para diccionarios

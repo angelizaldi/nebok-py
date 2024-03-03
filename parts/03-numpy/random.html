@@ -1,0 +1,973 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Módulo random &#8212; Manual de Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'parts/03-numpy/random';</script>
+    <link rel="icon" href="../../_static/nebok-favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/nebok-logo.png" class="logo__image only-light" alt="Manual de Python - Home"/>
+    <script>document.write(`<img src="../../_static/nebok-logo.png" class="logo__image only-dark" alt="Manual de Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Manual de Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Built-in</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01-built-in/built-in-index.html">Python estándar</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/ayuda.html">Obtener ayuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/comentarios.html">Comentarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/tipos-datos.html">Tipos de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/operadores-palabras.html">Operadores y palabras reservadas.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/entrada-salida.html">Entrada y salida de datos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/tipos-index.html">Tipos Built-In</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/booleanos.html">Valores booleanos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/numeros.html">Números</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/cadenas.html">Cadenas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/listas.html">Listas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/tuples.html">Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/sets.html">Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/diccionarios.html">Diccionarios</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/if-else.html">If … Else</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/for-loop.html">For Loop.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/do-while.html">Do While</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/funciones.html">Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/try-except.html">Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/context.html">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/io.html">Lectura y escritura de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/modulos.html">Paquetes y Módulos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/avanzado-index.html">Temas avanzados</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/decorators.html">Decorators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/iterators.html">Iterators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/generators.html">Generators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/oop.html">Programación orientada a objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/func-built-in.html">Funciones built-in</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-modulos/modulos-index.html">Módulos built-in</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/csv.html">csv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/datetime.html">Datetime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/itertools.html">Itertools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/json.html">JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/math.html">Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os.html">os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os-path.html">os.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/pickle.html">Pickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/random.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/regular-expression.html">Regular Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/statistics.html">Statistics</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/parts/03-numpy/random.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Módulo random</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uso">Uso</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clase-generator">Clase Generator</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuciones">Distribuciones</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numeros-aleatorios">Números aleatorios</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#permutaciones">Permutaciones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones">Funciones</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Distribuciones</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Numeros aleatorios</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Permutaciones</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#semillas-y-estados">Semillas y estados</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="modulo-random">
+<h1>Módulo random<a class="headerlink" href="#modulo-random" title="Link to this heading">#</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">numpy.random</span></code> es un módulo que provee de funciones útiles para generar números aleatorios, muestras aleatorias de distribuciones de probabilidad, muestreo aleatorio, entre otras funcionalidades. Es posible importar solo el módulo o una función específica.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar el módulo</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">random</span>
+
+<span class="c1"># Importar una función específica</span>
+<span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">function_name</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><em>function_name</em> es el nombre de la función que se desea importar.</p></li>
+<li><p>Si se importa todo el módulo es necesario usar <code class="docutils literal notranslate"><span class="pre">random.function_name()</span></code> cada vez que se llame a una función el módulo.</p></li>
+<li><p>Si se usa <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code> y se desea usar una función del módulo <code class="docutils literal notranslate"><span class="pre">random</span></code>, entonces se debe usar <code class="docutils literal notranslate"><span class="pre">np.random.function_name()</span></code>.</p></li>
+</ul>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Para más información de este módulo visitar la <a class="reference external" href="https://numpy.org/doc/stable/reference/random/index.html">documentación</a> de <code class="docutils literal notranslate"><span class="pre">numpy</span></code>.</p>
+</div>
+<br>
+<hr class="docutils" />
+<section id="uso">
+<h2>Uso<a class="headerlink" href="#uso" title="Link to this heading">#</a></h2>
+<p>Existen dos formas pricipales de usar este módulo, aunque solo una de ella es recomendada:</p>
+<ul class="simple">
+<li><p><strong>Random generator</strong> (método recomendado): Se crea una <a class="reference internal" href="#clase-generator"><span class="std std-ref">Clase Generator</span></a> con la función <code class="docutils literal notranslate"><span class="pre">default_rng()</span></code> y se utilizan los métodos de esta clase para crear números y muestras aleatorias.</p></li>
+<li><p><strong>Legacy random generator</strong>: Se crea una instancia de la clase <code class="docutils literal notranslate"><span class="pre">RandomState</span></code>. La mayoría de los métodos de esta clase están exportadas como funciones en el módulo <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code>, por lo que no es necesario inicializar la instancia, basta con utilizar las <a class="reference internal" href="#funciones"><span class="std std-ref">Funciones</span></a> del módulo.</p></li>
+</ul>
+<br>
+<hr class="docutils" />
+</section>
+<section id="clase-generator">
+<span id="id1"></span><h2>Clase Generator<a class="headerlink" href="#clase-generator" title="Link to this heading">#</a></h2>
+<p>La forma básica de usar <em>Random Generator</em> (método recomendado) es:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar módulo</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">random</span>
+
+<span class="c1"># Crear instancia de la clase &quot;Generator&quot;</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+
+<span class="c1"># Utilizar los métodos de la clase</span>
+<span class="n">rng</span><span class="o">.</span><span class="n">method_name</span><span class="p">()</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><em>method_name</em> es el nombre del método que se desea usar, los cuales se enlistan a continuación.</p></li>
+</ul>
+<hr class="docutils" />
+<section id="distribuciones">
+<h3>Distribuciones<a class="headerlink" href="#distribuciones" title="Link to this heading">#</a></h3>
+<p>Métodos para la generación de muestras aleatorias de distribuciones de probabilidad.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.beta.html">beta</a>(a, b[, size])</p></td>
+<td><p>Genera muestras de una distribución Beta.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.binomial.html">binomial</a>(n, p[, size])</p></td>
+<td><p>Genera muestras de una distribución binomial.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.chisquare.html">chisquare</a>(df[, size])</p></td>
+<td><p>Genera muestras de una distribución de chi-cuadrada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.dirichlet.html">dirichlet</a>(alpha[, size])</p></td>
+<td><p>Genera muestras de la distribución de Dirichlet.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.exponential.html">exponential</a>([scale, size])</p></td>
+<td><p>Genera muestras de una distribución exponencial.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.f.html">f</a>(dfnum, dfden[, size])</p></td>
+<td><p>Genera muestras de una distribución F.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.gamma.html">gamma</a>(shape[, scale, size])</p></td>
+<td><p>Genera muestras de una distribución Gamma.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.geometric.html">geometric</a>(p[, size])</p></td>
+<td><p>Genera muestras de la distribución geométrica.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.gumbel.html">gumbel</a>([loc, scale, size])</p></td>
+<td><p>Genera muestras de una distribución de Gumbel.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.hypergeometric.html">hypergeometric</a>(ngood, nbad, nsample[, size])</p></td>
+<td><p>Genera muestras de una distribución hipergeométrica.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.laplace.html">laplace</a>([loc, scale, size])</p></td>
+<td><p>Genera muestras de la distribución exponencial doble o de Laplace</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.logistic.html">logistic</a>([loc, scale, size])</p></td>
+<td><p>Genera muestras de una distribución logística.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.lognormal.html">lognormal</a>([mean, sigma, size])</p></td>
+<td><p>Genera muestras de una distribución logarítmica normal.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.logseries.html">logseries</a>(p[, size])</p></td>
+<td><p>Genera muestras de una distribución de serie logarítmica.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.multinomial.html">multinomial</a>(n, pvals[, size])</p></td>
+<td><p>Genera muestras de una distribución multinomial.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.multivariate_hypergeometric.html">multivariate_hypergeometric</a>(colors, nsample)</p></td>
+<td><p>Genera muestras de una distribución hipergeométrica multivariante.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.multivariate_normal.html">multivariate_normal</a>(mean, cov[, size, …])</p></td>
+<td><p>Genera muestras aleatorias de una distribución normal multivariada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.negative_binomial.html">negative_binomial</a>(n, p[, size])</p></td>
+<td><p>Genera muestras de una distribución binomial negativa.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.noncentral_chisquare.html">noncentral_chisquare</a>(df, nonc[, size])</p></td>
+<td><p>Genera muestras de una distribución de chi-cuadrada no central.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.noncentral_f.html">noncentral_f</a>(dfnum, dfden, nonc[, size])</p></td>
+<td><p>Genera muestras de la distribución F no central.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.normal.html">normal</a>([loc, scale, size])</p></td>
+<td><p>Genera muestras aleatorias de una distribución normal (gaussiana).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.pareto.html">pareto</a>(a[, size])</p></td>
+<td><p>Genera muestras de una distribución Pareto II o Lomax.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.poisson.html">poisson</a>([lam, size])</p></td>
+<td><p>Genera muestras de una distribución de Poisson.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.power.html">power</a>(a[, size])</p></td>
+<td><p>Genera muestras entre [0, 1] de una distribución de potencia con exponente positivo <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">-</span> <span class="pre">1</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.rayleigh.html">rayleigh</a>([scale, size])</p></td>
+<td><p>Genera muestras de una distribución de Rayleigh.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.standard_cauchy.html">standard_cauchy</a>([size])</p></td>
+<td><p>Genera muestras de una distribución de Cauchy estándar con moda = 0.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.standard_exponential.html">standard_exponential</a>([size, dtype, method, out])</p></td>
+<td><p>Genera muestras de la distribución exponencial estándar.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.standard_gamma.html">standard_gamma</a>(shape[, size, dtype, out])</p></td>
+<td><p>Genera muestras de una distribución Gamma estándar.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.standard_normal.html">standard_normal</a>([size, dtype, out])</p></td>
+<td><p>Genera muestras de una distribución normal estándar (media = 0, desviación estándar = 1).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.standard_t.html">standard_t</a>(df[, size])</p></td>
+<td><p>Genera muestras de una distribución t de Student estándar con <code class="docutils literal notranslate"><span class="pre">df</span></code> grados de libertad.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.triangular.html">triangular</a>(left, mode, right[, size])</p></td>
+<td><p>Genera muestras de la distribución triangular sobre el intervalo <code class="docutils literal notranslate"><span class="pre">[left,</span> <span class="pre">right]</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.uniform.html">uniform</a>([low, high, size])</p></td>
+<td><p>Genera muestras de una distribución uniforme.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.vonmises.html">vonmises</a>(mu, kappa[, size])</p></td>
+<td><p>Genera muestras de una distribución de von Mises.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.wald.html">wald</a>(mean, scale[, size])</p></td>
+<td><p>Genera muestras de una distribución de Wald o Gaussiana inversa.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.weibull.html">weibull</a>(a[, size])</p></td>
+<td><p>Genera muestras de una distribución de Weibull.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.zipf.html">zipf</a>(a[, size])</p></td>
+<td><p>Genera muestras de una distribución Zipf.</p></td>
+</tr>
+</tbody>
+</table>
+<br>
+</section>
+<hr class="docutils" />
+<section id="numeros-aleatorios">
+<h3>Números aleatorios<a class="headerlink" href="#numeros-aleatorios" title="Link to this heading">#</a></h3>
+<p>Métodos para la generación básica de números aleatorios.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.choice.html">choice</a>(a[, size, replace, p, axis, shuffle])</p></td>
+<td><p>Genera una muestra aleatoria de un arreglo 1D.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.integers.html">integers</a>(low[, high, size, dtype, endpoint])</p></td>
+<td><p>Retorna números enteros aleatorios de <code class="docutils literal notranslate"><span class="pre">low</span></code> (inclusivo) a <code class="docutils literal notranslate"><span class="pre">high</span></code> (exclusivo), o si <code class="docutils literal notranslate"><span class="pre">endpoint=True</span></code>, de <code class="docutils literal notranslate"><span class="pre">low</span></code> (inclusivo) a <code class="docutils literal notranslate"><span class="pre">high</span></code> (inclusivo).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.random.html">random</a>([size, dtype, out])</p></td>
+<td><p>Devuelve flotantes aleatorios en el intervalo semiabierto [0.0, 1.0).</p></td>
+</tr>
+</tbody>
+</table>
+<br>
+</section>
+<hr class="docutils" />
+<section id="permutaciones">
+<h3>Permutaciones<a class="headerlink" href="#permutaciones" title="Link to this heading">#</a></h3>
+<p>Métodos para permutaciones aleatorias.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.permutation.html">permutation</a>(x[, axis])</p></td>
+<td><p>Permuta aleatoriamente una secuencia o devuelve un rango permutado.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.permuted.html">permuted</a>(x[, axis, out])</p></td>
+<td><p>Permuta aleatoriamente <code class="docutils literal notranslate"><span class="pre">x</span></code> a lo largo del eje <code class="docutils literal notranslate"><span class="pre">axis</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.shuffle.html">shuffle</a>(x[, axis])</p></td>
+<td><p>Modifica una secuencia <em>in-place</em> ordenando su contenido aleatoriamente.</p></td>
+</tr>
+</tbody>
+</table>
+<p><br><br></p>
+<hr class="docutils" />
+</section>
+</section>
+<section id="funciones">
+<span id="id2"></span><h2>Funciones<a class="headerlink" href="#funciones" title="Link to this heading">#</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>El uso de las funciones del módulo <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code> está desaconsejado, ya que utilizan la clase <code class="docutils literal notranslate"><span class="pre">RandomState</span></code> para generar los números y muestras aletorias, en su lugar, es recomendado usar la <a class="reference internal" href="#clase-generator"><span class="std std-ref">Clase Generator</span></a> .</p>
+</div>
+<p>Para utilizar las funciones del módulo <code class="docutils literal notranslate"><span class="pre">random</span></code> basta con importar el módulo o hacer referencia a él cuando se importe <code class="docutils literal notranslate"><span class="pre">numpy</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar módulo</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">random</span>
+
+<span class="c1"># Utilizar funciones del módulo</span>
+<span class="n">random</span><span class="o">.</span><span class="n">function_name</span><span class="p">()</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><em>function_name</em> es el nombre de la función que se desea usar, las cuales se enlistan a continuación.</p></li>
+</ul>
+<hr class="docutils" />
+<section id="id3">
+<h3>Distribuciones<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>Funciones para la generación de muestras aleatorias de distribuciones de probabilidad.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.beta.html">beta</a>(a, b[, size])</p></td>
+<td><p>Genera muestras de una distribución Beta.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.binomial.html">binomial</a>(n, p[, size])</p></td>
+<td><p>Genera muestras de una distribución binomial.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.chisquare.html">chisquare</a>(df[, size])</p></td>
+<td><p>Genera muestras de una distribución de chi-cuadrada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.dirichlet.html">dirichlet</a>(alpha[, size])</p></td>
+<td><p>Genera muestras de la distribución de Dirichlet.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.exponential.html">exponential</a>([scale, size])</p></td>
+<td><p>Genera muestras de una distribución exponencial.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.f.html">f</a>(dfnum, dfden[, size])</p></td>
+<td><p>Genera muestras de una distribución F.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.gamma.html">gamma</a>(shape[, scale, size])</p></td>
+<td><p>Genera muestras de una distribución Gamma.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.geometric.html">geometric</a>(p[, size])</p></td>
+<td><p>Genera muestras de la distribución geométrica.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.gumbel.html">gumbel</a>([loc, scale, size])</p></td>
+<td><p>Genera muestras de una distribución de Gumbel.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.hypergeometric.html">hypergeometric</a>(ngood, nbad, nsample[, size])</p></td>
+<td><p>Genera muestras de una distribución hipergeométrica.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.laplace.html">laplace</a>([loc, scale, size])</p></td>
+<td><p>Genera muestras de la distribución exponencial doble o de Laplace</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.logistic.html">logistic</a>([loc, scale, size])</p></td>
+<td><p>Genera muestras de una distribución logística.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.lognormal.html">lognormal</a>([mean, sigma, size])</p></td>
+<td><p>Genera muestras de una distribución logarítmica normal.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.logseries.html">logseries</a>(p[, size])</p></td>
+<td><p>Genera muestras de una distribución de serie logarítmica.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.multinomial.html">multinomial</a>(n, pvals[, size])</p></td>
+<td><p>Genera muestras de una distribución multinomial.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.multivariate_normal.html">multivariate_normal</a>(mean, cov[, size, …])</p></td>
+<td><p>Genera muestras aleatorias de una distribución normal multivariada.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.negative_binomial.html">negative_binomial</a>(n, p[, size])</p></td>
+<td><p>Genera muestras de una distribución binomial negativa.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.noncentral_chisquare.html">noncentral_chisquare</a>(df, nonc[, size])</p></td>
+<td><p>Genera muestras de una distribución de chi-cuadrada no central.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.noncentral_f.html">noncentral_f</a>(dfnum, dfden, nonc[, size])</p></td>
+<td><p>Genera muestras de la distribución F no central.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.normal.html">normal</a>([loc, scale, size])</p></td>
+<td><p>Genera muestras aleatorias de una distribución normal (gaussiana).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.pareto.html">pareto</a>(a[, size])</p></td>
+<td><p>Genera muestras de una distribución Pareto II o Lomax.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.poisson.html">poisson</a>([lam, size])</p></td>
+<td><p>Genera muestras de una distribución de Poisson.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.power.html">power</a>(a[, size])</p></td>
+<td><p>Genera muestras entre [0, 1] de una distribución de potencia con exponente positivo <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">-</span> <span class="pre">1</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.rayleigh.html">rayleigh</a>([scale, size])</p></td>
+<td><p>Genera muestras de una distribución de Rayleigh.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.standard_cauchy.html">standard_cauchy</a>([size])</p></td>
+<td><p>Genera muestras de una distribución de Cauchy estándar con moda = 0.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.standard_exponential.html">standard_exponential</a>([size])</p></td>
+<td><p>Genera muestras de la distribución exponencial estándar.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.standard_gamma.html">standard_gamma</a>(shape[, size])</p></td>
+<td><p>Genera muestras de una distribución Gamma estándar.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.standard_normal.html">standard_normal</a>([size])</p></td>
+<td><p>Genera muestras de una distribución normal estándar (media = 0, desviación estándar = 1).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.standard_t.html">standard_t</a>(df[, size])</p></td>
+<td><p>Genera muestras de una distribución t de Student estándar con <code class="docutils literal notranslate"><span class="pre">df</span></code> grados de libertad.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.triangular.html">triangular</a>(left, mode, right[, size])</p></td>
+<td><p>Genera muestras de la distribución triangular sobre el intervalo <code class="docutils literal notranslate"><span class="pre">[left,</span> <span class="pre">right]</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.uniform.html">uniform</a>([low, high, size])</p></td>
+<td><p>Genera muestras de una distribución uniforme.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.vonmises.html">vonmises</a>(mu, kappa[, size])</p></td>
+<td><p>Genera muestras de una distribución de von Mises.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.wald.html">wald</a>(mean, scale[, size])</p></td>
+<td><p>Genera muestras de una distribución de Wald o Gaussiana inversa.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.weibull.html">weibull</a>(a[, size])</p></td>
+<td><p>Genera muestras de una distribución de Weibull.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.zipf.html">zipf</a>(a[, size])</p></td>
+<td><p>Genera muestras de una distribución Zipf.</p></td>
+</tr>
+</tbody>
+</table>
+<br>
+</section>
+<hr class="docutils" />
+<section id="id4">
+<h3>Numeros aleatorios<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>Funciones para la generación básica de números aleatorios.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.bytes.html">bytes</a>(length)</p></td>
+<td><p>Devuelve bytes aleatorios.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.rand.html">rand</a>(d0, d1, …, dn)</p></td>
+<td><p>Retorna un arreglo con valores aleatorios en un <em>shape</em> determinado.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.randint.html">randint</a>(low[, high, size, dtype])</p></td>
+<td><p>Devuelve números enteros aleatorios entre <code class="docutils literal notranslate"><span class="pre">low</span></code> y <code class="docutils literal notranslate"><span class="pre">high</span></code> (exclusivo).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.randn.html">randn</a>(d0, d1, …, dn)</p></td>
+<td><p>Devuelva una muestra (o muestras) de la distribución “normal estándar”.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.random.html">random</a>([size])</p></td>
+<td><p>Devuelve flotantes aleatorios en el intervalo semiabierto [0.0, 1.0).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.random_integers.html">random_integers</a>(low[, high, size])</p></td>
+<td><p>Números enteros aleatorios de tipo <code class="docutils literal notranslate"><span class="pre">np.int_</span></code> entre <code class="docutils literal notranslate"><span class="pre">low</span></code> y <code class="docutils literal notranslate"><span class="pre">high</span></code>, inclusivos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.random_sample.html">random_sample</a>([size])</p></td>
+<td><p>Devuelve flotantes aleatorios en el intervalo semiabierto [0.0, 1.0).</p></td>
+</tr>
+</tbody>
+</table>
+<br>
+</section>
+<hr class="docutils" />
+<section id="id5">
+<h3>Permutaciones<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>Funciones para permutaciones aleatorias.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.choice.html">choice</a>(a[, size, replace, p])</p></td>
+<td><p>Genera una muestra aleatoria de un arreglo 1D.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.permutation.html">permutation</a>(x)</p></td>
+<td><p>Permuta aleatoriamente una secuencia o devuelve un rango permutado.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.shuffle.html">shuffle</a>(x)</p></td>
+<td><p>Modifica una secuencia <em>in-place</em> ordenando su contenido aleatoriamente.</p></td>
+</tr>
+</tbody>
+</table>
+<br>
+</section>
+<hr class="docutils" />
+<section id="semillas-y-estados">
+<h3>Semillas y estados<a class="headerlink" href="#semillas-y-estados" title="Link to this heading">#</a></h3>
+<p>Funciones para establecer la semilla del generador o recuperar y establecer el estado del generador.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.get_state.html">get_state</a>([legacy])</p></td>
+<td><p>Devuelve un <code class="docutils literal notranslate"><span class="pre">tuple</span></code> que representa el estado interno del generador.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.seed.html">seed</a>([seed])</p></td>
+<td><p>Vuelva a inicializar la instancia de <code class="docutils literal notranslate"><span class="pre">RandomState</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.set_state.html">set_state</a>(state)</p></td>
+<td><p>Establece el estado interno del generador a partir de un <code class="docutils literal notranslate"><span class="pre">tuple</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<br>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./parts/03-numpy"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uso">Uso</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clase-generator">Clase Generator</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuciones">Distribuciones</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numeros-aleatorios">Números aleatorios</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#permutaciones">Permutaciones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones">Funciones</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Distribuciones</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Numeros aleatorios</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Permutaciones</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#semillas-y-estados">Semillas y estados</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nebok
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

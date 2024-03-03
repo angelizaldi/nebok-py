@@ -27,7 +27,6 @@ Para crear una clase se usa:
 # Crear una clase nueva
 class ClassName:
     # Definición de la clase
-    body
 ```
 - _ClassName_ es el nombre que tendrá la clase. El nombre por convención se pone en "CamelCase" (primer letra de cada palabra en mayúsculas, sin espacios entre palabras).
 - Todo el código indentado será parte de la clase.
@@ -36,15 +35,19 @@ class ClassName:
 ```{caution} Si se van a usar funciones de otros módulos/librerías dentro del cuerpo de la clase, se debe de importar afuera de la definición de la clase.
 ```
 
-### Crear instancias:
+<br/>
 
-Una **instancia** ss un objeto específico creado de una clase particular. Para inicializar una instancia de una clase usar:
+### Crear instancias
+
+Una **instancia** es un objeto específico creado de una clase particular. Para inicializar una instancia de una clase usar:
 ```python
 obj = ClassName([args])
 ```
-- _obj_ será un objeto de la clase `ClassName`.
+- _obj_ será una instancia de la clase `ClassName`.
 - _args_ por lo general, son los argumentos del método __init__(), pero no necesariamente tiene que ser así. Se deben de proveer al menos los argumentos obligatorios, es decir, los que no tienen un valor por default.
 
+
+<br/>
 
 ### Clases hijas
 
@@ -53,7 +56,6 @@ Las clases hijas son clases que heredan los métodos y atributos de otra clase. 
 # Definir una clase hija
 class ChildClass(ParentClass):
     # Definición de la clase
-    cuerpo
 ```
 - _ChildClass_ es el nombre que tendrá la clase hija, que hereda atributos y métodos de _ParentClass_.
 - _ParentClass_ es el nombre de la clase padre. Ya tuvo que haber sido definida, antes que la clase hija.
@@ -74,12 +76,14 @@ child_obj.method_name(args)
 - _child_obj_ es una instancia de la clase hija.
 - En este caso _attr_name_ y _method_name_ son atributos y métodos de la clase padre, no de la hija.
 
+<br/>
+
 ---
 ## Atributos
 
 Los atributos son las propiedades que tendrán las instancias (objetos) de la clase o la clase misma.
 
----
+
 ### Atributos de instancias
 Los atributos de instancia son atributos propios de los objetos y cuyos valores pueden diferir de una objeto a otro. Los atributos de instancias normalmente se definen en el método `__init__()` (ver {ref}`init`), pero no necesariamente:
 ```python
@@ -95,10 +99,12 @@ class ClassName:
 - El constructor puede reciber otros parámetros expresados como _args_ en este ejemplo, pero son opcionales. 
 - _expression_ puede ser un escalar o una expresión que utilice uno o más argumentos del método.
 
----
-#### Atributos en métodos:
+<br/>
 
-Se pueden definir atributos de instancia dentro de un método diferente a `__init__()`, el cual debe de asignar un valor al atributo. Estos atributos se inicilizan si y solo si el método es llamado.
+---
+#### Atributos en métodos
+
+Se pueden definir atributos de instancia dentro de un método diferente a `__init__()`, el cual debe de asignar un valor al atributo. Estos atributos se inicializan si y solo si el método es llamado.
 ```python
 # Crear una clase nueva
 class ClassName:
@@ -109,7 +115,9 @@ class ClassName:
 ```
 - _attribute_name_ será un atributo de instancia, solo si _method_name_ es llamado.
 - _expression_ puede ser un esclar o una expresión que utilice uno o más argumentos del método.
-- En general es recomendado inicializar los atributos de instancias en el método __init__() y no en otros métodos.
+- En general es recomendado inicializar los atributos de instancias en el método `__init__()` y no en otros métodos.
+
+<br/>
 
 ---
 #### Recuperar valores de atributos de instancia dentro de la clase
@@ -130,6 +138,8 @@ class ClassName:
 ```
 - En este ejemplo `method_name` recupera el valor de `attribute_name` para retornarlo. Cabe destacar que no es necesario definir métodos para recuperar los valores de los atributos de instancia.
 
+<br/>
+
 ---
 #### Acceder a valores de atributos de instancia de una instancia
 Una vez definido una instancia (objeto) de la clase se puede acceder los valores de sus atributos de instancia con `obj.attribute_name`:
@@ -142,8 +152,10 @@ obj.attribute_name
 ```
 - _obj_ es un objeto de una clase.
 
+<br/>
+
 ---
-### Atributos de clase.
+### Atributos de clase
 
 Los atributos de clase son atributos que todos los objetos de una misma clase tendrán en común y con el mismo valor. Para definir un atributo de clase se realiza en el cuerpo de la clase, afuera de cualquier método:
 ```python
@@ -156,6 +168,8 @@ class ClassName:
     
 ```
 - Por convencion los nombres de atributos a nivel de clase se ponen en mayúsculas, pero no es obligatorio.
+
+<br/>
 
 ---
 #### Recuperar valores de atributos de clase dentro de la clase
@@ -174,10 +188,12 @@ class ClassName:
            #return self.ATTRIBUTE_NAME
 ```
 - `ClassName` es un nombre arbitrario de la clase.
-- `ATTRIBUTE_NAME` es un nombre arbitrario del atributo de clase
+- `ATTRIBUTE_NAME` es un nombre arbitrario del atributo de clase.
 - `method_name` es un nombre arbitrario de un método.
-- Se recomienda usar `ClassName.ATTRIBUTE_NAME`, para identificar que es un atributo a nivel de clase
+- Se recomienda usar `ClassName.ATTRIBUTE_NAME`, para identificar que es un atributo a nivel de clase.
 - En este ejemplo `method_name` recupera el valor de `ATTRIBUTE_NAME` para retornarlo. Cabe destacar que no es necesario definir métodos para recuperar los valores de los atributos de clase.
+
+<br/>
 
 ---
 #### Recuperar valores de atributos de clase de una instancia
@@ -198,12 +214,14 @@ obj.ATTRIBUTE_NAME
 ```{attention} Modificaciones en el valor de un atributo de clase en una instancia **no** modifica el valor de ese atributo para toda la clase, en cambio se reemplaza por un nuevo atributo en la instancia con el mismo nombre que el atributo a nivel de clase.
 ```
 
-Si se desea modificar el valor de un atributo a de clase para todos los objetos usar:
+Si se desea modificar el valor de un atributo de clase para todos los objetos usar:
 ```python
 # Modificar el valor de ATTRIBUTE_NAME para toda la clase
 ClassName.ATTRIBUTE_NAME = new_val
 ```
 - `ClassName` es un nombre arbitrario de la clase.
+
+<br/>
 
 ----
 #### Atributos de clase de forma dinámica
@@ -215,12 +233,14 @@ ClassName.NEW_ATTRIBUTE_NAME = value
 ```
 - Se creará el atributo _NEW_ATTRIBUTE_NAME_ y todos las instancias tendrán ese nuevo atributo.
 
+<br/>
+
 ---
 ## Métodos
 
 Los métodos son acciones que pueden realizar las instancias o las clases mismas. Existen diversos tipos de métodos
 
----
+
 (init)=
 ### Metodo __init__
 
@@ -237,6 +257,8 @@ class ClassName:
 - _expression_ puede ser un escalar o una expresión que utilice uno o más argumentos del método.
 - El método `__init__()` puede o no reciber otros parámetros adicionales los cuales pueden o no tener valores por default. Si no tienen valores por default, los valores de esos parámetros se deben de indicar al momento de crear el objeto.
 
+<br/>
+
 ---
 ### Métodos de instancia
 
@@ -250,10 +272,11 @@ class ClassName:
         body
 ```
 - El primer parámetro del método debe de ser `self`, incluso cuando no hay más parámetros.
-- _args_ son otros posibles parámetros de la función, pero son opcionales.
+- _params_ son otros posibles parámetros de la función, pero son opcionales.
 - Es altamente recomendado poner docstrings para indicar qué hace cada método.
 
----
+<br/>
+
 #### Usar un método
 
 Para llamar a un método de una clase, se utiliza el nombre del objeto, un punto y el nombre del método con sus argumentos, si tiene.
@@ -272,10 +295,12 @@ ClassName.method_name(obj, args)
 ```
 - El mismo objeto será el primer argumento, del método _method_name_ de la clase _ClassName_.
 
+<br/>
+
 ---
 ### Métodos on-demand
 
-Se pueden crear métodos fuera de la definición de clase de forma dinámica, para ello se define una función y posteriormete se asigna el nuevo método de la clase
+Se pueden crear métodos fuera de la definición de clase de forma dinámica, para ello se define una función y posteriormente se asigna el nuevo método de la clase
 ```python
 # Definir una función
 def method_name(self, [args]):
@@ -286,6 +311,8 @@ def method_name(self, [args]):
 ClassName.method_name = method_name
 ```
 - _method_name_ será un nuevo método de `ClassName`.
+
+<br/>
 
 ---
 ### Métodos de clase
@@ -317,7 +344,7 @@ obj = ClassName.method_name([args])
 
 <br>
 
-**Ejemplo**: En este ejemplo se define una clase que crea fecha indicando el año, mes y día individualemente. Posteriormente se define un método de clase que permite crear la fecha desde una cadena en lugar de los elementos individuales.
+**Ejemplo**: En este ejemplo se define una clase que crea una fecha indicando el año, mes y día individualemente. Posteriormente se define un método de clase que permite crear la fecha desde una cadena en lugar de los elementos individuales.
 ```{code-cell} ipython3
 # Definir la clase
 class Fecha:    
@@ -343,8 +370,10 @@ print(fecha.day)
 ```
 - El método de clase `desde_str` permite inicializar un objeto con base a una cadena que contiene una fecha en lugar de pasar individualmente cada atributo.
 
+<br/>
+
 ---
-### Métodos estáticos:
+### Métodos estáticos
 
 Son un tipo de método de clase, el método se asocia con la clase, no con las instancias de la clase. Para crear métodos estáticos se usa el decorator `@staticmethod`:
 ```python
@@ -355,7 +384,6 @@ class ClassName:
     @staticmethod
     def method_name([params]):
         # Definición del método
-        body
 ```
 - Los métodos estáticos no tienen el parámetros `self` porque `self` se asocia a las instancias.
 - Los métodos estáticos no pueden acceder a los atributos de instancia o métodos de instancias.
@@ -379,13 +407,17 @@ class MyClass:
 result = MyClass.my_static_method(1, 2)
 print(result)
 ```
+
+<br/>
+
+---
 ## Data Classes
 
-Son un clases especiales que utilizan el decorator `@dataclass`. Estas clases agregan de manera automática métodos como `__init__()` y `__repr__()`. Es recomendado para clases pequeñas con pocos atributos y detalles.
+Son clases especiales que utilizan el decorator `@dataclass`. Estas clases agregan de manera automática métodos como `__init__()` y `__repr__()`. Es recomendado para clases pequeñas con pocos atributos y detalles.
 ```python
 # Plantilla general de una Data Class
 
-# Imporar el decorator
+# Importar el decorator
 from dataclasses import dataclass
 
 # Definir la clase
@@ -400,7 +432,6 @@ class ClassName:
     # Definición de los métodos
     def method_name([params]):
         # Definición del método
-        body
 ```
 - Se pueden indicar atributos de clase e instancia. `type_i` son los tipos de datos  de los atributos.
 - Los métodos se definen de la misma manera que en las clases normales.
@@ -423,15 +454,19 @@ p = Point(1, 2)
 print(p)
 ```
 
+<br/>
+
 ---
-## Funciones útiles:
+## Funciones útiles
 Algunas funciones útiles al trabajar con objetos y clases son:
 - `type()`: Retorna la clase a la que pertenece un objeto.
 - `dir()`: Elista todos los atributos y métodos de la clase de un objeto.
 - `isinstance()`: Verifica que un objeto pertenezca a una clase. Tener en cuenta que los objetos de las clases hijas, también son instancias de las clases padres.
 
+<br/>
+
 ---
-## Métodos útiles:
+## Métodos útiles
 Algunos métodos de clases que existen para todas las clases son:
-- _ClassName_.mro(): Muestra el "method resolution order", que en esencia es el orden en el que, las clases buscarán los metodos y atributos, es decir primero buscan dentro de la misma clase y después en las clases padres, si son más de una muestra en que orden se buscan.
+- _ClassName_`.mro()`: Muestra el "method resolution order", que en esencia es el orden en el que, las clases buscarán los metodos y atributos, es decir primero buscan dentro de la misma clase y después en las clases padres, si son más de una muestra en que orden se buscan.
 

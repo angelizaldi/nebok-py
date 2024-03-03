@@ -1,7 +1,8 @@
 # Context Managers
 
-Un “administrador de contextos” es un objeto especial, que permite establecer un contexto, ejecutar código y remover el contexto de manera automática, útil en casos como leer archivos o conectarse a bases de datos. La forma de utilizarlo es con la palabra reservada `with`:
+Un “administrador de contextos” es una estructura especial, que permite establecer un contexto, ejecutar código y remover el contexto de manera automática, útil en casos como leer archivos o conectarse a bases de datos. La forma de utilizarlo es con la palabra reservada `with`:
 ```python
+# Plantilla de un administrador de contextos
 with context_manager(args) as variable-name:
     expression
 ```
@@ -10,10 +11,14 @@ with context_manager(args) as variable-name:
 - _variable-name_: Es el nombre con el que se hará referencia al _context-manager_ en _expression_. No es obligatorio ponerlo, pero se recomienda si _context-manager_ retorna un objeto.
 - Algunos context managers comunes son: `open()`, `pandas.ReadExcel()`, etc.
 
-## Crear un administrador de contextos:
+<br/>
 
-Para crear un context manager basado en una función, se debe de definir la función y usar un "_decorator_":
+---
+## Crear un administrador de contextos
+
+Para crear un context manager basado en un función, se debe de definir la función y usar un "_decorator_":
 ```python
+# Decorator
 @contextlib.contextmanager
 def my_context():
     # Agregar cualquier código para configurar el contexto.
@@ -30,8 +35,10 @@ def my_context():
 - Se puede agregar código para inicializar el administrador. Por ejemplo, establecer una conexión con un archivo.
 - Se puede agregar código para finalizar el administrador. Por ejemplo, finalizar una conexión con un archivo.
 
+<br/>
 
-## Patrones:
+---
+## Patrones
 
 Los administradores de contextos suelen seguir unos patrones dependiendo de la acción que realicen, es decir, si realizan la primera deben realizar la segunda, algunos son:
 - Open \- Close.

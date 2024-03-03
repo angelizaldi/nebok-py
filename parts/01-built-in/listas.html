@@ -1,111 +1,182 @@
 
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="../../" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Listas &#8212; Manual de Python</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <link rel="shortcut icon" href="../../_static/nebok-favicon.png"/>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'parts/01-built-in/listas';</script>
+    <link rel="icon" href="../../_static/nebok-favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Tuples" href="tuples.html" />
     <link rel="prev" title="Cadenas" href="cadenas.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-    
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../../_static/nebok-logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Manual de Python</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../../_static/nebok-logo.png" class="logo__image only-light" alt="Manual de Python - Home"/>
+    <script>document.write(`<img src="../../_static/nebok-logo.png" class="logo__image only-dark" alt="Manual de Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -114,637 +185,244 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Built-in
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Built-in</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="built-in-index.html">
-   Python estándar
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="ayuda.html">
-     Obtener ayuda
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="comentarios.html">
-     Comentarios
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="entrada-salida.html">
-     Entrada y salida de datos
-    </a>
-   </li>
-   <li class="toctree-l2 current active has-children">
-    <a class="reference internal" href="tipos-index.html">
-     Tipos Built-In
-    </a>
-    <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-    <label for="toctree-checkbox-2">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul class="current">
-     <li class="toctree-l3">
-      <a class="reference internal" href="booleanos.html">
-       Valores booleanos
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="numeros.html">
-       Números
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="cadenas.html">
-       Cadenas
-      </a>
-     </li>
-     <li class="toctree-l3 current active">
-      <a class="current reference internal" href="#">
-       Listas
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="tuples.html">
-       Tuples
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="sets.html">
-       Sets
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="diccionarios.html">
-       Diccionarios
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="estructuras-index.html">
-     Estructuras de control
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-    <label for="toctree-checkbox-3">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="if-else.html">
-       If … Else.
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="for-loop.html">
-       For Loop.
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="do-while.html">
-       While
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="funciones.html">
-     Funciones
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="try-except.html">
-     Exceptions
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="context.html">
-     Context Managers
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="io.html">
-     Lectura y escritura de archivos.
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="modulos.html">
-     Paquetes y Módulos.
-    </a>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="avanzado-index.html">
-     Temas avanzados
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-    <label for="toctree-checkbox-4">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="decorators.html">
-       Decorators
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="iterators.html">
-       Iterators
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="generators.html">
-       Generators
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="oop.html">
-       Programación orientada a objetos
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="func-built-in.html">
-     Funciones built-in
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../02-modulos/modulos-index.html">
-   Módulos built-in
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02-modulos/collections.html">
-     Collections
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02-modulos/datetime.html">
-     Datetime
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02-modulos/itertools.html">
-     Itertools
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02-modulos/regular-expression.html">
-     Regular Expressions
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="anexos-index.html">
-   Anexos
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="anexos-tipos-datos.html">
-     Tipos de datos
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="anexos-operadores-palabras.html">
-     Operadores y palabras reservadas.
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="anexo-formatos-cadenas.html">
-     Formatos de cadena
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="anexos-excepciones.html">
-     Excepciones
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="built-in-index.html">Python estándar</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ayuda.html">Obtener ayuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="comentarios.html">Comentarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tipos-datos.html">Tipos de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operadores-palabras.html">Operadores y palabras reservadas.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrada-salida.html">Entrada y salida de datos</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="tipos-index.html">Tipos Built-In</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="booleanos.html">Valores booleanos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="numeros.html">Números</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cadenas.html">Cadenas</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Listas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tuples.html">Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sets.html">Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="diccionarios.html">Diccionarios</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="if-else.html">If … Else</a></li>
+<li class="toctree-l3"><a class="reference internal" href="for-loop.html">For Loop.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="do-while.html">Do While</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="funciones.html">Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="try-except.html">Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="context.html">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="io.html">Lectura y escritura de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modulos.html">Paquetes y Módulos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="avanzado-index.html">Temas avanzados</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="decorators.html">Decorators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="iterators.html">Iterators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generators.html">Generators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="oop.html">Programación orientada a objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="func-built-in.html">Funciones built-in</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-modulos/modulos-index.html">Módulos built-in</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/csv.html">csv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/datetime.html">Datetime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/itertools.html">Itertools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/json.html">JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/math.html">Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os.html">os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os-path.html">os.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/pickle.html">Pickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/random.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/regular-expression.html">Regular Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/statistics.html">Statistics</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/parts/01-built-in/listas.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/parts/01-built-in/listas.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
 </div>
+
+
+
 
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../../_sources/parts/01-built-in/listas.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download notebook file"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-code"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
 
-      </li>
-      
-      <li>
-        <a href="../../_sources/parts/01-built-in/listas.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.md</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#crear-una-lista">
-   Crear una lista
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#agregar-concatenar-elementos">
-   Agregar/Concatenar elementos
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#eliminar-elementos">
-   Eliminar Elementos
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#modificar-elementos">
-   Modificar Elementos
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#verificar-que-un-elemento-exista-en-una-lista">
-   Verificar que un elemento exista en una lista
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#seleccion-de-elementos">
-   Selección de elementos
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#subsetting">
-     Subsetting
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#slicing">
-     Slicing:
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#unpack-de-listas">
-   Unpack de listas:
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#iteracion">
-   Iteración:
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#list-comprehension">
-   List comprehension
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#metodos-de-listas">
-   Métodos de listas:
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#agregar-elementos">
-     Agregar elementos
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     Eliminar elementos
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#informacion-de-la-lista">
-     Información de la lista
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ordenar">
-     Ordenar
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#copiar">
-     Copiar
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#funciones-utiles-para-listas">
-   Funciones útiles para listas
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Listas</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#crear-una-lista">
-   Crear una lista
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#agregar-concatenar-elementos">
-   Agregar/Concatenar elementos
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#eliminar-elementos">
-   Eliminar Elementos
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#modificar-elementos">
-   Modificar Elementos
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#verificar-que-un-elemento-exista-en-una-lista">
-   Verificar que un elemento exista en una lista
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#seleccion-de-elementos">
-   Selección de elementos
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#subsetting">
-     Subsetting
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#slicing">
-     Slicing:
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#unpack-de-listas">
-   Unpack de listas:
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#iteracion">
-   Iteración:
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#list-comprehension">
-   List comprehension
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#metodos-de-listas">
-   Métodos de listas:
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#agregar-elementos">
-     Agregar elementos
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     Eliminar elementos
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#informacion-de-la-lista">
-     Información de la lista
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ordenar">
-     Ordenar
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#copiar">
-     Copiar
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#funciones-utiles-para-listas">
-   Funciones útiles para listas
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Listas</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crear-una-lista">Crear una lista:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agregar-concatenar-elementos">Agregar/Concatenar elementos:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eliminar-elementos">Eliminar Elementos:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modificar-elementos">Modificar Elementos:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verificar-que-un-elemento-exista-en-una-lista">Verificar que un elemento exista en una lista:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccion-de-elementos">Selección de elementos:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subsetting">Subsetting:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing">Slicing:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unpack-de-listas">Unpack de listas:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iteracion">Iteración:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list-comprehension">List comprehension</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-listas">Métodos de listas:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#agregar-elementos">Agregar elementos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Eliminar elementos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#informacion-de-la-lista">Información de la lista</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ordenar">Ordenar</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copiar">Copiar</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-utiles-para-listas">Funciones útiles para listas</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="listas">
-<h1>Listas<a class="headerlink" href="#listas" title="Permalink to this headline">#</a></h1>
-<p>Correspnden al tipo de dato <code class="docutils literal notranslate"><span class="pre">list</span></code>. Las listas son secuencias. Algunas características de las listas, son:</p>
+<h1>Listas<a class="headerlink" href="#listas" title="Link to this heading">#</a></h1>
+<p>Corresponden al tipo de dato <code class="docutils literal notranslate"><span class="pre">list</span></code>. Las listas son secuencias. Algunas características de las listas, son:</p>
 <ul class="simple">
 <li><p>Sirven para almacenar múltiples valores de diferentes tipos en una sola variable.</p></li>
 <li><p>Es mutable: Sus elementos se pueden modificar.</p></li>
@@ -754,11 +432,12 @@ title="Print to PDF"
 <li><p>Se puede concatenar con otras listas.</p></li>
 </ul>
 <p>Para más información visitar la <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range">documentación</a> de Python.</p>
+<br>
 <hr class="docutils" />
 <section id="crear-una-lista">
-<h2>Crear una lista<a class="headerlink" href="#crear-una-lista" title="Permalink to this headline">#</a></h2>
+<h2>Crear una lista:<a class="headerlink" href="#crear-una-lista" title="Link to this heading">#</a></h2>
 <p>Existen dos métodos principales para crear una lista</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Poner los elementos, separados por coma, dentro de corchetes <code class="docutils literal notranslate"><span class="pre">[]</span></code>:</p></li>
 </ol>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear una lista</span>
@@ -770,7 +449,10 @@ title="Print to PDF"
 <span class="n">X</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>Otra forma de crear una lista es con <a class="reference internal" href="#list-comp"><span class="std std-ref">List comprehension</span></a>.</p>
+</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Si <code class="docutils literal notranslate"><span class="pre">X</span></code> es una lista y sea crea otra lista <code class="docutils literal notranslate"><span class="pre">Y</span></code> usando <code class="docutils literal notranslate"><span class="pre">Y=X</span></code>, entonces modificaciones en <code class="docutils literal notranslate"><span class="pre">Y</span></code> también afectarán a <code class="docutils literal notranslate"><span class="pre">X</span></code> y vicerversa. Para que esto no suceda usar cualquiera de los siguientes opciones:</p>
@@ -781,10 +463,11 @@ title="Print to PDF"
 </ul>
 <p>De esta manera modificaciones en <code class="docutils literal notranslate"><span class="pre">Y</span></code> no afectarán a <code class="docutils literal notranslate"><span class="pre">X</span></code> y viceversa.</p>
 </div>
+<br>
 </section>
 <hr class="docutils" />
 <section id="agregar-concatenar-elementos">
-<h2>Agregar/Concatenar elementos<a class="headerlink" href="#agregar-concatenar-elementos" title="Permalink to this headline">#</a></h2>
+<h2>Agregar/Concatenar elementos:<a class="headerlink" href="#agregar-concatenar-elementos" title="Link to this heading">#</a></h2>
 <p>Para agregar elementos a una lista existente se puede usar el operador <code class="docutils literal notranslate"><span class="pre">+</span></code>, que sirve para concatenar listas, los nuevos elementos se agregarán al final de la lista.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Si X y Y son listas, entonces W es la concatenacion de X y Y:</span>
 <span class="n">W</span> <span class="o">=</span> <span class="n">X</span> <span class="o">+</span> <span class="n">Y</span>
@@ -795,12 +478,12 @@ title="Print to PDF"
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Otras formas de agregar elementos usando los métodos son:</p>
+<p>Otras formas de agregar elementos usando métodos son:</p>
 <ul class="simple">
-<li><p>Para insertar algún elemento en un índice en específico sin remplazarlo (recorriendo el resto de los elementos a la derecha) usar el método <code class="docutils literal notranslate"><span class="pre">list.insert</span></code>.</p></li>
-<li><p>Para insertar algún elemento al final de la lista usar el método <code class="docutils literal notranslate"><span class="pre">list.append</span></code>.</p></li>
+<li><p>Para insertar algún elemento en un índice en específico sin remplazarlo (recorriendo el resto de los elementos a la derecha) usar el método <code class="docutils literal notranslate"><span class="pre">list.insert()</span></code>.</p></li>
+<li><p>Para insertar algún elemento al final de la lista usar el método <code class="docutils literal notranslate"><span class="pre">list.append()</span></code>.</p></li>
 </ul>
-<p>Para más información revisar <a class="reference internal" href="#list-metodos-agregar"><span class="std std-ref">Metodos-Agregar</span></a></p>
+<p>Para más información revisar <a class="reference internal" href="#list-metodos-agregar"><span class="std std-ref">Metodos-Agregar</span></a>.</p>
 </div>
 <p>El operador <code class="docutils literal notranslate"><span class="pre">*</span></code> sirve para repetir <code class="docutils literal notranslate"><span class="pre">n</span></code> veces una lista y concatenarlas.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Si X es una lista y n un número entero</span>
@@ -808,10 +491,11 @@ title="Print to PDF"
 <span class="n">Y</span> <span class="o">=</span> <span class="n">X</span> <span class="o">*</span> <span class="n">n</span> 
 </pre></div>
 </div>
+<br>
 </section>
 <hr class="docutils" />
 <section id="eliminar-elementos">
-<h2>Eliminar Elementos<a class="headerlink" href="#eliminar-elementos" title="Permalink to this headline">#</a></h2>
+<h2>Eliminar Elementos:<a class="headerlink" href="#eliminar-elementos" title="Link to this heading">#</a></h2>
 <p>Para eliminar un elemento específico o la lista completa usar la palabra reservada <code class="docutils literal notranslate"><span class="pre">del</span></code> y el elemento que se quiere eliminar:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Eliminar el elemento i de la lista X</span>
 <span class="k">del</span> <span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
@@ -824,35 +508,34 @@ title="Print to PDF"
 <p class="admonition-title">Note</p>
 <p>Otras formas de eliminar elementos con métodos son:</p>
 <ul class="simple">
-<li><p>Para remover un elemento específico usar el método <code class="docutils literal notranslate"><span class="pre">list.remove</span></code>.</p></li>
-<li><p>Para remover un elemento de un índice en específico usar el método <code class="docutils literal notranslate"><span class="pre">list.pop</span></code>.</p></li>
+<li><p>Para remover un elemento específico usar el método <code class="docutils literal notranslate"><span class="pre">list.remove()</span></code>.</p></li>
+<li><p>Para remover un elemento de un índice en específico usar el método <code class="docutils literal notranslate"><span class="pre">list.pop()</span></code>.</p></li>
 </ul>
-<p>Para más información revisar <a class="reference internal" href="#list-metodos-eliminar"><span class="std std-ref">Metodos-Eliminar</span></a></p>
+<p>Para más información revisar <a class="reference internal" href="#list-metodos-eliminar"><span class="std std-ref">Metodos-Eliminar</span></a>.</p>
 </div>
+<br>
 </section>
 <hr class="docutils" />
 <section id="modificar-elementos">
-<h2>Modificar Elementos<a class="headerlink" href="#modificar-elementos" title="Permalink to this headline">#</a></h2>
+<h2>Modificar Elementos:<a class="headerlink" href="#modificar-elementos" title="Link to this heading">#</a></h2>
 <p>Para modificar un elemento en específico usar su índice y el operador de asignación:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Si X es una lista e i es un índice válido de X </span>
 <span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
 </pre></div>
 </div>
 <p>Se pueden cambiar rangos completos con:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Modificar elementos en los índices de i a j</span>
-<span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">vali</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">valj</span><span class="p">]</span>
-
-<span class="c1"># También se puede usar</span>
-<span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">vali</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">valj</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Modificar valores desde i hasta j-1</span>
+<span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">val1</span><span class="p">,</span> <span class="n">val2</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>El número de índices y de valores debe ser el mismo.</p></li>
+<li><p>La lista con los nuevos valores debe de tener <code class="docutils literal notranslate"><span class="pre">j-i</span></code> elementos.</p></li>
 </ul>
+<br>
 </section>
 <hr class="docutils" />
 <section id="verificar-que-un-elemento-exista-en-una-lista">
-<h2>Verificar que un elemento exista en una lista<a class="headerlink" href="#verificar-que-un-elemento-exista-en-una-lista" title="Permalink to this headline">#</a></h2>
+<h2>Verificar que un elemento exista en una lista:<a class="headerlink" href="#verificar-que-un-elemento-exista-en-una-lista" title="Link to this heading">#</a></h2>
 <p>Para verificar si un elemento está dentro de una lista usar el operador de membresía <code class="docutils literal notranslate"><span class="pre">in</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Si X es una lista</span>
 <span class="n">x</span> <span class="ow">in</span> <span class="n">X</span>
@@ -861,12 +544,13 @@ title="Print to PDF"
 <ul class="simple">
 <li><p>Alternativamente se puede usar <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code>.</p></li>
 </ul>
+<br>
 </section>
 <hr class="docutils" />
 <section id="seleccion-de-elementos">
-<h2>Selección de elementos<a class="headerlink" href="#seleccion-de-elementos" title="Permalink to this headline">#</a></h2>
+<h2>Selección de elementos:<a class="headerlink" href="#seleccion-de-elementos" title="Link to this heading">#</a></h2>
 <section id="subsetting">
-<h3>Subsetting<a class="headerlink" href="#subsetting" title="Permalink to this headline">#</a></h3>
+<h3>Subsetting:<a class="headerlink" href="#subsetting" title="Link to this heading">#</a></h3>
 <p>Para seleccionar elementos de una lista tener en cuenta las siguientes características:</p>
 <ul class="simple">
 <li><p>Se utilizan corchetes <code class="docutils literal notranslate"><span class="pre">[]</span></code> para acceder a los elementos, junto con el nombre de la lista y el índice del elemento: <br/>
@@ -882,36 +566,10 @@ title="Print to PDF"
 <li><p>El elemento <em>n</em>: <br> <code class="docutils literal notranslate"><span class="pre">X[n-1]</span></code></p></li>
 <li><p>El último elemento: <br> <code class="docutils literal notranslate"><span class="pre">X[-1]</span></code></p></li>
 </ul>
-<br>
-<p><strong>Ejemplo</strong></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definir la lista</span>
-<span class="n">X</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="p">]</span>
-
-<span class="c1"># Seleccionar primer elemento</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-
-<span class="c1"># Seleccionar el elemento 3, i.e, el índice 2</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-
-<span class="c1"># Seleccionar último elemento</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> 
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a
-c
-e
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 <hr class="docutils" />
 <section id="slicing">
-<h3>Slicing:<a class="headerlink" href="#slicing" title="Permalink to this headline">#</a></h3>
+<h3>Slicing:<a class="headerlink" href="#slicing" title="Link to this heading">#</a></h3>
 <p>Para seleccionar un rango de elementos consecutivos tener en cuenta las siguientes características:</p>
 <ul class="simple">
 <li><p>Se utiliza dos puntos, indicando los indices de inicio, fin y el paso: <br/> <code class="docutils literal notranslate"><span class="pre">X[i:j:k]</span></code></p></li>
@@ -921,48 +579,19 @@ e
 <ul class="simple">
 <li><p>Desde el índice <code class="docutils literal notranslate"><span class="pre">i</span></code> hasta el <code class="docutils literal notranslate"><span class="pre">j</span></code>, sin incluir el <code class="docutils literal notranslate"><span class="pre">j</span></code>: <br> <code class="docutils literal notranslate"><span class="pre">X[i:j]</span></code></p></li>
 <li><p>Desde el inicio hasta el <code class="docutils literal notranslate"><span class="pre">j</span></code>, sin incluir el <code class="docutils literal notranslate"><span class="pre">j</span></code>: <br> <code class="docutils literal notranslate"><span class="pre">X[:j]</span></code></p></li>
-<li><p>Desde la posición <code class="docutils literal notranslate"><span class="pre">i</span></code> hasta el final de la lista: <br><code class="docutils literal notranslate"><span class="pre">X[i:]</span></code></p></li>
+<li><p>Desde la posición <code class="docutils literal notranslate"><span class="pre">i</span></code> hasta el final de la tupla: <br><code class="docutils literal notranslate"><span class="pre">X[i:]</span></code></p></li>
 <li><p>Toda la lista: <br> <code class="docutils literal notranslate"><span class="pre">X[:]</span></code></p></li>
 <li><p>Desde el índice <code class="docutils literal notranslate"><span class="pre">i</span></code> hasta el <code class="docutils literal notranslate"><span class="pre">j</span></code>, sin incluir el <code class="docutils literal notranslate"><span class="pre">j</span></code>, cada <code class="docutils literal notranslate"><span class="pre">k</span></code> elementos: <br> <code class="docutils literal notranslate"><span class="pre">X[i:j:k]</span></code></p></li>
 <li><p>Toda la lista cada <code class="docutils literal notranslate"><span class="pre">k</span></code> elementos: <br> <code class="docutils literal notranslate"><span class="pre">X[::k]</span></code></p></li>
 <li><p>Toda la lista al revés: <br> <code class="docutils literal notranslate"><span class="pre">X[::-1]</span></code></p></li>
 </ul>
 <br>
-<p><strong>Ejemplo</strong></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definir la lista</span>
-<span class="n">X</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="p">]</span>
-
-<span class="c1"># Seleccionar la primeras 3 letras</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">[:</span><span class="mi">3</span><span class="p">])</span>
-
-<span class="c1"># Seleccionar las útlimas 2 letras</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:])</span> <span class="c1">#  print(X[len(X)-2:])-&gt;print(X[3:])</span>
-
-<span class="c1"># Seleccionar las letras en posiciones (no indices) pares</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">])</span> 
-
-<span class="c1"># Revertir la lista</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> 
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]
-[&#39;d&#39;, &#39;e&#39;]
-[&#39;b&#39;, &#39;d&#39;]
-[&#39;e&#39;, &#39;d&#39;, &#39;c&#39;, &#39;b&#39;, &#39;a&#39;]
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 </section>
 <hr class="docutils" />
 <section id="unpack-de-listas">
-<h2>Unpack de listas:<a class="headerlink" href="#unpack-de-listas" title="Permalink to this headline">#</a></h2>
-<p>Se refiere a asignar a varias variables los elementos de un objeto iterable como una <code class="docutils literal notranslate"><span class="pre">list</span></code>:</p>
+<h2>Unpack de listas:<a class="headerlink" href="#unpack-de-listas" title="Link to this heading">#</a></h2>
+<p>Se refiere a asignar a varias variables los elementos de un objeto iterable como <code class="docutils literal notranslate"><span class="pre">list</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># X es una lista de longitud n</span>
 <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="o">...</span> <span class="p">,</span> <span class="n">xn</span>  <span class="o">=</span> <span class="n">X</span>
 </pre></div>
@@ -976,49 +605,48 @@ e
 <li><p>En ese caso la varible <code class="docutils literal notranslate"><span class="pre">xi</span></code> almacenará todos lo valores restantes en la lista.</p></li>
 <li><p>El asterisco no tiene porque ir en la última variable, puede ir antes, en ese caso Python asignará el número de elementos que sea necesario, para que el resto de las variables tengan un elemento.</p></li>
 </ul>
+<br>
 </section>
 <hr class="docutils" />
 <section id="iteracion">
-<h2>Iteración:<a class="headerlink" href="#iteracion" title="Permalink to this headline">#</a></h2>
-<p>Para iterar sobre todos los elementos de una lista se puede usar un <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">loop</span></code>. Algunas opciones de iteración son:</p>
+<h2>Iteración:<a class="headerlink" href="#iteracion" title="Link to this heading">#</a></h2>
+<p>Para interar sobre todos los elementos de una lista se puede usar un <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">loop</span></code>. Algunas opciones de iteración son:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Iterar sobre los elementos de la lista X:</span>
 <span class="k">for</span> <span class="n">ele</span> <span class="ow">in</span> <span class="n">X</span><span class="p">:</span>
-    <span class="n">expression</span>
+    <span class="c1"># for body</span>
         
 <span class="c1"># Iterar sobre los índices de la lista X:</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)):</span>
-    <span class="n">expression</span>
+    <span class="c1"># for body</span>
     
 <span class="c1"># Iterar sobre los elementos y los índices de la lista X:</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ele</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
-    <span class="n">expression</span>
+    <span class="c1"># for body</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>En todos los ejemplos anteriores <code class="docutils literal notranslate"><span class="pre">i</span></code> y <code class="docutils literal notranslate"><span class="pre">ele</span></code> son nombres arbitrarios.</p></li>
+<li><p>En todos los ejemplos anteriores <code class="docutils literal notranslate"><span class="pre">i</span></code> y <code class="docutils literal notranslate"><span class="pre">ele</span></code> son nombres opcionales.</p></li>
 </ul>
+<br>
 <hr class="docutils" />
 </section>
 <section id="list-comprehension">
-<span id="list-comp"></span><h2>List comprehension<a class="headerlink" href="#list-comprehension" title="Permalink to this headline">#</a></h2>
+<span id="list-comp"></span><h2>List comprehension<a class="headerlink" href="#list-comprehension" title="Link to this heading">#</a></h2>
 <p>Son listas que se crean a partir procesos iterativos con la estructura <code class="docutils literal notranslate"><span class="pre">for</span></code>. Sintaxis:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plantilla de una list comprehesion</span>
-<span class="n">X</span> <span class="o">=</span> <span class="p">[</span><span class="n">expression</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">collection</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="p">[</span><span class="n">expression</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">collection</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>donde:</p>
 <ul class="simple">
 <li><p><em>collection</em> es cualquier <code class="docutils literal notranslate"><span class="pre">iterable</span></code>.</p></li>
 <li><p><em>expression</em> es cualquier expresión cuya evaluación retorne un objeto.</p></li>
 </ul>
 <p>Lo anterior equivale a:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Una list comprehesion equivale a:</span>
-<span class="n">X</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">collection</span><span class="p">:</span>
     <span class="n">X</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">expression</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Las list comprehension también pueden tener condicionales, tanto en la parte de <em>expression</em> como en la parte de <em>collection</em>, de manera que solo a cierto elementos se les aplique el código o de que dependiendo del resultado de la <em>expression</em> se ponga un valor u otro. Sintaxis:</p>
+<p>Las <em>list comprehension</em> también pueden tener condicionales, tanto en la parte de <em>expression</em> como en la parte de <em>collection</em>, de manera que solo a cierto elementos se les aplique el código o de que dependiendo del resultado de la <em>expression</em> se ponga un valor u otro. Sintaxis:</p>
 <p><strong>En el iterable</strong>: En este caso <em>expression</em> solo se evalua si los elementos de <em>collection</em> cumplen una condición.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="p">[</span><span class="n">expression</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">collection</span> <span class="k">if</span> <span class="n">condition</span><span class="p">]</span>
 </pre></div>
@@ -1028,9 +656,8 @@ e
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>Una list comprehesion puede tener ambos tipos de condicionales al mismo tiempo.</p></li>
+<li><p>Una <em>list comprehesion</em> puede tener ambos tipos de condicionales al mismo tiempo.</p></li>
 </ul>
-<br>
 <p><strong>Ejemplo</strong>: Encontrar los elementos al cuadrado de una lista numérica, solo si el número es par.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1052,11 +679,13 @@ e
 </div>
 </div>
 <ul class="simple">
-<li><p>En el código anterior hubiera sido más eficiente utilizar la función <code class="docutils literal notranslate"><span class="pre">range()</span></code> para crear la secuencia de números, es decir, <code class="docutils literal notranslate"><span class="pre">numeros</span> <span class="pre">=</span> <span class="pre">range(1,</span> <span class="pre">11)</span></code>.</p></li>
+<li><p>En el código anterior hubiera sido más eficiente utilizar la función <code class="docutils literal notranslate"><span class="pre">range()</span></code> para crear la secuencia de números, es decir, <code class="docutils literal notranslate"><span class="pre">numeros</span> <span class="pre">=</span> <span class="pre">range(11)</span></code>.</p></li>
 </ul>
+<br>
 </section>
+<hr class="docutils" />
 <section id="metodos-de-listas">
-<h2>Métodos de listas:<a class="headerlink" href="#metodos-de-listas" title="Permalink to this headline">#</a></h2>
+<h2>Métodos de listas:<a class="headerlink" href="#metodos-de-listas" title="Link to this heading">#</a></h2>
 <p>En esta sección se enlistan los métodos del tipo <code class="docutils literal notranslate"><span class="pre">list</span></code> por categorias.</p>
 <p>Tener en cuenta que los métodos generalmente se aplican sobre un objeto de tipo <code class="docutils literal notranslate"><span class="pre">list</span></code>, por ejemplo, si <code class="docutils literal notranslate"><span class="pre">X</span></code> es <code class="docutils literal notranslate"><span class="pre">list</span></code>, entonces se utiliza <code>X.<i>method_name</i></code>. Sin embargo es posible usar la lista como argumento de <code>list.<i>method_name</i></code>. Por ejemplo.</p>
 <div class="cell docutils container">
@@ -1084,13 +713,10 @@ e
 </ul>
 <hr class="docutils" />
 <section id="agregar-elementos">
-<h3>Agregar elementos<a class="headerlink" href="#agregar-elementos" title="Permalink to this headline">#</a></h3>
+<h3>Agregar elementos<a class="headerlink" href="#agregar-elementos" title="Link to this heading">#</a></h3>
 <p>Métodos para agregar elementos a una lista.</p>
 <table class="table" id="list-metodos-agregar">
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
+<caption><span class="caption-number">Table 9 </span><span class="caption-text">Agregar</span><a class="headerlink" href="#list-metodos-agregar" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Funciones</p></th>
 <th class="head"><p>Descripción</p></th>
@@ -1101,23 +727,20 @@ e
 <td><p>Inserta <code class="docutils literal notranslate"><span class="pre">x</span></code> en una lista en el índice dado por <code class="docutils literal notranslate"><span class="pre">i</span></code>, recorriendo el resto de los elementos a la derecha.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#mutable-sequence-types">append</a>(x)</p></td>
-<td><p>Agrega un elemento al final de una lista ‘in-place’. También se puede utilizar el operador <code class="docutils literal notranslate"><span class="pre">+</span></code>.</p></td>
+<td><p>Agrega un elemento al final de una lista “<em>in-place</em>”. También se puede utilizar el operador <code class="docutils literal notranslate"><span class="pre">+</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#mutable-sequence-types">extend</a>(t)</p></td>
-<td><p>Extiende una lista con el contenido de un iterable ‘in-place’.</p></td>
+<td><p>Extiende una lista con el contenido de un iterable “<em>in-place</em>”.</p></td>
 </tr>
 </tbody>
 </table>
 </section>
 <hr class="docutils" />
 <section id="id1">
-<h3>Eliminar elementos<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<h3>Eliminar elementos<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <p>Métodos para eliminar elementos de una lista.</p>
 <table class="table" id="list-metodos-eliminar">
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
+<caption><span class="caption-number">Table 10 </span><span class="caption-text">Eliminar</span><a class="headerlink" href="#list-metodos-eliminar" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Funciones</p></th>
 <th class="head"><p>Descripción</p></th>
@@ -1128,7 +751,7 @@ e
 <td><p>Remueve todos los elementos de la lista.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#mutable-sequence-types">remove</a>(x)</p></td>
-<td><p>Elimina la primer coincidencia de un elemento en la lista ‘in-place’.</p></td>
+<td><p>Elimina la primer coincidencia de un elemento en la lista “<em>in-place</em>”.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#mutable-sequence-types">pop</a>(i)</p></td>
 <td><p>Remueve un elemento de una posición en específico, retorna ese elemento y recorre el resto de los elementos a la izquierda.</p></td>
@@ -1138,13 +761,10 @@ e
 </section>
 <hr class="docutils" />
 <section id="informacion-de-la-lista">
-<h3>Información de la lista<a class="headerlink" href="#informacion-de-la-lista" title="Permalink to this headline">#</a></h3>
+<h3>Información de la lista<a class="headerlink" href="#informacion-de-la-lista" title="Link to this heading">#</a></h3>
 <p>Métodos para obtener información sobre una lista.</p>
-<table class="table">
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
+<table class="table" id="id2">
+<caption><span class="caption-number">Table 11 </span><span class="caption-text">Información</span><a class="headerlink" href="#id2" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Funciones</p></th>
 <th class="head"><p>Descripción</p></th>
@@ -1155,20 +775,17 @@ e
 <td><p>Retorna el número total de ocurrencias de <code class="docutils literal notranslate"><span class="pre">x</span></code> en la lista.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#common-sequence-operations">index</a>(x[, i[, j]])</p></td>
-<td><p>Indice de la primera aparición de <code class="docutils literal notranslate"><span class="pre">x</span></code> en la lista (en o después del índice <code class="docutils literal notranslate"><span class="pre">i</span></code> y antes del índice <code class="docutils literal notranslate"><span class="pre">j</span></code>). Retorna <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> si <code class="docutils literal notranslate"><span class="pre">x</span></code> no está en la lista.</p></td>
+<td><p>Indice de la primera aparición de <code class="docutils literal notranslate"><span class="pre">x</span></code> en la lista (en o después índice <code class="docutils literal notranslate"><span class="pre">i</span></code> y antes del índice <code class="docutils literal notranslate"><span class="pre">j</span></code>). Retorna <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> si <code class="docutils literal notranslate"><span class="pre">x</span></code> no está en la lista.</p></td>
 </tr>
 </tbody>
 </table>
 </section>
 <hr class="docutils" />
 <section id="ordenar">
-<h3>Ordenar<a class="headerlink" href="#ordenar" title="Permalink to this headline">#</a></h3>
+<h3>Ordenar<a class="headerlink" href="#ordenar" title="Link to this heading">#</a></h3>
 <p>Métodos para ordenar una lista.</p>
-<table class="table">
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
+<table class="table" id="id3">
+<caption><span class="caption-number">Table 12 </span><span class="caption-text">Ordenar</span><a class="headerlink" href="#id3" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Funciones</p></th>
 <th class="head"><p>Descripción</p></th>
@@ -1176,23 +793,20 @@ e
 </thead>
 <tbody>
 <tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list.sort">sort</a>(*, key=None, reverse=False)</p></td>
-<td><p>Ordena los valores de la lista de manera alfabética o numérica. Realiza la acción ‘in-place’.</p></td>
+<td><p>Ordena los valores de la lista de manera alfabética o numérica. Realiza la acción “<em>in-place</em>”.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#mutable-sequence-types">reverse</a>()</p></td>
-<td><p>Modifica el orden de la lista de manera inversa ‘in-place’.</p></td>
+<td><p>Modifica el orden de la lista de manera inversa “<em>in-place</em>”.</p></td>
 </tr>
 </tbody>
 </table>
 </section>
 <hr class="docutils" />
 <section id="copiar">
-<h3>Copiar<a class="headerlink" href="#copiar" title="Permalink to this headline">#</a></h3>
+<h3>Copiar<a class="headerlink" href="#copiar" title="Link to this heading">#</a></h3>
 <p>Métodos para copiar una lista.</p>
-<table class="table">
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
+<table class="table" id="id4">
+<caption><span class="caption-number">Table 13 </span><span class="caption-text">Otros</span><a class="headerlink" href="#id4" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Funciones</p></th>
 <th class="head"><p>Descripción</p></th>
@@ -1208,7 +822,7 @@ e
 </section>
 <hr class="docutils" />
 <section id="funciones-utiles-para-listas">
-<h2>Funciones útiles para listas<a class="headerlink" href="#funciones-utiles-para-listas" title="Permalink to this headline">#</a></h2>
+<h2>Funciones útiles para listas<a class="headerlink" href="#funciones-utiles-para-listas" title="Link to this heading">#</a></h2>
 <p>Algunas funciones built-in útiles para listas son:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">max()</span></code>: Encontrar el valor máximo de la lista.</p></li>
@@ -1230,7 +844,7 @@ e
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./parts/01-built-in"
         },
         predefinedOutput: true
@@ -1238,50 +852,124 @@ e
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="cadenas.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Cadenas</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="cadenas.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Cadenas</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="tuples.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="tuples.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Tuples</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crear-una-lista">Crear una lista:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agregar-concatenar-elementos">Agregar/Concatenar elementos:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eliminar-elementos">Eliminar Elementos:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modificar-elementos">Modificar Elementos:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verificar-que-un-elemento-exista-en-una-lista">Verificar que un elemento exista en una lista:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccion-de-elementos">Selección de elementos:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subsetting">Subsetting:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing">Slicing:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unpack-de-listas">Unpack de listas:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iteracion">Iteración:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list-comprehension">List comprehension</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-listas">Métodos de listas:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#agregar-elementos">Agregar elementos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Eliminar elementos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#informacion-de-la-lista">Información de la lista</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ordenar">Ordenar</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copiar">Copiar</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-utiles-para-listas">Funciones útiles para listas</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By Nebok<br/>
-  
-      &copy; Copyright 2023.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+By Nebok
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

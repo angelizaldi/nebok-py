@@ -12,7 +12,7 @@ kernelspec:
 
 # Cadenas
 
-El tipo de dato `str` almacenan una secuencia de caracteres encerrados entre comillas dobles o simples. `str` es considerado un escalas y una secuencia. Sus principales características son:
+El tipo de dato `str` almacenan una secuencia de caracteres encerrados entre comillas dobles o simples. `str` es considerado una secuencia. Sus principales características son:
 - Es inmutable: No se puede modificar una vez creada.
 - Está indexado: Se puede acceder a sus elementos por medio de un índice, por lo tanto sus elementos están ordenados.
 - Es un iterable: Se puede iterar por sus elementos y se puede utilizar la palabra reservada `in` para verificar membresía.
@@ -20,6 +20,8 @@ El tipo de dato `str` almacenan una secuencia de caracteres encerrados entre com
 - Se puede concatenar con otras cadenas.
 
 Para más información visitar la [documentación](https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str) de Python.
+
+<br>
 
 ---
 ## Crear una cadena
@@ -52,24 +54,28 @@ También se puede crear la representación en cadena de otro objeto con la funci
 X = str(Y)
 ```
 
+<br>
+
 ---
 ### Unicode
 
 Se utiliza para poder ingresar letras o símbolos especiales. Se utilizan los códigos unicode, que se pueden consultar en [códigos unicode](https://unicode-table.com/es/#basic-latin).
 
-Para insertar códigos unicode se debe de poner el código dentro de una cadena con el prefijo `u` y el código se pone como <code>\u<i>code</i></code>, donde <code><i>code</i></code> es el código de unicode. Ejemplo:
+Para insertar códigos unicode se debe de poner el código dentro de una cadena con el prefijo `u` y el código se pone como <code>\u<i>code</i></code>, donde <code>\u<i>code</i></code> es el código de unicode. Ejemplo:
 
-```{code-cell} python3
+```{code-cell} ipython3
 # Ingresando un espacio en blanco y el símbolo "!" con códigos unicode:
 print(u"Hola\u0020mundo\u0021") 
 ```
 
+<br>
+
 ---
 ### Raw strings
 
-Son cadenas "crudas", que ignoran _caracteres especiales como `\n` y los imprime tal cual. Para crear una cadena cruda se utiliza una `r` como prefijo de la cadena.
+Son cadenas "crudas", que ignoran _caracteres ilegales_ como `\n` y los imprime tal cual. Para crear una cadena cruda se utiliza una `r` como prefijo de la cadena.
 
-```{code-cell} python3
+```{code-cell} ipython3
 # Una cadena normal
 print("text1\ttext2")
 
@@ -77,7 +83,7 @@ print("text1\ttext2")
 print(r"text1\ttext2")
 ```
 
-Los caracteres especiales son:
+Los caracteres ilegales son:
 - `\'`: Comilla simple.
 - `\"`: Comilla doble.
 - `\n`: Salto de línea.
@@ -86,12 +92,13 @@ Los caracteres especiales son:
 - `\b`: Un espacio en blanco para atrás.
 - `\xhh`: Valor hexadecimal.
 
+<br>
 
 ---
 ## Concatenar y repetir cadenas:
 
-Para concatenar cadenas se usa el operador `+`. Usar únicamente con objetos de tipo `str`.
-```{code-cell} python3
+Para concatenar cadenas se usa el operador `+`. Usar únicamente con objetos de tipo `str`:
+```{code-cell} ipython3
 # Definir las cadenas
 x = "Hola"
 y = "mundo!"
@@ -99,30 +106,14 @@ y = "mundo!"
 # Concatenar las cadenas
 print(x + " " + y)
 ```
-- Como se puede observar se puede concatenar variables de tipo `str` junto con cadenas directamente entre comillas simples o dobles.
-
-<br>
-
-Para concatenar cadenas en múltiples líneas se debe de encerrar las cadenas entre paréntesis:
-```{code-cell} python3
-# Definir las cadenas
-x = "Hola"
-y = "mundo!"
-
-# Concatenar las cadenas
-cadena = (x +
-          " " +
-          y)
-print(cadena)
-```
-
-<br>
 
 Para concatenar una misma cadena `n` veces usar el operador de multiplicación `*` con la cadena:
 ```{code-cell} ipython3
-# Repetir "hola " 5 veces 
-print("hola " * 5)
+# Repetir "text " 5 veces 
+print("text " * 5)
 ```
+
+<br>
 
 ---
 ## Verificar membresía
@@ -138,19 +129,22 @@ sub in string
 - _sub_ \- `str`: Subcadena a buscar. Puede ser un patrón, palabras o frases.
 - _string_ \- `str`: Cadena donde se buscará _sub_.
 
+<br>
+
 ---
 ## Iteración
 
 Las cadenas se pueden usar como el rango en un `for loop`, iterando caracter por caracter:
 ```python
 for i in string:
-    expression
+    # for body
 ```
 - _string_ \- `str`: Cadena sobre la cual se iterará.
 
+<br>
+
 ---
 ## Subsetting y slicing: 
-
 
 ### Subsetting:
 Para seleccionar caracteres individuales de una cadena tener en cuenta las siguientes características:
@@ -162,23 +156,6 @@ Algunos patrones útiles:
 - El primer caracter: <br> `X[0]`
 - El caracter _n_: <br> `X[n-1]`
 - El último caracter: <br> `X[-1]`
-
-<br>
-
-**Ejemplo**
-```{code-cell} ipython3
-# Definir la cadena
-X = 'abcde'
-
-# Seleccionar primer elemento
-print(X[0])
-
-# Seleccionar el elemento 3, i.e, el índice 2
-print(X[2])
-
-# Seleccionar último elemento
-print(X[-1]) 
-```
 
 ---
 ### Slicing:
@@ -196,24 +173,6 @@ Algunos patrones útiles:
 - Toda la cadena al revés: <br> `X[::-1]`
 
 <br>
-
-**Ejemplo**
-```{code-cell} ipython3
-# Definir la cadena
-X = 'abcde'
-
-# Seleccionar la primeras 3 letras
-print(X[:3])
-
-# Seleccionar las útlimas 2 letras
-print(X[-2:]) #  print(X[len(X)-2:])->print(X[3:])
-
-# Seleccionar las letras en posiciones (no indices) pares
-print(X[1::2]) 
-
-# Revertir la cadena
-print(X[::-1]) 
-```
 
 ---
 ## Métodos de cadenas
@@ -234,13 +193,14 @@ print(str.upper(X))
 ```
 - Tener en cuenta que en la segunda forma la cadena siempre debe de ser el primer argumento.
 
+<br>
 
 ---
 ### Buscar subcadenas
 
 Métodos para buscar subcadenas en una cadena.
 
-```{list-table}
+```{list-table} Buscar
 :header-rows: 1
 
 * - Funciones
@@ -255,12 +215,14 @@ Métodos para buscar subcadenas en una cadena.
   - Devuelve el índice más grande en la cadena donde se encuentra la subcadena `sub`. Devuelve `ValueError` si no se encuentra `sub`.
 ```
 
+<br>
+
 ---
 ### Formato de la cadena
 
 Métodos para modificar el formato de una cadena.
 
-```{list-table}
+```{list-table} Formato
 :header-rows: 1
 
 * - Funciones
@@ -280,7 +242,7 @@ Métodos para modificar el formato de una cadena.
 * - [casefold](https://docs.python.org/3/library/stdtypes.html#str.casefold)()
   - Retorna una copia de la cadena con todos los caracteres en minúsculas.
 * - [format](https://docs.python.org/3/library/stdtypes.html#str.format)(*args, **kwargs)
-  - Realice una operación de formato de cadena.
+  - Realiza una operación de formato de cadena. Para más información revisar {ref}`str-formatos`.
 * - [center](https://docs.python.org/3/library/stdtypes.html#str.center)(width[, fillchar])
   - Retorna una cadena agregando caracteres al princio y al final, para que tenga una longitud determinada y la cadena original esté al centro.
 * - [format_map](https://docs.python.org/3/library/stdtypes.html#str.format_map)(mapping)
@@ -291,12 +253,14 @@ Métodos para modificar el formato de una cadena.
   - Devuelve una copia de la cadena con su primer carácter en mayúscula y el resto en minúsculas.
 ```
 
+<br>
+
 ---
 ### Información de la cadena
 
 Métodos para obtener información sobre la cadena.
 
-```{list-table}
+```{list-table} Información
 :header-rows: 1
 
 * - Funciones
@@ -333,50 +297,14 @@ Métodos para obtener información sobre la cadena.
   - Retorna `True` si todos los caracteres de la cadena son numéricos.
 ```
 
----
-### Otros
-
-Otros métodos para cadenas.
-
-```{list-table}
-:header-rows: 1
-
-* - Funciones
-  - Descripción
-* - [maketrans](https://docs.python.org/3/library/stdtypes.html#str.maketrans)(x[, y[, z]])
-  - Este método estático devuelve una tabla de traducción utilizable para `str.translate()`.
-* - [translate](https://docs.python.org/3/library/stdtypes.html#str.translate)(table)
-  - Devuelve una copia de la cadena en la que se ha mapeado cada carácter de acuerdo al mapeo indicado en `str.maketrans()`.
-* - [encode](https://docs.python.org/3/library/stdtypes.html#str.encode)(encoding='utf-8', errors='strict')
-  - Devuelve la cadena codificada en bytes.
-```
-
----
-### Reemplazar y remover subcadenas.
-
-Métodos para reemplazar o remover subcadenas dentro de una cadena.
-
-```{list-table}
-:header-rows: 1
-
-* - Funciones
-  - Descripción
-* - [removeprefix](https://docs.python.org/3/library/stdtypes.html#str.removeprefix)(prefix, /)
-  - Devuelve una copia de la cadena eliminando el prefijo `prefix` al inicio de la cadena, si existe.
-* - [expandtabs](https://docs.python.org/3/library/stdtypes.html#str.expandtabs)`(tabsize=8)`
-  - Devuelve una copia de la cadena donde todos los caracteres de tabulación se reemplazan por uno o más espacios.
-* - [removesuffix](https://docs.python.org/3/library/stdtypes.html#str.removesuffix)(suffix, /)
-  - Retorna una copia de la cadena eliminando el sufijo `suffix` al final de la cadena, si existe.
-* - [replace](https://docs.python.org/3/library/stdtypes.html#str.replace)(old, new[, count])
-  - Devuelve una copia de la cadena con todas las apariciones de la subcadena `old` reemplazada por `new`. Si se da el argumento opcional `count`, solo las primeras `count` ocurrencias son reemplazadas.
-```
+<br>
 
 ---
 ### Joins y splits
 
 Métodos para separar cadenas o para crear cadenas desde iterables.
 
-```{list-table}
+```{list-table} Separar y Unir
 :header-rows: 1
 
 * - Funciones
@@ -395,12 +323,56 @@ Métodos para separar cadenas o para crear cadenas desde iterables.
   - Divide la cadena en la última aparición de `sep` y devuelva un `tuple` de 3 elementos que contiene la parte anterior al separador, el propio separador y la parte después del separador.
 ```
 
+<br>
+
+---
+### Otros
+
+Otros métodos para cadenas.
+
+```{list-table} Otros
+:header-rows: 1
+
+* - Funciones
+  - Descripción
+* - [maketrans](https://docs.python.org/3/library/stdtypes.html#str.maketrans)(x[, y[, z]])
+  - Este método estático devuelve una tabla de traducción utilizable para `str.translate()`.
+* - [translate](https://docs.python.org/3/library/stdtypes.html#str.translate)(table)
+  - Devuelve una copia de la cadena en la que se ha mapeado cada carácter de acuerdo al mapeo indicado en `str.maketrans()`.
+* - [encode](https://docs.python.org/3/library/stdtypes.html#str.encode)(encoding='utf-8', errors='strict')
+  - Devuelve la cadena codificada en bytes.
+```
+
+<br>
+
+---
+### Reemplazar y remover subcadenas.
+
+Métodos para reemplazar o remover subcadenas dentro de una cadena.
+
+```{list-table} Reemplazar
+:header-rows: 1
+
+* - Funciones
+  - Descripción
+* - [removeprefix](https://docs.python.org/3/library/stdtypes.html#str.removeprefix)(prefix, /)
+  - Devuelve una copia de la cadena eliminando el prefijo `prefix` al inicio de la cadena, si existe.
+* - [expandtabs](https://docs.python.org/3/library/stdtypes.html#str.expandtabs)`(tabsize=8)`
+  - Devuelve una copia de la cadena donde todos los caracteres de tabulación se reemplazan por uno o más espacios.
+* - [removesuffix](https://docs.python.org/3/library/stdtypes.html#str.removesuffix)(suffix, /)
+  - Retorna una copia de la cadena eliminando el sufijo `suffix` al final de la cadena, si existe.
+* - [replace](https://docs.python.org/3/library/stdtypes.html#str.replace)(old, new[, count])
+  - Devuelve una copia de la cadena con todas las apariciones de la subcadena `old` reemplazada por `new`. Si se da el argumento opcional `count`, solo las primeras `count` ocurrencias son reemplazadas.
+```
+
+<br>
+
 ---
 ### Strip
 
 Métodos para eliminar caracteres al inicio, final o ambos de una cadena.
 
-```{list-table}
+```{list-table} Strip
 :header-rows: 1
 
 * - Funciones
@@ -413,7 +385,10 @@ Métodos para eliminar caracteres al inicio, final o ambos de una cadena.
   - Elimina los espacios en blanco o un conjunto de caracteres en específico al final de la cadena.
 ```
 
+<br>
+
 ---
+(str-formatos)=
 ## Formatos de cadenas.
 
 En esta sección se explica el método `str.format()` y las "_f-strings_" que permiten darle un formato personalizado a las cadenas e incluir de manera dinámica variables en la cadena.
@@ -452,7 +427,6 @@ cadena = "Lenguaje: {0}\nVersión: {1}"
 print(cadena.format(nombre, version))
 ```
 
----
 **2. nombres**
 
 - En la cadena, los campos `{}` deben de tener nombres, los cuales se deben especificar en `str.format()` como un par  `name=val`.
@@ -464,13 +438,12 @@ nombre = "Python"
 version = 11
 
 # Definir la plantilla
-cadena = "Lenguaje: {languaje}\nVersión: {version}"
+cadena = "Lenguaje: {name}\nVersión: {version}"
 
 # Imprimir la cadena con los valores de las variables
-print(cadena.format(languaje=nombre, version=version))
+print(cadena.format(name=nombre, version=version))
 ```
 
----
 **3. diccionario**
 
 - El argumento de `str.format()` es un diccionario y en los campos `{}` se accede a los valores del diccionario recuperando el valor con los nombres de las llaves del diccionario. 
@@ -495,7 +468,7 @@ Es una alternativa al método `str.format()`, está disponible en Python 3.6+. R
 
 **Sintaxis**:
 ```python
-f"texto {expression} texto"
+f"... {expression} ..."
 ```
 - _expression_: Es un valor, un objeto o incluso funciones y/o métodos que retornen un objeto imprimible. El valor mostrado será el mismo que el del método `__str__()` o `__repr__()` de la clase del objeto.
 
@@ -526,7 +499,7 @@ print(f"Lenguaje: {nombre!r}\nVersión: {version!s}")
 
 ### Formatos
 
-Para dar formatos en el método `str.format()` y en f-strings, se utiliza dos puntos y el formato que se quiere dar dentro de las llaves `{}`:
+Para dar formatos en el método `str.format()` y en f-string, se utiliza dos puntos y el formato que se quiere dar dentro de las llaves `{}`:
 ```python
 # f-string
 f"... {expression:format}"
@@ -572,22 +545,16 @@ Los formatos disponibles son:
 - _N_: Son números enteros, suelen ser opcionales.
 - _expression_: Es la expresión, número, cadena, etc. a la que se le dará formato.
 
-<br>
-
-**Ejemplos***
+**Ejemplos**
 
 ```{code-cell} ipython3
 # Definir la variable
 x = 1897.9876
 
 # Diversos formatos que se pueden aplicar a "x".
-print(f"Sin formato: {x}", end="\n"*2)
-
-print(f"Separar los miles: {x:,}", end="\n"*2)
-
-print(f"Notación científica con 1 décimal: {x:.1e}", end="\n"*2)
-
-print(f"Con tres décimales (redondea): {x:.3f}", end="\n"*2)
-
-print(f"Combinación de separación de miles y 2 décimales: {x:,.2f}", end="\n"*2)
+print(f"Sin formato: {x}")
+print(f"Separar los miles: {x:,}")
+print(f"Notación científica con 1 décimal: {x:.1e}")
+print(f"Con tres décimales (redondea): {x:.3f}")
+print(f"Combinación de separación de miles y 2 décimales: {x:,.2f}")
 ```

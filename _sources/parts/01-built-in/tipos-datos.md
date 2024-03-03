@@ -21,7 +21,7 @@ Los principales tipos de datos built-in de Python se resumen a continuación:
     
 ## Clasificación de los tipos de datos
 
-Tener en cuenta la siguiente claficación:
+Tener en cuenta la siguiente clasificación:
 
 - Escalares (`scalar`): Son tipos que almacenan un solo valor, incluye a:
     - `bool`

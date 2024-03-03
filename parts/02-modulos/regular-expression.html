@@ -1,111 +1,182 @@
 
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="../../" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Regular Expressions &#8212; Manual de Python</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <link rel="shortcut icon" href="../../_static/nebok-favicon.png"/>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'parts/02-modulos/regular-expression';</script>
+    <link rel="icon" href="../../_static/nebok-favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Statistics" href="statistics.html" />
     <link rel="prev" title="Random" href="random.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-    
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../../_static/nebok-logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Manual de Python</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../../_static/nebok-logo.png" class="logo__image only-light" alt="Manual de Python - Home"/>
+    <script>document.write(`<img src="../../_static/nebok-logo.png" class="logo__image only-dark" alt="Manual de Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -114,684 +185,247 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Built-in
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Built-in</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../01-built-in/built-in-index.html">
-   Python estándar
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../01-built-in/ayuda.html">
-     Obtener ayuda
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../01-built-in/comentarios.html">
-     Comentarios
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../01-built-in/entrada-salida.html">
-     Entrada y salida de datos
-    </a>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../01-built-in/tipos-index.html">
-     Tipos Built-In
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-    <label for="toctree-checkbox-2">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../01-built-in/booleanos.html">
-       Valores booleanos
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../01-built-in/numeros.html">
-       Números
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../01-built-in/cadenas.html">
-       Cadenas
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../01-built-in/listas.html">
-       Listas
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../01-built-in/tuples.html">
-       Tuples
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../01-built-in/sets.html">
-       Sets
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../01-built-in/diccionarios.html">
-       Diccionarios
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../01-built-in/estructuras-index.html">
-     Estructuras de control
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-    <label for="toctree-checkbox-3">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../01-built-in/if-else.html">
-       If … Else.
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../01-built-in/for-loop.html">
-       For Loop.
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../01-built-in/do-while.html">
-       While
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../01-built-in/funciones.html">
-     Funciones
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../01-built-in/try-except.html">
-     Exceptions
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../01-built-in/context.html">
-     Context Managers
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../01-built-in/io.html">
-     Lectura y escritura de archivos.
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../01-built-in/modulos.html">
-     Paquetes y Módulos.
-    </a>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../01-built-in/avanzado-index.html">
-     Temas avanzados
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-    <label for="toctree-checkbox-4">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../01-built-in/decorators.html">
-       Decorators
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../01-built-in/iterators.html">
-       Iterators
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../01-built-in/generators.html">
-       Generators
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../01-built-in/oop.html">
-       Programación orientada a objetos
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../01-built-in/func-built-in.html">
-     Funciones built-in
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="modulos-index.html">
-   Módulos built-in
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="collections.html">
-     Collections
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="csv.html">
-     csv
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="datetime.html">
-     Datetime
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="itertools.html">
-     Itertools
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="json.html">
-     JSON
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="math.html">
-     Math
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="os.html">
-     os
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="os-path.html">
-     os.path
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="pickle.html">
-     Pickle
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="random.html">
-     Random
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Regular Expressions
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="statistics.html">
-     Statistics
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../01-built-in/anexos-index.html">
-   Anexos
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../01-built-in/anexos-tipos-datos.html">
-     Tipos de datos
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../01-built-in/anexos-operadores-palabras.html">
-     Operadores y palabras reservadas.
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../01-built-in/anexo-formatos-cadenas.html">
-     Formatos de cadena
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../01-built-in/anexos-excepciones.html">
-     Excepciones
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01-built-in/built-in-index.html">Python estándar</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/ayuda.html">Obtener ayuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/comentarios.html">Comentarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/tipos-datos.html">Tipos de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/operadores-palabras.html">Operadores y palabras reservadas.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/entrada-salida.html">Entrada y salida de datos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/tipos-index.html">Tipos Built-In</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/booleanos.html">Valores booleanos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/numeros.html">Números</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/cadenas.html">Cadenas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/listas.html">Listas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/tuples.html">Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/sets.html">Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/diccionarios.html">Diccionarios</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/if-else.html">If … Else</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/for-loop.html">For Loop.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/do-while.html">Do While</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/funciones.html">Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/try-except.html">Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/context.html">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/io.html">Lectura y escritura de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/modulos.html">Paquetes y Módulos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/avanzado-index.html">Temas avanzados</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/decorators.html">Decorators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/iterators.html">Iterators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/generators.html">Generators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/oop.html">Programación orientada a objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/func-built-in.html">Funciones built-in</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="modulos-index.html">Módulos built-in</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csv.html">csv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datetime.html">Datetime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="itertools.html">Itertools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json.html">JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="math.html">Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="os.html">os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="os-path.html">os.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pickle.html">Pickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="random.html">Random</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Regular Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="statistics.html">Statistics</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/parts/02-modulos/regular-expression.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/parts/02-modulos/regular-expression.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
 </div>
+
+
+
 
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../../_sources/parts/02-modulos/regular-expression.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download notebook file"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-code"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
 
-      </li>
-      
-      <li>
-        <a href="../../_sources/parts/02-modulos/regular-expression.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.md</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#buscar-patrones-usando-regex">
-   Buscar patrones usando regex
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#busqueda-greedy-y-non-greedy">
-   Búsqueda greedy y non-greedy
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#capturando-grupos">
-   Capturando grupos
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#capturando-un-grupo">
-     Capturando un grupo
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#capturando-multiples-grupos">
-     Capturando múltiples grupos
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sustituyendo-patrones">
-   Sustituyendo patrones
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#flags">
-   Flags
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ejemplo-de-uso">
-     Ejemplo de uso:
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#funciones">
-   Funciones
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#objeto-regular-expression">
-   Objeto Regular Expression
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#crear-un-objeto-pattern">
-     Crear un objeto Pattern
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#atributos">
-     Atributos
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#metodos">
-     Métodos
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#objeto-match">
-   Objeto Match
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     Atributos
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
-     Métodos
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#caracteres-especiales">
-   Caracteres especiales
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#secuencias-especiales">
-   Secuencias especiales
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Regular Expressions</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#buscar-patrones-usando-regex">
-   Buscar patrones usando regex
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#busqueda-greedy-y-non-greedy">
-   Búsqueda greedy y non-greedy
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#capturando-grupos">
-   Capturando grupos
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#capturando-un-grupo">
-     Capturando un grupo
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#capturando-multiples-grupos">
-     Capturando múltiples grupos
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sustituyendo-patrones">
-   Sustituyendo patrones
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#flags">
-   Flags
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ejemplo-de-uso">
-     Ejemplo de uso:
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#funciones">
-   Funciones
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#objeto-regular-expression">
-   Objeto Regular Expression
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#crear-un-objeto-pattern">
-     Crear un objeto Pattern
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#atributos">
-     Atributos
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#metodos">
-     Métodos
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#objeto-match">
-   Objeto Match
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     Atributos
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
-     Métodos
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#caracteres-especiales">
-   Caracteres especiales
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#secuencias-especiales">
-   Secuencias especiales
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Regular Expressions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#buscar-patrones-usando-regex">Buscar patrones usando regex</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#busqueda-greedy-y-non-greedy">Búsqueda greedy y non-greedy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#capturando-grupos">Capturando grupos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#capturando-un-grupo">Capturando un grupo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#capturando-multiples-grupos">Capturando múltiples grupos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sustituyendo-patrones">Sustituyendo patrones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flags">Flags</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-uso">Ejemplo de uso:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones">Funciones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objeto-regular-expression">Objeto Regular Expression</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crear-un-objeto-pattern">Crear un objeto Pattern</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos">Atributos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos">Métodos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objeto-match">Objeto Match</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Atributos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Métodos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caracteres-especiales">Caracteres especiales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#secuencias-especiales">Secuencias especiales</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="regular-expressions">
-<h1>Regular Expressions<a class="headerlink" href="#regular-expressions" title="Permalink to this headline">#</a></h1>
+<h1>Regular Expressions<a class="headerlink" href="#regular-expressions" title="Link to this heading">#</a></h1>
 <p>Una “<em>expresión regular</em>” es una secuencia de caracteres para identificar y extraer patrones en cadenas. Para usar <em>regular expressions</em> es necesario importar el módulo <code class="docutils literal notranslate"><span class="pre">re</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar el módulo</span>
 <span class="kn">import</span> <span class="nn">re</span>
@@ -806,13 +440,13 @@ title="Print to PDF"
 <br>
 <hr class="docutils" />
 <section id="buscar-patrones-usando-regex">
-<h2>Buscar patrones usando regex<a class="headerlink" href="#buscar-patrones-usando-regex" title="Permalink to this headline">#</a></h2>
+<h2>Buscar patrones usando regex<a class="headerlink" href="#buscar-patrones-usando-regex" title="Link to this heading">#</a></h2>
 <p>Para buscar un patrón usando regular expressions se puede hacer principalmente de dos formas.</p>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
 <p>Los patrones de expresiones regulares se indican utilizando cadenas <em>crudas</em> (<em>“raw strings”</em>), es decir, como <code class="docutils literal notranslate"><span class="pre">r'regex_pattern'</span></code>.</p>
 </div>
-<p><strong>1.</strong> Usar directamente las <a class="reference internal" href="#funciones"><span class="std std-ref">Funciones</span></a> para buscar patrones. Por ejemplo <code class="docutils literal notranslate"><span class="pre">re.search()</span></code>, <code class="docutils literal notranslate"><span class="pre">re.match()</span></code> o <code class="docutils literal notranslate"><span class="pre">re.findall()</span></code>. En este caso se debe de proveer tanto del patrón a buscar como de la cadena donde se va a buscar el patrón. Ejemplo:</p>
+<p><strong>1.</strong> Usar directamente las <a class="reference internal" href="#funciones-regex"><span class="std std-ref">Funciones</span></a> para buscar patrones. Por ejemplo <code class="docutils literal notranslate"><span class="pre">re.search()</span></code>, <code class="docutils literal notranslate"><span class="pre">re.match()</span></code> o <code class="docutils literal notranslate"><span class="pre">re.findall()</span></code>. En este caso se debe de proveer tanto del patrón a buscar como de la cadena donde se va a buscar el patrón. Ejemplo:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar el módulo</span>
@@ -865,7 +499,7 @@ title="Print to PDF"
 </section>
 <hr class="docutils" />
 <section id="busqueda-greedy-y-non-greedy">
-<h2>Búsqueda greedy y non-greedy<a class="headerlink" href="#busqueda-greedy-y-non-greedy" title="Permalink to this headline">#</a></h2>
+<h2>Búsqueda greedy y non-greedy<a class="headerlink" href="#busqueda-greedy-y-non-greedy" title="Link to this heading">#</a></h2>
 <p>Se refiere a la manera como se realiza la búsqueda del patrón, cuando se utilizan los caracteres especiales (cuantificadores) <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">?</span></code> o <code class="docutils literal notranslate"><span class="pre">{min,</span> <span class="pre">max}</span></code> en un patrón, para ello se agrega un <code class="docutils literal notranslate"><span class="pre">?</span></code> extra.</p>
 <ul class="simple">
 <li><p><strong>Greedy</strong>: Coincide la mayor cantidad de caracteres posibles. Retorna el match más largo. Los caracteres especiales <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">?</span></code> o <code class="docutils literal notranslate"><span class="pre">{min,</span> <span class="pre">max}</span></code> son greedy por default.</p></li>
@@ -940,12 +574,13 @@ title="Print to PDF"
 </div>
 <p><br><br></p>
 </section>
+<hr class="docutils" />
 <section id="capturando-grupos">
-<h2>Capturando grupos<a class="headerlink" href="#capturando-grupos" title="Permalink to this headline">#</a></h2>
+<h2>Capturando grupos<a class="headerlink" href="#capturando-grupos" title="Link to this heading">#</a></h2>
 <p>Si se desea recuperar solo una parte del patrón usado, y no todo, se puede encerrar entre paréntesis el grupo de caracteres que se desea recuperar. Un patrón puede tener uno o más grupos.</p>
 <hr class="docutils" />
 <section id="capturando-un-grupo">
-<h3>Capturando un grupo<a class="headerlink" href="#capturando-un-grupo" title="Permalink to this headline">#</a></h3>
+<h3>Capturando un grupo<a class="headerlink" href="#capturando-un-grupo" title="Link to this heading">#</a></h3>
 <p>La funcionalidad general cuando solo se captura un solo grupo es la siguiente:</p>
 <p>Si se usa <code class="docutils literal notranslate"><span class="pre">re.search()</span></code> o <code class="docutils literal notranslate"><span class="pre">Pattern.search()</span></code> se recupera solo la primer coincidencia que satisface el patrón en la cadena.</p>
 <p>El método <code class="docutils literal notranslate"><span class="pre">Match.group()</span></code> retorna el grupo capturado, el cual recibe como argumento un número entero, tener en cuenta lo siguiente:</p>
@@ -1051,7 +686,7 @@ Resultado de r&#39;\w+ (\d+)&#39;: [&#39;123&#39;]
 </section>
 <hr class="docutils" />
 <section id="capturando-multiples-grupos">
-<h3>Capturando múltiples grupos<a class="headerlink" href="#capturando-multiples-grupos" title="Permalink to this headline">#</a></h3>
+<h3>Capturando múltiples grupos<a class="headerlink" href="#capturando-multiples-grupos" title="Link to this heading">#</a></h3>
 <p>Es posible recuperar dos o más grupos. Tener en cuenta que para recuperar un grupo específico se debe indicar su índice en el mismo orden en el que aparece en el patrón</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1113,7 +748,7 @@ Grupo 2: 123
 </section>
 <hr class="docutils" />
 <section id="sustituyendo-patrones">
-<h2>Sustituyendo patrones<a class="headerlink" href="#sustituyendo-patrones" title="Permalink to this headline">#</a></h2>
+<h2>Sustituyendo patrones<a class="headerlink" href="#sustituyendo-patrones" title="Link to this heading">#</a></h2>
 <p>En esta sección se cubre lo básico de cómo usar la función <code class="docutils literal notranslate"><span class="pre">re.sub()</span></code> para reemplazar patrones en una cadena por otros. La función <code class="docutils literal notranslate"><span class="pre">re.sub()</span></code> reemplaza todos los patrones encontrados por otra expresión, se puede limitar el número de reemplazos con el parámetro <code class="docutils literal notranslate"><span class="pre">count</span></code>.</p>
 <p>En su forma más simple reemplaza todas las coincidencias por otra cadena. Por ejemplo, reemplazar todos las subcadenas que sean dígitos por un “-“.</p>
 <div class="cell docutils container">
@@ -1221,18 +856,14 @@ Grupo 2: 123
 </section>
 <hr class="docutils" />
 <section id="flags">
-<h2>Flags<a class="headerlink" href="#flags" title="Permalink to this headline">#</a></h2>
-<p>A continuación se presenta una lista de <code class="docutils literal notranslate"><span class="pre">flags</span></code> para modificar el comportamiento de las <a class="reference internal" href="#funciones"><span class="std std-ref">Funciones</span></a> o de los métodos de objetos como <a class="reference internal" href="#objeto-match"><span class="std std-ref">Objeto Match</span></a> o <a class="reference internal" href="#objeto-pattern"><span class="std std-ref">Objeto Regular Expression</span></a>. Las flags se ponen como argumentos de las funciones como <code class="docutils literal notranslate"><span class="pre">re.search()</span></code>, <code class="docutils literal notranslate"><span class="pre">re.match()</span></code> o <code class="docutils literal notranslate"><span class="pre">re.find_all()</span></code> o de los métodos del objeto <code class="docutils literal notranslate"><span class="pre">Pattern</span></code>.</p>
+<h2>Flags<a class="headerlink" href="#flags" title="Link to this heading">#</a></h2>
+<p>A continuación se presenta una lista de <code class="docutils literal notranslate"><span class="pre">flags</span></code> para modificar el comportamiento de las <a class="reference internal" href="#funciones-regex"><span class="std std-ref">Funciones</span></a> o de los métodos de objetos como <a class="reference internal" href="#objeto-match"><span class="std std-ref">Objeto Match</span></a> o <a class="reference internal" href="#objeto-pattern"><span class="std std-ref">Objeto Regular Expression</span></a>. Las flags se ponen como argumentos de las funciones como <code class="docutils literal notranslate"><span class="pre">re.search()</span></code>, <code class="docutils literal notranslate"><span class="pre">re.match()</span></code> o <code class="docutils literal notranslate"><span class="pre">re.find_all()</span></code> o de los métodos del objeto <code class="docutils literal notranslate"><span class="pre">Pattern</span></code>.</p>
 <p>Listado de flags:</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>La mayoría de las flags tienen 2 posibles formas de representarlas, aquí solo se presenta una de esas formas. Presionar en el nombre de cada flag para dirigirse a la documentación de Python para obtener más información.</p>
 </div>
 <table class="table">
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Flag</p></th>
 <th class="head"><p>Descripción</p></th>
@@ -1268,7 +899,7 @@ Grupo 2: 123
 <br>
 <hr class="docutils" />
 <section id="ejemplo-de-uso">
-<h3>Ejemplo de uso:<a class="headerlink" href="#ejemplo-de-uso" title="Permalink to this headline">#</a></h3>
+<h3>Ejemplo de uso:<a class="headerlink" href="#ejemplo-de-uso" title="Link to this heading">#</a></h3>
 <p>A continuación se ejemplifica como usar la flag <code class="docutils literal notranslate"><span class="pre">re.I</span></code> para no hacer distintinción entre mayúsculas y minúsculas al momento de hacer una búsqueda. Notar que esta misma flag también se puede expresar como <code class="docutils literal notranslate"><span class="pre">re.IGNORECASE</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1304,13 +935,9 @@ Resultado de buscar &#39;abc&#39; con re.I: [&#39;abc&#39;, &#39;ABC&#39;, &#39;
 </section>
 </section>
 <section id="funciones">
-<span id="id1"></span><h2>Funciones<a class="headerlink" href="#funciones" title="Permalink to this headline">#</a></h2>
+<span id="funciones-regex"></span><h2>Funciones<a class="headerlink" href="#funciones" title="Link to this heading">#</a></h2>
 <p>A Continuación se presenta una lista de funciones del módulo <code class="docutils literal notranslate"><span class="pre">re</span></code>.</p>
 <table class="table">
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Función</p></th>
 <th class="head"><p>Descripción</p></th>
@@ -1356,10 +983,12 @@ Resultado de buscar &#39;abc&#39; con re.I: [&#39;abc&#39;, &#39;ABC&#39;, &#39;
 <hr class="docutils" />
 </section>
 <section id="objeto-regular-expression">
-<span id="objeto-pattern"></span><h2>Objeto Regular Expression<a class="headerlink" href="#objeto-regular-expression" title="Permalink to this headline">#</a></h2>
+<span id="objeto-pattern"></span><h2>Objeto Regular Expression<a class="headerlink" href="#objeto-regular-expression" title="Link to this heading">#</a></h2>
 <p>Los objetos de regular expression <code class="docutils literal notranslate"><span class="pre">Pattern</span></code> son objetos que son retornados por la función <code class="docutils literal notranslate"><span class="pre">re.compile()</span></code>. Estos objetos se pueden usar para buscar coincidencias.</p>
+<br>
+<hr class="docutils" />
 <section id="crear-un-objeto-pattern">
-<h3>Crear un objeto Pattern<a class="headerlink" href="#crear-un-objeto-pattern" title="Permalink to this headline">#</a></h3>
+<h3>Crear un objeto Pattern<a class="headerlink" href="#crear-un-objeto-pattern" title="Link to this heading">#</a></h3>
 <p>Para crear un objeto <code class="docutils literal notranslate"><span class="pre">Pattern</span></code> se debe de usar la función <code class="docutils literal notranslate"><span class="pre">re.compile()</span></code>, donde se indique la expresión regular a buscar.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1385,13 +1014,9 @@ Resultado de buscar &#39;abc&#39; con re.I: [&#39;abc&#39;, &#39;ABC&#39;, &#39;
 </section>
 <hr class="docutils" />
 <section id="atributos">
-<h3>Atributos<a class="headerlink" href="#atributos" title="Permalink to this headline">#</a></h3>
+<h3>Atributos<a class="headerlink" href="#atributos" title="Link to this heading">#</a></h3>
 <p>A continuación se presenta una lista de los atributos de instancia de <code class="docutils literal notranslate"><span class="pre">Pattern</span></code>.</p>
 <table class="table">
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Atributo</p></th>
 <th class="head"><p>Descripción</p></th>
@@ -1416,13 +1041,9 @@ Resultado de buscar &#39;abc&#39; con re.I: [&#39;abc&#39;, &#39;ABC&#39;, &#39;
 <hr class="docutils" />
 </section>
 <section id="metodos">
-<span id="pattern-metodos"></span><h3>Métodos<a class="headerlink" href="#metodos" title="Permalink to this headline">#</a></h3>
+<span id="pattern-metodos"></span><h3>Métodos<a class="headerlink" href="#metodos" title="Link to this heading">#</a></h3>
 <p>A continuación se presenta una lista de los métodos de instancia de <code class="docutils literal notranslate"><span class="pre">Pattern</span></code>.</p>
 <table class="table">
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Método</p></th>
 <th class="head"><p>Descripción</p></th>
@@ -1460,7 +1081,7 @@ Resultado de buscar &#39;abc&#39; con re.I: [&#39;abc&#39;, &#39;ABC&#39;, &#39;
 </section>
 </section>
 <section id="objeto-match">
-<span id="id2"></span><h2>Objeto Match<a class="headerlink" href="#objeto-match" title="Permalink to this headline">#</a></h2>
+<span id="id1"></span><h2>Objeto Match<a class="headerlink" href="#objeto-match" title="Link to this heading">#</a></h2>
 <p>Los objetos <code class="docutils literal notranslate"><span class="pre">Match</span></code> son objetos que son retornados por funciones como <code class="docutils literal notranslate"><span class="pre">re.match()</span></code> o <code class="docutils literal notranslate"><span class="pre">re.search()</span></code> o por métodos como <code class="docutils literal notranslate"><span class="pre">Pattern.match()</span></code> o <code class="docutils literal notranslate"><span class="pre">Pattern.search()</span></code>. En ellos está contenida la información de la primer coincidencia de un patrón.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1495,14 +1116,10 @@ Resultado de buscar &#39;abc&#39; con re.I: [&#39;abc&#39;, &#39;ABC&#39;, &#39;
 <p>Posteriormente se pueden usar sus atributos y métodos para recuperar información sobre el objeto, entre otras acciones.</p>
 <br>
 <hr class="docutils" />
-<section id="id3">
-<h3>Atributos<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<section id="id2">
+<h3>Atributos<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <p>A continuación se presenta una lista de los atributos de instancia de <code class="docutils literal notranslate"><span class="pre">Match</span></code>.</p>
 <table class="table">
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Atributo</p></th>
 <th class="head"><p>Descripción</p></th>
@@ -1532,14 +1149,10 @@ Resultado de buscar &#39;abc&#39; con re.I: [&#39;abc&#39;, &#39;ABC&#39;, &#39;
 <br>
 </section>
 <hr class="docutils" />
-<section id="id4">
-<h3>Métodos<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
+<section id="id3">
+<h3>Métodos<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <p>A continuación se presenta una lista de los métodos de instancia de <code class="docutils literal notranslate"><span class="pre">Match</span></code>.</p>
 <table class="table">
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Método</p></th>
 <th class="head"><p>Descripción</p></th>
@@ -1574,14 +1187,9 @@ Resultado de buscar &#39;abc&#39; con re.I: [&#39;abc&#39;, &#39;ABC&#39;, &#39;
 </section>
 </section>
 <section id="caracteres-especiales">
-<span id="id5"></span><h2>Caracteres especiales<a class="headerlink" href="#caracteres-especiales" title="Permalink to this headline">#</a></h2>
+<span id="id4"></span><h2>Caracteres especiales<a class="headerlink" href="#caracteres-especiales" title="Link to this heading">#</a></h2>
 <p>A continuación se presenta una lista de caracteres especiales para conformar las expresiones regulares. Para más información consultar la <a class="reference external" href="https://docs.python.org/3/library/re.html#regular-expression-syntax">documentacón</a> de Python.</p>
 <table class="table" id="table-caracteres-especiales">
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Carácter</p></th>
 <th class="head"><p>Descripción</p></th>
@@ -1643,14 +1251,9 @@ Resultado de buscar &#39;abc&#39; con re.I: [&#39;abc&#39;, &#39;ABC&#39;, &#39;
 <hr class="docutils" />
 </section>
 <section id="secuencias-especiales">
-<span id="sec-especiales"></span><h2>Secuencias especiales<a class="headerlink" href="#secuencias-especiales" title="Permalink to this headline">#</a></h2>
+<span id="sec-especiales"></span><h2>Secuencias especiales<a class="headerlink" href="#secuencias-especiales" title="Link to this heading">#</a></h2>
 <p>A continuación se presenta una lista de secuencias especiales que utilizan el símbolo “<code class="docutils literal notranslate"><span class="pre">\</span></code>” para conformar las expresiones regulares. Para más información consultar la <a class="reference external" href="https://docs.python.org/3/library/re.html#regular-expression-syntax">documentacón</a> de Python.</p>
 <table class="table" id="table-secuencias-especiales">
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Secuencia</p></th>
 <th class="head"><p>Descripción</p></th>
@@ -1717,7 +1320,7 @@ Resultado de buscar &#39;abc&#39; con re.I: [&#39;abc&#39;, &#39;ABC&#39;, &#39;
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./parts/02-modulos"
         },
         predefinedOutput: true
@@ -1725,50 +1328,128 @@ Resultado de buscar &#39;abc&#39; con re.I: [&#39;abc&#39;, &#39;ABC&#39;, &#39;
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="random.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Random</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="random.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Random</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="statistics.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="statistics.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Statistics</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#buscar-patrones-usando-regex">Buscar patrones usando regex</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#busqueda-greedy-y-non-greedy">Búsqueda greedy y non-greedy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#capturando-grupos">Capturando grupos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#capturando-un-grupo">Capturando un grupo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#capturando-multiples-grupos">Capturando múltiples grupos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sustituyendo-patrones">Sustituyendo patrones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flags">Flags</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-uso">Ejemplo de uso:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones">Funciones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objeto-regular-expression">Objeto Regular Expression</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crear-un-objeto-pattern">Crear un objeto Pattern</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos">Atributos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos">Métodos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objeto-match">Objeto Match</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Atributos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Métodos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caracteres-especiales">Caracteres especiales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#secuencias-especiales">Secuencias especiales</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By Nebok<br/>
-  
-      &copy; Copyright 2023.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+By Nebok
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

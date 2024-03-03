@@ -1,0 +1,714 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Módulo linalg &#8212; Manual de Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'parts/03-numpy/algebra-lineal';</script>
+    <link rel="icon" href="../../_static/nebok-favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/nebok-logo.png" class="logo__image only-light" alt="Manual de Python - Home"/>
+    <script>document.write(`<img src="../../_static/nebok-logo.png" class="logo__image only-dark" alt="Manual de Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Manual de Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Built-in</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01-built-in/built-in-index.html">Python estándar</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/ayuda.html">Obtener ayuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/comentarios.html">Comentarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/tipos-datos.html">Tipos de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/operadores-palabras.html">Operadores y palabras reservadas.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/entrada-salida.html">Entrada y salida de datos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/tipos-index.html">Tipos Built-In</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/booleanos.html">Valores booleanos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/numeros.html">Números</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/cadenas.html">Cadenas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/listas.html">Listas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/tuples.html">Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/sets.html">Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/diccionarios.html">Diccionarios</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/if-else.html">If … Else</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/for-loop.html">For Loop.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/do-while.html">Do While</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/funciones.html">Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/try-except.html">Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/context.html">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/io.html">Lectura y escritura de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/modulos.html">Paquetes y Módulos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/avanzado-index.html">Temas avanzados</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/decorators.html">Decorators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/iterators.html">Iterators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/generators.html">Generators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/oop.html">Programación orientada a objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/func-built-in.html">Funciones built-in</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-modulos/modulos-index.html">Módulos built-in</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/csv.html">csv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/datetime.html">Datetime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/itertools.html">Itertools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/json.html">JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/math.html">Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os.html">os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os-path.html">os.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/pickle.html">Pickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/random.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/regular-expression.html">Regular Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/statistics.html">Statistics</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/parts/03-numpy/algebra-lineal.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Módulo linalg</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operador">Operador @</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eigenvalores">Eigenvalores</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#factorizaciones">Factorizaciones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inversas-y-sistemas">Inversas y sistemas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normas-determinantes-y-trazas">Normas, determinantes y trazas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#productos">Productos</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="modulo-linalg">
+<h1>Módulo linalg<a class="headerlink" href="#modulo-linalg" title="Link to this heading">#</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">numpy.linalg</span></code> es un módulo que provee de funciones útiles para trabajar con matrices y otras estrcuturas y operacioes de álgebra lineal. Es posible importar solo el módulo o una función específica.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar el módulo</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">linalg</span>
+
+<span class="c1"># Importar una función específica</span>
+<span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">function_name</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><em>function_name</em> es el nombre de la función que se desea importar.</p></li>
+<li><p>Si se importa todo el módulo es necesario usar <code class="docutils literal notranslate"><span class="pre">linalg.function_name()</span></code> cada vez que se llame a una función el módulo.</p></li>
+<li><p>Si se usa <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code> y se desea usar una función del módulo <code class="docutils literal notranslate"><span class="pre">linalg</span></code>, entonces se debe usar <code class="docutils literal notranslate"><span class="pre">np.linalg.function_name()</span></code>.</p></li>
+</ul>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Para más información de este módulo visitar la <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.linalg.html#linear-algebra-numpy-linalg">documentación</a> de <code class="docutils literal notranslate"><span class="pre">numpy</span></code>.</p>
+</div>
+<br>
+<hr class="docutils" />
+<section id="operador">
+<h2>Operador &#64;<a class="headerlink" href="#operador" title="Link to this heading">#</a></h2>
+<p>El operador <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> es un operador especial de <code class="docutils literal notranslate"><span class="pre">numpy</span></code> que permite realizar multiplicaciones entre matrices.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Uso del operador @</span>
+<span class="n">array1</span> <span class="o">@</span> <span class="n">array2</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>La multiplacación se debe realizar entre arrays 2D.</p></li>
+<li><p>Los arrays deben de satisfacer que el número de columnas de <code class="docutils literal notranslate"><span class="pre">array1</span></code> debe ser igual al número de filas de <code class="docutils literal notranslate"><span class="pre">array2</span></code>, es decir, si <code class="docutils literal notranslate"><span class="pre">array1</span></code> tiene shape <code class="docutils literal notranslate"><span class="pre">(m,</span> <span class="pre">k)</span></code>, entonces <code class="docutils literal notranslate"><span class="pre">array2</span></code> debe tener shape <code class="docutils literal notranslate"><span class="pre">(k,</span> <span class="pre">n)</span></code>, donde <span class="math notranslate nohighlight">\(m\)</span>, <span class="math notranslate nohighlight">\(k\)</span> y <span class="math notranslate nohighlight">\(n\)</span> son cualquier número entero.</p></li>
+<li><p>si <code class="docutils literal notranslate"><span class="pre">array1</span></code> tiene shape <code class="docutils literal notranslate"><span class="pre">(m,</span> <span class="pre">k)</span></code> y <code class="docutils literal notranslate"><span class="pre">array2</span></code> tiene shape <code class="docutils literal notranslate"><span class="pre">(k,</span> <span class="pre">n)</span></code>, entonces <code class="docutils literal notranslate"><span class="pre">array1</span> <span class="pre">&#64;</span> <span class="pre">array2</span></code> tiene shape <code class="docutils literal notranslate"><span class="pre">(m,</span> <span class="pre">n)</span></code>.</p></li>
+</ul>
+<br>
+</section>
+<hr class="docutils" />
+<section id="eigenvalores">
+<h2>Eigenvalores<a class="headerlink" href="#eigenvalores" title="Link to this heading">#</a></h2>
+<p>Funciones para cálculos de eigenvalores y eigenvectores (valores propios y vectores propios).</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.eig.html">linalg.eig</a>(a)</p></td>
+<td><p>Calcula los valores propios y los vectores propios de una matriz cuadrada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.eigh.html">linalg.eigh</a>(a[, UPLO])</p></td>
+<td><p>Devuelve los valores propios y los vectores propios de una matriz hermitiana compleja (simétrica conjugada) o una matriz simétrica real.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.eigvals.html">linalg.eigvals</a>(a)</p></td>
+<td><p>Calcula los valores propios de una matriz general.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.eigvalsh.html">linalg.eigvalsh</a>(a[, UPLO])</p></td>
+<td><p>Calcula los valores propios de una matriz hermitiana compleja o simétrica real.</p></td>
+</tr>
+</tbody>
+</table>
+<br>
+</section>
+<hr class="docutils" />
+<section id="factorizaciones">
+<h2>Factorizaciones<a class="headerlink" href="#factorizaciones" title="Link to this heading">#</a></h2>
+<p>Funciones para factorizaciones (descomposiciones) de matrices.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.cholesky.html">linalg.cholesky</a>(a)</p></td>
+<td><p>Descomposición de Cholesky.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.qr.html">linalg.qr</a>(a[, mode])</p></td>
+<td><p>Calcula la factorización qr de una matriz.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.svd.html">linalg.svd</a>(a[, full_matrices, compute_uv, …])</p></td>
+<td><p>Descomposición en valores singulares.</p></td>
+</tr>
+</tbody>
+</table>
+<br>
+</section>
+<hr class="docutils" />
+<section id="inversas-y-sistemas">
+<h2>Inversas y sistemas<a class="headerlink" href="#inversas-y-sistemas" title="Link to this heading">#</a></h2>
+<p>Funciones para cálculo de inversas y para solución de sistemas de ecuaciones lineales.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.inv.html">linalg.inv</a>(a)</p></td>
+<td><p>Calcular la inversa de una matriz.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.lstsq.html">linalg.lstsq</a>(a, b[, rcond])</p></td>
+<td><p>Devuelve la solución de mínimos cuadrados a una ecuación matricial lineal.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.pinv.html">linalg.pinv</a>(a[, rcond, hermitian])</p></td>
+<td><p>Calcula la pseudo-inversa (Moore-Penrose) de una matriz.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.solve.html">linalg.solve</a>(a, b)</p></td>
+<td><p>Resuelve una ecuación matricial lineal o un sistema de ecuaciones escalares lineales.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.tensorinv.html">linalg.tensorinv</a>(a[, ind])</p></td>
+<td><p>Calcula la inversa de una arreglo N-dimensional.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.tensorsolve.html">linalg.tensorsolve</a>(a, b[, axes])</p></td>
+<td><p>Resuelve la ecuación tensorial <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">x</span> <span class="pre">=</span> <span class="pre">b</span></code> para <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<br>
+</section>
+<hr class="docutils" />
+<section id="normas-determinantes-y-trazas">
+<h2>Normas, determinantes y trazas<a class="headerlink" href="#normas-determinantes-y-trazas" title="Link to this heading">#</a></h2>
+<p>Funciones para cálculo de normas y otros cálculos como determinantes, trazas y rango.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.det.html">linalg.det</a>(a)</p></td>
+<td><p>Calcula el determinante de una matriz.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.matrix_rank.html">linalg.matrix_rank</a>(A[, tol, hermitian])</p></td>
+<td><p>Devuelve el rango de matriz de la matriz usando el método SVD.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.norm.html">linalg.norm</a>(x[, ord, axis, keepdims])</p></td>
+<td><p>Calcula la norma matricial o vectorial.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.slogdet.html">linalg.slogdet</a>(a)</p></td>
+<td><p>Calcula el signo y el logaritmo (natural) del determinante de una matriz.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.trace.html">trace</a>(a[, offset, axis1, axis2, dtype, out])</p></td>
+<td><p>Devuelve la suma a lo largo de las diagonales de la matriz.</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>Notar que la función <code class="docutils literal notranslate"><span class="pre">trace()</span></code> no pertenece al módulo <code class="docutils literal notranslate"><span class="pre">linalg</span></code>.</p></li>
+</ul>
+<br>
+</section>
+<hr class="docutils" />
+<section id="productos">
+<h2>Productos<a class="headerlink" href="#productos" title="Link to this heading">#</a></h2>
+<p>Funciones para cálculos de productos entre matrices y vectores, como el producto punto, productos matriciales y el producto cruz, entre otros.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Notar que no todas las funciones enlistadas a continuación pertenecen al módulo <code class="docutils literal notranslate"><span class="pre">linalg</span></code>, únicamente aquellas cuyo nombre están de la forma <code class="docutils literal notranslate"><span class="pre">linalg.func_name</span></code>.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.dot.html">dot</a>(a, b[, out])</p></td>
+<td><p>Producto escalar de dos matrices.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.inner.html">inner</a>(a, b, /)</p></td>
+<td><p>Producto interno de dos arreglos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.kron.html">kron</a>(a, b)</p></td>
+<td><p>Producto de Kronecker de dos matrices.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.matrix_power.html">linalg.matrix_power</a>(a, n)</p></td>
+<td><p>Eleva una matriz cuadrada a la potencia (entera) n.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.multi_dot.html">linalg.multi_dot</a>(arrays, *[, out])</p></td>
+<td><p>Calcule el producto punto de dos o más matrices en una sola llamada de función.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.matmul.html">matmul</a>(x1, x2, /[, out, casting, order, …])</p></td>
+<td><p>Producto matricial de dos arreglos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.outer.html">outer</a>(a, b[, out])</p></td>
+<td><p>Calcular el producto externo de dos vectores. El producto externo es igual al producto de cada par ordenado del producto cartesiano de dos vectores.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.tensordot.html">tensordot</a>(a, b[, axes])</p></td>
+<td><p>Calcula el producto escalar del tensor a lo largo de los ejes especificados.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.vdot.html">vdot</a>(a, b, /)</p></td>
+<td><p>Devuelve el producto escalar de dos vectores.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./parts/03-numpy"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operador">Operador @</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eigenvalores">Eigenvalores</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#factorizaciones">Factorizaciones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inversas-y-sistemas">Inversas y sistemas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normas-determinantes-y-trazas">Normas, determinantes y trazas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#productos">Productos</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nebok
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

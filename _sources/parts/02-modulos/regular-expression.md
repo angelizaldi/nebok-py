@@ -36,7 +36,7 @@ Los patrones de expresiones regulares se indican utilizando cadenas _crudas_ (_"
 :::
 
 
-**1.** Usar directamente las {ref}`funciones` para buscar patrones. Por ejemplo `re.search()`, `re.match()` o `re.findall()`. En este caso se debe de proveer tanto del patrón a buscar como de la cadena donde se va a buscar el patrón. Ejemplo:
+**1.** Usar directamente las {ref}`funciones-regex` para buscar patrones. Por ejemplo `re.search()`, `re.match()` o `re.findall()`. En este caso se debe de proveer tanto del patrón a buscar como de la cadena donde se va a buscar el patrón. Ejemplo:
 
 ```{code-cell} python3
 # Importar el módulo
@@ -129,6 +129,7 @@ print(re.search(r"\d{2,3}?", cadena).group(0))
 
 <br><br>
 
+---
 ## Capturando grupos
 
 Si se desea recuperar solo una parte del patrón usado, y no todo, se puede encerrar entre paréntesis el grupo de caracteres que se desea recuperar. Un patrón puede tener uno o más grupos.
@@ -332,7 +333,7 @@ print(result)
 ---
 ## Flags
 
-A continuación se presenta una lista de `flags` para modificar el comportamiento de las {ref}`funciones` o de los métodos de objetos como {ref}`objeto-match` o {ref}`objeto-pattern`. Las flags se ponen como argumentos de las funciones como `re.search()`, `re.match()` o `re.find_all()` o de los métodos del objeto `Pattern`.
+A continuación se presenta una lista de `flags` para modificar el comportamiento de las {ref}`funciones-regex` o de los métodos de objetos como {ref}`objeto-match` o {ref}`objeto-pattern`. Las flags se ponen como argumentos de las funciones como `re.search()`, `re.match()` o `re.find_all()` o de los métodos del objeto `Pattern`.
 
 Listado de flags:
 
@@ -395,7 +396,7 @@ print(f"Resultado de buscar \'abc\' con re.I: {result2}")
 <br><br>
 
 ---
-(funciones)=
+(funciones-regex)=
 ## Funciones
 
 A Continuación se presenta una lista de funciones del módulo `re`.
@@ -437,6 +438,9 @@ A Continuación se presenta una lista de funciones del módulo `re`.
 
 Los objetos de regular expression `Pattern` son objetos que son retornados por la función `re.compile()`. Estos objetos se pueden usar para buscar coincidencias.
 
+<br>
+
+---
 ### Crear un objeto Pattern
 
 Para crear un objeto `Pattern` se debe de usar la función `re.compile()`, donde se indique la expresión regular a buscar.

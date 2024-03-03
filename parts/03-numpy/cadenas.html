@@ -1,0 +1,819 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Modulo char &#8212; Manual de Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'parts/03-numpy/cadenas';</script>
+    <link rel="icon" href="../../_static/nebok-favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/nebok-logo.png" class="logo__image only-light" alt="Manual de Python - Home"/>
+    <script>document.write(`<img src="../../_static/nebok-logo.png" class="logo__image only-dark" alt="Manual de Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Manual de Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Built-in</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01-built-in/built-in-index.html">Python estándar</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/ayuda.html">Obtener ayuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/comentarios.html">Comentarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/tipos-datos.html">Tipos de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/operadores-palabras.html">Operadores y palabras reservadas.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/entrada-salida.html">Entrada y salida de datos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/tipos-index.html">Tipos Built-In</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/booleanos.html">Valores booleanos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/numeros.html">Números</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/cadenas.html">Cadenas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/listas.html">Listas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/tuples.html">Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/sets.html">Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/diccionarios.html">Diccionarios</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/if-else.html">If … Else</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/for-loop.html">For Loop.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/do-while.html">Do While</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/funciones.html">Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/try-except.html">Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/context.html">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/io.html">Lectura y escritura de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/modulos.html">Paquetes y Módulos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/avanzado-index.html">Temas avanzados</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/decorators.html">Decorators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/iterators.html">Iterators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/generators.html">Generators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/oop.html">Programación orientada a objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/func-built-in.html">Funciones built-in</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-modulos/modulos-index.html">Módulos built-in</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/csv.html">csv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/datetime.html">Datetime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/itertools.html">Itertools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/json.html">JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/math.html">Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os.html">os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os-path.html">os.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/pickle.html">Pickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/random.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/regular-expression.html">Regular Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/statistics.html">Statistics</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/parts/03-numpy/cadenas.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Modulo char</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#buscar">Buscar</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparaciones">Comparaciones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formato">Formato</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#informacion">Información</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operaciones">Operaciones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#otros">Otros</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reemplazar">Reemplazar</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#separar-y-concatenar">Separar y concatenar</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strip">Strip</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="modulo-char">
+<h1>Modulo char<a class="headerlink" href="#modulo-char" title="Link to this heading">#</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">numpy.char</span></code> es un módulo que provee de funciones relacionadas con arrays de cadenas. Es posible importar solo el módulo o una función específica.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar el módulo</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">char</span>
+
+<span class="c1"># Importar una función específica</span>
+<span class="kn">from</span> <span class="nn">numpy.char</span> <span class="kn">import</span> <span class="n">function_name</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><em>function_name</em> es el nombre de la función que se desea importar.</p></li>
+<li><p>Si se importa todo el módulo es necesario usar <code class="docutils literal notranslate"><span class="pre">char.function_name()</span></code> cada vez que se llame a una función el módulo.</p></li>
+<li><p>Si se usa <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code> y se desea usar una función del módulo <code class="docutils literal notranslate"><span class="pre">char</span></code>, entonces se debe usar <code class="docutils literal notranslate"><span class="pre">np.char.function_name()</span></code>.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Para una lista completa visitar la <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.char.html#module-numpy.char">documentación</a> de <code class="docutils literal notranslate"><span class="pre">numpy</span></code>.</p>
+</div>
+<hr class="docutils" />
+<section id="buscar">
+<h2>Buscar<a class="headerlink" href="#buscar" title="Link to this heading">#</a></h2>
+<p>Funciones para buscar subcadenas.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.find.html">char.find</a>(a, sub[, start, end])</p></td>
+<td><p>Para cada elemento, devuelve el índice más bajo de la cadena donde se encuentra la subcadena <code class="docutils literal notranslate"><span class="pre">sub</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.index.html">char.index</a>(a, sub[, start, end])</p></td>
+<td><p>Como <code class="docutils literal notranslate"><span class="pre">find</span></code>, pero genera <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> cuando no se encuentra la subcadena.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.rfind.html">char.rfind</a>(a, sub[, start, end])</p></td>
+<td><p>Para cada elemento en <code class="docutils literal notranslate"><span class="pre">a</span></code>, devuelva el índice más alto en la cadena donde se encuentra la subcadena <code class="docutils literal notranslate"><span class="pre">sub</span></code>, de modo que <code class="docutils literal notranslate"><span class="pre">sub</span></code> esté contenido dentro de <code class="docutils literal notranslate"><span class="pre">[start,</span> <span class="pre">end]</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.rindex.html">char.rindex</a>(a, sub[, start, end])</p></td>
+<td><p>Como <code class="docutils literal notranslate"><span class="pre">rfind</span></code>, pero genera <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> cuando no se encuentra la subcadena <code class="docutils literal notranslate"><span class="pre">sub</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<br>
+</section>
+<hr class="docutils" />
+<section id="comparaciones">
+<h2>Comparaciones<a class="headerlink" href="#comparaciones" title="Link to this heading">#</a></h2>
+<p>Funciones para realizar comparaciones entre arreglos. Estas funciones eliminan los espacios en blanco al inicio y al final de los elementos antes de realizar la comparación.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.equal.html">char.equal</a>(x1, x2)</p></td>
+<td><p>Devuelve <code class="docutils literal notranslate"><span class="pre">(x1</span> <span class="pre">==</span> <span class="pre">x2)</span></code> por elementos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.greater.html">char.greater</a>(x1, x2)</p></td>
+<td><p>Devuelve <code class="docutils literal notranslate"><span class="pre">(x1</span> <span class="pre">&gt;</span> <span class="pre">x2)</span></code> por elementos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.greater_equal.html">char.greater_equal</a>(x1, x2)</p></td>
+<td><p>Retorna <code class="docutils literal notranslate"><span class="pre">(x1</span> <span class="pre">&gt;=</span> <span class="pre">x2)</span></code> por elementos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.less.html">char.less</a>(x1, x2)</p></td>
+<td><p>Devuelve <code class="docutils literal notranslate"><span class="pre">(x1</span> <span class="pre">&lt;</span> <span class="pre">x2)</span></code> por elementos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.less_equal.html">char.less_equal</a>(x1, x2)</p></td>
+<td><p>Retorna <code class="docutils literal notranslate"><span class="pre">(x1</span> <span class="pre">&lt;=</span> <span class="pre">x2)</span></code> por elementos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.not_equal.html">char.not_equal</a>(x1, x2)</p></td>
+<td><p>Devuelve <code class="docutils literal notranslate"><span class="pre">(x1</span> <span class="pre">!=</span> <span class="pre">x2)</span></code> por elementos.</p></td>
+</tr>
+</tbody>
+</table>
+<br>
+</section>
+<hr class="docutils" />
+<section id="formato">
+<h2>Formato<a class="headerlink" href="#formato" title="Link to this heading">#</a></h2>
+<p>Funciones que modifican el formato de los elementos.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.capitalize.html">char.capitalize</a>(a)</p></td>
+<td><p>Devuelve una copia de <code class="docutils literal notranslate"><span class="pre">a</span></code> con solo el primer carácter de cada elemento en mayúscula.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.center.html">char.center</a>(a, width[, fillchar])</p></td>
+<td><p>Devuelve una copia de <code class="docutils literal notranslate"><span class="pre">a</span></code> con sus elementos centrados en una cadena de largo <code class="docutils literal notranslate"><span class="pre">width</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.ljust.html">char.ljust</a>(a, width[, fillchar])</p></td>
+<td><p>Devuelve un arreglo con los elementos de <code class="docutils literal notranslate"><span class="pre">a</span></code> justificados a la izquierda en una cadena de longitud <code class="docutils literal notranslate"><span class="pre">width</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.lower.html">char.lower</a>(a)</p></td>
+<td><p>Devuelve un arreglo con los elementos convertidos a minúsculas.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.rjust.html">char.rjust</a>(a, width[, fillchar])</p></td>
+<td><p>Devuelve un arreglo con los elementos de <code class="docutils literal notranslate"><span class="pre">a</span></code> justificados a la derecha en una cadena de longitud <code class="docutils literal notranslate"><span class="pre">width</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.swapcase.html">char.swapcase</a>(a)</p></td>
+<td><p>Devuelve por elementos una copia de la cadena con los caracteres en mayúsculas convertidos a minúsculas y viceversa.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.title.html">char.title</a>(a)</p></td>
+<td><p>Devuelve por elementos una copia de la cadena con los caracteres convertidos a titulos, donde la primer letra de cada palabra se pone en mayúsculas y el resto en minúsculas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.upper.html">char.upper</a>(a)</p></td>
+<td><p>Devuelve un arreglo con los elementos convertidos a mayúsculas.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.zfill.html">char.zfill</a>(a, width)</p></td>
+<td><p>Devuelve la cadena numérica rellena con ceros a la izquierda.</p></td>
+</tr>
+</tbody>
+</table>
+<br>
+</section>
+<hr class="docutils" />
+<section id="informacion">
+<h2>Información<a class="headerlink" href="#informacion" title="Link to this heading">#</a></h2>
+<p>Funciones que retornan información sobre los elementos de los arrays.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.count.html">char.count</a>(a, sub[, start, end])</p></td>
+<td><p>Devuelve un arreglo con el número de ocurrencias no superpuestas de la subcadena <code class="docutils literal notranslate"><span class="pre">sub</span></code> en el rango <code class="docutils literal notranslate"><span class="pre">[start,</span> <span class="pre">end]</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.endswith.html">char.endswith</a>(a, suffix[, start, end])</p></td>
+<td><p>Devuelve un arreglo booleano que es <code class="docutils literal notranslate"><span class="pre">True</span></code> donde el elemento de cada cadena en <code class="docutils literal notranslate"><span class="pre">a</span></code> termina con <code class="docutils literal notranslate"><span class="pre">suffix</span></code>, de lo contrario, es <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.isalnum.html">char.isalnum</a>(a)</p></td>
+<td><p>Devuelve <code class="docutils literal notranslate"><span class="pre">True</span></code> para cada elemento si todos los caracteres de la cadena son alfanuméricos y hay al menos un carácter; de lo contrario, devuelve <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.isalpha.html">char.isalpha</a>(a)</p></td>
+<td><p>Devuelve <code class="docutils literal notranslate"><span class="pre">True</span></code> para cada elemento si todos los caracteres de la cadena son alfabéticos y hay al menos un carácter; de lo contrario, devuelve <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.isdecimal.html">char.isdecimal</a>(a)</p></td>
+<td><p>Para cada elemento, devuelva <code class="docutils literal notranslate"><span class="pre">True</span></code> si solo hay caracteres decimales en el elemento.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.isdigit.html">char.isdigit</a>(a)</p></td>
+<td><p>Devuelve <code class="docutils literal notranslate"><span class="pre">True</span></code> para cada elemento si todos los caracteres de la cadena son dígitos y hay al menos un carácter; de lo contrario, devuelve <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.islower.html">char.islower</a>(a)</p></td>
+<td><p>Devuelve <code class="docutils literal notranslate"><span class="pre">True</span></code> para cada elemento si todos los caracteres de la cadena están en minúsculas y hay al menos un carácter; de lo contrario, devuelve <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.isnumeric.html">char.isnumeric</a>(a)</p></td>
+<td><p>Para cada elemento, devuelva <code class="docutils literal notranslate"><span class="pre">True</span></code> si solo hay caracteres numéricos en el elemento.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.isspace.html">char.isspace</a>(a)</p></td>
+<td><p>Devuelve <code class="docutils literal notranslate"><span class="pre">True</span></code> para cada elemento si solo hay caracteres de espacio en blanco en la cadena y hay al menos un carácter; de lo contrario, devuelve <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.istitle.html">char.istitle</a>(a)</p></td>
+<td><p>Devuelve <code class="docutils literal notranslate"><span class="pre">True</span></code> para cada elemento si el elemento es una cadena tipo título y hay al menos un carácter; de lo contrario, devuelve <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.isupper.html">char.isupper</a>(a)</p></td>
+<td><p>Devuelve <code class="docutils literal notranslate"><span class="pre">True</span></code> para cada elemento si todos los caracteres en la cadena están en mayúsculas y hay al menos un carácter; de lo contrario, devuelve <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.startswith.html">char.startswith</a>(a, prefix[, start, end])</p></td>
+<td><p>Devuelve un arreglo booleano que es <code class="docutils literal notranslate"><span class="pre">True</span></code> donde el elemento de cadena en <code class="docutils literal notranslate"><span class="pre">a</span></code> comienza con <code class="docutils literal notranslate"><span class="pre">prefix</span></code>; de lo contrario, es <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.str_len.html">char.str_len</a>(a)</p></td>
+<td><p>Devuelve <code class="docutils literal notranslate"><span class="pre">len(a)</span></code> por elementos.</p></td>
+</tr>
+</tbody>
+</table>
+<br>
+</section>
+<hr class="docutils" />
+<section id="operaciones">
+<h2>Operaciones<a class="headerlink" href="#operaciones" title="Link to this heading">#</a></h2>
+<p>Funciones para realizar operaciones vectorizadas entre arrays de cadenas..</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.add.html">char.add</a>(x1, x2)</p></td>
+<td><p>Devuelve la concatenación de cadenas por elementos para dos arreglos de <code class="docutils literal notranslate"><span class="pre">str</span></code> o unicode.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.multiply.html">char.multiply</a>(a, i)</p></td>
+<td><p>Retorna <code class="docutils literal notranslate"><span class="pre">(a</span> <span class="pre">*</span> <span class="pre">i)</span></code>, es decir, la concatenación múltiple de cadenas, por elementos.</p></td>
+</tr>
+</tbody>
+</table>
+<br>
+</section>
+<hr class="docutils" />
+<section id="otros">
+<h2>Otros<a class="headerlink" href="#otros" title="Link to this heading">#</a></h2>
+<p>Otras funciones.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.decode.html">char.decode</a>(a[, encoding, errors])</p></td>
+<td><p>Llama <code class="docutils literal notranslate"><span class="pre">bytes.decode</span></code> por elementos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.encode.html">char.encode</a>(a[, encoding, errors])</p></td>
+<td><p>Llama <code class="docutils literal notranslate"><span class="pre">str.encode</span></code> por elementos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.translate.html">char.translate</a>(a, table[, deletechars])</p></td>
+<td><p>Para cada elemento en <code class="docutils literal notranslate"><span class="pre">a</span></code>, devuelve una copia de la cadena donde se eliminan todos los caracteres que aparecen en el argumento opcional <code class="docutils literal notranslate"><span class="pre">deletechars</span></code>, y los caracteres restantes se han mapeado a través de la tabla de traducción dada.</p></td>
+</tr>
+</tbody>
+</table>
+<br>
+</section>
+<hr class="docutils" />
+<section id="reemplazar">
+<h2>Reemplazar<a class="headerlink" href="#reemplazar" title="Link to this heading">#</a></h2>
+<p>Funciones para reemplazar subcadenas por otras.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.expandtabs.html">char.expandtabs</a>(a[, tabsize])</p></td>
+<td><p>Devuelve una copia de cada elemento de la cadena donde los caracteres de tabulación se reemplazan por uno o más espacios.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.replace.html">char.replace</a>(a, old, new[, count])</p></td>
+<td><p>Para cada elemento en <code class="docutils literal notranslate"><span class="pre">a</span></code>, devuelva una copia de la cadena con todas las apariciones de la subcadena <code class="docutils literal notranslate"><span class="pre">old</span></code> reemplazada por <code class="docutils literal notranslate"><span class="pre">new</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<br>
+</section>
+<hr class="docutils" />
+<section id="separar-y-concatenar">
+<h2>Separar y concatenar<a class="headerlink" href="#separar-y-concatenar" title="Link to this heading">#</a></h2>
+<p>Funciones para hacer <em>splitting</em> y concatenaciones.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.join.html">char.join</a>(sep, seq)</p></td>
+<td><p>Devuelve una cadena que es la concatenación de las cadenas en la secuencia <code class="docutils literal notranslate"><span class="pre">seq</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.partition.html">char.partition</a>(a, sep)</p></td>
+<td><p>Divide cada elemento con base a <code class="docutils literal notranslate"><span class="pre">sep</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.rpartition.html">char.rpartition</a>(a, sep)</p></td>
+<td><p>Divide cada elemento con base a <code class="docutils literal notranslate"><span class="pre">sep</span></code> más a la derecha.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.rsplit.html">char.rsplit</a>(a[, sep, maxsplit])</p></td>
+<td><p>Para cada elemento de <code class="docutils literal notranslate"><span class="pre">a</span></code>, devuelva una lista de las palabras de la cadena, utilizando <code class="docutils literal notranslate"><span class="pre">sep</span></code> como cadena delimitadora.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.split.html">char.split</a>(a[, sep, maxsplit])</p></td>
+<td><p>Para cada elemento de <code class="docutils literal notranslate"><span class="pre">a</span></code>, devuelva una lista de las palabras de la cadena, utilizando <code class="docutils literal notranslate"><span class="pre">sep</span></code> como cadena delimitadora.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.splitlines.html">char.splitlines</a>(a[, keepends])</p></td>
+<td><p>Para cada elemento de <code class="docutils literal notranslate"><span class="pre">a</span></code>, devuelva una lista de las líneas del elemento, rompiendo en los límites de línea.</p></td>
+</tr>
+</tbody>
+</table>
+<br>
+</section>
+<hr class="docutils" />
+<section id="strip">
+<h2>Strip<a class="headerlink" href="#strip" title="Link to this heading">#</a></h2>
+<p>Funciones para eliminar caracteres al inicio, al final o ambos de los elementos de un arreglo.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.lstrip.html">char.lstrip</a>(a[, chars])</p></td>
+<td><p>Para cada elemento en <code class="docutils literal notranslate"><span class="pre">a</span></code>, devuelva una copia con <code class="docutils literal notranslate"><span class="pre">chars</span></code> eliminados al inicio de la cadena.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.rstrip.html">char.rstrip</a>(a[, chars])</p></td>
+<td><p>Para cada elemento en <code class="docutils literal notranslate"><span class="pre">a</span></code>, devuelva una copia con los caracteres finales eliminados.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.strip.html">char.strip</a>(a[, chars])</p></td>
+<td><p>Para cada elemento en <code class="docutils literal notranslate"><span class="pre">a</span></code>, devuelva una copia con los caracteres iniciales y finales eliminados.</p></td>
+</tr>
+</tbody>
+</table>
+<br>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./parts/03-numpy"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#buscar">Buscar</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparaciones">Comparaciones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formato">Formato</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#informacion">Información</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operaciones">Operaciones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#otros">Otros</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reemplazar">Reemplazar</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#separar-y-concatenar">Separar y concatenar</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strip">Strip</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nebok
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

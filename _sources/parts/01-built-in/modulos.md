@@ -1,4 +1,4 @@
-# Paquetes y Módulos.
+# Paquetes y Módulos
 
 Un **módulo** es un archivo de Python, con extensión _.py_, que contiene una seríe de funciones, variables y/o contantes. Un **paquete** es un conjunto de módulos. Es posible importar módulos y paquetes a un script para tener acceso a todo el contenido del módulo o paquete.
 
@@ -52,8 +52,10 @@ from package_name.module_name import *
 ```
 - No es una buena practica importar de esta manera.
 
+<br/>
+
 ---
-## Utilizar las funciones, variables y/o constantes de un módulo:
+## Utilizar las funciones, variables y/o constantes de un módulo
 
 Para utilizar las funciones, variables y/o constantes de un módulo o paquete importado se tiene que usar el nombre del paquete/módulo o aquel que se le asignó con `as`, seguido de un punto ‘.’, seguido del nombre de la función con sus respectivos argumentos (si existen).
 ```python
@@ -62,9 +64,11 @@ package_name.module_name.function_name(args)
 package_name.module_name.variable_name
 ```
 - Este es un ejemplo general, la sintaxis dependerá de cómo se importó el paquete, módulo o función/objeto.
-   
+
+<br/>
+
 ---
-## Módulos locales:
+## Módulos locales
 
 Se puede importar un archivo de python (_.py_) local a la sesión para poder utilizar las constantes, funciones, etc. definidas en el archivo. Para ello el archivo debe de estar en el directorio de la sesión y simplemente importarlo como un módulo.
 ```python

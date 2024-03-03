@@ -15,11 +15,13 @@ kernelspec:
 Corresponde al tipo `set`. Son objetos iterables para almacener múltiples elementos en una sola variable. Algunas características del tipo de dato` set` son:
 - Se pueden almacenar diferentes tipos de datos en un `set`.
 - Los elementos no están ordenados, por lo tanto no se puede acceder a ellos por medio de índices.
-- Un mismo valor **no** puede existir múltiples veces en un `set`.
+- Un mismo valor **no** puede existir múltiples veces en una `set`.
 - Es mutable: Se pueden modificar una vez creado el `set`. 
 - Es un iterable: Se puede iterar por sus elementos y se puede usar la palabra reservada `in` para verificar memebresía.
 
 Para más información visitar la [documentación](https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset) de Python.
+
+<br/>
 
 ---
 ## Creación de sets
@@ -38,28 +40,32 @@ X = {x1, x2, ..., xn}
 # Convertir el iterable Y a un set
 X = set(Y)
 ```
-- Si `Y` tenía elementos repetidos, `X` tendrá solo los elementos únicos.
+- Si `Y` tenía elementos repetidos, entonces solo se mantendrá una copia de ellos en `X`.
 
 Otra forma de crear un `set` es con {ref}`set-comp`.
+
+<br/>
 
 ---
 ## Selección de elementos
 
 No se puede extraer los elementos de un set. La única forma para acceder a los elementos de un set es en un `for loop` (ver {ref}`iteracion-sets`) o conviertiendo el `set` en `list` o alguna otra secuencia.
 
+<br/>
+
 ---
 ##  Agregar y eliminar elementos
 
 Para agregar y eliminar elementos de un `set` usar los siguientes métodos:
 - Para agregar:
-  - Agregar un elemento al set usar el método `set.add`.
-  - Concatenar sets usar el método `set.update`.
+  - Agregar un elemento al set usar el método `set.add()`.
+  - Concatenar sets usar el método `set.update()`.
 
 - Para eliminar:
-  - Eliminar todos los elementos usar el método `set.clear`.
-  - Eliminar un elemento específico usar el método `set.discard`. 
-  - Eliminar y retornar un elemento específico usar el método `set.pop`.
-  - Eliminar un elemento específico y retornar error si no existe usar el método `set.remove`.
+  - Eliminar todos los elementos usar el método `set.clear()`.
+  - Eliminar un elemento específico usar el método `set.discard()`. 
+  - Eliminar y retornar un elemento específico usar el método `set.pop()`.
+  - Eliminar un elemento específico y retornar error si no existe usar el método `set.remove()`.
  
 ```{note}
 Para más información de esos métodos consultar la sección de {ref}`Metodos-Agregar <set-metodos-agregar>` y {ref}`Metodos-Eliminar <set-metodos-eliminar>`.
@@ -71,6 +77,8 @@ Para eliminar todo el `set` (no solo sus elementos) se puede usar la palabra res
 del X
 ```
 
+<br/>
+
 ---
 ## Verificar que un elemento exista en un set:
 Para verificar si un elemento está dentro de un `set` usar el operador de membresía `in`:
@@ -79,6 +87,8 @@ Para verificar si un elemento está dentro de un `set` usar el operador de membr
 x in X
 ```
 - Alternativamente se puede usar `not in`.
+
+<br/>
 
 ---
 (iteracion-sets)=
@@ -91,21 +101,29 @@ for ele in X:
     ...
 ```
 
-```{caution} Como los elementos de un set no están ordenados, entonces el orden en el que aparecen los elementos puede diferir si se itera un mismo set varias veces.
+```{caution} Como los sets no están indexados el orden en el que aparecen los elementos puede diferir si se itera un mismo set varias veces.
 ```
+
+<br/>
 
 ---
 ## Operaciones entre conjuntos
 
 Los `set` básicamente son la representación de un conjunto matemático en Python, es decir, una colección de elementos únicos. Por ello se puede realizar operaciones entre sets de la misma manera como se hacen operaciones entre conjuntos. A continuación se enlistan las operaciones disponibles:
 - **Unión**: Para determinar la unión de dos sets se usa el operador `|`: <br> `X|Y`
-- **Intersección**: Para determinar la intersección de dos sets se usa el operador `&`: <br> `X&Y`.
-- **Diferencia**: Para determinar la diferenca de dos sets se usa el operador `-`: <br> `X-Y`.
+- **Intersección**: Para determinar la intersección (elementos en común) de dos sets se usa el operador `&`: <br> `X&Y`.
+- **Diferencia**: Para determinar la diferencia de dos sets se usa el operador `-`: <br> `X-Y`.
 - **Diferencia simétrica**: Para determinar la diferencia simétrica de dos sets se usa el operador `^`: <br> `X^Y`.
-- **Subconjunto propio**: Para determinar si un set es un subcojunto propio se puede usar los operadores `<` o `>`: <br> `X<Y` o `X>Y`.
-- **Subconjunto**: Para determinar si un set es un subcojunto se puede usar los operadores `<=` o `>=`: <br> `X<=Y` o `X>=Y`.
+- **Subconjunto propio**: Para determinar si un set es un subcojunto propio se puede usar los operadores `<` o `>`:
+    - `X<Y`: Verificar si `X` está contenido en `Y`.
+    - `X>Y`: Verificar si `Y` está contenido en `X`.
+- **Subconjunto**: Para determinar si un set es un subcojunto se puede usar los operadores `<=` o `>=`:
+    - `X<=Y`: Verificar si `X` está contenido o es igual a `Y`.
+    - `X>=Y`: Verificar si `Y` está contenido o es igual a `X`.
 
 Todos estos operadores tienen sus métodos equivalente los cuales se pueden encontrar en {ref}`Metodos-Operaciones <set-metodos-operaciones>` y {ref}`Metodos-Información <set-metodos-informacion>`.
+
+<br/>
 
 ---
 (set-comp)=
@@ -131,6 +149,8 @@ X = {expression for i in collection if condition}
 X = {val_true if condition else val_false for i in collection}
 ```
 
+<br/>
+
 ---
 ## Métodos de sets
 
@@ -155,7 +175,7 @@ print(set.difference(X, {"a", "c"}))
 
 Métodos para agregar elementos a un `set`. 
 
-```{list-table}
+```{list-table} Agregar
 :header-rows: 1
 :name: set-metodos-agregar
 
@@ -165,33 +185,37 @@ Métodos para agregar elementos a un `set`.
   - Agrega un elemento al `set`.
 ```
 
+<br/>
+
 ---
 ### Eliminar elementos
 
 Métodos para eliminar elementos de un `set`. 
 
-```{list-table} 
+```{list-table} Eliminar
 :header-rows: 1
 :name: set-metodos-eliminar
 
 * - Funciones
   - Descripción
 * - [discard](https://docs.python.org/3/library/stdtypes.html#frozenset.discard)(elem)
-  - Elimina el elemento `elem` del `set` si está presente in-place.
+  - Elimina el elemento `elem` del `set` si está presente. La operación se realiza "_in-place_".
 * - [pop](https://docs.python.org/3/library/stdtypes.html#frozenset.pop)()
-  - Elimina y devuelve un elemento arbitrario del conjunto. Retorna `KeyError` si el conjunto está vacío.
+  - Elimina y devuelve un elemento arbitrario del conjunto. Retorna `KeyError` si el conjunto está vacío. La operación se realiza "_in-place_".
 * - [clear](https://docs.python.org/3/library/stdtypes.html#frozenset.clear)()
   - Remueve todos los elementos del `set`.
 * - [remove](https://docs.python.org/3/library/stdtypes.html#frozenset.remove)(elem)
-  - Elimina el elemento `elem` del conjunto. Genera `KeyError` si `elem` no está en el conjunto.
+  - Elimina el elemento `elem` del conjunto. Genera `KeyError` si `elem` no está en el conjunto. La operación se realiza "_in-place_".
 ```
+
+<br/>
 
 ---
 ### Información sobre el set
 
 Métodos para recuperar información sobre el `set` en relación con otros objetos.
 
-```{list-table} 
+```{list-table} Información
 :header-rows: 1
 :name: set-metodos-informacion
 
@@ -205,12 +229,14 @@ Métodos para recuperar información sobre el `set` en relación con otros objet
   - Retorna `True` si cada elemento del conjunto está en `other`. Equivale al operador `<`.
 ```
 
+<br/>
+
 ---
 ### Operaciones
 
 Métodos para realizar operaciones entre conjuntos y que retornan un nuevo `set`.
 
-```{list-table} 
+```{list-table} Operaciones
 :header-rows: 1
 :name: set-metodos-operaciones
 
@@ -226,12 +252,14 @@ Métodos para realizar operaciones entre conjuntos y que retornan un nuevo `set`
   - Devuelve un nuevo conjunto con elementos en el conjunto o en `other` pero no en ambos. Equivale a usar el operador `^`.
 ```
 
+<br/>
+
 ---
 ### Operaciones-inplace
 
-Métodos para realizar operaciones entre conjuntos y que actualizan un `set` en lugar de retornar uno nuevo. Básicamente realizan las operaciones in-place.
+Métodos para realizar operaciones entre conjuntos y que actualizan un `set` en lugar de retornar uno nuevo. Básicamente realizan las operaciones "_in-place_".
 
-```{list-table}
+```{list-table} Operaciones-inplace
 :header-rows: 1
 
 * - Funciones
@@ -246,12 +274,14 @@ Métodos para realizar operaciones entre conjuntos y que actualizan un `set` en 
   - Actualiza el `set`, conservando solo los elementos que se encuentran en cualquiera de los conjuntos, pero no en ambos. Equivale a usar el operador `^=`.
 ```
 
+<br/>
+
 ---
 ### Copiar
 
 Método para realizar la copia de un `set`.
 
-```{list-table}
+```{list-table} Copiar
 :header-rows: 1
 
 * - Funciones
@@ -259,6 +289,8 @@ Método para realizar la copia de un `set`.
 * - [copy](https://docs.python.org/3/library/stdtypes.html#frozenset.copy)()
   - Devuelve una copia superficial del `set`.
 ```
+
+<br/>
 
 ---
 ## Funciones útiles para listas

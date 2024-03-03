@@ -4,38 +4,41 @@ Se puede probar que algún bloque del código tenga un error, en caso de que as�
 ```python
 # Plantilla de try except
 try:
-    expression
+    # try body
 except [error_type]:
-    expression_error
+    # except body
 ```
-- Se prueba _expression_, en caso de que suceda algun error, entonces se procederá a ejecutar _expression_error_, si no sucede ningún error, entonces _expression_error_ no se ejecutará.
+- Se prueba _try body_, en caso de que suceda algun error, entonces se procederá a ejecutar _except body_, si no sucede ningún error, entonces _except body_ no se ejecutará.
 - _error_type_: Es para específicar que hacer en caso de un error en específico, se pone el nombre tal cual el nombre del error. Para ver los tipos de errores revisar {ref}`excepciones`. También se pueden poner excepciones personalizadas. Es posible poner más de un tipo de error dentro de un `tuple`.
-#- Es posible indicar que el error se retorne como un objeto para poder utilizar ese objeto como imprimir su tipo.
+- Es posible indicar que el error se retorne como un objeto para poder utilizar ese objeto, como imprimir su tipo.
 
 
 Se pueden anidar varios `except`, para ello es necesario especificar qué hacer en cada tipo de error.
 ```python
 # Definir un try
 try:
-    expression
+    # try body
 # Definir un except para un error en específico
 except error_type_1:
-    expression_error_type_1
+    # error type 1 body
 # Se pueden definir múltiples excepts para varios tipos de errores
 ...
 # Definir un except general para el resto de los errores
 except:
-    expression_error
+    # any other error body
 ```
-- En este caso solo se ejecutará _expression_error_type_1_ si ocurre un error de tipo _error_type_1_.
+- En este caso solo se ejecutará _error type 1 body_ si ocurre un error de tipo _error_type_1_.
 - Se puede especificar un bloque como el anterior múltiples veces para diferentes errores.
 - Se puede indicar un bloque general para todos lo demás errores.
 
-## Sentencias Else y Finally:
+<br/>
+
+---
+## Sentencias Else y Finally
 
 Existen otras sentencias que se pueden usar junto con `try` y `except`:
 
-`Else`: Se usa para definir un bloque de código que se ejecute en caso de que **no** ocurra un error (además del que se está probando con `try`).
+- `Else`: Se usa para definir un bloque de código que se ejecute en caso de que **no** ocurra un error (además del que se está probando con `try`).
 ```python
 try:
     expression
@@ -46,7 +49,7 @@ else:
 ```
 <br>
 
-`Finally`: Se ejecuta un bloque del código independientemente de si ocurrió un error o no, es decir siempre se ejecutará este bloque de código.
+- `Finally`: Se ejecuta un bloque del código independientemente de si ocurrió un error o no, es decir siempre se ejecutará este bloque de código.
 ```python
 try:
     expression
@@ -56,9 +59,13 @@ finally:
     expression_finally
 ```
 
-## Arrojar un error:
+<br/>
 
-Se puede arrojar un error en caso de que se cumpla alguna condición, para ello se utiliza `raise` y `Exception()`. Tener en cuentea que al arrojar un error se detiene la ejecución del programa y se lanza un mensaje.
+
+---
+## Arrojar un error
+
+Se puede arrojar un error en caso de que se cumpla alguna condición, para ello se utiliza `raise` y `Exception()`. Tener en cuenta que al arrojar un error se detiene la ejecución del programa y se lanza un mensaje.
 ```python
 # Plantilla general
 if condition:
@@ -70,8 +77,11 @@ if condition:
 if condition:
 	raise ValueError(message)
 ```
-- Para ver los tipos de errores revisar {ref}`excepciones`. También se pueden poner error personalizados creados con clases.
+- Para ver los tipos de errores revisar {ref}`excepciones`. También se pueden poner errores personalizados creados con clases.
 
+<br/>
+
+---
 (excepciones)=
 ## Lista de excepciones
 

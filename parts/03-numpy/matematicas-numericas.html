@@ -1,0 +1,958 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Matemáticas y numéricas &#8212; Manual de Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'parts/03-numpy/matematicas-numericas';</script>
+    <link rel="icon" href="../../_static/nebok-favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/nebok-logo.png" class="logo__image only-light" alt="Manual de Python - Home"/>
+    <script>document.write(`<img src="../../_static/nebok-logo.png" class="logo__image only-dark" alt="Manual de Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Manual de Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Built-in</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01-built-in/built-in-index.html">Python estándar</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/ayuda.html">Obtener ayuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/comentarios.html">Comentarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/tipos-datos.html">Tipos de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/operadores-palabras.html">Operadores y palabras reservadas.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/entrada-salida.html">Entrada y salida de datos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/tipos-index.html">Tipos Built-In</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/booleanos.html">Valores booleanos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/numeros.html">Números</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/cadenas.html">Cadenas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/listas.html">Listas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/tuples.html">Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/sets.html">Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/diccionarios.html">Diccionarios</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/if-else.html">If … Else</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/for-loop.html">For Loop.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/do-while.html">Do While</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/funciones.html">Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/try-except.html">Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/context.html">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/io.html">Lectura y escritura de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/modulos.html">Paquetes y Módulos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/avanzado-index.html">Temas avanzados</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/decorators.html">Decorators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/iterators.html">Iterators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/generators.html">Generators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/oop.html">Programación orientada a objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/func-built-in.html">Funciones built-in</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-modulos/modulos-index.html">Módulos built-in</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/csv.html">csv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/datetime.html">Datetime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/itertools.html">Itertools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/json.html">JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/math.html">Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os.html">os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os-path.html">os.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/pickle.html">Pickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/random.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/regular-expression.html">Regular Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/statistics.html">Statistics</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/parts/03-numpy/matematicas-numericas.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Matemáticas y numéricas</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aritmeticas">Aritméticas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#derivadas-e-integrales">Derivadas e integrales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enteros">Enteros</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exponentes-y-logaritmos">Exponentes y logaritmos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hiperbolicas">Hiperbólicas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#miscelaneos">Misceláneos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numeros-complejos">Números complejos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#redondeo-y-truncamiento">Redondeo y truncamiento</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sumas-productos-diferencias-y-calculos-acumulados">Sumas, productos, diferencias y cálculos acumulados</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trigonometricas">Trigonométricas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#valores-extremos">Valores extremos</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="matematicas-y-numericas">
+<h1>Matemáticas y numéricas<a class="headerlink" href="#matematicas-y-numericas" title="Link to this heading">#</a></h1>
+<p>En esta sección se enlistan las funciones para realizar cálculos matetmáticos y para trabajar con arrays numéricos.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Para una lista completa visitar la <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.math.html#mathematical-functions">documentación</a> de <code class="docutils literal notranslate"><span class="pre">numpy</span></code>.</p>
+</div>
+<hr class="docutils" />
+<section id="aritmeticas">
+<h2>Aritméticas<a class="headerlink" href="#aritmeticas" title="Link to this heading">#</a></h2>
+<p>Funciones para hacer operaciones aritméticas vectorizadas.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.add.html">add</a>(x1, x2, /[, out, where, casting, order, …])</p></td>
+<td><p>Suma <code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>, por elementos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.divide.html">divide</a>(x1, x2, /[, out, where, casting, …])</p></td>
+<td><p>Divide <code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>, por elementos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.divmod.html">divmod</a>(x1, x2[, out1, out2], / [[, out, …])</p></td>
+<td><p>Devuelve el cociente y el residuo de la división de <code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>, simultáneamente.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.float_power.html">float_power</a>(x1, x2, /[, out, where, …])</p></td>
+<td><p>Calcula <code class="docutils literal notranslate"><span class="pre">x1**x2</span></code>, por elementos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.floor_divide.html">floor_divide</a>(x1, x2, /[, out, where, …])</p></td>
+<td><p>División entera de <code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>, por elementos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.fmod.html">fmod</a>(x1, x2, /[, out, where, casting, …])</p></td>
+<td><p>Módulo de <code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>, por elementos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.mod.html">mod</a>(x1, x2, /[, out, where, casting, order, …])</p></td>
+<td><p>Módulo de <code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>, por elementos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.modf.html">modf</a>(x[, out1, out2], / [[, out, where, …])</p></td>
+<td><p>Devuelve las partes fraccionaria y entera de un arreglo, por elementos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.multiply.html">multiply</a>(x1, x2, /[, out, where, casting, …])</p></td>
+<td><p>Multiplica <code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>, por elementos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.negative.html">negative</a>(x, /[, out, where, casting, order, …])</p></td>
+<td><p>Negativo numérico, por elementos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.positive.html">positive</a>(x, /[, out, where, casting, order, …])</p></td>
+<td><p>Positivo numérico, por elementos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.power.html">power</a>(x1, x2, /[, out, where, casting, …])</p></td>
+<td><p>Calcula <code class="docutils literal notranslate"><span class="pre">x1**x2</span></code>, por elementos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.reciprocal.html">reciprocal</a>(x, /[, out, where, casting, …])</p></td>
+<td><p>Devuelve el recíproco de <code class="docutils literal notranslate"><span class="pre">x</span></code>, por elementos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.remainder.html">remainder</a>(x1, x2, /[, out, where, casting, …])</p></td>
+<td><p>Módulo de <code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>, por elementos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.subtract.html">subtract</a>(x1, x2, /[, out, where, casting, …])</p></td>
+<td><p>Resta <code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>, por elementos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.true_divide.html">true_divide</a>(x1, x2, /[, out, where, …])</p></td>
+<td><p>Divide <code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>, por elementos.</p></td>
+</tr>
+</tbody>
+</table>
+<br>
+</section>
+<hr class="docutils" />
+<section id="derivadas-e-integrales">
+<h2>Derivadas e integrales<a class="headerlink" href="#derivadas-e-integrales" title="Link to this heading">#</a></h2>
+<p>Funciones para calcular derivadas (gradientes) e integrales.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.gradient.html">gradient</a>(f, *varargs[, axis, edge_order])</p></td>
+<td><p>Devuelve el gradiente de un arreglo N-dimensional.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.trapz.html">trapz</a>(y[, x, dx, axis])</p></td>
+<td><p>Integra a lo largo del eje dado usando la regla trapezoidal compuesta.</p></td>
+</tr>
+</tbody>
+</table>
+<br>
+</section>
+<hr class="docutils" />
+<section id="enteros">
+<h2>Enteros<a class="headerlink" href="#enteros" title="Link to this heading">#</a></h2>
+<p>Funciones para calcular el máximo común divisor y el mínimo común múltiplo de dos números enteros.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.gcd.html">gcd</a>(x1, x2, /[, out, where, casting, order, …])</p></td>
+<td><p>Devuelve el máximo común divisor de <code class="docutils literal notranslate"><span class="pre">|x1|</span></code> y <code class="docutils literal notranslate"><span class="pre">|x2|</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.lcm.html">lcm</a>(x1, x2, /[, out, where, casting, order, …])</p></td>
+<td><p>Devuelve el mínimo común múltiplo de <code class="docutils literal notranslate"><span class="pre">|x1|</span></code> y <code class="docutils literal notranslate"><span class="pre">|x2|</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<br>
+</section>
+<hr class="docutils" />
+<section id="exponentes-y-logaritmos">
+<h2>Exponentes y logaritmos<a class="headerlink" href="#exponentes-y-logaritmos" title="Link to this heading">#</a></h2>
+<p>Funciones relacionadas con exponentes y logaritmos para cálculos vectorizados.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.exp.html">exp</a>(x, /[, out, where, casting, order, …])</p></td>
+<td><p>Calcula la exponencial (<code class="docutils literal notranslate"><span class="pre">e**x</span></code>) de todos los elementos en el arreglo de entrada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.exp2.html">exp2</a>(x, /[, out, where, casting, order, …])</p></td>
+<td><p>Calcula <code class="docutils literal notranslate"><span class="pre">2**p</span></code> para todo <code class="docutils literal notranslate"><span class="pre">p</span></code> en el arreglo de entrada.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.expm1.html">expm1</a>(x, /[, out, where, casting, order, …])</p></td>
+<td><p>Calcula <code class="docutils literal notranslate"><span class="pre">exp(x)</span> <span class="pre">-</span> <span class="pre">1</span></code> para todos los elementos del arreglo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.log.html">log</a>(x, /[, out, where, casting, order, …])</p></td>
+<td><p>Logaritmo natural, por elementos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.log10.html">log10</a>(x, /[, out, where, casting, order, …])</p></td>
+<td><p>Logaritmo base 10, por elementos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.log1p.html">log1p</a>(x, /[, out, where, casting, order, …])</p></td>
+<td><p>Devuelve el <code class="docutils literal notranslate"><span class="pre">ln(1)+x</span></code> para el arreglo de entrada, por elementos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.log2.html">log2</a>(x, /[, out, where, casting, order, …])</p></td>
+<td><p>Logaritmo base 2, por elementos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.logaddexp.html">logaddexp</a>(x1, x2, /[, out, where, casting, …])</p></td>
+<td><p>Logaritmo de la suma de exponenciaciones de las entradas.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.logaddexp2.html">logaddexp2</a>(x1, x2, /[, out, where, casting, …])</p></td>
+<td><p>Logaritmo de la suma de exponenciaciones de las entradas en base-2.</p></td>
+</tr>
+</tbody>
+</table>
+<br>
+</section>
+<hr class="docutils" />
+<section id="hiperbolicas">
+<h2>Hiperbólicas<a class="headerlink" href="#hiperbolicas" title="Link to this heading">#</a></h2>
+<p>Funciones relacionadas con funciones hiperbólicas para cálculos vectorizados.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.arccosh.html">arccosh</a>(x, /[, out, where, casting, order, …])</p></td>
+<td><p>Coseno hiperbólico inverso, por elementos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.arcsinh.html">arcsinh</a>(x, /[, out, where, casting, order, …])</p></td>
+<td><p>Seno hiperbólico inverso, por elementos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.arctanh.html">arctanh</a>(x, /[, out, where, casting, order, …])</p></td>
+<td><p>Tangente hiperbólica inversa, por elementos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.cosh.html">cosh</a>(x, /[, out, where, casting, order, …])</p></td>
+<td><p>Coseno hiperbólico, por elementos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.sinh.html">sinh</a>(x, /[, out, where, casting, order, …])</p></td>
+<td><p>Seno hiperbólico, por elementos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.tanh.html">tanh</a>(x, /[, out, where, casting, order, …])</p></td>
+<td><p>Tangente hiperbólica, por elementos.</p></td>
+</tr>
+</tbody>
+</table>
+<br>
+</section>
+<hr class="docutils" />
+<section id="miscelaneos">
+<h2>Misceláneos<a class="headerlink" href="#miscelaneos" title="Link to this heading">#</a></h2>
+<p>Funciones matemáticas generales como raíces cuadradas y cúbicas, valores absolutos, entre otras.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.absolute.html">absolute</a>(x, /[, out, where, casting, order, …])</p></td>
+<td><p>Calcula el valor absoluto, por elementos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.cbrt.html">cbrt</a>(x, /[, out, where, casting, order, …])</p></td>
+<td><p>Devuelve la raíz cúbica de un arreglo, por elementos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html">clip</a>(a, a_min, a_max[, out])</p></td>
+<td><p>Limita los valores en un arreglo a <code class="docutils literal notranslate"><span class="pre">a_min</span></code> y <code class="docutils literal notranslate"><span class="pre">a_max</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.convolve.html">convolve</a>(a, v[, mode])</p></td>
+<td><p>Devuelve la convolución lineal discreta de dos secuencias unidimensionales.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.fabs.html">fabs</a>(x, /[, out, where, casting, order, …])</p></td>
+<td><p>Calcula los valores absolutos, por elementos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.interp.html">interp</a>(x, xp, fp[, left, right, period])</p></td>
+<td><p>Interpolación lineal unidimensional para puntos de muestra que aumentan monótonamente.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.nan_to_num.html">nan_to_num</a>(x[, copy, nan, posinf, neginf])</p></td>
+<td><p>Reemplaza <code class="docutils literal notranslate"><span class="pre">NaN</span></code> con cero e <code class="docutils literal notranslate"><span class="pre">inf</span></code> con números finitos grandes (default) o con los números definidos por el usuario usando <code class="docutils literal notranslate"><span class="pre">nan</span></code>, <code class="docutils literal notranslate"><span class="pre">posinf</span></code> y/o <code class="docutils literal notranslate"><span class="pre">neginf</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.sign.html">sign</a>(x, /[, out, where, casting, order, …])</p></td>
+<td><p>Devuelve una indicación por elementos del signo de un número.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.sqrt.html">sqrt</a>(x, /[, out, where, casting, order, …])</p></td>
+<td><p>Devuelve la raíz cuadrada no negativa de un arreglo, por elementos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.square.html">square</a>(x, /[, out, where, casting, order, …])</p></td>
+<td><p>Devuelve el cuadrado de los elementos de la entrada.</p></td>
+</tr>
+</tbody>
+</table>
+<br>
+</section>
+<hr class="docutils" />
+<section id="numeros-complejos">
+<h2>Números complejos<a class="headerlink" href="#numeros-complejos" title="Link to this heading">#</a></h2>
+<p>Funciones relacionadas con números complejos para cálculos vectorizados.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.angle.html">angle</a>(z[, deg])</p></td>
+<td><p>Devuelve el ángulo del argumento complejo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.conj.html">conj</a>(x, /[, out, where, casting, order, …])</p></td>
+<td><p>Devuelve el complejo conjugado, por elementos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.conjugate.html">conjugate</a>(x, /[, out, where, casting, …])</p></td>
+<td><p>Devuelve el complejo conjugado, por elementos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.imag.html">imag</a>(val)</p></td>
+<td><p>Devuelve la parte imaginaria del argumento complejo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.real.html">real</a>(val)</p></td>
+<td><p>Devuelve la parte real del argumento complejo.</p></td>
+</tr>
+</tbody>
+</table>
+<br>
+</section>
+<hr class="docutils" />
+<section id="redondeo-y-truncamiento">
+<h2>Redondeo y truncamiento<a class="headerlink" href="#redondeo-y-truncamiento" title="Link to this heading">#</a></h2>
+<p>Funciones relacionadas con redondear y truncar arrays numéricos.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.around.html">around</a>(a[, decimals, out])</p></td>
+<td><p>Redondea uniformemente al número dado de decimales.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ceil.html">ceil</a>(x, /[, out, where, casting, order, …])</p></td>
+<td><p>Devuelve el techo de la entrada, por elementos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.fix.html">fix</a>(x[, out])</p></td>
+<td><p>Redondea al entero más cercano hacia cero.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.floor.html">floor</a>(x, /[, out, where, casting, order, …])</p></td>
+<td><p>Devuelve el piso de la entrada, por elementos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.rint.html">rint</a>(x, /[, out, where, casting, order, …])</p></td>
+<td><p>Redondea los elementos de la arreglo al entero más cercano.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.trunc.html">trunc</a>(x, /[, out, where, casting, order, …])</p></td>
+<td><p>Devuelve el valor truncado de la entrada, por elementos.</p></td>
+</tr>
+</tbody>
+</table>
+<br>
+</section>
+<hr class="docutils" />
+<section id="sumas-productos-diferencias-y-calculos-acumulados">
+<h2>Sumas, productos, diferencias y cálculos acumulados<a class="headerlink" href="#sumas-productos-diferencias-y-calculos-acumulados" title="Link to this heading">#</a></h2>
+<p>Funciones para realizar sumas, productos y diferencias en arrays numéricos, así como cálculos acumulados.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.cross.html">cross</a>(a, b[, axisa, axisb, axisc, axis])</p></td>
+<td><p>Devuelve el producto cruz de dos vectores.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.cumprod.html">cumprod</a>(a[, axis, dtype, out])</p></td>
+<td><p>Devuelve el producto acumulativo de elementos a lo largo de un eje dado.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.cumsum.html">cumsum</a>(a[, axis, dtype, out])</p></td>
+<td><p>Devuelve la suma acumulada de los elementos a lo largo de un eje dado.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.diff.html">diff</a>(a[, n, axis, prepend, append])</p></td>
+<td><p>Calcula la n-ésima diferencia discreta a lo largo del eje dado.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ediff1d.html">ediff1d</a>(ary[, to_end, to_begin])</p></td>
+<td><p>Calcula las diferencias entre elementos consecutivos de un arreglo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.nancumprod.html">nancumprod</a>(a[, axis, dtype, out])</p></td>
+<td><p>Devuelve el producto acumulativo de los elementos de la arreglo sobre un eje determinado tratando <code class="docutils literal notranslate"><span class="pre">NaN</span></code> como uno.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.nancumsum.html">nancumsum</a>(a[, axis, dtype, out])</p></td>
+<td><p>Devuelve la suma acumulativa de los elementos de la arreglo sobre un eje determinado tratando <code class="docutils literal notranslate"><span class="pre">NaN</span></code> como cero.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.nanprod.html">nanprod</a>(a[, axis, dtype, out, keepdims, …])</p></td>
+<td><p>Devuelve el producto de los elementos de la arreglo sobre un eje determinado tratando <code class="docutils literal notranslate"><span class="pre">NaN</span></code> como uno.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.nansum.html">nansum</a>(a[, axis, dtype, out, keepdims, …])</p></td>
+<td><p>Devuelve la suma de los elementos de la arreglo sobre un eje determinado tratando <code class="docutils literal notranslate"><span class="pre">NaN</span></code> como cero.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.prod.html">prod</a>(a[, axis, dtype, out, keepdims, …])</p></td>
+<td><p>Devuelve el producto de los elementos de la arreglo sobre un eje dado.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.sum.html">sum</a>(a[, axis, dtype, out, keepdims, …])</p></td>
+<td><p>Suma de elementos del arreglo sobre un eje dado.</p></td>
+</tr>
+</tbody>
+</table>
+<br>
+</section>
+<hr class="docutils" />
+<section id="trigonometricas">
+<h2>Trigonométricas<a class="headerlink" href="#trigonometricas" title="Link to this heading">#</a></h2>
+<p>Funciones relacionadas con funciones trigonométricas para cálculos vectorizados.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.arccos.html">arccos</a>(x, /[, out, where, casting, order, …])</p></td>
+<td><p>Coseno inverso, por elementos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.arcsin.html">arcsin</a>(x, /[, out, where, casting, order, …])</p></td>
+<td><p>Seno inverso, por elementos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.arctan.html">arctan</a>(x, /[, out, where, casting, order, …])</p></td>
+<td><p>Tangente inversa, por elementos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.arctan2.html">arctan2</a>(x1, x2, /[, out, where, casting, …])</p></td>
+<td><p>Tangente inversa por elementos de <code class="docutils literal notranslate"><span class="pre">x1/x2</span></code> eligiendo el cuadrante correctamente.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.cos.html">cos</a>(x, /[, out, where, casting, order, …])</p></td>
+<td><p>Coseno trigonométrico, por elementos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.deg2rad.html">deg2rad</a>(x, /[, out, where, casting, order, …])</p></td>
+<td><p>Convierte ángulos de grados a radianes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.degrees.html">degrees</a>(x, /[, out, where, casting, order, …])</p></td>
+<td><p>Convierte ángulos de radianes a grados.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.hypot.html">hypot</a>(x1, x2, /[, out, where, casting, …])</p></td>
+<td><p>Dados los “catetos” de un triángulo rectángulo, devuelva su hipotenusa.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.rad2deg.html">rad2deg</a>(x, /[, out, where, casting, order, …])</p></td>
+<td><p>Convierte ángulos de radianes a grados.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.radians.html">radians</a>(x, /[, out, where, casting, order, …])</p></td>
+<td><p>Convierte ángulos de grados a radianes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.sin.html">sin</a>(x, /[, out, where, casting, order, …])</p></td>
+<td><p>Seno trigonométrico, por elementos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.tan.html">tan</a>(x, /[, out, where, casting, order, …])</p></td>
+<td><p>Tangente trigonométrica, por elementos.</p></td>
+</tr>
+</tbody>
+</table>
+<br>
+</section>
+<hr class="docutils" />
+<section id="valores-extremos">
+<h2>Valores extremos<a class="headerlink" href="#valores-extremos" title="Link to this heading">#</a></h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.amax.html">amax</a>(a[, axis, out, keepdims, initial, where])</p></td>
+<td><p>Devuelve el valor máximo de un arreglo o el valor máximo a lo largo de un eje.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.amin.html">amin</a>(a[, axis, out, keepdims, initial, where])</p></td>
+<td><p>Devuelve el valor mínimo de un arreglo o el valor mínimo a lo largo de un eje.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.fmax.html">fmax</a>(x1, x2, /[, out, where, casting, …])</p></td>
+<td><p>Valor máximo del arreglo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.fmin.html">fmin</a>(x1, x2, /[, out, where, casting, …])</p></td>
+<td><p>Valor mínimo del arreglo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.maximum.html">maximum</a>(x1, x2, /[, out, where, casting, …])</p></td>
+<td><p>Valor máximo del arreglo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.minimum.html">minimum</a>(x1, x2, /[, out, where, casting, …])</p></td>
+<td><p>Valor mínimo del arreglo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.nanmax.html">nanmax</a>(a[, axis, out, keepdims, initial, where])</p></td>
+<td><p>Devuelve el valor máximo de un arreglo o el valor máximo a lo largo de un eje, ignorando cualquier <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.nanmin.html">nanmin</a>(a[, axis, out, keepdims, initial, where])</p></td>
+<td><p>Devuelve el valor mínimo de un arreglo o el valor mínimo a lo largo de un eje, ignorando cualquier <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<br>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./parts/03-numpy"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aritmeticas">Aritméticas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#derivadas-e-integrales">Derivadas e integrales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enteros">Enteros</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exponentes-y-logaritmos">Exponentes y logaritmos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hiperbolicas">Hiperbólicas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#miscelaneos">Misceláneos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numeros-complejos">Números complejos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#redondeo-y-truncamiento">Redondeo y truncamiento</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sumas-productos-diferencias-y-calculos-acumulados">Sumas, productos, diferencias y cálculos acumulados</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trigonometricas">Trigonométricas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#valores-extremos">Valores extremos</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nebok
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

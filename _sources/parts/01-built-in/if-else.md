@@ -1,34 +1,34 @@
-# If ... Else.
+# If ... Else
 
 Se utiliza usando las palabras reservada `if` y `else`:
 ```python
-# Plantilla básica de un if else
 if condition:
-    expression_true
+    # true body
 else:
-    expression_false
+    # false body
 ```
 - _condition_ es una expresión que retorne `True` o `False`. Es posible poner un objeto y por default se evaluará ese objeto con la función `bool()`.
-- Si _condition_ es `True` entonces se ejecutará _expression_true_, si es `False`, se ejecutará _expression_false_.
-- No estrictamente necesita un `else`, se puede poner solo el `if`. En ese caso solo se ejecutará el código si se cumple la condición.
+- Si _condition_ es `True` entonces se ejecutará _true body_, si es `False`, se ejecutará _false body_.
+- No estrictamente se debe de poner `else`, se puede poner solo el `if`. En ese caso solo se ejecutará el código si se cumple la condición.
 
 ```{warning} Es muy importante que se respete la indentación, esa es la forma como Python determina qué parte del código forma parte de cada bloque de la estructura. Los dos puntos indican el inicio de un bloque que debe de estar indentado.
 ```
 
 Se pueden verificar varias condiciones con la palabra reservada `elif`:
 ```python
-# Platila básica de un if elif else
 if condition_1:
-    expression_1
+    # condition1 body
 elif condition_2:
-    expression_2
+    # condition2 body
+...
 else:
-    expression_3
+    # else body
 ```
-- Se pueden poner tantos `elif` como sean necesarios.
+
+<br/>
 
 ---
-## Versión simplificada:
+## Versión simplificada
 
 También conocida como "_ternary operators_" o "_conditional expressions_", son una forma de escribir una estructura `if else` en una sola línea. Es útil cuando se quiere evaluar una expresión, existen dos versiones principales:
 ```python
@@ -51,19 +51,22 @@ Existe otra versionas con tuples y diccionarios:
 - En la versión de tupla, basicamente es un `tuple` con dos elementos y se hace _subsetting_, con base a una comparación lógica, de manera que si es falsa se elija el elemento con índice cero y si es cierta, se elige el elemento con índice uno. Lo mismo se podría hacer con una lista.
 - En diccionario, es similar, pero en lugar de hacer subsetting por índice, lo hace por el nombre de la _key_.
 
+<br/>
+
 ---
-## Operadores logicos.
+## Operadores logicos
 
 Se puede utilizar los operadores `and`, `or` y `not` en las condiciones de las estructuras `if else`:
 - `and`: Se usa para verificar que dos o más condiciones sean `True`. Si al menos una es `False` entonces toda la expresión será `False`.
 - `or`: Se usa para verificar que al menos una condición sea `True`. Para que la expresión retorne `False`, todas las condiciones tienen que ser `False`.
 - `not`: Se usa para invertir el resultado de la expresión, de manera que convierte `True` en `False` y viceversa.
 
+<br/>
+
 ---
 ## Pass
 Las estructuras `if else` no pueden estar vacías, pero por si alguna razón se necesita una estructura `if ... else` vacía se puede usar la sentencia `pass` para evitar errores:
 ```python
-# Una estructura if vacía
 if condicion:
     pass
 ```

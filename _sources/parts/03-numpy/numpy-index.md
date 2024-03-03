@@ -1,5 +1,30 @@
 # Numpy
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mollis nulla dolor, ut finibus magna iaculis venenatis. Vestibulum viverra ullamcorper lorem quis aliquam. Curabitur facilisis blandit tellus, vel semper nibh consequat vitae. Integer in nibh mauris. Donec non orci non lorem feugiat sodales. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate maximus cursus. Sed lacinia mollis ex, nec venenatis purus blandit et. In at lacus tortor. Vivamus feugiat mauris eget odio maximus accumsan.
+`numpy` es una librería que se utiliza principalmente para computo científico en Python. Contiene el objeto `ndarray` y una gran cantidad de funciones para operaciones matemáticas, álgebra lineal, estádistica, manipulación de arrays entre muchos otros. 
 
-Praesent ut nisi vitae leo eleifend ultricies eu non ligula. Sed cursus non lectus eu pellentesque. Nullam vel ultrices turpis. Ut tristique ullamcorper leo, sed mollis nisi convallis nec. Aliquam libero purus, eleifend vitae maximus a, laoreet eu est. Nam ac eleifend augue. Nulla aliquet tellus in enim volutpat varius. Morbi imperdiet, leo vitae mollis aliquam, quam diam posuere dui, eu euismod risus eros at nibh. Morbi magna purus, vulputate ut odio elementum, euismod varius purus. Mauris condimentum, mauris sit amet suscipit tempus, orci massa tincidunt dolor, in porta velit quam a sem. Proin vel massa id turpis tempor auctor. Phasellus egestas orci non ante tincidunt euismod. Integer vitae laoreet odio. 
+Para utilizar `numpy` es necesario instalarlo. Desde la terminal usar:
+```
+# Con pip
+pip install numpy
+
+# Con conda
+conda install numpy
+```
+
+Una vez instalado se debe de importar
+```python
+import numpy as np
+```
+- `np` es el nombre por convención.
+- En el sitio se utilizará `np` para hacer referencia a numpy.
+
+Para conocer la versión de `numpy` instalada usar:
+```python
+np.__version__ 
+```
+
+## Tabla de contenido
+
+
+```{tableofcontents}
+````

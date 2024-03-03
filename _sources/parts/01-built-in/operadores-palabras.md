@@ -14,10 +14,14 @@ Operadores para realizar operaciones aritméticas entre números.
 |División parte entera|`//`|Rertorna el cociente de una división|
 
 
-:::{attention} El operador `+` también se usa para concatenar secuencias (`list`, `tuple` y `str`) y `*` se utiliza para repetir secuencias.
-:::
+```{attention} 
+El operador `+` también se usa para concatenar secuencias (`list`, `tuple` y `str`) y `*` se utiliza para repetir secuencias.
+```
+
+<br>
 
 ---
+(built-in-operadores-comparacion)=
 ## Comparación
 Operadores para la comparación de valores.
 
@@ -30,6 +34,8 @@ Operadores para la comparación de valores.
 |Menor o igual que|`<=`|
 |Mayor o igual que|`>=`|
 
+<br>
+
 ---
 ## Asignación
 Operaciones para asignación de valores.
@@ -40,7 +46,10 @@ Operaciones para asignación de valores.
 |Asignación recursivo aritmético|`+=`, `-=`, `*=`, `/=`, `**=`, `%=`, `//=`|
 |Asignación recursivo lógico|`\|=`, `&=`|
 
+<br>
+
 ---
+(operadores:bitwise)=
 ## Bitwise
 |Nombre|Operador|
 |:----------|:----------:|
@@ -60,6 +69,8 @@ Existen otros como `<<` y `>>`.
 |0|1|0|1|1|1|
 |0|0|0|0|1|0|
 
+<br>
+
 ---
 ## Bool
 
@@ -75,6 +86,9 @@ Palabras reservadas para trabajar con valores booleanos y manipulaciones entre e
 ```{caution}
 Se debe de respetar la primer letra en mayúscula en `False` y `True`
 ```
+
+<br>
+
 ---
 ## Identidad
 
@@ -85,6 +99,8 @@ Palabras reservadas para verificar que dos objetos sean los mismos (hagan refere
 |Es |`is`|
 |No es|`not is`|
 
+<br>
+
 ---
 ## Membresía
 
@@ -94,6 +110,8 @@ Palabras reservadas para verificar que un elemento esté dentro de una secuencia
 |:----------|:----------:|
 |En |`in`|
 |No en|`not in`|
+
+<br>
 
 ---
 ## Operadores * y **
@@ -122,25 +140,7 @@ function(**x) # Equivale a: function(key1=value1, key2=value2)
 Notar que los _keys_ del diccionario serán los nombres de los parámetros en la función.
 ```
 
----
-## Jerarquía de operadores
-
-A continuación se presenta la jerarquía de operadores, es decir, los operadores que se ejecutarán primero en el código. Esta tabla está basada en la [esta tabla](https://www.programiz.com/python-programming/precedence-associativity) de programiz.com.
-
-|Jerarquía|Operadores|
-|:----------:|:----------:|
-|1|`()`|
-|2|`**`|
-|3|`~x`, `+x`, `-x`|	
-|4|`*`, `/`, `//`, `%`|
-|5|`+`, `-`|
-|6|`&`|	
-|7|`^`|	
-|8|`\|`|	
-|9|`==`, `!=`, `>`, `>=`, `<`, `<=`, `is`, `is not`, `in`, `not in`|
-|10|`not`|
-|11|`and`|
-|12|`or`|
+<br>
 
 ---
 ## Palabras reservadas
@@ -166,11 +166,13 @@ Son palabras que tienen un significado especial para python.
 |`with`|Administrador de contextos|
 |`yield`|Terminar una función. Retorna un generator|
 
+<br>
+
 ---
 (uso-assert)=
 ### Uso de assert
 
-Verifica si una expresión booleana es `True` o `False`. Si es `False` retorna un error de tipo `AssertionError`. Si es `True`, no retorna nada, es decir, retornar `None`.
+Verifica si una expresión booleana es `True` o `False`. Si es `False` retorna un error de tipo `AssertionError`. Si es `True`, no retorna nada, es decir, retorna `None`.
 
 Cuando se utiliza `assert`, se puede agregar un mensaje en caso de que haya un error:
 ```python
@@ -178,4 +180,38 @@ assert expression, message
 ```
 - `expression`: Cualquier expresión que retorne `bool`. 
 - `message` \- `str`: Cualquier mensaje que se quiera retornar en caso de que `expression` sea `False`.
+
+<br>
+
+---
+## Jerarquía de operadores
+
+A continuación se presenta la jerarquía de operadores, es decir, los operadores que se ejecutarán primero en el código. Esta tabla está basada en la [esta tabla](https://www.programiz.com/python-programming/precedence-associativity) de programiz.com.
+
+|Jerarquía|Operadores|
+|:----------:|:----------:|
+|1|`()`|
+|2|`**`|
+|3|`~x`, `+x`, `-x`|	
+|4|`*`, `/`, `//`, `%`|
+|5|`+`, `-`|
+|6|`&`|	
+|7|`^`|	
+|8|`\|`|	
+|9|`==`, `!=`, `>`, `>=`, `<`, `<=`, `is`, `is not`, `in`, `not in`|
+|10|`not`|
+|11|`and`|
+|12|`or`|
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -19,8 +19,10 @@ kernelspec:
 - Los decorators reciben una función como parámetro y retornan otra función. 
 - Los decorators se utilizan junto con el símbolo `@` y se ponen justo arriba de la función que se quierer alterar.
 
+<br/>
+
 ---
-## Crear un decorator:
+## Crear un decorator
 
 Para crear un decorator tener en cuenta lo siguiente:
 - Se tiene que crear una función anidada. 

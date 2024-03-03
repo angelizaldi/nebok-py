@@ -32,6 +32,7 @@ help(zip)
 # Obtener ayuda de una función importada.
 help(math.cos)
 ```
+- `object` es la instancia, clase, función, método, etc.
 
 ---
 ## Enlistar métodos y atributos de clases:
