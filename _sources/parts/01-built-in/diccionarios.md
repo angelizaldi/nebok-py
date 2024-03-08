@@ -15,7 +15,7 @@ kernelspec:
 Corresponde al tipo de dato `dict`. Algunas características de las diccionarios, son:
 - Utilizan un formato `key-value` para almacenar valores.
 - Es mutable: Se puede modificar una vez creado.
-- Sus elementos no están ordenados.
+- Sus elementos no están ordenados, es decir, no se puede acceder a sus elementos por medio de índices.
 - Es un iterable: Se puede iterar por sus elementos y se puede utilizar la palabra reservada `in` para verificar membresía de llaves.
 - Se puede hacer _subsetting_.
 
@@ -43,11 +43,9 @@ X = dict(key1=value1, key2=value2, ...)
 # Usando una lista de tuplas con pares (key, value)
 X = dict([(key1, value1), (key2, value2), ...])
 ```
-
-```{caution}
-- Las _key_ de un diccionario deben de ser de un tipo inmutable, lo más común es usar cadenas, números o valores `bool` y además deben de ser únicas, es decir, no puede haber dos o más elementos con la misma llave.
+- Los _key_ de un diccionario deben de ser de un tipo inmutable, lo más común es usar cadenas, números o valores `bool` y además deben de ser únicas, es decir, no puede haber dos o más elementos con la misma llave.
 - Los _value_ pueden ser cualquier tipo de objeto.
-```
+
 
 ```{warning}
 Al crear un diccionario el objeto `X` en realidad hace referencia a los elementos que se almacenan en memoria, si se asigna el diccionario a otro objeto `Y` con el operador de asignación, es decir `Y=X`, entonces lo que se copia es la referencia, no los valores como tal, entonces modificaciones en `Y` también afecta a `X` y vicerversa. Para que esto no suceda se puede usar:
@@ -66,7 +64,7 @@ Otra forma de crear un diccionario es con {ref}`dict-comp`.
 
 Para agregar elementos a un diccionario simplemente poner entre corchetes el nombre de la nueva llave y con el operador de asignación darle un valor.
 ```python
-# Si X es un diccionario:
+# Si X es un diccionario
 X['key'] = val
 ```
 
@@ -74,7 +72,7 @@ X['key'] = val
 Otra forma de agregar elementos con métodos es con:
 - Agregar elementos desde otro objeto: `dict.update()`.
 
-Revisar {ref}`Metodos-Agregar <dict-metodos-agregar>`
+Revisar {ref}`Metodos agregar elementos <dict-metodos-agregar>`
 ```
 
 <br/>
@@ -94,34 +92,11 @@ del X
 ```{note}
 Otras formas de eliminar elementos con métodos son:
 - Para remover un elemento específico usar el método `dict.pop()`.
-- Para remover un elemento de un índice en específico usar el método `dict.popitem()`.
-- Para remover un elemento de un índice en específico usar el método `dict.clear()`.
+- Para remover y retornar un elemento de un índice en específico usar el método `dict.popitem()`.
+- Para todos los elementos usar el método `dict.clear()`.
 
-Revisar {ref}`Metodos-Eliminar <dict-metodos-eliminar>`
+Revisar {ref}`Métodos eliminar elementos <dict-metodos-eliminar>`
 ```
-
-<br/>
-
----
-## Modificar Elementos
-
-Para modificar el valor de una llave en específico usar el nombre de la llave y el operador de asignación:
-```python
-# Modificar el valor correspondiento a la llave `key`
-X['key'] = val
-```
-
-<br/>
-
----
-## Verificar membresía
-
-Para verificar si una llave existe en un diccionario usar el operador de membresía `in` junto con el nombre de la llave del elemento:
-```python
-# Verificar que 'key' exista en X.
-"key" in X
-```
-- Alternativamente se puede usar `not in`.
 
 <br/>
 
@@ -141,8 +116,31 @@ Otras formas de acceder a valores con métodos son:
 - Acceder a todas las llaves: `dict.keys()`
 - Accedes a todos los pares `key-value`: `dict.items()`
 
-Revisar {ref}`Metodos-Acceder <dict-metodos-acceder>`
+Revisar {ref}`Metodos acceder a elementos <dict-metodos-acceder>`
 ```
+
+<br/>
+
+---
+## Modificar Elementos
+
+Para modificar el valor de una llave en específico usar el nombre de la llave y el operador de asignación:
+```python
+# Modificar el valor correspondiento a la llave 'key'
+X['key'] = val
+```
+
+<br/>
+
+---
+## Verificar membresía
+
+Para verificar si una llave existe en un diccionario usar el operador de membresía `in` junto con el nombre de la llave del elemento:
+```python
+# Verificar que 'key' exista en X.
+"key" in X
+```
+- Alternativamente se puede usar `not in`.
 
 <br/>
 
@@ -184,6 +182,7 @@ X = {key_expression : value_expression for i in collection}
 
 Los diccionarios pueden tener condicionales, en la parte de _collection_, de manera que solo a ciertos elementos se les aplique el código. Sintaxis de las condicionales:
 ```python
+# dict comprehension con condicional en collection
 X = {key_expression : value_expression for i in collection if condition]
 ```
 
@@ -208,16 +207,17 @@ print(dict.keys(X))
 ```
 - Tener en cuenta que en la segunda forma el diccionario siempre debe de ser el primer argumento.
 
----
+<br/>
+
 ### Acceder a elementos
 
 Métodos para recuperar las llaves, los valores o ambos de un diccionario.
 
-```{list-table} Acceder
+```{list-table}
 :header-rows: 1
 :name: dict-metodos-acceder
 
-* - Funciones
+* - Método
   - Descripción
 * - [keys](https://docs.python.org/3/library/stdtypes.html#dict.keys)()
   - Devuelve una `view` de las llaves del diccionario.
@@ -236,11 +236,11 @@ Métodos para recuperar las llaves, los valores o ambos de un diccionario.
 
 Métodos para agregar elementos a un diccionario.
 
-```{list-table} Agregar
+```{list-table}
 :header-rows: 1
 :name: dict-metodos-agregar
 
-* - Funciones
+* - Método
   - Descripción
 * - [update](https://docs.python.org/3/library/stdtypes.html#dict.update)([other])
   - Actualiza el diccionario con los pares llave/valor de `other`, sobrescribiendo llaves existentes. Realiza la operación in-place.
@@ -253,11 +253,11 @@ Métodos para agregar elementos a un diccionario.
 
 Métodos para eliminar elementos de un diccionario.
 
-```{list-table} Eliminar
+```{list-table}
 :header-rows: 1
 :name: dict-metodos-eliminar
 
-* - Funciones
+* - Método
   - Descripción
 * - [popitem](https://docs.python.org/3/library/stdtypes.html#dict.popitem)()
   - Elimina y devuelve un par (clave, valor) del diccionario. Los pares se devuelven en orden LIFO.
@@ -274,10 +274,10 @@ Métodos para eliminar elementos de un diccionario.
 
 Otros métodos de diccionarios.
 
-```{list-table} Otros
+```{list-table}
 :header-rows: 1
 
-* - Funciones
+* - Método
   - Descripción
 * - [copy](https://docs.python.org/3/library/stdtypes.html#dict.copy)()
   - Devuelve una copia superficial del diccionario.

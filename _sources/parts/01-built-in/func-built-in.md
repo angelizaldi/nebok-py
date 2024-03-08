@@ -14,7 +14,7 @@ kernelspec:
 
 En esta sección se presentan algunas funciones que ya vienen incluídas y no es necesario importar ningún paquete o módulo. Las funciones están presentadas por categorías.
 
-```{warning} Esta sección no incluye todas las funciones built-in de python, sino algunas de las más importantes. Para un listado completo de las funciones built-in de python visitar la [pagina oficial de Python](https://docs.python.org/3/library/index.html).
+```{warning} Esta sección no incluye todas las funciones built-in de Python, sino algunas de las más importantes. Para un listado completo de las funciones built-in de python visitar la [pagina oficial de Python](https://docs.python.org/3/library/index.html).
 ```
 
 ---
@@ -22,7 +22,7 @@ En esta sección se presentan algunas funciones que ya vienen incluídas y no es
 
 Funciones útiles para recuperar códigos Unicode o para recuperar representacios de cadenas de números.
 
-```{list-table} cadenas
+```{list-table}
 :header-rows: 1
 
 * - Funciones
@@ -41,12 +41,14 @@ Funciones útiles para recuperar códigos Unicode o para recuperar representacio
   - Convierta un número entero en una cadena binaria con el prefijo "0b".
 ```
 
+<br/>
+
 ---
 ## Archivos
 
 Función para crear conexiones con achivos locales.
 
-```{list-table} files
+```{list-table}
 :header-rows: 1
 
 * - Funciones
@@ -55,12 +57,14 @@ Función para crear conexiones con achivos locales.
   - Abre un archivo y retorna un `file object` correspondiente. Si el archivo no se puede abrir, se genera un `OSError`.
 ```
 
+<br/>
+
 ---
 ## Iterables
 
-Funciones útiles para iterables.
+Funciones útiles para objetos `iterable`.
 
-```{list-table} iter
+```{list-table}
 :header-rows: 1
 
 * - Funciones
@@ -85,17 +89,19 @@ Funciones útiles para iterables.
   - Recupera cada uno de los elementos de un `iterator`, uno a la vez. Si se proporcionó `default`, retorna ese valor cuando ya no haya elementos en el `iterator`, en caso contrario retornar `StopIteration`.
 ```
 
+<br/>
+
 ### Uso de enumerate
 
 A continuación se presentan algunas acciones comunes con objetos `enumerate` sobre el iterable `X`.
 
 ```python
 # Crear un objeto enumerate
-enumerate_obj = zip(X, Y)
+enumerate_obj = Enumerate(X)
 
-# Crear un for con enumerate
+# Definir un for-loop con enumerate
 for i, ele in enumerate(X):
-    body
+    # for body
 
 # Desempacar un enumerate. Retorna tuplas.
 *enumerate(X)
@@ -108,6 +114,8 @@ for i, ele in enumerate(X):
 ```
 - `enumerate` crea tuplas de elementos en posiciones correspondientes entre el iterable y un rango numérico del mismo tamaño que `X`.
 - `X` es un `iterable`.
+
+<br/>
 
 ### Uso de zip
 
@@ -122,7 +130,7 @@ X, Y = zip(*zip_obj)
 
 # Iterar en un objeto zip
 for x, y in zip(X, Y):
-    body
+    # for body
 
 # Desempacar un objeto zip
 *zip(X, Y)
@@ -135,12 +143,14 @@ for x, y in zip(X, Y):
 ```
 - `zip` crea tuplas de elementos en posiciones correspondientes.
 
+<br/>
+
 ---
 ## Iterables booleanos
 
 Funciones útiles para iterables con valores booleanos.
 
-```{list-table} iter-bool
+```{list-table}
 :header-rows: 1
 
 * - Funciones
@@ -151,12 +161,13 @@ Funciones útiles para iterables con valores booleanos.
   - Retorna `True` si al menos un elemento de un objeto iterable es `True`.
 ```
 
----
+<br/>
+
 ## Iterables numéricos
 
 Funciones útiles para iterables numéricos.
 
-```{list-table} iter-num
+```{list-table}
 :header-rows: 1
 
 * - Funciones
@@ -169,12 +180,13 @@ Funciones útiles para iterables numéricos.
   - Devuélve el valor máximo de un iterable.
 ```
 
----
+<br/>
+
 ## Númericas
 
 Funciones útiles para tipos numéricos. 
 
-```{list-table} numeros
+```{list-table}
 :header-rows: 1
 
 * - Funciones
@@ -189,12 +201,13 @@ Funciones útiles para tipos numéricos.
   - Devuelve el valor absoluto de un número.
 ```
 
----
-## Instancias y Clases
+<br/>
+
+## Objetos y Clases
 
 Funciones útiles para instancias y clases. 
 
-```{list-table} obj-clases
+```{list-table}
 :header-rows: 1
 
 * - Funciones
@@ -202,19 +215,23 @@ Funciones útiles para instancias y clases.
 * - [isinstance](https://docs.python.org/3/library/functions.html#isinstance)(object, classinfo)
   - Retorna `True` si el argumento `object` es una instancia de `classinfo`.
 * - [dir](https://docs.python.org/3/library/functions.html#dir)(object)
-  - Sin argumentos, devuelve la lista de nombres en el ámbito local actual. Con un argumento, retorna una lista de atributos válidos para ese objeto.
+  - Sin argumentos, devuelve la lista de nombres en el ámbito local actual. Con argumentos, retorna una lista de atributos válidos para ese objeto.
 * - [id](https://docs.python.org/3/library/functions.html#id)(object)
   - Retorna la identidad de un objeto, que es un identificador único durante una sesión. También sirve para identificar en dónde está almacenado en memoria el objeto.
 * - [help](https://docs.python.org/3/library/functions.html#help)(request)
   - Invoca el sistema de ayuda integrado.
+* - [super](https://docs.python.org/3/library/functions.html#super)(type, object_or_type=None)
+  - Determina la siguiente clase en el _ eO_ de `type`. Útil para acceder a métodos heredados de otras clases que fueron sobreescritos.
 ```
+
+<br/>
 
 ---
 ## Print/Input
 
 Funciones para imprimir en consola o solicitrar ingreso de información al usuario. 
 
-```{list-table} print/input
+```{list-table}
 :header-rows: 1
 
 * - Funciones

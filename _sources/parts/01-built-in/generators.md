@@ -84,7 +84,7 @@ print(next(X, "empty"))
 <br/>
 
 ---
-## Generator Expression:
+## Generator Expression
 
 Es como un _list comprehenssion_, pero en lugar de devolver una lista, devuelve un objeto `generator`.
 - Un _generator expression_ produce un solo elemento, cada vez que es llamado con `next()`. 
@@ -105,10 +105,23 @@ X = (expression for i in iterable)
 sum(expression for i in iterable) 
 </code>
 
+<br/>
+
 En este caso devolverá la suma de todos los elementos del generator.
 :::
 
-```{note}
-Es posible usar condicionales dentro del generator expression al igual que con list comprehenssions.
+Los _generator expression_ también pueden tener condicionales, tanto en la parte de _expression_ como en la parte de _collection_, de manera que solo a cierto elementos se les aplique el código o de que dependiendo del resultado de la _expression_ se ponga un valor u otro. Sintaxis:
+
+**En el iterable**: En este caso _expression_ solo se evalua si los elementos de _collection_ cumplen una condición.
+```python
+# generator expression con condicional en collection
+X = (expression for i in collection if condition)
 ```
+
+**En la _expression_**: En este caso el elemento de `X` dependerá del resultado de _condition_.
+```python
+# generator expression con condicional en expression
+X = (expression_true if condition else expression_false for i in collection)
+```
+- Un _generator expression_ puede tener ambos tipos de condicionales al mismo tiempo.
 

@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -191,7 +191,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="ayuda.html">Obtener ayuda</a></li>
 <li class="toctree-l2"><a class="reference internal" href="comentarios.html">Comentarios</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tipos-datos.html">Tipos de datos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="operadores-palabras.html">Operadores y palabras reservadas.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operadores-palabras.html">Operadores y palabras reservadas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="entrada-salida.html">Entrada y salida de datos</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="tipos-index.html">Tipos Built-In</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="booleanos.html">Valores booleanos</a></li>
@@ -205,7 +205,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="if-else.html">If … Else</a></li>
-<li class="toctree-l3"><a class="reference internal" href="for-loop.html">For Loop.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="for-loop.html">For Loop</a></li>
 <li class="toctree-l3"><a class="reference internal" href="do-while.html">Do While</a></li>
 </ul>
 </li>
@@ -387,7 +387,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generator-expression">Generator Expression:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generator-expression">Generator Expression</a></li>
 </ul>
             </nav>
         </div>
@@ -488,7 +488,7 @@ empty
 <br/>
 <hr class="docutils" />
 <section id="generator-expression">
-<h2>Generator Expression:<a class="headerlink" href="#generator-expression" title="Link to this heading">#</a></h2>
+<h2>Generator Expression<a class="headerlink" href="#generator-expression" title="Link to this heading">#</a></h2>
 <p>Es como un <em>list comprehenssion</em>, pero en lugar de devolver una lista, devuelve un objeto <code class="docutils literal notranslate"><span class="pre">generator</span></code>.</p>
 <ul class="simple">
 <li><p>Un <em>generator expression</em> produce un solo elemento, cada vez que es llamado con <code class="docutils literal notranslate"><span class="pre">next()</span></code>.</p></li>
@@ -511,12 +511,23 @@ empty
 <code>
 sum(expression for i in iterable) 
 </code>
+<br/>
 <p>En este caso devolverá la suma de todos los elementos del generator.</p>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Es posible usar condicionales dentro del generator expression al igual que con list comprehenssions.</p>
+<p>Los <em>generator expression</em> también pueden tener condicionales, tanto en la parte de <em>expression</em> como en la parte de <em>collection</em>, de manera que solo a cierto elementos se les aplique el código o de que dependiendo del resultado de la <em>expression</em> se ponga un valor u otro. Sintaxis:</p>
+<p><strong>En el iterable</strong>: En este caso <em>expression</em> solo se evalua si los elementos de <em>collection</em> cumplen una condición.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># generator expression con condicional en collection</span>
+<span class="n">X</span> <span class="o">=</span> <span class="p">(</span><span class="n">expression</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">collection</span> <span class="k">if</span> <span class="n">condition</span><span class="p">)</span>
+</pre></div>
 </div>
+<p><strong>En la <em>expression</em></strong>: En este caso el elemento de <code class="docutils literal notranslate"><span class="pre">X</span></code> dependerá del resultado de <em>condition</em>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># generator expression con condicional en expression</span>
+<span class="n">X</span> <span class="o">=</span> <span class="p">(</span><span class="n">expression_true</span> <span class="k">if</span> <span class="n">condition</span> <span class="k">else</span> <span class="n">expression_false</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">collection</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Un <em>generator expression</em> puede tener ambos tipos de condicionales al mismo tiempo.</p></li>
+</ul>
 </section>
 </section>
 
@@ -584,7 +595,7 @@ sum(expression for i in iterable)
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generator-expression">Generator Expression:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generator-expression">Generator Expression</a></li>
 </ul>
   </nav></div>
 

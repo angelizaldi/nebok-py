@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -191,7 +191,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="ayuda.html">Obtener ayuda</a></li>
 <li class="toctree-l2"><a class="reference internal" href="comentarios.html">Comentarios</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tipos-datos.html">Tipos de datos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="operadores-palabras.html">Operadores y palabras reservadas.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operadores-palabras.html">Operadores y palabras reservadas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="entrada-salida.html">Entrada y salida de datos</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="tipos-index.html">Tipos Built-In</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="booleanos.html">Valores booleanos</a></li>
@@ -205,7 +205,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="if-else.html">If … Else</a></li>
-<li class="toctree-l3"><a class="reference internal" href="for-loop.html">For Loop.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="for-loop.html">For Loop</a></li>
 <li class="toctree-l3"><a class="reference internal" href="do-while.html">Do While</a></li>
 </ul>
 </li>
@@ -410,33 +410,52 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="lectura-y-escritura-de-archivos">
 <h1>Lectura y escritura de archivos<a class="headerlink" href="#lectura-y-escritura-de-archivos" title="Link to this heading">#</a></h1>
-<p>Se refiere a importar datos desde una fuente externa para poder trabajar con esos datos directamente desde python. Existen diversas formas de importar archivos a python, pero en esta sección solo se explicará la función <code class="docutils literal notranslate"><span class="pre">open()</span></code>.</p>
+<p>Se refiere a importar datos desde una fuente externa para poder trabajar con esos datos directamente desde python. Existen diversas formas de importar archivos a Python, pero en esta sección solo se explicará la función <code class="docutils literal notranslate"><span class="pre">open()</span></code>.</p>
 <br>
 <hr class="docutils" />
 <section id="funcion-open">
 <h2>Función open<a class="headerlink" href="#funcion-open" title="Link to this heading">#</a></h2>
 <p>Es la función principal para trabajar con archivos en Python, permite leer, crear y modificar archivos de texto y archivos binarios.</p>
-<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#open">open</a>: Abre un archivo ubicado en <code class="docutils literal notranslate"><span class="pre">file</span></code> y retorna un <code class="docutils literal notranslate"><span class="pre">file</span> <span class="pre">object</span></code> correspondiente. Si el archivo no se puede abrir, se genera un <code class="docutils literal notranslate"><span class="pre">OSError</span></code>.</p>
+<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#open">open</a>(): Lee un archivo ubicado en <code class="docutils literal notranslate"><span class="pre">file</span></code> y retorna un <code class="docutils literal notranslate"><span class="pre">file</span> <span class="pre">object</span></code> correspondiente. Si el archivo no se puede leer, se genera un <code class="docutils literal notranslate"><span class="pre">OSError</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">buffering</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">closefd</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">opener</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><strong>Notas:</strong></p>
 <ul class="simple">
-<li><p>El argumento <strong><code class="docutils literal notranslate"><span class="pre">mode</span></code></strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>) es para indicar qué tipo de conexión, es una cadena de dos caracteres, cuyo primer caracter indica la acción a realizar en el archivo y el segundo caracter indica el tipo de archivo. Algunos modos para la primer letra:</p>
+<li><p>El argumento <strong><code class="docutils literal notranslate"><span class="pre">mode</span></code></strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>) es para indicar qué tipo de conexión, existen caracteres para indicar la acción a realizar en el archivo y otros para indicar el tipo de archivo. Al momento de definir el <code class="docutils literal notranslate"><span class="pre">mode</span></code> los caracteres se deben de poner en el siguiente orden y con las siguientes opciones:</p>
+<ol class="arabic simple">
+<li><p>Tipo de acción.</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">r</span></code>: Abre un archivo solo para su lectura. Arroja un error si el archivo no existe.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">a</span></code>: Abre un archivo para agregar contenido. Si no existe el archivo lo crea en la ruta determinada. Si ya existe, agregará el contenido nuevo al final del documento.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">w</span></code>: Abre un archivo para escribir en él. Si no existe el archivo lo crea en la ruta determinada. Si ya existe sobreescribirá el archivo, borrando todo lo que había anteriormente.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: Crea el archivo en la ruta determinada, retorna un error si el archivo ya existe.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">r+</span></code>: Abre un archivo para lectura y escritura.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">t</span></code>: Modo texto.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">b</span></code>: Modo binario.</p></li>
 </ul>
+</li>
+<li><p>Lectura y escritura.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">+</span></code>: Independientemente del caracter elegido en <em>tipo de acción</em>, permite abrir un archivo para lectura y escritura. Tener en cuenta las siguientes características al momento de “escribir” dependiendo del primer caracter elegido:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">r+</span></code>: El archivo debe existir y el cursor se ubicará al inicio del documento, con el riesgo de sobreescribir contenido.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">a+</span></code>: Crea archivo si no existe. El cursor se ubicará al final del documento.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">w+</span></code>: Crea el archivo si no existe, o elimina contenido si ya existe. El cursor se ubicará al inicio del documento.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x+</span></code>: Crea el archivo o arroja error si ya existe. El cursos se ubicará al inicio del documento.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Tipo de <em>I/O</em>.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">t</span></code>: Modo texto (default). Retorna contenido en forma de <code class="docutils literal notranslate"><span class="pre">str</span></code>. No es necesario indicar este modo ya que es el modo por default.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">b</span></code>: Modo binario. Retorna contenido en forma de <code class="docutils literal notranslate"><span class="pre">bytes</span></code>.</p></li>
+</ul>
+</li>
+</ol>
 </li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Es necesario cerrar la conexión cuando ya no se necesite, ello se puede hacer con el método <code class="docutils literal notranslate"><span class="pre">.close()</span></code>. También se puede utilizar un context manager, en ese caso no es necesario cerrar la conexión ya que el administrador lo hará automáticamente.</p>
+<p>Es necesario cerrar la conexión cuando ya no se necesite, ello se puede hacer con el método <code class="docutils literal notranslate"><span class="pre">.close()</span></code>. También se puede utilizar un <em>context manager</em>, en ese caso no es necesario cerrar la conexión ya que el administrador lo hará automáticamente.</p>
 </div>
 <br>
 </section>
@@ -469,14 +488,12 @@ document.write(`
 <h2>Métodos del objeto file<a class="headerlink" href="#metodos-del-objeto-file" title="Link to this heading">#</a></h2>
 <p>En esta parte se enlistas los métodos de los objetos <code class="docutils literal notranslate"><span class="pre">IOBase</span></code> y <code class="docutils literal notranslate"><span class="pre">TextIOBase</span></code>. Para más información de cada uno visitar el link presionando en el nombre del método.</p>
 <br>
-<hr class="docutils" />
 <section id="cerrar-conexion">
 <h3>Cerrar conexión<a class="headerlink" href="#cerrar-conexion" title="Link to this heading">#</a></h3>
 <p>Método para cerrar una conexión con un archivo.</p>
-<table class="table" id="id1">
-<caption><span class="caption-number">Table 25 </span><span class="caption-text">cerrar</span><a class="headerlink" href="#id1" title="Link to this table">#</a></caption>
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Función</p></th>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
 <th class="head"><p>Descripción</p></th>
 </tr>
 </thead>
@@ -488,14 +505,12 @@ document.write(`
 </table>
 <br>
 </section>
-<hr class="docutils" />
 <section id="escritura">
 <h3>Escritura<a class="headerlink" href="#escritura" title="Link to this heading">#</a></h3>
 <p>Métodos para escibir en un archivo.</p>
-<table class="table" id="id2">
-<caption><span class="caption-number">Table 26 </span><span class="caption-text">escritura</span><a class="headerlink" href="#id2" title="Link to this table">#</a></caption>
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Función</p></th>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
 <th class="head"><p>Descripción</p></th>
 </tr>
 </thead>
@@ -504,20 +519,18 @@ document.write(`
 <td><p>Escribe una lista de textos en un archivo.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOBase.write">write</a>(s, /)</p></td>
-<td><p>Escriba la cadena <code class="docutils literal notranslate"><span class="pre">s</span></code> en un archivo y devuelva la cantidad de caracteres escrito.</p></td>
+<td><p>Escriba la cadena <code class="docutils literal notranslate"><span class="pre">s</span></code> en un archivo y devuelva la cantidad de caracteres escritos.</p></td>
 </tr>
 </tbody>
 </table>
 <br>
 </section>
-<hr class="docutils" />
 <section id="informacion">
 <h3>Información<a class="headerlink" href="#informacion" title="Link to this heading">#</a></h3>
 <p>Métodos sobre el archivo o la conexión.</p>
-<table class="table" id="id3">
-<caption><span class="caption-number">Table 27 </span><span class="caption-text">informacion</span><a class="headerlink" href="#id3" title="Link to this table">#</a></caption>
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Función</p></th>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
 <th class="head"><p>Descripción</p></th>
 </tr>
 </thead>
@@ -538,14 +551,12 @@ document.write(`
 </table>
 <br>
 </section>
-<hr class="docutils" />
 <section id="lectura">
 <h3>Lectura<a class="headerlink" href="#lectura" title="Link to this heading">#</a></h3>
 <p>Métodos para leer archivos.</p>
-<table class="table" id="id4">
-<caption><span class="caption-number">Table 28 </span><span class="caption-text">lectura</span><a class="headerlink" href="#id4" title="Link to this table">#</a></caption>
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Función</p></th>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
 <th class="head"><p>Descripción</p></th>
 </tr>
 </thead>
@@ -563,14 +574,12 @@ document.write(`
 </table>
 <br>
 </section>
-<hr class="docutils" />
 <section id="navegacion">
 <h3>Navegacion<a class="headerlink" href="#navegacion" title="Link to this heading">#</a></h3>
 <p>Método para moverse en un archivo.</p>
-<table class="table" id="id5">
-<caption><span class="caption-number">Table 29 </span><span class="caption-text">navegacion</span><a class="headerlink" href="#id5" title="Link to this table">#</a></caption>
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Función</p></th>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
 <th class="head"><p>Descripción</p></th>
 </tr>
 </thead>

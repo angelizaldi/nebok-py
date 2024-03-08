@@ -141,14 +141,14 @@ for i in string:
 ```
 - _string_ \- `str`: Cadena sobre la cual se iterará.
 
-<br>
+<br/>
 
 ---
 ## Subsetting y slicing: 
 
 ### Subsetting:
 Para seleccionar caracteres individuales de una cadena tener en cuenta las siguientes características:
-- Se utilizan corchetes `[]` para acceder a los caracteres, junto con la cadena y el índice del elemento. 
+- Se utilizan corchetes `[]` para acceder a los caracteres, junto con la cadena y el índice del elemento. <br/> `X[i]`
 - Los índices comienza en cero (0), esto quiere decir que si quiere acceder al caracter `n`, se debe de usar `[n-1]`. <br/>
 - Se puede utilizar índices negativos, para hacer subsetting de derecha a izquierda, comenzando por el último caracter. Por ejemplo, se puede acceder al último caracter con `[-1]`, al penúltimo caracter elemento `[-2]`, etc.
 
@@ -157,7 +157,8 @@ Algunos patrones útiles:
 - El caracter _n_: <br> `X[n-1]`
 - El último caracter: <br> `X[-1]`
 
----
+<br/>
+
 ### Slicing:
 Para seleccionar un rango de caracteres consecutivos tener en cuenta las siguientes características:
 - Se utiliza dos puntos, indicando los indices de inicio, fin y el paso: <br/> `X[i:j:k]`
@@ -174,7 +175,6 @@ Algunos patrones útiles:
 
 <br>
 
----
 ## Métodos de cadenas
 
 En esta sección se enlistan los métodos del tipo `str` por categorias. 
@@ -195,15 +195,14 @@ print(str.upper(X))
 
 <br>
 
----
 ### Buscar subcadenas
 
 Métodos para buscar subcadenas en una cadena.
 
-```{list-table} Buscar
+```{list-table}
 :header-rows: 1
 
-* - Funciones
+* - Método
   - Descripción
 * - [index](https://docs.python.org/3/library/stdtypes.html#str.index)(sub[, start[, end]])
   - Devuelve la primer posición de la cadena donde se encuentra una subcadena. Si no encuentra la subcadena devuelve `ValueError`.
@@ -217,15 +216,14 @@ Métodos para buscar subcadenas en una cadena.
 
 <br>
 
----
 ### Formato de la cadena
 
 Métodos para modificar el formato de una cadena.
 
-```{list-table} Formato
+```{list-table}
 :header-rows: 1
 
-* - Funciones
+* - Método
   - Descripción
 * - [zfill](https://docs.python.org/3/library/stdtypes.html#str.zfill)(width)
   - Retorna una cadena agregando ceros al principio de la cadena (si es necesario), para que tenga una longitud específica.
@@ -255,15 +253,14 @@ Métodos para modificar el formato de una cadena.
 
 <br>
 
----
 ### Información de la cadena
 
 Métodos para obtener información sobre la cadena.
 
-```{list-table} Información
+```{list-table}
 :header-rows: 1
 
-* - Funciones
+* - Método
   - Descripción
 * - [isdigit](https://docs.python.org/3/library/stdtypes.html#str.isdigit)()
   - Devuelve `True` si todos los caracteres de la cadena son dígitos y hay al menos un carácter, `False` en caso contrario.
@@ -285,7 +282,7 @@ Métodos para obtener información sobre la cadena.
   - Retorna `True` si todos los caracteres en la cadena son caracteres decimales y hay al menos un carácter, `False` de lo contrario.
 * - [isidentifier](https://docs.python.org/3/library/stdtypes.html#str.isidentifier)()
   - Retorna `True` si la cadena es un identificador válido.
-* - [endswith](https://docs.python.org/3/library/stdtypes.html#str.endswith)`(suffix[, start[, end]])`
+* - [endswith](https://docs.python.org/3/library/stdtypes.html#str.endswith)(suffix[, start[, end]])
   - Retorna `True` si la cadena termina con algún sufijo en específico.
 * - [isalpha](https://docs.python.org/3/library/stdtypes.html#str.isalpha)()
   - Devuelve `True` si todos los caracteres de la cadena son alfabéticos y hay al menos un carácter, `False` en caso contrario.
@@ -299,15 +296,14 @@ Métodos para obtener información sobre la cadena.
 
 <br>
 
----
 ### Joins y splits
 
 Métodos para separar cadenas o para crear cadenas desde iterables.
 
-```{list-table} Separar y Unir
+```{list-table}
 :header-rows: 1
 
-* - Funciones
+* - Método
   - Descripción
 * - [join](https://docs.python.org/3/library/stdtypes.html#str.join)(iterable)
   - Devuelve una cadena que es la concatenación de las cadenas en un iterable. Se generará un `TypeError` si hay valores que no sean cadenas en el iterable.
@@ -325,15 +321,14 @@ Métodos para separar cadenas o para crear cadenas desde iterables.
 
 <br>
 
----
 ### Otros
 
 Otros métodos para cadenas.
 
-```{list-table} Otros
+```{list-table}
 :header-rows: 1
 
-* - Funciones
+* - Método
   - Descripción
 * - [maketrans](https://docs.python.org/3/library/stdtypes.html#str.maketrans)(x[, y[, z]])
   - Este método estático devuelve una tabla de traducción utilizable para `str.translate()`.
@@ -345,19 +340,18 @@ Otros métodos para cadenas.
 
 <br>
 
----
 ### Reemplazar y remover subcadenas.
 
 Métodos para reemplazar o remover subcadenas dentro de una cadena.
 
-```{list-table} Reemplazar
+```{list-table}
 :header-rows: 1
 
-* - Funciones
+* - Método
   - Descripción
 * - [removeprefix](https://docs.python.org/3/library/stdtypes.html#str.removeprefix)(prefix, /)
   - Devuelve una copia de la cadena eliminando el prefijo `prefix` al inicio de la cadena, si existe.
-* - [expandtabs](https://docs.python.org/3/library/stdtypes.html#str.expandtabs)`(tabsize=8)`
+* - [expandtabs](https://docs.python.org/3/library/stdtypes.html#str.expandtabs)(tabsize=8)
   - Devuelve una copia de la cadena donde todos los caracteres de tabulación se reemplazan por uno o más espacios.
 * - [removesuffix](https://docs.python.org/3/library/stdtypes.html#str.removesuffix)(suffix, /)
   - Retorna una copia de la cadena eliminando el sufijo `suffix` al final de la cadena, si existe.
@@ -367,15 +361,14 @@ Métodos para reemplazar o remover subcadenas dentro de una cadena.
 
 <br>
 
----
 ### Strip
 
 Métodos para eliminar caracteres al inicio, final o ambos de una cadena.
 
-```{list-table} Strip
+```{list-table}
 :header-rows: 1
 
-* - Funciones
+* - Método
   - Descripción
 * - [strip](https://docs.python.org/3/library/stdtypes.html#str.strip)([chars])
   - Elimina los espacios en blanco o un conjunto de caracteres, al principio y final de una cadena.
@@ -397,12 +390,14 @@ En esta sección se explica el método `str.format()` y las "_f-strings_" que pe
 Existen otros métodos para hacer lo mismo como los `string.Template` o usando el operador `%`, pero no se cubrirán en esta página.
 :::
 
----
+<br/>
+
 ### str.format
 
 Es un método que sirve para imprimir valores de variables en algún formato en específico. Para ello en la cadena se deben especificar campos delimitados por corchetes `{}` donde irán los valores.
 
----
+<br/>
+
 #### Uso
 
 Existen tres formas principales de usar este método:
@@ -427,6 +422,8 @@ cadena = "Lenguaje: {0}\nVersión: {1}"
 print(cadena.format(nombre, version))
 ```
 
+<br/>
+
 **2. nombres**
 
 - En la cadena, los campos `{}` deben de tener nombres, los cuales se deben especificar en `str.format()` como un par  `name=val`.
@@ -443,6 +440,8 @@ cadena = "Lenguaje: {name}\nVersión: {version}"
 # Imprimir la cadena con los valores de las variables
 print(cadena.format(name=nombre, version=version))
 ```
+
+<br/>
 
 **3. diccionario**
 
@@ -472,6 +471,8 @@ f"... {expression} ..."
 ```
 - _expression_: Es un valor, un objeto o incluso funciones y/o métodos que retornen un objeto imprimible. El valor mostrado será el mismo que el del método `__str__()` o `__repr__()` de la clase del objeto.
 
+<br/>
+
 Ejemplo:
 ```{code-cell} ipython3
 # Definir las variables
@@ -487,6 +488,8 @@ Se puede realizar una conversión en los campos `{}`, algunas conversiones dispo
 - `!r`: Cadena en versión imprimible, es decir, entre comillas, (solo funciona si la expresión es `str`).
 - `!a`: Como `!r` pero ignora los caracteres non-ASCII.
 
+<br/>
+
 Ejemplo:
 ```{code-cell} ipython3
 # Definir las variables
@@ -497,6 +500,9 @@ version = 11
 print(f"Lenguaje: {nombre!r}\nVersión: {version!s}")
 ```
 
+<br/>
+
+---
 ### Formatos
 
 Para dar formatos en el método `str.format()` y en f-string, se utiliza dos puntos y el formato que se quiere dar dentro de las llaves `{}`:
@@ -545,7 +551,9 @@ Los formatos disponibles son:
 - _N_: Son números enteros, suelen ser opcionales.
 - _expression_: Es la expresión, número, cadena, etc. a la que se le dará formato.
 
-**Ejemplos**
+<br/>
+
+**Ejemplos**:
 
 ```{code-cell} ipython3
 # Definir la variable

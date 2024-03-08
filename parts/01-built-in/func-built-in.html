@@ -191,7 +191,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="ayuda.html">Obtener ayuda</a></li>
 <li class="toctree-l2"><a class="reference internal" href="comentarios.html">Comentarios</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tipos-datos.html">Tipos de datos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="operadores-palabras.html">Operadores y palabras reservadas.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operadores-palabras.html">Operadores y palabras reservadas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="entrada-salida.html">Entrada y salida de datos</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="tipos-index.html">Tipos Built-In</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="booleanos.html">Valores booleanos</a></li>
@@ -205,7 +205,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="if-else.html">If … Else</a></li>
-<li class="toctree-l3"><a class="reference internal" href="for-loop.html">For Loop.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="for-loop.html">For Loop</a></li>
 <li class="toctree-l3"><a class="reference internal" href="do-while.html">Do While</a></li>
 </ul>
 </li>
@@ -397,7 +397,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterables-booleanos">Iterables booleanos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterables-numericos">Iterables numéricos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numericas">Númericas</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instancias-y-clases">Instancias y Clases</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetos-y-clases">Objetos y Clases</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#print-input">Print/Input</a></li>
 </ul>
             </nav>
@@ -415,14 +415,13 @@ document.write(`
 <p>En esta sección se presentan algunas funciones que ya vienen incluídas y no es necesario importar ningún paquete o módulo. Las funciones están presentadas por categorías.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Esta sección no incluye todas las funciones built-in de python, sino algunas de las más importantes. Para un listado completo de las funciones built-in de python visitar la <a class="reference external" href="https://docs.python.org/3/library/index.html">pagina oficial de Python</a>.</p>
+<p>Esta sección no incluye todas las funciones built-in de Python, sino algunas de las más importantes. Para un listado completo de las funciones built-in de python visitar la <a class="reference external" href="https://docs.python.org/3/library/index.html">pagina oficial de Python</a>.</p>
 </div>
 <hr class="docutils" />
 <section id="cadenas">
 <h2>Cadenas<a class="headerlink" href="#cadenas" title="Link to this heading">#</a></h2>
 <p>Funciones útiles para recuperar códigos Unicode o para recuperar representacios de cadenas de números.</p>
-<table class="table" id="id1">
-<caption><span class="caption-number">Table 31 </span><span class="caption-text">cadenas</span><a class="headerlink" href="#id1" title="Link to this table">#</a></caption>
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Funciones</p></th>
 <th class="head"><p>Descripción</p></th>
@@ -449,13 +448,13 @@ document.write(`
 </tr>
 </tbody>
 </table>
+<br/>
 </section>
 <hr class="docutils" />
 <section id="archivos">
 <h2>Archivos<a class="headerlink" href="#archivos" title="Link to this heading">#</a></h2>
 <p>Función para crear conexiones con achivos locales.</p>
-<table class="table" id="id2">
-<caption><span class="caption-number">Table 32 </span><span class="caption-text">files</span><a class="headerlink" href="#id2" title="Link to this table">#</a></caption>
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Funciones</p></th>
 <th class="head"><p>Descripción</p></th>
@@ -467,13 +466,13 @@ document.write(`
 </tr>
 </tbody>
 </table>
+<br/>
 </section>
 <hr class="docutils" />
 <section id="iterables">
 <h2>Iterables<a class="headerlink" href="#iterables" title="Link to this heading">#</a></h2>
-<p>Funciones útiles para iterables.</p>
-<table class="table" id="id3">
-<caption><span class="caption-number">Table 33 </span><span class="caption-text">iter</span><a class="headerlink" href="#id3" title="Link to this table">#</a></caption>
+<p>Funciones útiles para objetos <code class="docutils literal notranslate"><span class="pre">iterable</span></code>.</p>
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Funciones</p></th>
 <th class="head"><p>Descripción</p></th>
@@ -509,15 +508,16 @@ document.write(`
 </tr>
 </tbody>
 </table>
+<br/>
 <section id="uso-de-enumerate">
 <h3>Uso de enumerate<a class="headerlink" href="#uso-de-enumerate" title="Link to this heading">#</a></h3>
 <p>A continuación se presentan algunas acciones comunes con objetos <code class="docutils literal notranslate"><span class="pre">enumerate</span></code> sobre el iterable <code class="docutils literal notranslate"><span class="pre">X</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear un objeto enumerate</span>
-<span class="n">enumerate_obj</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+<span class="n">enumerate_obj</span> <span class="o">=</span> <span class="n">Enumerate</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 
-<span class="c1"># Crear un for con enumerate</span>
+<span class="c1"># Definir un for-loop con enumerate</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ele</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
-    <span class="n">body</span>
+    <span class="c1"># for body</span>
 
 <span class="c1"># Desempacar un enumerate. Retorna tuplas.</span>
 <span class="o">*</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
@@ -533,6 +533,7 @@ document.write(`
 <li><p><code class="docutils literal notranslate"><span class="pre">enumerate</span></code> crea tuplas de elementos en posiciones correspondientes entre el iterable y un rango numérico del mismo tamaño que <code class="docutils literal notranslate"><span class="pre">X</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">X</span></code> es un <code class="docutils literal notranslate"><span class="pre">iterable</span></code>.</p></li>
 </ul>
+<br/>
 </section>
 <section id="uso-de-zip">
 <h3>Uso de zip<a class="headerlink" href="#uso-de-zip" title="Link to this heading">#</a></h3>
@@ -545,7 +546,7 @@ document.write(`
 
 <span class="c1"># Iterar en un objeto zip</span>
 <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
-    <span class="n">body</span>
+    <span class="c1"># for body</span>
 
 <span class="c1"># Desempacar un objeto zip</span>
 <span class="o">*</span><span class="nb">zip</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
@@ -560,14 +561,14 @@ document.write(`
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">zip</span></code> crea tuplas de elementos en posiciones correspondientes.</p></li>
 </ul>
+<br/>
 </section>
 </section>
 <hr class="docutils" />
 <section id="iterables-booleanos">
 <h2>Iterables booleanos<a class="headerlink" href="#iterables-booleanos" title="Link to this heading">#</a></h2>
 <p>Funciones útiles para iterables con valores booleanos.</p>
-<table class="table" id="id4">
-<caption><span class="caption-number">Table 34 </span><span class="caption-text">iter-bool</span><a class="headerlink" href="#id4" title="Link to this table">#</a></caption>
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Funciones</p></th>
 <th class="head"><p>Descripción</p></th>
@@ -582,13 +583,12 @@ document.write(`
 </tr>
 </tbody>
 </table>
+<br/>
 </section>
-<hr class="docutils" />
 <section id="iterables-numericos">
 <h2>Iterables numéricos<a class="headerlink" href="#iterables-numericos" title="Link to this heading">#</a></h2>
 <p>Funciones útiles para iterables numéricos.</p>
-<table class="table" id="id5">
-<caption><span class="caption-number">Table 35 </span><span class="caption-text">iter-num</span><a class="headerlink" href="#id5" title="Link to this table">#</a></caption>
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Funciones</p></th>
 <th class="head"><p>Descripción</p></th>
@@ -606,13 +606,12 @@ document.write(`
 </tr>
 </tbody>
 </table>
+<br/>
 </section>
-<hr class="docutils" />
 <section id="numericas">
 <h2>Númericas<a class="headerlink" href="#numericas" title="Link to this heading">#</a></h2>
 <p>Funciones útiles para tipos numéricos.</p>
-<table class="table" id="id6">
-<caption><span class="caption-number">Table 36 </span><span class="caption-text">numeros</span><a class="headerlink" href="#id6" title="Link to this table">#</a></caption>
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Funciones</p></th>
 <th class="head"><p>Descripción</p></th>
@@ -633,13 +632,12 @@ document.write(`
 </tr>
 </tbody>
 </table>
+<br/>
 </section>
-<hr class="docutils" />
-<section id="instancias-y-clases">
-<h2>Instancias y Clases<a class="headerlink" href="#instancias-y-clases" title="Link to this heading">#</a></h2>
+<section id="objetos-y-clases">
+<h2>Objetos y Clases<a class="headerlink" href="#objetos-y-clases" title="Link to this heading">#</a></h2>
 <p>Funciones útiles para instancias y clases.</p>
-<table class="table" id="id7">
-<caption><span class="caption-number">Table 37 </span><span class="caption-text">obj-clases</span><a class="headerlink" href="#id7" title="Link to this table">#</a></caption>
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Funciones</p></th>
 <th class="head"><p>Descripción</p></th>
@@ -650,7 +648,7 @@ document.write(`
 <td><p>Retorna <code class="docutils literal notranslate"><span class="pre">True</span></code> si el argumento <code class="docutils literal notranslate"><span class="pre">object</span></code> es una instancia de <code class="docutils literal notranslate"><span class="pre">classinfo</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#dir">dir</a>(object)</p></td>
-<td><p>Sin argumentos, devuelve la lista de nombres en el ámbito local actual. Con un argumento, retorna una lista de atributos válidos para ese objeto.</p></td>
+<td><p>Sin argumentos, devuelve la lista de nombres en el ámbito local actual. Con argumentos, retorna una lista de atributos válidos para ese objeto.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#id">id</a>(object)</p></td>
 <td><p>Retorna la identidad de un objeto, que es un identificador único durante una sesión. También sirve para identificar en dónde está almacenado en memoria el objeto.</p></td>
@@ -658,15 +656,18 @@ document.write(`
 <tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#help">help</a>(request)</p></td>
 <td><p>Invoca el sistema de ayuda integrado.</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#super">super</a>(type, object_or_type=None)</p></td>
+<td><p>Determina la siguiente clase en el <em>�eO</em> de <code class="docutils literal notranslate"><span class="pre">type</span></code>. Útil para acceder a métodos heredados de otras clases que fueron sobreescritos.</p></td>
+</tr>
 </tbody>
 </table>
+<br/>
 </section>
 <hr class="docutils" />
 <section id="print-input">
 <h2>Print/Input<a class="headerlink" href="#print-input" title="Link to this heading">#</a></h2>
 <p>Funciones para imprimir en consola o solicitrar ingreso de información al usuario.</p>
-<table class="table" id="id8">
-<caption><span class="caption-number">Table 38 </span><span class="caption-text">print/input</span><a class="headerlink" href="#id8" title="Link to this table">#</a></caption>
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Funciones</p></th>
 <th class="head"><p>Descripción</p></th>
@@ -758,7 +759,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterables-booleanos">Iterables booleanos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterables-numericos">Iterables numéricos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numericas">Númericas</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instancias-y-clases">Instancias y Clases</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetos-y-clases">Objetos y Clases</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#print-input">Print/Input</a></li>
 </ul>
   </nav></div>

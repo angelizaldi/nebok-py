@@ -25,14 +25,15 @@ Para más información visitar la [documentación](https://docs.python.org/3/lib
 <br>
 
 ---
-## Crear una lista:
+## Crear una lista
 Existen dos métodos principales para crear una lista
-1. Poner los elementos, separados por coma, dentro de corchetes `[]`:
+**1**. Poner los elementos, separados por coma, dentro de corchetes `[]`:
 ```python
 # Crear una lista
 X = [x1, x2, ...]
 ```
-Convertir una secuencia o un iterable a una lista con la función `list()`:
+
+**2**. Convertir una secuencia o un iterable a una lista con la función `list()`:
 ```python
 # Convertir el iterable Y a una lista
 X = list(Y)
@@ -55,7 +56,7 @@ De esta manera modificaciones en `Y` no afectarán a `X` y viceversa.
 <br>
 
 ---
-##  Agregar/Concatenar elementos:
+##  Agregar/Concatenar elementos
 
 Para agregar elementos a una lista existente se puede usar el operador `+`, que sirve para concatenar listas, los nuevos elementos se agregarán al final de la lista.
 ```python
@@ -82,7 +83,7 @@ Y = X * n
 <br>
 
 ---
-## Eliminar Elementos:
+## Eliminar Elementos
 
 Para eliminar un elemento específico o la lista completa usar la palabra reservada `del` y el elemento que se quiere eliminar:
 ```python
@@ -104,7 +105,7 @@ Para más información revisar {ref}`Metodos-Eliminar <list-metodos-eliminar>`.
 <br>
 
 ---
-## Modificar Elementos:
+## Modificar Elementos
 
 Para modificar un elemento en específico usar su índice y el operador de asignación:
 ```python
@@ -122,7 +123,8 @@ X[i:j] = [val1, val2, ...]
 <br>
 
 ---
-## Verificar que un elemento exista en una lista:
+## Verificar que un elemento exista en una lista
+
 Para verificar si un elemento está dentro de una lista usar el operador de membresía `in`:
 ```python
 # Si X es una lista
@@ -133,15 +135,16 @@ x in X
 <br>
 
 ---
-## Selección de elementos: 
+## Selección de elementos 
 
-### Subsetting:
+### Subsetting
+
 Para seleccionar elementos de una lista tener en cuenta las siguientes características:
 - Se utilizan corchetes `[]` para acceder a los elementos, junto con el nombre de la lista y el índice del elemento: <br/>
 `X[i]`
 - Los índices comienza en cero (0), esto quiere decir que si quiere acceder al elemento `n`, se debe de usar `[n-1]`.
 - Se puede utilizar índices negativos, para hacer subsetting de derecha a izquierda, comenzando por el último elemento. Por ejemplo, se puede acceder al último elemento con `[-1]`, al penúltimo elemento con `[-2]`, etc.
-- Para listas dentro de otras listas, considerar que en esencia usar `X[i]` devolverá otra lista, entonces para acceder a los elementos de esa otra lista usar otro `[]`, esto es: <br/> `X[n1][n2]`
+- Para listas dentro de otras listas, considerar que en esencia usar `X[i]` devolverá otra lista, entonces para acceder a los elementos de esa otra lista usar otro `[]`, esto es: <br/> `X[i][j]`
 - Lo anterior se puede generalizar para cualquier número de listas anidadas.
 
 Algunos patrones útiles:
@@ -149,8 +152,10 @@ Algunos patrones útiles:
 - El elemento _n_: <br> `X[n-1]`
 - El último elemento: <br> `X[-1]`
 
----
-### Slicing:
+<br/>
+
+### Slicing
+
 Para seleccionar un rango de elementos consecutivos tener en cuenta las siguientes características:
 - Se utiliza dos puntos, indicando los indices de inicio, fin y el paso: <br/> `X[i:j:k]`
 - La selección por rango, tienen la característica que el primer elemento es inclusivo y el último es exclusivo, esto quiere decir que no se incluirá en el rango, si se usa el rango `[m:n]`, en realidad solo se accederá a `[m:n-1]`.
@@ -158,7 +163,7 @@ Para seleccionar un rango de elementos consecutivos tener en cuenta las siguient
 Algunos patrones útiles:
 - Desde el índice `i` hasta el `j`, sin incluir el `j`: <br> `X[i:j]`
 - Desde el inicio hasta el `j`, sin incluir el `j`: <br> `X[:j]`
-- Desde la posición `i` hasta el final de la tupla: <br>`X[i:]`
+- Desde la posición `i` hasta el final de la lista: <br>`X[i:]`
 - Toda la lista: <br> `X[:]`
 - Desde el índice `i` hasta el `j`, sin incluir el `j`, cada `k` elementos: <br> `X[i:j:k]`
 - Toda la lista cada `k` elementos: <br> `X[::k]`
@@ -167,7 +172,7 @@ Algunos patrones útiles:
 <br>
 
 ---
-## Unpack de listas:
+## Unpack de listas
 
 Se refiere a asignar a varias variables los elementos de un objeto iterable como `list`:
 ```
@@ -186,7 +191,7 @@ x1, x2, ... , *xi  = X
 <br>
 
 ---
-## Iteración:
+## Iteración
 
 Para interar sobre todos los elementos de una lista se puede usar un `for loop`. Algunas opciones de iteración son:
 ```python
@@ -228,14 +233,15 @@ Las _list comprehension_ también pueden tener condicionales, tanto en la parte 
 
 **En el iterable**: En este caso _expression_ solo se evalua si los elementos de _collection_ cumplen una condición.
 ```python
+# list comprehension con condicional en collection
 X = [expression for i in collection if condition]
 ```
 
 **En la _expression_**: En este caso el elemento de `X` dependerá del resultado de _condition_.
 ```python
+# list comprehension con condicional en expression
 X = [expression_true if condition else expression_false for i in collection]
 ```
-
 - Una _list comprehesion_ puede tener ambos tipos de condicionales al mismo tiempo.
 
 **Ejemplo**: Encontrar los elementos al cuadrado de una lista numérica, solo si el número es par.
@@ -254,7 +260,7 @@ print(pares_cuadrados)
 <br>
 
 ---
-## Métodos de listas:
+## Métodos de listas
 
 En esta sección se enlistan los métodos del tipo `list` por categorias. 
 
@@ -272,16 +278,16 @@ print(list.count(X, "a"))
 ```
 - Tener en cuenta que en la segunda forma la lista siempre debe de ser el primer argumento.
 
----
+
 ### Agregar elementos
 
 Métodos para agregar elementos a una lista.
 
-```{list-table} Agregar
+```{list-table}
 :header-rows: 1
 :name: list-metodos-agregar
 
-* - Funciones
+* - Método
   - Descripción
 * - [insert](https://docs.python.org/3/library/stdtypes.html#mutable-sequence-types)(i, x)
   - Inserta `x` en una lista en el índice dado por `i`, recorriendo el resto de los elementos a la derecha.
@@ -291,16 +297,32 @@ Métodos para agregar elementos a una lista.
   - Extiende una lista con el contenido de un iterable "_in-place_".
 ```
 
----
+<br/>
+
+### Copiar
+
+Métodos para copiar una lista.
+
+```{list-table}
+:header-rows: 1
+
+* - Método
+  - Descripción
+* - [copy](https://docs.python.org/3/library/stdtypes.html#mutable-sequence-types)()
+  - Crea una copia superficial de la lista.
+```
+
+<br/>
+
 ### Eliminar elementos
 
 Métodos para eliminar elementos de una lista.
 
-```{list-table} Eliminar
+```{list-table}
 :header-rows: 1
 :name: list-metodos-eliminar
 
-* - Funciones
+* - Método
   - Descripción
 * - [clear](https://docs.python.org/3/library/stdtypes.html#mutable-sequence-types)()
   - Remueve todos los elementos de la lista.
@@ -310,15 +332,16 @@ Métodos para eliminar elementos de una lista.
   - Remueve un elemento de una posición en específico, retorna ese elemento y recorre el resto de los elementos a la izquierda.
 ```
 
----
+<br/>
+
 ### Información de la lista
 
 Métodos para obtener información sobre una lista.
 
-```{list-table} Información
+```{list-table}
 :header-rows: 1
 
-* - Funciones
+* - Método
   - Descripción
 * - [count](https://docs.python.org/3/library/stdtypes.html#common-sequence-operations)(x)
   - Retorna el número total de ocurrencias de `x` en la lista.
@@ -326,15 +349,16 @@ Métodos para obtener información sobre una lista.
   - Indice de la primera aparición de `x` en la lista (en o después índice `i` y antes del índice `j`). Retorna `ValueError` si `x` no está en la lista. 
 ```
 
----
+<br/>
+
 ### Ordenar
 
 Métodos para ordenar una lista.
 
-```{list-table} Ordenar
+```{list-table}
 :header-rows: 1
 
-* - Funciones
+* - Método
   - Descripción
 * - [sort](https://docs.python.org/3/library/stdtypes.html#list.sort)(*, key=None, reverse=False)
   - Ordena los valores de la lista de manera alfabética o numérica. Realiza la acción "_in-place_".
@@ -342,19 +366,7 @@ Métodos para ordenar una lista.
   - Modifica el orden de la lista de manera inversa "_in-place_".
 ```
 
----
-### Copiar
-
-Métodos para copiar una lista.
-
-```{list-table} Otros
-:header-rows: 1
-
-* - Funciones
-  - Descripción
-* - [copy](https://docs.python.org/3/library/stdtypes.html#mutable-sequence-types)()
-  - Crea una copia superficial de la lista.
-```
+<br/>
 
 ---
 ## Funciones útiles para listas

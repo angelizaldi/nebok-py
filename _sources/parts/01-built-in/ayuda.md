@@ -1,6 +1,6 @@
 # Obtener ayuda
 
-Para obtener ayuda sobre algún objeto usar la función `help()` o el operador `?`. Ejemplos
+Para obtener ayuda sobre algún objeto usar la función `help()` o el operador `?`. Ejemplos:
 ```python
 # Importar algunas librerias
 import math
@@ -35,7 +35,7 @@ help(math.cos)
 - `object` es la instancia, clase, función, método, etc.
 
 ---
-## Enlistar métodos y atributos de clases:
+## Enlistar métodos y atributos de clases
 
 Para conocer todos las funciones y constantes que tiene una librería o todos los métodos y atributos que tiene una clase usar la función `dir()`. Algunos ejemplos:
 

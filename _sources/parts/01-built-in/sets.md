@@ -80,7 +80,7 @@ del X
 <br/>
 
 ---
-## Verificar que un elemento exista en un set:
+## Verificar que un elemento exista en un set
 Para verificar si un elemento está dentro de un `set` usar el operador de membresía `in`:
 ```python
 # Si X es un set
@@ -112,8 +112,8 @@ for ele in X:
 Los `set` básicamente son la representación de un conjunto matemático en Python, es decir, una colección de elementos únicos. Por ello se puede realizar operaciones entre sets de la misma manera como se hacen operaciones entre conjuntos. A continuación se enlistan las operaciones disponibles:
 - **Unión**: Para determinar la unión de dos sets se usa el operador `|`: <br> `X|Y`
 - **Intersección**: Para determinar la intersección (elementos en común) de dos sets se usa el operador `&`: <br> `X&Y`.
-- **Diferencia**: Para determinar la diferencia de dos sets se usa el operador `-`: <br> `X-Y`.
-- **Diferencia simétrica**: Para determinar la diferencia simétrica de dos sets se usa el operador `^`: <br> `X^Y`.
+- **Diferencia**: Para determinar la diferencia de dos sets (elementos en `X` pero no en `Y`) se usa el operador `-`: <br> `X-Y`.
+- **Diferencia simétrica**: Para determinar la diferencia simétrica de dos sets (elementos en `X` o `Y`, pero no en ambos) se usa el operador `^`: <br> `X^Y`.
 - **Subconjunto propio**: Para determinar si un set es un subcojunto propio se puede usar los operadores `<` o `>`:
     - `X<Y`: Verificar si `X` está contenido en `Y`.
     - `X>Y`: Verificar si `Y` está contenido en `X`.
@@ -121,7 +121,7 @@ Los `set` básicamente son la representación de un conjunto matemático en Pyth
     - `X<=Y`: Verificar si `X` está contenido o es igual a `Y`.
     - `X>=Y`: Verificar si `Y` está contenido o es igual a `X`.
 
-Todos estos operadores tienen sus métodos equivalente los cuales se pueden encontrar en {ref}`Metodos-Operaciones <set-metodos-operaciones>` y {ref}`Metodos-Información <set-metodos-informacion>`.
+Todos estos operadores tienen sus métodos equivalente los cuales se pueden encontrar en {ref}`Operaciones <set-metodos-operaciones>` y {ref}`Operaciones in-place <set-metodos-informacion>`.
 
 <br/>
 
@@ -141,11 +141,13 @@ Los sets comprehension pueden tener condicionales, tanto en la parte de _express
 
 **En el iterable**: En este caso _expression_ solo se evalua si los elementos de _collection_ cumplen una condición.
 ```python
+# set comprehension con condicional en collection
 X = {expression for i in collection if condition}
 ```
 
-**En la _expression_**: En este caso el elemento de `X` dependerá del resultado de _condition_.
+**En _expression_**: En este caso el elemento de `X` dependerá del resultado de _condition_.
 ```python
+# set comprehension con condicional en expression
 X = {val_true if condition else val_false for i in collection}
 ```
 
@@ -170,16 +172,17 @@ print(set.difference(X, {"a", "c"}))
 ```
 - Tener en cuenta que en la segunda forma el `set` siempre debe de ser el primer argumento.
 
----
+<br/>
+
 ### Agregar elementos
 
 Métodos para agregar elementos a un `set`. 
 
-```{list-table} Agregar
+```{list-table}
 :header-rows: 1
 :name: set-metodos-agregar
 
-* - Funciones
+* - Método
   - Descripción
 * - [add](https://docs.python.org/3/library/stdtypes.html#frozenset.add)(elem)
   - Agrega un elemento al `set`.
@@ -187,16 +190,30 @@ Métodos para agregar elementos a un `set`.
 
 <br/>
 
----
+### Copiar
+
+Método para realizar la copia de un `set`.
+
+```{list-table}
+:header-rows: 1
+
+* - Método
+  - Descripción
+* - [copy](https://docs.python.org/3/library/stdtypes.html#frozenset.copy)()
+  - Devuelve una copia superficial del `set`.
+```
+
+<br/>
+
 ### Eliminar elementos
 
 Métodos para eliminar elementos de un `set`. 
 
-```{list-table} Eliminar
+```{list-table}
 :header-rows: 1
 :name: set-metodos-eliminar
 
-* - Funciones
+* - Método
   - Descripción
 * - [discard](https://docs.python.org/3/library/stdtypes.html#frozenset.discard)(elem)
   - Elimina el elemento `elem` del `set` si está presente. La operación se realiza "_in-place_".
@@ -210,16 +227,15 @@ Métodos para eliminar elementos de un `set`.
 
 <br/>
 
----
 ### Información sobre el set
 
 Métodos para recuperar información sobre el `set` en relación con otros objetos.
 
-```{list-table} Información
+```{list-table}
 :header-rows: 1
 :name: set-metodos-informacion
 
-* - Funciones
+* - Método
   - Descripción
 * - [issuperset](https://docs.python.org/3/library/stdtypes.html#frozenset.issuperset)(other)
   - Retorna `True` si cada elemento en `other` está en el conjunto. Equivale al operador `>`.
@@ -236,11 +252,11 @@ Métodos para recuperar información sobre el `set` en relación con otros objet
 
 Métodos para realizar operaciones entre conjuntos y que retornan un nuevo `set`.
 
-```{list-table} Operaciones
+```{list-table}
 :header-rows: 1
 :name: set-metodos-operaciones
 
-* - Funciones
+* - Método
   - Descripción
 * - [difference](https://docs.python.org/3/library/stdtypes.html#frozenset.difference)(*others)
   - Devuelve un nuevo conjunto con elementos que están en el conjunto que no están en los demás. Equivale a usar el operador `-`.
@@ -259,10 +275,10 @@ Métodos para realizar operaciones entre conjuntos y que retornan un nuevo `set`
 
 Métodos para realizar operaciones entre conjuntos y que actualizan un `set` en lugar de retornar uno nuevo. Básicamente realizan las operaciones "_in-place_".
 
-```{list-table} Operaciones-inplace
+```{list-table}
 :header-rows: 1
 
-* - Funciones
+* - Método
   - Descripción
 * - [difference_update](https://docs.python.org/3/library/stdtypes.html#frozenset.difference_update)(*others)
   - Actualiza el `set`, eliminando los elementos que se encuentren en `*other`. Equivale a usar el operador `-=`.
@@ -277,23 +293,7 @@ Métodos para realizar operaciones entre conjuntos y que actualizan un `set` en 
 <br/>
 
 ---
-### Copiar
-
-Método para realizar la copia de un `set`.
-
-```{list-table} Copiar
-:header-rows: 1
-
-* - Funciones
-  - Descripción
-* - [copy](https://docs.python.org/3/library/stdtypes.html#frozenset.copy)()
-  - Devuelve una copia superficial del `set`.
-```
-
-<br/>
-
----
-## Funciones útiles para listas
+## Funciones útiles para sets
 
 Algunas funciones built-in útiles para sets son:
 - `len()`: Encontrar la longitud (número de elementos) del `set`.

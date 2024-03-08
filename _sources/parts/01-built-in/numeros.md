@@ -2,6 +2,8 @@
 
 Existen tres tipos de datos numéricos en python `int`, `float` y `complex`. 
 
+<br/>
+
 ---
 ## Números enteros y flotantes
 
@@ -18,7 +20,8 @@ Existen tres tipos de datos numéricos en python `int`, `float` y `complex`.
 
 Se pueden usar las funciones `int()` y `float()` para convertir otros objetos en números enteros o flotantes, respectivamente, por ejemplo, para convertir valores `bool` o `str` a números.
 
----
+<br/>
+
 ## Notación científica
 
 Es posible indicar los números en notación científica. Ejemplos:
@@ -32,7 +35,8 @@ Es posible indicar los números en notación científica. Ejemplos:
 1e-3
 ```
 
----
+<br/>
+
 ## Valor infinito
 
 Se pueden crear valores que representen el infinito con:
@@ -51,7 +55,8 @@ Otras forma de crear un valor que represente el infinito:
 - `numpy.inf`: Librería `numpy`.
 ```
 
----
+<br/>
+
 ## NaN - Not a Number
 
 Se puede crear un `NaN` ("_Not a Number_") con:
@@ -64,6 +69,8 @@ Otras forma de crear un valor que represente un "Not a Number":
 - `math.nan`: Librería built-it `math`.
 - `numpy.nan`: Librería `numpy`.
 ```
+
+<br/>
 
 ---
 ## Números complejos. 

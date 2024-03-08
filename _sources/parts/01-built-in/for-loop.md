@@ -1,11 +1,11 @@
-# For Loop.
+# For Loop
 
-Es un cíclo que se usa para iterar sobre un objeto iterable. Se ejecuta una o más expresiones, para cada uno de los elementos del iterable.
+Es una estructura cíclica que se usa para iterar sobre un objeto iterable. Se ejecuta una o más expresiones, para cada uno de los elementos del iterable.
 ```python
 for key in iterable:
     # for body
 ```
-- _key_ es un nombre arbitrario. Ese nombre es el que se utilizará dentro de código para hacer referencia al elemento del iterable en cada iteración.
+- _key_ es un nombre arbitrario. Ese nombre es el que se utilizará dentro _for body_ para hacer referencia al elemento del iterable en cada iteración.
 - _iterable_ es un un objeto `iterable` (consultar [Tipos de datos](tipos-datos.md)). En algunos casos _iterable_ retorna 2 o más objetos en cada iteración, se debe de poner tantos _keys_ como objetos retornados separados por coma.
 - Se puede poner más de un iterable, en ese caso se deben de poner la cantidad de keys correspondientes.
 

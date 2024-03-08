@@ -1,6 +1,6 @@
-# Operadores y palabras reservadas.
+# Operadores y palabras reservadas
 
-## Aritméticos:
+## Aritméticos
 Operadores para realizar operaciones aritméticas entre números.
 
 |Nombre|Operador|Comentarios|
@@ -20,7 +20,17 @@ El operador `+` también se usa para concatenar secuencias (`list`, `tuple` y `s
 
 <br>
 
----
+## Asignación
+Operaciones para asignación de valores.
+
+|Nombre|Operador|
+|:----------|:----------:|
+|Asignación|`=`|
+|Asignación recursivo aritmético|`+=`, `-=`, `*=`, `/=`, `**=`, `%=`, `//=`|
+|Asignación recursivo lógico|`\|=`, `&=`|
+
+<br>
+
 (built-in-operadores-comparacion)=
 ## Comparación
 Operadores para la comparación de valores.
@@ -36,19 +46,6 @@ Operadores para la comparación de valores.
 
 <br>
 
----
-## Asignación
-Operaciones para asignación de valores.
-
-|Nombre|Operador|
-|:----------|:----------:|
-|Asignación|`=`|
-|Asignación recursivo aritmético|`+=`, `-=`, `*=`, `/=`, `**=`, `%=`, `//=`|
-|Asignación recursivo lógico|`\|=`, `&=`|
-
-<br>
-
----
 (operadores:bitwise)=
 ## Bitwise
 |Nombre|Operador|
@@ -71,8 +68,7 @@ Existen otros como `<<` y `>>`.
 
 <br>
 
----
-## Bool
+## Booleanos
 
 Palabras reservadas para trabajar con valores booleanos y manipulaciones entre ellos.
 |Nombre|Palabra|
@@ -89,7 +85,6 @@ Se debe de respetar la primer letra en mayúscula en `False` y `True`
 
 <br>
 
----
 ## Identidad
 
 Palabras reservadas para verificar que dos objetos sean los mismos (hagan referencia al mismo objeto). Retorna un objeto `bool`.
@@ -101,10 +96,9 @@ Palabras reservadas para verificar que dos objetos sean los mismos (hagan refere
 
 <br>
 
----
 ## Membresía
 
-Palabras reservadas para verificar que un elemento esté dentro de una secuencia. Retorna un objeto `bool`.
+Palabras reservadas para verificar que un elemento esté dentro de una secuencia. Retornan un objeto `bool`.
 
 |Nombre|Palabra|
 |:----------|:----------:|
@@ -113,7 +107,6 @@ Palabras reservadas para verificar que un elemento esté dentro de una secuencia
 
 <br>
 
----
 ## Operadores * y **
 
 En esta parte se explica el uso de `*` y `**` para desempacar secuencias y diccionarios como argumentos de funciones. Para información más completa sobre estos operadores visitar [este artículo](https://treyhunner.com/2018/10/asterisks-in-python-what-they-are-and-how-to-use-them/) de Trey Hunner.
@@ -168,7 +161,6 @@ Son palabras que tienen un significado especial para python.
 
 <br>
 
----
 (uso-assert)=
 ### Uso de assert
 

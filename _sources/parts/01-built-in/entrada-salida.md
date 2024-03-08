@@ -2,7 +2,7 @@
 
 En esta sección se cubren las funciones para impimir valores en la consola o para solicitar el ingreso de datos desde la consola.
 
-```{list-table} print/input
+```{list-table}
 :header-rows: 1
 
 * - Funciones

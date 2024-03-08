@@ -16,7 +16,7 @@ with context_manager(args) as variable-name:
 ---
 ## Crear un administrador de contextos
 
-Para crear un context manager basado en un función, se debe de definir la función y usar un "_decorator_":
+Para crear un context manager basado en una función, se debe de definir la función y usar un "_decorator_":
 ```python
 # Decorator
 @contextlib.contextmanager
@@ -29,9 +29,9 @@ def my_context():
     # Agregar cualquier código para finalizar el contexto.
     expressions
 ```
-- `@contextlib.contextmanager`: El decorator.
+- `@contextlib.contextmanager`: Es el decorator.
 - _my_context_: Nombre que tendrá el administrador de contextos.
-- `yield` es para retornar el control al bloque del administrador de contextos. También se puede utilizar para retorna un objeto.
+- `yield` es para retornar el control al bloque del administrador de contextos. También se puede utilizar para retornar un objeto.
 - Se puede agregar código para inicializar el administrador. Por ejemplo, establecer una conexión con un archivo.
 - Se puede agregar código para finalizar el administrador. Por ejemplo, finalizar una conexión con un archivo.
 

@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -191,7 +191,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="ayuda.html">Obtener ayuda</a></li>
 <li class="toctree-l2"><a class="reference internal" href="comentarios.html">Comentarios</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tipos-datos.html">Tipos de datos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="operadores-palabras.html">Operadores y palabras reservadas.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operadores-palabras.html">Operadores y palabras reservadas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="entrada-salida.html">Entrada y salida de datos</a></li>
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="tipos-index.html">Tipos Built-In</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="booleanos.html">Valores booleanos</a></li>
@@ -205,7 +205,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="if-else.html">If … Else</a></li>
-<li class="toctree-l3"><a class="reference internal" href="for-loop.html">For Loop.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="for-loop.html">For Loop</a></li>
 <li class="toctree-l3"><a class="reference internal" href="do-while.html">Do While</a></li>
 </ul>
 </li>
@@ -390,9 +390,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crear-un-diccionario">Crear un diccionario</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agregrar-elementos">Agregrar elementos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eliminar-elementos">Eliminar Elementos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccion-de-elementos">Selección de elementos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modificar-elementos">Modificar Elementos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verificar-membresia">Verificar membresía</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccion-de-elementos">Selección de elementos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iteracion">Iteración</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dict-comprehesions">Dict comprehesions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos">Métodos</a><ul class="nav section-nav flex-column">
@@ -420,7 +420,7 @@ document.write(`
 <ul class="simple">
 <li><p>Utilizan un formato <code class="docutils literal notranslate"><span class="pre">key-value</span></code> para almacenar valores.</p></li>
 <li><p>Es mutable: Se puede modificar una vez creado.</p></li>
-<li><p>Sus elementos no están ordenados.</p></li>
+<li><p>Sus elementos no están ordenados, es decir, no se puede acceder a sus elementos por medio de índices.</p></li>
 <li><p>Es un iterable: Se puede iterar por sus elementos y se puede utilizar la palabra reservada <code class="docutils literal notranslate"><span class="pre">in</span></code> para verificar membresía de llaves.</p></li>
 <li><p>Se puede hacer <em>subsetting</em>.</p></li>
 </ul>
@@ -443,13 +443,10 @@ document.write(`
 <span class="n">X</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="n">key1</span><span class="p">,</span> <span class="n">value1</span><span class="p">),</span> <span class="p">(</span><span class="n">key2</span><span class="p">,</span> <span class="n">value2</span><span class="p">),</span> <span class="o">...</span><span class="p">])</span>
 </pre></div>
 </div>
-<div class="admonition caution">
-<p class="admonition-title">Caution</p>
 <ul class="simple">
-<li><p>Las <em>key</em> de un diccionario deben de ser de un tipo inmutable, lo más común es usar cadenas, números o valores <code class="docutils literal notranslate"><span class="pre">bool</span></code> y además deben de ser únicas, es decir, no puede haber dos o más elementos con la misma llave.</p></li>
+<li><p>Los <em>key</em> de un diccionario deben de ser de un tipo inmutable, lo más común es usar cadenas, números o valores <code class="docutils literal notranslate"><span class="pre">bool</span></code> y además deben de ser únicas, es decir, no puede haber dos o más elementos con la misma llave.</p></li>
 <li><p>Los <em>value</em> pueden ser cualquier tipo de objeto.</p></li>
 </ul>
-</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Al crear un diccionario el objeto <code class="docutils literal notranslate"><span class="pre">X</span></code> en realidad hace referencia a los elementos que se almacenan en memoria, si se asigna el diccionario a otro objeto <code class="docutils literal notranslate"><span class="pre">Y</span></code> con el operador de asignación, es decir <code class="docutils literal notranslate"><span class="pre">Y=X</span></code>, entonces lo que se copia es la referencia, no los valores como tal, entonces modificaciones en <code class="docutils literal notranslate"><span class="pre">Y</span></code> también afecta a <code class="docutils literal notranslate"><span class="pre">X</span></code> y vicerversa. Para que esto no suceda se puede usar:</p>
@@ -466,7 +463,7 @@ document.write(`
 <section id="agregrar-elementos">
 <h2>Agregrar elementos<a class="headerlink" href="#agregrar-elementos" title="Link to this heading">#</a></h2>
 <p>Para agregar elementos a un diccionario simplemente poner entre corchetes el nombre de la nueva llave y con el operador de asignación darle un valor.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Si X es un diccionario:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Si X es un diccionario</span>
 <span class="n">X</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
 </pre></div>
 </div>
@@ -476,7 +473,7 @@ document.write(`
 <ul class="simple">
 <li><p>Agregar elementos desde otro objeto: <code class="docutils literal notranslate"><span class="pre">dict.update()</span></code>.</p></li>
 </ul>
-<p>Revisar <a class="reference internal" href="#dict-metodos-agregar"><span class="std std-ref">Metodos-Agregar</span></a></p>
+<p>Revisar <a class="reference internal" href="#dict-metodos-agregar"><span class="std std-ref">Metodos agregar elementos</span></a></p>
 </div>
 <br/>
 </section>
@@ -496,34 +493,11 @@ document.write(`
 <p>Otras formas de eliminar elementos con métodos son:</p>
 <ul class="simple">
 <li><p>Para remover un elemento específico usar el método <code class="docutils literal notranslate"><span class="pre">dict.pop()</span></code>.</p></li>
-<li><p>Para remover un elemento de un índice en específico usar el método <code class="docutils literal notranslate"><span class="pre">dict.popitem()</span></code>.</p></li>
-<li><p>Para remover un elemento de un índice en específico usar el método <code class="docutils literal notranslate"><span class="pre">dict.clear()</span></code>.</p></li>
+<li><p>Para remover y retornar un elemento de un índice en específico usar el método <code class="docutils literal notranslate"><span class="pre">dict.popitem()</span></code>.</p></li>
+<li><p>Para todos los elementos usar el método <code class="docutils literal notranslate"><span class="pre">dict.clear()</span></code>.</p></li>
 </ul>
-<p>Revisar <a class="reference internal" href="#dict-metodos-eliminar"><span class="std std-ref">Metodos-Eliminar</span></a></p>
+<p>Revisar <a class="reference internal" href="#dict-metodos-eliminar"><span class="std std-ref">Métodos eliminar elementos</span></a></p>
 </div>
-<br/>
-</section>
-<hr class="docutils" />
-<section id="modificar-elementos">
-<h2>Modificar Elementos<a class="headerlink" href="#modificar-elementos" title="Link to this heading">#</a></h2>
-<p>Para modificar el valor de una llave en específico usar el nombre de la llave y el operador de asignación:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Modificar el valor correspondiento a la llave `key`</span>
-<span class="n">X</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
-</pre></div>
-</div>
-<br/>
-</section>
-<hr class="docutils" />
-<section id="verificar-membresia">
-<h2>Verificar membresía<a class="headerlink" href="#verificar-membresia" title="Link to this heading">#</a></h2>
-<p>Para verificar si una llave existe en un diccionario usar el operador de membresía <code class="docutils literal notranslate"><span class="pre">in</span></code> junto con el nombre de la llave del elemento:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verificar que &#39;key&#39; exista en X.</span>
-<span class="s2">&quot;key&quot;</span> <span class="ow">in</span> <span class="n">X</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Alternativamente se puede usar <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code>.</p></li>
-</ul>
 <br/>
 </section>
 <hr class="docutils" />
@@ -543,8 +517,31 @@ document.write(`
 <li><p>Acceder a todas las llaves: <code class="docutils literal notranslate"><span class="pre">dict.keys()</span></code></p></li>
 <li><p>Accedes a todos los pares <code class="docutils literal notranslate"><span class="pre">key-value</span></code>: <code class="docutils literal notranslate"><span class="pre">dict.items()</span></code></p></li>
 </ul>
-<p>Revisar <a class="reference internal" href="#dict-metodos-acceder"><span class="std std-ref">Metodos-Acceder</span></a></p>
+<p>Revisar <a class="reference internal" href="#dict-metodos-acceder"><span class="std std-ref">Metodos acceder a elementos</span></a></p>
 </div>
+<br/>
+</section>
+<hr class="docutils" />
+<section id="modificar-elementos">
+<h2>Modificar Elementos<a class="headerlink" href="#modificar-elementos" title="Link to this heading">#</a></h2>
+<p>Para modificar el valor de una llave en específico usar el nombre de la llave y el operador de asignación:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Modificar el valor correspondiento a la llave &#39;key&#39;</span>
+<span class="n">X</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+</pre></div>
+</div>
+<br/>
+</section>
+<hr class="docutils" />
+<section id="verificar-membresia">
+<h2>Verificar membresía<a class="headerlink" href="#verificar-membresia" title="Link to this heading">#</a></h2>
+<p>Para verificar si una llave existe en un diccionario usar el operador de membresía <code class="docutils literal notranslate"><span class="pre">in</span></code> junto con el nombre de la llave del elemento:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verificar que &#39;key&#39; exista en X.</span>
+<span class="s2">&quot;key&quot;</span> <span class="ow">in</span> <span class="n">X</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Alternativamente se puede usar <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code>.</p></li>
+</ul>
 <br/>
 </section>
 <hr class="docutils" />
@@ -583,7 +580,8 @@ document.write(`
 </pre></div>
 </div>
 <p>Los diccionarios pueden tener condicionales, en la parte de <em>collection</em>, de manera que solo a ciertos elementos se les aplique el código. Sintaxis de las condicionales:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="p">{</span><span class="n">key_expression</span> <span class="p">:</span> <span class="n">value_expression</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">collection</span> <span class="k">if</span> <span class="n">condition</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># dict comprehension con condicional en collection</span>
+<span class="n">X</span> <span class="o">=</span> <span class="p">{</span><span class="n">key_expression</span> <span class="p">:</span> <span class="n">value_expression</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">collection</span> <span class="k">if</span> <span class="n">condition</span><span class="p">]</span>
 </pre></div>
 </div>
 <br/>
@@ -616,14 +614,13 @@ dict_keys([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;])
 <ul class="simple">
 <li><p>Tener en cuenta que en la segunda forma el diccionario siempre debe de ser el primer argumento.</p></li>
 </ul>
-<hr class="docutils" />
+<br/>
 <section id="acceder-a-elementos">
 <h3>Acceder a elementos<a class="headerlink" href="#acceder-a-elementos" title="Link to this heading">#</a></h3>
 <p>Métodos para recuperar las llaves, los valores o ambos de un diccionario.</p>
 <table class="table" id="dict-metodos-acceder">
-<caption><span class="caption-number">Table 21 </span><span class="caption-text">Acceder</span><a class="headerlink" href="#dict-metodos-acceder" title="Link to this table">#</a></caption>
 <thead>
-<tr class="row-odd"><th class="head"><p>Funciones</p></th>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
 <th class="head"><p>Descripción</p></th>
 </tr>
 </thead>
@@ -649,9 +646,8 @@ dict_keys([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;])
 <h3>Agregar elementos<a class="headerlink" href="#agregar-elementos" title="Link to this heading">#</a></h3>
 <p>Métodos para agregar elementos a un diccionario.</p>
 <table class="table" id="dict-metodos-agregar">
-<caption><span class="caption-number">Table 22 </span><span class="caption-text">Agregar</span><a class="headerlink" href="#dict-metodos-agregar" title="Link to this table">#</a></caption>
 <thead>
-<tr class="row-odd"><th class="head"><p>Funciones</p></th>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
 <th class="head"><p>Descripción</p></th>
 </tr>
 </thead>
@@ -668,9 +664,8 @@ dict_keys([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;])
 <h3>Eliminar elementos<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <p>Métodos para eliminar elementos de un diccionario.</p>
 <table class="table" id="dict-metodos-eliminar">
-<caption><span class="caption-number">Table 23 </span><span class="caption-text">Eliminar</span><a class="headerlink" href="#dict-metodos-eliminar" title="Link to this table">#</a></caption>
 <thead>
-<tr class="row-odd"><th class="head"><p>Funciones</p></th>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
 <th class="head"><p>Descripción</p></th>
 </tr>
 </thead>
@@ -692,10 +687,9 @@ dict_keys([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;])
 <section id="otros">
 <h3>Otros<a class="headerlink" href="#otros" title="Link to this heading">#</a></h3>
 <p>Otros métodos de diccionarios.</p>
-<table class="table" id="id2">
-<caption><span class="caption-number">Table 24 </span><span class="caption-text">Otros</span><a class="headerlink" href="#id2" title="Link to this table">#</a></caption>
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Funciones</p></th>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
 <th class="head"><p>Descripción</p></th>
 </tr>
 </thead>
@@ -791,9 +785,9 @@ dict_keys([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;])
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crear-un-diccionario">Crear un diccionario</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agregrar-elementos">Agregrar elementos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eliminar-elementos">Eliminar Elementos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccion-de-elementos">Selección de elementos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modificar-elementos">Modificar Elementos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verificar-membresia">Verificar membresía</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccion-de-elementos">Selección de elementos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iteracion">Iteración</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dict-comprehesions">Dict comprehesions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos">Métodos</a><ul class="nav section-nav flex-column">

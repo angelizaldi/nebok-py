@@ -1,6 +1,6 @@
 # If ... Else
 
-Se utiliza usando las palabras reservada `if` y `else`:
+Es una estructura condicional. Se utiliza usando las palabras reservada `if` y `else`:
 ```python
 if condition:
     # true body
@@ -38,7 +38,7 @@ if condition: expression_true
 # Version 2:
 expression_true if condition else expression_false
 ```
-- Es posible anidar otros `if` o `if else`.
+- Es posible anidar otros _ternary operators_.
 
 Existe otra versionas con tuples y diccionarios:
 ```python
@@ -65,6 +65,7 @@ Se puede utilizar los operadores `and`, `or` y `not` en las condiciones de las e
 
 ---
 ## Pass
+
 Las estructuras `if else` no pueden estar vacías, pero por si alguna razón se necesita una estructura `if ... else` vacía se puede usar la sentencia `pass` para evitar errores:
 ```python
 if condicion:

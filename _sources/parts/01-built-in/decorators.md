@@ -15,7 +15,7 @@ kernelspec:
 ```{attention} En esta sección solo se cubre lo básico en relación a decorators y no pretende cubrir extensamente el tema. Se recomienda consultar otras fuentes para saber más del tema.
 ```
 
-- Un "_decorator_" modifica el comportamiento de una función, puede modificar los inputs, los outputs o modificar el comportamiento como tal de la función. 
+- Un "_decorator_" modifica el comportamiento de una función, puede modificar los _inputs_, los _outputs_ o modificar el comportamiento como tal de la función. 
 - Los decorators reciben una función como parámetro y retornan otra función. 
 - Los decorators se utilizan junto con el símbolo `@` y se ponen justo arriba de la función que se quierer alterar.
 

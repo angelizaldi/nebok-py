@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -191,7 +191,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="ayuda.html">Obtener ayuda</a></li>
 <li class="toctree-l2"><a class="reference internal" href="comentarios.html">Comentarios</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tipos-datos.html">Tipos de datos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="operadores-palabras.html">Operadores y palabras reservadas.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operadores-palabras.html">Operadores y palabras reservadas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="entrada-salida.html">Entrada y salida de datos</a></li>
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="tipos-index.html">Tipos Built-In</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="booleanos.html">Valores booleanos</a></li>
@@ -205,7 +205,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="if-else.html">If … Else</a></li>
-<li class="toctree-l3"><a class="reference internal" href="for-loop.html">For Loop.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="for-loop.html">For Loop</a></li>
 <li class="toctree-l3"><a class="reference internal" href="do-while.html">Do While</a></li>
 </ul>
 </li>
@@ -390,20 +390,20 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creacion-de-sets">Creación de sets</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccion-de-elementos">Selección de elementos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agregar-y-eliminar-elementos">Agregar y eliminar elementos</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verificar-que-un-elemento-exista-en-un-set">Verificar que un elemento exista en un set:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verificar-que-un-elemento-exista-en-un-set">Verificar que un elemento exista en un set</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iteracion-en-sets">Iteración en sets</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operaciones-entre-conjuntos">Operaciones entre conjuntos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-comprehension">Set comprehension</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-sets">Métodos de sets</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#agregar-elementos">Agregar elementos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copiar">Copiar</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eliminar-elementos">Eliminar elementos</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#informacion-sobre-el-set">Información sobre el set</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operaciones">Operaciones</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operaciones-inplace">Operaciones-inplace</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copiar">Copiar</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-utiles-para-listas">Funciones útiles para listas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-utiles-para-sets">Funciones útiles para sets</a></li>
 </ul>
             </nav>
         </div>
@@ -488,7 +488,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="verificar-que-un-elemento-exista-en-un-set">
-<h2>Verificar que un elemento exista en un set:<a class="headerlink" href="#verificar-que-un-elemento-exista-en-un-set" title="Link to this heading">#</a></h2>
+<h2>Verificar que un elemento exista en un set<a class="headerlink" href="#verificar-que-un-elemento-exista-en-un-set" title="Link to this heading">#</a></h2>
 <p>Para verificar si un elemento está dentro de un <code class="docutils literal notranslate"><span class="pre">set</span></code> usar el operador de membresía <code class="docutils literal notranslate"><span class="pre">in</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Si X es un set</span>
 <span class="n">x</span> <span class="ow">in</span> <span class="n">X</span>
@@ -521,8 +521,8 @@ document.write(`
 <ul class="simple">
 <li><p><strong>Unión</strong>: Para determinar la unión de dos sets se usa el operador <code class="docutils literal notranslate"><span class="pre">|</span></code>: <br> <code class="docutils literal notranslate"><span class="pre">X|Y</span></code></p></li>
 <li><p><strong>Intersección</strong>: Para determinar la intersección (elementos en común) de dos sets se usa el operador <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>: <br> <code class="docutils literal notranslate"><span class="pre">X&amp;Y</span></code>.</p></li>
-<li><p><strong>Diferencia</strong>: Para determinar la diferencia de dos sets se usa el operador <code class="docutils literal notranslate"><span class="pre">-</span></code>: <br> <code class="docutils literal notranslate"><span class="pre">X-Y</span></code>.</p></li>
-<li><p><strong>Diferencia simétrica</strong>: Para determinar la diferencia simétrica de dos sets se usa el operador <code class="docutils literal notranslate"><span class="pre">^</span></code>: <br> <code class="docutils literal notranslate"><span class="pre">X^Y</span></code>.</p></li>
+<li><p><strong>Diferencia</strong>: Para determinar la diferencia de dos sets (elementos en <code class="docutils literal notranslate"><span class="pre">X</span></code> pero no en <code class="docutils literal notranslate"><span class="pre">Y</span></code>) se usa el operador <code class="docutils literal notranslate"><span class="pre">-</span></code>: <br> <code class="docutils literal notranslate"><span class="pre">X-Y</span></code>.</p></li>
+<li><p><strong>Diferencia simétrica</strong>: Para determinar la diferencia simétrica de dos sets (elementos en <code class="docutils literal notranslate"><span class="pre">X</span></code> o <code class="docutils literal notranslate"><span class="pre">Y</span></code>, pero no en ambos) se usa el operador <code class="docutils literal notranslate"><span class="pre">^</span></code>: <br> <code class="docutils literal notranslate"><span class="pre">X^Y</span></code>.</p></li>
 <li><p><strong>Subconjunto propio</strong>: Para determinar si un set es un subcojunto propio se puede usar los operadores <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> o <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">X&lt;Y</span></code>: Verificar si <code class="docutils literal notranslate"><span class="pre">X</span></code> está contenido en <code class="docutils literal notranslate"><span class="pre">Y</span></code>.</p></li>
@@ -536,7 +536,7 @@ document.write(`
 </ul>
 </li>
 </ul>
-<p>Todos estos operadores tienen sus métodos equivalente los cuales se pueden encontrar en <a class="reference internal" href="#set-metodos-operaciones"><span class="std std-ref">Metodos-Operaciones</span></a> y <a class="reference internal" href="#set-metodos-informacion"><span class="std std-ref">Metodos-Información</span></a>.</p>
+<p>Todos estos operadores tienen sus métodos equivalente los cuales se pueden encontrar en <a class="reference internal" href="#set-metodos-operaciones"><span class="std std-ref">Operaciones</span></a> y <a class="reference internal" href="#set-metodos-informacion"><span class="std std-ref">Operaciones in-place</span></a>.</p>
 <br/>
 <hr class="docutils" />
 </section>
@@ -553,11 +553,13 @@ document.write(`
 </ul>
 <p>Los sets comprehension pueden tener condicionales, tanto en la parte de <em>expression</em> como en la parte de <em>collection</em>, de manera que solo a cierto elementos se les aplique el código o de que dependiendo del resultado de <em>expression</em> se ponga un valor u otro. Sintaxis:</p>
 <p><strong>En el iterable</strong>: En este caso <em>expression</em> solo se evalua si los elementos de <em>collection</em> cumplen una condición.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="p">{</span><span class="n">expression</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">collection</span> <span class="k">if</span> <span class="n">condition</span><span class="p">}</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># set comprehension con condicional en collection</span>
+<span class="n">X</span> <span class="o">=</span> <span class="p">{</span><span class="n">expression</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">collection</span> <span class="k">if</span> <span class="n">condition</span><span class="p">}</span>
 </pre></div>
 </div>
-<p><strong>En la <em>expression</em></strong>: En este caso el elemento de <code class="docutils literal notranslate"><span class="pre">X</span></code> dependerá del resultado de <em>condition</em>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="p">{</span><span class="n">val_true</span> <span class="k">if</span> <span class="n">condition</span> <span class="k">else</span> <span class="n">val_false</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">collection</span><span class="p">}</span>
+<p><strong>En <em>expression</em></strong>: En este caso el elemento de <code class="docutils literal notranslate"><span class="pre">X</span></code> dependerá del resultado de <em>condition</em>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># set comprehension con condicional en expression</span>
+<span class="n">X</span> <span class="o">=</span> <span class="p">{</span><span class="n">val_true</span> <span class="k">if</span> <span class="n">condition</span> <span class="k">else</span> <span class="n">val_false</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">collection</span><span class="p">}</span>
 </pre></div>
 </div>
 <br/>
@@ -590,14 +592,13 @@ document.write(`
 <ul class="simple">
 <li><p>Tener en cuenta que en la segunda forma el <code class="docutils literal notranslate"><span class="pre">set</span></code> siempre debe de ser el primer argumento.</p></li>
 </ul>
-<hr class="docutils" />
+<br/>
 <section id="agregar-elementos">
 <h3>Agregar elementos<a class="headerlink" href="#agregar-elementos" title="Link to this heading">#</a></h3>
 <p>Métodos para agregar elementos a un <code class="docutils literal notranslate"><span class="pre">set</span></code>.</p>
 <table class="table" id="set-metodos-agregar">
-<caption><span class="caption-number">Table 15 </span><span class="caption-text">Agregar</span><a class="headerlink" href="#set-metodos-agregar" title="Link to this table">#</a></caption>
 <thead>
-<tr class="row-odd"><th class="head"><p>Funciones</p></th>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
 <th class="head"><p>Descripción</p></th>
 </tr>
 </thead>
@@ -609,14 +610,29 @@ document.write(`
 </table>
 <br/>
 </section>
-<hr class="docutils" />
+<section id="copiar">
+<h3>Copiar<a class="headerlink" href="#copiar" title="Link to this heading">#</a></h3>
+<p>Método para realizar la copia de un <code class="docutils literal notranslate"><span class="pre">set</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.copy">copy</a>()</p></td>
+<td><p>Devuelve una copia superficial del <code class="docutils literal notranslate"><span class="pre">set</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
 <section id="eliminar-elementos">
 <h3>Eliminar elementos<a class="headerlink" href="#eliminar-elementos" title="Link to this heading">#</a></h3>
 <p>Métodos para eliminar elementos de un <code class="docutils literal notranslate"><span class="pre">set</span></code>.</p>
 <table class="table" id="set-metodos-eliminar">
-<caption><span class="caption-number">Table 16 </span><span class="caption-text">Eliminar</span><a class="headerlink" href="#set-metodos-eliminar" title="Link to this table">#</a></caption>
 <thead>
-<tr class="row-odd"><th class="head"><p>Funciones</p></th>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
 <th class="head"><p>Descripción</p></th>
 </tr>
 </thead>
@@ -637,14 +653,12 @@ document.write(`
 </table>
 <br/>
 </section>
-<hr class="docutils" />
 <section id="informacion-sobre-el-set">
 <h3>Información sobre el set<a class="headerlink" href="#informacion-sobre-el-set" title="Link to this heading">#</a></h3>
 <p>Métodos para recuperar información sobre el <code class="docutils literal notranslate"><span class="pre">set</span></code> en relación con otros objetos.</p>
 <table class="table" id="set-metodos-informacion">
-<caption><span class="caption-number">Table 17 </span><span class="caption-text">Información</span><a class="headerlink" href="#set-metodos-informacion" title="Link to this table">#</a></caption>
 <thead>
-<tr class="row-odd"><th class="head"><p>Funciones</p></th>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
 <th class="head"><p>Descripción</p></th>
 </tr>
 </thead>
@@ -667,9 +681,8 @@ document.write(`
 <h3>Operaciones<a class="headerlink" href="#operaciones" title="Link to this heading">#</a></h3>
 <p>Métodos para realizar operaciones entre conjuntos y que retornan un nuevo <code class="docutils literal notranslate"><span class="pre">set</span></code>.</p>
 <table class="table" id="set-metodos-operaciones">
-<caption><span class="caption-number">Table 18 </span><span class="caption-text">Operaciones</span><a class="headerlink" href="#set-metodos-operaciones" title="Link to this table">#</a></caption>
 <thead>
-<tr class="row-odd"><th class="head"><p>Funciones</p></th>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
 <th class="head"><p>Descripción</p></th>
 </tr>
 </thead>
@@ -694,10 +707,9 @@ document.write(`
 <section id="operaciones-inplace">
 <h3>Operaciones-inplace<a class="headerlink" href="#operaciones-inplace" title="Link to this heading">#</a></h3>
 <p>Métodos para realizar operaciones entre conjuntos y que actualizan un <code class="docutils literal notranslate"><span class="pre">set</span></code> en lugar de retornar uno nuevo. Básicamente realizan las operaciones “<em>in-place</em>”.</p>
-<table class="table" id="id1">
-<caption><span class="caption-number">Table 19 </span><span class="caption-text">Operaciones-inplace</span><a class="headerlink" href="#id1" title="Link to this table">#</a></caption>
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Funciones</p></th>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
 <th class="head"><p>Descripción</p></th>
 </tr>
 </thead>
@@ -718,29 +730,10 @@ document.write(`
 </table>
 <br/>
 </section>
-<hr class="docutils" />
-<section id="copiar">
-<h3>Copiar<a class="headerlink" href="#copiar" title="Link to this heading">#</a></h3>
-<p>Método para realizar la copia de un <code class="docutils literal notranslate"><span class="pre">set</span></code>.</p>
-<table class="table" id="id2">
-<caption><span class="caption-number">Table 20 </span><span class="caption-text">Copiar</span><a class="headerlink" href="#id2" title="Link to this table">#</a></caption>
-<thead>
-<tr class="row-odd"><th class="head"><p>Funciones</p></th>
-<th class="head"><p>Descripción</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.copy">copy</a>()</p></td>
-<td><p>Devuelve una copia superficial del <code class="docutils literal notranslate"><span class="pre">set</span></code>.</p></td>
-</tr>
-</tbody>
-</table>
-<br/>
-</section>
 </section>
 <hr class="docutils" />
-<section id="funciones-utiles-para-listas">
-<h2>Funciones útiles para listas<a class="headerlink" href="#funciones-utiles-para-listas" title="Link to this heading">#</a></h2>
+<section id="funciones-utiles-para-sets">
+<h2>Funciones útiles para sets<a class="headerlink" href="#funciones-utiles-para-sets" title="Link to this heading">#</a></h2>
 <p>Algunas funciones built-in útiles para sets son:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">len()</span></code>: Encontrar la longitud (número de elementos) del <code class="docutils literal notranslate"><span class="pre">set</span></code>.</p></li>
@@ -815,20 +808,20 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creacion-de-sets">Creación de sets</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccion-de-elementos">Selección de elementos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agregar-y-eliminar-elementos">Agregar y eliminar elementos</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verificar-que-un-elemento-exista-en-un-set">Verificar que un elemento exista en un set:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verificar-que-un-elemento-exista-en-un-set">Verificar que un elemento exista en un set</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iteracion-en-sets">Iteración en sets</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operaciones-entre-conjuntos">Operaciones entre conjuntos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-comprehension">Set comprehension</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-sets">Métodos de sets</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#agregar-elementos">Agregar elementos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copiar">Copiar</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eliminar-elementos">Eliminar elementos</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#informacion-sobre-el-set">Información sobre el set</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operaciones">Operaciones</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operaciones-inplace">Operaciones-inplace</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copiar">Copiar</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-utiles-para-listas">Funciones útiles para listas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-utiles-para-sets">Funciones útiles para sets</a></li>
 </ul>
   </nav></div>
 

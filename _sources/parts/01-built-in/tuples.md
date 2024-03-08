@@ -12,7 +12,7 @@ kernelspec:
 
 # Tuples
 
-Corresponde al tipo de dato `tuple`. Los tuples son una secuencia. Algunas caractacterísticas son:
+Corresponde al tipo de dato `tuple`. Las tuplas son una secuencia. Algunas caractacterísticas son:
 - Sirven para almacenar múltiples valores de diferentes tipos en una sola variable. 
 - Está indexado: Cada elemento está asociado con un índice y por lo tanto sus elementos están ordenados.
 - Es inmutable: No se puede modificar una vez creado el `tuple`.
@@ -29,8 +29,8 @@ Para más información visitar la [documentación](https://docs.python.org/3/lib
 
 Para crear un `tuple` existen distintas formas:
 1. Poner los elementos, separados por coma directamente
-2. Poner los elementos, separados por coma de paréntesis `()`.
-3. Utilizar la función `tuple()` para convertir un iterable a un `tuple`.
+2. Poner los elementos, separados por coma entre paréntesis `()`.
+3. Utilizar la función `tuple()` para convertir un `iterable` a un `tuple`.
 ```python
 # Las siguientes expresiones son equivalentes
 X = x1, x2, ...
@@ -47,7 +47,7 @@ X = tuple(Y)
 <br>
 
 ---
-##  Concatenar y multiplicar:
+##  Concatenar y repetir
 
 El operador `+` sirve para concatenar tuplas, los elementos se agrega al final `tuple`.
 ```python
@@ -65,7 +65,7 @@ Y = X * n
 <br>
 
 ---
-## Verificar que un elemento exista en un tuple:
+## Verificar que un elemento exista en un tuple
 Para verificar si un elemento está dentro de un `tuple` usar el operador de membresía `in`:
 ```python
 # Si X es una tupla
@@ -76,15 +76,16 @@ x in X
 <br>
 
 ---
-## Selección de elementos: 
+## Selección de elementos
 
-### Subsetting:
+### Subsetting
+
 Para seleccionar elementos de una tupla tener en cuenta las siguientes características:
 - Se utilizan corchetes `[]` para acceder a los elementos, junto con el nombre de la tupla y el índice del elemento: <br/>
 `X[i]`
 - Los índices comienza en cero (0), esto quiere decir que si quiere acceder al elemento `n`, se debe de usar `[n-1]`.
 - Se puede utilizar índices negativos, para hacer subsetting de derecha a izquierda, comenzando por el último elemento. Por ejemplo, se puede acceder al último elemento con `[-1]`, al penúltimo elemento con `[-2]`, etc.
-- Para tuplas dentro de otras tuplas, considerar que en esencia usar `X[i]` devolverá otra tupla, entonces, para acceder a los elementos de esa otra tupla usar otro `[]`, esto es: <br/> `X[n1][n2]`
+- Para tuplas dentro de otras tuplas, considerar que en esencia usar `X[i]` devolverá otra tupla, entonces, para acceder a los elementos de esa otra tupla usar otro `[]`, esto es: <br/> `X[i][j]`
 - Lo anterior se puede generalizar para cualquier número de tuplas anidadas.
 
 Algunos patrones útiles:
@@ -92,7 +93,10 @@ Algunos patrones útiles:
 - El elemento _n_: <br> `X[n-1]`
 - El último elemento: <br> `X[-1]`
 
-### Slicing:
+<br/>
+
+### Slicing
+
 Para seleccionar un rango de elementos consecutivos tener en cuenta las siguientes características:
 - Se utiliza dos puntos, indicando los indices de inicio, fin y el paso: <br/> `X[i:j:k]`
 - La selección por rango, tienen la característica que el primer elemento es inclusivo y el último es exclusivo, esto quiere decir que no se incluirá en el rango, si se usa el rango `[m:n]`, en realidad solo se accederá a `[m:n-1]`.
@@ -108,7 +112,9 @@ Algunos patrones útiles:
 
 <br>
 
-##  Modificar tuples:
+---
+##  Modificar tuples
+
 Los tuples no se pueden modificar una vez creados. Un truco para modificar una tupla es convertir la tupla en una lista y después volverla a convertir en una tupla:
 ```python
 # Un tuple
@@ -117,12 +123,13 @@ X = (...)
 # Convertir a lista
 Y = list(X)
 
-# modificar
-expression
+# Ejemplo de modificación
+Y[k] = new_val
 
 # Convertir a tuple de vuelta
 X = tuple(Y)
 ```
+- `k` es un índice válido de `Y`.
 
 Para eliminar todo el tuple se puede usar la palabra reservada `del`:
 ```python
@@ -133,7 +140,7 @@ del X
 <br>
 
 ---
-## Unpack de tuples:
+## Unpack de tuples
 
 Se refiere a asignar a varias variables los elementos de un objeto iterable como un `tuple`:
 ```python
@@ -147,12 +154,12 @@ Si el número de variables es menor que el número de elementos se puede usar un
 x1, x2, ... , *xi  = X
 ```
 - En ese caso la varible `xi` almacenará todos lo valores restantes en la tupla.
-- El asterisco no tiene porque ir en la última variable, puede ir antes, en ese caso python asignará el número de elementos que sea necesario, para que el resto de las variables que vienen después tengan un elemento.
+- El asterisco no tiene porque ir en la última variable, puede ir antes, en ese caso Python asignará el número de elementos que sea necesario, para que el resto de las variables que vienen después tengan un elemento.
 
 <br>
 
 ---
-## Iteración:
+## Iteración
 
 Para iterar sobre todos los elementos de un `tuple` se puede usar un `for loop`. Algunas opciones de iteración son:
 ```python
@@ -175,7 +182,7 @@ for i, ele in enumerate(X):
 ---
 ## Métodos de tuple
 
-En esta sección se enlistan los métodos del tipo `list`. 
+En esta sección se enlistan los métodos del tipo `tuple`. 
 
 Tener en cuenta que los métodos generalmente se aplican sobre un objeto de tipo `tuple`, por ejemplo, si `X` es `tuple`, entonces se utiliza <code>X.<i>method_name</i></code>. Sin embargo es posible usar la tupla como argumento de <code>tuple.<i>method_name</i></code>. Por ejemplo.
 
@@ -191,15 +198,16 @@ print(tuple.count(X, "a"))
 ```
 - Tener en cuenta que en la segunda forma la tupla siempre debe de ser el primer argumento.
 
----
+<br/>
+
 ### Informacion sobre el tuple
 
 Métodos para recuperar información sobre el `tuple`.
 
-```{list-table} Informacion
+```{list-table}
 :header-rows: 1
 
-* - Funciones
+* - Método
   - Descripción
 * - [count](https://docs.python.org/3/library/stdtypes.html#common-sequence-operations)(x)
   - Devuelve el número de veces que hay un elemento `x` en el `tuple`.
@@ -210,7 +218,7 @@ Métodos para recuperar información sobre el `tuple`.
 <br>
 
 ---
-## Funciones útiles para listas
+## Funciones útiles para tuple
 
 Algunas funciones built-in útiles para tuplas son:
 - `max()`: Encontrar el valor máximo del `tuple`.

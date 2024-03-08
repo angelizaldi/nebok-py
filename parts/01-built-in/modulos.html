@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -191,7 +191,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="ayuda.html">Obtener ayuda</a></li>
 <li class="toctree-l2"><a class="reference internal" href="comentarios.html">Comentarios</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tipos-datos.html">Tipos de datos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="operadores-palabras.html">Operadores y palabras reservadas.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operadores-palabras.html">Operadores y palabras reservadas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="entrada-salida.html">Entrada y salida de datos</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="tipos-index.html">Tipos Built-In</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="booleanos.html">Valores booleanos</a></li>
@@ -205,7 +205,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="if-else.html">If … Else</a></li>
-<li class="toctree-l3"><a class="reference internal" href="for-loop.html">For Loop.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="for-loop.html">For Loop</a></li>
 <li class="toctree-l3"><a class="reference internal" href="do-while.html">Do While</a></li>
 </ul>
 </li>
@@ -387,7 +387,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#utilizar-las-funciones-variables-y-o-constantes-de-un-modulo">Utilizar las funciones, variables y/o constantes de un módulo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opciones-de-importacion">Opciones de importación</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modulos-locales">Módulos locales</a></li>
 </ul>
             </nav>
@@ -407,15 +407,20 @@ document.write(`
 <p class="admonition-title">Attention</p>
 <p>Antes de importar un módulo/paquete externo se tuvo que haber instalado.</p>
 </div>
-<p>Para importar un paquete se usa la palabra reservada <code class="docutils literal notranslate"><span class="pre">import</span></code>.</p>
+<p>Para importar un paquete se usa la palabra reservada <code class="docutils literal notranslate"><span class="pre">import</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar paquete</span>
 <span class="kn">import</span> <span class="nn">package_name</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p><em>package_name</em> es el nombre del paquete.</p></li>
+<li><p>Al importar un paquete de esta forma, para usar los objetos es necesario poner el nombre del paquete antes del nombre del objeto: <br/> <code class="docutils literal notranslate"><span class="pre">package_name.object_name</span></code>.</p></li>
 </ul>
-<p>Se puede importar el módulo/paquete con un nombre distinto usando <code class="docutils literal notranslate"><span class="pre">as</span></code>.</p>
+<br/>
+<section id="opciones-de-importacion">
+<h2>Opciones de importación<a class="headerlink" href="#opciones-de-importacion" title="Link to this heading">#</a></h2>
+<p>A continuación se presentan algunas opciones a la hora de importar un módulo/paquete.</p>
+<p><strong>1</strong>. Se puede importar el módulo/paquete con un nombre distinto usando <code class="docutils literal notranslate"><span class="pre">as</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar paquete con alias</span>
 <span class="kn">import</span> <span class="nn">package_name</span> <span class="k">as</span> <span class="nn">alias</span>
 </pre></div>
@@ -423,9 +428,14 @@ document.write(`
 <ul class="simple">
 <li><p><em>package_name</em> es el nombre del módulo.</p></li>
 <li><p><em>alias</em> es un nombre arbitrario.</p></li>
+<li><p>Al importar un paquete de esta forma, para usar los objetos es necesario poner el alias del paquete antes del nombre del objeto: <br/> <code class="docutils literal notranslate"><span class="pre">alias.object_name</span></code>.</p></li>
 </ul>
-<p>Se puede importar un módulo específico de un paquete</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar módulo de un paquete con un alias</span>
+<br/>
+<p><strong>2</strong>. Se puede importar un módulo específico de un paquete:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar módulo de un paquete</span>
+<span class="kn">import</span> <span class="nn">package_name.module_name</span>
+
+<span class="c1"># Importar módulo de un paquete con un alias</span>
 <span class="kn">import</span> <span class="nn">package_name.module_name</span> <span class="k">as</span> <span class="nn">alias</span>
 </pre></div>
 </div>
@@ -433,22 +443,25 @@ document.write(`
 <li><p><em>package_name</em> es el nombre del paquete.</p></li>
 <li><p><em>module_name</em> es el nombre del módulo.</p></li>
 <li><p><em>alias</em> es un nombre arbitrario opcional.</p></li>
+<li><p>Al importar un paquete de esta forma, para usar los objetos del módulo es necesario poner el nombre del paquete y módulo o alias del módulo antes del nombre del objeto: <br/> <code class="docutils literal notranslate"><span class="pre">package_name.module_name.object_name</span></code>  <br/> <code class="docutils literal notranslate"><span class="pre">alias.object_name</span></code></p></li>
 </ul>
-<p>Se puede importar una o más funciones en específico de la siguiente manera:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar funciones especificas de un paquete</span>
-<span class="kn">from</span> <span class="nn">package_name</span> <span class="kn">import</span> <span class="n">function_name_1</span><span class="p">,</span> <span class="n">function_name_1</span><span class="p">,</span> <span class="o">...</span> 
+<br/>
+<p><strong>3</strong>. Se puede importar uno o más objetos en específico de la siguiente manera:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar objetos especificos de un paquete</span>
+<span class="kn">from</span> <span class="nn">package_name</span> <span class="kn">import</span> <span class="n">obj1</span><span class="p">,</span> <span class="n">obj2</span><span class="p">,</span> <span class="o">...</span>
 
-<span class="c1"># Importar funciones especificas de un módulo de un paquete</span>
-<span class="kn">from</span> <span class="nn">package_name.module_name</span> <span class="kn">import</span> <span class="n">function_name_1</span><span class="p">,</span> <span class="n">function_name_1</span><span class="p">,</span> <span class="o">...</span>
+<span class="c1"># Importar objetos especificos de un módulo de un paquete</span>
+<span class="kn">from</span> <span class="nn">package_name.module_name</span> <span class="kn">import</span> <span class="n">obj1</span><span class="p">,</span> <span class="n">obj2</span><span class="p">,</span> <span class="o">...</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p><em>package_name</em> es el nombre del paquete.</p></li>
 <li><p><em>module_name</em> es el nombre del módulo.</p></li>
-<li><p><em>function_name_i</em> es el nombre de la función i. Se pueden importar otra clase de objetos aparte de funciones.</p></li>
-<li><p>Si se importa una función de esta forma no es necesario usar la notación <em>package_name.function_name()</em>, se usa directamente el nombre de la función.</p></li>
+<li><p><em>obji</em> es el nombre del objeto <em>i</em>.</p></li>
+<li><p>Si se importa un objeto de esta forma se puede usar directamente en el <em>script</em> únicamente con el nombre del objeto, sin hacer referencia al paquete/módulo: <br/> <code class="docutils literal notranslate"><span class="pre">obj_name</span></code></p></li>
 </ul>
-<p>Se pueden importar todas las definiciones (funciones, variables, constantes, etc.) de un paquete o módulo, de manera que no sea necesario poner el nombre del módulo antes de llamar la función usando:</p>
+<br/>
+<p><strong>4</strong>. Se pueden importar todos los objetos (funciones, constantes, etc.) de un paquete o módulo:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar todo de un paquete</span>
 <span class="kn">from</span> <span class="nn">package_name</span> <span class="kn">import</span> <span class="o">*</span>
 
@@ -458,19 +471,7 @@ document.write(`
 </div>
 <ul class="simple">
 <li><p>No es una buena practica importar de esta manera.</p></li>
-</ul>
-<br/>
-<hr class="docutils" />
-<section id="utilizar-las-funciones-variables-y-o-constantes-de-un-modulo">
-<h2>Utilizar las funciones, variables y/o constantes de un módulo<a class="headerlink" href="#utilizar-las-funciones-variables-y-o-constantes-de-un-modulo" title="Link to this heading">#</a></h2>
-<p>Para utilizar las funciones, variables y/o constantes de un módulo o paquete importado se tiene que usar el nombre del paquete/módulo o aquel que se le asignó con <code class="docutils literal notranslate"><span class="pre">as</span></code>, seguido de un punto ‘.’, seguido del nombre de la función con sus respectivos argumentos (si existen).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Usando funciones u otros objetos importados</span>
-<span class="n">package_name</span><span class="o">.</span><span class="n">module_name</span><span class="o">.</span><span class="n">function_name</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
-<span class="n">package_name</span><span class="o">.</span><span class="n">module_name</span><span class="o">.</span><span class="n">variable_name</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Este es un ejemplo general, la sintaxis dependerá de cómo se importó el paquete, módulo o función/objeto.</p></li>
+<li><p>Si se importa el contenido de un paquete/módulo de esta forma se pueden usar los objetos directamente en el <em>script</em> únicamente con el nombre de los mismos, sin hacer referencia al paquete/módulo. <br/> <code class="docutils literal notranslate"><span class="pre">obj_name</span></code></p></li>
 </ul>
 <br/>
 </section>
@@ -485,7 +486,7 @@ document.write(`
 </pre></div>
 </div>
 <ul class="simple">
-<li><p><em>script</em> es el nombre del archivo .py en el mismo directorio.</p></li>
+<li><p><em>script</em> es el nombre del archivo <em>.py</em> en el mismo directorio.</p></li>
 <li><p><em>obji</em> son funciones, constantes, etc. en el archivo.</p></li>
 </ul>
 </section>
@@ -555,7 +556,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#utilizar-las-funciones-variables-y-o-constantes-de-un-modulo">Utilizar las funciones, variables y/o constantes de un módulo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opciones-de-importacion">Opciones de importación</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modulos-locales">Módulos locales</a></li>
 </ul>
   </nav></div>

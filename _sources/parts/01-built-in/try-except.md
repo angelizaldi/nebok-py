@@ -9,7 +9,7 @@ except [error_type]:
     # except body
 ```
 - Se prueba _try body_, en caso de que suceda algun error, entonces se procederá a ejecutar _except body_, si no sucede ningún error, entonces _except body_ no se ejecutará.
-- _error_type_: Es para específicar que hacer en caso de un error en específico, se pone el nombre tal cual el nombre del error. Para ver los tipos de errores revisar {ref}`excepciones`. También se pueden poner excepciones personalizadas. Es posible poner más de un tipo de error dentro de un `tuple`.
+- _error_type_: Es para específicar que hacer en caso de un error en específico, se pone tal cual el nombre del error. Para ver los tipos de errores revisar {ref}`excepciones`. También se pueden poner excepciones personalizadas. Es posible poner más de un tipo de error dentro de un `tuple`.
 - Es posible indicar que el error se retorne como un objeto para poder utilizar ese objeto, como imprimir su tipo.
 
 
@@ -85,14 +85,14 @@ if condition:
 (excepciones)=
 ## Lista de excepciones
 
-Algunas excepciones built-in en python son:
+Algunas excepciones built-in en Python son:
 
 ```{list-table}
 :header-rows: 1
 :name: label-to-reference
 
-* - Excepción.
-  - Descripción.
+* - Excepción
+  - Descripción
 * - `ArithmeticError`
   - Cuando ocurre un error en cálculos numéricos.
 * - `FloatingPointError`

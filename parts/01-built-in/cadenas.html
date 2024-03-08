@@ -191,7 +191,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="ayuda.html">Obtener ayuda</a></li>
 <li class="toctree-l2"><a class="reference internal" href="comentarios.html">Comentarios</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tipos-datos.html">Tipos de datos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="operadores-palabras.html">Operadores y palabras reservadas.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operadores-palabras.html">Operadores y palabras reservadas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="entrada-salida.html">Entrada y salida de datos</a></li>
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="tipos-index.html">Tipos Built-In</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="booleanos.html">Valores booleanos</a></li>
@@ -205,7 +205,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="if-else.html">If … Else</a></li>
-<li class="toctree-l3"><a class="reference internal" href="for-loop.html">For Loop.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="for-loop.html">For Loop</a></li>
 <li class="toctree-l3"><a class="reference internal" href="do-while.html">Do While</a></li>
 </ul>
 </li>
@@ -592,7 +592,7 @@ text1\ttext2
 <ul class="simple">
 <li><p><em>string</em> - <code class="docutils literal notranslate"><span class="pre">str</span></code>: Cadena sobre la cual se iterará.</p></li>
 </ul>
-<br>
+<br/>
 </section>
 <hr class="docutils" />
 <section id="subsetting-y-slicing">
@@ -601,7 +601,7 @@ text1\ttext2
 <h3>Subsetting:<a class="headerlink" href="#subsetting" title="Link to this heading">#</a></h3>
 <p>Para seleccionar caracteres individuales de una cadena tener en cuenta las siguientes características:</p>
 <ul class="simple">
-<li><p>Se utilizan corchetes <code class="docutils literal notranslate"><span class="pre">[]</span></code> para acceder a los caracteres, junto con la cadena y el índice del elemento.</p></li>
+<li><p>Se utilizan corchetes <code class="docutils literal notranslate"><span class="pre">[]</span></code> para acceder a los caracteres, junto con la cadena y el índice del elemento. <br/> <code class="docutils literal notranslate"><span class="pre">X[i]</span></code></p></li>
 <li><p>Los índices comienza en cero (0), esto quiere decir que si quiere acceder al caracter <code class="docutils literal notranslate"><span class="pre">n</span></code>, se debe de usar <code class="docutils literal notranslate"><span class="pre">[n-1]</span></code>. <br/></p></li>
 <li><p>Se puede utilizar índices negativos, para hacer subsetting de derecha a izquierda, comenzando por el último caracter. Por ejemplo, se puede acceder al último caracter con <code class="docutils literal notranslate"><span class="pre">[-1]</span></code>, al penúltimo caracter elemento <code class="docutils literal notranslate"><span class="pre">[-2]</span></code>, etc.</p></li>
 </ul>
@@ -611,8 +611,8 @@ text1\ttext2
 <li><p>El caracter <em>n</em>: <br> <code class="docutils literal notranslate"><span class="pre">X[n-1]</span></code></p></li>
 <li><p>El último caracter: <br> <code class="docutils literal notranslate"><span class="pre">X[-1]</span></code></p></li>
 </ul>
+<br/>
 </section>
-<hr class="docutils" />
 <section id="slicing">
 <h3>Slicing:<a class="headerlink" href="#slicing" title="Link to this heading">#</a></h3>
 <p>Para seleccionar un rango de caracteres consecutivos tener en cuenta las siguientes características:</p>
@@ -633,7 +633,6 @@ text1\ttext2
 <br>
 </section>
 </section>
-<hr class="docutils" />
 <section id="metodos-de-cadenas">
 <h2>Métodos de cadenas<a class="headerlink" href="#metodos-de-cadenas" title="Link to this heading">#</a></h2>
 <p>En esta sección se enlistan los métodos del tipo <code class="docutils literal notranslate"><span class="pre">str</span></code> por categorias.</p>
@@ -662,14 +661,12 @@ HOLA MUNDO
 <li><p>Tener en cuenta que en la segunda forma la cadena siempre debe de ser el primer argumento.</p></li>
 </ul>
 <br>
-<hr class="docutils" />
 <section id="buscar-subcadenas">
 <h3>Buscar subcadenas<a class="headerlink" href="#buscar-subcadenas" title="Link to this heading">#</a></h3>
 <p>Métodos para buscar subcadenas en una cadena.</p>
-<table class="table" id="id1">
-<caption><span class="caption-number">Table 2 </span><span class="caption-text">Buscar</span><a class="headerlink" href="#id1" title="Link to this table">#</a></caption>
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Funciones</p></th>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
 <th class="head"><p>Descripción</p></th>
 </tr>
 </thead>
@@ -690,14 +687,12 @@ HOLA MUNDO
 </table>
 <br>
 </section>
-<hr class="docutils" />
 <section id="formato-de-la-cadena">
 <h3>Formato de la cadena<a class="headerlink" href="#formato-de-la-cadena" title="Link to this heading">#</a></h3>
 <p>Métodos para modificar el formato de una cadena.</p>
-<table class="table" id="id2">
-<caption><span class="caption-number">Table 3 </span><span class="caption-text">Formato</span><a class="headerlink" href="#id2" title="Link to this table">#</a></caption>
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Funciones</p></th>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
 <th class="head"><p>Descripción</p></th>
 </tr>
 </thead>
@@ -742,14 +737,12 @@ HOLA MUNDO
 </table>
 <br>
 </section>
-<hr class="docutils" />
 <section id="informacion-de-la-cadena">
 <h3>Información de la cadena<a class="headerlink" href="#informacion-de-la-cadena" title="Link to this heading">#</a></h3>
 <p>Métodos para obtener información sobre la cadena.</p>
-<table class="table" id="id3">
-<caption><span class="caption-number">Table 4 </span><span class="caption-text">Información</span><a class="headerlink" href="#id3" title="Link to this table">#</a></caption>
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Funciones</p></th>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
 <th class="head"><p>Descripción</p></th>
 </tr>
 </thead>
@@ -784,7 +777,7 @@ HOLA MUNDO
 <tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str.isidentifier">isidentifier</a>()</p></td>
 <td><p>Retorna <code class="docutils literal notranslate"><span class="pre">True</span></code> si la cadena es un identificador válido.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str.endswith">endswith</a><code class="docutils literal notranslate"><span class="pre">(suffix[,</span> <span class="pre">start[,</span> <span class="pre">end]])</span></code></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str.endswith">endswith</a>(suffix[, start[, end]])</p></td>
 <td><p>Retorna <code class="docutils literal notranslate"><span class="pre">True</span></code> si la cadena termina con algún sufijo en específico.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str.isalpha">isalpha</a>()</p></td>
@@ -803,14 +796,12 @@ HOLA MUNDO
 </table>
 <br>
 </section>
-<hr class="docutils" />
 <section id="joins-y-splits">
 <h3>Joins y splits<a class="headerlink" href="#joins-y-splits" title="Link to this heading">#</a></h3>
 <p>Métodos para separar cadenas o para crear cadenas desde iterables.</p>
-<table class="table" id="id4">
-<caption><span class="caption-number">Table 5 </span><span class="caption-text">Separar y Unir</span><a class="headerlink" href="#id4" title="Link to this table">#</a></caption>
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Funciones</p></th>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
 <th class="head"><p>Descripción</p></th>
 </tr>
 </thead>
@@ -837,14 +828,12 @@ HOLA MUNDO
 </table>
 <br>
 </section>
-<hr class="docutils" />
 <section id="otros">
 <h3>Otros<a class="headerlink" href="#otros" title="Link to this heading">#</a></h3>
 <p>Otros métodos para cadenas.</p>
-<table class="table" id="id5">
-<caption><span class="caption-number">Table 6 </span><span class="caption-text">Otros</span><a class="headerlink" href="#id5" title="Link to this table">#</a></caption>
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Funciones</p></th>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
 <th class="head"><p>Descripción</p></th>
 </tr>
 </thead>
@@ -862,14 +851,12 @@ HOLA MUNDO
 </table>
 <br>
 </section>
-<hr class="docutils" />
 <section id="reemplazar-y-remover-subcadenas">
 <h3>Reemplazar y remover subcadenas.<a class="headerlink" href="#reemplazar-y-remover-subcadenas" title="Link to this heading">#</a></h3>
 <p>Métodos para reemplazar o remover subcadenas dentro de una cadena.</p>
-<table class="table" id="id6">
-<caption><span class="caption-number">Table 7 </span><span class="caption-text">Reemplazar</span><a class="headerlink" href="#id6" title="Link to this table">#</a></caption>
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Funciones</p></th>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
 <th class="head"><p>Descripción</p></th>
 </tr>
 </thead>
@@ -877,7 +864,7 @@ HOLA MUNDO
 <tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str.removeprefix">removeprefix</a>(prefix, /)</p></td>
 <td><p>Devuelve una copia de la cadena eliminando el prefijo <code class="docutils literal notranslate"><span class="pre">prefix</span></code> al inicio de la cadena, si existe.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str.expandtabs">expandtabs</a><code class="docutils literal notranslate"><span class="pre">(tabsize=8)</span></code></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str.expandtabs">expandtabs</a>(tabsize=8)</p></td>
 <td><p>Devuelve una copia de la cadena donde todos los caracteres de tabulación se reemplazan por uno o más espacios.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str.removesuffix">removesuffix</a>(suffix, /)</p></td>
@@ -890,14 +877,12 @@ HOLA MUNDO
 </table>
 <br>
 </section>
-<hr class="docutils" />
 <section id="strip">
 <h3>Strip<a class="headerlink" href="#strip" title="Link to this heading">#</a></h3>
 <p>Métodos para eliminar caracteres al inicio, final o ambos de una cadena.</p>
-<table class="table" id="id7">
-<caption><span class="caption-number">Table 8 </span><span class="caption-text">Strip</span><a class="headerlink" href="#id7" title="Link to this table">#</a></caption>
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Funciones</p></th>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
 <th class="head"><p>Descripción</p></th>
 </tr>
 </thead>
@@ -924,11 +909,11 @@ HOLA MUNDO
 <p class="admonition-title">Warning</p>
 <p>Existen otros métodos para hacer lo mismo como los <code class="docutils literal notranslate"><span class="pre">string.Template</span></code> o usando el operador <code class="docutils literal notranslate"><span class="pre">%</span></code>, pero no se cubrirán en esta página.</p>
 </div>
-<hr class="docutils" />
+<br/>
 <section id="str-format">
 <h3>str.format<a class="headerlink" href="#str-format" title="Link to this heading">#</a></h3>
 <p>Es un método que sirve para imprimir valores de variables en algún formato en específico. Para ello en la cadena se deben especificar campos delimitados por corchetes <code class="docutils literal notranslate"><span class="pre">{}</span></code> donde irán los valores.</p>
-<hr class="docutils" />
+<br/>
 <section id="uso">
 <h4>Uso<a class="headerlink" href="#uso" title="Link to this heading">#</a></h4>
 <p>Existen tres formas principales de usar este método:</p>
@@ -961,6 +946,7 @@ Versión: 11
 </div>
 </div>
 </div>
+<br/>
 <p><strong>2. nombres</strong></p>
 <ul class="simple">
 <li><p>En la cadena, los campos <code class="docutils literal notranslate"><span class="pre">{}</span></code> deben de tener nombres, los cuales se deben especificar en <code class="docutils literal notranslate"><span class="pre">str.format()</span></code> como un par  <code class="docutils literal notranslate"><span class="pre">name=val</span></code>.</p></li>
@@ -987,6 +973,7 @@ Versión: 11
 </div>
 </div>
 </div>
+<br/>
 <p><strong>3. diccionario</strong></p>
 <ul class="simple">
 <li><p>El argumento de <code class="docutils literal notranslate"><span class="pre">str.format()</span></code> es un diccionario y en los campos <code class="docutils literal notranslate"><span class="pre">{}</span></code> se accede a los valores del diccionario recuperando el valor con los nombres de las llaves del diccionario.</p></li>
@@ -1026,6 +1013,7 @@ Versión: 11
 <ul class="simple">
 <li><p><em>expression</em>: Es un valor, un objeto o incluso funciones y/o métodos que retornen un objeto imprimible. El valor mostrado será el mismo que el del método <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> o <code class="docutils literal notranslate"><span class="pre">__repr__()</span></code> de la clase del objeto.</p></li>
 </ul>
+<br/>
 <p>Ejemplo:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1051,6 +1039,7 @@ Versión: 11
 <li><p><code class="docutils literal notranslate"><span class="pre">!r</span></code>: Cadena en versión imprimible, es decir, entre comillas, (solo funciona si la expresión es <code class="docutils literal notranslate"><span class="pre">str</span></code>).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">!a</span></code>: Como <code class="docutils literal notranslate"><span class="pre">!r</span></code> pero ignora los caracteres non-ASCII.</p></li>
 </ul>
+<br/>
 <p>Ejemplo:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1070,7 +1059,9 @@ Versión: 11
 </div>
 </div>
 </div>
+<br/>
 </section>
+<hr class="docutils" />
 <section id="formatos">
 <h3>Formatos<a class="headerlink" href="#formatos" title="Link to this heading">#</a></h3>
 <p>Para dar formatos en el método <code class="docutils literal notranslate"><span class="pre">str.format()</span></code> y en f-string, se utiliza dos puntos y el formato que se quiere dar dentro de las llaves <code class="docutils literal notranslate"><span class="pre">{}</span></code>:</p>
@@ -1134,7 +1125,8 @@ Versión: 11
 <li><p><em>N</em>: Son números enteros, suelen ser opcionales.</p></li>
 <li><p><em>expression</em>: Es la expresión, número, cadena, etc. a la que se le dará formato.</p></li>
 </ul>
-<p><strong>Ejemplos</strong></p>
+<br/>
+<p><strong>Ejemplos</strong>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definir la variable</span>

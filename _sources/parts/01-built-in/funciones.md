@@ -34,10 +34,10 @@ def function_name(param1=val1, param2=val2, ...):
     return value
 ```
 - _function_name_ es el nombre de la función.
-- _"""docstring"""_ es opcional, pero se recomienda ponerlo, sirve para describir qué hace la función, describir los parámetros, describir el objeto retornado, describir los errores arrojados (si hay) y notas extras o ejemplos de uso (todo en ese orden). Consultar {ref}`docstrings`.
-- _param1_, _param2_, etc. son los parámetros de la función. Asignar valor a los parámetros es opcional, el nombre de los parámetros (_keywords_) son los que se usarán dentro de la función y también se pueden usar al momento de llamar la función. Consultar {ref}`parametros`.
+- _"""docstring"""_ es opcional, pero se recomienda ponerlo, sirve para describir qué hace la función, describir los parámetros, describir el objeto retornado, describir los errores arrojados (si hay) y notas extras o ejemplos de uso (todo en ese orden). Consultar {ref}`func-docstrings`.
+- _param1_, _param2_, etc. son los parámetros de la función. Asignar valor a los parámetros es opcional, el nombre de los parámetros (_keywords_) son los que se usarán dentro de la función y también se pueden usar al momento de llamar la función. Consultar {ref}`func-parametros`.
 - _val1_, _val2_, etc. son los valores por defuult correspondientes a los parámetros _param1_, _param2_, etc. Darle valores por default a los parámetros es opcional.
-- Retornar un valor es opcional. Consultar {ref}`retornar`.
+- Retornar un valor es opcional. Consultar {ref}`func-retornar`.
 
 También es posible declarar el tipo de dato de cada parámetro y el tipo de dato del valor que retorna la función, usando dos puntos y el nombre del tipo de dato (`str`, `int`, etc.), para cada parámetro y `->` para la función:
 ```python
@@ -57,6 +57,8 @@ Recomendaciones generales de funciones:
 1. Se recomiendan que las funciones solo realicen una acción.
 2. No usar objetos mutables como parámetros por default.
 
+<br/>
+
 ### Versión simplificada
 
 Existe una versión simplificada de una sola línea, útil para funciones que solo retornan una expresión. La sintaxis es:
@@ -70,7 +72,7 @@ def my_function(params): return expression
 ---
 ## Funciones Lambda
 
-Son funciones anónimas (no tienen nombre). Se suelen usar como argumento de funciones que reciben funciones como parámetros. Algunas caracterísicas de las funciones lambda son:
+Son funciones anónimas (no tienen nombre). Se suelen usar como argumento de funciones que reciben funciones como argumento. Algunas caracterísicas de las funciones lambda son:
 - Puede tomar cualquier número de parámetros pero solo retornar una expresión.
 - Se retorna la expresión evaluada.
 
@@ -79,7 +81,7 @@ Son funciones anónimas (no tienen nombre). Se suelen usar como argumento de fun
 lambda params: expression
 ```
 - _params_ son los parámetros, si son más de uno simplemente separar con coma.
-- en _params_ también se puede usar `*args` y `**kwargs` (ver {ref}`params-arb`).
+- en _params_ también se puede usar `*args` y `**kwargs` (ver {ref}`func-params-arb`).
 
 Se puede asignar la función a una variable (ya no sería anónima), en este caso la variable se podrá usar como la función:
 ```python
@@ -96,7 +98,7 @@ def X(params): return expression
 <br/>
 
 ---
-(docstrings)=
+(func-docstrings)=
 ## Docstrings
 
 Los docstrings son una cadena al inicio de una función que incluye información sobre la función. Entre la información que se suele incluir está:
@@ -106,6 +108,8 @@ Los docstrings son una cadena al inicio de una función que incluye información
 - Describir los errores arrojados.
 - Notas.
 - Ejemplos de uso.
+
+<br/>
 
 ### Estilo Numpy
 
@@ -136,7 +140,7 @@ dtype del tipo de objeto retornado
 <br/>
 
 ---
-(parametros)=
+(func-parametros)=
 ## Parámetros
 
 En Python al llamar una función sus parámetros pueden ser definidos usando su nombre (_keyword_) o su posición. Si no se utilizan los _keywords_ al llamar la función, el orden como se ingresen los parámetros debe de ser el mismo que en la forma como se definió la función. Si se utilizan los _keywords_ entonces se pueden poner en cualquier orden.
@@ -172,7 +176,7 @@ def my_function(params, *, keyword_params, ...):
 <br/>
 
 ---
-(params-arb)=
+(func-params-arb)=
 ### Parámetros arbitrarios
 
 #### Posicionales
@@ -183,7 +187,7 @@ Si no se sabe cuántos parámetros posicionales serán necesarios pasar a la fun
 def my_function(*args, keyword1=val1, ...):
     # function body
 ```
-- `args` es un nombre arbitario del parámetro, ese nombre se usará dentro de la función. Será un `tuple` dentro de la función.
+- `args` es un nombre arbitario del parámetro, pero ese recomienda usar ese tal cual. Ese nombre se usará dentro de la función (sin el asterisco). Será un `tuple` dentro de la función.
 - Cada argumento se separa con una coma y deben de ser todos del mismo tipo de dato.
 - Se pueden especificar además otros parámetros con nombres.
 - Todos los parámetros posteriores a `*args` deben ser _keywords_.
@@ -209,7 +213,8 @@ product(4, 5, 2, initial=3)
 ```
 - En el ejemplo anterior si no se indicará `initial=3` y solo se pusiera el 3, entonces el 3 formaría parte de `*numbers`.
 
----
+<br/>
+
 #### Keywords
 
 Si no se sabe cuántos _keywords_ necesita la función se puede usar `**kwargs` al momento de definir la función. De esta manera se pasará un `dict` a la función con los keywords y sus respectivos valores, dentro de la función se accederá a ellos con el nombre haciendo subsetting del diccionario.
@@ -250,7 +255,7 @@ print(atributos(**items))
 <br/>
 
 ---
-(retornar)=
+(func-retornar)=
 ## Retornar valores
 
 Para que la función retorne un valor es necesario usar la palabra reservada `return`:
@@ -299,7 +304,7 @@ Para llamar a un función simplemente se usa su nombre y entre paréntesis los v
 # Llamar a la función "function_name"
 function_name(val1, val2, ...)
 ```
-- Si la función no tiene parámetros no poner nada dentro de los paréntesis.
+- Si la función no tiene parámetros no poner nada dentro de los paréntesis, pero sí debe de llevar los paréntesis.
 - Se debe de pasar la misma cantidad de parámetros que aquellos que la función espera (parámetros obligatorios),  y en el mismo orden que en la manera como están definidos en la función en caso de que se no se usen los keywords, en caso contrario se pueden poner en un orden distinto.
 ```python
 # Llamar a una funcion por keywords

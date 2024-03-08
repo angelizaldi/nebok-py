@@ -24,6 +24,7 @@ from datetime import class_name
 - Estos solo son dos ejemplos de como importar el módulo, se puede usar cualquier rutina de importación, como importar con alias, importar constantes específicas, etc.
 
 ---
+(datetime-iso)=
 ## ISO 8601
 
 Muchos métodos de este módulo utilizan el formato ISO 8601, el cual es el siguiente:
