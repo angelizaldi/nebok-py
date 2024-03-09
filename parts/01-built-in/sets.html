@@ -637,14 +637,14 @@ document.write(`
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.discard">discard</a>(elem)</p></td>
-<td><p>Elimina el elemento <code class="docutils literal notranslate"><span class="pre">elem</span></code> del <code class="docutils literal notranslate"><span class="pre">set</span></code> si está presente. La operación se realiza “<em>in-place</em>”.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.pop">pop</a>()</p></td>
-<td><p>Elimina y devuelve un elemento arbitrario del conjunto. Retorna <code class="docutils literal notranslate"><span class="pre">KeyError</span></code> si el conjunto está vacío. La operación se realiza “<em>in-place</em>”.</p></td>
-</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.clear">clear</a>()</p></td>
 <td><p>Remueve todos los elementos del <code class="docutils literal notranslate"><span class="pre">set</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.discard">discard</a>(elem)</p></td>
+<td><p>Elimina el elemento <code class="docutils literal notranslate"><span class="pre">elem</span></code> del <code class="docutils literal notranslate"><span class="pre">set</span></code> si está presente. La operación se realiza “<em>in-place</em>”.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.pop">pop</a>()</p></td>
+<td><p>Elimina y devuelve un elemento arbitrario del conjunto. Retorna <code class="docutils literal notranslate"><span class="pre">KeyError</span></code> si el conjunto está vacío. La operación se realiza “<em>in-place</em>”.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.remove">remove</a>(elem)</p></td>
 <td><p>Elimina el elemento <code class="docutils literal notranslate"><span class="pre">elem</span></code> del conjunto. Genera <code class="docutils literal notranslate"><span class="pre">KeyError</span></code> si <code class="docutils literal notranslate"><span class="pre">elem</span></code> no está en el conjunto. La operación se realiza “<em>in-place</em>”.</p></td>
@@ -663,14 +663,14 @@ document.write(`
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.issuperset">issuperset</a>(other)</p></td>
-<td><p>Retorna <code class="docutils literal notranslate"><span class="pre">True</span></code> si cada elemento en <code class="docutils literal notranslate"><span class="pre">other</span></code> está en el conjunto. Equivale al operador <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.isdisjoint">isdisjoint</a>(other)</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.isdisjoint">isdisjoint</a>(other)</p></td>
 <td><p>Devuelve <code class="docutils literal notranslate"><span class="pre">True</span></code> si el conjunto no tiene elementos en común con <code class="docutils literal notranslate"><span class="pre">other</span></code>. Los conjuntos son disjuntos si y sólo si su intersección es el conjunto vacío.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.issubset">issubset</a>(other)</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.issubset">issubset</a>(other)</p></td>
 <td><p>Retorna <code class="docutils literal notranslate"><span class="pre">True</span></code> si cada elemento del conjunto está en <code class="docutils literal notranslate"><span class="pre">other</span></code>. Equivale al operador <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.issuperset">issuperset</a>(other)</p></td>
+<td><p>Retorna <code class="docutils literal notranslate"><span class="pre">True</span></code> si cada elemento en <code class="docutils literal notranslate"><span class="pre">other</span></code> está en el conjunto. Equivale al operador <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -690,14 +690,14 @@ document.write(`
 <tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.difference">difference</a>(*others)</p></td>
 <td><p>Devuelve un nuevo conjunto con elementos que están en el conjunto que no están en los demás. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">-</span></code>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.union">union</a>(*others)</p></td>
-<td><p>Devuelve un nuevo conjunto con elementos del conjunto y <code class="docutils literal notranslate"><span class="pre">*others</span></code>. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">|</span></code>.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.intersection">intersection</a>(*others)</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.intersection">intersection</a>(*others)</p></td>
 <td><p>Devuelve un nuevo conjunto con elementos comunes al conjunto y <code class="docutils literal notranslate"><span class="pre">*others</span></code>. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.symmetric_difference">symmetric_difference</a>(other)</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.symmetric_difference">symmetric_difference</a>(other)</p></td>
 <td><p>Devuelve un nuevo conjunto con elementos en el conjunto o en <code class="docutils literal notranslate"><span class="pre">other</span></code> pero no en ambos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">^</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.union">union</a>(*others)</p></td>
+<td><p>Devuelve un nuevo conjunto con elementos del conjunto y <code class="docutils literal notranslate"><span class="pre">*others</span></code>. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">|</span></code>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -717,14 +717,14 @@ document.write(`
 <tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.difference_update">difference_update</a>(*others)</p></td>
 <td><p>Actualiza el <code class="docutils literal notranslate"><span class="pre">set</span></code>, eliminando los elementos que se encuentren en <code class="docutils literal notranslate"><span class="pre">*other</span></code>. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">-=</span></code>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.update">update</a>(*others)</p></td>
-<td><p>Actualiza un <code class="docutils literal notranslate"><span class="pre">set</span></code> con los elementos de <code class="docutils literal notranslate"><span class="pre">*others</span></code>. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">|=</span></code>.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.intersection_update">intersection_update</a>(*others)</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.intersection_update">intersection_update</a>(*others)</p></td>
 <td><p>Actualiza el <code class="docutils literal notranslate"><span class="pre">set</span></code>, manteniendo solo los elementos que se encuentran en él y todos los demás. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">&amp;=</span></code>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.symmetric_difference_update">symmetric_difference_update</a>(other)</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.symmetric_difference_update">symmetric_difference_update</a>(other)</p></td>
 <td><p>Actualiza el <code class="docutils literal notranslate"><span class="pre">set</span></code>, conservando solo los elementos que se encuentran en cualquiera de los conjuntos, pero no en ambos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">^=</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#frozenset.update">update</a>(*others)</p></td>
+<td><p>Actualiza un <code class="docutils literal notranslate"><span class="pre">set</span></code> con los elementos de <code class="docutils literal notranslate"><span class="pre">*others</span></code>. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">|=</span></code>.</p></td>
 </tr>
 </tbody>
 </table>

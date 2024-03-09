@@ -216,87 +216,7 @@ Métodos para buscar subcadenas en una cadena.
 
 <br>
 
-### Formato de la cadena
-
-Métodos para modificar el formato de una cadena.
-
-```{list-table}
-:header-rows: 1
-
-* - Método
-  - Descripción
-* - [zfill](https://docs.python.org/3/library/stdtypes.html#str.zfill)(width)
-  - Retorna una cadena agregando ceros al principio de la cadena (si es necesario), para que tenga una longitud específica.
-* - [ljust](https://docs.python.org/3/library/stdtypes.html#str.ljust)(width[, fillchar])
-  - Justifica el texto a la izquierda, agregando caracteres al final de la cadena para que tenga una longitud determinada.
-* - [rjust](https://docs.python.org/3/library/stdtypes.html#str.rjust)(width[, fillchar])
-  - Justifica el texto a la derecha, agregando caracteres al principio de la cadena para que tenga una longitud determinada.
-* - [title](https://docs.python.org/3/library/stdtypes.html#str.title)()
-  - Devuelve una versión de título de la cadena donde las palabras comienzan con mayúscula y los caracteres restantes son minúsculas.
-* - [upper](https://docs.python.org/3/library/stdtypes.html#str.upper)()
-  - Convierte una cadena en mayúsculas.
-* - [swapcase](https://docs.python.org/3/library/stdtypes.html#str.swapcase)()
-  - Devuelve una copia de la cadena con caracteres en mayúsculas convertidos a minúsculas y viceversa.
-* - [casefold](https://docs.python.org/3/library/stdtypes.html#str.casefold)()
-  - Retorna una copia de la cadena con todos los caracteres en minúsculas.
-* - [format](https://docs.python.org/3/library/stdtypes.html#str.format)(*args, **kwargs)
-  - Realiza una operación de formato de cadena. Para más información revisar {ref}`str-formatos`.
-* - [center](https://docs.python.org/3/library/stdtypes.html#str.center)(width[, fillchar])
-  - Retorna una cadena agregando caracteres al princio y al final, para que tenga una longitud determinada y la cadena original esté al centro.
-* - [format_map](https://docs.python.org/3/library/stdtypes.html#str.format_map)(mapping)
-  - Similar a `str.format(**mapping)`, excepto que el mapeo es utilizado directamente y no copiado a un `dict`. Esto es útil si, por ejemplo, el mapeo es una subclase `dict`.
-* - [lower](https://docs.python.org/3/library/stdtypes.html#str.lower)()
-  - Devuelve una copia de la cadena con todos los caracteres en mayúsculas convertidos a minúsculas.
-* - [capitalize](https://docs.python.org/3/library/stdtypes.html#str.capitalize)()
-  - Devuelve una copia de la cadena con su primer carácter en mayúscula y el resto en minúsculas.
-```
-
-<br>
-
-### Información de la cadena
-
-Métodos para obtener información sobre la cadena.
-
-```{list-table}
-:header-rows: 1
-
-* - Método
-  - Descripción
-* - [isdigit](https://docs.python.org/3/library/stdtypes.html#str.isdigit)()
-  - Devuelve `True` si todos los caracteres de la cadena son dígitos y hay al menos un carácter, `False` en caso contrario.
-* - [isprintable](https://docs.python.org/3/library/stdtypes.html#str.isprintable)()
-  - Retorna `True` si todos los caracteres en la cadena son imprimibles o si es una cadena vacía, `False` en caso contrario.
-* - [isspace](https://docs.python.org/3/library/stdtypes.html#str.isspace)()
-  - Retorna `True` si solo hay espacios en blanco en la cadena y hay al menos un carácter, `False` en caso contrario.
-* - [isupper](https://docs.python.org/3/library/stdtypes.html#str.isupper)()
-  - Retorna `True` si todos los caracteres son mayúsculas y hay al menos un caracter alfabético en mayúsculas, `False` en caso contrario.
-* - [count](https://docs.python.org/3/library/stdtypes.html#str.count)(sub[, start[, end]])
-  - Devuelve el número de ocurrencias no superpuestas de la subcadena `sub` en el rango [`start`, `end`].
-* - [istitle](https://docs.python.org/3/library/stdtypes.html#str.istitle)()
-  - Retorna `True` si la cadena es una cadena con título y hay al menos una carácter.
-* - [startswith](https://docs.python.org/3/library/stdtypes.html#str.startswith)(prefix[, start[, end]])
-  - Devuelve `True` si la cadena comienza con el prefijo; de lo contrario, devuelve `False`.
-* - [islower](https://docs.python.org/3/library/stdtypes.html#str.islower)()
-  - Retorna `True` si todos los caracteres en la cadena están en minúsculas y hay al menos un carácter en minúsculas, de lo contrario retornar `False`.
-* - [isdecimal](https://docs.python.org/3/library/stdtypes.html#str.isdecimal)()
-  - Retorna `True` si todos los caracteres en la cadena son caracteres decimales y hay al menos un carácter, `False` de lo contrario.
-* - [isidentifier](https://docs.python.org/3/library/stdtypes.html#str.isidentifier)()
-  - Retorna `True` si la cadena es un identificador válido.
-* - [endswith](https://docs.python.org/3/library/stdtypes.html#str.endswith)(suffix[, start[, end]])
-  - Retorna `True` si la cadena termina con algún sufijo en específico.
-* - [isalpha](https://docs.python.org/3/library/stdtypes.html#str.isalpha)()
-  - Devuelve `True` si todos los caracteres de la cadena son alfabéticos y hay al menos un carácter, `False` en caso contrario.
-* - [isascii](https://docs.python.org/3/library/stdtypes.html#str.isascii)()
-  - Retorna `True` si la cadena está vacía o todos los caracteres de la cadena son ASCII, `False` en caso contrario.
-* - [isalnum](https://docs.python.org/3/library/stdtypes.html#str.isalnum)()
-  - Retorna `True` si todos los caracteres de la cadena son alfanuméricos.
-* - [isnumeric](https://docs.python.org/3/library/stdtypes.html#str.isnumeric)()
-  - Retorna `True` si todos los caracteres de la cadena son numéricos.
-```
-
-<br>
-
-### Joins y splits
+### Concatenaciones y separaciones
 
 Métodos para separar cadenas o para crear cadenas desde iterables.
 
@@ -307,16 +227,89 @@ Métodos para separar cadenas o para crear cadenas desde iterables.
   - Descripción
 * - [join](https://docs.python.org/3/library/stdtypes.html#str.join)(iterable)
   - Devuelve una cadena que es la concatenación de las cadenas en un iterable. Se generará un `TypeError` si hay valores que no sean cadenas en el iterable.
-* - [split](https://docs.python.org/3/library/stdtypes.html#str.split)(sep=None, maxsplit=- 1)
-  - Devuelve una lista de las palabras de la cadena, utilizando `sep` como cadena delimitadora. Si se da `maxsplit`, como máximo se realizan `maxsplit` divisiones. Por default se usan espacios en blanco como separador.
-* - [rsplit](https://docs.python.org/3/library/stdtypes.html#str.rsplit)(sep=None, maxsplit=- 1)
-  - Devuelve una lista de las palabras de la cadena, utilizando `sep` como cadena delimitadora. Si se da `maxsplit`, como máximo se realizan `maxsplit` divisiones. Por default se usan espacios en blanco como separador.
-* - [splitlines](https://docs.python.org/3/library/stdtypes.html#str.splitlines)(keepends=False)
-  - Devuelve una lista de las líneas de la cadena, separando por los saltos de línea.
 * - [partition](https://docs.python.org/3/library/stdtypes.html#str.partition)(sep)
   - Divide la cadena en la primera aparición de `sep` y devuelva un `tuple` de 3 elementos que contiene la parte anterior al separador, el propio separador y la parte después del separador.
 * - [rpartition](https://docs.python.org/3/library/stdtypes.html#str.rpartition)(sep)
   - Divide la cadena en la última aparición de `sep` y devuelva un `tuple` de 3 elementos que contiene la parte anterior al separador, el propio separador y la parte después del separador.
+* - [rsplit](https://docs.python.org/3/library/stdtypes.html#str.rsplit)(sep=None, maxsplit=- 1)
+  - Devuelve una lista de las palabras de la cadena, utilizando `sep` como cadena delimitadora. Si se da `maxsplit`, como máximo se realizan `maxsplit` divisiones. Por default se usan espacios en blanco como separador.
+* - [split](https://docs.python.org/3/library/stdtypes.html#str.split)(sep=None, maxsplit=- 1)
+  - Devuelve una lista de subcadenas de la cadena, utilizando `sep` como cadena delimitadora. Si se da `maxsplit`, como máximo se realizan `maxsplit` divisiones. Por default se usan espacios en blanco como separador.
+* - [splitlines](https://docs.python.org/3/library/stdtypes.html#str.splitlines)(keepends=False)
+  - Devuelve una lista de las líneas de la cadena, separando por los saltos de línea. Equivale a `str.split(sep='\n')`.
+```
+
+<br>
+
+### Formatos y modificaciones
+
+Métodos para modificar el formato de una cadena.
+
+```{list-table}
+:header-rows: 1
+
+* - Método
+  - Descripción
+* - [capitalize](https://docs.python.org/3/library/stdtypes.html#str.capitalize)()
+  - Devuelve una copia de la cadena con su primer carácter en mayúscula y el resto en minúsculas.
+* - [casefold](https://docs.python.org/3/library/stdtypes.html#str.casefold)()
+  - Devuelve una copia de la cadena en minúsculas de manera más estricta que `str.lower()`.
+* - [format](https://docs.python.org/3/library/stdtypes.html#str.format)(*args, **kwargs)
+  - Realiza una operación de formato de cadena. Para más información revisar {ref}`str-formatos`.
+* - [format_map](https://docs.python.org/3/library/stdtypes.html#str.format_map)(mapping)
+  - Similar a `str.format(**mapping)`, excepto que el mapeo es utilizado directamente y no copiado a un `dict`. Esto es útil si, por ejemplo, el mapeo es una subclase `dict`.
+* - [lower](https://docs.python.org/3/library/stdtypes.html#str.lower)()
+  - Devuelve una copia de la cadena con todos los caracteres en mayúsculas convertidos a minúsculas.
+* - [swapcase](https://docs.python.org/3/library/stdtypes.html#str.swapcase)()
+  - Devuelve una copia de la cadena con caracteres en mayúsculas convertidos a minúsculas y viceversa.
+* - [title](https://docs.python.org/3/library/stdtypes.html#str.title)()
+  - Devuelve una versión de título de la cadena donde las palabras comienzan con mayúscula y los caracteres restantes son minúsculas.
+* - [upper](https://docs.python.org/3/library/stdtypes.html#str.upper)()
+  - Convierte una cadena en mayúsculas.
+```
+
+<br>
+
+### Información
+
+Métodos para obtener información sobre la cadena.
+
+```{list-table}
+:header-rows: 1
+
+* - Método
+  - Descripción
+* - [count](https://docs.python.org/3/library/stdtypes.html#str.count)(sub[, start[, end]])
+  - Devuelve el número de ocurrencias no superpuestas de la subcadena `sub` en el rango [`start`, `end`].
+* - [endswith](https://docs.python.org/3/library/stdtypes.html#str.endswith)(suffix[, start[, end]])
+  - Retorna `True` si la cadena termina con algún sufijo en específico.
+* - [isalnum](https://docs.python.org/3/library/stdtypes.html#str.isalnum)()
+  - Retorna `True` si todos los caracteres de la cadena son alfanuméricos.
+* - [isalpha](https://docs.python.org/3/library/stdtypes.html#str.isalpha)()
+  - Devuelve `True` si todos los caracteres de la cadena son alfabéticos y hay al menos un carácter, `False` en caso contrario.
+* - [isascii](https://docs.python.org/3/library/stdtypes.html#str.isascii)()
+  - Retorna `True` si la cadena está vacía o todos los caracteres de la cadena son ASCII, `False` en caso contrario.
+* - [isdecimal](https://docs.python.org/3/library/stdtypes.html#str.isdecimal)()
+  - Retorna `True` si todos los caracteres en la cadena son caracteres.
+* - [isdigit](https://docs.python.org/3/library/stdtypes.html#str.isdigit)()
+  - Devuelve `True` si todos los caracteres de la cadena son dígitos y hay al menos un carácter, `False` en caso contrario.
+* - [isidentifier](https://docs.python.org/3/library/stdtypes.html#str.isidentifier)()
+  - Retorna `True` si la cadena es un identificador válido.
+* - [islower](https://docs.python.org/3/library/stdtypes.html#str.islower)()
+  - Retorna `True` si todos los caracteres en la cadena están en minúsculas y hay al menos un carácter en minúsculas, de lo contrario retornar `False`.
+decimales y hay al menos un carácter, `False` de lo contrario.
+* - [isnumeric](https://docs.python.org/3/library/stdtypes.html#str.isnumeric)()
+  - Retorna `True` si todos los caracteres de la cadena son numéricos.
+* - [isprintable](https://docs.python.org/3/library/stdtypes.html#str.isprintable)()
+  - Retorna `True` si todos los caracteres en la cadena son imprimibles o si es una cadena vacía, `False` en caso contrario.
+* - [isspace](https://docs.python.org/3/library/stdtypes.html#str.isspace)()
+  - Retorna `True` si solo hay espacios en blanco en la cadena y hay al menos un carácter, `False` en caso contrario.
+* - [istitle](https://docs.python.org/3/library/stdtypes.html#str.istitle)()
+  - Retorna `True` si la cadena es una cadena con título y hay al menos una carácter.
+* - [isupper](https://docs.python.org/3/library/stdtypes.html#str.isupper)()
+  - Retorna `True` si todos los caracteres son mayúsculas y hay al menos un caracter alfabético en mayúsculas, `False` en caso contrario.
+* - [startswith](https://docs.python.org/3/library/stdtypes.html#str.startswith)(prefix[, start[, end]])
+  - Devuelve `True` si la cadena comienza con el prefijo; de lo contrario, devuelve `False`.
 ```
 
 <br>
@@ -330,17 +323,17 @@ Otros métodos para cadenas.
 
 * - Método
   - Descripción
+* - [encode](https://docs.python.org/3/library/stdtypes.html#str.encode)(encoding='utf-8', errors='strict')
+  - Devuelve la cadena codificada en bytes.
 * - [maketrans](https://docs.python.org/3/library/stdtypes.html#str.maketrans)(x[, y[, z]])
   - Este método estático devuelve una tabla de traducción utilizable para `str.translate()`.
 * - [translate](https://docs.python.org/3/library/stdtypes.html#str.translate)(table)
   - Devuelve una copia de la cadena en la que se ha mapeado cada carácter de acuerdo al mapeo indicado en `str.maketrans()`.
-* - [encode](https://docs.python.org/3/library/stdtypes.html#str.encode)(encoding='utf-8', errors='strict')
-  - Devuelve la cadena codificada en bytes.
 ```
 
 <br>
 
-### Reemplazar y remover subcadenas.
+### Reemplazar y eliminar subcadenas
 
 Métodos para reemplazar o remover subcadenas dentro de una cadena.
 
@@ -349,10 +342,10 @@ Métodos para reemplazar o remover subcadenas dentro de una cadena.
 
 * - Método
   - Descripción
-* - [removeprefix](https://docs.python.org/3/library/stdtypes.html#str.removeprefix)(prefix, /)
-  - Devuelve una copia de la cadena eliminando el prefijo `prefix` al inicio de la cadena, si existe.
 * - [expandtabs](https://docs.python.org/3/library/stdtypes.html#str.expandtabs)(tabsize=8)
   - Devuelve una copia de la cadena donde todos los caracteres de tabulación se reemplazan por uno o más espacios.
+* - [removeprefix](https://docs.python.org/3/library/stdtypes.html#str.removeprefix)(prefix, /)
+  - Devuelve una copia de la cadena eliminando el prefijo `prefix` al inicio de la cadena, si existe.
 * - [removesuffix](https://docs.python.org/3/library/stdtypes.html#str.removesuffix)(suffix, /)
   - Retorna una copia de la cadena eliminando el sufijo `suffix` al final de la cadena, si existe.
 * - [replace](https://docs.python.org/3/library/stdtypes.html#str.replace)(old, new[, count])
@@ -361,7 +354,7 @@ Métodos para reemplazar o remover subcadenas dentro de una cadena.
 
 <br>
 
-### Strip
+### Strip y pads
 
 Métodos para eliminar caracteres al inicio, final o ambos de una cadena.
 
@@ -370,12 +363,20 @@ Métodos para eliminar caracteres al inicio, final o ambos de una cadena.
 
 * - Método
   - Descripción
-* - [strip](https://docs.python.org/3/library/stdtypes.html#str.strip)([chars])
-  - Elimina los espacios en blanco o un conjunto de caracteres, al principio y final de una cadena.
+* - [center](https://docs.python.org/3/library/stdtypes.html#str.center)(width[, fillchar])
+  - Retorna una cadena agregando caracteres al princio y al final, para que tenga una longitud determinada y la cadena original esté al centro.
+* - [ljust](https://docs.python.org/3/library/stdtypes.html#str.ljust)(width[, fillchar])
+  - Justifica el texto a la izquierda, agregando caracteres al final de la cadena para que tenga una longitud determinada.
 * - [lstrip](https://docs.python.org/3/library/stdtypes.html#str.lstrip)([chars])
   - Elimina los espacios en blanco o un conjunto de caracteres en específico al principio de la cadena. Retorna una copia de la cadena.
+* - [rjust](https://docs.python.org/3/library/stdtypes.html#str.rjust)(width[, fillchar])
+  - Justifica el texto a la derecha, agregando caracteres al principio de la cadena para que tenga una longitud determinada.
 * - [rstrip](https://docs.python.org/3/library/stdtypes.html#str.rstrip)([chars])
   - Elimina los espacios en blanco o un conjunto de caracteres en específico al final de la cadena.
+* - [strip](https://docs.python.org/3/library/stdtypes.html#str.strip)([chars])
+  - Elimina los espacios en blanco o un conjunto de caracteres, al principio y final de una cadena.
+* - [zfill](https://docs.python.org/3/library/stdtypes.html#str.zfill)(width)
+  - Retorna una cadena agregando ceros al principio de la cadena (si es necesario), para que tenga una longitud específica.
 ```
 
 <br>

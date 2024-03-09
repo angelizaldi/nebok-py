@@ -215,12 +215,12 @@ Métodos para eliminar elementos de un `set`.
 
 * - Método
   - Descripción
+* - [clear](https://docs.python.org/3/library/stdtypes.html#frozenset.clear)()
+  - Remueve todos los elementos del `set`.
 * - [discard](https://docs.python.org/3/library/stdtypes.html#frozenset.discard)(elem)
   - Elimina el elemento `elem` del `set` si está presente. La operación se realiza "_in-place_".
 * - [pop](https://docs.python.org/3/library/stdtypes.html#frozenset.pop)()
   - Elimina y devuelve un elemento arbitrario del conjunto. Retorna `KeyError` si el conjunto está vacío. La operación se realiza "_in-place_".
-* - [clear](https://docs.python.org/3/library/stdtypes.html#frozenset.clear)()
-  - Remueve todos los elementos del `set`.
 * - [remove](https://docs.python.org/3/library/stdtypes.html#frozenset.remove)(elem)
   - Elimina el elemento `elem` del conjunto. Genera `KeyError` si `elem` no está en el conjunto. La operación se realiza "_in-place_".
 ```
@@ -237,12 +237,12 @@ Métodos para recuperar información sobre el `set` en relación con otros objet
 
 * - Método
   - Descripción
-* - [issuperset](https://docs.python.org/3/library/stdtypes.html#frozenset.issuperset)(other)
-  - Retorna `True` si cada elemento en `other` está en el conjunto. Equivale al operador `>`.
 * - [isdisjoint](https://docs.python.org/3/library/stdtypes.html#frozenset.isdisjoint)(other)
   - Devuelve `True` si el conjunto no tiene elementos en común con `other`. Los conjuntos son disjuntos si y sólo si su intersección es el conjunto vacío.
 * - [issubset](https://docs.python.org/3/library/stdtypes.html#frozenset.issubset)(other)
   - Retorna `True` si cada elemento del conjunto está en `other`. Equivale al operador `<`.
+* - [issuperset](https://docs.python.org/3/library/stdtypes.html#frozenset.issuperset)(other)
+  - Retorna `True` si cada elemento en `other` está en el conjunto. Equivale al operador `>`.
 ```
 
 <br/>
@@ -260,12 +260,12 @@ Métodos para realizar operaciones entre conjuntos y que retornan un nuevo `set`
   - Descripción
 * - [difference](https://docs.python.org/3/library/stdtypes.html#frozenset.difference)(*others)
   - Devuelve un nuevo conjunto con elementos que están en el conjunto que no están en los demás. Equivale a usar el operador `-`.
-* - [union](https://docs.python.org/3/library/stdtypes.html#frozenset.union)(*others)
-  - Devuelve un nuevo conjunto con elementos del conjunto y `*others`. Equivale a usar el operador `|`.
 * - [intersection](https://docs.python.org/3/library/stdtypes.html#frozenset.intersection)(*others)
   - Devuelve un nuevo conjunto con elementos comunes al conjunto y `*others`. Equivale a usar el operador `&`.
 * - [symmetric_difference](https://docs.python.org/3/library/stdtypes.html#frozenset.symmetric_difference)(other)
   - Devuelve un nuevo conjunto con elementos en el conjunto o en `other` pero no en ambos. Equivale a usar el operador `^`.
+* - [union](https://docs.python.org/3/library/stdtypes.html#frozenset.union)(*others)
+  - Devuelve un nuevo conjunto con elementos del conjunto y `*others`. Equivale a usar el operador `|`.
 ```
 
 <br/>
@@ -282,12 +282,12 @@ Métodos para realizar operaciones entre conjuntos y que actualizan un `set` en 
   - Descripción
 * - [difference_update](https://docs.python.org/3/library/stdtypes.html#frozenset.difference_update)(*others)
   - Actualiza el `set`, eliminando los elementos que se encuentren en `*other`. Equivale a usar el operador `-=`.
-* - [update](https://docs.python.org/3/library/stdtypes.html#frozenset.update)(*others)
-  - Actualiza un `set` con los elementos de `*others`. Equivale a usar el operador `|=`.
 * - [intersection_update](https://docs.python.org/3/library/stdtypes.html#frozenset.intersection_update)(*others)
   - Actualiza el `set`, manteniendo solo los elementos que se encuentran en él y todos los demás. Equivale a usar el operador `&=`.
 * - [symmetric_difference_update](https://docs.python.org/3/library/stdtypes.html#frozenset.symmetric_difference_update)(other)
   - Actualiza el `set`, conservando solo los elementos que se encuentran en cualquiera de los conjuntos, pero no en ambos. Equivale a usar el operador `^=`.
+* - [update](https://docs.python.org/3/library/stdtypes.html#frozenset.update)(*others)
+  - Actualiza un `set` con los elementos de `*others`. Equivale a usar el operador `|=`.
 ```
 
 <br/>

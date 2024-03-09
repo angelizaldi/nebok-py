@@ -219,14 +219,14 @@ Métodos para recuperar las llaves, los valores o ambos de un diccionario.
 
 * - Método
   - Descripción
-* - [keys](https://docs.python.org/3/library/stdtypes.html#dict.keys)()
-  - Devuelve una `view` de las llaves del diccionario.
 * - [get](https://docs.python.org/3/library/stdtypes.html#dict.get)(key[, default])
   - Devuelve el valor de la llave si la llave está en el diccionario, de lo contrario, el valor predeterminado. Si no se proporciona el valor predeterminado, el valor predeterminado es `None`, de modo que este método nunca retorn `KeyError`.
-* - [values](https://docs.python.org/3/library/stdtypes.html#dict.values)()
-  - Devuelve una `view` de los valores del diccionario.
 * - [items](https://docs.python.org/3/library/stdtypes.html#dict.items)()
   - Devuelve una `view` de los elementos del diccionario (clave, valor).
+* - [keys](https://docs.python.org/3/library/stdtypes.html#dict.keys)()
+  - Devuelve una `view` de las llaves del diccionario.
+* - [values](https://docs.python.org/3/library/stdtypes.html#dict.values)()
+  - Devuelve una `view` de los valores del diccionario.
 ```
 
 <br/>
@@ -259,12 +259,12 @@ Métodos para eliminar elementos de un diccionario.
 
 * - Método
   - Descripción
-* - [popitem](https://docs.python.org/3/library/stdtypes.html#dict.popitem)()
-  - Elimina y devuelve un par (clave, valor) del diccionario. Los pares se devuelven en orden LIFO.
 * - [clear](https://docs.python.org/3/library/stdtypes.html#dict.clear)()
   - Remueve todos los elementos del diccionario.
 * - [pop](https://docs.python.org/3/library/stdtypes.html#dict.pop)(key[, default])
   - Si la llave está en el diccionario, elimina la llave y retorna su valor, de lo contrario, retorna `default`. Si no se proporciona el valor `default` y la llave no está en el diccionario, se genera un `KeyError`.
+* - [popitem](https://docs.python.org/3/library/stdtypes.html#dict.popitem)()
+  - Elimina y devuelve un par (clave, valor) del diccionario. Los pares se devuelven en orden _LIFO_.
 ```
 
 <br/>
@@ -281,10 +281,10 @@ Otros métodos de diccionarios.
   - Descripción
 * - [copy](https://docs.python.org/3/library/stdtypes.html#dict.copy)()
   - Devuelve una copia superficial del diccionario.
-* - [setdefault](https://docs.python.org/3/library/stdtypes.html#dict.setdefault)(key[, default])
-  - Retorna el valor de una llave especificada, si la llave no existe, inserta la llave con el valor especificado.
 * - [fromkeys](https://docs.python.org/3/library/stdtypes.html#dict.fromkeys)(iterable[, value])
   - Crea un nuevo diccionario con llaves del `iterable` y los valores se establecen como `value`.
+* - [setdefault](https://docs.python.org/3/library/stdtypes.html#dict.setdefault)(key[, default])
+  - Retorna el valor de una llave especificada, si la llave no existe, inserta la llave con el valor especificado.
 ```
 
 <br/>

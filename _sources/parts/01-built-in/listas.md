@@ -289,12 +289,12 @@ Métodos para agregar elementos a una lista.
 
 * - Método
   - Descripción
-* - [insert](https://docs.python.org/3/library/stdtypes.html#mutable-sequence-types)(i, x)
-  - Inserta `x` en una lista en el índice dado por `i`, recorriendo el resto de los elementos a la derecha.
 * - [append](https://docs.python.org/3/library/stdtypes.html#mutable-sequence-types)(x)
   - Agrega un elemento al final de una lista "_in-place_". También se puede utilizar el operador `+`.
 * - [extend](https://docs.python.org/3/library/stdtypes.html#mutable-sequence-types)(t)
   - Extiende una lista con el contenido de un iterable "_in-place_".
+* - [insert](https://docs.python.org/3/library/stdtypes.html#mutable-sequence-types)(i, x)
+  - Inserta `x` en una lista en el índice dado por `i`, recorriendo el resto de los elementos a la derecha.
 ```
 
 <br/>
@@ -326,10 +326,10 @@ Métodos para eliminar elementos de una lista.
   - Descripción
 * - [clear](https://docs.python.org/3/library/stdtypes.html#mutable-sequence-types)()
   - Remueve todos los elementos de la lista.
-* - [remove](https://docs.python.org/3/library/stdtypes.html#mutable-sequence-types)(x)
-  - Elimina la primer coincidencia de un elemento en la lista "_in-place_".
 * - [pop](https://docs.python.org/3/library/stdtypes.html#mutable-sequence-types)(i)
   - Remueve un elemento de una posición en específico, retorna ese elemento y recorre el resto de los elementos a la izquierda.
+* - [remove](https://docs.python.org/3/library/stdtypes.html#mutable-sequence-types)(x)
+  - Elimina la primer coincidencia de un elemento en la lista "_in-place_".
 ```
 
 <br/>
@@ -360,10 +360,10 @@ Métodos para ordenar una lista.
 
 * - Método
   - Descripción
-* - [sort](https://docs.python.org/3/library/stdtypes.html#list.sort)(*, key=None, reverse=False)
-  - Ordena los valores de la lista de manera alfabética o numérica. Realiza la acción "_in-place_".
 * - [reverse](https://docs.python.org/3/library/stdtypes.html#mutable-sequence-types)()
   - Modifica el orden de la lista de manera inversa "_in-place_".
+* - [sort](https://docs.python.org/3/library/stdtypes.html#list.sort)(*, key=None, reverse=False)
+  - Ordena los valores de la lista de manera alfabética o numérica. Realiza la acción "_in-place_".
 ```
 
 <br/>

@@ -625,17 +625,17 @@ dict_keys([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;])
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict.keys">keys</a>()</p></td>
-<td><p>Devuelve una <code class="docutils literal notranslate"><span class="pre">view</span></code> de las llaves del diccionario.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict.get">get</a>(key[, default])</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict.get">get</a>(key[, default])</p></td>
 <td><p>Devuelve el valor de la llave si la llave está en el diccionario, de lo contrario, el valor predeterminado. Si no se proporciona el valor predeterminado, el valor predeterminado es <code class="docutils literal notranslate"><span class="pre">None</span></code>, de modo que este método nunca retorn <code class="docutils literal notranslate"><span class="pre">KeyError</span></code>.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict.values">values</a>()</p></td>
-<td><p>Devuelve una <code class="docutils literal notranslate"><span class="pre">view</span></code> de los valores del diccionario.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict.items">items</a>()</p></td>
 <td><p>Devuelve una <code class="docutils literal notranslate"><span class="pre">view</span></code> de los elementos del diccionario (clave, valor).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict.keys">keys</a>()</p></td>
+<td><p>Devuelve una <code class="docutils literal notranslate"><span class="pre">view</span></code> de las llaves del diccionario.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict.values">values</a>()</p></td>
+<td><p>Devuelve una <code class="docutils literal notranslate"><span class="pre">view</span></code> de los valores del diccionario.</p></td>
 </tr>
 </tbody>
 </table>
@@ -670,14 +670,14 @@ dict_keys([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;])
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict.popitem">popitem</a>()</p></td>
-<td><p>Elimina y devuelve un par (clave, valor) del diccionario. Los pares se devuelven en orden LIFO.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict.clear">clear</a>()</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict.clear">clear</a>()</p></td>
 <td><p>Remueve todos los elementos del diccionario.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict.pop">pop</a>(key[, default])</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict.pop">pop</a>(key[, default])</p></td>
 <td><p>Si la llave está en el diccionario, elimina la llave y retorna su valor, de lo contrario, retorna <code class="docutils literal notranslate"><span class="pre">default</span></code>. Si no se proporciona el valor <code class="docutils literal notranslate"><span class="pre">default</span></code> y la llave no está en el diccionario, se genera un <code class="docutils literal notranslate"><span class="pre">KeyError</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict.popitem">popitem</a>()</p></td>
+<td><p>Elimina y devuelve un par (clave, valor) del diccionario. Los pares se devuelven en orden <em>LIFO</em>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -697,11 +697,11 @@ dict_keys([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;])
 <tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict.copy">copy</a>()</p></td>
 <td><p>Devuelve una copia superficial del diccionario.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict.setdefault">setdefault</a>(key[, default])</p></td>
-<td><p>Retorna el valor de una llave especificada, si la llave no existe, inserta la llave con el valor especificado.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict.fromkeys">fromkeys</a>(iterable[, value])</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict.fromkeys">fromkeys</a>(iterable[, value])</p></td>
 <td><p>Crea un nuevo diccionario con llaves del <code class="docutils literal notranslate"><span class="pre">iterable</span></code> y los valores se establecen como <code class="docutils literal notranslate"><span class="pre">value</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict.setdefault">setdefault</a>(key[, default])</p></td>
+<td><p>Retorna el valor de una llave especificada, si la llave no existe, inserta la llave con el valor especificado.</p></td>
 </tr>
 </tbody>
 </table>
