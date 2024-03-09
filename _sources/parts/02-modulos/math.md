@@ -56,7 +56,6 @@ Funciones relacionadas con técnicas de conteo.
 
 <br>
 
----
 ## Conversion de ángulos
 
 Funciones para conversiones entre ángulos (radianes a grados o viceversa).
@@ -74,7 +73,6 @@ Funciones para conversiones entre ángulos (radianes a grados o viceversa).
 
 <br>
 
----
 ## Especiales
 
 Funciones relacionadas con la función [gamma](https://es.wikipedia.org/wiki/Funci%C3%B3n_gamma) y la función [error](https://es.wikipedia.org/wiki/Funci%C3%B3n_error). 
@@ -96,7 +94,6 @@ Funciones relacionadas con la función [gamma](https://es.wikipedia.org/wiki/Fun
 
 <br>
 
----
 ## Hiperbólicas
 
 Funciones relacionadas con las funciones hiperbólicas y sus inversas. 
@@ -122,7 +119,6 @@ Funciones relacionadas con las funciones hiperbólicas y sus inversas.
 
 <br>
 
----
 ## Información
 
 Función que retornan información sobre objetos numéricos. 
@@ -142,7 +138,6 @@ Función que retornan información sobre objetos numéricos.
 
 <br>
 
----
 ## Iterables numéricos
 
 Funciones para hacer cálculos en objetos iterables numéricos. 
@@ -160,7 +155,6 @@ Funciones para hacer cálculos en objetos iterables numéricos.
 
 <br>
 
----
 ## Logaritmos
 
 Funciones para calcular logaritmos.
@@ -182,7 +176,6 @@ Funciones para calcular logaritmos.
 
 <br>
 
----
 ## Misceláneo
 
 Otras funciones de diversas categorías. 
@@ -202,21 +195,26 @@ Otras funciones de diversas categorías.
   - Cálcula el módulo de `x` y `y`. Igual a `x - n*y` para algún entero `n` tal que el resultado tiene el mismo signo que `x` y magnitud menor que `abs(y)`. La expresión de Python `x % y` puede no devolver el mismo resultado.
 * - [frexp](https://docs.python.org/3/library/math.html#math.frexp)(x)
   - Devuelve la mantisa y el exponente de `x` como el par `(m, e)`. `m` es un número flotante y `e` es un número entero tal que `x == m * 2**e`.
+* - [isclose](https://docs.python.org/3/library/math.html#math.isclose)(a, b, *, rel_tol=1e-09, abs_tol=0.0)
+  - Retorna `True` si los valores `a` y `b` están cerca uno del otro y `False` en caso contrario.
 * - [isqrt](https://docs.python.org/3/library/math.html#math.isqrt)(n)
   - Devuelve la raíz cuadrada entera del entero no negativo `n`.
 * - [ldexp](https://docs.python.org/3/library/math.html#math.ldexp)(x, i)
   - Devuelve `x * (2**i)`. Esta es esencialmente la inversa de la función `frexp()`.
 * - [modf](https://docs.python.org/3/library/math.html#math.modf)(x)
   - Devuelve las partes fraccionaria y entera de `x`. Ambos resultados llevan el signo de `x` y son `float`.
+* - [nextafter](https://docs.python.org/3/library/math.html#math.nextafter)(x, y)
+  - Devuelve el siguiente valor de punto flotante después de `x` hacia `y`.
 * - [remainder](https://docs.python.org/3/library/math.html#math.remainder)(x, y)
   - Devuelve el resto de `x` al estilo IEEE 754 con respecto a `y`.
 * - [sqrt](https://docs.python.org/3/library/math.html#math.sqrt)(x)
   - Devuelve la raíz cuadrada de `x`.
+* - [ulp](https://docs.python.org/3/library/math.html#math.ulp)(x)
+  - Devuelve el valor del bit menos significativo del `float` `x`.
 ```
 
 <br>
 
----
 ## Números enteros
 
 Funciónes para calcular GCD y LCM (máximo común dividor y mínimo cómun múltiplo respectivamente).
@@ -234,27 +232,6 @@ Funciónes para calcular GCD y LCM (máximo común dividor y mínimo cómun múl
 
 <br>
 
----
-## Otras
-
-Otras funciones. 
-
-```{list-table}
-:header-rows: 1
-
-* - Función
-  - Descripción
-* - [isclose](https://docs.python.org/3/library/math.html#math.isclose)(a, b, *, rel_tol=1e-09, abs_tol=0.0)
-  - Retorna `True` si los valores `a` y `b` están cerca uno del otro y `False` en caso contrario.
-* - [nextafter](https://docs.python.org/3/library/math.html#math.nextafter)(x, y)
-  - Devuelve el siguiente valor de punto flotante después de `x` hacia `y`.
-* - [ulp](https://docs.python.org/3/library/math.html#math.ulp)(x)
-  - Devuelve el valor del bit menos significativo del `float` `x`.
-```
-
-<br>
-
----
 ## Potencias
 
 Funciones para cálculos de potencias. 
@@ -276,7 +253,6 @@ Funciones para cálculos de potencias.
 
 <br>
 
----
 ## Redondeo
 
 Funciones para redondear números. 
@@ -296,7 +272,6 @@ Funciones para redondear números.
 
 <br>
 
----
 ## Trigonométricas
 
 Funciones relacionadas con las funciones trigonométricas y sus inversas. 

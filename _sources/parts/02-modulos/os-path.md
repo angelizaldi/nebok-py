@@ -27,7 +27,6 @@ Función para concatenar _paths_. Basícamente concatena todos los argumentos co
 
 <br>
 
----
 ## Información
 
 Funciones que retornan información sobre el _path_. 
@@ -53,7 +52,6 @@ Funciones que retornan información sobre el _path_.
 
 <br>
 
----
 ## Partes de path
 
 Funciones que retornan partes de un _path_.

@@ -31,7 +31,6 @@ Funciones para cálculos de correlaciones y covarianzas. Estas funciones están 
 
 <br>
 
----
 ## Cuantiles
 
 Funciones para calcular cuantiles. 
@@ -47,7 +46,6 @@ Funciones para calcular cuantiles.
 
 <br>
 
----
 ## Medidas de tendencia central
 
 Funciones para cálculos de medidas de tendencia central, como medias, medianas, modas, etc. 
@@ -81,7 +79,6 @@ Funciones para cálculos de medidas de tendencia central, como medias, medianas,
 
 <br>
 
----
 ## Medidas de dispersión
 
 Medidas de dispersión como varianzas y desviaciones estándar. 
@@ -103,8 +100,7 @@ Medidas de dispersión como varianzas y desviaciones estándar.
 
 <br>
 
----
-## Regresion
+## Regresión
 
 Función para regresiones lineales. Esta función está disponible en Python 3.10+.
 
@@ -119,7 +115,6 @@ Función para regresiones lineales. Esta función está disponible en Python 3.1
 
 <br><br>
 
----
 ## Clase NormalDist
 
 `NormalDist` es una clase para crear y manipular distribuciones normales.
@@ -153,7 +148,6 @@ A continuación se enlistan los métodos de clase de la clase `NormaDist`.
 
 <br>
 
----
 ### Atributos de instancia
 
 A continuación se enlistan los atributos de instancia de las instancias de `NormalDist`. 
@@ -177,7 +171,6 @@ A continuación se enlistan los atributos de instancia de las instancias de `Nor
 
 <br>
 
----
 ### Métodos de instancia
 
 A continuación se enlistan los métodos de instancia de las instancias de `NormalDist`. 

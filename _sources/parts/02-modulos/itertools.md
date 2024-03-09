@@ -52,8 +52,7 @@ A continuación se presenta una lista de funciones que retornan combinaciones, p
 
 <br>
 
----
-### Ejemplo de combinations()
+### Ejemplo de `combinations()`
 
 A continuación se presenta un ejemplo de uso de `itertools.combinations()`. Tener en cuenta que la funcionalidad de esta función es similar a la de `itertools.permutations()` y `itertools.combinations_with_replacement()` pero con resultados diferentes.
 
@@ -63,7 +62,7 @@ En este ejemplo se define una cadena con 5 caracteres y se pretende conocer toda
 # Importar función
 from itertools import combinations
 
-# Definir un iterable
+# Definir un iterable, en este caso una cadena
 X = "abcde"
 
 # Calcular combinaciones
@@ -73,11 +72,12 @@ result = combinations(X, 2)
 for element in result:
     print(element)
 ```
+- El objeto retornado es un `iterator` de `tuple`.
 
 <br>
 
 ---
-### Ejemplo de product()
+### Ejemplo de `product()`
 
 A continuación se presenta un ejemplo de uso de `itertools.product()`.
 
@@ -101,6 +101,7 @@ result = product(X, Y)
 for element in result:
     print(element)
 ```
+- El objeto retornado es un `iterator` de `tuple`.
 
 <br><br>
 
@@ -122,12 +123,11 @@ A continuación se presenta una lista de funciones que generan `iterators` infin
   - Crea un `iterator` que devuelve `object` una y otra vez.
 ```
 
----
-### Ejemplo de count()
+### Ejemplo de `count()`
 
 A continuación se presenta un ejemplo de uso de `itertools.count()`.
 
-En este ejemplo se define un `iterator` que comience en 2 y aumente en 2 en cada elemento. Tener en cuenta que este un `iterator` infinito.
+En este ejemplo se define un `iterator` que comience en 2 y aumente en 2 en cada elemento.
 
 ```{code-cell} python3
 # Importar función
@@ -142,11 +142,12 @@ print(f"Segundo elemento: {next(result)}")
 print(f"Tercer elemento: {next(result)}")
 print("...")
 ```
+- Tener en cuenta que el objeto retornado es un `iterator` infinito.
 
 <br><br>
 
 ---
-## Iterators finitios
+## Iterators finitos
 
 A continuación se presenta una lista de funciones que retornan `iterators` finitos, cuya logitud está determinada por el `iterable` más corto pasado como argumento.
 
@@ -181,8 +182,7 @@ A continuación se presenta una lista de funciones que retornan `iterators` fini
   - Crea un `iterator` que combina elementos de cada uno de los iterables. Si los iterables tienen una longitud desigual, los valores faltantes se completan con `fillvalue`.
 ```
 
----
-### Ejemplo de groupby()
+### Ejemplo de `groupby()`
 
 A continuación se presenta un ejemplo de uso de `itertools.groupby()`.
 
@@ -202,3 +202,4 @@ result = groupby(data, lambda x: x[0])
 for key, group in result:
     print(f"Key: {key}, Grupo: {list(group)}")
 ```
+- El objeto retornado es un `iterator` de `tuple`.

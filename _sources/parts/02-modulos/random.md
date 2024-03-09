@@ -50,7 +50,6 @@ Funciones para generar números aleatorios de distribuciones de probabilidad esp
 
 <br>
 
----
 ## Numeros-aleatorios
 
 Funciones para generar números aleatorios. 
@@ -70,8 +69,7 @@ Funciones para generar números aleatorios.
 
 <br>
 
----
-## Muestreo y Shuffle
+## Muestreo y _Shuffle_
 
 Funciones para hacer muestreo aleatorio con reemplazado o sin reemplazo y para reordenar aleatoriamente secuencias. 
 
@@ -92,7 +90,6 @@ Funciones para hacer muestreo aleatorio con reemplazado o sin reemplazo y para r
 
 <br>
 
----
 ## Semillas
 
 Función para establecer la semilla del generados de números aleatorios para reproducibilidad. 

@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -388,16 +388,16 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterators-combinatorios">Iterators combinatorios</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-combinations">Ejemplo de combinations()</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-product">Ejemplo de product()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-combinations">Ejemplo de <code class="docutils literal notranslate"><span class="pre">combinations()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-product">Ejemplo de <code class="docutils literal notranslate"><span class="pre">product()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterator-infinitos">Iterator Infinitos</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-count">Ejemplo de count()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-count">Ejemplo de <code class="docutils literal notranslate"><span class="pre">count()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterators-finitios">Iterators finitios</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-groupby">Ejemplo de groupby()</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterators-finitos">Iterators finitos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-groupby">Ejemplo de <code class="docutils literal notranslate"><span class="pre">groupby()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -455,9 +455,8 @@ document.write(`
 </tbody>
 </table>
 <br>
-<hr class="docutils" />
 <section id="ejemplo-de-combinations">
-<h3>Ejemplo de combinations()<a class="headerlink" href="#ejemplo-de-combinations" title="Link to this heading">#</a></h3>
+<h3>Ejemplo de <code class="docutils literal notranslate"><span class="pre">combinations()</span></code><a class="headerlink" href="#ejemplo-de-combinations" title="Link to this heading">#</a></h3>
 <p>A continuación se presenta un ejemplo de uso de <code class="docutils literal notranslate"><span class="pre">itertools.combinations()</span></code>. Tener en cuenta que la funcionalidad de esta función es similar a la de <code class="docutils literal notranslate"><span class="pre">itertools.permutations()</span></code> y <code class="docutils literal notranslate"><span class="pre">itertools.combinations_with_replacement()</span></code> pero con resultados diferentes.</p>
 <p>En este ejemplo se define una cadena con 5 caracteres y se pretende conocer todas las combinaciones tomando 2 elementos.</p>
 <div class="cell docutils container">
@@ -465,7 +464,7 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar función</span>
 <span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">combinations</span>
 
-<span class="c1"># Definir un iterable</span>
+<span class="c1"># Definir un iterable, en este caso una cadena</span>
 <span class="n">X</span> <span class="o">=</span> <span class="s2">&quot;abcde&quot;</span>
 
 <span class="c1"># Calcular combinaciones</span>
@@ -492,11 +491,14 @@ document.write(`
 </div>
 </div>
 </div>
+<ul class="simple">
+<li><p>El objeto retornado es un <code class="docutils literal notranslate"><span class="pre">iterator</span></code> de <code class="docutils literal notranslate"><span class="pre">tuple</span></code>.</p></li>
+</ul>
 <br>
 </section>
 <hr class="docutils" />
 <section id="ejemplo-de-product">
-<h3>Ejemplo de product()<a class="headerlink" href="#ejemplo-de-product" title="Link to this heading">#</a></h3>
+<h3>Ejemplo de <code class="docutils literal notranslate"><span class="pre">product()</span></code><a class="headerlink" href="#ejemplo-de-product" title="Link to this heading">#</a></h3>
 <p>A continuación se presenta un ejemplo de uso de <code class="docutils literal notranslate"><span class="pre">itertools.product()</span></code>.</p>
 <p>En este ejemplo se definen dos cadenas, cada una con 3 caracteres y se pretende conocer el producto cartesiano de ambas cadenas. El producto cartesiano son todas las posibles combinaciones entre los elementos de dos o más iterables donde el primer elemento del producto cartesiano solo pueden ser elementos del primer <code class="docutils literal notranslate"><span class="pre">iterable</span></code>, el segundo elemento solo pueden ser elementos del segundo <code class="docutils literal notranslate"><span class="pre">iterable</span></code>, etc.</p>
 <p>Equivale a <code class="docutils literal notranslate"><span class="pre">for-loops</span></code> anidados, por ejemplo <code class="docutils literal notranslate"><span class="pre">[*product(A,</span> <span class="pre">B)]</span></code> equivale a <code class="docutils literal notranslate"><span class="pre">[(a,</span> <span class="pre">b)</span> <span class="pre">for</span> <span class="pre">a</span> <span class="pre">in</span> <span class="pre">A</span> <span class="pre">for</span> <span class="pre">b</span> <span class="pre">in</span> <span class="pre">B]</span></code></p>
@@ -532,6 +534,9 @@ document.write(`
 </div>
 </div>
 </div>
+<ul class="simple">
+<li><p>El objeto retornado es un <code class="docutils literal notranslate"><span class="pre">iterator</span></code> de <code class="docutils literal notranslate"><span class="pre">tuple</span></code>.</p></li>
+</ul>
 <p><br><br></p>
 </section>
 </section>
@@ -557,11 +562,10 @@ document.write(`
 </tr>
 </tbody>
 </table>
-<hr class="docutils" />
 <section id="ejemplo-de-count">
-<h3>Ejemplo de count()<a class="headerlink" href="#ejemplo-de-count" title="Link to this heading">#</a></h3>
+<h3>Ejemplo de <code class="docutils literal notranslate"><span class="pre">count()</span></code><a class="headerlink" href="#ejemplo-de-count" title="Link to this heading">#</a></h3>
 <p>A continuación se presenta un ejemplo de uso de <code class="docutils literal notranslate"><span class="pre">itertools.count()</span></code>.</p>
-<p>En este ejemplo se define un <code class="docutils literal notranslate"><span class="pre">iterator</span></code> que comience en 2 y aumente en 2 en cada elemento. Tener en cuenta que este un <code class="docutils literal notranslate"><span class="pre">iterator</span></code> infinito.</p>
+<p>En este ejemplo se define un <code class="docutils literal notranslate"><span class="pre">iterator</span></code> que comience en 2 y aumente en 2 en cada elemento.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar función</span>
@@ -587,12 +591,15 @@ Tercer elemento: 6
 </div>
 </div>
 </div>
+<ul class="simple">
+<li><p>Tener en cuenta que el objeto retornado es un <code class="docutils literal notranslate"><span class="pre">iterator</span></code> infinito.</p></li>
+</ul>
 <p><br><br></p>
 </section>
 </section>
 <hr class="docutils" />
-<section id="iterators-finitios">
-<h2>Iterators finitios<a class="headerlink" href="#iterators-finitios" title="Link to this heading">#</a></h2>
+<section id="iterators-finitos">
+<h2>Iterators finitos<a class="headerlink" href="#iterators-finitos" title="Link to this heading">#</a></h2>
 <p>A continuación se presenta una lista de funciones que retornan <code class="docutils literal notranslate"><span class="pre">iterators</span></code> finitos, cuya logitud está determinada por el <code class="docutils literal notranslate"><span class="pre">iterable</span></code> más corto pasado como argumento.</p>
 <table class="table">
 <thead>
@@ -639,9 +646,8 @@ Tercer elemento: 6
 </tr>
 </tbody>
 </table>
-<hr class="docutils" />
 <section id="ejemplo-de-groupby">
-<h3>Ejemplo de groupby()<a class="headerlink" href="#ejemplo-de-groupby" title="Link to this heading">#</a></h3>
+<h3>Ejemplo de <code class="docutils literal notranslate"><span class="pre">groupby()</span></code><a class="headerlink" href="#ejemplo-de-groupby" title="Link to this heading">#</a></h3>
 <p>A continuación se presenta un ejemplo de uso de <code class="docutils literal notranslate"><span class="pre">itertools.groupby()</span></code>.</p>
 <p>En este ejemplo se define un iterable que contiene <code class="docutils literal notranslate"><span class="pre">tuples</span></code> cuyo primer elemento es una letra y el segundo elemento es un número, se pretende agrupar todos los tuples que tienen la misma letra.</p>
 <div class="cell docutils container">
@@ -668,6 +674,9 @@ Key: b, Grupo: [(&#39;b&#39;, 3), (&#39;b&#39;, 4), (&#39;b&#39;, 5)]
 </div>
 </div>
 </div>
+<ul class="simple">
+<li><p>El objeto retornado es un <code class="docutils literal notranslate"><span class="pre">iterator</span></code> de <code class="docutils literal notranslate"><span class="pre">tuple</span></code>.</p></li>
+</ul>
 </section>
 </section>
 </section>
@@ -737,16 +746,16 @@ Key: b, Grupo: [(&#39;b&#39;, 3), (&#39;b&#39;, 4), (&#39;b&#39;, 5)]
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterators-combinatorios">Iterators combinatorios</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-combinations">Ejemplo de combinations()</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-product">Ejemplo de product()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-combinations">Ejemplo de <code class="docutils literal notranslate"><span class="pre">combinations()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-product">Ejemplo de <code class="docutils literal notranslate"><span class="pre">product()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterator-infinitos">Iterator Infinitos</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-count">Ejemplo de count()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-count">Ejemplo de <code class="docutils literal notranslate"><span class="pre">count()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterators-finitios">Iterators finitios</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-groupby">Ejemplo de groupby()</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterators-finitos">Iterators finitos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-groupby">Ejemplo de <code class="docutils literal notranslate"><span class="pre">groupby()</span></code></a></li>
 </ul>
 </li>
 </ul>

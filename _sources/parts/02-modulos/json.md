@@ -1,6 +1,6 @@
 # JSON
 
-Protocolos para la serialización y deserialización de objetos de Python en JSONs. Es necesario importar el módulo.
+Es un módulo con protocolos para la serialización y deserialización de objetos de Python en _JSON_s. Es necesario importar el módulo.
 ```python
 import json
 ```
@@ -10,7 +10,7 @@ import json
 ---
 ## Exportar
 
-Función para exportar objetos a JSON.
+Función para exportar objetos a _JSON_.
 
 ```{list-table}
 :header-rows: 1
@@ -23,7 +23,7 @@ Función para exportar objetos a JSON.
 
 <br>
 
-Plantilla para exportar un objeto a JSON usando un administrador de contextos.
+Plantilla para exportar un objeto a _JSON_ usando un administrador de contextos.
 
 ```python
 # Crear conexión, exportar y cerrar conexión

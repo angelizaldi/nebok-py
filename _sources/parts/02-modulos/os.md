@@ -29,7 +29,6 @@ Lista de funciones para crear directorios.
 
 <br>
 
----
 ## Cambiar o recuperar ruta actual
 
 Lista de funciones para recuperar o modificar la ruta del directorio actual. 
@@ -49,7 +48,6 @@ Lista de funciones para recuperar o modificar la ruta del directorio actual.
 
 <br>
 
----
 ## Eliminar archivos y directorios
 
 Lista de funciones para eliminar archivos o directorios.
@@ -69,7 +67,6 @@ Lista de funciones para eliminar archivos o directorios.
 
 <br>
 
----
 ## Enlistar
 
 Función para enlistar el contenido de un directorio.
@@ -85,7 +82,6 @@ Función para enlistar el contenido de un directorio.
 
 <br>
 
----
 ## Renombrar archivos y directorios
 
 Funciones para renombrar archivos o directorios.

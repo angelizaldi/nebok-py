@@ -1,6 +1,6 @@
 # Pickle
 
-Protocolos para la serialización y deserialización de objetos de Python en `pickles` (únicamente se pueden usar dentro de Python). Es necesario importar el módulo.
+Módulo con protocolos para la serialización y deserialización de objetos de Python en `pickles` (únicamente se pueden usar dentro de Python). Es necesario importar el módulo.
 ```python
 import pickle
 ```
@@ -33,7 +33,7 @@ with open(filename, 'wb') as outfile:
 - _X_ \- `object`: Objeto se que se va a serializar como `pickle`.
 - _outfile_ es un nombre opcional.
 
-<br><br>
+<br>
 
 ---
 ## Importar

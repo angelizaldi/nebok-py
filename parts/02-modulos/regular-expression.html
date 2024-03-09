@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -388,7 +388,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#buscar-patrones-usando-regex">Buscar patrones usando regex</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#busqueda-greedy-y-non-greedy">Búsqueda greedy y non-greedy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#busqueda-greedy-y-non-greedy">Búsqueda <em>greedy</em> y <em>non-greedy</em></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#capturando-grupos">Capturando grupos</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#capturando-un-grupo">Capturando un grupo</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#capturando-multiples-grupos">Capturando múltiples grupos</a></li>
@@ -426,7 +426,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="regular-expressions">
 <h1>Regular Expressions<a class="headerlink" href="#regular-expressions" title="Link to this heading">#</a></h1>
-<p>Una “<em>expresión regular</em>” es una secuencia de caracteres para identificar y extraer patrones en cadenas. Para usar <em>regular expressions</em> es necesario importar el módulo <code class="docutils literal notranslate"><span class="pre">re</span></code>.</p>
+<p>Una “expresión regular” es una secuencia de caracteres para identificar y extraer patrones en cadenas. Para usar <em>regular expressions</em> es necesario importar el módulo <code class="docutils literal notranslate"><span class="pre">re</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar el módulo</span>
 <span class="kn">import</span> <span class="nn">re</span>
 </pre></div>
@@ -499,7 +499,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="busqueda-greedy-y-non-greedy">
-<h2>Búsqueda greedy y non-greedy<a class="headerlink" href="#busqueda-greedy-y-non-greedy" title="Link to this heading">#</a></h2>
+<h2>Búsqueda <em>greedy</em> y <em>non-greedy</em><a class="headerlink" href="#busqueda-greedy-y-non-greedy" title="Link to this heading">#</a></h2>
 <p>Se refiere a la manera como se realiza la búsqueda del patrón, cuando se utilizan los caracteres especiales (cuantificadores) <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">?</span></code> o <code class="docutils literal notranslate"><span class="pre">{min,</span> <span class="pre">max}</span></code> en un patrón, para ello se agrega un <code class="docutils literal notranslate"><span class="pre">?</span></code> extra.</p>
 <ul class="simple">
 <li><p><strong>Greedy</strong>: Coincide la mayor cantidad de caracteres posibles. Retorna el match más largo. Los caracteres especiales <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">?</span></code> o <code class="docutils literal notranslate"><span class="pre">{min,</span> <span class="pre">max}</span></code> son greedy por default.</p></li>
@@ -684,7 +684,6 @@ Resultado de r&#39;\w+ (\d+)&#39;: [&#39;123&#39;]
 </ul>
 <br>
 </section>
-<hr class="docutils" />
 <section id="capturando-multiples-grupos">
 <h3>Capturando múltiples grupos<a class="headerlink" href="#capturando-multiples-grupos" title="Link to this heading">#</a></h3>
 <p>Es posible recuperar dos o más grupos. Tener en cuenta que para recuperar un grupo específico se debe indicar su índice en el mismo orden en el que aparece en el patrón</p>
@@ -743,7 +742,7 @@ Grupo 2: 123
 </div>
 </div>
 </div>
-<p><br><br></p>
+<br>
 </section>
 </section>
 <hr class="docutils" />
@@ -852,7 +851,7 @@ Grupo 2: 123
 <li><p>En este ejemplo hay dos coincidencias con el patrón <code class="docutils literal notranslate"><span class="pre">abc</span></code> y <code class="docutils literal notranslate"><span class="pre">zxy</span></code>.</p></li>
 <li><p>En este ejemplo en particular usar <code class="docutils literal notranslate"><span class="pre">match.group()</span></code> equivale a usar <code class="docutils literal notranslate"><span class="pre">match.group(0)</span></code> y <code class="docutils literal notranslate"><span class="pre">match.group(1)</span></code>.</p></li>
 </ul>
-<p><br><br></p>
+<br>
 </section>
 <hr class="docutils" />
 <section id="flags">
@@ -980,7 +979,6 @@ Resultado de buscar &#39;abc&#39; con re.I: [&#39;abc&#39;, &#39;ABC&#39;, &#39;
 </tbody>
 </table>
 <p><br><br></p>
-<hr class="docutils" />
 </section>
 <section id="objeto-regular-expression">
 <span id="objeto-pattern"></span><h2>Objeto Regular Expression<a class="headerlink" href="#objeto-regular-expression" title="Link to this heading">#</a></h2>
@@ -1038,7 +1036,6 @@ Resultado de buscar &#39;abc&#39; con re.I: [&#39;abc&#39;, &#39;ABC&#39;, &#39;
 </tbody>
 </table>
 <br>
-<hr class="docutils" />
 </section>
 <section id="metodos">
 <span id="pattern-metodos"></span><h3>Métodos<a class="headerlink" href="#metodos" title="Link to this heading">#</a></h3>
@@ -1076,7 +1073,7 @@ Resultado de buscar &#39;abc&#39; con re.I: [&#39;abc&#39;, &#39;ABC&#39;, &#39;
 </tr>
 </tbody>
 </table>
-<p><br><br></p>
+<br>
 <hr class="docutils" />
 </section>
 </section>
@@ -1148,7 +1145,6 @@ Resultado de buscar &#39;abc&#39; con re.I: [&#39;abc&#39;, &#39;ABC&#39;, &#39;
 </table>
 <br>
 </section>
-<hr class="docutils" />
 <section id="id3">
 <h3>Métodos<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <p>A continuación se presenta una lista de los métodos de instancia de <code class="docutils literal notranslate"><span class="pre">Match</span></code>.</p>
@@ -1183,7 +1179,6 @@ Resultado de buscar &#39;abc&#39; con re.I: [&#39;abc&#39;, &#39;ABC&#39;, &#39;
 </tbody>
 </table>
 <p><br><br></p>
-<hr class="docutils" />
 </section>
 </section>
 <section id="caracteres-especiales">
@@ -1248,7 +1243,7 @@ Resultado de buscar &#39;abc&#39; con re.I: [&#39;abc&#39;, &#39;ABC&#39;, &#39;
 </tr>
 </tbody>
 </table>
-<hr class="docutils" />
+<br/>
 </section>
 <section id="secuencias-especiales">
 <span id="sec-especiales"></span><h2>Secuencias especiales<a class="headerlink" href="#secuencias-especiales" title="Link to this heading">#</a></h2>
@@ -1373,7 +1368,7 @@ Resultado de buscar &#39;abc&#39; con re.I: [&#39;abc&#39;, &#39;ABC&#39;, &#39;
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#buscar-patrones-usando-regex">Buscar patrones usando regex</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#busqueda-greedy-y-non-greedy">Búsqueda greedy y non-greedy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#busqueda-greedy-y-non-greedy">Búsqueda <em>greedy</em> y <em>non-greedy</em></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#capturando-grupos">Capturando grupos</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#capturando-un-grupo">Capturando un grupo</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#capturando-multiples-grupos">Capturando múltiples grupos</a></li>

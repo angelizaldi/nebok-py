@@ -12,7 +12,7 @@ kernelspec:
 
 # Regular Expressions
 
-Una “_expresión regular_” es una secuencia de caracteres para identificar y extraer patrones en cadenas. Para usar _regular expressions_ es necesario importar el módulo `re`.
+Una “expresión regular” es una secuencia de caracteres para identificar y extraer patrones en cadenas. Para usar _regular expressions_ es necesario importar el módulo `re`.
 ```python
 # Importar el módulo
 import re
@@ -74,7 +74,7 @@ print(result.group(0))
 <br><br>
 
 ---
-## Búsqueda greedy y non-greedy
+## Búsqueda _greedy_ y _non-greedy_
 
 Se refiere a la manera como se realiza la búsqueda del patrón, cuando se utilizan los caracteres especiales (cuantificadores) `*`, `+`, `?` o `{min, max}` en un patrón, para ello se agrega un `?` extra.
 
@@ -211,7 +211,6 @@ print(f"Resultado de r\'\w+ (\d+)\': {result2}")
 
 <br>
 
----
 ### Capturando múltiples grupos
 
 Es posible recuperar dos o más grupos. Tener en cuenta que para recuperar un grupo específico se debe indicar su índice en el mismo orden en el que aparece en el patrón
@@ -252,7 +251,7 @@ result = re.findall(r"(\w+) (\d+)", X)
 print(f"Resultado de r\'\w+ (\d+)\': {result}")
 ```
 
-<br><br>
+<br>
 
 ---
 ## Sustituyendo patrones
@@ -328,7 +327,7 @@ print(result)
 - En este ejemplo hay dos coincidencias con el patrón `abc` y `zxy`.
 - En este ejemplo en particular usar `match.group()` equivale a usar `match.group(0)` y `match.group(1)`.
 
-<br><br>
+<br>
 
 ---
 ## Flags
@@ -432,7 +431,6 @@ A Continuación se presenta una lista de funciones del módulo `re`.
 
 <br><br>
 
----
 (objeto-pattern)=
 ## Objeto Regular Expression
 
@@ -484,7 +482,6 @@ A continuación se presenta una lista de los atributos de instancia de `Pattern`
 
 <br>
 
----
 (pattern-metodos)=
 ### Métodos
 
@@ -513,7 +510,7 @@ A continuación se presenta una lista de los métodos de instancia de `Pattern`.
   - Realiza la misma operación que `sub()`, pero devuelva un `tuple` `(new_string, number_of_subs_made)`.
 ```
 
-<br><br>
+<br>
 
 ---
 (objeto-match)=
@@ -572,7 +569,6 @@ A continuación se presenta una lista de los atributos de instancia de `Match`.
 
 <br>
 
----
 ### Métodos
 
 A continuación se presenta una lista de los métodos de instancia de `Match`. 
@@ -600,7 +596,6 @@ A continuación se presenta una lista de los métodos de instancia de `Match`.
 
 <br><br>
 
----
 (caracteres-especiales)=
 ## Caracteres especiales
 
@@ -653,7 +648,8 @@ A continuación se presenta una lista de caracteres especiales para conformar la
   - `(a|b|c)xz`: Busque el patrón "a", "b" o "c" seguido de "xz". Indican el comienzo y fin de un grupo.
 ```
 
----
+<br/>
+
 (sec-especiales)=
 ## Secuencias especiales
 
