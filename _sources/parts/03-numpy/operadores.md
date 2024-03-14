@@ -1,12 +1,11 @@
 # Operadores
 
-Funciones que realizan operaciones vectorizadas entre arrays.
+Funciones equivalentes a operadores binarios.
 
 :::{warning}
 Para una lista completa visitar la [documentación](https://numpy.org/doc/stable/reference/routines.array-manipulation.html#array-manipulation-routines) de `numpy`.
 :::
 
----
 ## Aritméticas
 
 Funciones para hacer operaciones aritméticas vectorizadas. 
@@ -52,7 +51,6 @@ Funciones para hacer operaciones aritméticas vectorizadas.
 
 <br>
 
----
 ## Bitwise
 
 Operadores bitwise vectorizados. 
@@ -74,7 +72,6 @@ Operadores bitwise vectorizados.
 
 <br>
 
----
 (comparacion)=
 ## Comparación
 
@@ -109,7 +106,6 @@ Funciones de comparación vectorizadas y otras funciones para comparar arrays.
 
 <br>
 
----
 ## Comparación (cadenas)
 
 Funciones de comparación vectorizadas. Estas funciones, a diferencia de {ref}`comparacion` primero eliminan los espacios en blanco al inicio y al final de cada elemento antes de realizar la comparación.
@@ -139,7 +135,6 @@ Estas funciones son del módulo `numpy.char`.
 
 <br>
 
----
 ## Lógicas
 
 Operadores lógicos vectorizados. 
@@ -161,7 +156,6 @@ Operadores lógicos vectorizados.
 
 <br>
 
----
 ## Sets
 
 Operadores para trabajar con arrays que representan _sets_ (arrays con valores únicos). 

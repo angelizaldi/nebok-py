@@ -1,6 +1,6 @@
 # Módulo linalg
 
-`numpy.linalg` es un módulo que provee de funciones útiles para trabajar con matrices y otras estrcuturas y operacioes de álgebra lineal. Es posible importar solo el módulo o una función específica.
+`numpy.linalg` es un módulo que provee de funciones útiles para trabajar con matrices y otras estructuras y operaciones de álgebra lineal. Es posible importar solo el módulo o una función específica.
 
 ```python
 # Importar el módulo
@@ -31,7 +31,7 @@ array1 @ array2
 ```
 - La multiplacación se debe realizar entre arrays 2D.
 - Los arrays deben de satisfacer que el número de columnas de `array1` debe ser igual al número de filas de `array2`, es decir, si `array1` tiene shape `(m, k)`, entonces `array2` debe tener shape `(k, n)`, donde $m$, $k$ y $n$ son cualquier número entero.
-- si `array1` tiene shape `(m, k)` y `array2` tiene shape `(k, n)`, entonces `array1 @ array2` tiene shape `(m, n)`.
+- Si `array1` tiene shape `(m, k)` y `array2` tiene shape `(k, n)`, entonces `array1 @ array2` tiene shape `(m, n)`.
 
 <br>
 
@@ -58,7 +58,6 @@ Funciones para cálculos de eigenvalores y eigenvectores (valores propios y vect
 
 <br>
 
----
 ## Factorizaciones
 
 Funciones para factorizaciones (descomposiciones) de matrices. 
@@ -78,7 +77,6 @@ Funciones para factorizaciones (descomposiciones) de matrices.
 
 <br>
 
----
 ## Inversas y sistemas
 
 Funciones para cálculo de inversas y para solución de sistemas de ecuaciones lineales. 
@@ -104,7 +102,6 @@ Funciones para cálculo de inversas y para solución de sistemas de ecuaciones l
 
 <br>
 
----
 ## Normas, determinantes y trazas
 
 Funciones para cálculo de normas y otros cálculos como determinantes, trazas y rango. 
@@ -129,7 +126,6 @@ Funciones para cálculo de normas y otros cálculos como determinantes, trazas y
 
 <br>
 
----
 ## Productos
 
 Funciones para cálculos de productos entre matrices y vectores, como el producto punto, productos matriciales y el producto cruz, entre otros. 
@@ -144,6 +140,8 @@ Notar que no todas las funciones enlistadas a continuación pertenecen al módul
 
 * - Función
   - Descripción
+* - [cross](https://numpy.org/doc/stable/reference/generated/numpy.cross.html)(a, b[, axisa, axisb, axisc, axis])
+  - Devuelve el producto cruz de dos vectores.
 * - [dot](https://numpy.org/doc/stable/reference/generated/numpy.dot.html)(a, b[, out])
   - Producto escalar de dos matrices.
 * - [inner](https://numpy.org/doc/stable/reference/generated/numpy.inner.html)(a, b, /)

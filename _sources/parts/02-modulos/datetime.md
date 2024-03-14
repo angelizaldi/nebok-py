@@ -13,6 +13,7 @@ kernelspec:
 # Datetime
 
 Es un módulo para trabajar con datos de tipo fecha y tiempo. Es necesario importarlo:
+
 ```python
 # Importar todo el módulo
 import datetime
@@ -27,9 +28,14 @@ from datetime import class_name
 (datetime-iso)=
 ## ISO 8601
 
-Muchos métodos de este módulo utilizan el formato ISO 8601, el cual es el siguiente:
-> YYYY-MM-DDTHH:MM:SS
+Muchos métodos de este módulo utilizan el formato ISO 8601, el cual es el siguiente para fechas:
+> YYYY-MM-DD
+- YYYY: Año de cuatro dígitos, desde 0000 a 9999.
+- MM: Mes de dos dígitos, del 01 a 12.
+- DD: Día de dos dígitos, del 01 al 31.
 
+y el siguiente para fechas y tiempo:
+> YYYY-MM-DDTHH:MM:SS
 - YYYY: Año de cuatro dígitos, desde 0000 a 9999.
 - MM: Mes de dos dígitos, del 01 a 12.
 - DD: Día de dos dígitos, del 01 al 31.
@@ -44,7 +50,7 @@ Existen diferentes tipos de datos de fecha y tiempo, cada tipo es una clase dent
 - [date](https://docs.python.org/3/library/datetime.html#date-objects): (año, mes, día), Asume el calendario gregoriano.
 - [time](https://docs.python.org/3/library/datetime.html#time-objects): (hora, minuto, segundo, microsegundo, zona horaria), Asume que cada día tiene exactamente 24 horas, cada hora 60 minutos y cada minuto 60 segundos.
 - [datetime](https://docs.python.org/3/library/datetime.html#datetime-objects): (año, mes, día, hora, minuto, segundo, microsegundo, zona horaria), Combinación de `date` y `time`.
-- [timedelta](https://docs.python.org/3/library/datetime.html#timedelta-objects): Representa la diferencia de dos fechas o tiempos. Se pueden hacer operaciones aritméticas con objetos timedelta. 
+- [timedelta](https://docs.python.org/3/library/datetime.html#timedelta-objects): Representa la diferencia de dos fechas o tiempos. Se pueden hacer operaciones aritméticas con objetos `timedelta`. 
 - [tzinfo](https://docs.python.org/3/library/datetime.html#tzinfo-objects): Objetos con información sobre la zona horaria.
 - [timezone](https://docs.python.org/3/library/datetime.html#timezone-objects): Implementa la clase base abstracta `tzinfo` como un desfase fijo de UTC.
 
@@ -89,7 +95,7 @@ En este sitio no se documenta todas las características de la clase `datetime`,
   - Los argumentos de `year`, `month` y `day` son obligatorios. `tzinfo` puede ser `None`, o un instancia de la subclase `tzinfo`. Los argumentos restantes deben ser números enteros.
 ```
 **Notas**:
-- **`tzinfo`** \- `str`, `tzinfo`: Es la zona horaria, se puede usar un objeto creado con `datetime.tzinfo()` o usar una cadena, para ver las zonas horarias disponibles ver [Zonas Horarias](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+- **`tzinfo`** \- `str`, `tzinfo`: Es la zona horaria, se puede usar un objeto creado con `datetime.tzinfo()` o usar una cadena, para ver las zonas horarias disponibles visitar [Zonas Horarias](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
 
 <br>
 
@@ -98,7 +104,7 @@ En este sitio no se documenta todas las características de la clase `datetime`,
 
 Existen diversas formas para crear una instancia de `datetime`. A continuación se presentan algunas de las más comunes.
 
-**1. Con el constructor**. Se puede usa el constructor `datetime.datetime()` para crear una fecha pasando individualmente cada uno los componentes:
+**1. Con el constructor**: Se puede usa el constructor `datetime.datetime()` para crear una fecha pasando individualmente cada uno los componentes:
 
 ```{code-cell} python3
 # Importar la clase
@@ -124,7 +130,7 @@ X = datetime.fromisoformat("2020-01-01T12:30:30")
 print(X)
 ```
 
-**3. Con el método de clase strptime.()**: Se puede usar el método de clase `datetime.datetime.strptime()` pasando una cadena que represente una fecha indicando el formato en el que está la cadena con los {ref}`codigos-formatos-fechas`.
+**3. Con el método de clase strptime()**: Se puede usar el método de clase `datetime.datetime.strptime()` pasando una cadena que represente una fecha indicando el formato en el que está la cadena con los {ref}`codigos-formatos-fechas`.
 
 ```{code-cell} python3
 # Importar la clase
@@ -153,11 +159,11 @@ Para recuperar los componentes de una fecha utilizar los {ref}`datetime-atributo
 ---
 ### Operaciones con objetos datetime
 
-Las opciones válidas que se pueden hacer con objetos `datetime` son:
-- `datetime2 = datetime1 + timedelta`.
-- `datetime2 = datetime1 - timedelta`.
-- `timedelta = datetime1 - datetime2`.
-- `datetime1 < datetime2`.
+Las operaciones válidas que se pueden hacer con objetos `datetime` son:
+- `datetime2 = datetime1 + timedelta`: A un objeto `datetime` sumarle un objeto `timedelta` y retornar un objeto `datetime`.
+- `datetime2 = datetime1 - timedelta`: A un objeto `datetime` restarle un objeto `timedelta` y retornar un objeto `datetime`.
+- `timedelta = datetime1 - datetime2`: Restar dos objetos `datetime` y retornar un objeto `timedelta`.
+- `datetime1 < datetime2`: Usar {ref}`built-in-operadores-comparacion` con dos objetos `datetime`.
 
 <br>
 
@@ -166,7 +172,7 @@ Las opciones válidas que se pueden hacer con objetos `datetime` son:
 
 A continuación se presenta una lista de atributos de clase. Tener en cuenta que los atributos de clase son atributos asociados con la clase misma y no con las instancias.
 
-Ejemplo de cómo usar un atributo de clase
+Ejemplo de cómo usar un atributo de clase:
 
 ```{code-cell} python3
 # Importar clase
@@ -175,6 +181,8 @@ from datetime import datetime
 # Usar un atributo de clase
 print(datetime.max)
 ```
+
+<br/>
 
 Lista de atributos de clase de `datetime.datetime`.
 
@@ -193,11 +201,12 @@ Lista de atributos de clase de `datetime.datetime`.
 
 <br>
 
----
 (datetime-atributos-instancia)=
 ### Atributos de instancia
 
-Los atributos de instancia se aplican directamente sobre un objeto `datetime`. Ejemplo de cómo usar un atributo de instancia.
+Los atributos de instancia se aplican directamente sobre un objeto `datetime`. 
+
+Ejemplo de cómo usar un atributo de instancia:
 
 ```{code-cell} python3
 # Importar clase
@@ -209,6 +218,8 @@ X = datetime(2020, 1, 1)
 # Usar un atributo de instancia
 print(X.year)
 ```
+
+<br/>
 
 Lista de atributos de instancia de `datetime.datetime`.
 
@@ -242,7 +253,9 @@ Lista de atributos de instancia de `datetime.datetime`.
 (datetime-metodos-clase)=
 ### Métodos de clase
 
-Son métodos que se aplican directamente sobre la clase `datetime.datetime`. Ejemplo de cómo usar un método de clase.
+Son métodos que se aplican directamente sobre la clase `datetime.datetime`. 
+
+Ejemplo de cómo usar un método de clase:
 
 ```{code-cell} python3
 # Importar clase
@@ -254,6 +267,8 @@ X = datetime.fromisoformat('2011-11-04')
 # Imprimir x
 print(X)
 ```
+
+<br/>
 
 Lista de métodos de la clase `datetime.datetime`.
 
@@ -286,10 +301,11 @@ Lista de métodos de la clase `datetime.datetime`.
 
 <br>
 
-----
 ### Métodos de instancia
 
-Son métodos que se aplican directamente en instancias (objetos) de la clase `datetime.datetime`. Ejemplo de cómo usar un método de instancia.
+Son métodos que se aplican directamente en instancias (objetos) de la clase `datetime.datetime`. 
+
+Ejemplo de cómo usar un método de instancia:
 
 ```{code-cell} python3
 # Importar clase
@@ -301,6 +317,8 @@ X = datetime(2020, 1, 1, 12, 30, 30)
 # Usar un método de instancia
 print(X.timestamp())
 ```
+
+<br/>
 
 A continuación la lista de métodos de instancia de la clase `datetime.datetime`.
 
@@ -373,12 +391,11 @@ En este sitio no se documenta todas las características de la clase `date`, par
 
 <br>
 
----
 ### Crear una fecha
 
 Existen diversas formas para crear una instancia de `date`. A continuación se presentan algunas de las más comunes.
 
-**1. Con el constructor**. Se puede usa el constructor `datetime.date()` para crear una fecha pasando individualmente cada uno los componentes:
+**1. Con el constructor**: Se puede usa el constructor `datetime.date()` para crear una fecha pasando individualmente cada uno los componentes:
 
 ```{code-cell} python3
 # Importar la clase
@@ -421,19 +438,19 @@ Para recuperar los componentes de una fecha utilizar los {ref}`date-atributos-in
 ### Operaciones con objetos datetime
 
 Las opciones válidas que se pueden hacer con objetos `date` son:
-- `date2 = date1 + timedelta`.
-- `date2 = date1 - timedelta`.
-- `timedelta = date1 - date2`.
-- `date1 < date2`.
+- `date2 = date1 + timedelta`: A un objeto `date` sumarle un objeto `timedelta` y retornar un objeto `date`.
+- `date2 = date1 - timedelta`: A un objeto `date` restarle un objeto `timedelta` y retornar un objeto `date`.
+- `timedelta = datetime1 - datetime2`: Restar dos objetos `date` y retornar un objeto `timedelta`.
+- `date1 < date2`: Usar {ref}`built-in-operadores-comparacion` con dos objetos `date`.
 
-<br>
+<br/>
 
 ---
 ### Atributos de clase
 
 A continuación se presenta una lista de atributos de clase. Tener en cuenta que los atributos de clase son atributos asociados con la clase misma y no con las instancias.
 
-Ejemplo de cómo usar un atributo de clase
+Ejemplo de cómo usar un atributo de clase:
 
 ```{code-cell} python3
 # Importar clase
@@ -442,6 +459,8 @@ from datetime import date
 # Usar un atributo de clase
 print(date.max)
 ```
+
+<br/>
 
 Lista de atributos de clase de `datetime.datetime`.
 
@@ -460,11 +479,12 @@ Lista de atributos de clase de `datetime.datetime`.
 
 <br>
 
----
 (date-atributos-instancia)=
 ### Atributos de instancia
 
-Los atributos de instancia se aplican directamente sobre un objeto `datetime`. Ejemplo de cómo usar un atributo de instancia.
+Los atributos de instancia se aplican directamente sobre un objeto `datetime`. 
+
+Ejemplo de cómo usar un atributo de instancia:
 
 ```{code-cell} python3
 # Importar clase
@@ -476,6 +496,8 @@ X = date(2020, 1, 1)
 # Usar un atributo de instancia
 print(X.year)
 ```
+
+<br/>
 
 Lista de atributos de instancia de `datetime.date`.
 
@@ -495,12 +517,14 @@ Lista de atributos de instancia de `datetime.date`.
  
 <br> 
  
----
 (date-metodos-clase)=
 ### Métodos de clase
 
 
-Son métodos que se aplican directamente sobre la clase `datetime.date`. Ejemplo de cómo usar un método de clase.
+Son métodos que se aplican directamente sobre la clase `datetime.date`. 
+
+
+Ejemplo de cómo usar un método de clase:
 
 ```{code-cell} python3
 # Importar clase
@@ -512,6 +536,8 @@ X = date.fromisoformat('2011-11-04')
 # Imprimir x
 print(X)
 ```
+
+<br/>
 
 Lista de métodos de la clase `datetime.date`.
 
@@ -534,10 +560,11 @@ Lista de métodos de la clase `datetime.date`.
 
 <br>
 
----
 ### Métodos de instancia
 
-Son métodos que se aplican directamente en instancias (objetos) de la clase `datetime.datetime`. Ejemplo de cómo usar un método de instancia.
+Son métodos que se aplican directamente en instancias (objetos) de la clase `datetime.datetime`. 
+
+Ejemplo de cómo usar un método de instancia:
 
 ```{code-cell} python3
 # Importar clase
@@ -549,6 +576,8 @@ X = date(2020, 1, 1)
 # Usar un método de instancia
 print(X.ctime())
 ```
+
+<br/>
 
 A continuación la lista de métodos de instancia de la clase `datetime.datetime`.
 
@@ -609,7 +638,7 @@ En este sitio no se documenta todas las características de la clase `time`, par
 
 Existen diversas formas para crear una instancia de `time`. A continuación se presentan algunas de las más comunes.
 
-**1. Con el constructor**. Se puede usa el constructor `datetime.time()` para crear tiempos pasando individualmente cada uno los componentes:
+**1. Con el constructor**: Se puede usa el constructor `datetime.time()` para crear tiempos pasando individualmente cada uno los componentes:
 
 ```{code-cell} python3
 # Importar la clase
@@ -642,14 +671,14 @@ print(X)
 
 Para recuperar los componentes de un tiempo utilizar los {ref}`time-atributos-instancia`.
 
-<br>
+<br/>
 
 ---
 ### Atributos de clase
 
 A continuación se presenta una lista de atributos de clase. Tener en cuenta que los atributos de clase son atributos asociados con la clase misma y no con las instancias.
 
-Ejemplo de cómo usar un atributo de clase
+Ejemplo de cómo usar un atributo de clase:
 
 ```{code-cell} python3
 # Importar clase
@@ -658,6 +687,8 @@ from datetime import time
 # Usar un atributo de clase
 print(time.max)
 ```
+
+<br/>
 
 Lista de atributos de clase de `datetime.time`.
 
@@ -676,11 +707,12 @@ Lista de atributos de clase de `datetime.time`.
 
 <br>
 
----
 (time-atributos-instancia)=
 ### Atributos de instancia
 
-Los atributos de instancia se aplican directamente sobre un objeto `time`. Ejemplo de cómo usar un atributo de instancia.
+Los atributos de instancia se aplican directamente sobre un objeto `time`. 
+
+Ejemplo de cómo usar un atributo de instancia:
 
 ```{code-cell} python3
 # Importar clase
@@ -692,6 +724,8 @@ X = time(12, 30, 30)
 # Usar un atributo de instancia
 print(X.hour)
 ```
+
+<br/>
 
 Lista de atributos de instancia de `datetime.time`.
 
@@ -717,11 +751,12 @@ Lista de atributos de instancia de `datetime.time`.
  
 <br> 
  
----
 ### Métodos de clase
 
 
-Son métodos que se aplican directamente sobre la clase `datetime.time`. Ejemplo de cómo usar un método de clase.
+Son métodos que se aplican directamente sobre la clase `datetime.time`. 
+
+Ejemplo de cómo usar un método de clase:
 
 ```{code-cell} python3
 # Importar clase
@@ -733,6 +768,8 @@ X = time.fromisoformat('12:30:30')
 # Imprimir x
 print(X)
 ```
+
+<br/>
 
 Lista de métodos de la clase `datetime.time`.
 
@@ -747,10 +784,11 @@ Lista de métodos de la clase `datetime.time`.
 
 <br>
 
----
 ### Métodos de instancia
 
-Son métodos que se aplican directamente en instancias (objetos) de la clase `datetime.time`. Ejemplo de cómo usar un método de instancia.
+Son métodos que se aplican directamente en instancias (objetos) de la clase `datetime.time`. 
+
+Ejemplo de cómo usar un método de instancia:
 
 ```{code-cell} python3
 # Importar clase
@@ -762,6 +800,8 @@ X = time(12, 30, 30)
 # Usar un método de instancia
 print(X.isoformat())
 ```
+
+<br/>
 
 A continuación la lista de métodos de instancia de la clase `datetime.datetime`.
 
@@ -802,8 +842,7 @@ En este sitio no se documenta todas las características de la clase `timedelta`
 * - [timedelta](https://docs.python.org/3/library/datetime.html#datetime.timedelta)(days=0, seconds=0, microseconds=0, milliseconds=0, minutes=0, hours=0, weeks=0)
   - Todos los argumentos son opcionales y su valor predeterminado es `0`. Los argumentos pueden ser números `int` o `float`, y pueden ser positivos o negativos.
 ```
-**Notas**
-- Los componentes pueden ser números negativos.
+
 <br>
 
 ---
@@ -822,13 +861,16 @@ X = timedelta(days=1, seconds=50, milliseconds=0, minutes=30, hours=3)
 print(X)
 ```
 
+<br/>
+
+---
 ### Operaciones con objetos timedelta
 
 Es posible realizar operaciones aritméticas con objetos `timedelta`. 
 
-**Suma y resta de objetos `timedelta`**.
+**Suma y resta de objetos `timedelta`**:
 
-Se pueden sumar o restar dos objetos `timedelta` con los operadores `+` y `-` respectivamente. Ejemplo:
+Se pueden sumar o restar dos objetos `timedelta` con los operadores `+` y `-` respectivamente y retornar otro objeto `timedelta`. Ejemplo:
 
 ```{code-cell} python3
 # Importar clase
@@ -843,9 +885,11 @@ print(f"Suma: {X+Y}")
 print(f"Resta: {X-Y}")
 ```
 
-**Multiplicar un objeto timedelta por un número**
+<br/>
 
-Se puede multiplicar un objeto `timedelta` por un número `int` o `float` con el operador `*`. Cada componente se multiplicará por el factor indicado. Ejemplo:
+**Multiplicar un objeto timedelta por un número**:
+
+Se puede multiplicar un objeto `timedelta` por un número `int` o `float` con el operador `*` y retornar otro objeto `timedelta`. Cada componente se multiplicará por el factor indicado. Ejemplo:
 
 ```{code-cell} python3
 # Importar clase
@@ -859,9 +903,11 @@ print(f"Multiplicar por entero: {X*2}")
 print(f"Multiplicar por flotante: {X*2.5}")
 ```
 
-**Dividir un objeto timedelta**
+<br/>
 
-Es posible dividir un objeto `timedelta` entre otro objeto `timedelta` o entre un número `int` o `float` con el operador `/`.
+**Dividir un objeto timedelta**:
+
+Es posible dividir un objeto `timedelta` entre otro objeto `timedelta` o entre un número `int` o `float` con el operador `/` y retornar otro objeto `timedelta`. Ejemplo:
 
 ```{code-cell} python3
 # Importar clase
@@ -880,14 +926,16 @@ print(f"Dividir Y entre 30: {Y/30}")
 
 Es posible además calcular el módulo o la división parte entera con los operadores `%` y `//` respectivamente o con la función `divmode()`. 
 
-Para más información visitar las [documentación](https://docs.python.org/3/library/datetime.html#timedelta-objects) de Python.
+Para más información visitar la [documentación](https://docs.python.org/3/library/datetime.html#timedelta-objects) de Python.
+
+<br/>
 
 ---
 ### Atributos de clase
 
 A continuación se presenta una lista de atributos de clase. Tener en cuenta que los atributos de clase son atributos asociados con la clase misma y no con las instancias.
 
-Ejemplo de cómo usar un atributo de clase
+Ejemplo de cómo usar un atributo de clase:
 
 ```{code-cell} python3
 # Importar clase
@@ -896,6 +944,8 @@ from datetime import timedelta
 # Usar un método de clase
 print(timedelta.max)
 ```
+
+<br/>
 
 Lista de atributos de clase de `datetime.timedelta`.
 
@@ -914,10 +964,11 @@ Lista de atributos de clase de `datetime.timedelta`.
 
 <br>
 
----
 ### Métodos de instancia
 
-Son métodos que se aplican directamente en instancias (objetos) de la clase `datetime.timedelta`. Ejemplo de cómo usar un método de instancia.
+Son métodos que se aplican directamente en instancias (objetos) de la clase `datetime.timedelta`. 
+
+Ejemplo de cómo usar un método de instancia:
 
 ```{code-cell} python3
 # Importar clase
@@ -929,6 +980,8 @@ X = timedelta(days=5)
 # Usar un método de instancia
 print(X.total_seconds())
 ```
+
+<br/>
 
 A continuación la lista de métodos de instancia de la clase `datetime.timedelta`.
 
@@ -950,7 +1003,7 @@ A continuación la lista de métodos de instancia de la clase `datetime.timedelt
 
 A continuación se presentan los códigos de fechas y tiempo que usan los métodos como `strftime()` o `strptime()`. Esta no es una lista completa, para una lista completa visitar [esta página](https://strftime.org/).
 
-```{list-table} Códigos de fechas.
+```{list-table}
 :header-rows: 1
 :name: date_codes
 

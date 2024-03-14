@@ -36,7 +36,6 @@ Funciones para buscar valores en arrays.
 
 <br>
 
----
 ## Contar
 
 Funciones para contar valores en arrays. 
@@ -52,8 +51,6 @@ Funciones para contar valores en arrays.
 
 <br>
 
----
-(numpy-funciones-ordenar)=
 ## Ordenar
 
 Funciones para ordenar valores en arrays. 
@@ -75,8 +72,6 @@ Funciones para ordenar valores en arrays.
 
 <br>
 
----
-(numpy-funciones-unicos)=
 ## Valores únicos
 
 Funciones para encontrar los valores únicos en arrays. 

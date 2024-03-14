@@ -1,6 +1,6 @@
 # Creación de arrays
 
-En esta sección se enlistas funciones relacionadas con la creación de arrays.
+En esta sección se enlistan funciones relacionadas con la creación de arrays.
 
 :::{warning}
 Para una lista completa visitar la [documentación](https://numpy.org/doc/stable/reference/routines.array-creation.html#array-creation-routines) de `numpy`.
@@ -30,7 +30,6 @@ Funciones para crear arrays desde otros objetos. Para importar datos desde archi
 
 <br>
 
----
 ## Forma o valor
 
 Funciones para crear arrays indicando la forma (_shape_) del array y valores por default que deben de tener. 
@@ -64,7 +63,6 @@ Funciones para crear arrays indicando la forma (_shape_) del array y valores por
 
 <br>
 
----
 ## Matrices
 
 Funciones para crear matrices (arreglos bidimensionales) o extraer partes de matrices existentes. 
@@ -88,7 +86,6 @@ Funciones para crear matrices (arreglos bidimensionales) o extraer partes de mat
 
 <br>
 
----
 ## Rangos numéricos
 
 Funciones para crear arreglos de rangos numéricos.

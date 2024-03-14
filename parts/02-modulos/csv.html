@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>csv &#8212; Manual de Python</title>
+    <title>CSV &#8212; Manual de Python</title>
   
   
   
@@ -226,7 +226,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="modulos-index.html">Módulos built-in</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="collections.html">Collections</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">csv</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">CSV</a></li>
 <li class="toctree-l2"><a class="reference internal" href="datetime.html">Datetime</a></li>
 <li class="toctree-l2"><a class="reference internal" href="itertools.html">Itertools</a></li>
 <li class="toctree-l2"><a class="reference internal" href="json.html">JSON</a></li>
@@ -237,6 +237,35 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="random.html">Random</a></li>
 <li class="toctree-l2"><a class="reference internal" href="regular-expression.html">Regular Expressions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="statistics.html">Statistics</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otras librerías</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-numpy/numpy-index.html">Numpy</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/arrays.html">Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../03-numpy/funciones-index.html">Funciones</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/buscar-contar-ordenar-unicos.html">Buscar, contar, ordenar y valores únicos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/creacion-arrays.html">Creación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/estadisticas.html">Estadísticas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/indices.html">Índices e iteración</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/informacion-logicas.html">Información y lógicas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/lectura-escritura.html">Lectura y escritura de datos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/manipulacion-arrays.html">Manipulación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/matematicas-numericas.html">Matemáticas y numéricas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/operadores.html">Operadores</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/algebra-lineal.html">Módulo linalg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/cadenas.html">Modulo char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/random.html">Módulo random</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otros</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-otros/otros-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08-otros/IPython.html">IPython</a></li>
 </ul>
 </li>
 </ul>
@@ -377,7 +406,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>csv</h1>
+    <h1>CSV</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -409,8 +438,8 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="csv">
-<h1>csv<a class="headerlink" href="#csv" title="Link to this heading">#</a></h1>
-<p>Este módulo implementa clases para leer archivos csv y escribir datos tabulares en archivos csv. Es necesario importar el módulo.</p>
+<h1>CSV<a class="headerlink" href="#csv" title="Link to this heading">#</a></h1>
+<p>Este módulo implementa clases para leer archivos <em>.csv</em> y escribir datos tabulares en archivos .<em>csv</em>. Es necesario importar el módulo.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">csv</span>
 </pre></div>
 </div>
@@ -422,7 +451,7 @@ document.write(`
 <hr class="docutils" />
 <section id="lectura">
 <h2>Lectura<a class="headerlink" href="#lectura" title="Link to this heading">#</a></h2>
-<p>Para leer un archivo csv utilizar la siguiente función. Esta función retorna un objeto <code class="docutils literal notranslate"><span class="pre">csvreader</span></code>.</p>
+<p>Para leer un archivo <em>.csv</em> utilizar la siguiente función. Esta función retorna un objeto <code class="docutils literal notranslate"><span class="pre">csvreader</span></code>.</p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Función</p></th>
@@ -431,7 +460,7 @@ document.write(`
 </thead>
 <tbody>
 <tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/csv.html#csv.reader">reader</a>(csvfile, dialect=’excel’, **fmtparams)</p></td>
-<td><p>Retorna un objeto <code class="docutils literal notranslate"><span class="pre">reader</span></code> que iterará sobre líneas en el archivo csv dado.</p></td>
+<td><p>Retorna un objeto <code class="docutils literal notranslate"><span class="pre">reader</span></code> sobre el cual se puede iterar sobre líneas en el archivo <em>.csv</em> dado.</p></td>
 </tr>
 </tbody>
 </table>
@@ -454,7 +483,6 @@ document.write(`
 </table>
 <br>
 </section>
-<hr class="docutils" />
 <section id="plantilla-de-uso">
 <h3>Plantilla de uso<a class="headerlink" href="#plantilla-de-uso" title="Link to this heading">#</a></h3>
 <p>A continuación se presenta una forma general de cómo trabajar con los objetos <code class="docutils literal notranslate"><span class="pre">csvreader</span></code>.</p>
@@ -484,7 +512,7 @@ document.write(`
 <hr class="docutils" />
 <section id="escritura">
 <h2>Escritura<a class="headerlink" href="#escritura" title="Link to this heading">#</a></h2>
-<p>Para escribir un objeto de Python a un archivo csv utilizar la siguiente función. Esta función retorna un objeto <code class="docutils literal notranslate"><span class="pre">csvwriter</span></code>.</p>
+<p>Para escribir desde Python a un archivo <em>.csv</em> utilizar la siguiente función. Esta función retorna un objeto <code class="docutils literal notranslate"><span class="pre">csvwriter</span></code>.</p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Función</p></th>
@@ -498,7 +526,6 @@ document.write(`
 </tbody>
 </table>
 <br>
-<hr class="docutils" />
 <section id="id1">
 <h3>Métodos<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <p>A continuación se presenta una lista de métodos públicos del objeto <code class="docutils literal notranslate"><span class="pre">csvwriter</span></code>. Aquí no se presentan todos los métodos y atributos de la clase <code class="docutils literal notranslate"><span class="pre">csvwriter</span></code>, consultar la <a class="reference external" href="https://docs.python.org/3/library/csv.html#writer-objects">documentación</a> para más información.</p>
@@ -541,7 +568,7 @@ document.write(`
 <ul class="simple">
 <li><p><em>filename</em> - <code class="docutils literal notranslate"><span class="pre">str</span></code>: Es la ruta al archivo, incluyendo nombre y la extensión <code class="docutils literal notranslate"><span class="pre">.csv</span></code> o la correspondiente al delimitador.</p></li>
 <li><p>Si solo se escribirá una línea se debe pasar una <code class="docutils literal notranslate"><span class="pre">iterable</span></code>, por ejemplo, un objeto <code class="docutils literal notranslate"><span class="pre">list</span></code>, donde cada elemento se escribirá separado por comas.</p></li>
-<li><p>Si se escribirán múltiples líneas al mismo tiempo se debe pasar un <code class="docutils literal notranslate"><span class="pre">iterable</span></code> de <code class="docutils literal notranslate"><span class="pre">iterable</span></code>, por ejemplo un objeto<code class="docutils literal notranslate"><span class="pre">list</span></code> anidado.</p></li>
+<li><p>Si se escribirán múltiples líneas al mismo tiempo se debe pasar un <code class="docutils literal notranslate"><span class="pre">iterable</span></code> de <code class="docutils literal notranslate"><span class="pre">iterable</span></code>, por ejemplo un objeto <code class="docutils literal notranslate"><span class="pre">list</span></code> anidado.</p></li>
 </ul>
 </section>
 </section>

@@ -29,19 +29,21 @@ A continuación se presenta una lista completa de los contenedores especializado
 
 | Contenedor | Descripción |
 | :---: | :---------- |
-|[namedtuple](https://docs.python.org/3/library/collections.html#namedtuple-factory-function-for-tuples-with-named-fields) | Función de fábrica para crear subclases de tuplas con campos nombrados |
-|[deque](https://docs.python.org/3/library/collections.html#deque-objects) | Contenedor similar a `list` con inserciones y eliminaciones rápidas en ambos extremos |
-|[ChainMap](https://docs.python.org/3/library/collections.html#chainmap-objects) | Clase similar a un diccionario para crear una vista única de varios mapeos |
-|[Counter](https://docs.python.org/3/library/collections.html#counter-objects) | Subclase de diccionario para contar objetos hashable |
-|[OrderedDict](https://docs.python.org/3/library/collections.html#ordereddict-objects) | Subclase de diccionario que recuerda el orden en que se agregaron las entradas |
-|[defaultdict](https://docs.python.org/3/library/collections.html#defaultdict-objects) | Subclase de diccionario que llama a una función de fábrica para proporcionar valores faltantes |
-|[UserDict](https://docs.python.org/3/library/collections.html#userdict-objects) | Envoltorio alrededor de objetos `dict` para facilitar la subclasificación de diccionarios |
-|[UserList](https://docs.python.org/3/library/collections.html#userlist-objects) | Envoltorio alrededor de objetos `list` para facilitar la subclasificación de listas |
-|[UserString](https://docs.python.org/3/library/collections.html#userstring-objects) | Envoltorio alrededor de objetos `str` para facilitar la subclasificación de cadenas |
+|[namedtuple](https://docs.python.org/3/library/collections.html#namedtuple-factory-function-for-tuples-with-named-fields) | Función de fábrica para crear subclases de tuplas con elementos con nombres. |
+|[deque](https://docs.python.org/3/library/collections.html#deque-objects) | Contenedor similar a `list` con inserciones y eliminaciones rápidas en ambos extremos. |
+|[ChainMap](https://docs.python.org/3/library/collections.html#chainmap-objects) | Clase similar a un diccionario para crear una vista única de varios mapeos. |
+|[Counter](https://docs.python.org/3/library/collections.html#counter-objects) | Subclase de diccionario para contar objetos _hashable_. |
+|[OrderedDict](https://docs.python.org/3/library/collections.html#ordereddict-objects) | Subclase de diccionario que respeta el orden en que se agregaron las entradas. |
+|[defaultdict](https://docs.python.org/3/library/collections.html#defaultdict-objects) | Subclase de diccionario con valores por default para valores perdidos. |
+|[UserDict](https://docs.python.org/3/library/collections.html#userdict-objects) | Envoltorio alrededor de objetos `dict` para facilitar la subclasificación de diccionarios. |
+|[UserList](https://docs.python.org/3/library/collections.html#userlist-objects) | Envoltorio alrededor de objetos `list` para facilitar la subclasificación de listas. |
+|[UserString](https://docs.python.org/3/library/collections.html#userstring-objects) | Envoltorio alrededor de objetos `str` para facilitar la subclasificación de cadenas. |
 
 ```{warning}
 En esta sección solo se presentarán algunas clases de este módulo y de cada clase solo se presentarán algunos métodos y atributos. Para más información presionar en el nombre de cada contenedor lo cual lleva a la documentación oficial de Python.
 ```
+
+<br/>
 
 ---
 ## Counter
@@ -54,10 +56,12 @@ Es una subclase de `dict` que permite conocer el número de veces que se repite 
 * - Función
   - Descripción
 * - [Counter](https://docs.python.org/3/library/collections.html#collections.Counter)([iterable-or-mapping])
-  - Un `Counter` es una subclase de `dict` para contar objetos hashable. Es una colección donde los elementos se almacenan como claves de diccionario y sus recuentos se almacenan como valores de diccionario.
+  - Un `Counter` es una subclase de `dict` para contar objetos _hashable_. Es una colección donde los elementos se almacenan como claves de diccionario y sus recuentos se almacenan como valores de diccionario.
 ```
 
-### Crear un Counter
+<br/>
+
+### Crear un `Counter`
 
 Para crear un objeto `Counter` se usa el constructor `collections.Counter()`, existen dos formas de crear el `Counter`
 
@@ -85,6 +89,8 @@ collections.Counter('key1'=val1, 'key2'=val2, ...)
 Si se tienen dos objetos `Counter` con _keys_ en común se pueden sumar sus respectivos recuentos con el operador `+`.
 :::
 
+<br/>
+
 ---
 ### Métodos
 
@@ -107,7 +113,8 @@ Los métodos de `dict` están disponibles para `Counter` a excepción de `dict.f
   - Los elementos se cuentan desde un iterable o se agregan desde otro mapeo (o contador). Como `dict.update()` pero agrega cuentas en lugar de reemplazarlos.
 ```
 
----
+<br/>
+
 ### Ejemplo de uso
 
 A continuación se presenta un ejemplo en el que se crea un objeto `Counter` desde una lista y se imprime el elemento que más se repite
@@ -129,6 +136,8 @@ print(word_count, end="\n"*2)
 print(f"Elemento más común: {word_count.most_common(1)}")
 ```
 
+<br/>
+
 ---
 ## Deque
 
@@ -143,7 +152,9 @@ Es un objeto similar a `list` pero optimizado para eliminar y agregar elementos.
   - Devuelve un nuevo objeto `deque` inicializado de izquierda a derecha (usando `append()`) con datos de `iterable`. Si no se especifica iterable, el `deque` estará vacío.
 ```
 
-### Crear un deque
+<br/>
+
+### Crear un `deque`
 
 Para crear un objeto `deque` se debe pasar como argumento un objeto iterable al constructor `collections.deque(iterable, maxlen)`.
 
@@ -155,7 +166,9 @@ import collections
 X = collections.deque(Y)
 ```
 - Y \- `iterable`: Un objeto iterable. Si no se especifica, se inicializa un deque vacío.
-- Se puede además especificar el parámetro **`maxlen`** (`int`) que representa la longitud máxima que puede tener el `deque`, si no se especifica, entonces el `deque` puede crecer hasta una longitud arbitraria.
+- Se puede además especificar el parámetro `maxlen` que representa la longitud máxima que puede tener el `deque`, si no se especifica, entonces el `deque` puede crecer hasta una longitud arbitraria.
+
+<br/>
 
 ---
 ### Atributos
@@ -171,12 +184,13 @@ Atributos de instancia de la clase `deque`.
   - Retorna la longitud máxima que puede tener el `deque`. Si no tiene longitud máxima retorna `None`.
 ```
 
----
+<br/>
+
 ### Métodos
 
 Métodos de instancia de la clase `deque`.
 
----
+
 #### Agregar elementos
 
 Métodos para agregar elementos.
@@ -184,7 +198,7 @@ Métodos para agregar elementos.
 ```{list-table}
 :header-rows: 1
 
-* - Funciones
+* - Método
   - Descripción
 * - [append](https://docs.python.org/3/library/collections.html#collections.deque.append)(x)
   - Agrega un elemento `x` al final del `deque`.
@@ -198,7 +212,8 @@ Métodos para agregar elementos.
   - Inserta un elemento a un índice en específico, recorriendo el resto de los elementos a la derecha. Si el elemento provoca que se viole `maxlen` se arroja un `IndexError`.
 ```
 
----
+<br/>
+
 #### Eliminar elementos
 
 Métodos para eliminar elementos.
@@ -206,7 +221,7 @@ Métodos para eliminar elementos.
 ```{list-table}
 :header-rows: 1
 
-* - Funciones
+* - Método
   - Descripción
 * - [clear](https://docs.python.org/3/library/collections.html#collections.deque.clear)()
   - Elimina todos los elementos del `deque`.
@@ -218,7 +233,8 @@ Métodos para eliminar elementos.
   - Elimina la primer coincidencia de un elemento en la lista. Si no se encuentra el elemento se retorna un error `ValueError`.
 ```
 
----
+<br/>
+
 #### Información
 
 Métodos que retornan información sobre el objeto `deque`. 
@@ -226,7 +242,7 @@ Métodos que retornan información sobre el objeto `deque`.
 ```{list-table}
 :header-rows: 1
 
-* - Funciones
+* - Método
   - Descripción
 * - [count](https://docs.python.org/3/library/collections.html#collections.deque.count)(x)
   - Devuelve el número de veces que hay un elemento específico `x` en el `deque`.
@@ -234,7 +250,8 @@ Métodos que retornan información sobre el objeto `deque`.
   - Devuelve el índice en el que se encuentra el elemento `x`. Retorna `ValueError` si el elemento no se encuentra.
 ```
 
----
+<br/>
+
 #### Modificar
 
 Métodos para modificar el `deque`.
@@ -242,7 +259,7 @@ Métodos para modificar el `deque`.
 ```{list-table}
 :header-rows: 1
 
-* - Funciones
+* - Método
   - Descripción
 * - [reverse](https://docs.python.org/3/library/collections.html#collections.deque.reverse)()
   - Modifica el orden del `deque` de manera inversa in-place.
@@ -250,7 +267,8 @@ Métodos para modificar el `deque`.
   - Desplaza los elementos a la derecha o izquierda `n` posiciones.
 ```
 
----
+<br/>
+
 #### Copiar
 
 Métodos para crear una copia del objeto.
@@ -258,16 +276,18 @@ Métodos para crear una copia del objeto.
 ```{list-table}
 :header-rows: 1
 
-* - Funciones
+* - Método
   - Descripción
 * - [copy](https://docs.python.org/3/library/collections.html#collections.deque.copy)()
   - Retorna una copia superficial del `deque`.
 ```
 
+<br/>
+
 ---
 ## Default dict
 
-Es una subclase de `dict`, es como un diccionario que permite que si se trata de acceder a un key que no existe, en lugar de arrojar un error, crea esa _key_ como un tipo de dato específico. El valor que tendrá esa _key_ dependerá del tipo de dato especificado.
+Es una subclase de `dict`, es como un diccionario que permite que si se trata de acceder a una _key_ que no existe, en lugar de arrojar un error, crea esa _key_ como un tipo de dato específico. El valor que tendrá esa _key_ dependerá del tipo de dato especificado.
 
 Los métodos y la funcionalidad de `defaultdict` es la misma que la de `dict`, a excepción de lo anteriormente explicado.
 
@@ -280,8 +300,10 @@ Los métodos y la funcionalidad de `defaultdict` es la misma que la de `dict`, a
   - Crea un diccionario con valores por default de determinado tipo de dato, lo que permite que si se trata de acceder a un key que no existe, en lugar de arrojar un error, se crea ese elemento con el valor por default del tipo de dato.
 ```
 
+<br/>
+
 ---
-### Crear un default dict
+### Crear un `defaultdict`
 
 Para crear un `defaultdict` se puede usar la función `collections.defaultdict()` cuyo argumento es un tipo de dato.
 
@@ -316,6 +338,8 @@ for k in s:
 print(d)
 ```
 
+<br/>
+
 ---
 ## Named tuple
 
@@ -331,9 +355,9 @@ print(d)
   - Devuelve una nueva subclase de `tuple` denominada `typename`. La nueva subclase se usa para crear objetos similares a `tuple` que tienen campos accesibles mediante nombres, además de ser indexables e iterables.
 ```
 
-### Crear un namedtuple
+### Crear un `namedtuple`
 
-Para crear un `namedtuple` se puede usar la función `collections.namedtuple`. Esta función recibe como argumento una cadena que será el nombre del `tuple` y una cadena o lista de cadenas que serán los nombres de cada uno de los elementos.
+Para crear un `namedtuple` se puede usar la función `collections.namedtuple()`. Esta función recibe como argumento una cadena que será el nombre del `tuple` y una cadena o lista de cadenas que serán los nombres de cada uno de los elementos.
 
 ```python
 # Importar el módulo
@@ -345,7 +369,7 @@ X = collections.namedtuple(typename, field_names)
 - **`typename`** \- `str`: Es el nombre que tendrá el `tuple`.
 - **`field_names`** \- `list` de `str` o `str`: Es el nombre que tendrá cada elemento
     - Si es una lista, cada nombre está separado por coma. 
-    - Si es cadena, los nombres de separan por coma o especios: `"name1, name2, ..."` o `"name1 name2 ..."`.
+    - Si es cadena, los nombres de separan por coma o espacios: `"name1, name2, ..."` o `"name1 name2 ..."`.
 
 
 Posteriormente para llenar el `namedtuple` se usa:

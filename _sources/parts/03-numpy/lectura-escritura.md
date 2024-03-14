@@ -24,7 +24,6 @@ Funciones relacionadas con la lectura y escritura de _pickles_.
 
 <br>
 
----
 ## Archivos binarios crudos
 
 Funciones relacionadas con la lectura de archivos binarios crudos. 
@@ -40,7 +39,6 @@ Funciones relacionadas con la lectura de archivos binarios crudos.
 
 <br>
 
----
 ## Archivos texto
 
 Funciones relaciones con la lectura y escritura de archivos de texto. 

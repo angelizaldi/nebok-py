@@ -25,8 +25,8 @@ Para más información de este módulo visitar la [documentación](https://numpy
 
 Existen dos formas pricipales de usar este módulo, aunque solo una de ella es recomendada:
 
-- **Random generator** (método recomendado): Se crea una {ref}`clase-generator` con la función `default_rng()` y se utilizan los métodos de esta clase para crear números y muestras aleatorias.
-- **Legacy random generator**: Se crea una instancia de la clase `RandomState`. La mayoría de los métodos de esta clase están exportadas como funciones en el módulo `numpy.random`, por lo que no es necesario inicializar la instancia, basta con utilizar las {ref}`funciones` del módulo.
+- **Random generator** (método recomendado): Se crea una instancia de la {ref}`clase-generator` con la función `default_rng()` y se utilizan los métodos de esta clase para crear números y muestras aleatorias.
+- **Legacy random generator**: Se crea una instancia de la clase `RandomState`. La mayoría de los métodos de esta clase están exportadas como funciones en el módulo `numpy.random`, por lo que no es necesario inicializar la instancia, basta con utilizar las {ref}`funciones-random` del módulo.
 
 
 <br>
@@ -135,7 +135,6 @@ Métodos para la generación de muestras aleatorias de distribuciones de probabi
 
 <br>
 
----
 ### Números aleatorios
 
 Métodos para la generación básica de números aleatorios. 
@@ -155,7 +154,6 @@ Métodos para la generación básica de números aleatorios.
 
 <br>
 
----
 ### Permutaciones
 
 Métodos para permutaciones aleatorias. 
@@ -176,11 +174,11 @@ Métodos para permutaciones aleatorias.
 <br><br>
 
 ---
-(funciones)=
+(funciones-random)=
 ## Funciones
 
 :::{warning}
-El uso de las funciones del módulo `numpy.random` está desaconsejado, ya que utilizan la clase `RandomState` para generar los números y muestras aletorias, en su lugar, es recomendado usar la {ref}`clase-generator` .
+El uso de las funciones del módulo `numpy.random` está desaconsejado, ya que utilizan la clase `RandomState` para generar los números y muestras aletorias, en su lugar, es recomendado usar la {ref}`clase-generator`.
 :::
 
 Para utilizar las funciones del módulo `random` basta con importar el módulo o hacer referencia a él cuando se importe `numpy`
@@ -279,7 +277,6 @@ Funciones para la generación de muestras aleatorias de distribuciones de probab
 
 <br>
 
----
 ### Numeros aleatorios
 
 Funciones para la generación básica de números aleatorios. 
@@ -307,7 +304,6 @@ Funciones para la generación básica de números aleatorios.
 
 <br>
 
----
 ### Permutaciones
 
 Funciones para permutaciones aleatorias. 
@@ -327,7 +323,6 @@ Funciones para permutaciones aleatorias.
 
 <br>
 
----
 ### Semillas y estados
 
 Funciones para establecer la semilla del generador o recuperar y establecer el estado del generador. 

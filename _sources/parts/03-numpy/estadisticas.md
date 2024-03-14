@@ -26,7 +26,6 @@ Funciones para cálculos de convarianzas y correlaciones.
 
 <br>
 
----
 ## Estadísticos de orden
 
 Funciones para cálculos de rangos, cuantiles y percentiles. 
@@ -50,7 +49,6 @@ Funciones para cálculos de rangos, cuantiles y percentiles.
 
 <br>
 
----
 ## Histogramas
 
 Funciones para cálculo de histogramas. 
@@ -76,7 +74,6 @@ Funciones para cálculo de histogramas.
 
 <br>
 
----
 ## Medidas de dispersión
 
 Funciones para cálculo de medidas de dispersión como varianzas y desviaciones estándar. 
@@ -98,7 +95,6 @@ Funciones para cálculo de medidas de dispersión como varianzas y desviaciones 
 
 <br>
 
----
 ## Medidas de tendencia central
 
 Funciones para cálculo de medidadas de tendencia cental como medias y medianas. 

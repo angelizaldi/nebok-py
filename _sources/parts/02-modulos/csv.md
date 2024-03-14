@@ -1,6 +1,7 @@
-# csv
+# CSV
 
-Este módulo implementa clases para leer archivos csv y escribir datos tabulares en archivos csv. Es necesario importar el módulo.
+Este módulo implementa clases para leer archivos _.csv_ y escribir datos tabulares en archivos ._csv_. Es necesario importar el módulo.
+
 ```python
 import csv
 ```
@@ -14,7 +15,7 @@ En esta sección solo se revisan las funciones `csv.reader()` y `csv.writer()`. 
 ---
 ## Lectura
 
-Para leer un archivo csv utilizar la siguiente función. Esta función retorna un objeto `csvreader`.
+Para leer un archivo _.csv_ utilizar la siguiente función. Esta función retorna un objeto `csvreader`.
 
 ```{list-table}
 :header-rows: 1
@@ -22,7 +23,7 @@ Para leer un archivo csv utilizar la siguiente función. Esta función retorna u
 * - Función
   - Descripción
 * - [reader](https://docs.python.org/3/library/csv.html#csv.reader)(csvfile, dialect='excel', **fmtparams)
-  - Retorna un objeto `reader` que iterará sobre líneas en el archivo csv dado.
+  - Retorna un objeto `reader` sobre el cual se puede iterar sobre líneas en el archivo _.csv_ dado.
 ```
 
 <br>
@@ -43,7 +44,6 @@ A continuación se presenta una lista de métodos públicos del objeto `csvreade
 
 <br>
 
----
 ### Plantilla de uso
 
 A continuación se presenta una forma general de cómo trabajar con los objetos `csvreader`.
@@ -72,7 +72,7 @@ with open(filename, 'r') as csvfile:
 ---
 ## Escritura
 
-Para escribir un objeto de Python a un archivo csv utilizar la siguiente función. Esta función retorna un objeto `csvwriter`.
+Para escribir desde Python a un archivo _.csv_ utilizar la siguiente función. Esta función retorna un objeto `csvwriter`.
 
 ```{list-table}
 :header-rows: 1
@@ -85,7 +85,6 @@ Para escribir un objeto de Python a un archivo csv utilizar la siguiente funció
 
 <br>
 
----
 ### Métodos
 
 A continuación se presenta una lista de métodos públicos del objeto `csvwriter`. Aquí no se presentan todos los métodos y atributos de la clase `csvwriter`, consultar la [documentación](https://docs.python.org/3/library/csv.html#writer-objects) para más información.
@@ -125,4 +124,4 @@ with open(filename, 'w') as csvfile:
 ```
 - _filename_ \- `str`: Es la ruta al archivo, incluyendo nombre y la extensión `.csv` o la correspondiente al delimitador.
 - Si solo se escribirá una línea se debe pasar una `iterable`, por ejemplo, un objeto `list`, donde cada elemento se escribirá separado por comas.
-- Si se escribirán múltiples líneas al mismo tiempo se debe pasar un `iterable` de `iterable`, por ejemplo un objeto`list` anidado.
+- Si se escribirán múltiples líneas al mismo tiempo se debe pasar un `iterable` de `iterable`, por ejemplo un objeto `list` anidado.

@@ -40,7 +40,6 @@ Funciones para buscar subcadenas.
 
 <br>
 
----
 ## Comparaciones
 
 Funciones para realizar comparaciones entre arreglos. Estas funciones eliminan los espacios en blanco al inicio y al final de los elementos antes de realizar la comparación. 
@@ -66,7 +65,6 @@ Funciones para realizar comparaciones entre arreglos. Estas funciones eliminan l
 
 <br>
 
----
 ## Formato
 
 Funciones que modifican el formato de los elementos. 
@@ -98,7 +96,6 @@ Funciones que modifican el formato de los elementos.
 
 <br>
 
----
 ## Información
 
 Funciones que retornan información sobre los elementos de los arrays. 
@@ -138,25 +135,6 @@ Funciones que retornan información sobre los elementos de los arrays.
 
 <br>
 
----
-## Operaciones
-
-Funciones para realizar operaciones vectorizadas entre arrays de cadenas.. 
-
-```{list-table}
-:header-rows: 1
-
-* - Función
-  - Descripción
-* - [char.add](https://numpy.org/doc/stable/reference/generated/numpy.char.add.html)(x1, x2)
-  - Devuelve la concatenación de cadenas por elementos para dos arreglos de `str` o unicode.
-* - [char.multiply](https://numpy.org/doc/stable/reference/generated/numpy.char.multiply.html)(a, i)
-  - Retorna `(a * i)`, es decir, la concatenación múltiple de cadenas, por elementos.
-```
-
-<br>
-
----
 ## Otros
 
 Otras funciones. 
@@ -176,7 +154,6 @@ Otras funciones.
 
 <br>
 
----
 ## Reemplazar
 
 Funciones para reemplazar subcadenas por otras. 
@@ -194,8 +171,7 @@ Funciones para reemplazar subcadenas por otras.
 
 <br>
 
----
-## Separar y concatenar
+## Separar y unir
 
 Funciones para hacer _splitting_ y concatenaciones. 
 
@@ -204,8 +180,12 @@ Funciones para hacer _splitting_ y concatenaciones.
 
 * - Función
   - Descripción
+* - [char.add](https://numpy.org/doc/stable/reference/generated/numpy.char.add.html)(x1, x2)
+  - Devuelve la concatenación de cadenas por elementos para dos arreglos de `str` o unicode.
 * - [char.join](https://numpy.org/doc/stable/reference/generated/numpy.char.join.html)(sep, seq)
   - Devuelve una cadena que es la concatenación de las cadenas en la secuencia `seq`.
+* - [char.multiply](https://numpy.org/doc/stable/reference/generated/numpy.char.multiply.html)(a, i)
+  - Retorna `(a * i)`, es decir, la concatenación múltiple de cadenas, por elementos.
 * - [char.partition](https://numpy.org/doc/stable/reference/generated/numpy.char.partition.html)(a, sep)
   - Divide cada elemento con base a `sep`.
 * - [char.rpartition](https://numpy.org/doc/stable/reference/generated/numpy.char.rpartition.html)(a, sep)
@@ -220,7 +200,6 @@ Funciones para hacer _splitting_ y concatenaciones.
 
 <br>
 
----
 ## Strip
 
 Funciones para eliminar caracteres al inicio, al final o ambos de los elementos de un arreglo. 

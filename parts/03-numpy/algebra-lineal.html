@@ -71,6 +71,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="icon" href="../../_static/nebok-favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Modulo char" href="cadenas.html" />
+    <link rel="prev" title="Operadores" href="operadores.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -131,8 +133,6 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -228,7 +228,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02-modulos/modulos-index.html">Módulos built-in</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/collections.html">Collections</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02-modulos/csv.html">csv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/csv.html">CSV</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/datetime.html">Datetime</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/itertools.html">Itertools</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/json.html">JSON</a></li>
@@ -239,6 +239,35 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/random.html">Random</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/regular-expression.html">Regular Expressions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/statistics.html">Statistics</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otras librerías</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="numpy-index.html">Numpy</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="arrays.html">Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="funciones-index.html">Funciones</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="buscar-contar-ordenar-unicos.html">Buscar, contar, ordenar y valores únicos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creacion-arrays.html">Creación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="estadisticas.html">Estadísticas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="indices.html">Índices e iteración</a></li>
+<li class="toctree-l3"><a class="reference internal" href="informacion-logicas.html">Información y lógicas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lectura-escritura.html">Lectura y escritura de datos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manipulacion-arrays.html">Manipulación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="matematicas-numericas.html">Matemáticas y numéricas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="operadores.html">Operadores</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Módulo linalg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cadenas.html">Modulo char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="random.html">Módulo random</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otros</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-otros/otros-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08-otros/IPython.html">IPython</a></li>
 </ul>
 </li>
 </ul>
@@ -408,7 +437,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="modulo-linalg">
 <h1>Módulo linalg<a class="headerlink" href="#modulo-linalg" title="Link to this heading">#</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">numpy.linalg</span></code> es un módulo que provee de funciones útiles para trabajar con matrices y otras estrcuturas y operacioes de álgebra lineal. Es posible importar solo el módulo o una función específica.</p>
+<p><code class="docutils literal notranslate"><span class="pre">numpy.linalg</span></code> es un módulo que provee de funciones útiles para trabajar con matrices y otras estructuras y operaciones de álgebra lineal. Es posible importar solo el módulo o una función específica.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar el módulo</span>
 <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">linalg</span>
 
@@ -437,7 +466,7 @@ document.write(`
 <ul class="simple">
 <li><p>La multiplacación se debe realizar entre arrays 2D.</p></li>
 <li><p>Los arrays deben de satisfacer que el número de columnas de <code class="docutils literal notranslate"><span class="pre">array1</span></code> debe ser igual al número de filas de <code class="docutils literal notranslate"><span class="pre">array2</span></code>, es decir, si <code class="docutils literal notranslate"><span class="pre">array1</span></code> tiene shape <code class="docutils literal notranslate"><span class="pre">(m,</span> <span class="pre">k)</span></code>, entonces <code class="docutils literal notranslate"><span class="pre">array2</span></code> debe tener shape <code class="docutils literal notranslate"><span class="pre">(k,</span> <span class="pre">n)</span></code>, donde <span class="math notranslate nohighlight">\(m\)</span>, <span class="math notranslate nohighlight">\(k\)</span> y <span class="math notranslate nohighlight">\(n\)</span> son cualquier número entero.</p></li>
-<li><p>si <code class="docutils literal notranslate"><span class="pre">array1</span></code> tiene shape <code class="docutils literal notranslate"><span class="pre">(m,</span> <span class="pre">k)</span></code> y <code class="docutils literal notranslate"><span class="pre">array2</span></code> tiene shape <code class="docutils literal notranslate"><span class="pre">(k,</span> <span class="pre">n)</span></code>, entonces <code class="docutils literal notranslate"><span class="pre">array1</span> <span class="pre">&#64;</span> <span class="pre">array2</span></code> tiene shape <code class="docutils literal notranslate"><span class="pre">(m,</span> <span class="pre">n)</span></code>.</p></li>
+<li><p>Si <code class="docutils literal notranslate"><span class="pre">array1</span></code> tiene shape <code class="docutils literal notranslate"><span class="pre">(m,</span> <span class="pre">k)</span></code> y <code class="docutils literal notranslate"><span class="pre">array2</span></code> tiene shape <code class="docutils literal notranslate"><span class="pre">(k,</span> <span class="pre">n)</span></code>, entonces <code class="docutils literal notranslate"><span class="pre">array1</span> <span class="pre">&#64;</span> <span class="pre">array2</span></code> tiene shape <code class="docutils literal notranslate"><span class="pre">(m,</span> <span class="pre">n)</span></code>.</p></li>
 </ul>
 <br>
 </section>
@@ -468,7 +497,6 @@ document.write(`
 </table>
 <br>
 </section>
-<hr class="docutils" />
 <section id="factorizaciones">
 <h2>Factorizaciones<a class="headerlink" href="#factorizaciones" title="Link to this heading">#</a></h2>
 <p>Funciones para factorizaciones (descomposiciones) de matrices.</p>
@@ -492,7 +520,6 @@ document.write(`
 </table>
 <br>
 </section>
-<hr class="docutils" />
 <section id="inversas-y-sistemas">
 <h2>Inversas y sistemas<a class="headerlink" href="#inversas-y-sistemas" title="Link to this heading">#</a></h2>
 <p>Funciones para cálculo de inversas y para solución de sistemas de ecuaciones lineales.</p>
@@ -525,7 +552,6 @@ document.write(`
 </table>
 <br>
 </section>
-<hr class="docutils" />
 <section id="normas-determinantes-y-trazas">
 <h2>Normas, determinantes y trazas<a class="headerlink" href="#normas-determinantes-y-trazas" title="Link to this heading">#</a></h2>
 <p>Funciones para cálculo de normas y otros cálculos como determinantes, trazas y rango.</p>
@@ -558,7 +584,6 @@ document.write(`
 </ul>
 <br>
 </section>
-<hr class="docutils" />
 <section id="productos">
 <h2>Productos<a class="headerlink" href="#productos" title="Link to this heading">#</a></h2>
 <p>Funciones para cálculos de productos entre matrices y vectores, como el producto punto, productos matriciales y el producto cruz, entre otros.</p>
@@ -573,31 +598,34 @@ document.write(`
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.dot.html">dot</a>(a, b[, out])</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.cross.html">cross</a>(a, b[, axisa, axisb, axisc, axis])</p></td>
+<td><p>Devuelve el producto cruz de dos vectores.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.dot.html">dot</a>(a, b[, out])</p></td>
 <td><p>Producto escalar de dos matrices.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.inner.html">inner</a>(a, b, /)</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.inner.html">inner</a>(a, b, /)</p></td>
 <td><p>Producto interno de dos arreglos.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.kron.html">kron</a>(a, b)</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.kron.html">kron</a>(a, b)</p></td>
 <td><p>Producto de Kronecker de dos matrices.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.matrix_power.html">linalg.matrix_power</a>(a, n)</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.matrix_power.html">linalg.matrix_power</a>(a, n)</p></td>
 <td><p>Eleva una matriz cuadrada a la potencia (entera) n.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.multi_dot.html">linalg.multi_dot</a>(arrays, *[, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.multi_dot.html">linalg.multi_dot</a>(arrays, *[, out])</p></td>
 <td><p>Calcule el producto punto de dos o más matrices en una sola llamada de función.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.matmul.html">matmul</a>(x1, x2, /[, out, casting, order, …])</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.matmul.html">matmul</a>(x1, x2, /[, out, casting, order, …])</p></td>
 <td><p>Producto matricial de dos arreglos.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.outer.html">outer</a>(a, b[, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.outer.html">outer</a>(a, b[, out])</p></td>
 <td><p>Calcular el producto externo de dos vectores. El producto externo es igual al producto de cada par ordenado del producto cartesiano de dos vectores.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.tensordot.html">tensordot</a>(a, b[, axes])</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.tensordot.html">tensordot</a>(a, b[, axes])</p></td>
 <td><p>Calcula el producto escalar del tensor a lo largo de los ejes especificados.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.vdot.html">vdot</a>(a, b, /)</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.vdot.html">vdot</a>(a, b, /)</p></td>
 <td><p>Devuelve el producto escalar de dos vectores.</p></td>
 </tr>
 </tbody>
@@ -635,6 +663,24 @@ document.write(`
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="operadores.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Operadores</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="cadenas.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Modulo char</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               

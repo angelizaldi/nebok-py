@@ -40,7 +40,6 @@ Funciones que generan arreglos de índices que cumplen determinadas condiciones.
 
 <br>
 
----
 ## Insertar datos
 
 Funciones para insertar datos en un arreglo. 
@@ -64,8 +63,6 @@ Funciones para insertar datos en un arreglo.
 
 <br>
 
----
-(numpy-funcs-iteracion)=
 ## Iteración
 
 Funciones para iterar sobre arreglos. 
@@ -91,7 +88,6 @@ Funciones para iterar sobre arreglos.
 
 <br>
 
----
 ## Selección de elementos
 
 Funciones que permiten seleccionar elementos de un arreglo. 

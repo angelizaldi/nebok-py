@@ -69,6 +69,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="icon" href="../../_static/nebok-favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Módulo random" href="random.html" />
+    <link rel="prev" title="Módulo linalg" href="algebra-lineal.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -129,8 +131,6 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -226,7 +226,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02-modulos/modulos-index.html">Módulos built-in</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/collections.html">Collections</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02-modulos/csv.html">csv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/csv.html">CSV</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/datetime.html">Datetime</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/itertools.html">Itertools</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/json.html">JSON</a></li>
@@ -237,6 +237,35 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/random.html">Random</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/regular-expression.html">Regular Expressions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/statistics.html">Statistics</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otras librerías</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="numpy-index.html">Numpy</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="arrays.html">Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="funciones-index.html">Funciones</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="buscar-contar-ordenar-unicos.html">Buscar, contar, ordenar y valores únicos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creacion-arrays.html">Creación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="estadisticas.html">Estadísticas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="indices.html">Índices e iteración</a></li>
+<li class="toctree-l3"><a class="reference internal" href="informacion-logicas.html">Información y lógicas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lectura-escritura.html">Lectura y escritura de datos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manipulacion-arrays.html">Manipulación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="matematicas-numericas.html">Matemáticas y numéricas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="operadores.html">Operadores</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="algebra-lineal.html">Módulo linalg</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Modulo char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="random.html">Módulo random</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otros</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-otros/otros-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08-otros/IPython.html">IPython</a></li>
 </ul>
 </li>
 </ul>
@@ -391,10 +420,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparaciones">Comparaciones</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formato">Formato</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#informacion">Información</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operaciones">Operaciones</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#otros">Otros</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reemplazar">Reemplazar</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#separar-y-concatenar">Separar y concatenar</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#separar-y-unir">Separar y unir</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strip">Strip</a></li>
 </ul>
             </nav>
@@ -453,7 +481,6 @@ document.write(`
 </table>
 <br>
 </section>
-<hr class="docutils" />
 <section id="comparaciones">
 <h2>Comparaciones<a class="headerlink" href="#comparaciones" title="Link to this heading">#</a></h2>
 <p>Funciones para realizar comparaciones entre arreglos. Estas funciones eliminan los espacios en blanco al inicio y al final de los elementos antes de realizar la comparación.</p>
@@ -486,7 +513,6 @@ document.write(`
 </table>
 <br>
 </section>
-<hr class="docutils" />
 <section id="formato">
 <h2>Formato<a class="headerlink" href="#formato" title="Link to this heading">#</a></h2>
 <p>Funciones que modifican el formato de los elementos.</p>
@@ -528,7 +554,6 @@ document.write(`
 </table>
 <br>
 </section>
-<hr class="docutils" />
 <section id="informacion">
 <h2>Información<a class="headerlink" href="#informacion" title="Link to this heading">#</a></h2>
 <p>Funciones que retornan información sobre los elementos de los arrays.</p>
@@ -582,28 +607,6 @@ document.write(`
 </table>
 <br>
 </section>
-<hr class="docutils" />
-<section id="operaciones">
-<h2>Operaciones<a class="headerlink" href="#operaciones" title="Link to this heading">#</a></h2>
-<p>Funciones para realizar operaciones vectorizadas entre arrays de cadenas..</p>
-<table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Función</p></th>
-<th class="head"><p>Descripción</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.add.html">char.add</a>(x1, x2)</p></td>
-<td><p>Devuelve la concatenación de cadenas por elementos para dos arreglos de <code class="docutils literal notranslate"><span class="pre">str</span></code> o unicode.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.multiply.html">char.multiply</a>(a, i)</p></td>
-<td><p>Retorna <code class="docutils literal notranslate"><span class="pre">(a</span> <span class="pre">*</span> <span class="pre">i)</span></code>, es decir, la concatenación múltiple de cadenas, por elementos.</p></td>
-</tr>
-</tbody>
-</table>
-<br>
-</section>
-<hr class="docutils" />
 <section id="otros">
 <h2>Otros<a class="headerlink" href="#otros" title="Link to this heading">#</a></h2>
 <p>Otras funciones.</p>
@@ -627,7 +630,6 @@ document.write(`
 </table>
 <br>
 </section>
-<hr class="docutils" />
 <section id="reemplazar">
 <h2>Reemplazar<a class="headerlink" href="#reemplazar" title="Link to this heading">#</a></h2>
 <p>Funciones para reemplazar subcadenas por otras.</p>
@@ -648,9 +650,8 @@ document.write(`
 </table>
 <br>
 </section>
-<hr class="docutils" />
-<section id="separar-y-concatenar">
-<h2>Separar y concatenar<a class="headerlink" href="#separar-y-concatenar" title="Link to this heading">#</a></h2>
+<section id="separar-y-unir">
+<h2>Separar y unir<a class="headerlink" href="#separar-y-unir" title="Link to this heading">#</a></h2>
 <p>Funciones para hacer <em>splitting</em> y concatenaciones.</p>
 <table class="table">
 <thead>
@@ -659,8 +660,14 @@ document.write(`
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.join.html">char.join</a>(sep, seq)</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.add.html">char.add</a>(x1, x2)</p></td>
+<td><p>Devuelve la concatenación de cadenas por elementos para dos arreglos de <code class="docutils literal notranslate"><span class="pre">str</span></code> o unicode.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.join.html">char.join</a>(sep, seq)</p></td>
 <td><p>Devuelve una cadena que es la concatenación de las cadenas en la secuencia <code class="docutils literal notranslate"><span class="pre">seq</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.multiply.html">char.multiply</a>(a, i)</p></td>
+<td><p>Retorna <code class="docutils literal notranslate"><span class="pre">(a</span> <span class="pre">*</span> <span class="pre">i)</span></code>, es decir, la concatenación múltiple de cadenas, por elementos.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.char.partition.html">char.partition</a>(a, sep)</p></td>
 <td><p>Divide cada elemento con base a <code class="docutils literal notranslate"><span class="pre">sep</span></code>.</p></td>
@@ -681,7 +688,6 @@ document.write(`
 </table>
 <br>
 </section>
-<hr class="docutils" />
 <section id="strip">
 <h2>Strip<a class="headerlink" href="#strip" title="Link to this heading">#</a></h2>
 <p>Funciones para eliminar caracteres al inicio, al final o ambos de los elementos de un arreglo.</p>
@@ -737,6 +743,24 @@ document.write(`
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="algebra-lineal.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Módulo linalg</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="random.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Módulo random</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -757,10 +781,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparaciones">Comparaciones</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formato">Formato</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#informacion">Información</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operaciones">Operaciones</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#otros">Otros</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reemplazar">Reemplazar</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#separar-y-concatenar">Separar y concatenar</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#separar-y-unir">Separar y unir</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strip">Strip</a></li>
 </ul>
   </nav></div>

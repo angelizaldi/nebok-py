@@ -1,6 +1,6 @@
 # Información y lógicas
 
-Funciones para obtener información sobre arrays que retornan arrays boolenanos y funciones para trabajar con arrays booleanos.
+Funciones para obtener información sobre arrays que retornan arrays booleanos y funciones para trabajar con arrays booleanos.
 
 :::{warning}
 Para una lista completa visitar la [documentación](https://numpy.org/doc/stable/reference/routines.logic.html#logic-functions) de `numpy`.
@@ -32,7 +32,6 @@ Funciones que retornan información sobre el contenido del array.
 
 <br>
 
----
 ## Lógicas
 
 Funciones útiles en arrays booleanos. 
@@ -50,7 +49,6 @@ Funciones útiles en arrays booleanos.
 
 <br>
 
----
 ## Tipo array
 
 Funciones que retornan información sobre el tipo de array. 

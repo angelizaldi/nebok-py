@@ -18,42 +18,41 @@ Funciones para hacer operaciones aritméticas vectorizadas.
 * - Función
   - Descripción
 * - [add](https://numpy.org/doc/stable/reference/generated/numpy.add.html)(x1, x2, /[, out, where, casting, order, ...])
-  - Suma `x1` y `x2`, por elementos.
+  - Suma `x1` y `x2`, por elementos. Equivale a usar el operador `+`.
 * - [divide](https://numpy.org/doc/stable/reference/generated/numpy.divide.html)(x1, x2, /[, out, where, casting, ...])
-  - Divide `x1` y `x2`, por elementos.
+  - Divide `x1` y `x2`, por elementos. Equivale a usar el operador `/`.
 * - [divmod](https://numpy.org/doc/stable/reference/generated/numpy.divmod.html)(x1, x2[, out1, out2], / [[, out, ...])
   - Devuelve el cociente y el residuo de la división de `x1` y `x2`, simultáneamente.
 * - [float_power](https://numpy.org/doc/stable/reference/generated/numpy.float_power.html)(x1, x2, /[, out, where, ...])
-  - Calcula `x1**x2`, por elementos.
+  - Eleva los elementos de `x1` a los elementos de `x2`. Equivale a usar el operador `**`.
 * - [floor_divide](https://numpy.org/doc/stable/reference/generated/numpy.floor_divide.html)(x1, x2, /[, out, where, ...])
-  - División entera de `x1` y `x2`, por elementos.
+  - División entera de `x1` y `x2`, por elementos. Equivale a usar el operador `//`.
 * - [fmod](https://numpy.org/doc/stable/reference/generated/numpy.fmod.html)(x1, x2, /[, out, where, casting, ...])
-  - Módulo de `x1` y `x2`, por elementos.
+  - Módulo de `x1` y `x2`, por elementos. Equivale a usar el operador `%`.
 * - [mod](https://numpy.org/doc/stable/reference/generated/numpy.mod.html)(x1, x2, /[, out, where, casting, order, ...])
   - Módulo de `x1` y `x2`, por elementos.
 * - [modf](https://numpy.org/doc/stable/reference/generated/numpy.modf.html)(x[, out1, out2], / [[, out, where, ...])
   - Devuelve las partes fraccionaria y entera de un arreglo, por elementos.
 * - [multiply](https://numpy.org/doc/stable/reference/generated/numpy.multiply.html)(x1, x2, /[, out, where, casting, ...])
-  - Multiplica `x1` y `x2`, por elementos.
+  - Multiplica `x1` y `x2`, por elementos. Equivale a usar el operador `*`.
 * - [negative](https://numpy.org/doc/stable/reference/generated/numpy.negative.html)(x, /[, out, where, casting, order, ...])
   - Negativo numérico, por elementos.
 * - [positive](https://numpy.org/doc/stable/reference/generated/numpy.positive.html)(x, /[, out, where, casting, order, ...])
   - Positivo numérico, por elementos.
 * - [power](https://numpy.org/doc/stable/reference/generated/numpy.power.html)(x1, x2, /[, out, where, casting, ...])
-  - Calcula `x1**x2`, por elementos.
+  - Eleva los elementos de `x1` a los elementos de `x2`. Equivale a usar el operador `**`.
 * - [reciprocal](https://numpy.org/doc/stable/reference/generated/numpy.reciprocal.html)(x, /[, out, where, casting, ...])
   - Devuelve el recíproco de `x`, por elementos.
 * - [remainder](https://numpy.org/doc/stable/reference/generated/numpy.remainder.html)(x1, x2, /[, out, where, casting, ...])
-  - Módulo de `x1` y `x2`, por elementos.
+  - Módulo de `x1` y `x2`, por elementos. Equivale a usar el operador `%`.
 * - [subtract](https://numpy.org/doc/stable/reference/generated/numpy.subtract.html)(x1, x2, /[, out, where, casting, ...])
-  - Resta `x1` y `x2`, por elementos.
+  - Resta `x1` y `x2`, por elementos. Equivale a usar el operador `-`.
 * - [true_divide](https://numpy.org/doc/stable/reference/generated/numpy.true_divide.html)(x1, x2, /[, out, where, ...])
   - Divide `x1` y `x2`, por elementos.
 ```
 
 <br>
 
----
 ## Derivadas e integrales
 
 Funciones para calcular derivadas (gradientes) e integrales.
@@ -71,7 +70,6 @@ Funciones para calcular derivadas (gradientes) e integrales.
 
 <br>
 
----
 ## Enteros
 
 Funciones para calcular el máximo común divisor y el mínimo común múltiplo de dos números enteros. 
@@ -89,7 +87,6 @@ Funciones para calcular el máximo común divisor y el mínimo común múltiplo 
 
 <br>
 
----
 ## Exponentes y logaritmos
 
 Funciones relacionadas con exponentes y logaritmos para cálculos vectorizados. 
@@ -121,7 +118,6 @@ Funciones relacionadas con exponentes y logaritmos para cálculos vectorizados.
 
 <br>
 
----
 ## Hiperbólicas
 
 Funciones relacionadas con funciones hiperbólicas para cálculos vectorizados. 
@@ -147,7 +143,6 @@ Funciones relacionadas con funciones hiperbólicas para cálculos vectorizados.
 
 <br>
 
----
 ## Misceláneos
 
 Funciones matemáticas generales como raíces cuadradas y cúbicas, valores absolutos, entre otras.
@@ -161,8 +156,6 @@ Funciones matemáticas generales como raíces cuadradas y cúbicas, valores abso
   - Calcula el valor absoluto, por elementos.
 * - [cbrt](https://numpy.org/doc/stable/reference/generated/numpy.cbrt.html)(x, /[, out, where, casting, order, ...])
   - Devuelve la raíz cúbica de un arreglo, por elementos.
-* - [clip](https://numpy.org/doc/stable/reference/generated/numpy.clip.html)(a, a_min, a_max[, out])
-  - Limita los valores en un arreglo a `a_min` y `a_max`.
 * - [convolve](https://numpy.org/doc/stable/reference/generated/numpy.convolve.html)(a, v[, mode])
   - Devuelve la convolución lineal discreta de dos secuencias unidimensionales.
 * - [fabs](https://numpy.org/doc/stable/reference/generated/numpy.fabs.html)(x, /[, out, where, casting, order, ...])
@@ -181,7 +174,6 @@ Funciones matemáticas generales como raíces cuadradas y cúbicas, valores abso
 
 <br>
 
----
 ## Números complejos
 
 Funciones relacionadas con números complejos para cálculos vectorizados. 
@@ -205,7 +197,6 @@ Funciones relacionadas con números complejos para cálculos vectorizados.
 
 <br>
 
----
 ## Redondeo y truncamiento
 
 Funciones relacionadas con redondear y truncar arrays numéricos.  
@@ -219,6 +210,8 @@ Funciones relacionadas con redondear y truncar arrays numéricos.
   - Redondea uniformemente al número dado de decimales.
 * - [ceil](https://numpy.org/doc/stable/reference/generated/numpy.ceil.html)(x, /[, out, where, casting, order, ...])
   - Devuelve el techo de la entrada, por elementos.
+* - [clip](https://numpy.org/doc/stable/reference/generated/numpy.clip.html)(a, a_min, a_max[, out])
+  - Limita los valores en un arreglo a `a_min` y `a_max`.
 * - [fix](https://numpy.org/doc/stable/reference/generated/numpy.fix.html)(x[, out])
   - Redondea al entero más cercano hacia cero.
 * - [floor](https://numpy.org/doc/stable/reference/generated/numpy.floor.html)(x, /[, out, where, casting, order, ...])
@@ -231,7 +224,6 @@ Funciones relacionadas con redondear y truncar arrays numéricos.
 
 <br>
 
----
 ## Sumas, productos, diferencias y cálculos acumulados
 
 Funciones para realizar sumas, productos y diferencias en arrays numéricos, así como cálculos acumulados.
@@ -241,8 +233,6 @@ Funciones para realizar sumas, productos y diferencias en arrays numéricos, as�
 
 * - Función
   - Descripción
-* - [cross](https://numpy.org/doc/stable/reference/generated/numpy.cross.html)(a, b[, axisa, axisb, axisc, axis])
-  - Devuelve el producto cruz de dos vectores.
 * - [cumprod](https://numpy.org/doc/stable/reference/generated/numpy.cumprod.html)(a[, axis, dtype, out])
   - Devuelve el producto acumulativo de elementos a lo largo de un eje dado.
 * - [cumsum](https://numpy.org/doc/stable/reference/generated/numpy.cumsum.html)(a[, axis, dtype, out])
@@ -267,7 +257,6 @@ Funciones para realizar sumas, productos y diferencias en arrays numéricos, as�
 
 <br>
 
----
 ## Trigonométricas
 
 Funciones relacionadas con funciones trigonométricas para cálculos vectorizados. 
@@ -305,7 +294,6 @@ Funciones relacionadas con funciones trigonométricas para cálculos vectorizado
 
 <br>
 
----
 ## Valores extremos
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. 

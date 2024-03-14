@@ -43,11 +43,12 @@ Existen diversas formas de crear arrays.
 5. Creación de matrices a partir de bytes sin procesar mediante el uso de cadenas o búferes. [Más información](https://numpy.org/doc/stable/user/basics.creation.html#creating-arrays-from-raw-bytes-through-the-use-of-strings-or-buffers)
 6. Otras funciones de otras librerias para crear arrays.  [Más información](https://numpy.org/doc/stable/user/basics.creation.html#use-of-special-library-functions-e-g-scipy-pandas-and-opencv).
 
+:::{note}
 Para más información sobre creación de arrays visitar la [Guía de usuario](https://numpy.org/doc/stable/user/basics.creation.html#array-creation) de `numpy`.
+:::
 
 <br>
 
----
 (seq-to-array)=
 ### Convertir secuencia a array
 
@@ -60,7 +61,7 @@ import numpy as np
 # Convertir X a ndarray
 a = np.array(X)
 ```
-- _X_ \- `sequence`: Cualquier objeto de Python que sea una secuncia (`list`, `tuple`, `str` y `range`). 
+- _X_ \- `sequence`: Cualquier objeto de Python que sea una secuencia (`list`, `tuple`, `str` y `range`). 
 
 <br>
 
@@ -82,7 +83,7 @@ Al convertir una secuencia anidada tener en cuenta las siguientes consideracione
 <br>
 
 - Una lista anidada de 3 niveles será un array 3D. Tener en cuenta lo siguiente.
-    - Las listas de color naranja <span style="color: #ba5f1e">■</span> representan filas, como hay dos listas de esta tipo, entonces hay dos filas.
+    - Las listas de color naranja <span style="color: #ba5f1e">■</span> representan filas, como hay dos listas de este tipo, entonces hay dos filas.
     - Las listas de color verde <span style="color: #95ba27">■</span> representan columnas. En cada fila hay dos listas de este tipo, por lo tanto cada fila tiene dos columnas.
     - Los elementos de listas de color verde <span style="color: #95ba27">■</span> representan los elementos que se distribuyen en la  profundidad del arreglo. En la imagen, cada lista de color verde <span style="color: #95ba27">■</span> tiene 2 elementos, por lo tanto, el array tiene una profundidad de dos.
 
@@ -111,14 +112,14 @@ X.base
 <br>
 
 Algunas operaciones comunes que retornan views son:
-- Slicing.
-- Boolean masking.
-- Fancy indexing.
-- Reshaping.
+- {ref}`numpy-arrays-slicing`.
+- {ref}`numpy-arrays-masking`.
+- {ref}`numpy-arrays-indexing`.
+- {ref}`numpy-arrays-reshaping`.
 - El atributo `ndarray.T`, es decir, transponer el array.
 
 
-<br><br>
+<br>
 
 ---
 ## Selección de elementos
@@ -149,6 +150,8 @@ _Subsetting_ se refiere a seleccionar elementos en índices específicos.
 :width: 500px
 :align: center
 ```
+
+<br/>
 
 Al seleccionar elementos por índices tomar en cuenta las siguientes características.
 
@@ -201,28 +204,42 @@ print(f"Fila 1, columna 2: {X[0, 1]}", end='\n'*2)
 
 # Seleccionar toda la fila 2 -> ["c", "d"]
 print(f"Fila 2: {X[1,]}")
-
 ```
+
+:::{note}
+Es posible combinar _subsetting_ con otras estrategías para seleccionar elementos como _boolean masking_, _fancy indexing_ o _slicing_ para diferentes dimensiones del arreglo.
+:::
 
 <br>
 
 ---
+(numpy-arrays-slicing)=
 ### Slicing
 
 _Slicing_ se refiere a seleccionar rangos de elementos contiguos en índices específicos.
 
 Para seleccionar un rango de elementos consecutivos tener en cuenta las siguientes características:
-- Se utiliza dos puntos, indicando los indices de inicio, fin y el paso: <br/> `X[i:j:k]`
-- La selección por rango, tienen la característica que el primer elemento es inclusivo y el último es exclusivo, esto quiere decir que no se incluirá en el rango, si se usa el rango `[m:n]`, en realidad solo se accederá a los índices `[m:n-1]`.
-- En `X[i:j]` Si se omite el índice `i` significa desde el inicio del array y si se omite el índice `j` significa hasta el final del array.
+- Se utiliza dos puntos, indicando los indices de inicio, fin y el paso: <br/> `X[start:stop:step]`
+- La selección por rango, tienen la característica que el primer elemento (`start`) es inclusivo y el último (`stop`) es exclusivo, esto quiere decir que no se incluirá en el rango, si se usa el rango `[m:n]`, en realidad solo se accederá a los índices `[m:n-1]`.
+- En `X[i:j]`:
+    - Si se omite el índice `i` significa desde el inicio del _array_.
+    - Si se omite el índice `j` significa hasta el final del _array_.
+    - Si se omiten ambos significa todo el _g n i_. 
 - También es posible utilizar índices negativos.
-- Para arrays de dos o más dimensiones, separar con coma el slice de cada dimensión: <br/> `X[i1:j1, i2:j2, ...]`.
+- Para arrays de dos o más dimensiones, separar con coma el slice de cada dimensión: <br/> `X[start:stop:step, start:stop:step, ...]`.
 - Se pueden combinar hacer _subsetting_ y _slicing_ para diferentes dimensiones.
 
-:::{caution}
-Al seleccionar filas o columnas completas de un array de 2D la forma como se haga la selección modificará el _shape_ del objeto retornado. 
+:::{warning}
+Si `X` es `ndarray` y sea crea otro _array_ `Y` usando `Y=X[i:j]`, entonces `Y` será un _views_ de `X` y modificaciones en `Y` también afectarán a `X` y vicerversa. Para que esto no suceda usar:
+- `Y = X[i:j].copy()`
 
-Por ejemplo, si `X` es un array con shape (3, 3) y se desea seleccionar toda la segunda fila existen diversas formas de hacerlo:
+De esta manera modificaciones en `Y` no afectarán a `X` y viceversa.
+:::
+
+:::{Note}
+Al seleccionar filas o columnas completas de un array 2D la forma como se haga la selección modificará el _shape_ del objeto retornado. 
+
+Por ejemplo, si `X` es un array con shape _(3, 3)_ y se desea seleccionar toda la segunda fila, existen diversas formas de hacerlo:
 - `X[1]` o `X[1,]` retornan un array de shape (3,), es decir, un array 1D.
 - `X[1, :]` retorna un array de shape (3,), es decir, un array 1D.
 - `X[1:2, :]` retorna un array de shape (1, 3), es decir, un array 2D.
@@ -275,44 +292,43 @@ Algunos patrones útiles en **3D**:
 :align: center
 ```
 
-<br>
-
-:::{warning}
-Si `X` es un array y sea crea otro array `Y` usando slicing, por ejemplo `Y=X[i:j]`, entonces `Y` será un _view_ de `X` y modificaciones en `Y` también afectarán a `X` y vicerversa. Para que esto no suceda usar el método `ndarray.copy()`:
-- `Y = X[i:j].copy()`
-
-De esta manera modificaciones en `Y` no afectarán a `X` y viceversa.
+:::{note}
+Es posible combinar _slicing_ con otras estrategías para seleccionar elementos como _boolean masking_, _fancy indexing_ o _subsetting_ para diferentes dimensiones del arreglo.
 :::
 
 <br>
 
 ---
+(numpy-arrays-masking)=
 ### Boolean masking
 
 _Boolean masking_ se refiere a seleccionar elementos de un array con base a otro array booleano del mismo tamaño, denominado _mask_. Los elementos que tengan posiciones correspondietes en el _mask_ con valores de `True` serán seleccionados, mientras los que tengan valores `False` no serán seleccionados. 
 
 :::{note}
-El array retornado al seleccionar elementos por boolean masking siempre será de una dimensión.
+El array retornado al seleccionar elementos por _boolean masking_ siempre será de una dimensión.
+:::
+
+:::{warning}
+El array retornado al seleccionar elementos por _boolean masking_ será un _view_ del array original.
 :::
 
 Se pueden crear masks usando comparaciones vectorizadas con el array. Para comparaciones más complejas se pueden usar los [operadores bitwise](https://nebok-py.com/parts/01-built-in/anexos-operadores-palabras.html#bitwise). También es posible crear listas para hacer el mask, por ejemplo, usando [list comprehession](https://nebok-py.com/parts/01-built-in/listas.html#list-comprehension).
 
 ```python
 # Boolean masking simple
-X[condition]
+X[mask]
 
 # Boolean masking usando &
-X[(condition1) & (condition2)]
+X[(mask1) & (mask2)]
 
 # Boolean masking usando |
-X[(condition1) | (condition2)]
+X[(mask1) | (mask2)]
 ```
-- _condition_ son condiciones usando el mismo vector `X` y [operadores de comparación](https://nebok-py.com/parts/01-built-in/anexos-operadores-palabras.html#comparacion), [identidad](https://nebok-py.com/parts/01-built-in/anexos-operadores-palabras.html#identidad) o [membresía](https://nebok-py.com/parts/01-built-in/anexos-operadores-palabras.html#membresia), o en general, cualquier expresión que resulte en un array booleano del mismo tamaño que `X`. 
-- _condition_ no tiene estrictamente que involucrar a `X`, podría involucrar a otro array de las mismas dimensiones que `X`.
+- _mask_ es un `array-like` boolenado de las mismas dimensiones que `X`. Usualmente se contruye utilizando al mismo vector `X` y [operadores de comparación](https://nebok-py.com/parts/01-built-in/anexos-operadores-palabras.html#comparacion), [identidad](https://nebok-py.com/parts/01-built-in/anexos-operadores-palabras.html#identidad) o [membresía](https://nebok-py.com/parts/01-built-in/anexos-operadores-palabras.html#membresia), o en general, cualquier expresión que resulte en un array booleano del mismo tamaño que `X`. 
 - Notar que si se tienen 2 o más condiciones, cada condición se debe poner entre `()`.
 
 :::{warning}
-No utilizar los operadores lógicos `and`, `or` o `not` para crear condiciones más complejas.
+No utilizar los operadores lógicos `and`, `or` o `not` para hacer operaciones entre los _masks_.
 :::
 
 <br>
@@ -332,15 +348,24 @@ print(f"Elementos menores que 5: {X[X<5]}")
 print(f"Número pares mayores a 5: {X[(X%2 == 0) & (X>5)]}")
 ```
 
+:::{note}
+Es posible combinar _boolean masking_ con otras estrategías para seleccionar elementos como _slicing_, _fancy indexing_ o _subsetting_ para diferentes dimensiones del arreglo.
+:::
+
 <br>
 
 ---
+(numpy-arrays-indexing)=
 ### Fancy Indexing
 
-_Fancy indexing_ es una estrategia para seleccionar elementos de un array en el que se indica por medio de una lista o un array los índices a seleccionar, de tal forma que se seleccionan los elementos que están en los índices de la lista/array. 
+_Fancy indexing_ es una estrategia para seleccionar elementos de un array en el que se indica por medio de un `array-like` los índices a seleccionar, de tal forma que se seleccionan los elementos que están en los índices de la lista/array. 
 
 :::{note}
-El array retornado al seleccionar elementos por fancy indexing siempre será de una dimensión.
+El array retornado al seleccionar elementos por _fancy indexing_ generalmente será de una dimensión. A menos de que se utilice un array con un determinado _shape_ como se verá más adelante.
+:::
+
+:::{warning}
+El array retornado al seleccionar elementos por_fancy indexing_ será un _view_ del array original.
 :::
 
 **Ejemplo**
@@ -357,13 +382,13 @@ print(X[ind])
 ```
 - Los índices en _ind_ pueden estar en cualquier orden, incluso se puede repetir más de una vez un mismo índice.
 
-El array puede tener un _shape_ en específico y el array devuelto tendrá ese mismo shape. En este caso sí es necesario que `ind` sea `np.ndarray`.
+El `array-like` utilizado puede tener un _shape_ en específico y el array devuelto tendrá ese mismo shape. En este caso sí es necesario que `ind` sea `np.ndarray`.
 
 ```{code-cell} ipython3
 # Definir el array
 X = np.array(["a", "e", "i", "o", "u"])
 
-# Una lista con los índices a seleccionar
+# Un array con los índices a seleccionar
 ind = np.array([[2, 0], [4, 0]])
 
 # Aplicar el array -> [["i", "a"], ["u", "a"]]
@@ -387,22 +412,27 @@ print(X[row, col])
 ```
 
 :::{note}
-Es posible combinar fancy indexing con cualquier otra estrategía para seleccionar elementos como slicing, masking o subsetting.
+Es posible combinar _fancy indexing_ con otras estrategías para seleccionar elementos como _slicing_, _boolena masking_ o _subsetting_ para diferentes dimensiones del arreglo.
 :::
 
-<br><br>
+<br>
 
 ---
+(numpy-arrays-reshaping)=
 ## Reshaping
 
 
-Se refiere a modificar el shape de un array, ya sea modificando el número de dimensiones o modificando el número de elementos en cada dimensión. Existen dos formas principales para realizar esta acción, con el método `.reshape()` o con `np.newaxis` los cuales se revisan más adelante.
+Se refiere a modificar el _shape_ de un array, ya sea modificando el número de dimensiones o modificando el número de elementos en cada dimensión. Existen dos formas principales para realizar esta acción, con el método `.reshape()` o con `np.newaxis` los cuales se revisan más adelante.
 
-:::{note}
-Para más opciones de hacer reshape de un array consultar los métodos {ref}`manipulacion-shape` y las funciones en {ref}`numpy-manipulacion-arrays`.
+```{admonition} Info
+El _shape_ de un _array_ indica el número de elementos que hay en cada dimensión del arreglo, se suele representar como un `tuple`, donde el primer elemento es el número de elementos en el eje 0, el segundo el número de elementos en el eje 1, etc. <br/> `(n, m, p, ...)`
+```
+
+:::{tip}
+Para más opciones de hacer _reshape_ de un _array_ consultar los métodos {ref}`manipulacion-shape` y las funciones {doc}`manipulacion-arrays`.
 :::
 
-Para revisar el shape actual de un array usar el atributo `ndarray.shape`
+Para revisar el _shape_ actual de un array usar el atributo `ndarray.shape`
 
 ```python
 # Ver el shape del array X
@@ -411,10 +441,10 @@ X.shape
 - Este atributo retorna un `tuple` con el número de elementos en cada dimensión.
 
 :::{note}
-La diferencias entre los arrays con shape _(n,)_ y los arrays con shape _(n, 1)_ o _(1, n)_, son las siguientes:
-- Los arrays con shape _(n,)_ son arrays 1D, son una secuencia de elementos ordenados.
-- Los arrays con shape _(n, 1)_ son arrays 2D, se podría interpretar como una columna de una matriz.
-- Los arrays con shape _(1, n)_ son arrays 2D, se podrían interpretar como una fila de una matriz.
+La diferencias entre los _arrays_ con _shape_ _(n,)_ y los _arrays_ con _shape_ _(n, 1)_ o _(1, n)_, son las siguientes:
+- Los arreglos con _shape_ _(n,)_ son arreglos 1D. Son una secuencia de elementos ordenados.
+- Los arreglos con _shape_ _(n, 1)_ son arreglos 2D. Se podrían interpretar como una columna de una matriz.
+- Los arreglos con _shape_ _(1, n)_ son arreglos 2D. Se podrían interpretar como una fila de una matriz.
 
 ```{image} ../images/1d-vs-2d.png
 :name: 1d-vs-2d
@@ -425,11 +455,10 @@ La diferencias entre los arrays con shape _(n,)_ y los arrays con shape _(n, 1)_
 
 <br>
 
----
 (reshape)=
 ### Método _reshape_
 
-El método [ndarray.reshape()](https://numpy.org/doc/stable/reference/generated/numpy.reshape.html#numpy.reshape) se usa para modificar el shape de un array.
+El método [ndarray.reshape()](https://numpy.org/doc/stable/reference/generated/numpy.reshape.html#numpy.reshape) se usa para modificar el _shape_ de un array.
 ```python
 ndarray.reshape(shape, order='C')
 ```
@@ -443,7 +472,7 @@ El método `ndarray.reshape()` retorna _views_ en lugar de copias en la mayoría
 **Algunos reshapes cómunes**:
 
 :::{attention}
-Todos los ejemplos de esta sección muestran reshapes con `order=C`. Existe otra forma en la que se ordenan los elementos al hacer el reshape que corresponde al orden `F`. 
+Todos los ejemplos de esta sección muestran reshapes con `order=C`. Existe otra forma en la que se ordenan los elementos al hacer el reshape que corresponde al orden `F`. Tomar como referencia las imágenes para conceptualizar como se transforman los _arrays_ de un _shape_ a otro.
 :::
 
 **Cualquier dimensión a 1D**: Si se quiere modificar un array de cualquier dimensión a 1D usar:
@@ -454,7 +483,7 @@ X.reshape(-1)
 ```
 - En lugar de usar -1, se podría poner el número de elementos total _k_ que tiene `X`.
 
-:::{note}
+:::{tip}
 Existen métodos para convertir cualquier dimensión a 1D:
 - `ndarray.flatten()`: Retorna una copia del array en 1D.
 - `ndarray.ravel()`: Retorna una _view_ del array en 1D.
@@ -577,7 +606,7 @@ Se refiere al ajuste que se hace en las dimensiones y/o el número de elementos 
 Como tal estos cambios en el _shape_ de los arrays no ocurren en la práctica, pero es útil para conceptualizar cómo se realizan las operaciones vectorizadas.
 :::
 
-- **Número de dimensiones**: Si dos arrays difieren en el número de dimensiones, a aquel con menos dimensiones, se le aumentará el número de dimensiones, desde la izquierda, hasta que coincida con el número de dimensiones del otro array. Por ejemplo, si se quiere hacer una operación entre un array 1D (k,) y uno 3D (m, n, k), entonces, el 1D se convertirá en (1, 1, k) para que concidan en el número de dimensiones.
+- **Número de dimensiones**: Si dos arrays difieren en el número de dimensiones, a aquel con menos dimensiones, se le aumentará el número de dimensiones, desde la izquierda, hasta que coincida con el número de dimensiones del otro array. Por ejemplo, si se quiere hacer una operación entre un array 1D _(k,)_ y uno 3D _(m, n, k)_, entonces, el 1D se convertirá en _(1, 1, k)_ para que concidan en el número de dimensiones.
 
 ```{image} ../images/broadcasting-1.png
 :name: broadcasting-1
@@ -651,16 +680,16 @@ Existen dos funcions principales para unir arrays, concatenación y apilación:
 - En concatenación los arrays se unen en **ejes existentes**. Es decir, preservan el número de dimensiones.
 - En 1D solo se puede concatenar sobre el eje 0, en 2D sobre los eje 0 y 1, en 3D sobre los ejes 0, 1 y 2, etc.
 - Los arrays deben de tener el mismo número de elementos en los ejes, excepto en el eje sobre el cual se concatenarán.
-- Consultar {numref}`join-arrays-1D` y {numref}`join-arrays-2D` de referencia. 
+- Consultar las imágenes {ref}`join-arrays-1D` y {ref}`join-arrays-2D` de referencia. 
 
 
 **Apilación (stack)**: 
 
-- - Se utiliza la función `np.stack()`.
+- Se utiliza la función `np.stack()`.
 - En _stack_ los arrays se unen en un **eje nuevo**. Es decir, el resultado siempre tendrá una dimensión extra.
 - Apilar arrays 1D resulta en arrays 2D, apilar arrays 2D resulta en arrays 3D, etc.
 - Los arrays deben de tener el mismo _shape_.
-- Consultar {numref}`join-arrays-1D` y {numref}`join-arrays-2D` de referencia. 
+- Consultar las imágenes {ref}`join-arrays-1D` y {ref}`join-arrays-2D` de referencia. 
 
 <br>
 
@@ -738,15 +767,15 @@ Concatenación y apilación en 2D
 
 Para realizar la operación contraria a concatenar se pueden utilizar las siguientes funciones.
 
-- `np.split(ary, indices_or_sections, axis=0)`: Divide un array en índices específicos o en _N_ partes iguales y retorna una lista con cada uno de los arrays resultantes del split.
-    - Si el array es de dos o más dimensiones se pueden indicar sobre cuál eje aplicar el split. Por default es sobre el eje 0.
+- `np.split(ary, indices_or_sections, axis=0)`: Divide un array en índices específicos o en _N_ partes iguales y retorna una lista con cada uno de los arrays resultantes del _split_.
+    - Si el array es de dos o más dimensiones se pueden indicar sobre cuál eje aplicar el _split_. Por default es sobre el eje 0.
     - Existen funciones con el eje por default como:
         - `np.vsplit()`: Equivale a `np.split(axis=0)`.
         - `np.hsplit()`: Equivale a `np.split(axis=1)`.
         - `np.dsplit()`: Equivale a `np.split(axis=2)`.
 
 :::{note}
-Para más información de estas funciones consultar las funciones de {ref}`numpy-splitting`.
+Para más información de estas funciones consultar {doc}`manipulacion-arrays` en la sección de _Splitting_.
 :::
 
 <br>
@@ -829,12 +858,13 @@ for value in np.nditer(X, order):
     expression
 ```
 - `order` \- {‘C’, ‘F’, ‘A’, ‘K’}: Es para indicar el orden de iteración. Los valores más comúnes son `C` y `F`.
+    - `K`: Respeta el orden en el que el array se almacena en memoria, lo más común es que sea `'C'` (por filas). Para más información sobre los órdenes consultar [este artículo](https://en.wikipedia.org/wiki/Row-_and_column-major_order).
     - `C`
         - En 2D itera por cada elemento, fila por fila.
         - En 3D tomar como referencia la imagen para ver como se extraen matrices, las cuales posteriormente se iterarán por cada elemento, fila por fila.
     - `F`: 
-        - En 2D itera por cada elemento, columna por columna. Equivale a usar `np.nditer(X.T, order='K')`.
-        - En 3D tomar como referencia la imagen para ver como se extraen matrices, las cuales posteriormente se iterarán por cada elemento, fila por fila.
+        - En 2D itera por cada elemento, columna por columna. Equivale a usar `np.nditer(a.T, order='C')`.
+        - En 3D tomar como referencia la imagen para ver como se extraen matrices, las cuales posteriormente se iterarán por cada elemento, columna por columna.
         
 ```{figure} ../images/3D-nditer.png
 :name: 3D-nditer
@@ -850,14 +880,20 @@ También se puede usar `np.ndenumerate()` para que se retorne también el índic
 ```python
 # Iterar sobre el array X
 for i, value in np.ndenumerate(X):
-    expression
+    # for body
 ```
 
 :::{note}
-Para más opciones de iteración consultar las funciones de {ref}`numpy-funcs-iteracion`.
+Para más opciones de iteración consultar {doc}`indices` en la sección de _Iteración_.
 :::
 
-**Directamente**:
+<br/>
+
+**Directamente**
+
+:::{note}
+Al iterar por arrays usando `for loop` por default `numpy` lo hará por filas, es decir `order='C'`.
+:::
 
 Se puede iterar directamente sobre un array en un `for loop`. La manera como se haga la iteración dependerá de la dimensión del array.
 
@@ -909,7 +945,7 @@ Tener en cuenta que las matrices `matrix` a las que se refiere en la iteración 
 :align: center
 ```
 
-<br><br>
+<br>
 
 ---
 ## Ordenar array
@@ -922,10 +958,10 @@ Para ordenar un array usar los siguientes métodos y funciones:
 - `np.partition()`: Retorna una copia de un array en la que los primeros _k_ elementos serás los _k_ elementos más pequeños, y el resto los más grandes. Es posible indicar que se haga la partición en un eje en específico.
 
 :::{note}
-Para más información consultar los métodos {ref}`seleccion-manipulacion` y las funciones de {ref}`numpy-funciones-ordenar`.
+Para más información consultar los métodos {ref}`seleccion-manipulacion` y las funciones {doc}`buscar-contar-ordenar-unicos` en la sección _Ordenar_.
 :::
 
-<br><br>
+<br>
 
 ---
 ## Elementos únicos
@@ -935,15 +971,16 @@ Para determinar los elementos únicos de una array usar:
 - `np.unique()`: Retorna una copia de un array con los elementos únicos ordenados. Se puede retornar el recuento de cada elemento si se indica `return_counts=True`.
 
 :::{note}
-Para más información consultar las funciones en {ref}`numpy-funciones-unicos`..
+Para más información consultar las funciones {doc}`buscar-contar-ordenar-unicos` en la sección _Valores únicos_.
 :::
+
+<br/>
 
 ---
 ## Atributos
 
 A continuación se enlistan los atrbutos de los objetos `np.ndarray`.
 
----
 ### Información
 
 Atributos que retornan información sobre el array. 
@@ -967,7 +1004,6 @@ Atributos que retornan información sobre el array.
 
 <br>
 
----
 ### Otros-atributos
 
 Otros atributos de los objetos `ndarray`. 
@@ -989,13 +1025,11 @@ Otros atributos de los objetos `ndarray`.
 
 <br><br>
 
----
 ## Métodos
 
 A continuación se enlistan los métodos de la clase `np.ndarray`.
 
----
-### Conversión
+### Conversión y salida
 
 Métodos para convertir arrays a otros tipos o para exportar el array a un archivo. 
 

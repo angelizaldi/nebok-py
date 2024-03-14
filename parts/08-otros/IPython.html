@@ -1,0 +1,1042 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>IPython &#8212; Manual de Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'parts/08-otros/IPython';</script>
+    <link rel="icon" href="../../_static/nebok-favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Otros" href="otros-index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/nebok-logo.png" class="logo__image only-light" alt="Manual de Python - Home"/>
+    <script>document.write(`<img src="../../_static/nebok-logo.png" class="logo__image only-dark" alt="Manual de Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Manual de Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Built-in</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01-built-in/built-in-index.html">Python estándar</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/ayuda.html">Obtener ayuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/comentarios.html">Comentarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/tipos-datos.html">Tipos de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/operadores-palabras.html">Operadores y palabras reservadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/entrada-salida.html">Entrada y salida de datos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/tipos-index.html">Tipos Built-In</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/booleanos.html">Valores booleanos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/numeros.html">Números</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/cadenas.html">Cadenas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/listas.html">Listas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/tuples.html">Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/sets.html">Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/diccionarios.html">Diccionarios</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/if-else.html">If … Else</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/for-loop.html">For Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/do-while.html">Do While</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/funciones.html">Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/try-except.html">Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/context.html">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/io.html">Lectura y escritura de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/modulos.html">Paquetes y Módulos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/avanzado-index.html">Temas avanzados</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/decorators.html">Decorators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/iterators.html">Iterators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/generators.html">Generators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/oop.html">Programación orientada a objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/func-built-in.html">Funciones built-in</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-modulos/modulos-index.html">Módulos built-in</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/csv.html">CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/datetime.html">Datetime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/itertools.html">Itertools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/json.html">JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/math.html">Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os.html">os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os-path.html">os.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/pickle.html">Pickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/random.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/regular-expression.html">Regular Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/statistics.html">Statistics</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otras librerías</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-numpy/numpy-index.html">Numpy</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/arrays.html">Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../03-numpy/funciones-index.html">Funciones</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/buscar-contar-ordenar-unicos.html">Buscar, contar, ordenar y valores únicos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/creacion-arrays.html">Creación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/estadisticas.html">Estadísticas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/indices.html">Índices e iteración</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/informacion-logicas.html">Información y lógicas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/lectura-escritura.html">Lectura y escritura de datos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/manipulacion-arrays.html">Manipulación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/matematicas-numericas.html">Matemáticas y numéricas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/operadores.html">Operadores</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/algebra-lineal.html">Módulo linalg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/cadenas.html">Modulo char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/random.html">Módulo random</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otros</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="otros-index.html">Otros</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">IPython</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/parts/08-otros/IPython.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>IPython</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#autocompletar">Autocompletar</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shorcuts">Shorcuts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#obtener-ayuda">Obtener ayuda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#impresion-display">Impresión (display)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#renderizar-latex">Renderizar LaTeX</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#renderizar-html">Renderizar HTML</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-y-out">In y Out</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#utilizar-conda-o-pip-desde-ipython">Utilizar <em>conda</em> o <em>pip</em> desde IPython</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comandos-magicos">Comandos mágicos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comando-history">Comando <em>%history</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging">Debugging</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#timing-y-profiling">Timing y profiling</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib">Matplotlib</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="ipython">
+<h1>IPython<a class="headerlink" href="#ipython" title="Link to this heading">#</a></h1>
+<p>IPython es un ambiente computacional interactivo para Python. En esta sección se explica brevemente algunas funcionalidades de IPython.</p>
+<section id="autocompletar">
+<h2>Autocompletar<a class="headerlink" href="#autocompletar" title="Link to this heading">#</a></h2>
+<p>Al utilizar IPython o JupyterNotebooks se puede autocompletar el código mientras se escribe utilizando la tecla <span style="background-color:LightGray"> tab </span>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pattern&lt;tab&gt;</span></code>: Si se utiliza mientras se está escribiendo un nombre sugirirá nombres de variables, palabras reservadas o funciones disponibles que empiecen por el patrón <code class="docutils literal notranslate"><span class="pre">pattern</span></code> en el ambiente global.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">object.&lt;tab&gt;</span></code>: Al utilizarse con objetos sugirirá atributos y métodos del objeto <code class="docutils literal notranslate"><span class="pre">object</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">module.tab&gt;</span></code>: Al utilizarse con modulos sugerirá clases, funciones y constantes del módulo <code class="docutils literal notranslate"><span class="pre">module</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">funtion(patttern&lt;tab&gt;)</span></code>: Al utilizar dentro de una función y un patrón sugerirá argumentos de <code class="docutils literal notranslate"><span class="pre">function</span></code> que empiecen con <code class="docutils literal notranslate"><span class="pre">pattern</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">library</span> <span class="pre">import</span> <span class="pre">patttern&lt;tab&gt;</span></code>: Al utilizar mientras se importa una librería sugerirá funciones, clases o módulos que empiezan por el patrón <code class="docutils literal notranslate"><span class="pre">pattern</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">&lt;tab&gt;</span></code>: Al utilizar con la palabra reserva <code class="docutils literal notranslate"><span class="pre">import</span></code>, mostrará todas las librerías disponibles para importar.</p></li>
+</ul>
+<br>
+</section>
+<hr class="docutils" />
+<section id="shorcuts">
+<h2>Shorcuts<a class="headerlink" href="#shorcuts" title="Link to this heading">#</a></h2>
+<p>A continución se enlistan algunos shorcuts del teclado al trabajar con IPython.</p>
+<table class="table" id="ipython-shorcuts">
+<thead>
+<tr class="row-odd"><th class="head"><p>Shortcut</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Crtl</span> <span class="pre">+</span> <span class="pre">P</span> <span class="pre">/</span> <span class="pre">flecha-arriba</span></code></p></td>
+<td><p>Busca los comandos anteriores en el historial</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Crtl</span> <span class="pre">+</span> <span class="pre">N</span> <span class="pre">/</span> <span class="pre">flecha-abajo</span></code></p></td>
+<td><p>Busca los comandos posteriores en el historial</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Crtl</span> <span class="pre">+</span> <span class="pre">R</span></code></p></td>
+<td><p>Permite buscar en el historial escribiendo texto</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Crtl</span> <span class="pre">+</span> <span class="pre">C</span></code></p></td>
+<td><p>Interrumpe la ejecución actual</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">A</span></code></p></td>
+<td><p>Mueve el cursor al inicio de la línea</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">E</span></code></p></td>
+<td><p>Mueve el cursos al final de la línea</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">K</span></code></p></td>
+<td><p>Elimina desde donde está el cursor hasta el final de la línea</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">U</span></code></p></td>
+<td><p>Elimina el texto desde el inicio de la línea hasta el cursor</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">L</span></code></p></td>
+<td><p>Limpia la pantalla (no elimina el historial)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">T</span></code></p></td>
+<td><p>Transpone dos caracteres</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">F</span> <span class="pre">/</span> <span class="pre">Flecha-derecha</span></code></p></td>
+<td><p>Mueve el cursor una posición a la derecha</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">B</span> <span class="pre">/</span> <span class="pre">Flecha-Izquierda</span></code></p></td>
+<td><p>Mueve el cursor una posición a la izquierda</p></td>
+</tr>
+</tbody>
+</table>
+<br>
+</section>
+<hr class="docutils" />
+<section id="obtener-ayuda">
+<h2>Obtener ayuda<a class="headerlink" href="#obtener-ayuda" title="Link to this heading">#</a></h2>
+<p>Mientras se programa en IPython se puede obtener ayuda sobre los módulos, funciones y clases son los que se está trabajando</p>
+<p><strong>Obtener ayuda de un objeto</strong>: Si se quiere obtener ayuda de un objeto o sobre una función/método utilizar un signo de integorración <code class="docutils literal notranslate"><span class="pre">?</span></code> al final del nombre del objeto/método/función.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Obtener ayuda sobre la clase list</span>
+list<span class="o">?</span>
+</pre></div>
+</div>
+</div>
+</div>
+<br>
+<p><strong>Recuperar información de una función</strong>: Para recuperar la sintaxis, el docstring, el código, entre otros datos de una función se pueden utilizar dos signos de interrogación <code class="docutils literal notranslate"><span class="pre">??</span></code> al final del nombre de la función:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Recuperar información de una función</span>
+print<span class="o">??</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Buscar funciones, clases, métodos constantes</strong>: Se puede utiliza un signo de interrogación <code class="docutils literal notranslate"><span class="pre">?</span></code> y <em>wildcards</em> para enlistar todos los objetos que cumplan determinado patrón, para ello se utiliza el <em>wildcard</em> <code class="docutils literal notranslate"><span class="pre">*</span></code> que representa cualquier caracter una o más veces:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Enlistar todas las funciones que llevan `mean` en numpy</span>
+np.*mean*<span class="o">?</span>
+</pre></div>
+</div>
+</div>
+</div>
+<br>
+</section>
+<hr class="docutils" />
+<section id="impresion-display">
+<h2>Impresión (display)<a class="headerlink" href="#impresion-display" title="Link to this heading">#</a></h2>
+<p>IPython cuenta con la función <code class="docutils literal notranslate"><span class="pre">display()</span></code> que permite imprimir objetos con un mejor formato de lo que lo haría <code class="docutils literal notranslate"><span class="pre">print()</span></code>, así como también permite renderizar fórmulas de <em>LaTeX</em> y elementos HTML.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Por default en IPython utiliza display para imprimir objetos por lo que no es necesario usarlo explícitamente.</p>
+</div>
+<p>Algunos objetos que tienen un mejor formato al ser imprimidos por <code class="docutils literal notranslate"><span class="pre">display()</span></code> son los <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> de <code class="docutils literal notranslate"><span class="pre">pandas</span></code> y las gráficas de <code class="docutils literal notranslate"><span class="pre">Matplotlib.pyplot</span></code>:</p>
+<p><strong>Ejemplo</strong>: A continuación veremos la diferencia entre <code class="docutils literal notranslate"><span class="pre">print()</span></code> y <code class="docutils literal notranslate"><span class="pre">display()</span></code> al imprimir un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>. Primero crearemos el <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># importar libreria</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Crear objeto</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;col1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;col2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">]})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora imprimiremos el objeto con <code class="docutils literal notranslate"><span class="pre">print()</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imprimir df</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   col1 col2
+0     1    a
+1     2    b
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora imprimiremos el objeto con <code class="docutils literal notranslate"><span class="pre">display()</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imprimir df</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>col1</th>
+      <th>col2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>a</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>b</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<br>
+<section id="renderizar-latex">
+<h3>Renderizar LaTeX<a class="headerlink" href="#renderizar-latex" title="Link to this heading">#</a></h3>
+<p>Para poder imprimir fórmulas de LaTeX es necesario importar de <code class="docutils literal notranslate"><span class="pre">IPython.display</span></code> la función <code class="docutils literal notranslate"><span class="pre">Math</span></code> y utilizar esta función dentro de <code class="docutils literal notranslate"><span class="pre">display()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Renderizar fórmulas de LaTeX</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Math</span>
+
+<span class="c1"># fomurla de LaTeX</span>
+<span class="n">latex_formula</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;\frac</span><span class="si">{1}{2}</span><span class="s1"> \cdot \sqrt{3x-1} + \left( y^2 + 1 \right)&#39;</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="n">latex_formula</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{1}{2} \cdot \sqrt{3x-1} + \left( y^2 + 1 \right)\]</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Notar que la cadena que contenga la fórmula de LaTeX debe de ser una cadena cruda (<em>raw string</em>).</p></li>
+</ul>
+<br>
+</section>
+<section id="renderizar-html">
+<h3>Renderizar HTML<a class="headerlink" href="#renderizar-html" title="Link to this heading">#</a></h3>
+<p>Para poder imprimir contenido de HTML es necesario importar de <code class="docutils literal notranslate"><span class="pre">IPython.display</span></code> la función <code class="docutils literal notranslate"><span class="pre">HTML</span></code> y utilizar esta función dentro de <code class="docutils literal notranslate"><span class="pre">display()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Renderizar elementos HTML</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+
+<span class="c1"># Contenido HTML</span>
+<span class="n">html_content</span> <span class="o">=</span> <span class="s2">&quot;&lt;h1&gt;Hello, IPython!&lt;/h1&gt;&quot;</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">html_content</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><h1>Hello, IPython!</h1></div></div>
+</div>
+<br>
+</section>
+</section>
+<section id="in-y-out">
+<h2>In y Out<a class="headerlink" href="#in-y-out" title="Link to this heading">#</a></h2>
+<p>Al trabajar con IPython cada sentencia escrita en la consola y cada resultado de almacenan en los objetos <code class="docutils literal notranslate"><span class="pre">In</span></code> del tipo <code class="docutils literal notranslate"><span class="pre">list</span></code> y <code class="docutils literal notranslate"><span class="pre">Out</span></code> del tipo <code class="docutils literal notranslate"><span class="pre">dict</span></code>. Como se muestra en la siguiente imagen:</p>
+<img alt="../../_images/In-Out.png" class="align-center" id="ipython-in-and-out" src="../../_images/In-Out.png" />
+<p>Tener en cuenta las siguientes características:</p>
+<ul class="simple">
+<li><p><strong>In</strong>: En <code class="docutils literal notranslate"><span class="pre">In</span></code> se almacena las sentencias utilizadas en IPython como <code class="docutils literal notranslate"><span class="pre">str</span></code>. Para acceder a una sentencia basta con utilizar el índice de <em>In</em>.</p></li>
+</ul>
+<img alt="../../_images/In.png" class="align-center" id="ipython-in" src="../../_images/In.png" />
+<ul class="simple">
+<li><p><strong>Out</strong>: En <code class="docutils literal notranslate"><span class="pre">Out</span></code> se almacena los resultados de los <code class="docutils literal notranslate"><span class="pre">In</span></code> (en caso de que haya). Es un diccionario cuyas llaves son el índice del <em>Out</em> y cuyos valores son el resultado del <em>Out</em>. Se puede utilizar este objeto para manipular los resultados posteriormente.</p></li>
+</ul>
+<img alt="../../_images/Out.png" class="align-center" id="ipython-out" src="../../_images/Out.png" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Se puede acceder a los últimos tres resultados de <code class="docutils literal notranslate"><span class="pre">Out</span></code> con guiones bajos:</p>
+<ul class="simple">
+<li><p>‘_’: Último valor en <code class="docutils literal notranslate"><span class="pre">Out</span></code>.</p></li>
+<li><p>‘__’: Penúltimo valor en <code class="docutils literal notranslate"><span class="pre">Out</span></code>.</p></li>
+<li><p>‘___’: Antepenúltimo valor en <code class="docutils literal notranslate"><span class="pre">Out</span></code>.</p></li>
+</ul>
+<p>Alternativamente se puede indicar un <em>Out</em> especíco con un guión bajo y el índice del <em>Out</em>: <br> <code class="docutils literal notranslate"><span class="pre">_Ind</span></code></p>
+</div>
+</section>
+<section id="utilizar-conda-o-pip-desde-ipython">
+<h2>Utilizar <em>conda</em> o <em>pip</em> desde IPython<a class="headerlink" href="#utilizar-conda-o-pip-desde-ipython" title="Link to this heading">#</a></h2>
+<p>Para poder utilizar <em>conda</em> o <em>pip</em> desde IPython es recomendado primero importar la librería <code class="docutils literal notranslate"><span class="pre">sys</span></code> y cada comando debe ir precedido por un ‘!’:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar sys</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="c1"># Mostrar información de pandas </span>
+<span class="o">!</span>pip<span class="w"> </span>show<span class="w"> </span>pandas
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Name: pandas
+Version: 2.2.0
+Summary: Powerful data structures for data analysis, time series, and statistics
+Home-page: https://pandas.pydata.org
+Author: 
+Author-email: The Pandas Development Team &lt;pandas-dev@python.org&gt;
+License: BSD 3-Clause License
+
+Copyright (c) 2008-2011, AQR Capital Management, LLC, Lambda Foundry, Inc. and PyData Development Team
+All rights reserved.
+
+Copyright (c) 2011-2023, Open source contributors.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this
+  list of conditions and the following disclaimer.
+
+* Redistributions in binary form must reproduce the above copyright notice,
+  this list of conditions and the following disclaimer in the documentation
+  and/or other materials provided with the distribution.
+
+* Neither the name of the copyright holder nor the names of its
+  contributors may be used to endorse or promote products derived from
+  this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot;
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+Location: /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages
+Requires: numpy, python-dateutil, pytz, tzdata
+Required-by: bokeh, statsmodels
+</pre></div>
+</div>
+</div>
+</div>
+<br>
+</section>
+<section id="comandos-magicos">
+<h2>Comandos mágicos<a class="headerlink" href="#comandos-magicos" title="Link to this heading">#</a></h2>
+<p>Los comandos mágicos, son comandos especiales precedidos por <em>%</em> que permiten realizar diversas acciones, a continuación se enlistan algunos comandos y su descripción.</p>
+<table class="table" id="ipython-comandos-magicos">
+<thead>
+<tr class="row-odd"><th class="head"><p>Comando</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%run</span> <span class="pre">script.py</span></code></p></td>
+<td><p>Ejecuta un script directamente en el shell de IPython. El archivo debe de estar en el directorio actual</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%reset</span></code></p></td>
+<td><p>Elimina todas las variables/nombres definidas en el <em>namespace</em> interactivo. Más información abajo</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%time</span> <span class="pre">statement</span></code></p></td>
+<td><p>Reporta el tiempo de ejecución de una sentencia</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%%timeit</span> <span class="pre">statement</span></code></p></td>
+<td><p>Reporta el tiempo promedio de ejecución de un un bloque (celda), a través de un ciclo. Más información abajo</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%who</span></code></p></td>
+<td><p>Retorna las variables definidas en la sesión</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%who_ls</span></code></p></td>
+<td><p>Retorna un objeto <code class="docutils literal notranslate"><span class="pre">list</span></code> de las variables definidas en la sesión</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%whos</span></code></p></td>
+<td><p>Retorna información de las variables definidas en la sesión, como el nombre, tipo de dato, tamaño o valor, entre otros</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%page</span> <span class="pre">OBJECT</span></code></p></td>
+<td><p>Imprime un objeto de una manera más ordenada y limpia</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%xdel</span> <span class="pre">variable</span></code></p></td>
+<td><p>Elimina una variable de la sesión actual</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%pwd</span></code></p></td>
+<td><p>Retorna el directorio actual. Se puede asignar a una variable</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%ls</span></code></p></td>
+<td><p>Retorna nombre y extensión de los archivos en el directorio actual</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%lsmagic</span></code></p></td>
+<td><p>Retorna el nombre de todos los comandos mágicos</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%magic</span></code></p></td>
+<td><p>Retorna ayuda sobre los comandos mágicos de IPython</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%command?</span></code></p></td>
+<td><p>Retorna ayuda del comando mágico <em>command</em> (sustitur <em>command</em> por el nombre comando)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%load</span> <span class="pre">script.py</span></code></p></td>
+<td><p>(Solo Jupyter Notebooks) Importa un script a un <em>cell</em> de un notebook</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%paste</span></code></p></td>
+<td><p>Pega código del portapales al shell, respetando la identación y ejecuta el código al pegarlo</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%xmode</span> <span class="pre">mode</span></code></p></td>
+<td><p>Controla cómo mostrar los errores cuando ocurre uno. Se debe de indicar <em>mode</em>, del más simple al más informativo: Plain, Context (default) y Verbose</p></td>
+</tr>
+</tbody>
+</table>
+<section id="comando-history">
+<h3>Comando <em>%history</em><a class="headerlink" href="#comando-history" title="Link to this heading">#</a></h3>
+<p>Permite imprimir <em>n</em> cantidad de elementos de los objetos <em>In</em> y <em>Out</em>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>%history<span class="w"> </span><span class="o">[</span>-n<span class="o">]</span><span class="w"> </span><span class="o">[</span>-o<span class="o">]</span><span class="w"> </span><span class="o">[</span>range<span class="w"> </span><span class="o">[</span>range<span class="w"> </span>...<span class="o">]]</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>-n: Para indicar que se impriman los <em>In</em>.</p></li>
+<li><p>-o: Para indicar que se impriman los <em>Out</em>.</p></li>
+<li><p>range: Indica cuál línea o cuál rango de líneas imprimir, si es un rango se debe definir como <code class="docutils literal notranslate"><span class="pre">n-m</span></code>.</p></li>
+</ul>
+<p>Ejemplos:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fila 4 de In</span>
+%history<span class="w"> </span>-n<span class="w"> </span><span class="m">4</span>
+
+<span class="c1"># Fila 4 a 6 de In</span>
+%history<span class="w"> </span>-n<span class="w"> </span><span class="m">4</span>-6
+
+<span class="c1"># Fila 4 a 6 de In y Out</span>
+%history<span class="w"> </span>-n<span class="w"> </span>-o<span class="w"> </span><span class="m">4</span>-
+</pre></div>
+</div>
+</section>
+<section id="debugging">
+<h3>Debugging<a class="headerlink" href="#debugging" title="Link to this heading">#</a></h3>
+<p>Permite hacer <em>debugging</em> del código al ocurrir un error o una excepción. Al ejecutar el comando se iniciará una sesión <code class="docutils literal notranslate"><span class="pre">ipdb</span></code> (se puede identificar por que al inicio de cada línea aparece <code class="docutils literal notranslate"><span class="pre">ipdb&gt;</span></code>) que permitirá de manera interactiva analizar el código para encontrar el error.</p>
+<p>Para salir de la sesión utilizar el comando <code class="docutils literal notranslate"><span class="pre">quit</span></code>.</p>
+</section>
+<section id="timing-y-profiling">
+<h3>Timing y profiling<a class="headerlink" href="#timing-y-profiling" title="Link to this heading">#</a></h3>
+<p>Se refiere al proceo de identificar el tiempo de ejecución de una línea o un bloque de línea, así la memoria utilizada por una línea o un bloque de líneas. Existen diversos comandos mágicos que pueden ayudar a realizar dichas tareas:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">%time</span></code>: Tiempo de la ejecución de una sola sentencia. Ideal para comandos que duran más tiempo en ejecurse y que realizar la operación de manera iterativa no sesgue los resultados, como con ordenar.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">%timeit</span></code>: Tiempo de ejecución de una sola línea de manera iterativa.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">%%timeit</span></code>: Tiempo de ejecución de un bloque de código, por ejemplo, una celda de un <em>Jupyter Notebook</em>. Debe ser la primer sentencia en la celda.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">%pru</span></code>n: Ejecuta código con el profiler.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">%lprun</span></code>: Ejcuta línea por línea con el profiler.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">%mprun</span></code>: Ejecuta código con el profiler de memoria línea por línea.</p></li>
+</ul>
+<p>Uso de <code class="docutils literal notranslate"><span class="pre">%timeit</span></code> y <code class="docutils literal notranslate"><span class="pre">%%timeit</span></code>:
+Ambos se utilizan para calcular el tiempo de ejecución de una línea (<code class="docutils literal notranslate"><span class="pre">%timeit</span></code>) o de un bloque de líneas (<code class="docutils literal notranslate"><span class="pre">%%timeit</span></code>), la manera como lo cálcula es que ejecuta la misma línea o bloque de línea en varias ejecuciones y en cada ejecución corre el código de manera iterativa para estimar los tiempos de ejecución.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>%timeit<span class="w"> </span><span class="o">[</span>-n&lt;N&gt;<span class="w"> </span>-r&lt;R&gt;<span class="w"> </span><span class="o">[</span>-t<span class="p">|</span>-c<span class="o">]</span><span class="w"> </span>-q<span class="w"> </span>-p&lt;P&gt;<span class="w"> </span>-o<span class="o">]</span><span class="w"> </span>statement
+
+%%timeit<span class="w"> </span><span class="o">[</span>-n&lt;N&gt;<span class="w"> </span>-r&lt;R&gt;<span class="w"> </span><span class="o">[</span>-t<span class="p">|</span>-c<span class="o">]</span><span class="w"> </span>-q<span class="w"> </span>-p&lt;P&gt;<span class="w"> </span>-o<span class="o">]</span><span class="w"> </span>setup_code
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>-n&lt;N&gt;: Especifica el número de iteraciones (cúantas veces será ejecutado el código en cada ejecución).</p></li>
+<li><p>-r&lt;R&gt;: Especifica el número de ejecuciones/runs.</p></li>
+<li><p>-o: Para indicar que se retorne un objeto <code class="docutils literal notranslate"><span class="pre">TimeitResult</span></code>, el cual se puede almacenar en una variable.</p></li>
+</ul>
+<p>Para almacenar los resultados en un <code class="docutils literal notranslate"><span class="pre">TimeitResult</span></code> se puede hacer de la siguiente manera:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">list_comp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>%timeit<span class="w"> </span>-o<span class="w"> </span><span class="o">[</span>i**2<span class="w"> </span><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span>range<span class="o">(</span><span class="m">1000</span><span class="o">)]</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Posteriormente se puede acceder a las propiedades de <code class="docutils literal notranslate"><span class="pre">TimeitResult</span></code>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">TimeitResult.timings</span></code> - <code class="docutils literal notranslate"><span class="pre">list</span></code>: Lista de los tiempos de cada ejecución (run).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TimeitResult.best</span></code> - <code class="docutils literal notranslate"><span class="pre">float</span></code>: Mejor tiempo.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TimeitResult.worst</span></code> - <code class="docutils literal notranslate"><span class="pre">float</span></code>: Peor tiempo.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="matplotlib">
+<h2>Matplotlib<a class="headerlink" href="#matplotlib" title="Link to this heading">#</a></h2>
+<p>Al utilizar la librería <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> en IPython no es necesario usar <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code>. Sin embargo existen unos comandos mágicos que mejoran la experiencia:</p>
+<table class="table" id="ipython-matplotlib">
+<thead>
+<tr class="row-odd"><th class="head"><p>Comando</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%matplotlib</span></code></p></td>
+<td><p>Establece la integración de <code class="docutils literal notranslate"><span class="pre">matplotli</span></code> con IPython, de manera que se puedan crear múltiples ventanas de gráficas sin interferir con la sesión de la consola</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">inline</span></code></p></td>
+<td><p>(Solo <em>Jupyter Notebook</em>) Para establecer que las gráficas se muestren como una imagen estática dentro de los notebook</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">notebook</span></code></p></td>
+<td><p>(Solo <em>Jupyter Notebook</em>) Para establecer que las gráficas se muestren como una imagen interactiva dentro del notebook, que nos permite hacer zoom, desplazarse por la gráfica, entre otras opciones. Para convertir la imagen interactiva en una estática, presiona en botón azul de la esquina superior derecha</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./parts/08-otros"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="otros-index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Otros</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#autocompletar">Autocompletar</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shorcuts">Shorcuts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#obtener-ayuda">Obtener ayuda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#impresion-display">Impresión (display)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#renderizar-latex">Renderizar LaTeX</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#renderizar-html">Renderizar HTML</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-y-out">In y Out</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#utilizar-conda-o-pip-desde-ipython">Utilizar <em>conda</em> o <em>pip</em> desde IPython</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comandos-magicos">Comandos mágicos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comando-history">Comando <em>%history</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging">Debugging</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#timing-y-profiling">Timing y profiling</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib">Matplotlib</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nebok
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

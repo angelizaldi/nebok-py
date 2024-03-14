@@ -69,6 +69,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="icon" href="../../_static/nebok-favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Creación de arrays" href="creacion-arrays.html" />
+    <link rel="prev" title="Funciones" href="funciones-index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -129,8 +131,6 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -226,7 +226,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02-modulos/modulos-index.html">Módulos built-in</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/collections.html">Collections</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02-modulos/csv.html">csv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/csv.html">CSV</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/datetime.html">Datetime</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/itertools.html">Itertools</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/json.html">JSON</a></li>
@@ -237,6 +237,35 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/random.html">Random</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/regular-expression.html">Regular Expressions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/statistics.html">Statistics</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otras librerías</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="numpy-index.html">Numpy</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="arrays.html">Arrays</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="funciones-index.html">Funciones</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Buscar, contar, ordenar y valores únicos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creacion-arrays.html">Creación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="estadisticas.html">Estadísticas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="indices.html">Índices e iteración</a></li>
+<li class="toctree-l3"><a class="reference internal" href="informacion-logicas.html">Información y lógicas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lectura-escritura.html">Lectura y escritura de datos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manipulacion-arrays.html">Manipulación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="matematicas-numericas.html">Matemáticas y numéricas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="operadores.html">Operadores</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="algebra-lineal.html">Módulo linalg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cadenas.html">Modulo char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="random.html">Módulo random</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otros</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-otros/otros-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08-otros/IPython.html">IPython</a></li>
 </ul>
 </li>
 </ul>
@@ -448,7 +477,6 @@ document.write(`
 </table>
 <br>
 </section>
-<hr class="docutils" />
 <section id="contar">
 <h2>Contar<a class="headerlink" href="#contar" title="Link to this heading">#</a></h2>
 <p>Funciones para contar valores en arrays.</p>
@@ -465,10 +493,9 @@ document.write(`
 </tbody>
 </table>
 <br>
-<hr class="docutils" />
 </section>
 <section id="ordenar">
-<span id="numpy-funciones-ordenar"></span><h2>Ordenar<a class="headerlink" href="#ordenar" title="Link to this heading">#</a></h2>
+<h2>Ordenar<a class="headerlink" href="#ordenar" title="Link to this heading">#</a></h2>
 <p>Funciones para ordenar valores en arrays.</p>
 <table class="table">
 <thead>
@@ -492,10 +519,9 @@ document.write(`
 </tbody>
 </table>
 <br>
-<hr class="docutils" />
 </section>
 <section id="valores-unicos">
-<span id="numpy-funciones-unicos"></span><h2>Valores únicos<a class="headerlink" href="#valores-unicos" title="Link to this heading">#</a></h2>
+<h2>Valores únicos<a class="headerlink" href="#valores-unicos" title="Link to this heading">#</a></h2>
 <p>Funciones para encontrar los valores únicos en arrays.</p>
 <table class="table">
 <thead>
@@ -543,6 +569,24 @@ document.write(`
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="funciones-index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Funciones</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="creacion-arrays.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Creación de arrays</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               

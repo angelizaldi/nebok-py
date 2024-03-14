@@ -69,6 +69,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="icon" href="../../_static/nebok-favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Operadores" href="operadores.html" />
+    <link rel="prev" title="Manipulación de arrays" href="manipulacion-arrays.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -129,8 +131,6 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -226,7 +226,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02-modulos/modulos-index.html">Módulos built-in</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/collections.html">Collections</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02-modulos/csv.html">csv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/csv.html">CSV</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/datetime.html">Datetime</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/itertools.html">Itertools</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/json.html">JSON</a></li>
@@ -237,6 +237,35 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/random.html">Random</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/regular-expression.html">Regular Expressions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/statistics.html">Statistics</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otras librerías</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="numpy-index.html">Numpy</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="arrays.html">Arrays</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="funciones-index.html">Funciones</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="buscar-contar-ordenar-unicos.html">Buscar, contar, ordenar y valores únicos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creacion-arrays.html">Creación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="estadisticas.html">Estadísticas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="indices.html">Índices e iteración</a></li>
+<li class="toctree-l3"><a class="reference internal" href="informacion-logicas.html">Información y lógicas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lectura-escritura.html">Lectura y escritura de datos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manipulacion-arrays.html">Manipulación de arrays</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Matemáticas y numéricas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="operadores.html">Operadores</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="algebra-lineal.html">Módulo linalg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cadenas.html">Modulo char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="random.html">Módulo random</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otros</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-otros/otros-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08-otros/IPython.html">IPython</a></li>
 </ul>
 </li>
 </ul>
@@ -428,22 +457,22 @@ document.write(`
 </thead>
 <tbody>
 <tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.add.html">add</a>(x1, x2, /[, out, where, casting, order, …])</p></td>
-<td><p>Suma <code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>, por elementos.</p></td>
+<td><p>Suma <code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">+</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.divide.html">divide</a>(x1, x2, /[, out, where, casting, …])</p></td>
-<td><p>Divide <code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>, por elementos.</p></td>
+<td><p>Divide <code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">/</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.divmod.html">divmod</a>(x1, x2[, out1, out2], / [[, out, …])</p></td>
 <td><p>Devuelve el cociente y el residuo de la división de <code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>, simultáneamente.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.float_power.html">float_power</a>(x1, x2, /[, out, where, …])</p></td>
-<td><p>Calcula <code class="docutils literal notranslate"><span class="pre">x1**x2</span></code>, por elementos.</p></td>
+<td><p>Eleva los elementos de <code class="docutils literal notranslate"><span class="pre">x1</span></code> a los elementos de <code class="docutils literal notranslate"><span class="pre">x2</span></code>. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">**</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.floor_divide.html">floor_divide</a>(x1, x2, /[, out, where, …])</p></td>
-<td><p>División entera de <code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>, por elementos.</p></td>
+<td><p>División entera de <code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">//</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.fmod.html">fmod</a>(x1, x2, /[, out, where, casting, …])</p></td>
-<td><p>Módulo de <code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>, por elementos.</p></td>
+<td><p>Módulo de <code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">%</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.mod.html">mod</a>(x1, x2, /[, out, where, casting, order, …])</p></td>
 <td><p>Módulo de <code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>, por elementos.</p></td>
@@ -452,7 +481,7 @@ document.write(`
 <td><p>Devuelve las partes fraccionaria y entera de un arreglo, por elementos.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.multiply.html">multiply</a>(x1, x2, /[, out, where, casting, …])</p></td>
-<td><p>Multiplica <code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>, por elementos.</p></td>
+<td><p>Multiplica <code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">*</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.negative.html">negative</a>(x, /[, out, where, casting, order, …])</p></td>
 <td><p>Negativo numérico, por elementos.</p></td>
@@ -461,16 +490,16 @@ document.write(`
 <td><p>Positivo numérico, por elementos.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.power.html">power</a>(x1, x2, /[, out, where, casting, …])</p></td>
-<td><p>Calcula <code class="docutils literal notranslate"><span class="pre">x1**x2</span></code>, por elementos.</p></td>
+<td><p>Eleva los elementos de <code class="docutils literal notranslate"><span class="pre">x1</span></code> a los elementos de <code class="docutils literal notranslate"><span class="pre">x2</span></code>. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">**</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.reciprocal.html">reciprocal</a>(x, /[, out, where, casting, …])</p></td>
 <td><p>Devuelve el recíproco de <code class="docutils literal notranslate"><span class="pre">x</span></code>, por elementos.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.remainder.html">remainder</a>(x1, x2, /[, out, where, casting, …])</p></td>
-<td><p>Módulo de <code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>, por elementos.</p></td>
+<td><p>Módulo de <code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">%</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.subtract.html">subtract</a>(x1, x2, /[, out, where, casting, …])</p></td>
-<td><p>Resta <code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>, por elementos.</p></td>
+<td><p>Resta <code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">-</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.true_divide.html">true_divide</a>(x1, x2, /[, out, where, …])</p></td>
 <td><p>Divide <code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>, por elementos.</p></td>
@@ -479,7 +508,6 @@ document.write(`
 </table>
 <br>
 </section>
-<hr class="docutils" />
 <section id="derivadas-e-integrales">
 <h2>Derivadas e integrales<a class="headerlink" href="#derivadas-e-integrales" title="Link to this heading">#</a></h2>
 <p>Funciones para calcular derivadas (gradientes) e integrales.</p>
@@ -500,7 +528,6 @@ document.write(`
 </table>
 <br>
 </section>
-<hr class="docutils" />
 <section id="enteros">
 <h2>Enteros<a class="headerlink" href="#enteros" title="Link to this heading">#</a></h2>
 <p>Funciones para calcular el máximo común divisor y el mínimo común múltiplo de dos números enteros.</p>
@@ -521,7 +548,6 @@ document.write(`
 </table>
 <br>
 </section>
-<hr class="docutils" />
 <section id="exponentes-y-logaritmos">
 <h2>Exponentes y logaritmos<a class="headerlink" href="#exponentes-y-logaritmos" title="Link to this heading">#</a></h2>
 <p>Funciones relacionadas con exponentes y logaritmos para cálculos vectorizados.</p>
@@ -563,7 +589,6 @@ document.write(`
 </table>
 <br>
 </section>
-<hr class="docutils" />
 <section id="hiperbolicas">
 <h2>Hiperbólicas<a class="headerlink" href="#hiperbolicas" title="Link to this heading">#</a></h2>
 <p>Funciones relacionadas con funciones hiperbólicas para cálculos vectorizados.</p>
@@ -596,7 +621,6 @@ document.write(`
 </table>
 <br>
 </section>
-<hr class="docutils" />
 <section id="miscelaneos">
 <h2>Misceláneos<a class="headerlink" href="#miscelaneos" title="Link to this heading">#</a></h2>
 <p>Funciones matemáticas generales como raíces cuadradas y cúbicas, valores absolutos, entre otras.</p>
@@ -613,35 +637,31 @@ document.write(`
 <tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.cbrt.html">cbrt</a>(x, /[, out, where, casting, order, …])</p></td>
 <td><p>Devuelve la raíz cúbica de un arreglo, por elementos.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html">clip</a>(a, a_min, a_max[, out])</p></td>
-<td><p>Limita los valores en un arreglo a <code class="docutils literal notranslate"><span class="pre">a_min</span></code> y <code class="docutils literal notranslate"><span class="pre">a_max</span></code>.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.convolve.html">convolve</a>(a, v[, mode])</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.convolve.html">convolve</a>(a, v[, mode])</p></td>
 <td><p>Devuelve la convolución lineal discreta de dos secuencias unidimensionales.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.fabs.html">fabs</a>(x, /[, out, where, casting, order, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.fabs.html">fabs</a>(x, /[, out, where, casting, order, …])</p></td>
 <td><p>Calcula los valores absolutos, por elementos.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.interp.html">interp</a>(x, xp, fp[, left, right, period])</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.interp.html">interp</a>(x, xp, fp[, left, right, period])</p></td>
 <td><p>Interpolación lineal unidimensional para puntos de muestra que aumentan monótonamente.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.nan_to_num.html">nan_to_num</a>(x[, copy, nan, posinf, neginf])</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.nan_to_num.html">nan_to_num</a>(x[, copy, nan, posinf, neginf])</p></td>
 <td><p>Reemplaza <code class="docutils literal notranslate"><span class="pre">NaN</span></code> con cero e <code class="docutils literal notranslate"><span class="pre">inf</span></code> con números finitos grandes (default) o con los números definidos por el usuario usando <code class="docutils literal notranslate"><span class="pre">nan</span></code>, <code class="docutils literal notranslate"><span class="pre">posinf</span></code> y/o <code class="docutils literal notranslate"><span class="pre">neginf</span></code>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.sign.html">sign</a>(x, /[, out, where, casting, order, …])</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.sign.html">sign</a>(x, /[, out, where, casting, order, …])</p></td>
 <td><p>Devuelve una indicación por elementos del signo de un número.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.sqrt.html">sqrt</a>(x, /[, out, where, casting, order, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.sqrt.html">sqrt</a>(x, /[, out, where, casting, order, …])</p></td>
 <td><p>Devuelve la raíz cuadrada no negativa de un arreglo, por elementos.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.square.html">square</a>(x, /[, out, where, casting, order, …])</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.square.html">square</a>(x, /[, out, where, casting, order, …])</p></td>
 <td><p>Devuelve el cuadrado de los elementos de la entrada.</p></td>
 </tr>
 </tbody>
 </table>
 <br>
 </section>
-<hr class="docutils" />
 <section id="numeros-complejos">
 <h2>Números complejos<a class="headerlink" href="#numeros-complejos" title="Link to this heading">#</a></h2>
 <p>Funciones relacionadas con números complejos para cálculos vectorizados.</p>
@@ -671,7 +691,6 @@ document.write(`
 </table>
 <br>
 </section>
-<hr class="docutils" />
 <section id="redondeo-y-truncamiento">
 <h2>Redondeo y truncamiento<a class="headerlink" href="#redondeo-y-truncamiento" title="Link to this heading">#</a></h2>
 <p>Funciones relacionadas con redondear y truncar arrays numéricos.</p>
@@ -688,23 +707,25 @@ document.write(`
 <tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ceil.html">ceil</a>(x, /[, out, where, casting, order, …])</p></td>
 <td><p>Devuelve el techo de la entrada, por elementos.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.fix.html">fix</a>(x[, out])</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html">clip</a>(a, a_min, a_max[, out])</p></td>
+<td><p>Limita los valores en un arreglo a <code class="docutils literal notranslate"><span class="pre">a_min</span></code> y <code class="docutils literal notranslate"><span class="pre">a_max</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.fix.html">fix</a>(x[, out])</p></td>
 <td><p>Redondea al entero más cercano hacia cero.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.floor.html">floor</a>(x, /[, out, where, casting, order, …])</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.floor.html">floor</a>(x, /[, out, where, casting, order, …])</p></td>
 <td><p>Devuelve el piso de la entrada, por elementos.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.rint.html">rint</a>(x, /[, out, where, casting, order, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.rint.html">rint</a>(x, /[, out, where, casting, order, …])</p></td>
 <td><p>Redondea los elementos de la arreglo al entero más cercano.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.trunc.html">trunc</a>(x, /[, out, where, casting, order, …])</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.trunc.html">trunc</a>(x, /[, out, where, casting, order, …])</p></td>
 <td><p>Devuelve el valor truncado de la entrada, por elementos.</p></td>
 </tr>
 </tbody>
 </table>
 <br>
 </section>
-<hr class="docutils" />
 <section id="sumas-productos-diferencias-y-calculos-acumulados">
 <h2>Sumas, productos, diferencias y cálculos acumulados<a class="headerlink" href="#sumas-productos-diferencias-y-calculos-acumulados" title="Link to this heading">#</a></h2>
 <p>Funciones para realizar sumas, productos y diferencias en arrays numéricos, así como cálculos acumulados.</p>
@@ -715,44 +736,40 @@ document.write(`
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.cross.html">cross</a>(a, b[, axisa, axisb, axisc, axis])</p></td>
-<td><p>Devuelve el producto cruz de dos vectores.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.cumprod.html">cumprod</a>(a[, axis, dtype, out])</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.cumprod.html">cumprod</a>(a[, axis, dtype, out])</p></td>
 <td><p>Devuelve el producto acumulativo de elementos a lo largo de un eje dado.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.cumsum.html">cumsum</a>(a[, axis, dtype, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.cumsum.html">cumsum</a>(a[, axis, dtype, out])</p></td>
 <td><p>Devuelve la suma acumulada de los elementos a lo largo de un eje dado.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.diff.html">diff</a>(a[, n, axis, prepend, append])</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.diff.html">diff</a>(a[, n, axis, prepend, append])</p></td>
 <td><p>Calcula la n-ésima diferencia discreta a lo largo del eje dado.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ediff1d.html">ediff1d</a>(ary[, to_end, to_begin])</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ediff1d.html">ediff1d</a>(ary[, to_end, to_begin])</p></td>
 <td><p>Calcula las diferencias entre elementos consecutivos de un arreglo.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.nancumprod.html">nancumprod</a>(a[, axis, dtype, out])</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.nancumprod.html">nancumprod</a>(a[, axis, dtype, out])</p></td>
 <td><p>Devuelve el producto acumulativo de los elementos de la arreglo sobre un eje determinado tratando <code class="docutils literal notranslate"><span class="pre">NaN</span></code> como uno.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.nancumsum.html">nancumsum</a>(a[, axis, dtype, out])</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.nancumsum.html">nancumsum</a>(a[, axis, dtype, out])</p></td>
 <td><p>Devuelve la suma acumulativa de los elementos de la arreglo sobre un eje determinado tratando <code class="docutils literal notranslate"><span class="pre">NaN</span></code> como cero.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.nanprod.html">nanprod</a>(a[, axis, dtype, out, keepdims, …])</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.nanprod.html">nanprod</a>(a[, axis, dtype, out, keepdims, …])</p></td>
 <td><p>Devuelve el producto de los elementos de la arreglo sobre un eje determinado tratando <code class="docutils literal notranslate"><span class="pre">NaN</span></code> como uno.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.nansum.html">nansum</a>(a[, axis, dtype, out, keepdims, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.nansum.html">nansum</a>(a[, axis, dtype, out, keepdims, …])</p></td>
 <td><p>Devuelve la suma de los elementos de la arreglo sobre un eje determinado tratando <code class="docutils literal notranslate"><span class="pre">NaN</span></code> como cero.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.prod.html">prod</a>(a[, axis, dtype, out, keepdims, …])</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.prod.html">prod</a>(a[, axis, dtype, out, keepdims, …])</p></td>
 <td><p>Devuelve el producto de los elementos de la arreglo sobre un eje dado.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.sum.html">sum</a>(a[, axis, dtype, out, keepdims, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.sum.html">sum</a>(a[, axis, dtype, out, keepdims, …])</p></td>
 <td><p>Suma de elementos del arreglo sobre un eje dado.</p></td>
 </tr>
 </tbody>
 </table>
 <br>
 </section>
-<hr class="docutils" />
 <section id="trigonometricas">
 <h2>Trigonométricas<a class="headerlink" href="#trigonometricas" title="Link to this heading">#</a></h2>
 <p>Funciones relacionadas con funciones trigonométricas para cálculos vectorizados.</p>
@@ -803,7 +820,6 @@ document.write(`
 </table>
 <br>
 </section>
-<hr class="docutils" />
 <section id="valores-extremos">
 <h2>Valores extremos<a class="headerlink" href="#valores-extremos" title="Link to this heading">#</a></h2>
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -874,6 +890,24 @@ document.write(`
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="manipulacion-arrays.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Manipulación de arrays</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="operadores.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Operadores</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               

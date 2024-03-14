@@ -71,6 +71,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="icon" href="../../_static/nebok-favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Funciones" href="funciones-index.html" />
+    <link rel="prev" title="Numpy" href="numpy-index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -131,8 +133,6 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -228,7 +228,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../02-modulos/modulos-index.html">Módulos built-in</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/collections.html">Collections</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02-modulos/csv.html">csv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/csv.html">CSV</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/datetime.html">Datetime</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/itertools.html">Itertools</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/json.html">JSON</a></li>
@@ -239,6 +239,35 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/random.html">Random</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/regular-expression.html">Regular Expressions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/statistics.html">Statistics</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otras librerías</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="numpy-index.html">Numpy</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="funciones-index.html">Funciones</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="buscar-contar-ordenar-unicos.html">Buscar, contar, ordenar y valores únicos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creacion-arrays.html">Creación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="estadisticas.html">Estadísticas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="indices.html">Índices e iteración</a></li>
+<li class="toctree-l3"><a class="reference internal" href="informacion-logicas.html">Información y lógicas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lectura-escritura.html">Lectura y escritura de datos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manipulacion-arrays.html">Manipulación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="matematicas-numericas.html">Matemáticas y numéricas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="operadores.html">Operadores</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="algebra-lineal.html">Módulo linalg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cadenas.html">Modulo char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="random.html">Módulo random</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otros</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-otros/otros-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08-otros/IPython.html">IPython</a></li>
 </ul>
 </li>
 </ul>
@@ -418,7 +447,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos">Métodos</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conversion">Conversión</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conversion-y-salida">Conversión y salida</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculos">Cálculos</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manipulacion-del-shape">Manipulación del shape</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccion-y-manipulacion-de-elementos">Selección y manipulación de elementos</a></li>
@@ -466,9 +495,11 @@ document.write(`
 <li><p>Creación de matrices a partir de bytes sin procesar mediante el uso de cadenas o búferes. <a class="reference external" href="https://numpy.org/doc/stable/user/basics.creation.html#creating-arrays-from-raw-bytes-through-the-use-of-strings-or-buffers">Más información</a></p></li>
 <li><p>Otras funciones de otras librerias para crear arrays.  <a class="reference external" href="https://numpy.org/doc/stable/user/basics.creation.html#use-of-special-library-functions-e-g-scipy-pandas-and-opencv">Más información</a>.</p></li>
 </ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>Para más información sobre creación de arrays visitar la <a class="reference external" href="https://numpy.org/doc/stable/user/basics.creation.html#array-creation">Guía de usuario</a> de <code class="docutils literal notranslate"><span class="pre">numpy</span></code>.</p>
+</div>
 <br>
-<hr class="docutils" />
 <section id="convertir-secuencia-a-array">
 <span id="seq-to-array"></span><h3>Convertir secuencia a array<a class="headerlink" href="#convertir-secuencia-a-array" title="Link to this heading">#</a></h3>
 <p>Cualquier objeto de Python que sea una secuencia se puede convertir a un objeto <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code> con la función <code class="docutils literal notranslate"><span class="pre">numpy.array()</span></code>:</p>
@@ -480,7 +511,7 @@ document.write(`
 </pre></div>
 </div>
 <ul class="simple">
-<li><p><em>X</em> - <code class="docutils literal notranslate"><span class="pre">sequence</span></code>: Cualquier objeto de Python que sea una secuncia (<code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code> y <code class="docutils literal notranslate"><span class="pre">range</span></code>).</p></li>
+<li><p><em>X</em> - <code class="docutils literal notranslate"><span class="pre">sequence</span></code>: Cualquier objeto de Python que sea una secuencia (<code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code> y <code class="docutils literal notranslate"><span class="pre">range</span></code>).</p></li>
 </ul>
 <br>
 <p>Al convertir una secuencia anidada tener en cuenta las siguientes consideraciones. Se utilizará <code class="docutils literal notranslate"><span class="pre">list</span></code> como ejemplo.</p>
@@ -499,7 +530,7 @@ document.write(`
 <ul class="simple">
 <li><p>Una lista anidada de 3 niveles será un array 3D. Tener en cuenta lo siguiente.</p>
 <ul>
-<li><p>Las listas de color naranja <span style="color: #ba5f1e">■</span> representan filas, como hay dos listas de esta tipo, entonces hay dos filas.</p></li>
+<li><p>Las listas de color naranja <span style="color: #ba5f1e">■</span> representan filas, como hay dos listas de este tipo, entonces hay dos filas.</p></li>
 <li><p>Las listas de color verde <span style="color: #95ba27">■</span> representan columnas. En cada fila hay dos listas de este tipo, por lo tanto cada fila tiene dos columnas.</p></li>
 <li><p>Los elementos de listas de color verde <span style="color: #95ba27">■</span> representan los elementos que se distribuyen en la  profundidad del arreglo. En la imagen, cada lista de color verde <span style="color: #95ba27">■</span> tiene 2 elementos, por lo tanto, el array tiene una profundidad de dos.</p></li>
 </ul>
@@ -528,13 +559,13 @@ document.write(`
 <br>
 <p>Algunas operaciones comunes que retornan views son:</p>
 <ul class="simple">
-<li><p>Slicing.</p></li>
-<li><p>Boolean masking.</p></li>
-<li><p>Fancy indexing.</p></li>
-<li><p>Reshaping.</p></li>
+<li><p><a class="reference internal" href="#numpy-arrays-slicing"><span class="std std-ref">Slicing</span></a>.</p></li>
+<li><p><a class="reference internal" href="#numpy-arrays-masking"><span class="std std-ref">Boolean masking</span></a>.</p></li>
+<li><p><a class="reference internal" href="#numpy-arrays-indexing"><span class="std std-ref">Fancy Indexing</span></a>.</p></li>
+<li><p><a class="reference internal" href="#numpy-arrays-reshaping"><span class="std std-ref">Reshaping</span></a>.</p></li>
 <li><p>El atributo <code class="docutils literal notranslate"><span class="pre">ndarray.T</span></code>, es decir, transponer el array.</p></li>
 </ul>
-<p><br><br></p>
+<br>
 </section>
 <hr class="docutils" />
 <section id="seleccion-de-elementos">
@@ -550,6 +581,7 @@ document.write(`
 <h3>Subsetting<a class="headerlink" href="#subsetting" title="Link to this heading">#</a></h3>
 <p><em>Subsetting</em> se refiere a seleccionar elementos en índices específicos.</p>
 <a class="reference internal image-reference" href="../../_images/index-arrays.png" id="arrays-indexing"><img alt="../../_images/index-arrays.png" class="align-center" id="arrays-indexing" src="../../_images/index-arrays.png" style="width: 500px;" /></a>
+<br/>
 <p>Al seleccionar elementos por índices tomar en cuenta las siguientes características.</p>
 <ul class="simple">
 <li><p>Se utilizan corchetes <code class="docutils literal notranslate"><span class="pre">[]</span></code> para acceder a los elementos, junto con el nombre del array y el índice del elemento: <br/> <code class="docutils literal notranslate"><span class="pre">X[i]</span></code></p></li>
@@ -622,25 +654,43 @@ Fila 2: [&#39;c&#39; &#39;d&#39;]
 </div>
 </div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Es posible combinar <em>subsetting</em> con otras estrategías para seleccionar elementos como <em>boolean masking</em>, <em>fancy indexing</em> o <em>slicing</em> para diferentes dimensiones del arreglo.</p>
+</div>
 <br>
-</section>
 <hr class="docutils" />
+</section>
 <section id="slicing">
-<h3>Slicing<a class="headerlink" href="#slicing" title="Link to this heading">#</a></h3>
+<span id="numpy-arrays-slicing"></span><h3>Slicing<a class="headerlink" href="#slicing" title="Link to this heading">#</a></h3>
 <p><em>Slicing</em> se refiere a seleccionar rangos de elementos contiguos en índices específicos.</p>
 <p>Para seleccionar un rango de elementos consecutivos tener en cuenta las siguientes características:</p>
 <ul class="simple">
-<li><p>Se utiliza dos puntos, indicando los indices de inicio, fin y el paso: <br/> <code class="docutils literal notranslate"><span class="pre">X[i:j:k]</span></code></p></li>
-<li><p>La selección por rango, tienen la característica que el primer elemento es inclusivo y el último es exclusivo, esto quiere decir que no se incluirá en el rango, si se usa el rango <code class="docutils literal notranslate"><span class="pre">[m:n]</span></code>, en realidad solo se accederá a los índices <code class="docutils literal notranslate"><span class="pre">[m:n-1]</span></code>.</p></li>
-<li><p>En <code class="docutils literal notranslate"><span class="pre">X[i:j]</span></code> Si se omite el índice <code class="docutils literal notranslate"><span class="pre">i</span></code> significa desde el inicio del array y si se omite el índice <code class="docutils literal notranslate"><span class="pre">j</span></code> significa hasta el final del array.</p></li>
+<li><p>Se utiliza dos puntos, indicando los indices de inicio, fin y el paso: <br/> <code class="docutils literal notranslate"><span class="pre">X[start:stop:step]</span></code></p></li>
+<li><p>La selección por rango, tienen la característica que el primer elemento (<code class="docutils literal notranslate"><span class="pre">start</span></code>) es inclusivo y el último (<code class="docutils literal notranslate"><span class="pre">stop</span></code>) es exclusivo, esto quiere decir que no se incluirá en el rango, si se usa el rango <code class="docutils literal notranslate"><span class="pre">[m:n]</span></code>, en realidad solo se accederá a los índices <code class="docutils literal notranslate"><span class="pre">[m:n-1]</span></code>.</p></li>
+<li><p>En <code class="docutils literal notranslate"><span class="pre">X[i:j]</span></code>:</p>
+<ul>
+<li><p>Si se omite el índice <code class="docutils literal notranslate"><span class="pre">i</span></code> significa desde el inicio del <em>array</em>.</p></li>
+<li><p>Si se omite el índice <code class="docutils literal notranslate"><span class="pre">j</span></code> significa hasta el final del <em>array</em>.</p></li>
+<li><p>Si se omiten ambos significa todo el <em>g�n�i</em>.</p></li>
+</ul>
+</li>
 <li><p>También es posible utilizar índices negativos.</p></li>
-<li><p>Para arrays de dos o más dimensiones, separar con coma el slice de cada dimensión: <br/> <code class="docutils literal notranslate"><span class="pre">X[i1:j1,</span> <span class="pre">i2:j2,</span> <span class="pre">...]</span></code>.</p></li>
+<li><p>Para arrays de dos o más dimensiones, separar con coma el slice de cada dimensión: <br/> <code class="docutils literal notranslate"><span class="pre">X[start:stop:step,</span> <span class="pre">start:stop:step,</span> <span class="pre">...]</span></code>.</p></li>
 <li><p>Se pueden combinar hacer <em>subsetting</em> y <em>slicing</em> para diferentes dimensiones.</p></li>
 </ul>
-<div class="admonition caution">
-<p class="admonition-title">Caution</p>
-<p>Al seleccionar filas o columnas completas de un array de 2D la forma como se haga la selección modificará el <em>shape</em> del objeto retornado.</p>
-<p>Por ejemplo, si <code class="docutils literal notranslate"><span class="pre">X</span></code> es un array con shape (3, 3) y se desea seleccionar toda la segunda fila existen diversas formas de hacerlo:</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Si <code class="docutils literal notranslate"><span class="pre">X</span></code> es <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> y sea crea otro <em>array</em> <code class="docutils literal notranslate"><span class="pre">Y</span></code> usando <code class="docutils literal notranslate"><span class="pre">Y=X[i:j]</span></code>, entonces <code class="docutils literal notranslate"><span class="pre">Y</span></code> será un <em>views</em> de <code class="docutils literal notranslate"><span class="pre">X</span></code> y modificaciones en <code class="docutils literal notranslate"><span class="pre">Y</span></code> también afectarán a <code class="docutils literal notranslate"><span class="pre">X</span></code> y vicerversa. Para que esto no suceda usar:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Y</span> <span class="pre">=</span> <span class="pre">X[i:j].copy()</span></code></p></li>
+</ul>
+<p>De esta manera modificaciones en <code class="docutils literal notranslate"><span class="pre">Y</span></code> no afectarán a <code class="docutils literal notranslate"><span class="pre">X</span></code> y viceversa.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Al seleccionar filas o columnas completas de un array 2D la forma como se haga la selección modificará el <em>shape</em> del objeto retornado.</p>
+<p>Por ejemplo, si <code class="docutils literal notranslate"><span class="pre">X</span></code> es un array con shape <em>(3, 3)</em> y se desea seleccionar toda la segunda fila, existen diversas formas de hacerlo:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">X[1]</span></code> o <code class="docutils literal notranslate"><span class="pre">X[1,]</span></code> retornan un array de shape (3,), es decir, un array 1D.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">X[1,</span> <span class="pre">:]</span></code> retorna un array de shape (3,), es decir, un array 1D.</p></li>
@@ -680,44 +730,42 @@ Fila 2: [&#39;c&#39; &#39;d&#39;]
 <li><p>Seleccionar todas las filas y todas las columnas de una “rebanada” específica: <br> <code class="docutils literal notranslate"><span class="pre">X[:,</span> <span class="pre">:,</span> <span class="pre">k]</span></code></p></li>
 </ul>
 <a class="reference internal image-reference" href="../../_images/patrones-3D.png" id="patrones-3d"><img alt="../../_images/patrones-3D.png" class="align-center" id="patrones-3d" src="../../_images/patrones-3D.png" style="width: 400px;" /></a>
-<br>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Si <code class="docutils literal notranslate"><span class="pre">X</span></code> es un array y sea crea otro array <code class="docutils literal notranslate"><span class="pre">Y</span></code> usando slicing, por ejemplo <code class="docutils literal notranslate"><span class="pre">Y=X[i:j]</span></code>, entonces <code class="docutils literal notranslate"><span class="pre">Y</span></code> será un <em>view</em> de <code class="docutils literal notranslate"><span class="pre">X</span></code> y modificaciones en <code class="docutils literal notranslate"><span class="pre">Y</span></code> también afectarán a <code class="docutils literal notranslate"><span class="pre">X</span></code> y vicerversa. Para que esto no suceda usar el método <code class="docutils literal notranslate"><span class="pre">ndarray.copy()</span></code>:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Y</span> <span class="pre">=</span> <span class="pre">X[i:j].copy()</span></code></p></li>
-</ul>
-<p>De esta manera modificaciones en <code class="docutils literal notranslate"><span class="pre">Y</span></code> no afectarán a <code class="docutils literal notranslate"><span class="pre">X</span></code> y viceversa.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Es posible combinar <em>slicing</em> con otras estrategías para seleccionar elementos como <em>boolean masking</em>, <em>fancy indexing</em> o <em>subsetting</em> para diferentes dimensiones del arreglo.</p>
 </div>
 <br>
-</section>
 <hr class="docutils" />
+</section>
 <section id="boolean-masking">
-<h3>Boolean masking<a class="headerlink" href="#boolean-masking" title="Link to this heading">#</a></h3>
+<span id="numpy-arrays-masking"></span><h3>Boolean masking<a class="headerlink" href="#boolean-masking" title="Link to this heading">#</a></h3>
 <p><em>Boolean masking</em> se refiere a seleccionar elementos de un array con base a otro array booleano del mismo tamaño, denominado <em>mask</em>. Los elementos que tengan posiciones correspondietes en el <em>mask</em> con valores de <code class="docutils literal notranslate"><span class="pre">True</span></code> serán seleccionados, mientras los que tengan valores <code class="docutils literal notranslate"><span class="pre">False</span></code> no serán seleccionados.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>El array retornado al seleccionar elementos por boolean masking siempre será de una dimensión.</p>
+<p>El array retornado al seleccionar elementos por <em>boolean masking</em> siempre será de una dimensión.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>El array retornado al seleccionar elementos por <em>boolean masking</em> será un <em>view</em> del array original.</p>
 </div>
 <p>Se pueden crear masks usando comparaciones vectorizadas con el array. Para comparaciones más complejas se pueden usar los <a class="reference external" href="https://nebok-py.com/parts/01-built-in/anexos-operadores-palabras.html#bitwise">operadores bitwise</a>. También es posible crear listas para hacer el mask, por ejemplo, usando <a class="reference external" href="https://nebok-py.com/parts/01-built-in/listas.html#list-comprehension">list comprehession</a>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Boolean masking simple</span>
-<span class="n">X</span><span class="p">[</span><span class="n">condition</span><span class="p">]</span>
+<span class="n">X</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
 
 <span class="c1"># Boolean masking usando &amp;</span>
-<span class="n">X</span><span class="p">[(</span><span class="n">condition1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">condition2</span><span class="p">)]</span>
+<span class="n">X</span><span class="p">[(</span><span class="n">mask1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">mask2</span><span class="p">)]</span>
 
 <span class="c1"># Boolean masking usando |</span>
-<span class="n">X</span><span class="p">[(</span><span class="n">condition1</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">condition2</span><span class="p">)]</span>
+<span class="n">X</span><span class="p">[(</span><span class="n">mask1</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">mask2</span><span class="p">)]</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p><em>condition</em> son condiciones usando el mismo vector <code class="docutils literal notranslate"><span class="pre">X</span></code> y <a class="reference external" href="https://nebok-py.com/parts/01-built-in/anexos-operadores-palabras.html#comparacion">operadores de comparación</a>, <a class="reference external" href="https://nebok-py.com/parts/01-built-in/anexos-operadores-palabras.html#identidad">identidad</a> o <a class="reference external" href="https://nebok-py.com/parts/01-built-in/anexos-operadores-palabras.html#membresia">membresía</a>, o en general, cualquier expresión que resulte en un array booleano del mismo tamaño que <code class="docutils literal notranslate"><span class="pre">X</span></code>.</p></li>
-<li><p><em>condition</em> no tiene estrictamente que involucrar a <code class="docutils literal notranslate"><span class="pre">X</span></code>, podría involucrar a otro array de las mismas dimensiones que <code class="docutils literal notranslate"><span class="pre">X</span></code>.</p></li>
+<li><p><em>mask</em> es un <code class="docutils literal notranslate"><span class="pre">array-like</span></code> boolenado de las mismas dimensiones que <code class="docutils literal notranslate"><span class="pre">X</span></code>. Usualmente se contruye utilizando al mismo vector <code class="docutils literal notranslate"><span class="pre">X</span></code> y <a class="reference external" href="https://nebok-py.com/parts/01-built-in/anexos-operadores-palabras.html#comparacion">operadores de comparación</a>, <a class="reference external" href="https://nebok-py.com/parts/01-built-in/anexos-operadores-palabras.html#identidad">identidad</a> o <a class="reference external" href="https://nebok-py.com/parts/01-built-in/anexos-operadores-palabras.html#membresia">membresía</a>, o en general, cualquier expresión que resulte en un array booleano del mismo tamaño que <code class="docutils literal notranslate"><span class="pre">X</span></code>.</p></li>
 <li><p>Notar que si se tienen 2 o más condiciones, cada condición se debe poner entre <code class="docutils literal notranslate"><span class="pre">()</span></code>.</p></li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>No utilizar los operadores lógicos <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code> o <code class="docutils literal notranslate"><span class="pre">not</span></code> para crear condiciones más complejas.</p>
+<p>No utilizar los operadores lógicos <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code> o <code class="docutils literal notranslate"><span class="pre">not</span></code> para hacer operaciones entre los <em>masks</em>.</p>
 </div>
 <br>
 <p><strong>Ejemplo</strong>: A continuación se muestra dos ejemplos sencillos de cómo crear boolean masks.</p>
@@ -743,15 +791,23 @@ Número pares mayores a 5: [6 8]
 </div>
 </div>
 </div>
-<br>
-</section>
-<hr class="docutils" />
-<section id="fancy-indexing">
-<h3>Fancy Indexing<a class="headerlink" href="#fancy-indexing" title="Link to this heading">#</a></h3>
-<p><em>Fancy indexing</em> es una estrategia para seleccionar elementos de un array en el que se indica por medio de una lista o un array los índices a seleccionar, de tal forma que se seleccionan los elementos que están en los índices de la lista/array.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>El array retornado al seleccionar elementos por fancy indexing siempre será de una dimensión.</p>
+<p>Es posible combinar <em>boolean masking</em> con otras estrategías para seleccionar elementos como <em>slicing</em>, <em>fancy indexing</em> o <em>subsetting</em> para diferentes dimensiones del arreglo.</p>
+</div>
+<br>
+<hr class="docutils" />
+</section>
+<section id="fancy-indexing">
+<span id="numpy-arrays-indexing"></span><h3>Fancy Indexing<a class="headerlink" href="#fancy-indexing" title="Link to this heading">#</a></h3>
+<p><em>Fancy indexing</em> es una estrategia para seleccionar elementos de un array en el que se indica por medio de un <code class="docutils literal notranslate"><span class="pre">array-like</span></code> los índices a seleccionar, de tal forma que se seleccionan los elementos que están en los índices de la lista/array.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>El array retornado al seleccionar elementos por <em>fancy indexing</em> generalmente será de una dimensión. A menos de que se utilice un array con un determinado <em>shape</em> como se verá más adelante.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>El array retornado al seleccionar elementos por_fancy indexing_ será un <em>view</em> del array original.</p>
 </div>
 <p><strong>Ejemplo</strong></p>
 <div class="cell docutils container">
@@ -776,13 +832,13 @@ Número pares mayores a 5: [6 8]
 <ul class="simple">
 <li><p>Los índices en <em>ind</em> pueden estar en cualquier orden, incluso se puede repetir más de una vez un mismo índice.</p></li>
 </ul>
-<p>El array puede tener un <em>shape</em> en específico y el array devuelto tendrá ese mismo shape. En este caso sí es necesario que <code class="docutils literal notranslate"><span class="pre">ind</span></code> sea <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code>.</p>
+<p>El <code class="docutils literal notranslate"><span class="pre">array-like</span></code> utilizado puede tener un <em>shape</em> en específico y el array devuelto tendrá ese mismo shape. En este caso sí es necesario que <code class="docutils literal notranslate"><span class="pre">ind</span></code> sea <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definir el array</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="p">,</span> <span class="s2">&quot;i&quot;</span><span class="p">,</span> <span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="s2">&quot;u&quot;</span><span class="p">])</span>
 
-<span class="c1"># Una lista con los índices a seleccionar</span>
+<span class="c1"># Un array con los índices a seleccionar</span>
 <span class="n">ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
 
 <span class="c1"># Aplicar el array -&gt; [[&quot;i&quot;, &quot;a&quot;], [&quot;u&quot;, &quot;a&quot;]]</span>
@@ -822,20 +878,24 @@ Número pares mayores a 5: [6 8]
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Es posible combinar fancy indexing con cualquier otra estrategía para seleccionar elementos como slicing, masking o subsetting.</p>
+<p>Es posible combinar <em>fancy indexing</em> con otras estrategías para seleccionar elementos como <em>slicing</em>, <em>boolena masking</em> o <em>subsetting</em> para diferentes dimensiones del arreglo.</p>
 </div>
-<p><br><br></p>
-</section>
-</section>
+<br>
 <hr class="docutils" />
+</section>
+</section>
 <section id="reshaping">
-<h2>Reshaping<a class="headerlink" href="#reshaping" title="Link to this heading">#</a></h2>
-<p>Se refiere a modificar el shape de un array, ya sea modificando el número de dimensiones o modificando el número de elementos en cada dimensión. Existen dos formas principales para realizar esta acción, con el método <code class="docutils literal notranslate"><span class="pre">.reshape()</span></code> o con <code class="docutils literal notranslate"><span class="pre">np.newaxis</span></code> los cuales se revisan más adelante.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Para más opciones de hacer reshape de un array consultar los métodos <a class="reference internal" href="#manipulacion-shape"><span class="std std-ref">Manipulación del shape</span></a> y las funciones en <a class="reference internal" href="manipulacion-arrays.html#numpy-manipulacion-arrays"><span class="std std-ref">Manipulación del shape</span></a>.</p>
+<span id="numpy-arrays-reshaping"></span><h2>Reshaping<a class="headerlink" href="#reshaping" title="Link to this heading">#</a></h2>
+<p>Se refiere a modificar el <em>shape</em> de un array, ya sea modificando el número de dimensiones o modificando el número de elementos en cada dimensión. Existen dos formas principales para realizar esta acción, con el método <code class="docutils literal notranslate"><span class="pre">.reshape()</span></code> o con <code class="docutils literal notranslate"><span class="pre">np.newaxis</span></code> los cuales se revisan más adelante.</p>
+<div class="admonition-info admonition">
+<p class="admonition-title">Info</p>
+<p>El <em>shape</em> de un <em>array</em> indica el número de elementos que hay en cada dimensión del arreglo, se suele representar como un <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, donde el primer elemento es el número de elementos en el eje 0, el segundo el número de elementos en el eje 1, etc. <br/> <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">m,</span> <span class="pre">p,</span> <span class="pre">...)</span></code></p>
 </div>
-<p>Para revisar el shape actual de un array usar el atributo <code class="docutils literal notranslate"><span class="pre">ndarray.shape</span></code></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Para más opciones de hacer <em>reshape</em> de un <em>array</em> consultar los métodos <a class="reference internal" href="#manipulacion-shape"><span class="std std-ref">Manipulación del shape</span></a> y las funciones <a class="reference internal" href="manipulacion-arrays.html"><span class="doc">Manipulación de arrays</span></a>.</p>
+</div>
+<p>Para revisar el <em>shape</em> actual de un array usar el atributo <code class="docutils literal notranslate"><span class="pre">ndarray.shape</span></code></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ver el shape del array X</span>
 <span class="n">X</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
@@ -845,19 +905,18 @@ Número pares mayores a 5: [6 8]
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>La diferencias entre los arrays con shape <em>(n,)</em> y los arrays con shape <em>(n, 1)</em> o <em>(1, n)</em>, son las siguientes:</p>
+<p>La diferencias entre los <em>arrays</em> con <em>shape</em> <em>(n,)</em> y los <em>arrays</em> con <em>shape</em> <em>(n, 1)</em> o <em>(1, n)</em>, son las siguientes:</p>
 <ul class="simple">
-<li><p>Los arrays con shape <em>(n,)</em> son arrays 1D, son una secuencia de elementos ordenados.</p></li>
-<li><p>Los arrays con shape <em>(n, 1)</em> son arrays 2D, se podría interpretar como una columna de una matriz.</p></li>
-<li><p>Los arrays con shape <em>(1, n)</em> son arrays 2D, se podrían interpretar como una fila de una matriz.</p></li>
+<li><p>Los arreglos con <em>shape</em> <em>(n,)</em> son arreglos 1D. Son una secuencia de elementos ordenados.</p></li>
+<li><p>Los arreglos con <em>shape</em> <em>(n, 1)</em> son arreglos 2D. Se podrían interpretar como una columna de una matriz.</p></li>
+<li><p>Los arreglos con <em>shape</em> <em>(1, n)</em> son arreglos 2D. Se podrían interpretar como una fila de una matriz.</p></li>
 </ul>
 <a class="reference internal image-reference" href="../../_images/1d-vs-2d.png" id="d-vs-2d"><img alt="../../_images/1d-vs-2d.png" class="align-center" id="d-vs-2d" src="../../_images/1d-vs-2d.png" style="width: 300px;" /></a>
 </div>
 <br>
-<hr class="docutils" />
 <section id="metodo-reshape">
 <span id="reshape"></span><h3>Método <em>reshape</em><a class="headerlink" href="#metodo-reshape" title="Link to this heading">#</a></h3>
-<p>El método <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.reshape.html#numpy.reshape">ndarray.reshape()</a> se usa para modificar el shape de un array.</p>
+<p>El método <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.reshape.html#numpy.reshape">ndarray.reshape()</a> se usa para modificar el <em>shape</em> de un array.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ndarray</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;C&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -872,7 +931,7 @@ Número pares mayores a 5: [6 8]
 <p><strong>Algunos reshapes cómunes</strong>:</p>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
-<p>Todos los ejemplos de esta sección muestran reshapes con <code class="docutils literal notranslate"><span class="pre">order=C</span></code>. Existe otra forma en la que se ordenan los elementos al hacer el reshape que corresponde al orden <code class="docutils literal notranslate"><span class="pre">F</span></code>.</p>
+<p>Todos los ejemplos de esta sección muestran reshapes con <code class="docutils literal notranslate"><span class="pre">order=C</span></code>. Existe otra forma en la que se ordenan los elementos al hacer el reshape que corresponde al orden <code class="docutils literal notranslate"><span class="pre">F</span></code>. Tomar como referencia las imágenes para conceptualizar como se transforman los <em>arrays</em> de un <em>shape</em> a otro.</p>
 </div>
 <p><strong>Cualquier dimensión a 1D</strong>: Si se quiere modificar un array de cualquier dimensión a 1D usar:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convertir X a 1D</span>
@@ -882,8 +941,8 @@ Número pares mayores a 5: [6 8]
 <ul class="simple">
 <li><p>En lugar de usar -1, se podría poner el número de elementos total <em>k</em> que tiene <code class="docutils literal notranslate"><span class="pre">X</span></code>.</p></li>
 </ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>Existen métodos para convertir cualquier dimensión a 1D:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">ndarray.flatten()</span></code>: Retorna una copia del array en 1D.</p></li>
@@ -977,7 +1036,7 @@ Número pares mayores a 5: [6 8]
 <p>Como tal estos cambios en el <em>shape</em> de los arrays no ocurren en la práctica, pero es útil para conceptualizar cómo se realizan las operaciones vectorizadas.</p>
 </div>
 <ul class="simple">
-<li><p><strong>Número de dimensiones</strong>: Si dos arrays difieren en el número de dimensiones, a aquel con menos dimensiones, se le aumentará el número de dimensiones, desde la izquierda, hasta que coincida con el número de dimensiones del otro array. Por ejemplo, si se quiere hacer una operación entre un array 1D (k,) y uno 3D (m, n, k), entonces, el 1D se convertirá en (1, 1, k) para que concidan en el número de dimensiones.</p></li>
+<li><p><strong>Número de dimensiones</strong>: Si dos arrays difieren en el número de dimensiones, a aquel con menos dimensiones, se le aumentará el número de dimensiones, desde la izquierda, hasta que coincida con el número de dimensiones del otro array. Por ejemplo, si se quiere hacer una operación entre un array 1D <em>(k,)</em> y uno 3D <em>(m, n, k)</em>, entonces, el 1D se convertirá en <em>(1, 1, k)</em> para que concidan en el número de dimensiones.</p></li>
 </ul>
 <a class="reference internal image-reference" href="../../_images/broadcasting-1.png" id="broadcasting-1"><img alt="../../_images/broadcasting-1.png" class="align-center" id="broadcasting-1" src="../../_images/broadcasting-1.png" style="width: 400px;" /></a>
 <br>
@@ -1034,18 +1093,15 @@ Número pares mayores a 5: [6 8]
 <li><p>En concatenación los arrays se unen en <strong>ejes existentes</strong>. Es decir, preservan el número de dimensiones.</p></li>
 <li><p>En 1D solo se puede concatenar sobre el eje 0, en 2D sobre los eje 0 y 1, en 3D sobre los ejes 0, 1 y 2, etc.</p></li>
 <li><p>Los arrays deben de tener el mismo número de elementos en los ejes, excepto en el eje sobre el cual se concatenarán.</p></li>
-<li><p>Consultar <code class="xref std std-numref docutils literal notranslate"><span class="pre">join-arrays-1D</span></code> y <code class="xref std std-numref docutils literal notranslate"><span class="pre">join-arrays-2D</span></code> de referencia.</p></li>
+<li><p>Consultar las imágenes <a class="reference internal" href="#join-arrays-1d"><span class="std std-ref">Concatenación y apilación en 1D</span></a> y <a class="reference internal" href="#join-arrays-2d"><span class="std std-ref">Concatenación y apilación en 2D</span></a> de referencia.</p></li>
 </ul>
 <p><strong>Apilación (stack)</strong>:</p>
 <ul class="simple">
-<li><ul>
 <li><p>Se utiliza la función <code class="docutils literal notranslate"><span class="pre">np.stack()</span></code>.</p></li>
-</ul>
-</li>
 <li><p>En <em>stack</em> los arrays se unen en un <strong>eje nuevo</strong>. Es decir, el resultado siempre tendrá una dimensión extra.</p></li>
 <li><p>Apilar arrays 1D resulta en arrays 2D, apilar arrays 2D resulta en arrays 3D, etc.</p></li>
 <li><p>Los arrays deben de tener el mismo <em>shape</em>.</p></li>
-<li><p>Consultar <code class="xref std std-numref docutils literal notranslate"><span class="pre">join-arrays-1D</span></code> y <code class="xref std std-numref docutils literal notranslate"><span class="pre">join-arrays-2D</span></code> de referencia.</p></li>
+<li><p>Consultar las imágenes <a class="reference internal" href="#join-arrays-1d"><span class="std std-ref">Concatenación y apilación en 1D</span></a> y <a class="reference internal" href="#join-arrays-2d"><span class="std std-ref">Concatenación y apilación en 2D</span></a> de referencia.</p></li>
 </ul>
 <br>
 <p><strong>Otros funciones para concatenar y unir</strong>:</p>
@@ -1054,7 +1110,7 @@ Número pares mayores a 5: [6 8]
 <figure class="align-center" id="join-arrays-1d">
 <a class="reference internal image-reference" href="../../_images/join-arrays-1D.png"><img alt="../../_images/join-arrays-1D.png" src="../../_images/join-arrays-1D.png" style="width: 500px;" /></a>
 <figcaption>
-<p><span class="caption-text">Concatenación y apilación en 1D</span><a class="headerlink" href="#join-arrays-1d" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Concatenación y apilación en 1D</span><a class="headerlink" href="#join-arrays-1d" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <br>
@@ -1095,7 +1151,7 @@ Número pares mayores a 5: [6 8]
 <figure class="align-center" id="join-arrays-2d">
 <a class="reference internal image-reference" href="../../_images/join-arrays-2D.png"><img alt="../../_images/join-arrays-2D.png" src="../../_images/join-arrays-2D.png" style="width: 500px;" /></a>
 <figcaption>
-<p><span class="caption-text">Concatenación y apilación en 2D</span><a class="headerlink" href="#join-arrays-2d" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Concatenación y apilación en 2D</span><a class="headerlink" href="#join-arrays-2d" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <br>
@@ -1131,9 +1187,9 @@ Número pares mayores a 5: [6 8]
 <h2>Separar arrays (split)<a class="headerlink" href="#separar-arrays-split" title="Link to this heading">#</a></h2>
 <p>Para realizar la operación contraria a concatenar se pueden utilizar las siguientes funciones.</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">np.split(ary,</span> <span class="pre">indices_or_sections,</span> <span class="pre">axis=0)</span></code>: Divide un array en índices específicos o en <em>N</em> partes iguales y retorna una lista con cada uno de los arrays resultantes del split.</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">np.split(ary,</span> <span class="pre">indices_or_sections,</span> <span class="pre">axis=0)</span></code>: Divide un array en índices específicos o en <em>N</em> partes iguales y retorna una lista con cada uno de los arrays resultantes del <em>split</em>.</p>
 <ul>
-<li><p>Si el array es de dos o más dimensiones se pueden indicar sobre cuál eje aplicar el split. Por default es sobre el eje 0.</p></li>
+<li><p>Si el array es de dos o más dimensiones se pueden indicar sobre cuál eje aplicar el <em>split</em>. Por default es sobre el eje 0.</p></li>
 <li><p>Existen funciones con el eje por default como:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">np.vsplit()</span></code>: Equivale a <code class="docutils literal notranslate"><span class="pre">np.split(axis=0)</span></code>.</p></li>
@@ -1146,7 +1202,7 @@ Número pares mayores a 5: [6 8]
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Para más información de estas funciones consultar las funciones de <a class="reference internal" href="manipulacion-arrays.html#numpy-splitting"><span class="std std-ref">Splitting</span></a>.</p>
+<p>Para más información de estas funciones consultar <a class="reference internal" href="manipulacion-arrays.html"><span class="doc">Manipulación de arrays</span></a> en la sección de <em>Splitting</em>.</p>
 </div>
 <br>
 <p><strong>Ejemplos en 1D</strong></p>
@@ -1297,6 +1353,7 @@ Número pares mayores a 5: [6 8]
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">order</span></code> - {‘C’, ‘F’, ‘A’, ‘K’}: Es para indicar el orden de iteración. Los valores más comúnes son <code class="docutils literal notranslate"><span class="pre">C</span></code> y <code class="docutils literal notranslate"><span class="pre">F</span></code>.</p>
 <ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">K</span></code>: Respeta el orden en el que el array se almacena en memoria, lo más común es que sea <code class="docutils literal notranslate"><span class="pre">'C'</span></code> (por filas). Para más información sobre los órdenes consultar <a class="reference external" href="https://en.wikipedia.org/wiki/Row-_and_column-major_order">este artículo</a>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">C</span></code></p>
 <ul>
 <li><p>En 2D itera por cada elemento, fila por fila.</p></li>
@@ -1305,8 +1362,8 @@ Número pares mayores a 5: [6 8]
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">F</span></code>:</p>
 <ul>
-<li><p>En 2D itera por cada elemento, columna por columna. Equivale a usar <code class="docutils literal notranslate"><span class="pre">np.nditer(X.T,</span> <span class="pre">order='K')</span></code>.</p></li>
-<li><p>En 3D tomar como referencia la imagen para ver como se extraen matrices, las cuales posteriormente se iterarán por cada elemento, fila por fila.</p></li>
+<li><p>En 2D itera por cada elemento, columna por columna. Equivale a usar <code class="docutils literal notranslate"><span class="pre">np.nditer(a.T,</span> <span class="pre">order='C')</span></code>.</p></li>
+<li><p>En 3D tomar como referencia la imagen para ver como se extraen matrices, las cuales posteriormente se iterarán por cada elemento, columna por columna.</p></li>
 </ul>
 </li>
 </ul>
@@ -1315,21 +1372,26 @@ Número pares mayores a 5: [6 8]
 <figure class="align-center" id="d-nditer">
 <a class="reference internal image-reference" href="../../_images/3D-nditer.png"><img alt="../../_images/3D-nditer.png" src="../../_images/3D-nditer.png" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-text">Funcionamiento de <code class="docutils literal notranslate"><span class="pre">np.nditer()</span></code> en 3D.</span><a class="headerlink" href="#d-nditer" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Funcionamiento de <code class="docutils literal notranslate"><span class="pre">np.nditer()</span></code> en 3D.</span><a class="headerlink" href="#d-nditer" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <br>
 <p>También se puede usar <code class="docutils literal notranslate"><span class="pre">np.ndenumerate()</span></code> para que se retorne también el índice del elemento:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Iterar sobre el array X</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">ndenumerate</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
-    <span class="n">expression</span>
+    <span class="c1"># for body</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Para más opciones de iteración consultar las funciones de <a class="reference internal" href="indices.html#numpy-funcs-iteracion"><span class="std std-ref">Iteración</span></a>.</p>
+<p>Para más opciones de iteración consultar <a class="reference internal" href="indices.html"><span class="doc">Índices e iteración</span></a> en la sección de <em>Iteración</em>.</p>
 </div>
-<p><strong>Directamente</strong>:</p>
+<br/>
+<p><strong>Directamente</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Al iterar por arrays usando <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">loop</span></code> por default <code class="docutils literal notranslate"><span class="pre">numpy</span></code> lo hará por filas, es decir <code class="docutils literal notranslate"><span class="pre">order='C'</span></code>.</p>
+</div>
 <p>Se puede iterar directamente sobre un array en un <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">loop</span></code>. La manera como se haga la iteración dependerá de la dimensión del array.</p>
 <p><strong>1D</strong>: Para iterar por cada elemento.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Si X es un array 1D</span>
@@ -1368,7 +1430,7 @@ Número pares mayores a 5: [6 8]
 </div>
 <p>Tener en cuenta que las matrices <code class="docutils literal notranslate"><span class="pre">matrix</span></code> a las que se refiere en la iteración en 3D se conforman de la siguiente manera:</p>
 <a class="reference internal image-reference" href="../../_images/iteracion-3D.png" id="iteracion-3d"><img alt="../../_images/iteracion-3D.png" class="align-center" id="iteracion-3d" src="../../_images/iteracion-3D.png" style="width: 400px;" /></a>
-<p><br><br></p>
+<br>
 </section>
 <hr class="docutils" />
 <section id="ordenar-array">
@@ -1382,9 +1444,9 @@ Número pares mayores a 5: [6 8]
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Para más información consultar los métodos <a class="reference internal" href="#seleccion-manipulacion"><span class="std std-ref">Selección y manipulación de elementos</span></a> y las funciones de <a class="reference internal" href="buscar-contar-ordenar-unicos.html#numpy-funciones-ordenar"><span class="std std-ref">Ordenar</span></a>.</p>
+<p>Para más información consultar los métodos <a class="reference internal" href="#seleccion-manipulacion"><span class="std std-ref">Selección y manipulación de elementos</span></a> y las funciones <a class="reference internal" href="buscar-contar-ordenar-unicos.html"><span class="doc">Buscar, contar, ordenar y valores únicos</span></a> en la sección <em>Ordenar</em>.</p>
 </div>
-<p><br><br></p>
+<br>
 </section>
 <hr class="docutils" />
 <section id="elementos-unicos">
@@ -1395,14 +1457,14 @@ Número pares mayores a 5: [6 8]
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Para más información consultar las funciones en <a class="reference internal" href="buscar-contar-ordenar-unicos.html#numpy-funciones-unicos"><span class="std std-ref">Valores únicos</span></a>..</p>
+<p>Para más información consultar las funciones <a class="reference internal" href="buscar-contar-ordenar-unicos.html"><span class="doc">Buscar, contar, ordenar y valores únicos</span></a> en la sección <em>Valores únicos</em>.</p>
 </div>
+<br/>
 </section>
 <hr class="docutils" />
 <section id="atributos">
 <h2>Atributos<a class="headerlink" href="#atributos" title="Link to this heading">#</a></h2>
 <p>A continuación se enlistan los atrbutos de los objetos <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code>.</p>
-<hr class="docutils" />
 <section id="informacion">
 <h3>Información<a class="headerlink" href="#informacion" title="Link to this heading">#</a></h3>
 <p>Atributos que retornan información sobre el array.</p>
@@ -1432,7 +1494,6 @@ Número pares mayores a 5: [6 8]
 </table>
 <br>
 </section>
-<hr class="docutils" />
 <section id="otros-atributos">
 <h3>Otros-atributos<a class="headerlink" href="#otros-atributos" title="Link to this heading">#</a></h3>
 <p>Otros atributos de los objetos <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>.</p>
@@ -1460,13 +1521,11 @@ Número pares mayores a 5: [6 8]
 <p><br><br></p>
 </section>
 </section>
-<hr class="docutils" />
 <section id="metodos">
 <h2>Métodos<a class="headerlink" href="#metodos" title="Link to this heading">#</a></h2>
 <p>A continuación se enlistan los métodos de la clase <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code>.</p>
-<hr class="docutils" />
-<section id="conversion">
-<h3>Conversión<a class="headerlink" href="#conversion" title="Link to this heading">#</a></h3>
+<section id="conversion-y-salida">
+<h3>Conversión y salida<a class="headerlink" href="#conversion-y-salida" title="Link to this heading">#</a></h3>
 <p>Métodos para convertir arrays a otros tipos o para exportar el array a un archivo.</p>
 <table class="table">
 <thead>
@@ -1694,6 +1753,24 @@ Número pares mayores a 5: [6 8]
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="numpy-index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Numpy</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="funciones-index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Funciones</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -1739,7 +1816,7 @@ Número pares mayores a 5: [6 8]
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos">Métodos</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conversion">Conversión</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conversion-y-salida">Conversión y salida</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculos">Cálculos</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manipulacion-del-shape">Manipulación del shape</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccion-y-manipulacion-de-elementos">Selección y manipulación de elementos</a></li>

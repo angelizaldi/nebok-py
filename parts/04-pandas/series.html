@@ -1,0 +1,911 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Series &#8212; Manual de Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'parts/04-pandas/series';</script>
+    <link rel="icon" href="../../_static/nebok-favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/nebok-logo.png" class="logo__image only-light" alt="Manual de Python - Home"/>
+    <script>document.write(`<img src="../../_static/nebok-logo.png" class="logo__image only-dark" alt="Manual de Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Manual de Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Built-in</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01-built-in/built-in-index.html">Python estándar</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/ayuda.html">Obtener ayuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/comentarios.html">Comentarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/tipos-datos.html">Tipos de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/operadores-palabras.html">Operadores y palabras reservadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/entrada-salida.html">Entrada y salida de datos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/tipos-index.html">Tipos Built-In</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/booleanos.html">Valores booleanos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/numeros.html">Números</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/cadenas.html">Cadenas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/listas.html">Listas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/tuples.html">Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/sets.html">Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/diccionarios.html">Diccionarios</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/if-else.html">If … Else</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/for-loop.html">For Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/do-while.html">Do While</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/funciones.html">Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/try-except.html">Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/context.html">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/io.html">Lectura y escritura de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/modulos.html">Paquetes y Módulos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/avanzado-index.html">Temas avanzados</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/decorators.html">Decorators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/iterators.html">Iterators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/generators.html">Generators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/oop.html">Programación orientada a objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/func-built-in.html">Funciones built-in</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-modulos/modulos-index.html">Módulos built-in</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/csv.html">CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/datetime.html">Datetime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/itertools.html">Itertools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/json.html">JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/math.html">Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os.html">os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os-path.html">os.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/pickle.html">Pickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/random.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/regular-expression.html">Regular Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/statistics.html">Statistics</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otras librerías</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-numpy/numpy-index.html">Numpy</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/arrays.html">Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../03-numpy/funciones-index.html">Funciones</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/buscar-contar-ordenar-unicos.html">Buscar, contar, ordenar y valores únicos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/creacion-arrays.html">Creación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/estadisticas.html">Estadísticas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/indices.html">Índices e iteración</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/informacion-logicas.html">Información y lógicas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/lectura-escritura.html">Lectura y escritura de datos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/manipulacion-arrays.html">Manipulación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/matematicas-numericas.html">Matemáticas y numéricas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/operadores.html">Operadores</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/algebra-lineal.html">Módulo linalg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/cadenas.html">Modulo char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/random.html">Módulo random</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otros</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-otros/otros-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08-otros/IPython.html">IPython</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/parts/04-pandas/series.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Series</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creacion-de-series">Creación de Series</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccion-de-elementos">Selección de elementos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#como-ndarray">Como <code class="docutils literal notranslate"><span class="pre">ndarray</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usando-metodo-loc">Usando método <code class="docutils literal notranslate"><span class="pre">.loc()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usando-metodo-iloc">Usando método <code class="docutils literal notranslate"><span class="pre">.iloc()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agregar-elementos">Agregar elementos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-y-atributos">Métodos y atributos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accesors">Accesors</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="series">
+<h1>Series<a class="headerlink" href="#series" title="Link to this heading">#</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">Series</span></code> es una clase de <code class="docutils literal notranslate"><span class="pre">pandas</span></code> que representa un array unidimensional con etiquetas para identificar a cada elemento, todos los elementos del series deben de ser del mismo tipo. Los <code class="docutils literal notranslate"><span class="pre">Series</span></code> tiene dos tipos de índices:</p>
+<ul class="simple">
+<li><p>índice implícito: Es un índice númerico, que comienza desde cero, similiar a los índices de las secuencias.</p></li>
+<li><p>índice explícito: Es el objeto <code class="docutils literal notranslate"><span class="pre">Index</span></code> asociado, que puede tener etiquetas<code class="docutils literal notranslate"><span class="pre">int</span></code> o <code class="docutils literal notranslate"><span class="pre">str</span></code>.</p></li>
+</ul>
+<br>
+<hr class="docutils" />
+<p>(pandas-series-creacion=)</p>
+<section id="creacion-de-series">
+<h2>Creación de Series<a class="headerlink" href="#creacion-de-series" title="Link to this heading">#</a></h2>
+<p>La forma más sencilla de crear un objeto <code class="docutils literal notranslate"><span class="pre">Series</span></code> es con el constructor:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Constructor</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html#pandas.Series">pandas.Series</a>(data, index, dtype, name, copy, …)</p></td>
+<td><p>Array unidimensional con etiquetas de eje.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ejemplo</strong>: A continuación se crea un objeto <code class="docutils literal notranslate"><span class="pre">Series</span></code> cuyos valores son los cuadrados de los números del 1 al 5 y cuyo índice explícito son los nombres de los número del 0 al 4. Además el <code class="docutils literal notranslate"><span class="pre">Series</span></code> llevará por nombre <em>cuadrados</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar librería</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Crear Series</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)],</span> 
+              <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;uno&#39;</span><span class="p">,</span> <span class="s1">&#39;dos&#39;</span><span class="p">,</span> <span class="s1">&#39;tres&#39;</span><span class="p">,</span> <span class="s1">&#39;cuatro&#39;</span><span class="p">,</span> <span class="s1">&#39;cinco&#39;</span><span class="p">],</span> 
+              <span class="n">name</span><span class="o">=</span><span class="s2">&quot;cuadrados&quot;</span><span class="p">)</span>
+
+<span class="c1"># Imprimir el objeto</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>uno        1
+dos        4
+tres       9
+cuatro    16
+cinco     25
+Name: cuadrados, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="seleccion-de-elementos">
+<h2>Selección de elementos<a class="headerlink" href="#seleccion-de-elementos" title="Link to this heading">#</a></h2>
+<p>Existen diversos métodos para seleccionar elementos en un Series. Aquí se explicarán los más comunes. Todos los ejemplos de esta sección utilizará el <code class="docutils literal notranslate"><span class="pre">Series</span></code> definido en (la sección anterior)[pandas-series-creacion=]:</p>
+<section id="como-ndarray">
+<h3>Como <code class="docutils literal notranslate"><span class="pre">ndarray</span></code><a class="headerlink" href="#como-ndarray" title="Link to this heading">#</a></h3>
+<p>Todas las estrategias para seleccionar elementos que aplican para <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> de <code class="docutils literal notranslate"><span class="pre">numpy</span></code> funcionan también con <code class="docutils literal notranslate"><span class="pre">Series</span></code> la principal diferencia es que en el caso del <code class="docutils literal notranslate"><span class="pre">Series</span></code> se puede usar tanto los índices implícitos, como los explícitos:</p>
+<ul class="simple">
+<li><p><strong>Índices implícitos</strong>:</p>
+<ul>
+<li><p><strong>Subsetting</strong>: Para seleccionar elementos en posiciones específicas.</p>
+<ul>
+<li><p>Se utilizan corchetes <code class="docutils literal notranslate"><span class="pre">[]</span></code> para acceder a los elementos, junto con el nombre del <code class="docutils literal notranslate"><span class="pre">Series</span></code> y el índice del elemento. <br/> <code class="docutils literal notranslate"><span class="pre">X[i]</span></code>.</p></li>
+<li><p>Los índices comienzan en cero (0).</p></li>
+<li><p>Se puede utilizar índices negativos, para hacer subsetting desde el final al inicio.</p></li>
+</ul>
+</li>
+<li><p><strong>Slicing</strong>: Para seleccionar un rango de elementos consecutivos.</p>
+<ul>
+<li><p>Se utiliza dos puntos, indicando los indices de inicio, fin y el paso. <br/> <code class="docutils literal notranslate"><span class="pre">X[i:j:k]</span></code></p></li>
+<li><p>La selección por rango, tienen la característica que el primer elemento es inclusivo y el último es exclusivo, esto quiere decir que no se incluirá en el rango, si se usa el rango <code class="docutils literal notranslate"><span class="pre">[m:n]</span></code>, en realidad solo se accederá a los índices <code class="docutils literal notranslate"><span class="pre">[m:n-1]</span></code>.</p></li>
+<li><p>En <code class="docutils literal notranslate"><span class="pre">X[i:j]</span></code> Si se omite el índice <code class="docutils literal notranslate"><span class="pre">i</span></code> significa desde el inicio del array y si se omite el índice <code class="docutils literal notranslate"><span class="pre">j</span></code> significa hasta el final del array.</p></li>
+<li><p>Es posible utilizar índices negativos.</p></li>
+</ul>
+</li>
+<li><p><strong>Fancy indexing</strong>: Seleccionar elementos de un array en el que se indica por medio de una secuencia los índices ímplicitos a seleccionar. <br> <code class="docutils literal notranslate"><span class="pre">X[[i1,</span> <span class="pre">i2,</span> <span class="pre">...]]</span></code></p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Subsetting: Seleccionar 2do elemento -&gt; 2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Slicing: Seleccionar elementos del 2 al 4 -&gt; 4, 9, 16</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Fancy indexing: Seleccionar elementos pares -&gt; 4, 16</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+
+dos        4
+tres       9
+cuatro    16
+Name: cuadrados, dtype: int64
+
+dos        4
+cuatro    16
+Name: cuadrados, dtype: int64
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/bn/77q40zz14k71zvcyf56v6xt00000gn/T/ipykernel_7509/3118420227.py:2: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  print(s[1], end=&quot;\n&quot;*2)
+/var/folders/bn/77q40zz14k71zvcyf56v6xt00000gn/T/ipykernel_7509/3118420227.py:8: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  print(s[[1, 3]])
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><strong>Índices explícitos</strong>:</p>
+<ul>
+<li><p><strong>Subsetting</strong>: Para seleccionar elementos en posiciones específicas.</p>
+<ul>
+<li><p>Se utilizan corchetes <code class="docutils literal notranslate"><span class="pre">[]</span></code> para acceder a los elementos, junto con el nombre del <code class="docutils literal notranslate"><span class="pre">Series</span></code> y el índice explícito del elemento. <br/> <code class="docutils literal notranslate"><span class="pre">X[label]</span></code>.</p></li>
+</ul>
+</li>
+<li><p><strong>Subsetting</strong>: Para seleccionar un rango de elementos consecutivos.</p>
+<ul>
+<li><p>Se utiliza dos puntos, indicando las etiquetas de inicio y fin. <br/> <code class="docutils literal notranslate"><span class="pre">X[label1:label2]</span></code>. En este caso ambas etiquetas son inclusivas.</p></li>
+</ul>
+</li>
+<li><p><strong>Fancy indexing</strong>: Seleccionar elementos de un array en el que se indica por medio de una secuencia los índices explícitos a seleccionar. <br> <code class="docutils literal notranslate"><span class="pre">X[[labeli,</span> <span class="pre">labelj,</span> <span class="pre">...]]</span></code></p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Subsetting: Seleccionar 2 elemento -&gt;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="s1">&#39;dos&#39;</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Slicing: Seleccionar elementos del 2 al 4 -&gt; 4, 9, 16</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="s1">&#39;dos&#39;</span><span class="p">:</span><span class="s1">&#39;cuatro&#39;</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Fancy indexing: Seleccionar elementos pares -&gt; 4, 16</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[[</span><span class="s1">&#39;dos&#39;</span><span class="p">,</span> <span class="s1">&#39;cuatro&#39;</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+
+dos        4
+tres       9
+cuatro    16
+Name: cuadrados, dtype: int64
+
+dos        4
+cuatro    16
+Name: cuadrados, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><strong>Boolean masking</strong>: Seleccionar elementos de un <code class="docutils literal notranslate"><span class="pre">Series</span></code> con base a una secuencia booleana del mismo tamaño, denominada <em>mask</em>. Los elementos que tengan posiciones correspondietes en el <em>mask</em> con valores de <code class="docutils literal notranslate"><span class="pre">True</span></code> serán seleccionados, mientras los que tengan valores <code class="docutils literal notranslate"><span class="pre">False</span></code> no serán seleccionados. Normalmente el <em>mask</em> se crea usando al mismo <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <a class="reference internal" href="../01-built-in/operadores-palabras.html#built-in-operadores-comparacion"><span class="std std-ref">Comparación</span></a>. <br> <code class="docutils literal notranslate"><span class="pre">X[comparasión]</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Boolean masking: Seleccionar elementos pares</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">s</span><span class="o">%</span><span class="k">2</span>==0])
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dos        4
+cuatro    16
+Name: cuadrados, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ejemplo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Subsetting: Seleccionar 2do elemento -&gt; 2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Slicing: Seleccionar elementos del 2 al 4 -&gt; 4, 9, 16</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+
+dos        4
+tres       9
+cuatro    16
+Name: cuadrados, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<br>
+</section>
+<hr class="docutils" />
+<section id="usando-metodo-loc">
+<h3>Usando método <code class="docutils literal notranslate"><span class="pre">.loc()</span></code><a class="headerlink" href="#usando-metodo-loc" title="Link to this heading">#</a></h3>
+<p>El método <code class="docutils literal notranslate"><span class="pre">.loc()</span></code> es útil para seleccionar elementos con base al <strong>índice explícito</strong>.</p>
+<ul class="simple">
+<li><p>Para seleccionar un elemento:</p>
+<ul>
+<li><p>Se utilizan corchetes <code class="docutils literal notranslate"><span class="pre">[]</span></code> para acceder a los elementos, junto con el nombre del <code class="docutils literal notranslate"><span class="pre">Series</span></code> y el índice explícito del elemento. <br/> <code class="docutils literal notranslate"><span class="pre">X.loc[label]</span></code>.</p></li>
+</ul>
+</li>
+<li><p>Para seleccionar rangos de elementos continuos:</p>
+<ul>
+<li><p>Se utiliza dos puntos, indicando las etiquetas de inicio y fin. <br/> <code class="docutils literal notranslate"><span class="pre">X.loc[label1:label2]</span></code>. En este caso ambas etiquetas son inclusivas.</p></li>
+</ul>
+</li>
+</ul>
+<p>Ejemplo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Subsetting: Seleccionar 2 elemento -&gt;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;dos&#39;</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Slicing: Seleccionar elementos del 2 al 4 -&gt; 4, 9, 16</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;dos&#39;</span><span class="p">:</span><span class="s1">&#39;cuatro&#39;</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+
+dos        4
+tres       9
+cuatro    16
+Name: cuadrados, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<br>
+</section>
+<hr class="docutils" />
+<section id="usando-metodo-iloc">
+<h3>Usando método <code class="docutils literal notranslate"><span class="pre">.iloc()</span></code><a class="headerlink" href="#usando-metodo-iloc" title="Link to this heading">#</a></h3>
+<p>El método <code class="docutils literal notranslate"><span class="pre">.iloc()</span></code> es útil para seleccionar elementos con base al <strong>índice explícito</strong>:</p>
+<ul class="simple">
+<li><p>Para seleccionar un elemento:</p>
+<ul>
+<li><p>Se utilizan corchetes <code class="docutils literal notranslate"><span class="pre">[]</span></code> para acceder a los elementos, junto con el nombre del <code class="docutils literal notranslate"><span class="pre">Series</span></code> y el índice del elemento. <br/> <code class="docutils literal notranslate"><span class="pre">X.iloc[i]</span></code></p></li>
+<li><p>Los índices comienzan en cero (0).</p></li>
+<li><p>Se puede utilizar índices negativos, para hacer subsetting desde el final al inicio.</p></li>
+</ul>
+</li>
+<li><p>Para seleccionar rangos de elementos continuos:</p>
+<ul>
+<li><p>Se utiliza dos puntos, indicando los indices de inicio, fin y el paso. <br/> <code class="docutils literal notranslate"><span class="pre">X.iloc[i:j:k]</span></code></p></li>
+<li><p>La selección por rango, tienen la característica que el primer elemento es inclusivo y el último es exclusivo, esto quiere decir que no se incluirá en el rango, si se usa el rango <code class="docutils literal notranslate"><span class="pre">[m:n]</span></code>, en realidad solo se accederá a los índices <code class="docutils literal notranslate"><span class="pre">[m:n-1]</span></code>.</p></li>
+<li><p>En <code class="docutils literal notranslate"><span class="pre">X[i:j]</span></code> Si se omite el índice <code class="docutils literal notranslate"><span class="pre">i</span></code> significa desde el inicio del array y si se omite el índice <code class="docutils literal notranslate"><span class="pre">j</span></code> significa hasta el final del array.</p></li>
+<li><p>Es posible utilizar índices negativos.</p></li>
+</ul>
+</li>
+</ul>
+<p><br><br></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="agregar-elementos">
+<h2>Agregar elementos<a class="headerlink" href="#agregar-elementos" title="Link to this heading">#</a></h2>
+<p>Para agregar un elemento a un <code class="docutils literal notranslate"><span class="pre">Series</span></code> se puede simplmente crear una nueva etiqueta y asignarle un valor:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Agregar </span>
+<span class="n">X</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+</pre></div>
+</div>
+<p><br><br></p>
+</section>
+<hr class="docutils" />
+<section id="metodos-y-atributos">
+<h2>Métodos y atributos<a class="headerlink" href="#metodos-y-atributos" title="Link to this heading">#</a></h2>
+<p>A continuación se enlistan los links a la documentación oficial de <code class="docutils literal notranslate"><span class="pre">pandas</span></code> para consultar los métodos y atributos de <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p>
+<ul class="simple">
+<li><p><strong>Atributos:</strong></p>
+<ul>
+<li><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/series.html#attributes">Atributos</a></p></li>
+</ul>
+</li>
+<li><p><strong>Métodos:</strong></p>
+<ul>
+<li><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/series.html#conversion">Conversión</a></p></li>
+<li><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/series.html#indexing-iteration">Iteración/Indexación</a></p></li>
+<li><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/series.html#binary-operator-functions">Operadores binarios</a></p></li>
+<li><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/series.html#function-application-groupby-window">Funciones de apply, aggregates, groupby y window</a></p></li>
+<li><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/series.html#computations-descriptive-stats">Cálculos y estadísticas descriptivas.</a></p></li>
+<li><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/series.html#reindexing-selection-label-manipulation">Reindexación, selección y manipulación de etiquetas</a></p></li>
+<li><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/series.html#missing-data-handling">Datos perdidos</a></p></li>
+<li><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/series.html#reshaping-sorting">Reshaping y ordenar</a></p></li>
+<li><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/series.html#combining-comparing-joining-merging">Comparar y combinar</a></p></li>
+<li><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/series.html#time-series-related">Series de tiempo</a></p></li>
+<li><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/series.html#plotting">Gráficas</a></p></li>
+<li><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/series.html#serialization-io-conversion">IO, conversión y serialización</a></p></li>
+</ul>
+</li>
+</ul>
+<p><br><br></p>
+</section>
+<hr class="docutils" />
+<section id="accesors">
+<h2>Accesors<a class="headerlink" href="#accesors" title="Link to this heading">#</a></h2>
+<p>Los <em>accesors</em> permiten acceder a métodos adicionales para <code class="docutils literal notranslate"><span class="pre">Series</span></code> de algún tipo de dato concreto. Existen 4 tipos de <em>accesors</em>:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Data Type</p></th>
+<th class="head"><p>Accessor</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">datetime</span></code>, <code class="docutils literal notranslate"><span class="pre">timedelta</span></code>,<code class="docutils literal notranslate"><span class="pre">period</span></code></p></td>
+<td><p>dt</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>str</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">categorical</span></code></p></td>
+<td><p>cat</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sparse</span></code></p></td>
+<td><p>sparse</p></td>
+</tr>
+</tbody>
+</table>
+<p>Para conocer los métodos visitar los siguientes links:</p>
+<ul class="simple">
+<li><p><strong>dt</strong>:</p>
+<ul>
+<li><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/series.html#datetime-properties">Propiedades de datetime</a></p></li>
+<li><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/series.html#datetime-methods">Métodos de datetime</a></p></li>
+<li><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/series.html#period-properties">Propiedades de period</a></p></li>
+<li><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/series.html#timedelta-properties">Propiedades de timedelta</a></p></li>
+<li><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/series.html#timedelta-methods">Métodos de timedelta</a></p></li>
+</ul>
+</li>
+<li><p><strong>str</strong>:</p>
+<ul>
+<li><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/series.html#string-handling">Cadenas</a></p></li>
+</ul>
+</li>
+<li><p><strong>cat</strong>:</p>
+<ul>
+<li><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/series.html#categorical-accessor">Categóricos</a></p></li>
+</ul>
+</li>
+<li><p><strong>sparse</strong></p>
+<ul>
+<li><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/series.html#sparse-accessor">Sparse</a></p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./parts/04-pandas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creacion-de-series">Creación de Series</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccion-de-elementos">Selección de elementos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#como-ndarray">Como <code class="docutils literal notranslate"><span class="pre">ndarray</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usando-metodo-loc">Usando método <code class="docutils literal notranslate"><span class="pre">.loc()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usando-metodo-iloc">Usando método <code class="docutils literal notranslate"><span class="pre">.iloc()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agregar-elementos">Agregar elementos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-y-atributos">Métodos y atributos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accesors">Accesors</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nebok
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
