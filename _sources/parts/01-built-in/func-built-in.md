@@ -78,7 +78,7 @@ Funciones útiles para objetos `iterable`.
 * - [len](https://docs.python.org/3/library/functions.html#len)(s)
   - Devuelve la longitud (el número de elementos) de un objeto. El argumento puede ser un secuencia (como una cadena, bytes, tupla, lista o rango) o una colección (como un diccionario, un `set` o `frozenset`).
 * - [map](https://docs.python.org/3/library/functions.html#map)(function, iterable, *iterables)
-  - Aplica una función a todos los elementos de un iterable. Retorna un `iterator`.
+  - Aplica una función a todos los elementos de un iterable. Retorna un `iterator`. Cada argumento de `function` se pasa como `iterable` y todos los `iterable` deben de ser del mismo tamaño.
 * - [reversed](https://docs.python.org/3/library/functions.html#reversed)(seq)
   - Retorna un `iterator` de `seq` al inverso.
 * - [zip](https://docs.python.org/3/library/functions.html#zip)(*iterables, strict=False)
@@ -117,6 +117,24 @@ for i, ele in enumerate(X):
 
 <br/>
 
+---
+### Uso de map
+
+A cuantinuación se presenta un ejemplo del uso de `map`.
+
+```python
+# Aplicar una función en cada elemento de un iterable X
+map(fun, X)
+
+# Aplicar una función en cada elemento de un iterable X con más de un argumento
+map(fun, X, Y, ...)
+
+# Desempacar un objeto map
+*map(fun, X)
+```
+- `X`, `Y` son `iterable` del mismo tamaño cuyos elementos se usan como argumentos de la función `fun`, los elementos se empatan por posición.
+
+---
 ### Uso de zip
 
 A continuación se presentan algunas acciones comunes con objetos `enumerate` sobre los iterables `X` y `Y`.

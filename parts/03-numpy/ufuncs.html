@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Información y lógicas &#8212; Manual de Python</title>
+    <title>Ufuncs &#8212; Manual de Python</title>
   
   
   
@@ -65,12 +65,12 @@ const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'parts/03-numpy/informacion-logicas';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'parts/03-numpy/ufuncs';</script>
     <link rel="icon" href="../../_static/nebok-favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Lectura y escritura de datos" href="lectura-escritura.html" />
-    <link rel="prev" title="Índices e iteración" href="indices.html" />
+    <link rel="next" title="Buscar, contar, ordenar y valores únicos" href="buscar-contar-ordenar-unicos.html" />
+    <link rel="prev" title="Funciones" href="funciones-index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -245,11 +245,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="numpy-index.html">Numpy</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="arrays.html">Arrays</a></li>
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="funciones-index.html">Funciones</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Ufuncs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="buscar-contar-ordenar-unicos.html">Buscar, contar, ordenar y valores únicos</a></li>
 <li class="toctree-l3"><a class="reference internal" href="creacion-arrays.html">Creación de arrays</a></li>
 <li class="toctree-l3"><a class="reference internal" href="estadisticas.html">Estadísticas</a></li>
 <li class="toctree-l3"><a class="reference internal" href="indices.html">Índices e iteración</a></li>
-<li class="toctree-l3 current active"><a class="current reference internal" href="#">Información y lógicas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="informacion.html">Información</a></li>
 <li class="toctree-l3"><a class="reference internal" href="lectura-escritura.html">Lectura y escritura de datos</a></li>
 <li class="toctree-l3"><a class="reference internal" href="manipulacion-arrays.html">Manipulación de arrays</a></li>
 <li class="toctree-l3"><a class="reference internal" href="matematicas-numericas.html">Matemáticas y numéricas</a></li>
@@ -259,13 +260,28 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="algebra-lineal.html">Módulo linalg</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cadenas.html">Modulo char</a></li>
 <li class="toctree-l2"><a class="reference internal" href="random.html">Módulo random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patrones-numpy.html">Patrones útiles</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04-pandas/pandas-index.html">Pandas</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/index.html">Objetos Index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/series.html">Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/dataframe.html">DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/escalares-arrays.html">Escalares y Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../04-pandas/otras-clases.html">Otras clases</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/groupby.html">GroupBy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/expanding-rolling-window.html">Expanding, Rolling y Window</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/funciones.html">Funciones</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Otros</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../08-otros/otros-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-otros/otros-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../08-otros/IPython.html">IPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-otros/beautifulsoup.html">Web Scraping</a></li>
 </ul>
 </li>
 </ul>
@@ -322,7 +338,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/parts/03-numpy/informacion-logicas.md" target="_blank"
+      <li><a href="../../_sources/parts/03-numpy/ufuncs.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -406,7 +422,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Información y lógicas</h1>
+    <h1>Ufuncs</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -416,9 +432,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contenido-array">Contenido array</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logicas">Lógicas</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipo-array">Tipo array</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametros-comunes">Párametros comunes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ufuncs-personalizadas">Ufuncs personalizadas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos">Atributos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos">Métodos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplos">Ejemplos</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -430,97 +450,192 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="informacion-y-logicas">
-<h1>Información y lógicas<a class="headerlink" href="#informacion-y-logicas" title="Link to this heading">#</a></h1>
-<p>Funciones para obtener información sobre arrays que retornan arrays booleanos y funciones para trabajar con arrays booleanos.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Para una lista completa visitar la <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.logic.html#logic-functions">documentación</a> de <code class="docutils literal notranslate"><span class="pre">numpy</span></code>.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="ufuncs">
+<h1>Ufuncs<a class="headerlink" href="#ufuncs" title="Link to this heading">#</a></h1>
+<p>Las <em>ufuncs</em> (<em>universal functions</em>) son funciones especiales de <code class="docutils literal notranslate"><span class="pre">numpy</span></code> que permiten operar sobre objetos <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> de manera vectorizada o <em>element-wise</em> (elemento por elemento). Existen de dos tipos, unitarias y binarias, dependiendo de la cantidad de operandos.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>No todas las funciones en <code class="docutils literal notranslate"><span class="pre">numpy</span></code> son <em>ufunc</em>. Para una lista completa de las funciones <em>ufunc</em> visitar la <a class="reference external" href="https://numpy.org/doc/stable/reference/ufuncs.html#available-ufuncs">documetación</a> de <code class="docutils literal notranslate"><span class="pre">numpy</span></code>. En esta sitio las <em>ufunc</em> se pueden encontrar principalmente en las siguientes secciones.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="matematicas-numericas.html"><span class="std std-doc">Matemáticas y numéricas</span></a>.</p></li>
+<li><p><a class="reference internal" href="operadores.html"><span class="std std-doc">Operadores</span></a>.</p></li>
+<li><p><a class="reference internal" href="informacion.html"><span class="std std-doc">Información</span></a>.</p></li>
+</ul>
 </div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Las funciones <em>ufunc</em> de <code class="docutils literal notranslate"><span class="pre">numpy</span></code> también se pueden usar en los objetos de <code class="docutils literal notranslate"><span class="pre">pandas</span></code> como <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> y <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p>
+</div>
+<p>Para saber si una función es <em>ufunc</em> usar:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Retorna el tipo de una función</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">function_name</span><span class="p">)</span> <span class="c1"># -&gt; Debe retornar &lt;class ‘numpy.ufunc’&gt;</span>
+
+<span class="c1"># Veririfacr el tipo de una función</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">function_name</span><span class="p">)</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">ufunc</span> <span class="c1"># Retorna True o False</span>
+</pre></div>
+</div>
+<br/>
+<section id="parametros-comunes">
+<h2>Párametros comunes<a class="headerlink" href="#parametros-comunes" title="Link to this heading">#</a></h2>
+<p>Las funciones <em>ufunc</em> comparten varios parámetros. A continuación se explicarán los más comunes, para una lista completa visitar la <a class="reference external" href="https://numpy.org/doc/stable/reference/ufuncs.html">documentación</a> de <code class="docutils literal notranslate"><span class="pre">numpy</span></code>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">where</span></code> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code> de <code class="docutils literal notranslate"><span class="pre">bool</span></code> (<em>mask</em>): Array booleano, para indicar en qué elementos sí aplicar la función y cuáles dejar intactos.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dtype</span></code> - <code class="docutils literal notranslate"><span class="pre">dtype</span></code>: Define el tipo de dato que deben de tener los elementos retornados.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">out</span></code>  - <code class="docutils literal notranslate"><span class="pre">object</span></code> de tipo <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> o <code class="docutils literal notranslate"><span class="pre">None</span></code>: Es para indicar el objeto donde se almacenará el resultado, es posible poner el mismo objeto en el que se está haciendo la operación para que sea <em>in-place</em>.</p></li>
+</ul>
+<br/>
+</section>
 <hr class="docutils" />
-<section id="contenido-array">
-<h2>Contenido array<a class="headerlink" href="#contenido-array" title="Link to this heading">#</a></h2>
-<p>Funciones que retornan información sobre el contenido del array.</p>
+<section id="ufuncs-personalizadas">
+<h2>Ufuncs personalizadas<a class="headerlink" href="#ufuncs-personalizadas" title="Link to this heading">#</a></h2>
+<p>Para crear una <em>ufuncs</em> personalizadas, primero se debe definir una función de manera tradicional o utilizar una <em>built-in</em>, posteriormente se debe de agregar la función a la librería <em>ufunc</em> de <code class="docutils literal notranslate"><span class="pre">numpy</span></code> con <code class="docutils literal notranslate"><span class="pre">frompyfunc()</span></code>.</p>
+<p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.frompyfunc.html#numpy-frompyfunc">numpy.frompyfunc</a>(func, /, nin, nout, *[, identity])</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">function</span></code> -  <code class="docutils literal notranslate"><span class="pre">function</span></code>: Es el nombre de una función de Python.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nin</span></code> - <code class="docutils literal notranslate"><span class="pre">int</span></code>: Número de argumentos de ingreso.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nout</span></code> - <code class="docutils literal notranslate"><span class="pre">int</span></code>: Número de objetos retornados por la función.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definir función</span>
+<span class="k">def</span> <span class="nf">my_func</span><span class="p">(</span><span class="n">params</span><span class="p">):</span>
+    <span class="c1"># function body</span>
+
+<span class="c1"># Agregar función a la librerica ufuc    </span>
+<span class="n">my_ufunc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">frompyfunc</span><span class="p">(</span><span class="n">my_func</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Ejemplo</strong></p>
+<p>En este ejemplo se convertirá la función <code class="docutils literal notranslate"><span class="pre">str.center(string,</span> <span class="pre">width[,</span> <span class="pre">fillchar)</span></code> en una <em>ufunc</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar numpy</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Convertir función a ufunc</span>
+<span class="n">ucenter</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">frompyfunc</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">center</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Usar función</span>
+<span class="n">ucenter</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s2">&quot;abc&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;12345&quot;</span><span class="p">]),</span> <span class="mi">7</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;**abc**&#39;, &#39;***A***&#39;, &#39;*12345*&#39;], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<br/>
+<p>Lo anterior también se habría logrado usando:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Usando el metodo en cada cadena</span>
+<span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s2">&quot;abc&quot;</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span><span class="p">),</span> <span class="s2">&quot;A&quot;</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span><span class="p">),</span> <span class="s2">&quot;12345&quot;</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span><span class="p">)])</span>
+
+<span class="c1"># Aplicando map</span>
+<span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">*</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">center</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;abc&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;12345&quot;</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">]</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;*&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">3</span><span class="p">)])</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="atributos">
+<h2>Atributos<a class="headerlink" href="#atributos" title="Link to this heading">#</a></h2>
+<p>Atributos de las funciones <code class="docutils literal notranslate"><span class="pre">ufunc</span></code>.</p>
 <table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Función</p></th>
+<tr class="row-odd"><th class="head"><p>Atributo</p></th>
 <th class="head"><p>Descripción</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.isfinite.html">isfinite</a>(x, /[, out, where, casting, order, …])</p></td>
-<td><p>Prueba la finitud de los elementos (no <code class="docutils literal notranslate"><span class="pre">inf</span></code> y no <code class="docutils literal notranslate"><span class="pre">NaN</span></code>).</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">__doc__</span></code></p></td>
+<td><p>Cadena de documentación para cada <em>ufunc</em>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.isinf.html">isinf</a>(x, /[, out, where, casting, order, …])</p></td>
-<td><p>Prueba por elementos para infinito positivo o negativo.</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">__name__</span></code></p></td>
+<td><p>El nombre de la <em>ufunc</em>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.isnan.html">isnan</a>(x, /[, out, where, casting, order, …])</p></td>
-<td><p>Prueba los elementos para <code class="docutils literal notranslate"><span class="pre">NaN</span></code> y devuelva el resultado como un arreglo booleano.</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.identity.html">ufunc.identity</a></p></td>
+<td><p>El elemento identidad de la <em>ufunc</em>, si tiene (identidad como el concepto matemático de elemento identidad en operaciones).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.isnat.html">isnat</a>(x, /[, out, where, casting, order, …])</p></td>
-<td><p>Prueba elementos para <code class="docutils literal notranslate"><span class="pre">NaT</span></code> (no un tiempo) y devuelva el resultado como un arreglo booleano.</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.nargs.html">ufunc.nargs</a></p></td>
+<td><p>El número de argumentos.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.isneginf.html">isneginf</a>(x[, out])</p></td>
-<td><p>Prueba los elementos para infinito negativo, devuelve el resultado como un arreglo booleano.</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.nin.html">ufunc.nin</a></p></td>
+<td><p>El número de entradas.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.isposinf.html">isposinf</a>(x[, out])</p></td>
-<td><p>Prueba elementos para infinito positivo, devuelve el resultado como un arreglo booleano.</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.nout.html">ufunc.nout</a></p></td>
+<td><p>El número de salidas.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.ntypes.html">ufunc.ntypes</a></p></td>
+<td><p>El número de tipos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.signature.html">ufunc.signature</a></p></td>
+<td><p>Definición de los elementos centrales sobre los que opera una <em>ufunc</em> generalizada.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.types.html">ufunc.types</a></p></td>
+<td><p>Retorna un ´list´ con tipos agrupados <em>entrada-&gt;salida</em>.</p></td>
 </tr>
 </tbody>
 </table>
 <br>
 </section>
-<section id="logicas">
-<h2>Lógicas<a class="headerlink" href="#logicas" title="Link to this heading">#</a></h2>
-<p>Funciones útiles en arrays booleanos.</p>
+<section id="metodos">
+<h2>Métodos<a class="headerlink" href="#metodos" title="Link to this heading">#</a></h2>
+<p>Métodos de las funciones <code class="docutils literal notranslate"><span class="pre">ufunc</span></code>.</p>
 <table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Función</p></th>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
 <th class="head"><p>Descripción</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.all.html">all</a>(a[, axis, out, keepdims, where])</p></td>
-<td><p>Prueba si todos los elementos del arreglo a lo largo de un eje dado se evalúan como <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.accumulate.html">ufunc.accumulate</a>(array[, axis, dtype, out])</p></td>
+<td><p>Acumula el resultado de aplicar el operador a todos los elementos. Equivale a hacer cálculos acumulados.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.any.html">any</a>(a[, axis, out, keepdims, where])</p></td>
-<td><p>Prueba si algún elemento del arreglo a lo largo de un eje dado se evalúa como <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.at.html">ufunc.at</a>(a, indices[, b])</p></td>
+<td><p>Realiza una operación <em>in-place</em> sin búfer en <code class="docutils literal notranslate"><span class="pre">a</span></code> para los elementos especificados por <code class="docutils literal notranslate"><span class="pre">indices</span></code>. Un mismo índice puede aparecer múltiples veces en <code class="docutils literal notranslate"><span class="pre">indices</span></code> y la operación se aplicaría ese mismo número de veces a ese elemento.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.outer.html">ufunc.outer</a>(A, B, /, **kwargs)</p></td>
+<td><p>Aplica la operación <em>ufunc</em> a todos los pares <em>(a, b)</em> con <em>a</em> en <code class="docutils literal notranslate"><span class="pre">A</span></code> y <em>b</em> en <code class="docutils literal notranslate"><span class="pre">B</span></code> (en el producto cartesiando de <code class="docutils literal notranslate"><span class="pre">A</span></code> y <code class="docutils literal notranslate"><span class="pre">B</span></code>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.reduce.html">ufunc.reduce</a>(array[, axis, dtype, out, …])</p></td>
+<td><p>Reduce la dimensión de ´array´ a uno (vector), aplicando la <em>ufunc</em> a lo largo de un eje. Equivale a hacer <em>aggregates</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.reduceat.html">ufunc.reduceat</a>(array, indices[, axis, …])</p></td>
+<td><p>Realiza una reducción (local) con cortes especificados en un solo eje.</p></td>
 </tr>
 </tbody>
 </table>
-<br>
+<section id="ejemplos">
+<h3>Ejemplos<a class="headerlink" href="#ejemplos" title="Link to this heading">#</a></h3>
+<p>A continuación se presentan ejemplos de algunos métodos seleccionados (para más ejemplos presionar sobre el nombre de cada método en la tabla de métodos para dirigirse a la documentación de <code class="docutils literal notranslate"><span class="pre">numpy</span></code>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definir el array</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+
+<span class="c1"># Ejemplo de accumulate</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Acumulado: &quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">add</span><span class="o">.</span><span class="n">accumulate</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Ejemplo de reduce</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Aggregate: &quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">add</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Ejemplo de outer</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Producto cartesiano: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Acumulado:  [1 3 6]
+
+Aggregate:  6
+
+Producto cartesiano: 
+ [[ 1  1  1]
+ [ 2  4  8]
+ [ 3  9 27]]
+</pre></div>
+</div>
+</div>
+</div>
 </section>
-<section id="tipo-array">
-<h2>Tipo array<a class="headerlink" href="#tipo-array" title="Link to this heading">#</a></h2>
-<p>Funciones que retornan información sobre el tipo de array.</p>
-<table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Función</p></th>
-<th class="head"><p>Descripción</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.iscomplex.html">iscomplex</a>(x)</p></td>
-<td><p>Devuelve un arreglo <code class="docutils literal notranslate"><span class="pre">bool</span></code>, donde <code class="docutils literal notranslate"><span class="pre">True</span></code> si el elemento de entrada es complejo.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.iscomplexobj.html">iscomplexobj</a>(x)</p></td>
-<td><p>Verifica si es un arreglo de números complejos.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.isfortran.html">isfortran</a>(a)</p></td>
-<td><p>Comprueba si el arreglo es contiguo Fortran.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.isreal.html">isreal</a>(x)</p></td>
-<td><p>Devuelve un arreglo <code class="docutils literal notranslate"><span class="pre">bool</span></code>, donde <code class="docutils literal notranslate"><span class="pre">True</span></code> si el elemento de entrada es real.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.isrealobj.html">isrealobj</a>(x)</p></td>
-<td><p>Verifica si es un arreglo de números reales.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.isscalar.html">isscalar</a>(element)</p></td>
-<td><p>Devuelve <code class="docutils literal notranslate"><span class="pre">True</span></code> si el tipo de elemento es un tipo escalar.</p></td>
-</tr>
-</tbody>
-</table>
-<br>
 </section>
 </section>
 
@@ -555,20 +670,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="indices.html"
+       href="funciones-index.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Índices e iteración</p>
+        <p class="prev-next-title">Funciones</p>
       </div>
     </a>
     <a class="right-next"
-       href="lectura-escritura.html"
+       href="buscar-contar-ordenar-unicos.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Lectura y escritura de datos</p>
+        <p class="prev-next-title">Buscar, contar, ordenar y valores únicos</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -588,9 +703,13 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contenido-array">Contenido array</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logicas">Lógicas</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipo-array">Tipo array</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametros-comunes">Párametros comunes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ufuncs-personalizadas">Ufuncs personalizadas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos">Atributos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos">Métodos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplos">Ejemplos</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

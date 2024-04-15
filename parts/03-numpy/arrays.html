@@ -247,11 +247,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="numpy-index.html">Numpy</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Arrays</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="funciones-index.html">Funciones</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="ufuncs.html">Ufuncs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="buscar-contar-ordenar-unicos.html">Buscar, contar, ordenar y valores únicos</a></li>
 <li class="toctree-l3"><a class="reference internal" href="creacion-arrays.html">Creación de arrays</a></li>
 <li class="toctree-l3"><a class="reference internal" href="estadisticas.html">Estadísticas</a></li>
 <li class="toctree-l3"><a class="reference internal" href="indices.html">Índices e iteración</a></li>
-<li class="toctree-l3"><a class="reference internal" href="informacion-logicas.html">Información y lógicas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="informacion.html">Información</a></li>
 <li class="toctree-l3"><a class="reference internal" href="lectura-escritura.html">Lectura y escritura de datos</a></li>
 <li class="toctree-l3"><a class="reference internal" href="manipulacion-arrays.html">Manipulación de arrays</a></li>
 <li class="toctree-l3"><a class="reference internal" href="matematicas-numericas.html">Matemáticas y numéricas</a></li>
@@ -261,13 +262,28 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="algebra-lineal.html">Módulo linalg</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cadenas.html">Modulo char</a></li>
 <li class="toctree-l2"><a class="reference internal" href="random.html">Módulo random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patrones-numpy.html">Patrones útiles</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04-pandas/pandas-index.html">Pandas</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/index.html">Objetos Index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/series.html">Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/dataframe.html">DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/escalares-arrays.html">Escalares y Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../04-pandas/otras-clases.html">Otras clases</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/groupby.html">GroupBy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/expanding-rolling-window.html">Expanding, Rolling y Window</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/funciones.html">Funciones</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Otros</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../08-otros/otros-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-otros/otros-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../08-otros/IPython.html">IPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-otros/beautifulsoup.html">Web Scraping</a></li>
 </ul>
 </li>
 </ul>
@@ -430,12 +446,13 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fancy-indexing">Fancy Indexing</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modificar-elementos">Modificar elementos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reshaping">Reshaping</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodo-reshape">Método <em>reshape</em></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usando-np-newaxis">Usando np.newaxis:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usando-np-newaxis">Usando np.newaxis</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#broadcasting">Broadcasting:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#broadcasting">Broadcasting</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concatenacion-y-apilacion-de-arrays">Concatenación y apilación de arrays</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#separar-arrays-split">Separar arrays (split)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterar-en-un-array">Iterar en un array</a></li>
@@ -482,6 +499,16 @@ document.write(`
 </li>
 </ul>
 <a class="reference internal image-reference" href="../../_images/arrays-sizes.png" id="arrays-types"><img alt="../../_images/arrays-sizes.png" class="align-center" id="arrays-types" src="../../_images/arrays-sizes.png" style="width: 500px;" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Para conceptualizar arrays de 4 dimensiones o más considerar:</p>
+<ul class="simple">
+<li><p>4D: Un arreglo de 4 dimensiones es un vector donde cada elemento es un <em>array</em> 3D.</p></li>
+<li><p>5D: Un arreglo de 5 dimensiones es una matriz donde cada elemento es un <em>array</em> 3D.</p></li>
+<li><p>6D: Un arreglo de 6 dimensiones es un tensor 3D donde cada elemento es un <em>array</em> 3D.</p></li>
+<li><p>7D+: Aplicar la misma lógica anterior para conceptualizar arrays de más dimensiones.</p></li>
+</ul>
+</div>
 <p><br><br></p>
 <hr class="docutils" />
 <section id="creacion-de-arrays">
@@ -566,10 +593,10 @@ document.write(`
 <li><p>El atributo <code class="docutils literal notranslate"><span class="pre">ndarray.T</span></code>, es decir, transponer el array.</p></li>
 </ul>
 <br>
-</section>
 <hr class="docutils" />
+</section>
 <section id="seleccion-de-elementos">
-<h2>Selección de elementos<a class="headerlink" href="#seleccion-de-elementos" title="Link to this heading">#</a></h2>
+<span id="numpy-arrays-seleccion"></span><h2>Selección de elementos<a class="headerlink" href="#seleccion-de-elementos" title="Link to this heading">#</a></h2>
 <p>Existen diversos métodos para seleccionar elementos de un array.</p>
 <br>
 <a class="reference internal image-reference" href="../../_images/axis-3D.png" id="axis-3d"><img alt="../../_images/axis-3D.png" class="align-center" id="axis-3d" src="../../_images/axis-3D.png" style="width: 300px;" /></a>
@@ -578,7 +605,7 @@ document.write(`
 <br>
 <hr class="docutils" />
 <section id="subsetting">
-<h3>Subsetting<a class="headerlink" href="#subsetting" title="Link to this heading">#</a></h3>
+<span id="numpy-arrays-subsetting"></span><h3>Subsetting<a class="headerlink" href="#subsetting" title="Link to this heading">#</a></h3>
 <p><em>Subsetting</em> se refiere a seleccionar elementos en índices específicos.</p>
 <a class="reference internal image-reference" href="../../_images/index-arrays.png" id="arrays-indexing"><img alt="../../_images/index-arrays.png" class="align-center" id="arrays-indexing" src="../../_images/index-arrays.png" style="width: 500px;" /></a>
 <br/>
@@ -803,7 +830,7 @@ Número pares mayores a 5: [6 8]
 <p><em>Fancy indexing</em> es una estrategia para seleccionar elementos de un array en el que se indica por medio de un <code class="docutils literal notranslate"><span class="pre">array-like</span></code> los índices a seleccionar, de tal forma que se seleccionan los elementos que están en los índices de la lista/array.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>El array retornado al seleccionar elementos por <em>fancy indexing</em> generalmente será de una dimensión. A menos de que se utilice un array con un determinado <em>shape</em> como se verá más adelante.</p>
+<p>El array retornado al seleccionar elementos por <em>fancy indexing</em> será de una dimensión si se utiliza un <code class="docutils literal notranslate"><span class="pre">list-like</span></code>. Si se desea que el array retornado tenga un <em>shape</em> determinido se puede usar un <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> con un determinado <em>shape</em> como se verá más adelante.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -832,7 +859,7 @@ Número pares mayores a 5: [6 8]
 <ul class="simple">
 <li><p>Los índices en <em>ind</em> pueden estar en cualquier orden, incluso se puede repetir más de una vez un mismo índice.</p></li>
 </ul>
-<p>El <code class="docutils literal notranslate"><span class="pre">array-like</span></code> utilizado puede tener un <em>shape</em> en específico y el array devuelto tendrá ese mismo shape. En este caso sí es necesario que <code class="docutils literal notranslate"><span class="pre">ind</span></code> sea <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code>.</p>
+<p>Se puede usar un <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code> que tenga un <em>shape</em> específico y el array devuelto tendrá ese mismo shape. Esto solo funciona si el objeto que se usa para hacer <em>fancy indexing</em> es <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definir el array</span>
@@ -853,7 +880,11 @@ Número pares mayores a 5: [6 8]
 </div>
 </div>
 </div>
-<p>En <strong>dos dimensiones</strong> se debe de pasar una lista/array con los índices de las filas y otra/o con los índices de las columnas por separado. Lo mismo se puede generalizar para arrays de más dimensiones.</p>
+<p>En <strong>dos dimensiones</strong> tener en cuenta lo siguiente:</p>
+<ul class="simple">
+<li><p>Si se pasa un array 1D entonces se hará <em>fance indexing</em> solo de las filas. Retornando un array 2D.</p></li>
+<li><p>Se puede pasar una lista/array con los índices de las filas y otra/o con los índices de las columnas por separado, los elementos se empatan por posición. Lo mismo se puede generalizar para arrays de más dimensiones.</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definir el array</span>
@@ -880,9 +911,35 @@ Número pares mayores a 5: [6 8]
 <p class="admonition-title">Note</p>
 <p>Es posible combinar <em>fancy indexing</em> con otras estrategías para seleccionar elementos como <em>slicing</em>, <em>boolena masking</em> o <em>subsetting</em> para diferentes dimensiones del arreglo.</p>
 </div>
-<br>
-<hr class="docutils" />
+<br/>
 </section>
+</section>
+<hr class="docutils" />
+<section id="modificar-elementos">
+<h2>Modificar elementos<a class="headerlink" href="#modificar-elementos" title="Link to this heading">#</a></h2>
+<p>Para modificar elementos de un <em>array</em> se puede utilizar cualquier estrategia de <a class="reference internal" href="#numpy-arrays-seleccion"><span class="std std-ref">Selección de elementos</span></a> y asignar nuevos valores:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Modificar un elemento, ejemplo con indexing</span>
+<span class="n">myarray</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+
+<span class="c1"># Modificar múltiples elementos con el mismo valor, ejemplo con slicing</span>
+<span class="n">myarray</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+
+<span class="c1"># Modificar múltiples elementos con valores diferentes, ejemplo con slicing</span>
+<span class="n">myarray</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">val_i</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">val_j</span><span class="p">]</span> 
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Si se van a asignar múltiples valores diferentes tener en cuenta lo siguiente:</p>
+<ul>
+<li><p>El objeto que asigne debe ser de tipo <code class="docutils literal notranslate"><span class="pre">array-like</span></code>.</p></li>
+<li><p>Se deben asignar el mismo número de elementos que los que se están seleccionando.</p></li>
+<li><p>Es técnicamente posible asignar múltiples valores por medio de <em>boolean masking</em>, pero no es recomendado ya que es necesario saber con anticipación cúantos elementos serán seleccionados.</p></li>
+</ul>
+</li>
+<li><p><strong>Importante</strong>: Se puede usar cualquier operador de <a class="reference internal" href="../01-built-in/operadores-palabras.html#built-in-operadores-asignacion"><span class="std std-ref">Asignación</span></a>, no solo <code class="docutils literal notranslate"><span class="pre">=</span></code>, por ejemplo: <code class="docutils literal notranslate"><span class="pre">myarray[i:j]</span> <span class="pre">+=</span> <span class="pre">val</span> <span class="pre">#</span> <span class="pre">Ejemplo</span> <span class="pre">con</span> <span class="pre">+=</span> <span class="pre">y</span> <span class="pre">fancy</span> <span class="pre">indexing</span></code>
+<br></p></li>
+</ul>
+<hr class="docutils" />
 </section>
 <section id="reshaping">
 <span id="numpy-arrays-reshaping"></span><h2>Reshaping<a class="headerlink" href="#reshaping" title="Link to this heading">#</a></h2>
@@ -1004,7 +1061,7 @@ Número pares mayores a 5: [6 8]
 </section>
 <hr class="docutils" />
 <section id="usando-np-newaxis">
-<h3>Usando np.newaxis:<a class="headerlink" href="#usando-np-newaxis" title="Link to this heading">#</a></h3>
+<h3>Usando np.newaxis<a class="headerlink" href="#usando-np-newaxis" title="Link to this heading">#</a></h3>
 <p>Se puede utilizar <code class="docutils literal notranslate"><span class="pre">np.newaxis</span></code> para modificar el shape de un array, para ello se pone <code class="docutils literal notranslate"><span class="pre">np.newaxis</span></code> en la dimensión que se quiere agregar entre corchetes, como si se hiciera <em>slicing</em>. Esta forma de modificar el shape de una array es útil cuando se desea modificar el número de dimensiones, pero no agregar elementos en esas nuevas dimensiones.</p>
 <a class="reference internal image-reference" href="../../_images/2D-a-3D-2.png" id="d-a-3d-2"><img alt="../../_images/2D-a-3D-2.png" class="align-center" id="d-a-3d-2" src="../../_images/2D-a-3D-2.png" style="width: 400px;" /></a>
 <div class="admonition note">
@@ -1029,7 +1086,7 @@ Número pares mayores a 5: [6 8]
 </section>
 <hr class="docutils" />
 <section id="broadcasting">
-<h2>Broadcasting:<a class="headerlink" href="#broadcasting" title="Link to this heading">#</a></h2>
+<h2>Broadcasting<a class="headerlink" href="#broadcasting" title="Link to this heading">#</a></h2>
 <p>Se refiere al ajuste que se hace en las dimensiones y/o el número de elementos de un array cuando se hacen operaciones vectorizadas entre arrays de distintas dimensiones y/o número de elementos en una misma dimensión. El array de menor dimensión se ajustará al de mayor dimensión. Existen algunas reglas para que se pueda hacer el broadcasting:</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1799,12 +1856,13 @@ Número pares mayores a 5: [6 8]
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fancy-indexing">Fancy Indexing</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modificar-elementos">Modificar elementos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reshaping">Reshaping</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodo-reshape">Método <em>reshape</em></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usando-np-newaxis">Usando np.newaxis:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usando-np-newaxis">Usando np.newaxis</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#broadcasting">Broadcasting:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#broadcasting">Broadcasting</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concatenacion-y-apilacion-de-arrays">Concatenación y apilación de arrays</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#separar-arrays-split">Separar arrays (split)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterar-en-un-array">Iterar en un array</a></li>

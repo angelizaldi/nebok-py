@@ -69,7 +69,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="icon" href="../../_static/nebok-favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Buscar, contar, ordenar y valores únicos" href="buscar-contar-ordenar-unicos.html" />
+    <link rel="next" title="Ufuncs" href="ufuncs.html" />
     <link rel="prev" title="Arrays" href="arrays.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -245,11 +245,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="numpy-index.html">Numpy</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="arrays.html">Arrays</a></li>
 <li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">Funciones</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="ufuncs.html">Ufuncs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="buscar-contar-ordenar-unicos.html">Buscar, contar, ordenar y valores únicos</a></li>
 <li class="toctree-l3"><a class="reference internal" href="creacion-arrays.html">Creación de arrays</a></li>
 <li class="toctree-l3"><a class="reference internal" href="estadisticas.html">Estadísticas</a></li>
 <li class="toctree-l3"><a class="reference internal" href="indices.html">Índices e iteración</a></li>
-<li class="toctree-l3"><a class="reference internal" href="informacion-logicas.html">Información y lógicas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="informacion.html">Información</a></li>
 <li class="toctree-l3"><a class="reference internal" href="lectura-escritura.html">Lectura y escritura de datos</a></li>
 <li class="toctree-l3"><a class="reference internal" href="manipulacion-arrays.html">Manipulación de arrays</a></li>
 <li class="toctree-l3"><a class="reference internal" href="matematicas-numericas.html">Matemáticas y numéricas</a></li>
@@ -259,13 +260,28 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="algebra-lineal.html">Módulo linalg</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cadenas.html">Modulo char</a></li>
 <li class="toctree-l2"><a class="reference internal" href="random.html">Módulo random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patrones-numpy.html">Patrones útiles</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04-pandas/pandas-index.html">Pandas</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/index.html">Objetos Index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/series.html">Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/dataframe.html">DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/escalares-arrays.html">Escalares y Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../04-pandas/otras-clases.html">Otras clases</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/groupby.html">GroupBy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/expanding-rolling-window.html">Expanding, Rolling y Window</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/funciones.html">Funciones</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Otros</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../08-otros/otros-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-otros/otros-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../08-otros/IPython.html">IPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-otros/beautifulsoup.html">Web Scraping</a></li>
 </ul>
 </li>
 </ul>
@@ -416,6 +432,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#argumento-axis">Argumento <code class="docutils literal notranslate"><span class="pre">axis</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tabla-de-contenido">Tabla de contenido</a></li>
 </ul>
             </nav>
@@ -435,15 +452,39 @@ document.write(`
 <p class="admonition-title">Warning</p>
 <p>No se enlistan todas las funciones de la librería numpy, solo algunas de las más importante. Para una lista completa de funciones visitar la <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.html#routines">documentación</a> de <code class="docutils literal notranslate"><span class="pre">numpy</span></code>.</p>
 </div>
+<section id="argumento-axis">
+<h2>Argumento <code class="docutils literal notranslate"><span class="pre">axis</span></code><a class="headerlink" href="#argumento-axis" title="Link to this heading">#</a></h2>
+<p>En las funciones que tienen el parámetro <code class="docutils literal notranslate"><span class="pre">axis</span></code> significa que la función se puede aplicar únicamente en un eje determinado, dando como resultado un arreglo de una dimensión menor con respecto al número de dimensiones del array original. Tomar como referencia la imagen para conceptualizar cómo se aplica la función dependiendo del eje indicado en un array 2D.</p>
+<a class="reference internal image-reference" href="../../_images/2d-func-axis.png" id="axis-2d-func"><img alt="../../_images/2d-func-axis.png" class="align-center" id="axis-2d-func" src="../../_images/2d-func-axis.png" style="width: 300px;" /></a>
+<p>Independientemente del eje indicado el array retornado será un array 1D.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">axis=0</span></code>: En este caso se aplica la función a cada colummna.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">axis=1</span></code>: En este caso se aplica la función a cada fila.</p></li>
+</ul>
+<p>En arrays 3D, tomar como referencia la siguiente imagen</p>
+<a class="reference internal image-reference" href="../../_images/3d-func-axis.png" id="axis-3d-func"><img alt="../../_images/3d-func-axis.png" class="align-center" id="axis-3d-func" src="../../_images/3d-func-axis.png" style="width: 300px;" /></a>
+<p>Independientemente del eje indicado el array retornado será un array 2D.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">axis=0</span></code>: En este caso se aplica la función a cada colummna de cada “rebanada”.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">axis=1</span></code>: En este caso se aplica la función a cada fila de cada “rebanada”.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">axis=2</span></code>: En este caso se aplica la función a todas las “rebanadas” para cada fila y columna.</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Es posible aplicar la función en dos ejes al mismo tiempo, por ejemplo en lugar de usar <code class="docutils literal notranslate"><span class="pre">a.sum(axis=2).sum(axis=0)</span></code>, se puede usar <code class="docutils literal notranslate"><span class="pre">axis=(0,</span> <span class="pre">2)</span></code> o <code class="docutils literal notranslate"><span class="pre">axis=(2,</span> <span class="pre">0)</span></code>, el orden en el que se pongan los ejes no importa.</p>
+<p>Si se quiere aplicar la función en todos los ejes se puede omitir el parámetro <code class="docutils literal notranslate"><span class="pre">axis</span></code> o explícitamente se puede usar <code class="docutils literal notranslate"><span class="pre">axis=None</span></code>.</p>
+</div>
+</section>
 <section id="tabla-de-contenido">
 <h2>Tabla de contenido<a class="headerlink" href="#tabla-de-contenido" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="ufuncs.html">Ufuncs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="buscar-contar-ordenar-unicos.html">Buscar, contar, ordenar y valores únicos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="creacion-arrays.html">Creación de arrays</a></li>
 <li class="toctree-l1"><a class="reference internal" href="estadisticas.html">Estadísticas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="indices.html">Índices e iteración</a></li>
-<li class="toctree-l1"><a class="reference internal" href="informacion-logicas.html">Información y lógicas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="informacion.html">Información</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lectura-escritura.html">Lectura y escritura de datos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manipulacion-arrays.html">Manipulación de arrays</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matematicas-numericas.html">Matemáticas y numéricas</a></li>
@@ -493,11 +534,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="buscar-contar-ordenar-unicos.html"
+       href="ufuncs.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Buscar, contar, ordenar y valores únicos</p>
+        <p class="prev-next-title">Ufuncs</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -517,6 +558,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#argumento-axis">Argumento <code class="docutils literal notranslate"><span class="pre">axis</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tabla-de-contenido">Tabla de contenido</a></li>
 </ul>
   </nav></div>

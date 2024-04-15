@@ -70,7 +70,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Creación de arrays" href="creacion-arrays.html" />
-    <link rel="prev" title="Funciones" href="funciones-index.html" />
+    <link rel="prev" title="Ufuncs" href="ufuncs.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -245,11 +245,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="numpy-index.html">Numpy</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="arrays.html">Arrays</a></li>
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="funciones-index.html">Funciones</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="ufuncs.html">Ufuncs</a></li>
 <li class="toctree-l3 current active"><a class="current reference internal" href="#">Buscar, contar, ordenar y valores únicos</a></li>
 <li class="toctree-l3"><a class="reference internal" href="creacion-arrays.html">Creación de arrays</a></li>
 <li class="toctree-l3"><a class="reference internal" href="estadisticas.html">Estadísticas</a></li>
 <li class="toctree-l3"><a class="reference internal" href="indices.html">Índices e iteración</a></li>
-<li class="toctree-l3"><a class="reference internal" href="informacion-logicas.html">Información y lógicas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="informacion.html">Información</a></li>
 <li class="toctree-l3"><a class="reference internal" href="lectura-escritura.html">Lectura y escritura de datos</a></li>
 <li class="toctree-l3"><a class="reference internal" href="manipulacion-arrays.html">Manipulación de arrays</a></li>
 <li class="toctree-l3"><a class="reference internal" href="matematicas-numericas.html">Matemáticas y numéricas</a></li>
@@ -259,13 +260,28 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="algebra-lineal.html">Módulo linalg</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cadenas.html">Modulo char</a></li>
 <li class="toctree-l2"><a class="reference internal" href="random.html">Módulo random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patrones-numpy.html">Patrones útiles</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04-pandas/pandas-index.html">Pandas</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/index.html">Objetos Index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/series.html">Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/dataframe.html">DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/escalares-arrays.html">Escalares y Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../04-pandas/otras-clases.html">Otras clases</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/groupby.html">GroupBy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/expanding-rolling-window.html">Expanding, Rolling y Window</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/funciones.html">Funciones</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Otros</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../08-otros/otros-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-otros/otros-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../08-otros/IPython.html">IPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-otros/beautifulsoup.html">Web Scraping</a></li>
 </ul>
 </li>
 </ul>
@@ -441,7 +457,7 @@ document.write(`
 <hr class="docutils" />
 <section id="buscar">
 <h2>Buscar<a class="headerlink" href="#buscar" title="Link to this heading">#</a></h2>
-<p>Funciones para buscar valores en arrays.</p>
+<p>Funciones útiles para determinar índices o elementos que cumplen ciertas características como valores iguales a cero, máximos, mínimos o alguna otra característica específica.</p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Función</p></th>
@@ -456,7 +472,7 @@ document.write(`
 <td><p>Devuelve los índices de los valores mínimos a lo largo de un eje.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.argwhere.html">argwhere</a>(a)</p></td>
-<td><p>Determina los índices de los elementos del arreglo que no sean cero, agrupados por elemento.</p></td>
+<td><p>Determina los índices de los elementos del arreglo que no son cero.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.extract.html">extract</a>(condition, arr)</p></td>
 <td><p>Devuelve los elementos de un arreglo que cumplen alguna condición.</p></td>
@@ -469,9 +485,6 @@ document.write(`
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.nanargmin.html">nanargmin</a>(a[, axis, out, keepdims])</p></td>
 <td><p>Devuelve los índices de los valores mínimos en el eje especificado ignorando <code class="docutils literal notranslate"><span class="pre">NaN</span></code>s.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.searchsorted.html">searchsorted</a>(a, v[, side, sorter])</p></td>
-<td><p>Determina los índices donde se deben insertar elementos para mantener el orden.</p></td>
 </tr>
 </tbody>
 </table>
@@ -496,7 +509,7 @@ document.write(`
 </section>
 <section id="ordenar">
 <h2>Ordenar<a class="headerlink" href="#ordenar" title="Link to this heading">#</a></h2>
-<p>Funciones para ordenar valores en arrays.</p>
+<p>Funciones útiles para ordenar valores en arrays, determinar los índices de los valores ordenados, determinar índices para insertar valores y mantener el orden .</p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Función</p></th>
@@ -505,16 +518,19 @@ document.write(`
 </thead>
 <tbody>
 <tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.argpartition.html">argpartition</a>(a, kth[, axis, kind, order])</p></td>
-<td><p>Realiza una partición indirecta a lo largo del eje dado utilizando el algoritmo especificado por la palabra clave <code class="docutils literal notranslate"><span class="pre">kind</span></code>.</p></td>
+<td><p>Devuelve los índices en el que los valores de los primeros <em>k-1</em> elementos, serán menores al valor del elemento <em>k</em> y el resto serán mayores o iguales que el valor del elemento <em>k</em>. Cada partición no estrictamente estará ordenada. Lo mismo se puede aplicar para varias posiciones.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.argsort.html">argsort</a>(a[, axis, kind, order])</p></td>
 <td><p>Devuelve los índices que ordenarían un arreglo.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.partition.html">partition</a>(a, kth[, axis, kind, order])</p></td>
-<td><p>Devuelve una copia particionada de un arreglo.</p></td>
+<td><p>Devuelve una copia del arreglo en el que los valores de los primeros <em>k-1</em> elementos, serán menores al valor del elemento <em>k</em> y el resto serán mayores o iguales que el valor del elemento <em>k</em>. Cada partición no estrictamente estará ordenada. Lo mismo se puede aplicar para varias posiciones.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.sort.html">sort</a>(a[, axis, kind, order])</p></td>
-<td><p>Devuelve una copia ordenada de un arreglo.</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.searchsorted.html">searchsorted</a>(a, v[, side, sorter])</p></td>
+<td><p>Determina los índices donde se deben insertar elementos para mantener el orden, bajo el supuesto de que <code class="docutils literal notranslate"><span class="pre">a</span></code> está ordenado. En caso de múltiples valores, los índices se determinan solo con respecto al array original <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.sort.html">sort</a>(a[, axis, kind, order])</p></td>
+<td><p>Devuelve una copia ordenada de un arreglo. Es posible ordenar algún eje en específico.</p></td>
 </tr>
 </tbody>
 </table>
@@ -570,12 +586,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="funciones-index.html"
+       href="ufuncs.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Funciones</p>
+        <p class="prev-next-title">Ufuncs</p>
       </div>
     </a>
     <a class="right-next"

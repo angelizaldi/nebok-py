@@ -245,11 +245,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="numpy-index.html">Numpy</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="arrays.html">Arrays</a></li>
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="funciones-index.html">Funciones</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="ufuncs.html">Ufuncs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="buscar-contar-ordenar-unicos.html">Buscar, contar, ordenar y valores únicos</a></li>
 <li class="toctree-l3"><a class="reference internal" href="creacion-arrays.html">Creación de arrays</a></li>
 <li class="toctree-l3"><a class="reference internal" href="estadisticas.html">Estadísticas</a></li>
 <li class="toctree-l3"><a class="reference internal" href="indices.html">Índices e iteración</a></li>
-<li class="toctree-l3"><a class="reference internal" href="informacion-logicas.html">Información y lógicas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="informacion.html">Información</a></li>
 <li class="toctree-l3"><a class="reference internal" href="lectura-escritura.html">Lectura y escritura de datos</a></li>
 <li class="toctree-l3"><a class="reference internal" href="manipulacion-arrays.html">Manipulación de arrays</a></li>
 <li class="toctree-l3"><a class="reference internal" href="matematicas-numericas.html">Matemáticas y numéricas</a></li>
@@ -259,13 +260,28 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="algebra-lineal.html">Módulo linalg</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cadenas.html">Modulo char</a></li>
 <li class="toctree-l2"><a class="reference internal" href="random.html">Módulo random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patrones-numpy.html">Patrones útiles</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04-pandas/pandas-index.html">Pandas</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/index.html">Objetos Index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/series.html">Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/dataframe.html">DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/escalares-arrays.html">Escalares y Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../04-pandas/otras-clases.html">Otras clases</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/groupby.html">GroupBy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/expanding-rolling-window.html">Expanding, Rolling y Window</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/funciones.html">Funciones</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Otros</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../08-otros/otros-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-otros/otros-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../08-otros/IPython.html">IPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-otros/beautifulsoup.html">Web Scraping</a></li>
 </ul>
 </li>
 </ul>
@@ -451,52 +467,52 @@ document.write(`
 </thead>
 <tbody>
 <tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.add.html">add</a>(x1, x2, /[, out, where, casting, order, …])</p></td>
-<td><p>Suma <code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>, por elementos.</p></td>
+<td><p>Suma <code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>, por elementos. Equivale a usar <code class="docutils literal notranslate"><span class="pre">x1</span> <span class="pre">+</span> <span class="pre">x2</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.divide.html">divide</a>(x1, x2, /[, out, where, casting, …])</p></td>
-<td><p>Divide <code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>, por elementos.</p></td>
+<td><p>Divide <code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">x1</span> <span class="pre">/</span> <span class="pre">x2</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.divmod.html">divmod</a>(x1, x2[, out1, out2], / [[, out, …])</p></td>
 <td><p>Devuelve el cociente y el residuo de la división de <code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>, simultáneamente.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.float_power.html">float_power</a>(x1, x2, /[, out, where, …])</p></td>
-<td><p>Calcula <code class="docutils literal notranslate"><span class="pre">x1**x2</span></code>, por elementos.</p></td>
+<td><p>Eleva los elementos de <code class="docutils literal notranslate"><span class="pre">x1</span></code> a los elementos de <code class="docutils literal notranslate"><span class="pre">x2</span></code>. Siempre retorna <code class="docutils literal notranslate"><span class="pre">float</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.floor_divide.html">floor_divide</a>(x1, x2, /[, out, where, …])</p></td>
-<td><p>División entera de <code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>, por elementos.</p></td>
+<td><p>División entera de <code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>, por elementos. Equivale a usar <code class="docutils literal notranslate"><span class="pre">x1</span> <span class="pre">//</span> <span class="pre">x2</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.fmod.html">fmod</a>(x1, x2, /[, out, where, casting, …])</p></td>
-<td><p>Módulo de <code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>, por elementos.</p></td>
+<td><p>Módulo de <code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>, por elementos. Mantiene el signo del númerdor.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.mod.html">mod</a>(x1, x2, /[, out, where, casting, order, …])</p></td>
-<td><p>Módulo de <code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>, por elementos.</p></td>
+<td><p>Módulo de <code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>, por elementos. Equivale a usar <code class="docutils literal notranslate"><span class="pre">x1</span> <span class="pre">%</span> <span class="pre">x2</span></code>. Mantiene el signo del denominador <code class="docutils literal notranslate"><span class="pre">x2</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.modf.html">modf</a>(x[, out1, out2], / [[, out, where, …])</p></td>
 <td><p>Devuelve las partes fraccionaria y entera de un arreglo, por elementos.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.multiply.html">multiply</a>(x1, x2, /[, out, where, casting, …])</p></td>
-<td><p>Multiplica <code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>, por elementos.</p></td>
+<td><p>Multiplica <code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>, por elementos. Equivale a usar <code class="docutils literal notranslate"><span class="pre">x1</span> <span class="pre">*</span> <span class="pre">x2</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.negative.html">negative</a>(x, /[, out, where, casting, order, …])</p></td>
-<td><p>Negativo numérico, por elementos.</p></td>
+<td><p>Negativo numérico, por elementos- Equivale a usar <code class="docutils literal notranslate"><span class="pre">-x</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.positive.html">positive</a>(x, /[, out, where, casting, order, …])</p></td>
-<td><p>Positivo numérico, por elementos.</p></td>
+<td><p>Positivo numérico, por elementos. Equivale a usar <code class="docutils literal notranslate"><span class="pre">+x</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.power.html">power</a>(x1, x2, /[, out, where, casting, …])</p></td>
-<td><p>Calcula <code class="docutils literal notranslate"><span class="pre">x1**x2</span></code>, por elementos.</p></td>
+<td><p>Eleva los elementos de <code class="docutils literal notranslate"><span class="pre">x1</span></code> a los elementos de <code class="docutils literal notranslate"><span class="pre">x2</span></code>. Equivale a usar <code class="docutils literal notranslate"><span class="pre">x1</span> <span class="pre">**</span> <span class="pre">x2</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.reciprocal.html">reciprocal</a>(x, /[, out, where, casting, …])</p></td>
-<td><p>Devuelve el recíproco de <code class="docutils literal notranslate"><span class="pre">x</span></code>, por elementos.</p></td>
+<td><p>Devuelve el recíproco de <code class="docutils literal notranslate"><span class="pre">x</span></code>, por elementos. Equivale a usar <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">/</span> <span class="pre">x</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.remainder.html">remainder</a>(x1, x2, /[, out, where, casting, …])</p></td>
-<td><p>Módulo de <code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>, por elementos.</p></td>
+<td><p>Módulo de <code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">%</span></code>. Mantiene el signo del denominador <code class="docutils literal notranslate"><span class="pre">x2</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.subtract.html">subtract</a>(x1, x2, /[, out, where, casting, …])</p></td>
-<td><p>Resta <code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>, por elementos.</p></td>
+<td><p>Resta <code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>, por elementos. Equivale a usar <code class="docutils literal notranslate"><span class="pre">x1</span> <span class="pre">-</span> <span class="pre">x2</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.true_divide.html">true_divide</a>(x1, x2, /[, out, where, …])</p></td>
-<td><p>Divide <code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>, por elementos.</p></td>
+<td><p>Divide <code class="docutils literal notranslate"><span class="pre">x1</span></code> y <code class="docutils literal notranslate"><span class="pre">x2</span></code>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">x1</span> <span class="pre">/</span> <span class="pre">x2</span></code>.</p></td>
 </tr>
 </tbody>
 </table>

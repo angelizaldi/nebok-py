@@ -1,0 +1,1517 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>GroupBy &#8212; Manual de Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'parts/04-pandas/groupby';</script>
+    <link rel="icon" href="../../_static/nebok-favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Expanding, Rolling y Window" href="expanding-rolling-window.html" />
+    <link rel="prev" title="Otras clases" href="otras-clases.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/nebok-logo.png" class="logo__image only-light" alt="Manual de Python - Home"/>
+    <script>document.write(`<img src="../../_static/nebok-logo.png" class="logo__image only-dark" alt="Manual de Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Manual de Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Built-in</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01-built-in/built-in-index.html">Python estándar</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/ayuda.html">Obtener ayuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/comentarios.html">Comentarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/tipos-datos.html">Tipos de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/operadores-palabras.html">Operadores y palabras reservadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/entrada-salida.html">Entrada y salida de datos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/tipos-index.html">Tipos Built-In</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/booleanos.html">Valores booleanos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/numeros.html">Números</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/cadenas.html">Cadenas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/listas.html">Listas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/tuples.html">Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/sets.html">Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/diccionarios.html">Diccionarios</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/if-else.html">If … Else</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/for-loop.html">For Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/do-while.html">Do While</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/funciones.html">Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/try-except.html">Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/context.html">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/io.html">Lectura y escritura de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/modulos.html">Paquetes y Módulos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/avanzado-index.html">Temas avanzados</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/decorators.html">Decorators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/iterators.html">Iterators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/generators.html">Generators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/oop.html">Programación orientada a objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/func-built-in.html">Funciones built-in</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-modulos/modulos-index.html">Módulos built-in</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/csv.html">CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/datetime.html">Datetime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/itertools.html">Itertools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/json.html">JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/math.html">Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os.html">os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os-path.html">os.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/pickle.html">Pickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/random.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/regular-expression.html">Regular Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/statistics.html">Statistics</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otras librerías</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-numpy/numpy-index.html">Numpy</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/arrays.html">Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../03-numpy/funciones-index.html">Funciones</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/ufuncs.html">Ufuncs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/buscar-contar-ordenar-unicos.html">Buscar, contar, ordenar y valores únicos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/creacion-arrays.html">Creación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/estadisticas.html">Estadísticas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/indices.html">Índices e iteración</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/informacion.html">Información</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/lectura-escritura.html">Lectura y escritura de datos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/manipulacion-arrays.html">Manipulación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/matematicas-numericas.html">Matemáticas y numéricas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/operadores.html">Operadores</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/algebra-lineal.html">Módulo linalg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/cadenas.html">Modulo char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/random.html">Módulo random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/patrones-numpy.html">Patrones útiles</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="pandas-index.html">Pandas</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html">Index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="series.html">Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dataframe.html">DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="escalares-arrays.html">Escalares y Arrays</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="otras-clases.html">Otras clases</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">GroupBy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="expanding-rolling-window.html">Expanding, Rolling y Window</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="funciones.html">Funciones</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otros</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-otros/otros-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08-otros/IPython.html">IPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-otros/beautifulsoup.html">Web Scraping</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/parts/04-pandas/groupby.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>GroupBy</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iteracion-sobre-groupby">Iteración sobre <em>GroupBy</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convertir-groupby-a-dict">Convertir <em>GroupBy</em> a <code class="docutils literal notranslate"><span class="pre">dict</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccion-de-elementos">Selección de elementos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos">Métodos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframegroupby"><code class="docutils literal notranslate"><span class="pre">DataFrameGroupBy</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#calculos">Cálculos</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregates">Aggregates</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#booleanos">Booleanos</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#calculos-acumulados-diferencias-cambios-porcentuales-y-rank">Cálculos acumulados, diferencias, cambios porcentuales y rank</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#estadisticas">Estadísticas</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#estadisticos-de-orden">Estadísticos de orden</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#series-de-tiempo">Series de tiempo</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-rolling-aplicar-pipe-mapeos-y-transformaciones">Funciones rolling, aplicar, pipe, mapeos y transformaciones</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#graficas">Gráficas</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccion-filtrado-e-iteracion-de-elementos">Selección, filtrado e iteración de elementos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#valores-nulos">Valores nulos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#valores-unicos">Valores únicos</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seriesgroupby"><code class="docutils literal notranslate"><span class="pre">SeriesGroupBy</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Cálculos</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Aggregates</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Booleanos</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Cálculos acumulados, diferencias, cambios porcentuales y rank</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Estadísticas</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Estadísticos de orden</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Series de tiempo</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-rolling-aplicar-pipe-y-mapeos">Funciones rolling, aplicar, pipe y mapeos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Gráficas</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#informacion">Información</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Selección, filtrado e iteración de elementos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Valores nulos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Valores únicos</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-ultiles">Funciones últiles</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="groupby">
+<h1>GroupBy<a class="headerlink" href="#groupby" title="Link to this heading">#</a></h1>
+<p>Los objetos <code class="docutils literal notranslate"><span class="pre">SeriesGroupBy</span></code> y <code class="docutils literal notranslate"><span class="pre">DataFrameGroupBy</span></code> son unos objetos retornados al usar el método <code class="docutils literal notranslate"><span class="pre">.groupby()</span></code> ya sea con <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> o <code class="docutils literal notranslate"><span class="pre">Series</span></code>,  si solo se llama el método sin especificar ninguna función de <em>aggregate</em>, como tal no se calculará nada, salvo los datos intermedios de la llave de agrupación, es decir se determinarán las llaves y los datos de cada grupo.</p>
+<p>El tipo retornado retornado por <code class="docutils literal notranslate"><span class="pre">.groupby()</span></code> dependerá de:</p>
+<ul class="simple">
+<li><p>Retorna <code class="docutils literal notranslate"><span class="pre">SeriesGroupBy</span></code>:</p>
+<ul>
+<li><p>Si el método <code class="docutils literal notranslate"><span class="pre">.groupby()</span></code> se aplica a un <code class="docutils literal notranslate"><span class="pre">Series</span></code> o si se selecciona una columna en concreto después agrupar un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p></li>
+</ul>
+</li>
+<li><p>Retorna <code class="docutils literal notranslate"><span class="pre">DataFrameGroupBy</span></code>:</p>
+<ul>
+<li><p>Si el método <code class="docutils literal notranslate"><span class="pre">.groupby()</span></code> se aplica a un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> o un subconjunto de columnas (al menos dos columnas).</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar libreria</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Create a DataFrame</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">],</span>
+                   <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+                   <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]})</span>
+
+<span class="c1"># Agrupar por la columna &#39;A&#39; en todo el dataframe</span>
+<span class="n">grouped_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)</span>
+
+<span class="c1"># Agrupar por la columna &#39;A&#39; en una columna en particular</span>
+<span class="n">grouped_series</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)[</span><span class="s1">&#39;B&#39;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">grouped_df</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">grouped_series</span> <span class="p">))</span>	
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.groupby.generic.DataFrameGroupBy&#39;&gt;
+&lt;class &#39;pandas.core.groupby.generic.SeriesGroupBy&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Conceptualmente los objetos de tipo <em>GroupBy</em> se pueden entender como un <code class="docutils literal notranslate"><span class="pre">DataFrame-like</span></code> donde las columnas tiene como índice las columnas del objeto original, el índice de las filas (que potencialmente puede ser un multi-índice) tendrá como etiquetas los <em>keys</em> de los grupos y los elementos son <code class="docutils literal notranslate"><span class="pre">array-like</span></code> de una dimensión que son particiones del objeto original dada la columna y el <em>key</em>. Tener en cuenta que los elementos de cada <code class="docutils literal notranslate"><span class="pre">array-like</span></code> conservan los índices de fila del objeto original.</p>
+<figure class="align-center" id="dataframegroupby-image">
+<a class="reference internal image-reference" href="../../_images/groupby.png"><img alt="../../_images/groupby.png" src="../../_images/groupby.png" style="width: 700px;" /></a>
+<figcaption>
+<p><span class="caption-text">Conceptualización de un objeto <code class="docutils literal notranslate"><span class="pre">DataFrameGroupBy</span></code>.</span><a class="headerlink" href="#dataframegroupby-image" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Al aplicar una función al objeto <em>GroupBy</em> se aplica la función a cada <code class="docutils literal notranslate"><span class="pre">array-like</span></code> interno.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>La explicación anterior solo es para conceptualizar un objeto <em>GroupBy</em> y no significa que en la práctica dicha estructura existe.</p>
+</div>
+<p>Estos objetos tienen sus propios métodos, la mayoría son similares a los de <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> o <code class="docutils literal notranslate"><span class="pre">Series</span></code> pero algunos tienen un comportamiento ligeramente diferente.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Para más información consultar la <a class="reference external" href="https://pandas.pydata.org/docs/reference/groupby.html">documentación</a> de <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Todos los métodos de <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> se pueden usar con el objeto <em>GroupBy</em>.</p>
+</div>
+<br/>
+<hr class="docutils" />
+<section id="iteracion-sobre-groupby">
+<h2>Iteración sobre <em>GroupBy</em><a class="headerlink" href="#iteracion-sobre-groupby" title="Link to this heading">#</a></h2>
+<p>Los objetos de tipo <em>Groupby</em> son iterables en un <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">loop</span></code>, en esencia retorna un <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, en el que el primer elemento es el nombre del grupo y el segundo es el grupo <code class="docutils literal notranslate"><span class="pre">Series</span></code> o <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Iteración en un _GroupBy_</span>
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;key1&#39;</span><span class="p">):</span>
+    <span class="c1"># for body</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><em>name</em>, <em>group</em> son nombre opcionales.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'key1'</span></code> es una columna categórica en <em>df</em>.</p></li>
+</ul>
+<p>El caso de que se especifiquen dos o más keys entonces se retornará un <code class="docutils literal notranslate"><span class="pre">tuple</span></code> de <em>keys</em>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Iteración en un _GroupBy_ con múltiples keys</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">k1</span><span class="p">,</span> <span class="n">k2</span><span class="p">),</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">X</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;key1&#39;</span><span class="p">,</span> <span class="s1">&#39;key2&#39;</span><span class="p">]):</span>
+    <span class="c1"># for body</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><em>name</em>, <em>group</em> son nombre opcionales.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'key1'</span></code>, <code class="docutils literal notranslate"><span class="pre">'key2'</span></code> son columnas categóricas en <em>df</em>.</p></li>
+</ul>
+<br/>
+</section>
+<hr class="docutils" />
+<section id="convertir-groupby-a-dict">
+<h2>Convertir <em>GroupBy</em> a <code class="docutils literal notranslate"><span class="pre">dict</span></code><a class="headerlink" href="#convertir-groupby-a-dict" title="Link to this heading">#</a></h2>
+<p>Un objeto de tipo <em>GroupBy</em> se puede convertir a lista o a un diccionario, los <em>keys</em> serán los valores únicos de las llaves con las que se se agrupó el <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> y los values será el <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>/<code class="docutils literal notranslate"><span class="pre">Series</span></code> con los datos de cada grupo:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convertir &quot;GroupBy&quot; a dict</span>
+<span class="nb">dict</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;key1&#39;</span><span class="p">)))</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">'key1'</span></code> es una columna categórica en <em>df</em>.</p></li>
+</ul>
+<br/>
+</section>
+<hr class="docutils" />
+<section id="seleccion-de-elementos">
+<h2>Selección de elementos<a class="headerlink" href="#seleccion-de-elementos" title="Link to this heading">#</a></h2>
+<p>El objeto retornado por <code class="docutils literal notranslate"><span class="pre">.groupby()</span></code> se pueden entender como si fuera un <code class="docutils literal notranslate"><span class="pre">DataFrame-like</span></code>  entonces cualquier técnica de selección de columnas de esos objetos (seleccionar columnas para todos los grupos) funciona con <em>GroupBy</em>, por ejemplo:</p>
+<ul class="simple">
+<li><p>Para acceder a una columna completa - <code class="docutils literal notranslate"><span class="pre">SeriesGroupBy</span></code>:  <br> <code class="docutils literal notranslate"><span class="pre">grouped_object['col']</span></code></p></li>
+<li><p>Para acceder a una columna completa - <code class="docutils literal notranslate"><span class="pre">DataFrameGroupBy</span></code>:  <br> <code class="docutils literal notranslate"><span class="pre">grouped_object[['col']]</span></code></p></li>
+<li><p>Para acceder a más de una columna completa - <code class="docutils literal notranslate"><span class="pre">DataFrameGroupBy</span></code>: <br> <code class="docutils literal notranslate"><span class="pre">grouped_object[['col1',</span> <span class="pre">'col2',</span> <span class="pre">...]]</span></code></p></li>
+</ul>
+<p>Para seleccionar una fila concreta, que equivaldría a seleccionar un grupo para todas las columnas se puede usar el método <code class="docutils literal notranslate"><span class="pre">.get_group()</span></code> para <code class="docutils literal notranslate"><span class="pre">SeriesGroupBy</span></code> y <code class="docutils literal notranslate"><span class="pre">DataFrameGroupBy</span></code>.</p>
+<p><strong>Ejemplos</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">],</span> <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]})</span>
+
+<span class="n">df_grouped</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df_grouped</span><span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get_group</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df_grouped</span><span class="o">.</span><span class="n">get_group</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)[[</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>No importa si primero se elige el grupo y después el conjunto de columnas o viceversa</p></li>
+</ul>
+<p>Se pueden combinar ambas estrategias para seleccionar elementos específicos del objeto <em>GroupBy</em> o subcojuntos del mismo.</p>
+<br/>
+</section>
+<hr class="docutils" />
+<section id="metodos">
+<h2>Métodos<a class="headerlink" href="#metodos" title="Link to this heading">#</a></h2>
+<section id="dataframegroupby">
+<h3><code class="docutils literal notranslate"><span class="pre">DataFrameGroupBy</span></code><a class="headerlink" href="#dataframegroupby" title="Link to this heading">#</a></h3>
+<p>Métodos del objeto <code class="docutils literal notranslate"><span class="pre">DataFrameGroupBy</span></code>.</p>
+<section id="calculos">
+<h4>Cálculos<a class="headerlink" href="#calculos" title="Link to this heading">#</a></h4>
+<section id="aggregates">
+<h5>Aggregates<a class="headerlink" href="#aggregates" title="Link to this heading">#</a></h5>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Estos métodos ignoran valores <code class="docutils literal notranslate"><span class="pre">NA</span></code>/<code class="docutils literal notranslate"><span class="pre">NaN</span></code>, a menos de que se indique lo contrario.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.agg.html">DataFrameGroupBy.agg</a>([func, engine, …])</p></td>
+<td><p>Calcula <em>aggregates</em> a los valores de cada grupo. Es posible específicar más una función de agregación e incluso se pueden aplicar diferentes <em>aggregates</em> a diferentes columnas (con <code class="docutils literal notranslate"><span class="pre">dict</span></code>). Los <em>aggregates</em> se pueden definir como <code class="docutils literal notranslate"><span class="pre">str</span></code> (<code class="docutils literal notranslate"><span class="pre">'min'</span></code>, <code class="docutils literal notranslate"><span class="pre">'mean'</span></code>, etc) o como <code class="docutils literal notranslate"><span class="pre">functions</span></code> (<code class="docutils literal notranslate"><span class="pre">max</span></code>, <code class="docutils literal notranslate"><span class="pre">np.mean</span></code>, etc.).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.aggregate.html">DataFrameGroupBy.aggregate</a>([func, engine, …])</p></td>
+<td><p>Calcula <em>aggregates</em> a los valores de cada grupo. Es posible específicar más una función de agregación e incluso se pueden aplicar diferentes <em>aggregates</em> a diferentes grupos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.count.html">DataFrameGroupBy.count</a>()</p></td>
+<td><p>Calcula el recuento de elementos en cada grupo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.prod.html">DataFrameGroupBy.prod</a>([numeric_only, min_count])</p></td>
+<td><p>Calcula el producto de los valores en cada grupo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.size.html">DataFrameGroupBy.size</a>()</p></td>
+<td><p>Calcula el tamaño de los grupos. Incluye valores nulos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.sum.html">DataFrameGroupBy.sum</a>([numeric_only, …])</p></td>
+<td><p>Calcula la suma de los valores en cada grupo.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Para funciones como <code class="docutils literal notranslate"><span class="pre">.mean()</span></code>, <code class="docutils literal notranslate"><span class="pre">.std()</span></code>, etc. consultar los métodos de <a class="reference internal" href="#groupby-dataframe-metodos-estadisticas"><span class="std std-ref">Estadísticas</span></a>.
+Para conteo de valores único revisar los métodos de <a class="reference internal" href="#groupby-dataframe-metodos-valores-unicos"><span class="std std-ref">Valores únicos</span></a>.</p>
+</div>
+<br/>
+</section>
+<section id="booleanos">
+<h5>Booleanos<a class="headerlink" href="#booleanos" title="Link to this heading">#</a></h5>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.all.html">DataFrameGroupBy.all</a>([skipna])</p></td>
+<td><p>Retorna <code class="docutils literal notranslate"><span class="pre">True</span></code> si todos los valores del grupo son <code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">False</span></code> en caso contrario, para cada grupo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.any.html">DataFrameGroupBy.any</a>([skipna])</p></td>
+<td><p>Retorna <code class="docutils literal notranslate"><span class="pre">True</span></code> si al menos un valor en el grupo es <code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">False</span></code> en caso contrario, para cada grupo.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="calculos-acumulados-diferencias-cambios-porcentuales-y-rank">
+<h5>Cálculos acumulados, diferencias, cambios porcentuales y rank<a class="headerlink" href="#calculos-acumulados-diferencias-cambios-porcentuales-y-rank" title="Link to this heading">#</a></h5>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Estos métodos ignoran valores <code class="docutils literal notranslate"><span class="pre">NA</span></code>/<code class="docutils literal notranslate"><span class="pre">NaN</span></code>, a menos de que se indique lo contrario.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.cumcount.html">DataFrameGroupBy.cumcount</a>([ascending])</p></td>
+<td><p>Enumera cada elemento en cada grupo desde 0 hasta la longitud de ese grupo. El objeto retornado es un <code class="docutils literal notranslate"><span class="pre">Series</span></code>/<code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> con el índice del objeto original y los valores son las enumeraciones de los elementos con respecto a su grupo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.cummax.html">DataFrameGroupBy.cummax</a>([axis, numeric_only])</p></td>
+<td><p>Determina el valor máximo hasta ese elemento en cada grupo. El objeto retornado es un <code class="docutils literal notranslate"><span class="pre">Series</span></code>/<code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> con el índice del objeto original y los valores son los valores máximos hasta ese elemento con respecto a su grupo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.cummin.html">DataFrameGroupBy.cummin</a>([axis, numeric_only])</p></td>
+<td><p>Determina el valor mínimo hasta ese elemento en cada grupo. El objeto retornado es un <code class="docutils literal notranslate"><span class="pre">Series</span></code>/<code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> con el índice del objeto original y los valores son los valores mínimo hasta ese elemento con respecto a su grupo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.cumprod.html">DataFrameGroupBy.cumprod</a>([axis])</p></td>
+<td><p>Determina el producto acumulado hasta ese elemento en cada grupo. El objeto retornado es un <code class="docutils literal notranslate"><span class="pre">Series</span></code>/<code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> con el índice del objeto original y los valores es el producto acumulado hasta ese elemento con respecto a su grupo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.cumsum.html">DataFrameGroupBy.cumsum</a>([axis])</p></td>
+<td><p>Determina la suma acumulada hasta ese elemento en cada grupo. El objeto retornado es un <code class="docutils literal notranslate"><span class="pre">Series</span></code>/<code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> con el índice del objeto original y los valores es la suma acumulada hasta ese elemento con respecto a su grupo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.diff.html">DataFrameGroupBy.diff</a>([periods, axis])</p></td>
+<td><p>Determina la diferencia de cada elemento con el antererior en cada grupo. El objeto retornado es un <code class="docutils literal notranslate"><span class="pre">Series</span></code>/<code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> con el índice del objeto original y los valores son la diferencia hasta ese elemento con respecto a su grupo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.ngroup.html">DataFrameGroupBy.ngroup</a>([ascending])</p></td>
+<td><p>Numera cada grupo desde 0 hasta el <em>número_de_grupos - 1</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.pct_change.html">DataFrameGroupBy.pct_change</a>([periods, …])</p></td>
+<td><p>Determina el cambio porcentual de cada elemento con el antererior en cada grupo. El objeto retornado es un <code class="docutils literal notranslate"><span class="pre">Series</span></code>/<code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> con el índice del objeto original y los valores son el cambio porcentual hasta ese elemento con respecto a su grupo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.rank.html">DataFrameGroupBy.rank</a>([method, ascending, …])</p></td>
+<td><p>Determina el ranking de cada elemento en cada grupo. El objeto retornado es un <code class="docutils literal notranslate"><span class="pre">Series</span></code>/<code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> con el índice del objeto original y los valores son el ranking de ese elemento con respecto a su grupo.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="estadisticas">
+<span id="groupby-dataframe-metodos-estadisticas"></span><h5>Estadísticas<a class="headerlink" href="#estadisticas" title="Link to this heading">#</a></h5>
+<p>Métodos para cálculos estadísticos y <em>OHLC</em>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Estos métodos ignoran valores <code class="docutils literal notranslate"><span class="pre">NA</span></code>/<code class="docutils literal notranslate"><span class="pre">NaN</span></code>, a menos de que se indique lo contrario.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.corr.html">DataFrameGroupBy.corr</a>([method, min_periods, …])</p></td>
+<td><p>Calcula la correlación por pares de columnas de cada <em>key</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.corrwith.html">DataFrameGroupBy.corrwith</a>(other[, axis, …])</p></td>
+<td><p>Calcula la correlación por pares de columnas conn otro objeto.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.cov.html">DataFrameGroupBy.cov</a>([min_periods, ddof, …])</p></td>
+<td><p>Calcula la covarianza por pares de columnas de cada <em>key</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.describe.html">DataFrameGroupBy.describe</a>([percentiles, …])</p></td>
+<td><p>Generar estadísticas descriptivas para cada grupo. Se recomienda usar solo si el objeto tiene pocas columnas y/o pocos <em>keys</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.mean.html">DataFrameGroupBy.mean</a>([numeric_only, …])</p></td>
+<td><p>Calcula la media de los grupos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.median.html">DataFrameGroupBy.median</a>([numeric_only])</p></td>
+<td><p>Calcula la mediana de los grupos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.ohlc.html">DataFrameGroupBy.ohlc</a>()</p></td>
+<td><p>Calcula los valores de apertura, máximo, mínimo y cierre para los elementos de cada grupo, excluyendo los valores faltantes. Retorna un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> (potencialmente <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code>). Los valores se determinan por el orden del índice.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.sample.html">DataFrameGroupBy.sample</a>([n, frac, replace, …])</p></td>
+<td><p>Devuelva una muestra aleatoria de elementos de cada grupo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.sem.html">DataFrameGroupBy.sem</a>([ddof, numeric_only])</p></td>
+<td><p>Calcula el error estándar de la media de los grupos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.skew.html">DataFrameGroupBy.skew</a>([axis, skipna, …])</p></td>
+<td><p>Retorna el sesgo dentro de los grupos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.std.html">DataFrameGroupBy.std</a>([ddof, engine, …])</p></td>
+<td><p>Calcula la desviación estándar de los grupos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.var.html">DataFrameGroupBy.var</a>([ddof, engine, …])</p></td>
+<td><p>Calcula la varianza de los grupos.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="estadisticos-de-orden">
+<h5>Estadísticos de orden<a class="headerlink" href="#estadisticos-de-orden" title="Link to this heading">#</a></h5>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Estos métodos ignoran valores <code class="docutils literal notranslate"><span class="pre">NA</span></code>/<code class="docutils literal notranslate"><span class="pre">NaN</span></code>, a menos de que se indique lo contrario.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.idxmax.html">DataFrameGroupBy.idxmax</a>([axis, skipna, …])</p></td>
+<td><p>Retorna el índice del valor máximo sobre el eje solicitado por grupo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.idxmin.html">DataFrameGroupBy.idxmin</a>([axis, skipna, …])</p></td>
+<td><p>Retorna el índice del valor mínimo sobre el eje solicitado por grupo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.max.html">DataFrameGroupBy.max</a>([numeric_only, …])</p></td>
+<td><p>Calcular el máximo de valores de grupo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.min.html">DataFrameGroupBy.min</a>([numeric_only, …])</p></td>
+<td><p>Calcula el mínimo de valores del grupo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.quantile.html">DataFrameGroupBy.quantile</a>([q, …])</p></td>
+<td><p>Retorna valores de grupo en el cuantil dado, al estilo numpy.percentile.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="series-de-tiempo">
+<h5>Series de tiempo<a class="headerlink" href="#series-de-tiempo" title="Link to this heading">#</a></h5>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.resample.html">DataFrameGroupBy.resample</a>(rule, *args[, …])</p></td>
+<td><p>Modifica la frecuencia de una serie de tiempo por grupo, útil si se realizará un <em>aggregate</em> con la nueva frecuencia. El objeto debe de tener un índice <code class="docutils literal notranslate"><span class="pre">datetime-like</span></code> o pasar valores <code class="docutils literal notranslate"><span class="pre">datetime-like</span></code> al argumento <code class="docutils literal notranslate"><span class="pre">on</span></code> o <code class="docutils literal notranslate"><span class="pre">level</span></code>. <strong>IMPORTANTE</strong>: Este método retorna un objeto <code class="docutils literal notranslate"><span class="pre">Resampler</span></code>, que tiene otros métodos como <code class="docutils literal notranslate"><span class="pre">Resampler.asfreq()</span></code> o <em>aggregates</em> como <code class="docutils literal notranslate"><span class="pre">Resampler.mean()</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.shift.html">DataFrameGroupBy.shift</a>([periods, freq, …])</p></td>
+<td><p>Desplaza el índice según el número deseado de períodos con una frecuencia de tiempo opcional.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+<section id="funciones-rolling-aplicar-pipe-mapeos-y-transformaciones">
+<h4>Funciones rolling, aplicar, pipe, mapeos y transformaciones<a class="headerlink" href="#funciones-rolling-aplicar-pipe-mapeos-y-transformaciones" title="Link to this heading">#</a></h4>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.apply.html">DataFrameGroupBy.apply</a>(func, *args[, …])</p></td>
+<td><p>Aplica la función <code class="docutils literal notranslate"><span class="pre">func</span></code> a cada grupo y combina los resultados. La función debe recibir un grupo y retornar el grupo modificado o un escalar.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.pipe.html">DataFrameGroupBy.pipe</a>(func, *args, **kwargs)</p></td>
+<td><p>Encadena un conjunto de funciones que deben de recibir y retornar (excepto la última) objetos de tipo <em>GroupBy</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.rolling.html">DataFrameGroupBy.rolling</a>(*args, **kwargs)</p></td>
+<td><p>Provee calculos en ventanas moviles de datos por grupo. El objeto retornado es un <code class="docutils literal notranslate"><span class="pre">Series</span></code>/<code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> con <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code> de los <em>keys</em> de los grupos y los índices originales de los elementos aplicando la ventana a los elementos de cada grupo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.transform.html">DataFrameGroupBy.transform</a>(func, *args[, …])</p></td>
+<td><p>Aplica la función <code class="docutils literal notranslate"><span class="pre">func</span></code> a cada grupo, pero manteniendo el <em>shape</em> e índice del objeto original. Básicamente en el objeto original mapea a los valores el resultado de <code class="docutils literal notranslate"><span class="pre">func</span></code> de su respectivo grupo. La función debe de recibir un grupo y retornar el grupo transformado.</p></td>
+</tr>
+</tbody>
+</table>
+<br>
+</section>
+<hr class="docutils" />
+<section id="graficas">
+<h4>Gráficas<a class="headerlink" href="#graficas" title="Link to this heading">#</a></h4>
+<p>Gráficas.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.boxplot.html">DataFrameGroupBy.boxplot</a>([subplots, column, …])</p></td>
+<td><p>Crea diagramas de caja a partir de los datos de <code class="docutils literal notranslate"><span class="pre">DataFrameGroupBy</span></code>. Crea un <em>subplots</em> por cada grupo y un diagrama por cada columna.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.hist.html">DataFrameGroupBy.hist</a>([column, by, grid, …])</p></td>
+<td><p>Crea histogramas a partir de los datos de <code class="docutils literal notranslate"><span class="pre">DataFrameGroupBy</span></code>. Crea <em>subplots</em> por cada grupo y diagrama por cada columna.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.plot.html">DataFrameGroupBy.plot</a>()</p></td>
+<td><p>Crea gráficas a partir de los datos de <code class="docutils literal notranslate"><span class="pre">DataFrameGroupBy</span></code>. Crea <em>subplots</em> por cada grupo y diagrama por cada columna.</p></td>
+</tr>
+</tbody>
+</table>
+<br>
+</section>
+<hr class="docutils" />
+<section id="seleccion-filtrado-e-iteracion-de-elementos">
+<h4>Selección, filtrado e iteración de elementos<a class="headerlink" href="#seleccion-filtrado-e-iteracion-de-elementos" title="Link to this heading">#</a></h4>
+<p>Métodos para seleccionar elementos/filas concretas, filtrar los grupos o iterar sobre ellos.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.__iter__.html">DataFrameGroupBy.__iter__</a>()</p></td>
+<td><p>Iterador de grupo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.filter.html">DataFrameGroupBy.filter</a>(func[, dropna])</p></td>
+<td><p>Filtra grupos que no cumplan cierto criterio (los valores con lo que <code class="docutils literal notranslate"><span class="pre">func</span></code> retorna <code class="docutils literal notranslate"><span class="pre">False</span></code>), la función recibe cada grupo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.first.html">DataFrameGroupBy.first</a>([numeric_only, …])</p></td>
+<td><p>Determina el primer valor de cada columna dentro de cada grupo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.get_group.html">DataFrameGroupBy.get_group</a>(name[, obj])</p></td>
+<td><p>Retorna <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> del grupo con el nombre proporcionado.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.groups.html">DataFrameGroupBy.groups</a>()</p></td>
+<td><p>Retorna un diccionario donde los <em>keys</em> son el nombre del grupo y los valores es un <code class="docutils literal notranslate"><span class="pre">list-like</span></code> con las etiquetas de filas de los elementos del grupo <code class="docutils literal notranslate"><span class="pre">{nombre</span> <span class="pre">del</span> <span class="pre">grupo:</span> <span class="pre">etiquetas</span> <span class="pre">de</span> <span class="pre">grupo}</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.head.html">DataFrameGroupBy.head</a>([n])</p></td>
+<td><p>Retorna las primeras <em>n</em> filas de cada grupo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.indices.html">DataFrameGroupBy.indices</a>()</p></td>
+<td><p>Retorna un diccionario donde los <em>keys</em> son el nombre del grupo y los valores es un <code class="docutils literal notranslate"><span class="pre">list-like</span></code> con los índices de filas de los elementos del grupo <code class="docutils literal notranslate"><span class="pre">{nombre</span> <span class="pre">del</span> <span class="pre">grupo:</span> <span class="pre">etiquetas</span> <span class="pre">de</span> <span class="pre">grupo}</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.last.html">DataFrameGroupBy.last</a>([numeric_only, …])</p></td>
+<td><p>Determina el último valor de cada columna dentro de cada grupo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.nth.html">DataFrameGroupBy.nth</a>()</p></td>
+<td><p>Retorna la enésima fila de cada grupo si <em>n</em> es <code class="docutils literal notranslate"><span class="pre">int</span></code> , de lo contrario retorna un subconjunto de filas por cada grupo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.tail.html">DataFrameGroupBy.tail</a>([n])</p></td>
+<td><p>Retorna las últimas <em>n</em> filas de cada grupo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.take.html">DataFrameGroupBy.take</a>(indices[, axis])</p></td>
+<td><p>Retorna los elementos en los índices posicionales dados en cada grupo.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="valores-nulos">
+<h4>Valores nulos<a class="headerlink" href="#valores-nulos" title="Link to this heading">#</a></h4>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.bfill.html">DataFrameGroupBy.bfill</a>([limit])</p></td>
+<td><p>Reemplaza los valores <code class="docutils literal notranslate"><span class="pre">NA/NaN</span></code> utilizando la siguiente observación válida, en el eje indicado, en cada grupo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.ffill.html">DataFrameGroupBy.ffill</a>([limit])</p></td>
+<td><p>Reemplaza los valores <code class="docutils literal notranslate"><span class="pre">NA/NaN</span></code> utilizando la última observación válida, en el eje indicado, en cada grupo.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="valores-unicos">
+<h4>Valores únicos<a class="headerlink" href="#valores-unicos" title="Link to this heading">#</a></h4>
+<table class="table" id="groupby-dataframe-metodos-valores-unicos">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.nunique.html">DataFrameGroupBy.nunique</a>([dropna])</p></td>
+<td><p>Retorna <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> con recuentos de elementos únicos en cada grupo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.value_counts.html">DataFrameGroupBy.value_counts</a>([subset, …])</p></td>
+<td><p>Retorna el recuento de filas únicas para cada grupo. Se puede elegir un subcojunto de columas para determinar las filas únicas.</p></td>
+</tr>
+</tbody>
+</table>
+<p><br/><br/></p>
+<hr class="docutils" />
+</section>
+</section>
+<section id="seriesgroupby">
+<span id="pandas-seriesgroupby"></span><h3><code class="docutils literal notranslate"><span class="pre">SeriesGroupBy</span></code><a class="headerlink" href="#seriesgroupby" title="Link to this heading">#</a></h3>
+<section id="id1">
+<h4>Cálculos<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<section id="id2">
+<h5>Aggregates<a class="headerlink" href="#id2" title="Link to this heading">#</a></h5>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Estos métodos ignoran valores <code class="docutils literal notranslate"><span class="pre">NA</span></code>/<code class="docutils literal notranslate"><span class="pre">NaN</span></code>, a menos de que se indique lo contrario.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.agg.html">SeriesGroupBy.agg</a>([func, engine, engine_kwargs])</p></td>
+<td><p>Calcula <em>aggregates</em> a los valores de cada grupo. Es posibles específicar más una función de agregación e incluso se pueden aplicar diferentes <em>aggregates</em> a diferentes grupos.<strong>EJEMPLO</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.aggregate.html">SeriesGroupBy.aggregate</a>([func, engine, …])</p></td>
+<td><p>Calcula <em>aggregates</em> a los valores de cada grupo. Es posibles específicar más una función de agregación e incluso se pueden aplicar diferentes <em>aggregates</em> a diferentes grupos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.count.html">SeriesGroupBy.count</a>()</p></td>
+<td><p>Calcula el recuento de elementos en cada grupo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.prod.html">SeriesGroupBy.prod</a>([numeric_only, min_count])</p></td>
+<td><p>Calcula el producto de los valores en cada grupo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.size.html">SeriesGroupBy.size</a>()</p></td>
+<td><p>Calcula el tamaño de los grupos. Incluye valores nulos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.sum.html">SeriesGroupBy.sum</a>([numeric_only, min_count, …])</p></td>
+<td><p>Calcula la suma de los valores en cada grupo.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<ul class="simple">
+<li><p>Para funciones como <code class="docutils literal notranslate"><span class="pre">.mean()</span></code>, <code class="docutils literal notranslate"><span class="pre">.std()</span></code>, etc. consultar los métodos de <a class="reference internal" href="#groupby-series-metodos-estadisticas"><span class="std std-ref">Estadísticas</span></a>.</p></li>
+<li><p>Para conteo de valores únicos revisar los métodos de <a class="reference internal" href="#groupby-series-metodos-valores-unicos"><span class="std std-ref">Valores únicos</span></a>.</p></li>
+</ul>
+</div>
+<br/>
+</section>
+<section id="id3">
+<h5>Booleanos<a class="headerlink" href="#id3" title="Link to this heading">#</a></h5>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.all.html">SeriesGroupBy.all</a>([skipna])</p></td>
+<td><p>Retorna <code class="docutils literal notranslate"><span class="pre">True</span></code> si todos los valores del grupo son <code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">False</span></code> en caso contrario, para cada grupo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.any.html">SeriesGroupBy.any</a>([skipna])</p></td>
+<td><p>Retorna <code class="docutils literal notranslate"><span class="pre">True</span></code> si al menos un valor en el grupo es <code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">False</span></code> en caso contrario, para cada grupo.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="id4">
+<h5>Cálculos acumulados, diferencias, cambios porcentuales y rank<a class="headerlink" href="#id4" title="Link to this heading">#</a></h5>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Estos métodos ignoran valores <code class="docutils literal notranslate"><span class="pre">NA</span></code>/<code class="docutils literal notranslate"><span class="pre">NaN</span></code>, a menos de que se indique lo contrario.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.cumcount.html">SeriesGroupBy.cumcount</a>([ascending])</p></td>
+<td><p>Enumera cada elemento en cada grupo desde 0 hasta la longitud de ese grupo. El objeto retornado es un <code class="docutils literal notranslate"><span class="pre">Series</span></code> con el índice del objeto original y los valores son las enumeraciones de los elementos con respecto a su grupo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.cummax.html">SeriesGroupBy.cummax</a>([axis, numeric_only])</p></td>
+<td><p>Determina el valor máximo hasta ese elemento en cada grupo. El objeto retornado es un <code class="docutils literal notranslate"><span class="pre">Series</span></code> con el índice del objeto original y los valores son los valores máximos hasta ese elemento con respecto a su grupo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.cummin.html">SeriesGroupBy.cummin</a>([axis, numeric_only])</p></td>
+<td><p>Determina el valor mínimo hasta ese elemento en cada grupo. El objeto retornado es un <code class="docutils literal notranslate"><span class="pre">Series</span></code> con el índice del objeto original y los valores son los valores mínimo hasta ese elemento con respecto a su grupo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.cumprod.html">SeriesGroupBy.cumprod</a>([axis])</p></td>
+<td><p>Determina el producto acumulado hasta ese elemento en cada grupo. El objeto retornado es un <code class="docutils literal notranslate"><span class="pre">Series</span></code> con el índice del objeto original y los valores es el producto acumulado hasta ese elemento con respecto a su grupo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.cumsum.html">SeriesGroupBy.cumsum</a>([axis])</p></td>
+<td><p>Determina la suma acumulada hasta ese elemento en cada grupo. El objeto retornado es un <code class="docutils literal notranslate"><span class="pre">Series</span></code> con el índice del objeto original y los valores es la suma acumulada hasta ese elemento con respecto a su grupo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.diff.html">SeriesGroupBy.diff</a>([periods, axis])</p></td>
+<td><p>Determina la diferencia de cada elemento con el antererior en cada grupo. El objeto retornado es un <code class="docutils literal notranslate"><span class="pre">Series</span></code> con el índice del objeto original y los valores son la diferencia hasta ese elemento con respecto a su grupo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.ngroup.html">SeriesGroupBy.ngroup</a>([ascending])</p></td>
+<td><p>Numera cada grupo desde 0 hasta el <em>número_de_grupos - 1</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.pct_change.html">SeriesGroupBy.pct_change</a>([periods, …])</p></td>
+<td><p>Determina el cambio porcentual de cada elemento con el antererior en cada grupo. El objeto retornado es un <code class="docutils literal notranslate"><span class="pre">Series</span></code> con el índice del objeto original y los valores son el cambio porcentual hasta ese elemento con respecto a su grupo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.rank.html">SeriesGroupBy.rank</a>([method, ascending, …])</p></td>
+<td><p>Determina el ranking de cada elemento en cada grupo. El objeto retornado es un <code class="docutils literal notranslate"><span class="pre">Series</span></code> con el índice del objeto original y los valores son el ranking de ese elemento con respecto a su grupo.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="id5">
+<h5>Estadísticas<a class="headerlink" href="#id5" title="Link to this heading">#</a></h5>
+<table class="table" id="groupby-series-metodos-estadisticas">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.corr.html">SeriesGroupBy.corr</a>(other[, method, min_periods])</p></td>
+<td><p>Calcula la correlación con otro <code class="docutils literal notranslate"><span class="pre">Series</span></code>, por grupo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.cov.html">SeriesGroupBy.cov</a>(other[, min_periods, ddof])</p></td>
+<td><p>Calcula la covarianza con otro <code class="docutils literal notranslate"><span class="pre">Series</span></code>, por grupo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.describe.html">SeriesGroupBy.describe</a>([percentiles, …])</p></td>
+<td><p>Genera estadísticas descriptivas para cada grupo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.mean.html">SeriesGroupBy.mean</a>([numeric_only, engine, …])</p></td>
+<td><p>Calcula la media de cada grupo..</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.median.html">SeriesGroupBy.median</a>([numeric_only])</p></td>
+<td><p>Calcula la mediana de cada grupo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.nlargest.html">SeriesGroupBy.nlargest</a>([n, keep])</p></td>
+<td><p>Retorna los <em>n</em> elementos más grandes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.nsmallest.html">SeriesGroupBy.nsmallest</a>([n, keep])</p></td>
+<td><p>Retorna los <em>n</em> elementos más pequeños.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.ohlc.html">SeriesGroupBy.ohlc</a>()</p></td>
+<td><p>Calcula los valores de apertura, máximo, mínimo y cierre para los elementos de cada grupo, excluyendo los valores faltantes. Retorna un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> (potencialmente <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code>). Los valores se determinan por el orden del índice.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.sample.html">SeriesGroupBy.sample</a>([n, frac, replace, …])</p></td>
+<td><p>Devuelva una muestra aleatoria de elementos de cada grupo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.sem.html">SeriesGroupBy.sem</a>([ddof, numeric_only])</p></td>
+<td><p>Calcula el error estándar de la media de cada grupo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.skew.html">SeriesGroupBy.skew</a>([axis, skipna, numeric_only])</p></td>
+<td><p>Retorna el sesgo dentro de cada grupo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.std.html">SeriesGroupBy.std</a>([ddof, engine, …])</p></td>
+<td><p>Calcula la desviación estándar de cada grupo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.var.html">SeriesGroupBy.var</a>([ddof, engine, …])</p></td>
+<td><p>Calcula la varianza de cada grupo.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="id6">
+<h5>Estadísticos de orden<a class="headerlink" href="#id6" title="Link to this heading">#</a></h5>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Estos métodos ignoran valores <code class="docutils literal notranslate"><span class="pre">NA</span></code>/<code class="docutils literal notranslate"><span class="pre">NaN</span></code>, a menos de que se indique lo contrario.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.idxmax.html">SeriesGroupBy.idxmax</a>([axis, skipna])</p></td>
+<td><p>Retorna el índice del valor máximo por grupo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.idxmin.html">SeriesGroupBy.idxmin</a>([axis, skipna])</p></td>
+<td><p>Retorna el índice del valor mínimo por grupo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.max.html">SeriesGroupBy.max</a>([numeric_only, min_count, …])</p></td>
+<td><p>Calcula el máximo de valores de grupo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.min.html">SeriesGroupBy.min</a>([numeric_only, min_count, …])</p></td>
+<td><p>Calcula el mínimo de valores del grupo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.quantile.html">SeriesGroupBy.quantile</a>([q, interpolation, …])</p></td>
+<td><p>Retorna valores de grupo en el cuantil dado.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="id7">
+<h5>Series de tiempo<a class="headerlink" href="#id7" title="Link to this heading">#</a></h5>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.resample.html">SeriesGroupBy.resample</a>(rule, *args[, …])</p></td>
+<td><p>Modifica la frecuencia de una serie de tiempo por grupo, útil si se realizará un <em>aggregate</em> con la nueva frecuencia. El objeto debe de tener un índice <code class="docutils literal notranslate"><span class="pre">datetime-like</span></code> o pasar valores <code class="docutils literal notranslate"><span class="pre">datetime-like</span></code> al argumento <code class="docutils literal notranslate"><span class="pre">on</span></code> o <code class="docutils literal notranslate"><span class="pre">level</span></code>. <strong>IMPORTANTE</strong>: Este método retorna un objeto <code class="docutils literal notranslate"><span class="pre">Resampler</span></code>, que tiene otros métodos como <code class="docutils literal notranslate"><span class="pre">Resampler.asfreq()</span></code> o <em>aggregates</em> como <code class="docutils literal notranslate"><span class="pre">Resampler.mean()</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.shift.html">SeriesGroupBy.shift</a>([periods, freq, axis, …])</p></td>
+<td><p>Desplaza el índice según el número deseado de períodos con una frecuencia de tiempo opcional.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+<section id="funciones-rolling-aplicar-pipe-y-mapeos">
+<h4>Funciones rolling, aplicar, pipe y mapeos<a class="headerlink" href="#funciones-rolling-aplicar-pipe-y-mapeos" title="Link to this heading">#</a></h4>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.apply.html">SeriesGroupBy.apply</a>(func, *args, **kwargs)</p></td>
+<td><p>Aplica la función <code class="docutils literal notranslate"><span class="pre">func</span></code> a cada grupo y combina los resultados.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.pipe.html">SeriesGroupBy.pipe</a>(func, *args, **kwargs)</p></td>
+<td><p>Encadena un conjunto de funciones que deben de recibir y retornar (excepto la última) objetos de tipo <em>GroupBy</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.rolling.html">SeriesGroupBy.rolling</a>(*args, **kwargs)</p></td>
+<td><p>Provee calculos en ventanas moviles de datos por grupo. El objeto retornado es un <code class="docutils literal notranslate"><span class="pre">Series</span></code> con <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code> de los <em>keys</em> de los grupos y los índices originales de los elementos aplicando la ventana a los elementos de cada grupo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.transform.html">SeriesGroupBy.transform</a>(func, *args[, …])</p></td>
+<td><p>Aplica la funcción <code class="docutils literal notranslate"><span class="pre">func</span></code> a cada grupo, pero manteniendo el <em>shape</em> e índice del objeto orifinal. Básicamente en el objeto original mapea a los valores el resultado de <code class="docutils literal notranslate"><span class="pre">func</span></code> de su respectivo grupo.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="id8">
+<h4>Gráficas<a class="headerlink" href="#id8" title="Link to this heading">#</a></h4>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.hist.html">SeriesGroupBy.hist</a>([by, ax, grid, …])</p></td>
+<td><p>Crea diagramas de caja a partir de los datos de <code class="docutils literal notranslate"><span class="pre">SeriesGroupBy</span></code>. Crea un <em>subplot</em> por cada grupo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.plot.html">SeriesGroupBy.plot</a>()</p></td>
+<td><p>Crea gráficas a partir de los datos de <code class="docutils literal notranslate"><span class="pre">SeriesGroupBy</span></code>. Crea un <em>subplots</em> por cada grupo.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="informacion">
+<h4>Información<a class="headerlink" href="#informacion" title="Link to this heading">#</a></h4>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.is_monotonic_decreasing.html">SeriesGroupBy.is_monotonic_decreasing</a>()</p></th>
+<th class="head"><p>Indica si los valores de cada grupo están disminuyendo monótonamente.</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.is_monotonic_increasing.html">SeriesGroupBy.is_monotonic_increasing</a>()</p></td>
+<td><p>Indica si los valores de cada grupo aumentan monótonamente.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="id9">
+<h4>Selección, filtrado e iteración de elementos<a class="headerlink" href="#id9" title="Link to this heading">#</a></h4>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.__iter__.html">SeriesGroupBy.__iter__</a>()</p></td>
+<td><p>Iterador de grupo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.filter.html">SeriesGroupBy.filter</a>(func[, dropna])</p></td>
+<td><p>Filtra grupos que no cumplan cierto criterio (los valores con lo que <code class="docutils literal notranslate"><span class="pre">func</span></code> retorna <code class="docutils literal notranslate"><span class="pre">False</span></code>), la función recibe cada grupo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.first.html">SeriesGroupBy.first</a>([numeric_only, …])</p></td>
+<td><p>Determina el primer valor dentro de cada grupo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.get_group.html">SeriesGroupBy.get_group</a>(name[, obj])</p></td>
+<td><p>Retorna <code class="docutils literal notranslate"><span class="pre">Series</span></code> del grupo con el nombre proporcionado.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.groups.html">SeriesGroupBy.groups</a>()</p></td>
+<td><p>Retorna un diccionario donde los <em>keys</em> son el nombre del grupo y los valores es un <code class="docutils literal notranslate"><span class="pre">list-like</span></code> con las etiquetas de filas de los elementos del grupo <code class="docutils literal notranslate"><span class="pre">{nombre</span> <span class="pre">del</span> <span class="pre">grupo:</span> <span class="pre">etiquetas</span> <span class="pre">de</span> <span class="pre">grupo}</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.head.html">SeriesGroupBy.head</a>([n])</p></td>
+<td><p>Retorna las primeras <em>n</em> filas de cada grupo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.indices.html">SeriesGroupBy.indices</a>()</p></td>
+<td><p>Retorna un diccionario donde los <em>keys</em> son el nombre del grupo y los valores es un <code class="docutils literal notranslate"><span class="pre">list-like</span></code> con los índices de filas de los elementos del grupo <code class="docutils literal notranslate"><span class="pre">{nombre</span> <span class="pre">del</span> <span class="pre">grupo:</span> <span class="pre">etiquetas</span> <span class="pre">de</span> <span class="pre">grupo}</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.last.html">SeriesGroupBy.last</a>([numeric_only, …])</p></td>
+<td><p>Determina el último valor de cada columna dentro de cada grupo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.nth.html">SeriesGroupBy.nth</a>()</p></td>
+<td><p>Retorna la enésima fila de cada grupo si <em>n</em> es <code class="docutils literal notranslate"><span class="pre">int</span></code> , de lo contrario retorna un subconjunto de filas por cada grupo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.tail.html">SeriesGroupBy.tail</a>([n])</p></td>
+<td><p>Retorna las últimas <em>n</em> filas de cada grupo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.take.html">SeriesGroupBy.take</a>(indices[, axis])</p></td>
+<td><p>Retorna los elementos en los índices posicionales dados en cada grupo.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="id10">
+<h4>Valores nulos<a class="headerlink" href="#id10" title="Link to this heading">#</a></h4>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.bfill.html">SeriesGroupBy.bfill</a>([limit])</p></td>
+<td><p>Reemplaza los valores <code class="docutils literal notranslate"><span class="pre">NA/NaN</span></code> utilizando la siguiente observación válida, en cada grupo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.ffill.html">SeriesGroupBy.ffill</a>([limit])</p></td>
+<td><p>Reemplaza los valores <code class="docutils literal notranslate"><span class="pre">NA/NaN</span></code> utilizando la última observación válida, en cada grupo.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="id11">
+<h4>Valores únicos<a class="headerlink" href="#id11" title="Link to this heading">#</a></h4>
+<table class="table" id="groupby-series-metodos-valores-unicos">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.nunique.html">SeriesGroupBy.nunique</a>([dropna])</p></td>
+<td><p>Retorna el número de elementos únicos en cada grupo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.unique.html">SeriesGroupBy.unique</a>()</p></td>
+<td><p>Retorna <code class="docutils literal notranslate"><span class="pre">Series</span></code> con los elementos únicos en cada grupo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.value_counts.html">SeriesGroupBy.value_counts</a>([normalize, …])</p></td>
+<td><p>Retorna el recuento de valores para cada grupo.</p></td>
+</tr>
+</tbody>
+</table>
+<br>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="funciones-ultiles">
+<h2>Funciones últiles<a class="headerlink" href="#funciones-ultiles" title="Link to this heading">#</a></h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Grouper.html">Grouper</a>(*args, **kwargs)</p></td>
+<td><p>Un Grouper permite al usuario especificar una instrucción groupby para un objeto.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.NamedAgg.html">NamedAgg</a>(column, aggfunc)</p></td>
+<td><p>Ayudante para la agregación específica de columnas con control sobre los nombres de las columnas de salida.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./parts/04-pandas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="otras-clases.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Otras clases</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="expanding-rolling-window.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Expanding, Rolling y Window</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iteracion-sobre-groupby">Iteración sobre <em>GroupBy</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convertir-groupby-a-dict">Convertir <em>GroupBy</em> a <code class="docutils literal notranslate"><span class="pre">dict</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccion-de-elementos">Selección de elementos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos">Métodos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframegroupby"><code class="docutils literal notranslate"><span class="pre">DataFrameGroupBy</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#calculos">Cálculos</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregates">Aggregates</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#booleanos">Booleanos</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#calculos-acumulados-diferencias-cambios-porcentuales-y-rank">Cálculos acumulados, diferencias, cambios porcentuales y rank</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#estadisticas">Estadísticas</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#estadisticos-de-orden">Estadísticos de orden</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#series-de-tiempo">Series de tiempo</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-rolling-aplicar-pipe-mapeos-y-transformaciones">Funciones rolling, aplicar, pipe, mapeos y transformaciones</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#graficas">Gráficas</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccion-filtrado-e-iteracion-de-elementos">Selección, filtrado e iteración de elementos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#valores-nulos">Valores nulos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#valores-unicos">Valores únicos</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seriesgroupby"><code class="docutils literal notranslate"><span class="pre">SeriesGroupBy</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Cálculos</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Aggregates</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Booleanos</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Cálculos acumulados, diferencias, cambios porcentuales y rank</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Estadísticas</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Estadísticos de orden</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Series de tiempo</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-rolling-aplicar-pipe-y-mapeos">Funciones rolling, aplicar, pipe y mapeos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Gráficas</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#informacion">Información</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Selección, filtrado e iteración de elementos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Valores nulos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Valores únicos</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-ultiles">Funciones últiles</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nebok
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

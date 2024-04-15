@@ -16,37 +16,37 @@ Funciones para hacer operaciones aritméticas vectorizadas.
 * - Función
   - Descripción
 * - [add](https://numpy.org/doc/stable/reference/generated/numpy.add.html)(x1, x2, /[, out, where, casting, order, ...])
-  - Suma `x1` y `x2`, por elementos.
+  - Suma `x1` y `x2`, por elementos. Equivale a usar `x1 + x2`.
 * - [divide](https://numpy.org/doc/stable/reference/generated/numpy.divide.html)(x1, x2, /[, out, where, casting, ...])
-  - Divide `x1` y `x2`, por elementos.
+  - Divide `x1` y `x2`, por elementos. Equivale a usar el operador `x1 / x2`.
 * - [divmod](https://numpy.org/doc/stable/reference/generated/numpy.divmod.html)(x1, x2[, out1, out2], / [[, out, ...])
   - Devuelve el cociente y el residuo de la división de `x1` y `x2`, simultáneamente.
 * - [float_power](https://numpy.org/doc/stable/reference/generated/numpy.float_power.html)(x1, x2, /[, out, where, ...])
-  - Calcula `x1**x2`, por elementos.
+  - Eleva los elementos de `x1` a los elementos de `x2`. Siempre retorna `float`.
 * - [floor_divide](https://numpy.org/doc/stable/reference/generated/numpy.floor_divide.html)(x1, x2, /[, out, where, ...])
-  - División entera de `x1` y `x2`, por elementos.
+  - División entera de `x1` y `x2`, por elementos. Equivale a usar `x1 // x2`.
 * - [fmod](https://numpy.org/doc/stable/reference/generated/numpy.fmod.html)(x1, x2, /[, out, where, casting, ...])
-  - Módulo de `x1` y `x2`, por elementos.
+  - Módulo de `x1` y `x2`, por elementos. Mantiene el signo del númerdor.
 * - [mod](https://numpy.org/doc/stable/reference/generated/numpy.mod.html)(x1, x2, /[, out, where, casting, order, ...])
-  - Módulo de `x1` y `x2`, por elementos.
+  - Módulo de `x1` y `x2`, por elementos. Equivale a usar `x1 % x2`. Mantiene el signo del denominador `x2`.
 * - [modf](https://numpy.org/doc/stable/reference/generated/numpy.modf.html)(x[, out1, out2], / [[, out, where, ...])
   - Devuelve las partes fraccionaria y entera de un arreglo, por elementos.
 * - [multiply](https://numpy.org/doc/stable/reference/generated/numpy.multiply.html)(x1, x2, /[, out, where, casting, ...])
-  - Multiplica `x1` y `x2`, por elementos.
+  - Multiplica `x1` y `x2`, por elementos. Equivale a usar `x1 * x2`.
 * - [negative](https://numpy.org/doc/stable/reference/generated/numpy.negative.html)(x, /[, out, where, casting, order, ...])
-  - Negativo numérico, por elementos.
+  - Negativo numérico, por elementos- Equivale a usar `-x`.
 * - [positive](https://numpy.org/doc/stable/reference/generated/numpy.positive.html)(x, /[, out, where, casting, order, ...])
-  - Positivo numérico, por elementos.
+  - Positivo numérico, por elementos. Equivale a usar `+x`.
 * - [power](https://numpy.org/doc/stable/reference/generated/numpy.power.html)(x1, x2, /[, out, where, casting, ...])
-  - Calcula `x1**x2`, por elementos.
+  - Eleva los elementos de `x1` a los elementos de `x2`. Equivale a usar `x1 ** x2`.
 * - [reciprocal](https://numpy.org/doc/stable/reference/generated/numpy.reciprocal.html)(x, /[, out, where, casting, ...])
-  - Devuelve el recíproco de `x`, por elementos.
+  - Devuelve el recíproco de `x`, por elementos. Equivale a usar `1 / x`.
 * - [remainder](https://numpy.org/doc/stable/reference/generated/numpy.remainder.html)(x1, x2, /[, out, where, casting, ...])
-  - Módulo de `x1` y `x2`, por elementos.
+  - Módulo de `x1` y `x2`, por elementos. Equivale a usar el operador `%`. Mantiene el signo del denominador `x2`.
 * - [subtract](https://numpy.org/doc/stable/reference/generated/numpy.subtract.html)(x1, x2, /[, out, where, casting, ...])
-  - Resta `x1` y `x2`, por elementos.
+  - Resta `x1` y `x2`, por elementos. Equivale a usar `x1 - x2`.
 * - [true_divide](https://numpy.org/doc/stable/reference/generated/numpy.true_divide.html)(x1, x2, /[, out, where, ...])
-  - Divide `x1` y `x2`, por elementos.
+  - Divide `x1` y `x2`, por elementos. Equivale a usar el operador `x1 / x2`.
 ```
 
 <br>

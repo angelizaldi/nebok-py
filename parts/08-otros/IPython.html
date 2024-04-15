@@ -71,6 +71,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="icon" href="../../_static/nebok-favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Web Scraping" href="beautifulsoup.html" />
     <link rel="prev" title="Otros" href="otros-index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -246,11 +247,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03-numpy/numpy-index.html">Numpy</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../03-numpy/arrays.html">Arrays</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../03-numpy/funciones-index.html">Funciones</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/ufuncs.html">Ufuncs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03-numpy/buscar-contar-ordenar-unicos.html">Buscar, contar, ordenar y valores únicos</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03-numpy/creacion-arrays.html">Creación de arrays</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03-numpy/estadisticas.html">Estadísticas</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03-numpy/indices.html">Índices e iteración</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../03-numpy/informacion-logicas.html">Información y lógicas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/informacion.html">Información</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03-numpy/lectura-escritura.html">Lectura y escritura de datos</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03-numpy/manipulacion-arrays.html">Manipulación de arrays</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03-numpy/matematicas-numericas.html">Matemáticas y numéricas</a></li>
@@ -260,13 +262,28 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../03-numpy/algebra-lineal.html">Módulo linalg</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03-numpy/cadenas.html">Modulo char</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../03-numpy/random.html">Módulo random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/patrones-numpy.html">Patrones útiles</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04-pandas/pandas-index.html">Pandas</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/index.html">Objetos Index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/series.html">Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/dataframe.html">DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/escalares-arrays.html">Escalares y Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../04-pandas/otras-clases.html">Otras clases</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/groupby.html">GroupBy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/expanding-rolling-window.html">Expanding, Rolling y Window</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/funciones.html">Funciones</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Otros</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="otros-index.html">Otros</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="otros-index.html">Otros</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">IPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beautifulsoup.html">Web Scraping</a></li>
 </ul>
 </li>
 </ul>
@@ -448,6 +465,7 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="ipython">
 <h1>IPython<a class="headerlink" href="#ipython" title="Link to this heading">#</a></h1>
 <p>IPython es un ambiente computacional interactivo para Python. En esta sección se explica brevemente algunas funcionalidades de IPython.</p>
+<hr class="docutils" />
 <section id="autocompletar">
 <h2>Autocompletar<a class="headerlink" href="#autocompletar" title="Link to this heading">#</a></h2>
 <p>Al utilizar IPython o JupyterNotebooks se puede autocompletar el código mientras se escribe utilizando la tecla <span style="background-color:LightGray"> tab </span>.</p>
@@ -676,6 +694,7 @@ np.*mean*<span class="o">?</span>
 <br>
 </section>
 </section>
+<hr class="docutils" />
 <section id="in-y-out">
 <h2>In y Out<a class="headerlink" href="#in-y-out" title="Link to this heading">#</a></h2>
 <p>Al trabajar con IPython cada sentencia escrita en la consola y cada resultado de almacenan en los objetos <code class="docutils literal notranslate"><span class="pre">In</span></code> del tipo <code class="docutils literal notranslate"><span class="pre">list</span></code> y <code class="docutils literal notranslate"><span class="pre">Out</span></code> del tipo <code class="docutils literal notranslate"><span class="pre">dict</span></code>. Como se muestra en la siguiente imagen:</p>
@@ -699,10 +718,12 @@ np.*mean*<span class="o">?</span>
 </ul>
 <p>Alternativamente se puede indicar un <em>Out</em> especíco con un guión bajo y el índice del <em>Out</em>: <br> <code class="docutils literal notranslate"><span class="pre">_Ind</span></code></p>
 </div>
+<br/>
 </section>
+<hr class="docutils" />
 <section id="utilizar-conda-o-pip-desde-ipython">
 <h2>Utilizar <em>conda</em> o <em>pip</em> desde IPython<a class="headerlink" href="#utilizar-conda-o-pip-desde-ipython" title="Link to this heading">#</a></h2>
-<p>Para poder utilizar <em>conda</em> o <em>pip</em> desde IPython es recomendado primero importar la librería <code class="docutils literal notranslate"><span class="pre">sys</span></code> y cada comando debe ir precedido por un ‘!’:</p>
+<p>Para poder utilizar <em>conda</em> o <em>pip</em> desde IPython es recomendado primero importar la librería <code class="docutils literal notranslate"><span class="pre">sys</span></code> y cada comando debe ir precedido por un <code class="docutils literal notranslate"><span class="pre">!</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar sys</span>
@@ -753,13 +774,14 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 Location: /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages
 Requires: numpy, python-dateutil, pytz, tzdata
-Required-by: bokeh, statsmodels
+Required-by: bokeh, seaborn, statsmodels
 </pre></div>
 </div>
 </div>
 </div>
 <br>
 </section>
+<hr class="docutils" />
 <section id="comandos-magicos">
 <h2>Comandos mágicos<a class="headerlink" href="#comandos-magicos" title="Link to this heading">#</a></h2>
 <p>Los comandos mágicos, son comandos especiales precedidos por <em>%</em> que permiten realizar diversas acciones, a continuación se enlistan algunos comandos y su descripción.</p>
@@ -848,7 +870,7 @@ Required-by: bokeh, statsmodels
 </section>
 <section id="debugging">
 <h3>Debugging<a class="headerlink" href="#debugging" title="Link to this heading">#</a></h3>
-<p>Permite hacer <em>debugging</em> del código al ocurrir un error o una excepción. Al ejecutar el comando se iniciará una sesión <code class="docutils literal notranslate"><span class="pre">ipdb</span></code> (se puede identificar por que al inicio de cada línea aparece <code class="docutils literal notranslate"><span class="pre">ipdb&gt;</span></code>) que permitirá de manera interactiva analizar el código para encontrar el error.</p>
+<p>Permite hacer <em>debugging</em> del código al ocurrir un error o una excepción. Para ello se utiliza el comando <code class="docutils literal notranslate"><span class="pre">%debug</span></code> inmediatamente después de que occura un error. Al ejecutar el comando se iniciará una sesión <code class="docutils literal notranslate"><span class="pre">ipdb</span></code> (se puede identificar por que al inicio de cada línea aparece <code class="docutils literal notranslate"><span class="pre">ipdb&gt;</span></code>) que permitirá de manera interactiva analizar el código para encontrar el error.</p>
 <p>Para salir de la sesión utilizar el comando <code class="docutils literal notranslate"><span class="pre">quit</span></code>.</p>
 </section>
 <section id="timing-y-profiling">
@@ -875,7 +897,7 @@ Ambos se utilizan para calcular el tiempo de ejecución de una línea (<code cla
 <li><p>-o: Para indicar que se retorne un objeto <code class="docutils literal notranslate"><span class="pre">TimeitResult</span></code>, el cual se puede almacenar en una variable.</p></li>
 </ul>
 <p>Para almacenar los resultados en un <code class="docutils literal notranslate"><span class="pre">TimeitResult</span></code> se puede hacer de la siguiente manera:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">list_comp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>%timeit<span class="w"> </span>-o<span class="w"> </span><span class="o">[</span>i**2<span class="w"> </span><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span>range<span class="o">(</span><span class="m">1000</span><span class="o">)]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">list_comp</span> <span class="o">=</span> <span class="o">%</span><span class="n">timeit</span> <span class="o">-</span><span class="n">o</span> <span class="p">[</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">)]</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -889,6 +911,7 @@ Ambos se utilizan para calcular el tiempo de ejecución de una línea (<code cla
 </ul>
 </section>
 </section>
+<hr class="docutils" />
 <section id="matplotlib">
 <h2>Matplotlib<a class="headerlink" href="#matplotlib" title="Link to this heading">#</a></h2>
 <p>Al utilizar la librería <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> en IPython no es necesario usar <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code>. Sin embargo existen unos comandos mágicos que mejoran la experiencia:</p>
@@ -951,6 +974,15 @@ Ambos se utilizan para calcular el tiempo de ejecución de una línea (<code cla
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Otros</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="beautifulsoup.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Web Scraping</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>

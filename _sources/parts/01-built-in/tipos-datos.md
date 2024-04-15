@@ -23,7 +23,7 @@ Los principales tipos de datos built-in de Python se resumen a continuación:
 
 Tener en cuenta la siguiente clasificación:
 
-- Escalares (`scalar`): Son tipos que almacenan un solo valor, incluye a:
+- Escalares (`scalar`): Son tipos que almacenan un solo valor (a excepción de `str`), incluye a:
     - `bool`
     - `int`
     - `float`
@@ -31,7 +31,7 @@ Tener en cuenta la siguiente clasificación:
     - `str`
     - `None`
 <br>
-- Secuencias (`sequence`): Son tipos que tienen una colección ordenada de elementos, incluye a:
+- Secuencias (`sequence`): Son tipos que tienen una colección **ordenada** de elementos, incluye a:
     - `list`
     - `tuple`
     - `range`
@@ -44,4 +44,9 @@ Tener en cuenta la siguiente clasificación:
     - `str`
     - `set`
     - `dict`
-    
+
+:::{caution}
+Notar que la principal diferencia entre `sequence` e `iterable`, es que los elementos de `sequence` están ordenados, es decir, cada elemento tiene un índice único asociado y por lo tanto se pueden indexar (hacer _subsetting_), mientras que los `iterable` no.
+
+Todos los `sequence` son `iterable`, pero no al revés.
+:::

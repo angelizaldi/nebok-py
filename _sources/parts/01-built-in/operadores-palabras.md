@@ -20,6 +20,7 @@ El operador `+` también se usa para concatenar secuencias (`list`, `tuple` y `s
 
 <br>
 
+(built-in-operadores-asignacion)=
 ## Asignación
 Operaciones para asignación de valores.
 
@@ -46,7 +47,7 @@ Operadores para la comparación de valores.
 
 <br>
 
-(operadores:bitwise)=
+(built-in-operadores-bitwise)=
 ## Bitwise
 |Nombre|Operador|
 |:----------|:----------:|

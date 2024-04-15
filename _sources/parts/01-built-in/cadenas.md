@@ -356,7 +356,7 @@ Métodos para reemplazar o remover subcadenas dentro de una cadena.
 
 ### Strip y pads
 
-Métodos para eliminar caracteres al inicio, final o ambos de una cadena.
+Métodos para agregar o eliminar caracteres al inicio, final o ambos de una cadena.
 
 ```{list-table}
 :header-rows: 1

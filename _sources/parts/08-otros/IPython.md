@@ -14,7 +14,7 @@ kernelspec:
 
 IPython es un ambiente computacional interactivo para Python. En esta sección se explica brevemente algunas funcionalidades de IPython.
 
-
+---
 ## Autocompletar
 
 Al utilizar IPython o JupyterNotebooks se puede autocompletar el código mientras se escribe utilizando la tecla <span style="background-color:LightGray"> tab </span>.
@@ -163,6 +163,7 @@ display(HTML(html_content))
 
 <br>
 
+---
 ## In y Out
 
 Al trabajar con IPython cada sentencia escrita en la consola y cada resultado de almacenan en los objetos `In` del tipo `list` y `Out` del tipo `dict`. Como se muestra en la siguiente imagen:
@@ -196,9 +197,12 @@ Se puede acceder a los últimos tres resultados de `Out` con guiones bajos:
 Alternativamente se puede indicar un _Out_ especíco con un guión bajo y el índice del _Out_: <br> `_Ind`
 ```
 
+<br/>
+
+---
 ## Utilizar _conda_ o _pip_ desde IPython
 
-Para poder utilizar _conda_ o _pip_ desde IPython es recomendado primero importar la librería `sys` y cada comando debe ir precedido por un '!':
+Para poder utilizar _conda_ o _pip_ desde IPython es recomendado primero importar la librería `sys` y cada comando debe ir precedido por un `!`:
 
 ```{code-cell} ipython3
 # Importar sys
@@ -210,6 +214,7 @@ import sys
 
 <br>
 
+---
 ## Comandos mágicos
 
 Los comandos mágicos, son comandos especiales precedidos por _%_ que permiten realizar diversas acciones, a continuación se enlistan algunos comandos y su descripción.
@@ -280,7 +285,7 @@ Ejemplos:
 
 ### Debugging
 
-Permite hacer _debugging_ del código al ocurrir un error o una excepción. Al ejecutar el comando se iniciará una sesión `ipdb` (se puede identificar por que al inicio de cada línea aparece `ipdb>`) que permitirá de manera interactiva analizar el código para encontrar el error. 
+Permite hacer _debugging_ del código al ocurrir un error o una excepción. Para ello se utiliza el comando `%debug` inmediatamente después de que occura un error. Al ejecutar el comando se iniciará una sesión `ipdb` (se puede identificar por que al inicio de cada línea aparece `ipdb>`) que permitirá de manera interactiva analizar el código para encontrar el error. 
 
 Para salir de la sesión utilizar el comando `quit`.
 
@@ -307,7 +312,7 @@ Ambos se utilizan para calcular el tiempo de ejecución de una línea (`%timeit`
 - \-o: Para indicar que se retorne un objeto `TimeitResult`, el cual se puede almacenar en una variable.
 
 Para almacenar los resultados en un `TimeitResult` se puede hacer de la siguiente manera:
-```shell
+```python
 list_comp = %timeit -o [i**2 for i in range(1000)]
 ```
 - Posteriormente se puede acceder a las propiedades de `TimeitResult`:
@@ -315,7 +320,7 @@ list_comp = %timeit -o [i**2 for i in range(1000)]
     - `TimeitResult.best` - `float`: Mejor tiempo.
     - `TimeitResult.worst` - `float`: Peor tiempo.
 
-
+---
 ## Matplotlib
 
 Al utilizar la librería `matplotlib` en IPython no es necesario usar `plt.show()`. Sin embargo existen unos comandos mágicos que mejoran la experiencia: 

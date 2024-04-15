@@ -26,7 +26,7 @@ Funciones para cálculos de convarianzas y correlaciones.
 
 <br>
 
-## Estadísticos de orden
+## Cuantiles y percentiles
 
 Funciones para cálculos de rangos, cuantiles y percentiles. 
 
@@ -41,10 +41,31 @@ Funciones para cálculos de rangos, cuantiles y percentiles.
   - Calcula el cuantil q-ésimo de los datos a lo largo del eje especificado, ignorando los valores `NaN`.
 * - [percentile](https://numpy.org/doc/stable/reference/generated/numpy.percentile.html)(a, q[, axis, out, ...])
   - Calcula el percentil q-ésimo de los datos a lo largo del eje especificado.
-* - [ptp](https://numpy.org/doc/stable/reference/generated/numpy.ptp.html)(a[, axis, out, keepdims])
-  - Rango de valores (máximo - mínimo) a lo largo de un eje.
 * - [quantile](https://numpy.org/doc/stable/reference/generated/numpy.quantile.html)(a, q[, axis, out, overwrite_input, ...])
   - Calcula el cuantil q-ésimo de los datos a lo largo del eje especificado.
+```
+
+<br/>
+
+## Estadísticos de orden
+
+Funciones relacionadas con máximos, mínimos y rangos.
+
+```{list-table}
+:header-rows: 1
+
+* - Función
+  - Descripción
+* - [amax](https://numpy.org/doc/stable/reference/generated/numpy.amax.html)(a[, axis, out, keepdims, initial, where])
+  - Devuelve el valor máximo de un arreglo o el valor máximo a lo largo de un eje. Es igual a la función `np.max()`.
+* - [amin](https://numpy.org/doc/stable/reference/generated/numpy.amin.html)(a[, axis, out, keepdims, initial, where])
+  - Devuelve el valor mínimo de un arreglo o el valor mínimo a lo largo de un eje. Es igual a la función `np.min()`.
+* - [nanmax](https://numpy.org/doc/stable/reference/generated/numpy.nanmax.html)(a[, axis, out, keepdims, initial, where])
+  - Devuelve el valor máximo de un arreglo o el valor máximo a lo largo de un eje, ignorando cualquier `NaN`.
+* - [nanmin](https://numpy.org/doc/stable/reference/generated/numpy.nanmin.html)(a[, axis, out, keepdims, initial, where])
+  - Devuelve el valor mínimo de un arreglo o el valor mínimo a lo largo de un eje, ignorando cualquier `NaN`.
+* - [ptp](https://numpy.org/doc/stable/reference/generated/numpy.ptp.html)(a[, axis, out, keepdims])
+  - Rango de valores (máximo - mínimo) a lo largo de un eje.
 ```
 
 <br>
@@ -111,7 +132,7 @@ Funciones para cálculo de medidadas de tendencia cental como medias y medianas.
 * - [median](https://numpy.org/doc/stable/reference/generated/numpy.median.html)(a[, axis, out, overwrite_input, keepdims])
   - Calcula la mediana a lo largo del eje especificado.
 * - [nanmean](https://numpy.org/doc/stable/reference/generated/numpy.nanmean.html)(a[, axis, dtype, out, keepdims, where])
-  - Calcula la media aritmética a lo largo del eje especificado, ignorando `NaNs`. alt: None
+  - Calcula la media aritmética a lo largo del eje especificado, ignorando `NaNs`.
 * - [nanmedian](https://numpy.org/doc/stable/reference/generated/numpy.nanmedian.html)(a[, axis, out, overwrite_input, ...])
   - Calcula la mediana a lo largo del eje especificado, ignorando los `NaN`.
 ```

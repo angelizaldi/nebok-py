@@ -9,7 +9,7 @@ Para una lista completa visitar la [documentación](https://numpy.org/doc/stable
 ---
 ## Buscar
 
-Funciones para buscar valores en arrays. 
+Funciones útiles para determinar índices o elementos que cumplen ciertas características como valores iguales a cero, máximos, mínimos o alguna otra característica específica. 
 
 ```{list-table}
 :header-rows: 1
@@ -21,7 +21,7 @@ Funciones para buscar valores en arrays.
 * - [argmin](https://numpy.org/doc/stable/reference/generated/numpy.argmin.html)(a[, axis, out, keepdims])
   - Devuelve los índices de los valores mínimos a lo largo de un eje.
 * - [argwhere](https://numpy.org/doc/stable/reference/generated/numpy.argwhere.html)(a)
-  - Determina los índices de los elementos del arreglo que no sean cero, agrupados por elemento.
+  - Determina los índices de los elementos del arreglo que no son cero.
 * - [extract](https://numpy.org/doc/stable/reference/generated/numpy.extract.html)(condition, arr)
   - Devuelve los elementos de un arreglo que cumplen alguna condición.
 * - [flatnonzero](https://numpy.org/doc/stable/reference/generated/numpy.flatnonzero.html)(a)
@@ -30,8 +30,6 @@ Funciones para buscar valores en arrays.
   - Devuelve los índices de los valores máximos en el eje especificado ignorando `NaN`s.
 * - [nanargmin](https://numpy.org/doc/stable/reference/generated/numpy.nanargmin.html)(a[, axis, out, keepdims])
   - Devuelve los índices de los valores mínimos en el eje especificado ignorando `NaN`s.
-* - [searchsorted](https://numpy.org/doc/stable/reference/generated/numpy.searchsorted.html)(a, v[, side, sorter])
-  - Determina los índices donde se deben insertar elementos para mantener el orden.
 ```
 
 <br>
@@ -53,7 +51,7 @@ Funciones para contar valores en arrays.
 
 ## Ordenar
 
-Funciones para ordenar valores en arrays. 
+Funciones útiles para ordenar valores en arrays, determinar los índices de los valores ordenados, determinar índices para insertar valores y mantener el orden . 
 
 ```{list-table}
 :header-rows: 1
@@ -61,13 +59,15 @@ Funciones para ordenar valores en arrays.
 * - Función
   - Descripción
 * - [argpartition](https://numpy.org/doc/stable/reference/generated/numpy.argpartition.html)(a, kth[, axis, kind, order])
-  - Realiza una partición indirecta a lo largo del eje dado utilizando el algoritmo especificado por la palabra clave `kind`.
+  - Devuelve los índices en el que los valores de los primeros _k-1_ elementos, serán menores al valor del elemento _k_ y el resto serán mayores o iguales que el valor del elemento _k_. Cada partición no estrictamente estará ordenada. Lo mismo se puede aplicar para varias posiciones.
 * - [argsort](https://numpy.org/doc/stable/reference/generated/numpy.argsort.html)(a[, axis, kind, order])
   - Devuelve los índices que ordenarían un arreglo.
 * - [partition](https://numpy.org/doc/stable/reference/generated/numpy.partition.html)(a, kth[, axis, kind, order])
-  - Devuelve una copia particionada de un arreglo.
+  - Devuelve una copia del arreglo en el que los valores de los primeros _k-1_ elementos, serán menores al valor del elemento _k_ y el resto serán mayores o iguales que el valor del elemento _k_. Cada partición no estrictamente estará ordenada. Lo mismo se puede aplicar para varias posiciones.
+* - [searchsorted](https://numpy.org/doc/stable/reference/generated/numpy.searchsorted.html)(a, v[, side, sorter])
+  - Determina los índices donde se deben insertar elementos para mantener el orden, bajo el supuesto de que `a` está ordenado. En caso de múltiples valores, los índices se determinan solo con respecto al array original `a`.
 * - [sort](https://numpy.org/doc/stable/reference/generated/numpy.sort.html)(a[, axis, kind, order])
-  - Devuelve una copia ordenada de un arreglo.
+  - Devuelve una copia ordenada de un arreglo. Es posible ordenar algún eje en específico.
 ```
 
 <br>

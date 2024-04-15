@@ -12,74 +12,20 @@ kernelspec:
 
 # Index
 
-Los objetos `Index` son un array inmutable, funje el papel de identificar por medio de etiquetas las filas y columnas. Pueden ser vistos como un `set` ordenado o un multi set ordenado, aunque `index` puede tener valores repetidos.
+Los objetos _Index_ son una serie de objetos que pueden utilizarse para identificar los elementos de los objetos `Series` y `DataFrame` por medio de etiquetas. Estos objetos pueden ser de varios tipos y con diversas características.
 
-En esta sección se presentará principalmente la clase `Index`, pero no es el único tipo de índice que existe, entre otros índices disponibles están:
-- [RangeIndex](https://pandas.pydata.org/docs/reference/indexing.html#numeric-index): Índice numérico.
-- [CategoricalIndex](https://pandas.pydata.org/docs/reference/indexing.html#categoricalindex): Índice categórico.
-- [IntervalIndex](https://pandas.pydata.org/docs/reference/indexing.html#intervalindex): Índice por intervalos.
-- [MultiIndex](https://pandas.pydata.org/docs/reference/indexing.html#multiindex): Índice multinivel o jerarquíco.
-- [DatetimeIndex](https://pandas.pydata.org/docs/reference/indexing.html#datetimeindex): Índice de `datetime64`.
-- [TimedeltaIndex](https://pandas.pydata.org/docs/reference/indexing.html#timedeltaindex): Índice de `timedelta64`.
-- [PeriodIndex](https://pandas.pydata.org/docs/reference/indexing.html#periodindex): Índice de periodos de tiempo.
+En esta sección se presentará el objeto `Index` y algunas se sus subclases, las subclases que no se explicarán en esta sección son las siguientes:
+- [RangeIndex](https://pandas.pydata.org/docs/reference/api/pandas.RangeIndex.html#pandas.RangeIndex): Índice numérico monotono. Es similar al índice implícito por default.
+- [CategoricalIndex](https://pandas.pydata.org/docs/reference/api/pandas.CategoricalIndex.html#pandas-categoricalindex): Índice categórico.
+- [IntervalIndex](https://pandas.pydata.org/docs/reference/api/pandas.IntervalIndex.html#pandas-intervalindex): Índice por intervalos.
 
-<br><br>
-
-## Tipo de índices
-
-Los objetos `DataFrame` y `Series` tienes dos tipos de índices:
-- índice implícito: Es un índice númerico, que comienza desde cero, similiar a los índices de las secuencias.
-- índice explícito: Es el objeto `Index` asociado, que puede tener etiquetas`int` o `str`.
-
-<br><br>
+<br/>
 
 ---
-## Operaciones entre objetos
+(index-index)=
+## Index
 
-Al realizar operaciones entre clases de `pandas` tener en cuenta las siguientes características:
-- Si la operación es unitaria (nada más se necesita un operando, como elevar al cuadrado) entonces el output mantendrá el índice del objeto original. 
-- Si la operación es binaria (se necesitan dos operandos, como sumar dos números), entonces se alinearán los índices explícitos. Esto quiere decir que si los objetos no tienen algún índice en común, el restultado sí contendrá esos índices, pero tendrán `NaN` como valor. En el caso de `DataFrame` se alinean tantos los índices de las filas, como los índices de las columnas.
-- Si la operación es entre un `DataFrame` y un `Series`, la operación se hará entre los elementos con el mismo índice explícito y de acuerdo a lo siguiente:
-    - **Nivel columnas**: Si se quiere que sea a nivel de columnas, es decir, los elementos del `Series` con cada columna del `DataFrame`, se debe de usar el argumento `axis=1` (default), en este caso la cantidad de filas en el `DataFrame` debe ser igual a la cantidad de elementos en el `Series` y el `Index` del `Series` se alineará con el `Index` de las columnas del `DataFrame`. 
-    - **Nivel filas**: Si se quiere que sea a nivel de filas, es decir, los elementos del `Series` con cada fila del `DataFrame`, se debe de usar el argumento `axis=0`, en este caso, la cantidad de filas en el `DataFrame` debe de ser igual a la cantidad de elementos en el `Series` y el `Index` del `Series` se alineará con el `Index` de las filas del `DataFrame`. .
-
-<br>
-
-```{figure} ../images/operaciones-binarias-pandas.png
-:name: operacion-binaria-filas
-:width: 500px
-:align: center
-
-Operaciones binarias.
-```
-
-```{attention}
-Recordar que la operación únicamente se realizará entre los índices coincidentes.
-```
-
-**Ejemplo:**
-En este ejemplo se puede observar una operación a nivel columnas (comportamiento por default), el índices del `Series` se alinea con las columnas del `DataFrame`, de tal forma que a toda la columna `a` del `df` se le suma 2 y a toda las columna `b` se le suma 4. Además se puede observar que los índices que no están en los dos objetos también aparecen en el resultado pero con `NaN`.
-
-```{code-cell} ipython3
-# Importar libreria
-import pandas as pd
-
-# Definir series
-x = pd.Series([2, 4, 5], index=['a', 'b', 'c'])
-
-# Definir df
-df = pd.DataFrame({'a': [1, 2, 3], 'b': [4, 5, 6]})
-
-# Realizar operación a nivel de columnas
-df.add(x)
-```
-
-<br><br>
-
----
-## Clase Index
-
-
+Los objetos `Index` son un array inmutable, funje el papel de identificar por medio de etiquetas las filas y/o columnas. Pueden ser vistos como un `set` ordenado (cada elemento se identifica por un índice) o un multi-set ordenado, aunque `Index` puede tener valores repetidos.
 
 ### Creación de Index.
 
@@ -91,10 +37,11 @@ La forma más sencilla de crear un índex es con el constructor:
 * - Constructor
   - Descripción
 * - [Index](https://pandas.pydata.org/docs/reference/api/pandas.Index.html#pandas.Index)(data=None, dtype=None, copy=False, name=None, tupleize_cols=True)
-  - Immutable sequence used for indexing and alignment.
+  - Secuencia inmutable para selección de elementos y alineación con con otros objetos.
 ```
+- _data_ - `array-like`, `iterable: Un arreglo o una lista unidimensional con los datos.
 
-Ejemplo:
+**Ejemplo**:
 
 ```{code-cell} ipython3
 # Importar librería
@@ -107,20 +54,20 @@ ind = pd.Index(["a", "b", "c"])
 print(ind)
 ```
 
-<br>
+<br/>
 
 ---
+(index-index-seleccion)=
 ### Selección de elementos
 
-Para seleccionar elementos se pueden usar las mismas estrategias que la selección de elementos de arrays unidimensionales de numpy:
-- Subsetting.
-- Slicing.
-- Boolean masking.
-- Fancy indexing.
+Para seleccionar elementos se pueden usar las mismas estrategias que la {ref}`selección de elementos <numpy-arrays-seleccion>` de arrays unidimensionales de numpy:
+- {ref}`numpy-arrays-subsetting`.
+- {ref}`numpy-arrays-slicing`.
+- {ref}`numpy-arrays-masking`.
+- {ref}`numpy-arrays-indexing`.
 
-Adicionalmente se pueden seleccionar elementos por [Métodos de selección](https://pandas.pydata.org/docs/reference/indexing.html#selecting).
+**Ejemplos**: A continuación se verán algunos ejemplos utilizando las distintas estrategias enlistadas anteriormente.
 
-Ejemplo:
 ```{code-cell} ipython3
 # Crear objeto ind
 ind = pd.Index(["a", "e", "i", "o", "u"])
@@ -138,14 +85,24 @@ print(f"Boolean masking: {ind[ind.isin(['i', 'o'])]}", end = "\n"*2)
 print(f"Fancy indexing: {ind[[3, 0, 4]]}", end = "\n"*2)
 ```
 
-<br>
+<br/>
 
 ---
 ### Operaciones de conjuntos
 
-Se pueden realizar operaciones de conjunto entre objetos `Index` con [Metodos de operaciones de conjunto](https://pandas.pydata.org/docs/reference/indexing.html#combining-joining-set-operations).
+Los objetos `Index` son similares a un `set`, por lo tanto se pueden realizar operaciones de conjuntos entre objetos `Index` con métodos de {ref}`Operaciones de conjuntos <index-index-metodos-conjuntos>`.
 
-Ejemplo:
+- **Unión**: Para determinar la unión de dos `Index` se usa el método `.union`: <br/> `X.union(Y)`
+- **Intersección**: Para determinar la intersección (elementos en común) de dos `Index` se usa el método `.intersection`: <br/> `X.intersection(Y)`
+- **Diferencia**: Para determinar la diferencia de dos `Index` (elementos en `X` pero no en `Y`) se usa el método `.difference(Y)`: <br/> `X.difference(Y)`
+- **Diferencia simétrica**: Para determinar la diferencia simétrica de dos `Index` (elementos en `X` o `Y`, pero no en ambos) se usa el método `.symmetric_difference(Y)`: <br/> `X.symmetric_difference(Y)`
+
+:::{warning}
+No se pueden usar los operadores _bitwise_ `|`, `&`, `-`, etc. para realizar operaciones de conjuntos entre objetos `Index`.
+:::
+
+**Ejemplos**: A continuación se verán unos ejemplos del uso de los métodos para realizar operaciones de conjuntos entre objetos de tipo `Index`.
+
 ```{code-cell} ipython3
 # Crear ind1
 ind1 = pd.Index(["a", "e", "i", "o", "u"])
@@ -153,80 +110,1182 @@ ind1 = pd.Index(["a", "e", "i", "o", "u"])
 # Crear ind2
 ind2 = pd.Index(["a", "b", "c", "d", "e"])
 
+# Calcular la unión -> ["a", "b", "c", "d", "e", "i", "o", "u"]
+print("Union: ", ind1.union(ind2))
+
 # Calcular la intersección -> ['a', 'e']
-print(ind1.intersection(ind2))
+print("Intesección: ", ind1.intersection(ind2))
+
+# Calcular la diferencia -> ["i", "o", "u"]
+print("Diferencia: ", ind1.difference(ind2))
 ```
 
-```{warning} 
-No se pueden usar los operadores {ref}`operadores:bitwise` para realizar operaciones de conjuntos entre objetos `Index`.
+<br/>
+
+---
+### Atributos de `Index`
+
+En esta sección se enlistan los atributos del objeto `Index`.
+
+#### Atributos generales
+
+Atributos generales del objeto `Index`.
+
+```{list-table}
+:header-rows: 1
+
+* - Método
+  - Descripción
+* - [Index.dtype](http://pandas.pydata.org/docs/reference/api/pandas.Index.dtype.html)
+  - Retorna el `dtype` de los datos subyacentes.
+* - [Index.name](http://pandas.pydata.org/docs/reference/api/pandas.Index.name.html)
+  - Retorna el nombre del objeto `Index` o `MultiIndex`. También se puede usar para modificar el nombre.
+* - [Index.names](http://pandas.pydata.org/docs/reference/api/pandas.Index.names.html)
+  - Retorna los nombres de los niveles de un índice. También se puede usar para modificar o agregar nombres a los niveles de un índice.
+* - [Index.ndim](http://pandas.pydata.org/docs/reference/api/pandas.Index.ndim.html)
+  - Número de dimensiones de los datos subyacentes, por definición 1.
+* - [Index.shape](http://pandas.pydata.org/docs/reference/api/pandas.Index.shape.html)
+  - Retorna un `tuple` del _shape_ de los datos subyacentes.
+* - [Index.size](http://pandas.pydata.org/docs/reference/api/pandas.Index.size.html)
+  - Retorna el número total de elementos de los datos subyacentes.
+* - [Index.T](http://pandas.pydata.org/docs/reference/api/pandas.Index.t.html)
+  - Retorna la transpuesta, que por definición es _self_.
+* - [Index.values](http://pandas.pydata.org/docs/reference/api/pandas.Index.values.html)
+  - Devuelve un arreglo con los valores del `Index`.
 ```
 
+<br/>
 
-<br>
+#### Información
+
+Atributos que indican si el `Index` cumple determinadas características.
+
+```{list-table}
+:header-rows: 1
+
+* - Método
+  - Descripción
+* - [Index.empty](http://pandas.pydata.org/docs/reference/api/pandas.Index.empty.html)
+  - Indica si el índice está vacío.
+* - [Index.has_duplicates](http://pandas.pydata.org/docs/reference/api/pandas.Index.has_duplicates.html)
+  - Verifica si el `Index` tiene valores duplicados.
+* - [Index.hasnans](http://pandas.pydata.org/docs/reference/api/pandas.Index.hasnans.html)
+  - Retorna `True` si hay algun valor `NaN`.
+* - [Index.is_monotonic_decreasing](http://pandas.pydata.org/docs/reference/api/pandas.Index.is_monotonic_decreasing.html)
+  - Retorna `bool` indicando si los valores son iguales o decrecientes.
+* - [Index.is_monotonic_increasing](http://pandas.pydata.org/docs/reference/api/pandas.Index.is_monotonic_increasing.html)
+  - Retorna `bool` indicando si los valores son iguales o crecientes.
+* - [Index.is_unique](http://pandas.pydata.org/docs/reference/api/pandas.Index.is_unique.html)
+  - Indica si el índice tiene solo valores únicos.
+```
+
+<br/>
 
 ---
-### Atributos y métodos
+### Métodos de `Index`
 
-Para conocer los atributos y métodos de clase `Index`, visitar los siguientes links:
+En esta sección se enlistan los métodos del objeto `Index` por categorías.
 
-- **Atributos**:
-    - [Propiedades](https://pandas.pydata.org/docs/reference/indexing.html#properties).
-- **Métodos**:
-    - [Modificación y cálculos.](https://pandas.pydata.org/docs/reference/indexing.html#modifying-and-computations).
-    - [Compatibilidad con multiíndice](https://pandas.pydata.org/docs/reference/indexing.html#compatibility-with-multiindex).
-    - [Valores perdidos](https://pandas.pydata.org/docs/reference/indexing.html#missing-values).
-    - [Conversión](https://pandas.pydata.org/docs/reference/indexing.html#conversion).
-    - [Ordenar](https://pandas.pydata.org/docs/reference/indexing.html#sorting).
-    - [Operaciones específicas de tiempo](https://pandas.pydata.org/docs/reference/indexing.html#time-specific-operations).
-    - [Combinación/Operaciones de unión/Operaciones de conjuntos](https://pandas.pydata.org./docs/reference/indexing.html#combining-joining-set-operations).
-    - [Seleccionar](https://pandas.pydata.org/docs/reference/indexing.html#selecting).
+#### Cálculos y operadores
 
+##### Comparaciones
 
-<br><br>
+Métodos para comparar objetos `Index`.
+
+```{list-table}
+:header-rows: 1
+
+* - Método
+  - Descripción
+* - [Index.equals](http://pandas.pydata.org/docs/reference/api/pandas.Index.equals.html)(other)
+  - Determina si dos objetos `Index` objeto son iguales.
+* - [Index.identical](http://pandas.pydata.org/docs/reference/api/pandas.Index.identical.html)(other)
+  - Similar a `Index.equals()`, pero verifica que los atributos y tipos de objetos también sean iguales.
+```
+
+<br/>
+
+##### Membresía
+
+Métodos para verificar que los elementos del objeto `Index` estén dentro de un conjunto de valores.
+
+```{list-table}
+:header-rows: 1
+
+* - Método
+  - Descripción
+* - [Index.isin](http://pandas.pydata.org/docs/reference/api/pandas.Index.isin.html)(values[, level])
+  - Devuelve un arreglo booleano que indica si los valores del índice están en _values_.
+```
+
+<br/>
+
+##### Mínimos y máximos
+
+Métodos para determinar elementos máximos y mínimos en el objeto `Index`.
+
+```{list-table}
+:header-rows: 1
+
+* - Método
+  - Descripción
+* - [Index.argmax](http://pandas.pydata.org/docs/reference/api/pandas.Index.argmax.html)([axis, skipna])
+  - Retorna la posición `int` del valor máximo en el `Index`.
+* - [Index.argmin](http://pandas.pydata.org/docs/reference/api/pandas.Index.argmin.html)([axis, skipna])
+  - Retorna la posición `int` del valor mínimo en el `Index`.
+* - [Index.max](http://pandas.pydata.org/docs/reference/api/pandas.Index.max.html)([axis, skipna])
+  - Retorna el valor máximo de `Index`.
+* - [Index.min](http://pandas.pydata.org/docs/reference/api/pandas.Index.min.html)([axis, skipna])
+  - Retorna el valor mínimo de `Index`.
+```
+
+<br/>
+
+(index-index-metodos-conjuntos)=
+##### Operaciones de conjuntos
+
+Métodos para realizar operaciones de conjuntos entre objetos `Index`. 
+
+```{list-table}
+:header-rows: 1
+
+* - Método
+  - Descripción
+* - [Index.difference](http://pandas.pydata.org/docs/reference/api/pandas.Index.difference.html)(other[, sort])
+  - Retorna un nuevo `Index` con los elementos del índice que no están en _other_.
+* - [Index.intersection](http://pandas.pydata.org/docs/reference/api/pandas.Index.intersection.html)(other[, sort])
+  - Retorna la intersección de dos objetos `Index`, es decir, los elementos en común.
+* - [Index.symmetric_difference](http://pandas.pydata.org/docs/reference/api/pandas.Index.symmetric_difference.html)(other[, ...])
+  - Calcula la diferencia simétrica de dos objetos `Index`, es decir, los elementos que están en alguno de los objetos, pero no en ambos.
+* - [Index.union](http://pandas.pydata.org/docs/reference/api/pandas.Index.union.html)(other[, sort])
+  - Retorna la unión de dos objetos `Index`, es decir, un índice nuevo con todos los elementos de ambos objetos.
+```
+
+<br/>
+
+##### Operadores booleanos
+
+Métodos para trabajar con objetos `Index` boolenos.
+
+```{list-table}
+:header-rows: 1
+
+* - Método
+  - Descripción
+* - [Index.all](http://pandas.pydata.org/docs/reference/api/pandas.Index.all.html)(*args, **kwargs)
+  - Retorna `True` si todos los elementos son `True`.
+* - [Index.any](http://pandas.pydata.org/docs/reference/api/pandas.Index.any.html)(*args, **kwargs)
+  - Retorna `True` si al menos un elemento es `True`.
+```
+
+<br/>
+
+#### Compatibilidad Con `MultiIndex`
+
+Métodos compatibles con objetos `Index` anidados, es decir, que tienen más de una nivel similar a los objetos `MultiIndex`. 
+
+```{list-table}
+:header-rows: 1
+
+* - Método
+  - Descripción
+* - [Index.droplevel](http://pandas.pydata.org/docs/reference/api/pandas.Index.droplevel.html)([level])
+  - Elimina un nivel de un índice multinivel.
+* - [Index.set_names](http://pandas.pydata.org/docs/reference/api/pandas.Index.set_names.html)(names, *[, level, inplace])
+  - Establece el nombre de un objeto `Index` o los nombres de los niveles de un objeto `MultiIndex`.
+```
+
+<br/>
+
+#### Conversión, transformaciones y _views_
+
+Métodos para convertir el objeto `Index` a otro tipo o convertir sus valores a otro tipo. 
+
+```{list-table}
+:header-rows: 1
+
+* - Método
+  - Descripción
+* - [Index.astype](http://pandas.pydata.org/docs/reference/api/pandas.Index.astype.html)(dtype[, copy])
+  - Crea un `Index` con los valores convertidos al tipo de dato _dtype_.
+* - [Index.copy](http://pandas.pydata.org/docs/reference/api/pandas.Index.copy.html)([name, deep])
+  - Crea una copia del objeto.
+* - [Index.ravel](http://pandas.pydata.org/docs/reference/api/pandas.Index.ravel.html)([order])
+  - Retorna una _view_ del índice.
+* - [Index.to_frame](http://pandas.pydata.org/docs/reference/api/pandas.Index.to_frame.html)([index, name])
+  - Convierte el `Index` a un `DataFrame` con una columna que contiene los valores del índice.
+* - [Index.to_list](http://pandas.pydata.org/docs/reference/api/pandas.Index.to_list.html)()
+  - Retorna un `list` de los valores.
+* - [Index.to_series](http://pandas.pydata.org/docs/reference/api/pandas.Index.to_series.html)([index, name])
+  - Convierte el `Index` a `Series`
+```
+
+<br/>
+
+#### Modificaciones
+
+Métodos para realizar modificaciones en el objeto `Index` como eliminar elementos, modificar elementos, renombrar, categorizar, mapear, etc.
+
+```{list-table}
+:header-rows: 1
+
+* - Método
+  - Descripción
+* - [Index.delete](http://pandas.pydata.org/docs/reference/api/pandas.Index.delete.html)(loc)
+  - Retorna un nuevo `Index` con los elementos en las posiciones indicadas eliminados.
+* - [Index.drop](http://pandas.pydata.org/docs/reference/api/pandas.Index.drop.html)(labels[, errors])
+  - Retorna un nuevo `Index` con los elementos con las etiquetas indicadas eliminados.
+* - [Index.factorize](http://pandas.pydata.org/docs/reference/api/pandas.Index.factorize.html)([sort, use_na_sentinel])
+  - Codifica el objeto como un tipo enumerado o una variable categórica. Básicamente a cada elemento único le asigna un valor numérico: `['b', 'b', 'a', 'c', 'b'] -> [0, 0, 1, 2, 0]`
+* - [Index.insert](http://pandas.pydata.org/docs/reference/api/pandas.Index.insert.html)(loc, item)
+  - Retorna el `Index` con un nuevo elemento insertado en la ubicación indicada.
+* - [Index.map](http://pandas.pydata.org/docs/reference/api/pandas.Index.map.html)(mapper[, na_action])
+  - Mapea valores de acuerdo una correspondencia de entrada, es decir, asigna valores dependiendo de los valores de entrada con base a una función u otro objeto.
+* - [Index.reindex](http://pandas.pydata.org/docs/reference/api/pandas.Index.reindex.html)(target[, method, level, ...])
+  - Crea un nuevo objeto `Index` con base a otro seleccionando únicamente algunos elementos determinados. Retorna también un `ndarray` con los índices de los elementos elegidos.
+* - [Index.rename](http://pandas.pydata.org/docs/reference/api/pandas.Index.rename.html)(name, *[, inplace])
+  - Modifica el nombre de un objeto `Index` o `MultiIndex`.
+* - [Index.repeat](http://pandas.pydata.org/docs/reference/api/pandas.Index.repeat.html)(repeats[, axis])
+  - Repite elementos de un objeto `Index`.
+* - [Index.putmask](http://pandas.pydata.org/docs/reference/api/pandas.Index.putmask.html)(mask, value)
+  - Retorna un nuevo `Index` modificando los valores de acuerdo a un array booleano, aquellos cuyos valores sea `True` se modificarán. _value_ puede ser otro índice.
+* - [Index.where](http://pandas.pydata.org/docs/reference/api/pandas.Index.where.html)(cond[, other])
+  - Reemplaza valores donde la condición es `False`.
+```
+
+<br/>
+
+#### Operaciones de tiempo
+
+Métodos útiles para índices de tipo `datetime-like`. 
+
+```{list-table}
+:header-rows: 1
+
+* - Método
+  - Descripción
+* - [Index.shift](http://pandas.pydata.org/docs/reference/api/pandas.Index.shift.html)([periods, freq])
+  - Modifica el índice según el número deseado de incrementos de frecuencia de tiempo.
+```
+
+<br/>
+
+#### Selección de elementos
+
+Métodos para seleccionar elementos en el objeto `Index`. 
+
+```{list-table}
+:header-rows: 1
+
+* - Método
+  - Descripción
+* - [Index.asof](http://pandas.pydata.org/docs/reference/api/pandas.Index.asof.html)(label)
+  - Retorna una etiqueta determinada en el índice o, si no está presente, la inmediata anterior.
+* - [Index.asof_locs](http://pandas.pydata.org/docs/reference/api/pandas.Index.asof_locs.html)(where, mask)
+  - Retorna las posiciones (índices) de unas etiquetas determinadas en el índice.
+* - [Index.get_indexer](http://pandas.pydata.org/docs/reference/api/pandas.Index.get_indexer.html)(target[, method, limit, ...])
+  - Retorna un _indexador_ dado el índice actual y un nuevo índice. El _indexador_ es un arreglo que indica las posiciones de los valores en un nuevo índice `target` dadas las posiciones actuales de los mismos valores en el índice actual. Si un valor en _target_ no existe en el índice actual se le asigna la posición -1.
+* - [Index.get_indexer_for](http://pandas.pydata.org/docs/reference/api/pandas.Index.get_indexer_for.html)(target)
+  - Garantiza el retorno de un _indexador_ incluso cuando los valores en el índice actual no son únicos. El _indexador_ es un arreglo que indica las posiciones de los valores en un nuevo índice `target` dadas las posiciones actuales de los mismos valores en el índice actual. Para un valor no único dado retorna todas las posiciones en el índice actual.
+* - [Index.get_indexer_non_unique](http://pandas.pydata.org/docs/reference/api/pandas.Index.get_indexer_non_unique.html)(target)
+  - Retorna un _indexador_ incluso cuando los valores en el índice actual no son únicos. El _indexador_ es un arreglo que indica las posiciones de los valores en un nuevo índice `target` dadas las posiciones actuales de los mismos valores en el índice actual. Para un valor no único dado retorna todas las posiciones en el índice actual.
+* - [Index.get_level_values](http://pandas.pydata.org/docs/reference/api/pandas.Index.get_level_values.html)(level)
+  - Retorna un `Index` de valores para el nivel solicitado.
+* - [Index.get_loc](http://pandas.pydata.org/docs/reference/api/pandas.Index.get_loc.html)(key)
+  - Recupera la posición, el segmento o la máscara booleana para la etiqueta solicitada.
+* - [Index.get_slice_bound](http://pandas.pydata.org/docs/reference/api/pandas.Index.get_slice_bound.html)(label, side)
+  - Calcula el límite del segmento que corresponde a la etiqueta dada.
+* - [Index.item](http://pandas.pydata.org/docs/reference/api/pandas.Index.item.html)()
+  - Retorna el primer elemento de los datos subyacentes como un escalar de Python.
+* - [Index.slice_indexer](http://pandas.pydata.org/docs/reference/api/pandas.Index.slice_indexer.html)([start, end, step])
+  - Retorna un _slice_ con las posiciones de los parámetros _start_, _end_ y _stop_ en el `Index`, el cual debe de ser único y estar ordenado. Retorna `slice`.
+* - [Index.slice_locs](http://pandas.pydata.org/docs/reference/api/pandas.Index.slice_locs.html)([start, end, step])
+  - Retorna un `tuple` con las posiciones de los parámetros _start_, _end_ y _stop_ en el `Index`, el cual debe de ser único y estar ordenado. Retorna `slice`.
+* - [Index.where](http://pandas.pydata.org/docs/reference/api/pandas.Index.where.html)(cond[, other])
+  - Reemplaza valores donde la condición es `False`.
+```
+
+<br/>
+
+#### Ordenar
+
+Métodos para ordenar el `Index`.
+
+```{list-table}
+:header-rows: 1
+
+* - Método
+  - Descripción
+* - [Index.argsort](http://pandas.pydata.org/docs/reference/api/pandas.Index.argsort.html)(*args, **kwargs)
+  - Retorna los índices enteros que ordenarían el índice.
+* - [Index.searchsorted](http://pandas.pydata.org/docs/reference/api/pandas.Index.searchsorted.html)(value[, side, sorter])
+  - Determina los índices donde se deben insertar elementos para mantener el orden, bajo el supuesto de que el `Index` está ordenado. En caso de múltiples valores, los índices se determinan solo con respecto al `Index` original.
+* - [Index.sort_values](http://pandas.pydata.org/docs/reference/api/pandas.Index.sort_values.html)(*[, return_indexer, ...])
+  - Retorna una copia ordenada del índice.
+```
+
+<br/>
+
+#### Uniones y combinaciones
+
+Métodos para unir y combinar objetos `Index`. 
+
+```{list-table}
+:header-rows: 1
+
+* - Método
+  - Descripción
+* - [Index.append](http://pandas.pydata.org/docs/reference/api/pandas.Index.append.html)(other)
+  - Retorna un nuevo `Index` que es la concatenación de un índice con otro.
+* - [Index.join](http://pandas.pydata.org/docs/reference/api/pandas.Index.join.html)(other, *[, how, level, ...])
+  - Retorna un nuevo `Index` que es el resultado de aplicar un _join_ con base a dos índices. Solo retorna los índices que satisfacen el tipo de unión.
+```
+
+<br/>
+
+#### Valores duplicados
+
+Métodos para trabajar con valores duplicados en el `Index`.
+
+```{list-table}
+:header-rows: 1
+
+* - Método
+  - Descripción
+* - [Index.drop_duplicates](http://pandas.pydata.org/docs/reference/api/pandas.Index.drop_duplicates.html)(*[, keep])
+  - Retorna el `Index` con los valores duplicados eliminados.
+* - [Index.duplicated](http://pandas.pydata.org/docs/reference/api/pandas.Index.duplicated.html)([keep])
+  - Retorna un array booleano indicado para cada valor si está duplicado (`True`) o no (`False`).
+```
+
+<br/>
+
+#### Valores pérdidos
+
+Métodos para trabajar con valores perdidos `NA`/`NaN` en el `Index`.
+
+```{list-table}
+:header-rows: 1
+
+* - Método
+  - Descripción
+* - [Index.dropna](http://pandas.pydata.org/docs/reference/api/pandas.Index.dropna.html)([how])
+  - Retorna el `Index` sin valores `NA`/`NaN`.
+* - [Index.fillna](http://pandas.pydata.org/docs/reference/api/pandas.Index.fillna.html)([value, downcast])
+  - Reemplaza los valores `NA`/`NaN` con un valor especificado.
+* - [Index.isna](http://pandas.pydata.org/docs/reference/api/pandas.Index.isna.html)()
+  - Retorna un array boolenado indicando para cada elemento si es `NA`/`NaN`.
+* - [Index.notna](http://pandas.pydata.org/docs/reference/api/pandas.Index.notna.html)()
+  - Retorna un array boolenado indicando para cada elemento si no es `NA`/`NaN`.
+```
+
+<br/>
+
+#### Valores únicos
+
+Métodos para trabajar con valores únicos en el `Index`.
+
+```{list-table}
+:header-rows: 1
+
+* - Método
+  - Descripción
+* - [Index.nunique](http://pandas.pydata.org/docs/reference/api/pandas.Index.nunique.html)([dropna])
+  - Retorna el número de elementos únicos en el objeto.
+* - [Index.unique](http://pandas.pydata.org/docs/reference/api/pandas.Index.unique.html)([level])
+  - Retorna los valores únicos en el índice.
+* - [Index.value_counts](http://pandas.pydata.org/docs/reference/api/pandas.Index.value_counts.html)([normalize, sort, ...])
+  - Retorna un `Series` que contiene recuentos de valores únicos.
+```
+
+<br/><br/>
 
 ---
-## Multiindex
+## MultiIndex
 
-La clase multiindex es una subclase de `Index`, es un multi set ordenado, que permite tener índices jearquizados por niveles. Esta clase es una alternativa para crear objetos de más de dos dimensiones.
+La clase `MultiIndex` es una subclase de `Index`, es un multiset ordenado, que permite tener índices jearquizados por niveles. Esta clase es una alternativa para crear objetos de más de dos dimensiones.
 
-### Creación de un multiindex
+### Creación de un `MultiIndex`
 
-Existen diversas formas de crear un multiindex o de crear un objetos de pandas con un índice multiindex, a continuación se enlistan algunas de ellas:
+La clase `MultiIndex` tiene varios {ref}`index-multiindex-metodos-constructores` para crear un multi-índice a partir de secuencias anidadas, productos cartesianos, objetos `DataFrame`, entre otros.
 
-**Constructores multiindex**: La clase `Multiindex` tiene varios [constructores](https://pandas.pydata.org/docs/reference/indexing.html#multiindex-constructors) para crear un muiltiíndice a partir de secuencias anidadas, productos cartesianos o DataFrames.
-
-Ejemplo:
+**Ejemplos**: En este ejemplo se revisar el uso de los constructores `pd.MultiIndex.from_arrays()` y `pd.MultiIndex.from_product()`.
 ```{code-cell} ipython3
-# Crear multiindex desde un secuencia anidada
+# Crear MultiIndex desde un secuencia anidada
 arrays = [[1, 1, 2, 2], ['red', 'blue', 'red', 'blue']]
 
 multind1 = pd.MultiIndex.from_arrays(arrays, names=('number', 'color'))
-print(f"Multiíndice desde secuencias: {multind1}", end="\n*"*2)
+print(f"Multiíndice desde secuencias:\n{multind1}", end="\n*2")
 
-# Crear multiindex desde un producto cartesiano
+# Crear MultiIndex desde un producto cartesiano
 numbers = [0, 1, 2]
 
 colors = ['green', 'purple']
 
 multind2 = pd.MultiIndex.from_product([numbers, colors], names=['number', 'color'])
-print(f"Multiíndice desde producto cartesiano: {multind2}")
+print(f"Multiíndice desde producto cartesiano:\n{multind2}")
 ```
-- En el caso de la secuencias anidadas, cada secuencia interior debe de ser del mismo tamaño, el número de secuencias interiores determina el número de niveles en el multiíndice y los índices se emparentan de una manera similar a como funciona la función `zip()`.
-- En el caso del producto cartesiano se proporciona una secuencia anidada cuyas sencuencias interiores pueden diferir en longitud, el número de secuencias interiores determina el número de niveles en el multiíndice.
+- En el caso de `.from_arrays()`, se proporciona un `array-like` anidado, cada `array-like` interior debe de ser del mismo tamaño. El número de secuencias interiores determina el número de niveles en el multi-índice y los elementos se empatan por posición.
+- En el caso de `.from_product()` se proporciona un `array-like` anidado cuyos `array-like` interiores pueden diferir en longitud. El número de secuencias interiores determina el número de niveles en el multi-índice y los elementos serán el producto cartesiano de los `array-like` interiores.
 
 ```{note}
-Los multiíndices creados por los constructores se pueden usar como valor de los argumentos `index` y `columns` al momento de crear un objeto de `pandas` o al cambiar el índice de un objeto existente con el método `.reindex()`.
+Los multi-índice creados con los constructores se pueden usar como argumentos de los parámetros `index` y `columns` al momento de crear un objeto de `pandas` o al cambiar el índice de un objeto existente con el método `.reindex()`.
 ```
 
-<br>
+<br/>
 
-**Con el constructor Index y secuencias anidadas**: Otra alternativa para crear multiíndices es pasando directamente al constructor `Index()` alguna secuencia anidada. Cada secuencia interior debe de ser del mismo tamaño, el número de secuencias interiores determina el número de niveles en el multiíndice y los índices se empatan de una manera similar a como funciona la función `zip()`.
+#### Objetos con `MultiIndex`
+
+Otra alternativa para crear un multi-índice directamente en un objeto como en `Series` o `DataFrame` es definiendo el parámetro utilizando alguna de las siguientes estategias:
+- Pasando al parámetro `index` alguna secuencia anidada. Cada secuencia interior debe de ser del mismo tamaño y tener el mismo número de filas que el objeto. El número de secuencias interiores determina el número de niveles en el multiíndice y los elementos se empatan por posición. Básicamente funciona igual que `pd.MultiIndex.from_arrays()`.
+- Al momento de crear un objeto, en el parámetros `data` usar como argumento un `dict` con _keys_ que sean `tuple`, todos los _tuple_ deben de tener el mismo número de elementos y cada elemento de cada <tuple> será un nivel en el índice.
+- Se pueden convertir columnas actuales de un `DataFrame` en un multi-índice con el método `.set_index()`.
+
+**Ejemplos**: En los siguientes ejemplos se revisan las estrategias de secuencias anidadas y de diccionarios con _keys_ de `tuple`:
 ```{code-cell} ipython3
 # Crear multiindex desde un secuencia anidada
 nested_sequence = [[1, 1, 2, 2], ['red', 'blue', 'red', 'blue']]
 
-multind1 = pd.Index(nested_sequence)
-print(f"Multiíndice desde secuencias: {multind1}")
+# Inicializar objeto
+s1 = pd.Series([10, 11, 12, 13], index=nested_sequence)
+print(f"Multiíndice desde secuencias:\n{s1}", end="\n*2")
+
+# Definir diccioanrio
+data = {
+    ('A', 'X'): 1,
+    ('A', 'Y'): 2,
+    ('B', 'X'): 3,
+    ('B', 'Y'): 4
+}
+
+# Inicializar objeto
+s2 = pd.Series(data)
+print(f"Multiíndice desde dict de tuples:\n{s2}")
 ```
 
-<br><br>
+:::{caution}
+Notar que con el método anterior el objeto retornado es de tipo `Index` y no `MultiIndex`.
+:::
+
+<br/>
+
+---
+### Seleccion elementos de `MultiIndex`
+
+:::{warning}
+En esta sección se explica cómo seleccionar elementos en objetos con índices de tipo `MultiIndex`. Los métodos aquí explicados **no** se aplican directamente sobre objetos `MultiIndex`. Para seleccionar elementos directamente en un objeto `MultiIndex` ver {ref}`index-index-seleccion`, pero en esencia se pueden aplicar las mismas estrategias para seleccionar elementos que en un `ndarray` unidimensional y cuyos elementos son objetos de tipo `tuple`.
+:::
+
+#### `Series`
+
+Selección de elementos en un `Series` con `MultiIndex`.
+
+- **Subsetting**: Selección de elementos específicos o niveles completos.
+    - **Elementos específicos**: Para seleccionar elementos específicos se puede separar las etiquetas de cada nivel con comas o usar un `tuple` con las etiquetas de cada nivel, aplica lo mismo con el método `.loc()`. <br/> `X['label1', 'label2', ...]` <br/> `X[('label1', 'label2', ...)]` <br/> `X.loc['label1', 'label2', ...]` <br/> `X.loc[('label1', 'label2', ...)]`
+    - **Niveles completos superiores**: Se puede seleccionar una etiqueta de un nivel superior o una serie de etiquetas en niveles superiores y mostrar todos los elementos en los niveles inferiores, simplemente indicar la etiqueta o las etiquetas, respetando la jerarquía de los niveles, se puede usar corchetes o el método `.loc()`: <br/> `X['label1'] # Primer nivel` <br/> `X[('label1', 'label2')] # Segundo nivel` <br/> `...`
+- **Slicing**: Para seleccionar _slices_ de los elementos, indicando el inicio, fin y paso (`start:stop:step`). Al usar las etiquetas de los elementos, entonces ambos extremos del _slice_ son inclusivos. **Importante**: Los elementos del índice deben estar ordenados para que funcione correctamente.
+    - **Slicing en niveles superiores**: Se puede aplicar slicing en todos los niveles o solo algunos superiores y mostrar todos los elementos en los niveles inferiores. Se puede usar corchetes o el método `.loc()`, no usar `tuple`: <br/> `X['label1i':'label1:j', 'label2i':'label2j', ...]`
+    - **Omitir niveles**: Se pueden omitir niveles (mostrar todas las etiquetas en ese nivel) usando `:`: <br/> `X[:, 'label2i':'label2j'] # Todo primer nivel y slice en segundo nivel` <br/> `...`
+    - **Niveles inferiores completos**: Se puede combinar _slicing_ y _subsetting_ para seleccionar todas las etiquetas en niveles inferiores, independientemente de los niveles superiores: <br/> `X[:, 'label2'] # Todas los label2` <br/> `X[:, :, 'label3'] # Todas los label3` <br/> `...`
+- **Fancy indexing**: Seleccionar un conjunto de elementos en posiciones específicas. Se usa una lista en cada nivel con los _labels_ a seleccionar en cualquier orden e incluso se pueden repetir. Se puede definir como `tuple` o separado por comas y con corchetes o con el método `.loc()`. <br/> `X[['label1i', 'label1j', ...], ['label2i', 'label2j', ...], ...]` <br/> `X[(['label1i', 'label1j', ...], ['label2i', 'label2j', ...], ...)]` <br/> `X.loc[(['label1i', 'label1j', ...], ['label2i', 'label2j', ...], ...)]`
+- **Boolean masking**: En _boolean masking_ es indiferente si el índice es un multi-índice. Se debe usar un _array booleano_ del mismo tamaño que el `Series`.
+
+:::{tip}
+Se pueden combinar distintas estrategias de selección para diferentes niveles.
+:::
+
+**Ejemplos**
+```{code-cell} ipython3
+# Crear Series con multi-índice
+s = pd.Series([*'abcdef'], index = multind2)
+
+# Imprimir objeto:
+print(f"Series:\n{s}", end='\n'*2)
+
+# Subsetting: Elemento específico
+print("Elemento específico:", s[(0, 'purple')], sep='\n', end='\n'*2)
+
+# Subsetting: Elemento de nivel superior
+print("Elemento de nivel superior:", s[1], sep='\n', end='\n'*2)
+
+# Slicing: Nivele superior
+print("Slicing:", s.loc[1:], sep='\n', end='\n'*2)
+
+# Fancy indexing
+print("Fancy indexing:", s.loc[([0, 2], ['purple'])], sep='\n', end='\n'*2)
+
+# Combinación de estrategias
+print("Todos los green:", s[:, 'green'], sep='\n')
+s[:, 'green']
+```
+
+#### `DataFrame`
+
+Para los ejemplos de esta sección se utilizar el siguiente `DataFrame`:
+
+```{code-cell} ipython3
+# Definir los datos
+data = [[1, 2, 3, 4],
+   [4, 5, 6, 7],
+   [7, 8, 9, 10],
+   [10, 11, 12, 13],
+   [14, 15, 16, 17],
+   [18, 19, 20, 21]]
+
+# Crear índices de filas y columnas
+index = pd.MultiIndex.from_tuples([('row1', 'row_1'), ('row1', 'row_2'), ('row2', 'row_1'), ('row2', 'row_2'), ('row3', 'row_1'), ('row3', 'row_2')], names=['Level_1', 'Level_2'])
+columns = pd.MultiIndex.from_tuples([('Group_A', 'X'), ('Group_A', 'Y'), ('Group_B', 'X'), ('Group_B', 'Y')], names=['Group', 'Variable'])
+
+# Crear DataFrame
+df_mul = pd.DataFrame(data, index=index, columns=columns)
+print(df_mul)
+```
+
+Selección de elementos en un `DataFrame` con `MultiIndex`. En esta sección se estará usando el método `.loc()`. 
+- **Subsetting**: Se puede específicar los niveles en orden, opcionalmente omitiendo niveles más profundos y mostrando todos los niveles restantes. Se puede aplicar tanto en el índice, columnas o ambos: <br/> `X.loc[(ind1, ind2, ...), (col1, col2, ...)] # Ambos ejes` <br/> `X.loc[(ind1, ind2, ...), :] # Solo filas` <br/> `X.loc[:, (col1, col2, ...)] # Solo columnas`
+- **Slicing**: Se puede aplicar _slicing_ para seleccionar _slices_ de los datos, indicando el inicio, fin y paso (`start:stop:step`). Se usa un `tuple` para `start`, `stop` y `step`, los elementos son _labels_ de los niveles en orden, opcionalmente se pueden omitir niveles más profundo y mostrar todos los niveles restantes. Se puede aplicar tanto en el índice, columnas o ambos. **Importante**: Los elementos del índice deben estar ordenados para que funcione correctamente. <br/> `X.loc[(ind1_i, ind2_i, ...):(ind1_j, ind2_j, ...), (col1_i, col2_i, ...):(col1_j, col2_j, ...)] # Ambos ejes` <br/> `X.loc[(ind1_i, ind2_i, ...):(ind1_j, ind2_j, ...), :] # Solo filas` <br/> `X.loc[:, (col1_i, col2_i, ...):(col1_j, col2_j, ...)] # Solo columnas`
+- **Fancy indexing**: Se puede aplicar _fancy indexing_ para seleccionar un conjunto de elementos en posiciones específicas. Se usa una lista para cada nivel indicando los _labels_ a seleccionar en cualquier orden e incluso se pueden repetir. Los niveles se especifican en orden, opcionalmente omitiendo niveles más profundo y mostrando todos los niveles restantes. Se puede aplicar tanto en el índice, columnas o ambos. <br/> `X.loc[([ind1_i, ind1_j, ...], [ind2_i, ind2_j, ...], ...), ([col1_i, col1_j, ...], [col2_i, col2_j, ...], ...)] # Ambos ejes` <br/> `X.loc[([ind1_i, ind1_j, ...], [ind2_i, ind2_j, ...], ...), :] # Solo filas` <br/> `X.loc[:, ([col1_i, col1_j, ...], [col2_i, col2_j, ...], ...)] # Solo columnas`
+- **Boolean masking**: En _boolean masking_ es indiferente si el índice o las columnas son multi-índice. Se debe usar un _array booleano_ del mismo tamaño que el número de elementos en el índice o las columnas, según sea el caso.
+- **Niveles internos**: Para seleccionar valores específicos de niveles internos para todos los niveles superiores es necesario usar `pd.IndexSlice`. Se puede aplicar tanto en el índice, columnas o ambos. <br/> `X.loc[pd.IndexSlice[:, ..., ind], pd.IndexSlice[:, ..., col]] # Ambos ejes` <br/> `X.loc[pd.IndexSlice[:, ..., ind], :] # Solo filas` <br/> `X.loc[:, pd.IndexSlice[:, ..., col]] # Solo columnas`
+
+
+:::{tip}
+Se pueden combinar distintas estrategias de selección para diferentes niveles y para diferentes ejes.
+:::
+
+**Ejemplos**:
+
+```{code-cell} ipython3
+# Subsetting: Elemento específico
+print("Elemento específico:", df_mul.loc[('row2', 'row_1'), ('Group_B', 'X')], sep='\n', end='\n'*2)
+
+# Slicing
+print("Slicing:", df_mul.loc[('row1'):('row2'), :], sep='\n', end='\n'*2)
+
+# Fancy indexing
+print("Fancy indexing:", df_mul.loc[(['row1', 'row3']), (['Group_A'])], sep='\n', end='\n'*2)
+
+# Niveles internos
+print("Todas las X:", df_mul.loc[:, pd.IndexSlice[:, 'X']], sep='\n')
+```
+
+<br/>
+
+---
+### Renombrar niveles
+
+Para asignar o renombrar los niveles de un objeto con `MultiIndex` se puede hacer uso del atributo `.names` y asignarlo a un `list-like` con la misma cantidad que el número de niveles en el objeto.
+
+```python
+# Asignar nombres
+obj.names = ['level_name1', 'level_name2', ...]
+```
+- También se pueden asignar los nombres con el parámetro _names_ de cualquier constructor del multi-índice.
+
+<br/>
+
+---
+### Conversiones entre objetos con `MultiIndex`
+
+A continuación se presentará de manera breve algunos métodos para realizar conversiones entre objetos con un `MultiIndex`:
+- **Convertir niveles del índice a niveles de columnas**: Para pasar niveles del índice de las filas a niveles de las columnas usar los métodos [Series.unstack()](http://pandas.pydata.org/docs/reference/api/pandas.Series.unstack.html) o [DataFrame.unstack()](http://pandas.pydata.org/docs/reference/api/pandas.DataFrame.unstack.html).
+- **Convertir niveles de columnas a niveles de filas**: Para convertir un nivel o varios niveles de las columnas de un `DataFrame` a niveles de las filas usar el método [DataFrame.stack()](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.stack.html).
+- **Convertir niveles del índice en columnas**: Uno o varios niveles se pueden convertir en columnas con el método [Series.reset_index()](http://pandas.pydata.org/docs/reference/api/pandas.Series.reset_index.html) o [DataFrame.reset_index()](http://pandas.pydata.org/docs/reference/api/pandas.DataFrame.reset_index.html).
+- **Convertir columnas en niveles del índice**: Una o varias columnas se pueden convertir en niveles del índice de las filas con el método [DataFrame.set_index()](http://pandas.pydata.org/docs/reference/api/pandas.DataFrame.set_index.html).
+
+---
+### Atributos de `MultiIndex`
+
+Atributos de los objetos `MultiIndex`. 
+
+```{list-table}
+:header-rows: 1
+
+* - Atributo
+  - Descripción
+
+* - [MultiIndex.dtypes](http://pandas.pydata.org/docs/reference/api/pandas.MultiIndex.dtypes.html)
+  - Retorna los tipos de datos como `Series` del objeto `MultiIndex`.
+* - [MultiIndex.levels](http://pandas.pydata.org/docs/reference/api/pandas.MultiIndex.levels.html)
+  - niveles del `MultiIndex`.
+* - [MultiIndex.levshape](http://pandas.pydata.org/docs/reference/api/pandas.MultiIndex.levshape.html)
+  - Retorna un `tuple` con la longitud de cada nivel.
+* - [MultiIndex.names](http://pandas.pydata.org/docs/reference/api/pandas.MultiIndex.names.html)
+  - Nombres de niveles del `MultiIndex`.
+* - [MultiIndex.nlevels](http://pandas.pydata.org/docs/reference/api/pandas.MultiIndex.nlevels.html)
+  - Número de niveles en el `MultiIndex`.
+```
+
+<br/>
+
+---
+### Métodos de `MultiIndex`
+
+Métodos de la clase `MultiIndex`.
+
+(index-multiindex-metodos-constructores)=
+#### Constructores
+
+Métodos para crear objetos `MultiIndex` desde otros objetos. Estos métodos se aplican directamente sobre la clase `MultiIndex` y no sobre sus instancias. 
+
+```{list-table}
+:header-rows: 1
+
+* - Método
+  - Descripción
+* - [MultiIndex.from_arrays](http://pandas.pydata.org/docs/reference/api/pandas.MultiIndex.from_arrays.html)(arrays[, sortorder, ...])
+  - Convierte arreglos a `MultiIndex`.
+* - [MultiIndex.from_frame](http://pandas.pydata.org/docs/reference/api/pandas.MultiIndex.from_frame.html)(df[, sortorder, names])
+  - Crea una `MultiIndex` a partir de un `DataFrame`.
+* - [MultiIndex.from_product](http://pandas.pydata.org/docs/reference/api/pandas.MultiIndex.from_product.html)(iterables[, ...])
+  - Crea una `MultiIndex` del producto cartesiano de múltiples iterables.
+* - [MultiIndex.from_tuples](http://pandas.pydata.org/docs/reference/api/pandas.MultiIndex.from_tuples.html)(tuples[, sortorder, ...])
+  - Convierte `list` de `tuple` a `MultiIndex`.
+```
+
+<br/>
+
+#### Convertir
+
+Métodos para convertir objetos `MultiIndex` a otro tipo de objeto. 
+
+```{list-table}
+:header-rows: 1
+
+* - Método
+  - Descripción
+* - [MultiIndex.to_flat_index](http://pandas.pydata.org/docs/reference/api/pandas.MultiIndex.to_flat_index.html)()
+  - Convierte un `MultiIndex` a un `Index` de tuplas que contienen los valores de los niveles.
+* - [MultiIndex.to_frame](http://pandas.pydata.org/docs/reference/api/pandas.MultiIndex.to_frame.html)([index, name, ...])
+  - Crea un `DataFrame` con los niveles del `MultiIndex` como columnas.
+```
+
+#### Modificar
+
+Métodos que permiten modificar un `MultiIndex` como agregar niveles, eliminar niveles, reordenar niveles, etc. 
+
+```{list-table}
+:header-rows: 1
+
+* - Método
+  - Descripción
+* - [MultiIndex.append](http://pandas.pydata.org/docs/reference/api/pandas.MultiIndex.append.html)(other)
+  - Concatena una colección de elementos `Index`.
+* - [MultiIndex.copy](http://pandas.pydata.org/docs/reference/api/pandas.MultiIndex.copy.html)([names, deep, name])
+  - Crea una copia del objeto.
+* - [MultiIndex.drop](http://pandas.pydata.org/docs/reference/api/pandas.MultiIndex.drop.html)(codes[, level, errors])
+  - Retorna un nuevo `pandas.MultiIndex` eliminando determinados códigos.
+* - [MultiIndex.droplevel](http://pandas.pydata.org/docs/reference/api/pandas.MultiIndex.droplevel.html)([level])
+  - Elimina un nivel determinado del `MultiIndex`.
+* - [MultiIndex.remove_unused_levels](http://pandas.pydata.org/docs/reference/api/pandas.MultiIndex.remove_unused_levels.html)()
+  - Crea un nuevo `MultiIndex` eliminando los niveles no utilizados.
+* - [MultiIndex.reorder_levels](http://pandas.pydata.org/docs/reference/api/pandas.MultiIndex.reorder_levels.html)(order)
+  - Reordena los niveles usando el orden de entrada.
+* - [MultiIndex.set_codes](http://pandas.pydata.org/docs/reference/api/pandas.MultiIndex.set_codes.html)(codes, *[, level, ...])
+  - Establece nuevos códigos en `MultiIndex`.
+* - [MultiIndex.set_levels](http://pandas.pydata.org/docs/reference/api/pandas.MultiIndex.set_levels.html)(levels, *[, level, ...])
+  - Establecer nuevos niveles en `MultiIndex`.
+* - [MultiIndex.sortlevel](http://pandas.pydata.org/docs/reference/api/pandas.MultiIndex.sortlevel.html)([level, ascending, ...])
+  - Ordena el `MultiIndex` en el nivel indicado.
+* - [MultiIndex.swaplevel](http://pandas.pydata.org/docs/reference/api/pandas.MultiIndex.swaplevel.html)([i, j])
+  - Intercambia el nivel `i` con el nivel `j`.
+* - [MultiIndex.truncate](http://pandas.pydata.org/docs/reference/api/pandas.MultiIndex.truncate.html)([before, after])
+  - Trunca el índice entre dos etiquetas/tuplas, retorna un nuevo `MultiIndex`.
+```
+
+<br/>
+
+#### Selección
+
+Métodos para seleccionar y recuperar ubicaciones de determinados elementos en el objeto `MultiIndex`. 
+
+```{list-table}
+:header-rows: 1
+
+* - Método
+  - Descripción
+* - [MultiIndex.get_indexer](http://pandas.pydata.org/docs/reference/api/pandas.MultiIndex.get_indexer.html)(target[, method, ...])
+  - Retorna un _indexador_ dado el índice actual y un nuevo índice. El _indexador_ es un arreglo que indica las posiciones de los valores en un nuevo índice `target` dadas las posiciones actuales de los mismos valores en el índice actual. Si un valor en _target_ no existe en el índice actual se le asigna la posición -1.
+* - [MultiIndex.get_level_values](http://pandas.pydata.org/docs/reference/api/pandas.MultiIndex.get_level_values.html)(level)
+  - Retorna un vector con los valores de etiqueta para el nivel solicitado.
+* - [MultiIndex.get_loc](http://pandas.pydata.org/docs/reference/api/pandas.MultiIndex.get_loc.html)(key)
+  - Recupera la ubicación para una etiqueta o un `tuple` de etiquetas.
+* - [MultiIndex.get_loc_level](http://pandas.pydata.org/docs/reference/api/pandas.MultiIndex.get_loc_level.html)(key[, level, ...])
+  - Recupera la ubicación y el índice para las etiquetas/niveles solicitados.
+* - [MultiIndex.get_locs](http://pandas.pydata.org/docs/reference/api/pandas.MultiIndex.get_locs.html)(seq)
+  - Recupera la ubicación de una secuencia de etiquetas.
+```
+
+<br/>
+
+---
+## DateTimeIndex
+
+La clase `DateTimeIndex` es una subclase de `Index` de tipo `datetime64` que representan fechas y tiempos. Para crear un objeto `Series` o `DataFrame` con un índice de fecha primero se debe de crear un objeto `DateTimeIndex`, posteriormente asignar ese objeto al argumento `index`.
+
+### Creación
+
+Para crear un `DateTimeIndex` existen principalmente tres métodos:
+
+**1. Con el constructor**.
+
+Usar el constructor con un `array-like` 1D de `str` u objetos `datetime-like`.
+
+```{list-table}
+:header-rows: 1
+
+* - Constructor
+  - Descripción
+* - [DatetimeIndex](https://pandas.pydata.org/docs/reference/api/pandas.DatetimeIndex.html)([data, freq, tz, normalize, ...])
+  - Arreglo inmutable de datos `datetime64`.
+```
+
+**Ejemplo**:
+```{code-cell} ipython3
+# Crear DateTimeIndex con el constructor
+dtidx = pd.DatetimeIndex(['2020-01-01', '2021-01-01', '2022-01-01', '2023-01-01'])
+
+# Imprimir objeto
+print(f"DatetimeIndex:\n{dtidx}")
+```
+
+<br/>
+
+**2.  Con la función** `pd.date_range()`.
+
+La función [pd.date_range()](https://pandas.pydata.org/docs/reference/api/pandas.date_range.html#pandas.date_range) retorna un `DateTimeIndex`, se debe indicar la fechas-tiempo de inicio y fin (`str` o `datetinme-like`) y opcionalmente el número de periodos y frecuencia.
+
+**Ejemplo**:
+```{code-cell} ipython3
+# Crear DateTimeIndex con el constructor
+dtidx = pd.date_range('2020-01-01', '2024-01-01', freq='YE')
+
+# Imprimir objeto
+print(f"DatetimeIndex:\n{dtidx}")
+```
+- **Importante**: Esta función no incluirá la fecha en el parámetro `end`, es decir, no es inclusiva en el parámetro `end`.
+
+:::{warning}
+Notar que para replicar el `DateTimeIndex` retornado por el ejemplo con el constructor, fue necesario especificar el parámetro `freq='YE'`, esto es así porque por default `pd.date_range()` tiene `freq='D'` que significa con una frecuencia por día.
+:::
+
+<br/>
+
+**3 Con la función** `pd.to_datetime()`
+
+Si se provee de un `list-like` de `str`, `pd.TimeStamp` u objetos `datetime-like` entonces la función `pd.to_datetime()` retorna `DateTimeIndex`.
+
+**Ejemplo**:
+```{code-cell} ipython3
+# Definir lista
+dates = ['2020-01-01', '2021-01-01', '2022-01-01', '2023-01-01']
+
+# Crear DatetimeIndex con pd.to_datetime()
+dtidx = pd.to_datetime(dates)
+
+# Imprimir objeto
+print(f"DatetimeIndex:\n{dtidx}")
+```
+
+<br/>
+
+---
+### Seleccion elementos de `DateTimeIndex`
+
+:::{warning}
+En esta sección se explica cómo seleccionar elementos en objetos con índices de tipo `DatetimeIndex`. Los métodos aquí explicados **no** se aplican directamente sobre objetos `DatetimeIndex`. Para seleccionar elementos directamente en un objeto `DatetimeIndex` ver {ref}`index-index-seleccion`, pero en esencia se pueden aplicar las mismas estrategias para seleccionar elementos en un `ndarray`.
+:::
+
+Al especificar la fecha y tiempo se puede hacer de diversas formas:
+- Se pueden usar cadenas que representen fechas-tiempo. Es recomendado usar cadenas que respeten ISO 8601 `YYYY-MM-DD HH:MM:SS`, pero es posible ponerlo en otros formatos como `MM/DD/YYYY HH:MM:SS`, `YYYYMMDD HH:MM:SS`, etc.
+- Se pueden usar objetos de tipo `datetime.datetime`.
+- Se pueden usar objetos de tipo `pd.TimeStamp`.
+
+:::{warning}
+No se puede usar cadenas con el formato `DD/MM/YYYY` porque se va a interpretar como `MM/DD/YYYY`.
+:::
+
+#### Con corchetes
+
+:::{caution}
+Para esta sección tener en cuenta lo siguiente:
+- Todos los ejemplos presentados en esta sección se harán suponiendo que se aplican a un `Series` con `DateTimeIndex`. No es posible seleccionar elementos (filas) es un `DataFrame` con este método, en un `DataFrame` usar el método `.iloc[]`.
+- Los ejemplos aquí presentados se harán con cadenas ISO 8601 `'YYYY-MM-DD'`, pero como se comentó anteriormente se pueden usar otros formato, incluir el tiempo también o usar instancias de otras clases.
+:::
+
+Estrategias de selcción de elementos:
+- **Subsetting**: Seleccionar elementos con una fecha específica o unidades específicas
+    - Fechas indicando todas las unidades, las coincidencias serán exactas: <br/> `X['YYYY-MM-DD']` <br/> `X[datetime(yyyy, mm, dd)]` <br/> `X[pd.Timestamp(year = yyyy, month = mm, day = dd)]`
+    - Fechas indicando solo algunas unidades jerarquizadas y en orden, entonces se seleccionarán todos los registros que satisfagan esas unidades: <br/> `X['YYYY'] # Con base al año` <br/> `X['YYYY-MM'] # Con base al año y mes`
+- **Slicing**:
+    - Rangos considerando todas las unidades y que muestren todos las fechas que estén dentro de ese rango, ambos extremos son inclusivos: <br/> `X['YYYY-MM-DD':'YYYY-MM-DD']`
+    - Rangos de solo algunas unidades jerarquizadas y en orden, que muestren todos las fechas que estén dentro de ese rango, ambos extremos son inclusivos: <br/> `X['YYYY':'YYYY'] # Rangos con base al año` <br/> `X['YYYY-MM':'YYYY-MM'] # Rangos con base al año y mes`
+- **Fancy indexing**:
+    - Múltiples fechas específicas indicando todas las unidades: <br/> `X[['YYYY-MM-DD', 'YYYY-MM-DD', ...]]`
+    - Múltiples fechas indicando solo algunas unidades jerazquidazas y en orden: <br/> `X[['YYYY', 'YYYY', ...]] # Elementos con base a múltiples años` <br/> `X[['YYYY-MM', 'YYYY-MM', ...]] # Elementos con base a múltiples años y meses`
+
+#### Con el método `.loc[]`
+
+:::{caution}
+Para esta sección tener en cuenta lo siguiente:
+- Todos los ejemplos presentados en esta sección se harán suponiendo que se aplican a un `DataFrame` con `DateTimeIndex` y que las columnas se seleccionan por subsetting, pero se puede seleccionar las columnas con cualquier otra estrategia válida. En caso de que se aplique en un `Series` simplemente omitir la parte de las columnas.
+- Los ejemplos aquí presentados se harán con cadenas ISO 8601 `'YYYY-MM-DD'`, pero como se comentó anteriormente se pueden usar otros formatos, incluir el tiempo también o usar instancias de otras clases.
+:::
+
+Estrategias de selcción de elementos con el método `.loc[]`:
+- **Subsetting**: Seleccionar elementos con una fecha específica o unidades específicas
+    - Fechas indicando todas las unidades, las coincidencias serán exactas: <br/> `X.loc['YYYY-MM-DD', col]` <br/> `X.loc[datetime(yyyy, mm, dd), col]` <br/> `X.loc[pd.Timestamp(year = yyyy, month = mm, day = dd), col]`
+    - Fechas indicando solo algunas unidades jerarquizadas y en orden, entonces se seleccionarán todos los registros que satisfagan esas unidades: <br/> `X.loc['YYYY', col] # Con base al año` <br/> `X.loc['YYYY-MM', col] # Con base al año y mes`
+- **Slicing**:
+    - Rangos considerando todas las unidades y que muestren todos las fechas que estén dentro de ese rango, ambos extremos son inclusivos: <br/> `X.loc['YYYY-MM-DD':'YYYY-MM-DD', col]`
+    - Rangos de solo algunas unidades jerarquizadas y en orden, que muestren todos las fechas que estén dentro de ese rango, ambos extremos son inclusivos: <br/> `X.loc['YYYY':'YYYY', col] # Rangos con base al año` <br/> `X.loc['YYYY-MM':'YYYY-MM', col] # Rangos con base al año y mes`
+- **Fancy indexing**:
+    - Múltiples fechas específicas indicando todas las unidades: <br/> `X.loc[['YYYY-MM-DD', 'YYYY-MM-DD', ...], col]`
+    - Múltiples fechas indicando solo algunas unidades jerazquidazas y en orden: <br/> `X.loc[['YYYY', 'YYYY', ...], col] # Elementos con base a múltiples años` <br/> `Xloc[['YYYY-MM', 'YYYY-MM', ...], col] # Elementos con base a múltiples años y meses`
+
+<br/>
+
+---
+### Atributos de `DatetimeIndex`
+
+Atributos para recuperar partes individuales del `DateTimeIndex`.
+
+:::{caution}
+Los atributos retornarnan _arrays_.
+:::
+
+- `DatetimeIndex.date`: Retorna objetos `datetime.date` que representan la fecha. 
+- `DatetimeIndex.day`: Día del mes.
+- `DatetimeIndex.day_name`: Retorna el nombre del día con la configuración regional especificada.
+- `DatetimeIndex.day_of_week`: El día de la semana, donde lunes=0 y domingo=6.
+- `DatetimeIndex.day_of_year`: El día ordinal del año.
+- `DatetimeIndex.dayofweek`: El día de la semana, donde lunes=0, domingo=6.
+- `DatetimeIndex.dayofyear`: El día ordinal del año.
+- `DatetimeIndex.freq`: Frecuencia del índice.
+- `DatetimeIndex.freqstr`.
+- `DatetimeIndex.hour`: La Hora.
+- `DatetimeIndex.inferred_freq`: Intenta devolver una cadena que representa una frecuencia generada por `infer_freq`.
+- `DatetimeIndex.is_leap_year`: Indica si la fecha pertenece a un año bisiesto.
+- `DatetimeIndex.is_month_end`: Indica si la fecha es el último día del mes.
+- `DatetimeIndex.is_month_start`: Indica si la fecha es el primer día del mes.
+- `DatetimeIndex.is_quarter_end`: Indicador de si la fecha es el último día del trimestre.
+- `DatetimeIndex.is_quarter_start`: Indicador de si la fecha es el primer día del trimestre.
+- `DatetimeIndex.is_year_end`: Indica si la fecha es el último día del año.
+- `DatetimeIndex.is_year_start`: Indica si la fecha es el primer día de un año.
+- `DatetimeIndex.microsecond`: Los microsegundos.
+- `DatetimeIndex.minute`: Los minutos.
+- `DatetimeIndex.month`: El mes, donde enero=1, diciembre=12.
+- `DatetimeIndex.month_name`: Retorna los nombres de los meses con la configuración regional especificada.
+- `DatetimeIndex.nanosecond`: Los nanosegundos.
+- `DatetimeIndex.quarter`: El trimestre.
+- `DatetimeIndex.second`: Los segundos.
+- `DatetimeIndex.time`: Retorna objetos `datetime.time` que representa el tiempo.
+- `DatetimeIndex.timetz`: Retorna objetos `datetime.time` que representa el tiempo con zona horaria.
+- `DatetimeIndex.tz`: Retorna la zona horaria.
+- `DatetimeIndex.weekday`: El día de la semana, donde lunes=0, domingo=6.
+- `DatetimeIndex.year`: El año.
+- Para más información visitar la [documentación](https://pandas.pydata.org/docs/reference/indexing.html#time-date-components) de `pandas`.
+
+<br/>
+
+---
+### Métodos de `DatetimeIndex`
+
+#### Conversión 
+
+```{list-table}
+:header-rows: 1
+
+* - Método
+  - Descripción
+* - [DatetimeIndex.as_unit](https://pandas.pydata.org/docs/reference/api/pandas.DatetimeIndex.as_unit.html)(*args, **kwargs)
+  - Convierte a un `dtype` con la resolución unitaria dada.
+* - [DatetimeIndex.to_frame](https://pandas.pydata.org/docs/reference/api/pandas.DatetimeIndex.to_frame.html)([index, name])
+  - Retorna un `DataFrame` con una columna que contiene el `Index`.
+* - [DatetimeIndex.to_period](https://pandas.pydata.org/docs/reference/api/pandas.DatetimeIndex.to_period.html)(*args, **kwargs)
+  - Convierte el objeto a `PeriodArray`/`PeriodIndex` en una frecuencia particular.
+* - [DatetimeIndex.to_pydatetime](https://pandas.pydata.org/docs/reference/api/pandas.DatetimeIndex.to_pydatetime.html)(*args, **kwargs)
+  - Retorna un `ndarray` de objetos `datetime.datetime`.
+* - [DatetimeIndex.to_series](https://pandas.pydata.org/docs/reference/api/pandas.DatetimeIndex.to_series.html)([index, name])
+  - Crea un `Series` con el `Index` y valores iguales a el `Index`.
+```
+
+<br/>
+
+#### Métodos estadísticos
+
+```{list-table}
+:header-rows: 1
+
+* - Método
+  - Descripción
+* - [DatetimeIndex.mean](https://pandas.pydata.org/docs/reference/api/pandas.DatetimeIndex.mean.html)(*[, skipna, axis])
+  - Retorna el valor medio del índice.
+* - [DatetimeIndex.std](https://pandas.pydata.org/docs/reference/api/pandas.DatetimeIndex.std.html)(*args, **kwargs)
+  - Retorna la desviación estándar del índice.
+```
+
+<br/>
+
+#### Operaciones específicas de tiempo
+
+```{list-table}
+:header-rows: 1
+
+* - Método
+  - Descripción
+* - [DatetimeIndex.ceil](https://pandas.pydata.org/docs/reference/api/pandas.DatetimeIndex.ceil.html)(*args, **kwargs)
+  - Redondea hacía arriba los datos a la frecuencia especificada.
+* - [DatetimeIndex.floor](https://pandas.pydata.org/docs/reference/api/pandas.DatetimeIndex.floor.html)(*args, **kwargs)
+  - Redondea hacía abajolos datos a la frecuencia especificada.
+* - [DatetimeIndex.normalize](https://pandas.pydata.org/docs/reference/api/pandas.DatetimeIndex.normalize.html)(*args, **kwargs)
+  - Convierte las horas a medianoche.
+* - [DatetimeIndex.round](https://pandas.pydata.org/docs/reference/api/pandas.DatetimeIndex.round.html)(*args, **kwargs)
+  - Redondea los datos a la frecuencia especificada.
+* - [DatetimeIndex.snap](https://pandas.pydata.org/docs/reference/api/pandas.DatetimeIndex.snap.html)([freq])
+  - Ajusta las marcas de tiempo a la frecuencia más cercana.
+* - [DatetimeIndex.strftime](https://pandas.pydata.org/docs/reference/api/pandas.DatetimeIndex.strftime.html)(date_format)
+  - Convierte a `Index` utilizando el formato de fecha especificado.
+* - [DatetimeIndex.tz_convert](https://pandas.pydata.org/docs/reference/api/pandas.DatetimeIndex.tz_convert.html)(tz)
+  - Convierte los valores de una zona horaria a otra.
+* - [DatetimeIndex.tz_localize](https://pandas.pydata.org/docs/reference/api/pandas.DatetimeIndex.tz_localize.html)(tz[, ambiguous, ...])
+  - Establece la zona hoararia, sin modificar la hora.
+```
+
+<br/>
+
+#### Selección
+
+```{list-table}
+:header-rows: 1
+
+* - Método
+  - Descripción
+* - [DatetimeIndex.indexer_at_time](https://pandas.pydata.org/docs/reference/api/pandas.DatetimeIndex.indexer_at_time.html)(time[, asof])
+  - Retorna valores dado en un momento particular.
+* - [DatetimeIndex.indexer_between_time](https://pandas.pydata.org/docs/reference/api/pandas.DatetimeIndex.indexer_between_time.html)(...[, ...])
+  - Retorna valores dados entre momentos particulares del día.
+```
+
+<br/>
+
+---
+## TimeDeltaIndex
+
+La clase `TimeDeltaIndex` es una subclase de `Index` de tipo `timedelta64` que representan diferencias de fechas y/o tiempos (duraciones).
+
+### Creación
+
+Para crear un `TimeDeltaIndex` existen principalmente tres métodos:
+
+**1. Con el constructor**.
+
+Usar el constructor con un `array-like` 1D de `str`, `datetime.timedelta` o `pd.TimeDelta`.
+
+```{list-table}
+:header-rows: 1
+
+* - Constructor
+  - Descripción
+* - [TimeDeltaIndex](https://pandas.pydata.org/docs/reference/api/pandas.TimedeltaIndex.html)([data, freq, tz, normalize, ...])
+  - Arreglo inmutable de datos `timedelta64`.
+```
+
+**Ejemplo**:
+```{code-cell} ipython3
+# Crear TimeDeltaIndex con el constructor
+tdidx = pd.TimedeltaIndex(['0 days', '1 days', '2 days', '3 days', '4 days'])
+
+# Imprimir objeto
+print(f"TimedeltaIndex:\n{tdidx}")
+```
+
+**2. Con la función** `pd.to_timedelta()`
+
+Si se provee de un `list-like` de `str`, `datetime.timedelta` o `pd.TimeDelta` entonces la función [pd.to_timedelta()](https://pandas.pydata.org/docs/reference/api/pandas.to_timedelta.html#pandas.to_timedelta) retorna `TimeDeltaIndex`.
+
+**Ejemplo**:
+```{code-cell} ipython3
+# Crear TimeDeltaIndex con el constructor
+tdidx = pd.to_timedelta(['0 days', '1 days', '2 days', '3 days', '4 days'])
+
+# Imprimir objeto
+print(f"DatetimeIndex:\n{tdidx}")
+```
+
+### Selección de elementos de `TimeDeltaIndex`
+
+:::{warning}
+En esta sección se explica cómo seleccionar elementos en objetos con índices de tipo `TimeDeltaIndex`. Los métodos aquí explicados **no** se aplican directamente sobre objetos `TimeDeltaIndex`. Para seleccionar elementos directamente en un objeto `TimeDeltaIndex` ver {ref}`index-index-seleccion`, pero en esencia se pueden aplicar las mismas estrategias para seleccionar elementos en un `ndarray`.
+:::
+
+Al especificar el _timedelta_ se puede hacer principalmente de dos formas:
+- Se pueden usar cadenas que representen _timedeltas_. 
+- Se pueden usar objetos de tipo `datetime.timedelta`.
+- Se pueden usar objetos de tipo `pd.TimeDelta`.
+
+:::{caution}
+Para esta sección tener en cuenta lo siguiente:
+- Los ejemplos aquí presentados se harán con cadenas.
+- Los ejemplos aquí presentados se harán con el método `.loc[]`, tambien se pueden usar corchetes y funcionaría de manera muy similar que con `.loc[]`. También se podría usar el método `.iloc[]` y usando los índices implícitos.
+- Todos los ejemplos presentados en esta sección se harán suponiendo que se aplican a un `DataFrame` con `TimeDeltaIndex` y que las columnas se seleccionan por subsetting, pero se puede seleccionar las columnas con cualquier otra estrategia válida. En caso de que se aplique en un `Series` simplemente omitir la parte de las columnas.
+:::
+- **Subsetting**: Seleccionar elementos con _timedelta_ específico <br/> `X.loc['timedelta', col]` <br/> `X.loc[datetime.timedelta(days, seconds, ...), col]` <br/> `X.loc[pd.TimeDelta(timedelta), col]`
+- **Slicing**: _Slices_ de elementos indicando inicion, fin y paso (`start:stop:step`), al usar los _labels_ se incluyen ambos extremos (inclusivo): <br/> `X.loc['timdeltai':'timedeltaj', col]`
+- **Fancy indexing**:
+    - Múltiples _timedeltas_ específicos: <br/> `X.loc[['timedelta1', 'timedelta2', ...], col]`
+
+### Atributos de `TimeDeltaIndex`
+
+Atributos para recuperar partes individuales del `TimeDeltaIndex`.
+
+:::{caution}
+Los atributos retornarnan _arrays_.
+:::
+
+- `TimedeltaIndex.components`: Retorna un `DataFrame` con los componentes individuales como columnas de los `Timedeltas`.
+- `TimedeltaIndex.days`: Número de días para cada elemento.
+- `TimedeltaIndex.inferred_freq`: Intenta devolver una cadena que representa una frecuencia generada por `infer_freq`.
+- `TimedeltaIndex.microseconds`: Número de microsegundos (>= 0 y menos de 1 segundo) para cada elemento.
+- `TimedeltaIndex.nanoseconds`: Número de nanosegundos (>= 0 y menos de 1 microsegundo) para cada elemento.
+- `TimedeltaIndex.seconds`: Número de segundos (>= 0 y menos de 1 día) para cada elemento.
+- Para más información visitar la [documentación](https://pandas.pydata.org/docs/reference/indexing.html#components) de `pandas`.
+
+<br/>
+
+---
+### Métodos de `TimeDeltaIndex`
+
+Métodos de la clase `TimeDeltaIndex`
+
+#### Conversión 
+
+```{list-table}
+:header-rows: 1
+
+* - Método
+  - Descripción
+* - [TimedeltaIndex.as_unit](https://pandas.pydata.org/docs/reference/api/pandas.TimedeltaIndex.as_unit.html)(unit)
+  - Convierte a un `dtype` con la resolución unitaria dada.
+* - [TimedeltaIndex.ceil](https://pandas.pydata.org/docs/reference/api/pandas.TimedeltaIndex.ceil.html)(*args, **kwargs)
+  - Redondea hacia arriba los datos a la frecuencia especificada.
+* - [TimedeltaIndex.floor](https://pandas.pydata.org/docs/reference/api/pandas.TimedeltaIndex.floor.html)(*args, **kwargs)
+  - Redondea hacia abajo los datos a la frecuencia especificada.
+* - [TimedeltaIndex.round](https://pandas.pydata.org/docs/reference/api/pandas.TimedeltaIndex.round.html)(*args, **kwargs)
+  - Redondea los datos a la frecuencia especificada.
+* - [TimedeltaIndex.to_frame](https://pandas.pydata.org/docs/reference/api/pandas.TimedeltaIndex.to_frame.html)([index, name])
+  - Crea un `DataFrame` con una columna que contiene el `Index`.
+* - [TimedeltaIndex.to_pytimedelta](https://pandas.pydata.org/docs/reference/api/pandas.TimedeltaIndex.to_pytimedelta.html)(*args, **kwargs)
+  - Retorna un `ndarray` de objetos `datetime.timedelta`.
+* - [TimedeltaIndex.to_series](https://pandas.pydata.org/docs/reference/api/pandas.TimedeltaIndex.to_series.html)([index, name])
+  - Crea un `Series` con índice y valores iguales a el `Index`.
+```
+
+<br/>
+
+---
+#### Métodos estadísticos
+
+```{list-table}
+:header-rows: 1
+
+* - Método
+  - Descripción
+* - [TimedeltaIndex.mean](https://pandas.pydata.org/docs/reference/api/pandas.TimedeltaIndex.mean.html)(*[, skipna, axis])
+  - Retorna el valor medio del índice.
+```
+
+<br/>
+
+---
+## PeriodIndex
+
+La clase `PeriodIndex` es una subclase de `Index` que representa un arreglo inmutable de valores ordinales que representan peridos de tiempo regulares.
+
+### Creación
+
+**1. Con el constructor**
+
+Usar el constructor con un `array-like` 1D de `int` u objetos `pd.Period`.
+
+```{list-table}
+:header-rows: 1
+
+* - Constructor
+  - Descripción
+* - [PeriodIndex](https://pandas.pydata.org/docs/reference/api/pandas.PeriodIndex.html)([data, ordinal, freq, dtype, ...])
+  - Arreglo inmutable de valores ordinales que representan peridos de tiempo regulares.
+```
+
+**2. Con métodos de** `pd.PeriodIndex`
+
+La clase `pd.PeriodIndex` tiene algunos métodos que permiten contruir `PeriodIndex` de distintas formas. Consultar los {ref}`Métodos <pandas-index-periodindex-methods>`, particularmente `pd.PeriodIndex.from_fields()` y `pd.PeriodIndex.from_ordinals()`. Tener en cuenta que los métodos se usan directamente sobre la clase `pd.PeriodIndex` y no sobre sus instancias.
+
+**3. Con la función** `pd.period_range()`:
+
+La función [pd.period_range()` y opcionalmente el número de periodos y frecuencia.
+
+**Ejemplo**:
+
+- **Importante**: Esta función no incluirá la fecha en el parámetro `end`, es decir, no es inclusiva en el parámetro `end`.
+
+**4. Con la función** `pd.to_datetime()`:
+
+Si se provee de un `list-like` de `pd.Period` entonces la función `pd.to_datetime()` retorna `PeriodIndex`.
+
+### Seleccipn de elementos de `PeriodIndex`
+
+### Atributos de `PeriodIndex`
+
+
+- `PeriodIndex.day`: Los días del período.
+- `PeriodIndex.day_of_week`: El día de la semana con lunes=0, domingo=6.
+- `PeriodIndex.day_of_year`: El día ordinal del año.
+- `PeriodIndex.dayofweek`: El día de la semana con lunes=0, domingo=6.
+- `PeriodIndex.dayofyear`: El día ordinal del año.
+- `PeriodIndex.days_in_month`: El número de días del mes.
+- `PeriodIndex.daysinmonth`: El número de días del mes.
+- `PeriodIndex.end_time`: Recupera la marca de tiempo del final del período.
+- `PeriodIndex.freq`: .
+- `PeriodIndex.freqstr`: Retorna el objeto de frecuencia como una cadena si es `set` , de lo contrario `None`.
+- `PeriodIndex.hour`: La hora del período.
+- `PeriodIndex.is_leap_year`: Lógico indicar si la fecha pertenece a un año bisiesto.
+- `PeriodIndex.minute`: El minuto del periodo.
+- `PeriodIndex.month`: El mes como enero=1, diciembre=12.
+- `PeriodIndex.quarter`: El cuarto de la fecha.
+- `PeriodIndex.qyear`: .
+- `PeriodIndex.second`: El segundo del periodo.
+- `PeriodIndex.start_time`: Recupera la marca de tiempo del inicio del período.
+- `PeriodIndex.week`: El ordinal de semana del año.
+- `PeriodIndex.weekday`: El día de la semana con lunes=0, domingo=6.
+- `PeriodIndex.weekofyear`: El ordinal de semana del año.
+- `PeriodIndex.year`: El año del período.
+- Para más información visitar la [documentación](https://pandas.pydata.org/docs/reference/indexing.html#id7) de `pandas`.
+ 
+
+<br/>
+
+---
+### Métodos de `PeriodIndex`
+
+#### Conversión
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+
+```{list-table}
+:header-rows: 1
+:name: pandas-index-periodindex-methods
+
+* - Método
+  - Descripción
+* - [PeriodIndex.asfreq](https://pandas.pydata.org/docs/reference/api/pandas.PeriodIndex.asfreq.html)([freq, how])
+  - Convierte el `PeriodArray` a la frecuencia especificada.
+* - [PeriodIndex.from_fields](https://pandas.pydata.org/docs/reference/api/pandas.PeriodIndex.from_fields.html)(*[, year, quarter, ...])
+  - Crea un `PeriodIndex` indicando las partes de cada _period_, se debe de proveer un `array-like` por cada campo, todos del mismo tamaño. Para conformar el _period_ los elementos se empatarán por posición.
+* - [PeriodIndex.from_ordinals](https://pandas.pydata.org/docs/reference/api/pandas.PeriodIndex.from_ordinals.html)(ordinals, *, freq)
+  - Crea un `PeriodIndex` indicando los ordinales del _period_ como `array-like` e indicando la frecuencia.
+* - [PeriodIndex.strftime](https://pandas.pydata.org/docs/reference/api/pandas.PeriodIndex.strftime.html)(*args, **kwargs)
+  - Convierte a `Index` indicando el formato de fecha especificado.
+* - [PeriodIndex.to_timestamp](https://pandas.pydata.org/docs/reference/api/pandas.PeriodIndex.to_timestamp.html)([freq, how])
+  - Convierte el objeto a `DatetimeArray`/`DatetimeIndex`.
+```

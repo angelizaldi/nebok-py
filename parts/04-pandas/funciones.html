@@ -1,0 +1,1309 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Funciones &#8212; Manual de Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'parts/04-pandas/funciones';</script>
+    <link rel="icon" href="../../_static/nebok-favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Otros" href="../08-otros/otros-index.html" />
+    <link rel="prev" title="Expanding, Rolling y Window" href="expanding-rolling-window.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/nebok-logo.png" class="logo__image only-light" alt="Manual de Python - Home"/>
+    <script>document.write(`<img src="../../_static/nebok-logo.png" class="logo__image only-dark" alt="Manual de Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Manual de Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Built-in</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01-built-in/built-in-index.html">Python estándar</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/ayuda.html">Obtener ayuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/comentarios.html">Comentarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/tipos-datos.html">Tipos de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/operadores-palabras.html">Operadores y palabras reservadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/entrada-salida.html">Entrada y salida de datos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/tipos-index.html">Tipos Built-In</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/booleanos.html">Valores booleanos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/numeros.html">Números</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/cadenas.html">Cadenas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/listas.html">Listas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/tuples.html">Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/sets.html">Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/diccionarios.html">Diccionarios</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/if-else.html">If … Else</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/for-loop.html">For Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/do-while.html">Do While</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/funciones.html">Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/try-except.html">Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/context.html">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/io.html">Lectura y escritura de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/modulos.html">Paquetes y Módulos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/avanzado-index.html">Temas avanzados</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/decorators.html">Decorators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/iterators.html">Iterators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/generators.html">Generators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/oop.html">Programación orientada a objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/func-built-in.html">Funciones built-in</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-modulos/modulos-index.html">Módulos built-in</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/csv.html">CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/datetime.html">Datetime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/itertools.html">Itertools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/json.html">JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/math.html">Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os.html">os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os-path.html">os.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/pickle.html">Pickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/random.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/regular-expression.html">Regular Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/statistics.html">Statistics</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otras librerías</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-numpy/numpy-index.html">Numpy</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/arrays.html">Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../03-numpy/funciones-index.html">Funciones</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/ufuncs.html">Ufuncs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/buscar-contar-ordenar-unicos.html">Buscar, contar, ordenar y valores únicos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/creacion-arrays.html">Creación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/estadisticas.html">Estadísticas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/indices.html">Índices e iteración</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/informacion.html">Información</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/lectura-escritura.html">Lectura y escritura de datos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/manipulacion-arrays.html">Manipulación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/matematicas-numericas.html">Matemáticas y numéricas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/operadores.html">Operadores</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/algebra-lineal.html">Módulo linalg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/cadenas.html">Modulo char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/random.html">Módulo random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/patrones-numpy.html">Patrones útiles</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="pandas-index.html">Pandas</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html">Index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="series.html">Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dataframe.html">DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="escalares-arrays.html">Escalares y Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="otras-clases.html">Otras clases</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="groupby.html">GroupBy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="expanding-rolling-window.html">Expanding, Rolling y Window</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Funciones</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otros</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-otros/otros-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08-otros/IPython.html">IPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-otros/beautifulsoup.html">Web Scraping</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/parts/04-pandas/funciones.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Funciones</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creacion-y-conversion-de-objetos">Creación y conversión de objetos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numericas">Numéricas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fechas-y-tiempo">Fechas y tiempo</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datos-perdidos">Datos perdidos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graficado">Graficado</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hash">Hash</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#informacion-sobre-tipos-de-fecha-y-hora">Información sobre tipos de fecha y hora</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manipulacion-de-datos">Manipulación De Datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#categorizacion">Categorización</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dummies-crosstab-eval-y-unique">Dummies, crosstab, eval y unique</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reshaping">Reshaping</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uniones-y-apilaciones">Uniones y apilaciones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#i-o">I/O</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#archivo-de-texto">Archivo de texto</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#excel">Excel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#feather">Feather</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hdfstore">HDFStore</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#html">HTML</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#json">JSON</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#latex">LaTeX</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#orc">ORC</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parquet">Parquet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pickle">Pickle</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#portapapeles">Portapapeles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sas">SAS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spss">SPSS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql">SQL</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stata">Stata</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#xml">XML</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="funciones">
+<h1>Funciones<a class="headerlink" href="#funciones" title="Link to this heading">#</a></h1>
+<p>En esta sección se enlistan las funciones que forman parte de la librería <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p>
+<hr class="docutils" />
+<section id="creacion-y-conversion-de-objetos">
+<h2>Creación y conversión de objetos<a class="headerlink" href="#creacion-y-conversion-de-objetos" title="Link to this heading">#</a></h2>
+<section id="numericas">
+<h3>Numéricas<a class="headerlink" href="#numericas" title="Link to this heading">#</a></h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.to_numeric.html">to_numeric</a>(arg[, errors, downcast, …])</p></td>
+<td><p>Convierte un objeto a un tipo numérico, si la conversión es posible.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="fechas-y-tiempo">
+<h3>Fechas y tiempo<a class="headerlink" href="#fechas-y-tiempo" title="Link to this heading">#</a></h3>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.bdate_range.html">bdate_range</a>([start, end, periods, freq, tz, …])</p></td>
+<td><p>Retorna un <code class="docutils literal notranslate"><span class="pre">DatetimeIndex</span></code> con una frecuencia específica con el día hábil como predeterminado.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.date_range.html">date_range</a>([start, end, periods, freq, tz, …])</p></td>
+<td><p>Retorna un <code class="docutils literal notranslate"><span class="pre">DatetimeIndex</span></code> con una frecuencia específica.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.interval_range.html">interval_range</a>([start, end, periods, freq, …])</p></td>
+<td><p>Genera un <code class="docutils literal notranslate"><span class="pre">IntervalIndex</span></code> indicando las características del intervalo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.period_range.html">period_range</a>([start, end, periods, freq, name])</p></td>
+<td><p>Retorna un <code class="docutils literal notranslate"><span class="pre">PeriodIndex</span></code> de frecuencia fija.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.timedelta_range.html">timedelta_range</a>([start, end, periods, freq, …])</p></td>
+<td><p>Retorna un <code class="docutils literal notranslate"><span class="pre">TimedeltaIndex</span></code> de frecuencia fija con el día como valor predeterminado.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.to_datetime.html">to_datetime</a>(arg[, errors, dayfirst, …])</p></td>
+<td><p>Convierte el argumento a <code class="docutils literal notranslate"><span class="pre">datetime64</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.to_timedelta.html">to_timedelta</a>(arg[, unit, errors])</p></td>
+<td><p>Convierte el argumento a <code class="docutils literal notranslate"><span class="pre">timedelta64</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+<section id="datos-perdidos">
+<h2>Datos perdidos<a class="headerlink" href="#datos-perdidos" title="Link to this heading">#</a></h2>
+<p>Funciones que retornan información sobre valores nulos en objetos.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.isna.html">isna</a>(obj)</p></td>
+<td><p>Detecta valores nulos para un objeto similar a un arreglo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.isnull.html">isnull</a>(obj)</p></td>
+<td><p>Detecta valores nulos para un objeto similar a un arreglo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.notna.html">notna</a>(obj)</p></td>
+<td><p>Detecta valores no nulos para un objeto similar a un arreglo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.notnull.html">notnull</a>(obj)</p></td>
+<td><p>Detecta valores no nulos para un objeto similar a un arreglo.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="graficado">
+<h2>Graficado<a class="headerlink" href="#graficado" title="Link to this heading">#</a></h2>
+<p>Funciones útiles para crear gráficas de objetos.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.plotting.andrews_curves.html">andrews_curves</a>(frame, class_column[, ax, …])</p></td>
+<td><p>Genera un gráfico <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> para visualizar grupos de datos multivariados.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.plotting.autocorrelation_plot.html">autocorrelation_plot</a>(series[, ax])</p></td>
+<td><p>Gráfico de autocorrelación para series de tiempo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.plotting.bootstrap_plot.html">bootstrap_plot</a>(series[, fig, size, samples])</p></td>
+<td><p>Gráfico Bootstrap sobre estadísticas medias, medianas y de rango medio.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.plotting.boxplot.html">boxplot</a>(data[, column, by, ax, fontsize, …])</p></td>
+<td><p>Crea un diagrama de caja a partir de las columnas de un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> .</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.plotting.deregister_matplotlib_converters.html">deregister_matplotlib_converters</a>()</p></td>
+<td><p>Remueve los <em>formateadores</em> y <em>convertidores</em> de <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.plotting.lag_plot.html">lag_plot</a>(series[, lag, ax])</p></td>
+<td><p>Gráfico de defases para series de tiempo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.plotting.parallel_coordinates.html">parallel_coordinates</a>(frame, class_column[, …])</p></td>
+<td><p>Trazado de coordenadas paralelas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.plotting.plot_params.html">plot_params</a>()</p></td>
+<td><p>Almacena opciones de trazado de <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.plotting.radviz.html">radviz</a>(frame, class_column[, ax, color, …])</p></td>
+<td><p>Traza un conjunto de datos multidimensional en 2D.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.plotting.register_matplotlib_converters.html">register_matplotlib_converters</a>()</p></td>
+<td><p>Registra <em>formateadores</em> y <em>convertidores</em> de <code class="docutils literal notranslate"><span class="pre">pandas</span></code> con <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.plotting.scatter_matrix.html">scatter_matrix</a>(frame[, alpha, figsize, ax, …])</p></td>
+<td><p>Grafica una matriz de diagramas de dispersión.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.plotting.table.html">table</a>(ax, data, **kwargs)</p></td>
+<td><p>Función auxiliar para convertir <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> y <code class="docutils literal notranslate"><span class="pre">Series</span></code> a <code class="docutils literal notranslate"><span class="pre">matplotlib.table</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="hash">
+<h2>Hash<a class="headerlink" href="#hash" title="Link to this heading">#</a></h2>
+<p>Funciones útiles para retornar objetos <em>hash</em> de arrays u objetos de <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.util.hash_array.html">util.hash_array</a>(vals[, encoding, hash_key, …])</p></td>
+<td><p>Dado un arreglo 1d, devuelve un arreglo de números enteros deterministas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.util.hash_pandas_object.html">util.hash_pandas_object</a>(obj[, index, …])</p></td>
+<td><p>Retorna un <em>hash</em> de datos del <code class="docutils literal notranslate"><span class="pre">Index</span></code>/<code class="docutils literal notranslate"><span class="pre">Series</span></code>/<code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<hr class="docutils" />
+<section id="informacion-sobre-tipos-de-fecha-y-hora">
+<h2>Información sobre tipos de fecha y hora<a class="headerlink" href="#informacion-sobre-tipos-de-fecha-y-hora" title="Link to this heading">#</a></h2>
+<p>Funciones útiles para inferir frecuencias o formatos en datos que representan fechas y tiempo.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.infer_freq.html">infer_freq</a>(index)</p></td>
+<td><p>Infiere la frecuencia más probable dado el índice de entrada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.tseries.api.guess_datetime_format.html">tseries.api.guess_datetime_format</a>(dt_str[, …])</p></td>
+<td><p>Determina el formato de fecha y hora de una cadena de fecha y hora. El valor retornado contendrá el formatos con <a class="reference internal" href="../02-modulos/datetime.html#date-codes"><span class="std std-ref">Códigos de fechas</span></a>. Para usar esta función se puede importar como <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">pandas.tseries.api</span> <span class="pre">import</span> <span class="pre">guess_datetime_format</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="manipulacion-de-datos">
+<h2>Manipulación De Datos<a class="headerlink" href="#manipulacion-de-datos" title="Link to this heading">#</a></h2>
+<section id="categorizacion">
+<h3>Categorización<a class="headerlink" href="#categorizacion" title="Link to this heading">#</a></h3>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.cut.html">cut</a>(x, bins[, right, labels, retbins, …])</p></td>
+<td><p>Crea categorías de acuerdo a qué rango pertenece un valor. Las categorías estarán jerarquizadas. No garantiza que cada <em>bin</em> tenga el mismo número de <em>data points</em>, para ellos usar la función <code class="docutils literal notranslate"><span class="pre">pd.qcut()</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.factorize.html">factorize</a>(values[, sort, use_na_sentinel, …])</p></td>
+<td><p>Codifica el objeto asignándole a cada categoría un valor único en una variable categórica.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.qcut.html">qcut</a>(x, q[, labels, retbins, precision, …])</p></td>
+<td><p>Divide una columna en <em>q</em> categorías, basado en cuantiles. Produce una variable categórica para indicar a cuál cuantil pertenece. Garantiza <em>bins</em> del mismo tamaño.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="dummies-crosstab-eval-y-unique">
+<h3>Dummies, crosstab, eval y unique<a class="headerlink" href="#dummies-crosstab-eval-y-unique" title="Link to this heading">#</a></h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.crosstab.html">crosstab</a>(index, columns[, values, rownames, …])</p></td>
+<td><p>Retorna una tabla de contingencia, que retorna el número de ocurrencias para combinaciones de valores de dos columnas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.eval.html">eval</a>(expr[, parser, engine, local_dict, …])</p></td>
+<td><p>Evalua una cadena que describe operaciones entre elementos de un objeto. <strong>EJEMPLO</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.from_dummies.html">from_dummies</a>(data[, sep, default_category])</p></td>
+<td><p>Crea una columna categórica a partie de un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> con <em>dummy variables</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.get_dummies.html">get_dummies</a>(data[, prefix, prefix_sep, …])</p></td>
+<td><p>Convierte variables categóricas en <em>dummy variables</em>. Básicamentecada valor único de una columna categórica la convierte en una nueva columna, cuyos valores contendrán unos y ceros indicando si cada fila tenía ese valor categórico.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.unique.html">unique</a>(values)</p></td>
+<td><p>Retorna los valores únicos basados ​​en una tabla <em>hash</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="reshaping">
+<h3>Reshaping<a class="headerlink" href="#reshaping" title="Link to this heading">#</a></h3>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.lreshape.html">lreshape</a>(data, groups[, dropna])</p></td>
+<td><p>Modifica la forma de los datos tabular de <em>wide format</em> a <em>long format</em>. Operación contraria a <em>pivot</em>. Ofrece más versatibilidad que <code class="docutils literal notranslate"><span class="pre">pd.melt()</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.melt.html">melt</a>(frame[, id_vars, value_vars, var_name, …])</p></td>
+<td><p>Modifica la forma de los datos tabular de <em>wide format</em> a <em>long format</em>. Operación contraria a <em>pivot</em>. Para un mayor control en el <em>reshaping</em> usar la función <code class="docutils literal notranslate"><span class="pre">pd.lreshape()</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.pivot.html">pivot</a>(data, *, columns[, index, values])</p></td>
+<td><p>Sirve para modificar una tabla de <em>long format</em> a <em>wide format</em>. Esta función no soporta <em>aggregates</em>, para ello utilizar <code class="docutils literal notranslate"><span class="pre">pd.pivot_table()</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.pivot_table.html">pivot_table</a>(data[, values, index, columns, …])</p></td>
+<td><p>Sirve para modificar una tabla de <em>long format</em> a <em>wide format</em>. Para cada valor único de una columna categórica calcula algo sobre los valores de una columna de valores. También se puede hacer lo mismo para las combinaciones únicas de los valores de dos o más columnas categóricas y se puede hacer más de un calculo sobre las columna de valores.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.wide_to_long.html">wide_to_long</a>(df, stubnames, i, j[, sep, suffix])</p></td>
+<td><p>Modifica la forma de los datos tabular de <em>wide format</em> a <em>long format</em>. Operación contraria a <em>pivot</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="uniones-y-apilaciones">
+<h3>Uniones y apilaciones<a class="headerlink" href="#uniones-y-apilaciones" title="Link to this heading">#</a></h3>
+<table class="table" id="pandas-func-joins">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.concat.html">concat</a>(objs, *[, axis, join, ignore_index, …])</p></td>
+<td><p>Concatena objetos pandas a lo largo de un eje particular. La concatenación se puede hacer por posición o por índices. Además se puede especificar que se cree una <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code> que indique a que objeto pertenece cada parte.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.merge.html">merge</a>(left, right[, how, on, left_on, …])</p></td>
+<td><p>Une <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> o <code class="docutils literal notranslate"><span class="pre">Series</span></code> con nombre, de una manera similar a un <em>join</em> de SQL. Permite indicar el tipo de <em>join</em> y se puede hacer con base a valores de columnas o los índices.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.merge_asof.html">merge_asof</a>(left, right[, on, left_on, …])</p></td>
+<td><p>Es similar a un <em>left-join</em>, con la diferencia de que las coincidencias de los <em>ids</em> no tienen que ser idénticas, sino aproximaciones. Es útil con objetos con fechas y tiempos. Ambos objetos deben estar ordenador por la columna/índice que se usará como <em>id</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.merge_ordered.html">merge_ordered</a>(left, right[, on, left_on, …])</p></td>
+<td><p>Ejecuta un <em>join</em> con opción de rellenar o interpolar valores nulos.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+<hr class="docutils" />
+<section id="i-o">
+<h2>I/O<a class="headerlink" href="#i-o" title="Link to this heading">#</a></h2>
+<section id="archivo-de-texto">
+<h3>Archivo de texto<a class="headerlink" href="#archivo-de-texto" title="Link to this heading">#</a></h3>
+<p>Funciones útiles para I/O de archivos de texto como csv, tsv, etc.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_csv.html">DataFrame.to_csv</a>([path_or_buf, sep, na_rep, …])</p></td>
+<td><p>Exporta el objeto en un archivo de valores separados por comas (csv).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html">read_csv</a>(filepath_or_buffer, *[, sep, …])</p></td>
+<td><p>Importa un archivo de valores separados por comas (csv) en <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.read_fwf.html">read_fwf</a>(filepath_or_buffer, *[, colspecs, …])</p></td>
+<td><p>Importa una tabla de con delimitadores fijos en <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.read_table.html">read_table</a>(filepath_or_buffer, *[, sep, …])</p></td>
+<td><p>Importa un archivo delimitado en <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="excel">
+<h3>Excel<a class="headerlink" href="#excel" title="Link to this heading">#</a></h3>
+<p>Funciones útiles para archivos de <em>Excel</em>.</p>
+<p><strong>EJEMPLOS</strong></p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_excel.html">DataFrame.to_excel</a>(excel_writer, *[, …])</p></td>
+<td><p>Exporta un objeto en una hoja de Excel.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.ExcelFile.html">ExcelFile</a>(path_or_buffer[, engine, …])</p></td>
+<td><p>Clase para analizar hojas tabulares de Excel en objetos <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.ExcelFile.book.html">ExcelFile.book</a>()</p></td>
+<td><p>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.ExcelFile.parse.html">ExcelFile.parse</a>([sheet_name, header, names, …])</p></td>
+<td><p>Lee un archivo de excel y lo convierte a un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.ExcelFile.sheet_names.html">ExcelFile.sheet_names</a>()</p></td>
+<td><p>Lee un archivo de excel y lo convierte a un</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.ExcelWriter.html">ExcelWriter</a>(path[, engine, date_format, …])</p></td>
+<td><p>Clase para escribir objetos <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> en hojas de Excel.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.io.formats.style.Styler.to_excel.html">Styler.to_excel</a>(excel_writer[, sheet_name, …])</p></td>
+<td><p>Exporta un objeto <code class="docutils literal notranslate"><span class="pre">Styler</span></code> en una hoja de Excel.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.read_excel.html">read_excel</a>(io[, sheet_name, header, names, …])</p></td>
+<td><p>Importa un archivo de Excel en un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="feather">
+<h3>Feather<a class="headerlink" href="#feather" title="Link to this heading">#</a></h3>
+<p>Funciones útiles para archivos <em>feather</em>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_feather.html">DataFrame.to_feather</a>(path, **kwargs)</p></td>
+<td><p>Exporta un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> al formato binario  <em>feather</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.read_feather.html">read_feather</a>(path[, columns, use_threads, …])</p></td>
+<td><p>Importa un objeto con formato <em>feather</em> desde la ruta del archivo.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="hdfstore">
+<h3>HDFStore<a class="headerlink" href="#hdfstore" title="Link to this heading">#</a></h3>
+<p>Funciones útiles para archivos <em>HDFStore</em>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.HDFStore.append.html">HDFStore.append</a>(key, value[, format, axes, …])</p></td>
+<td><p>Agrega a la tabla en el archivo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.HDFStore.get.html">HDFStore.get</a>(key)</p></td>
+<td><p>Importa el objeto de <code class="docutils literal notranslate"><span class="pre">pandas</span></code> almacenado en el archivo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.HDFStore.groups.html">HDFStore.groups</a>()</p></td>
+<td><p>Retorna un <code class="docutils literal notranslate"><span class="pre">list</span></code> de todos los nodos de nivel superior.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.HDFStore.info.html">HDFStore.info</a>()</p></td>
+<td><p>Retorna información detallada sobre el archivo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.HDFStore.keys.html">HDFStore.keys</a>([include])</p></td>
+<td><p>Retorna un <code class="docutils literal notranslate"><span class="pre">list</span></code> de claves correspondientes a objetos almacenados en <em>HDFStore</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.HDFStore.put.html">HDFStore.put</a>(key, value[, format, index, …])</p></td>
+<td><p>Exporta un objeto en <em>HDFStore</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.HDFStore.select.html">HDFStore.select</a>(key[, where, start, stop, …])</p></td>
+<td><p>Importa el objeto de <code class="docutils literal notranslate"><span class="pre">pandas</span></code> almacenado en el archivo, opcionalmente según los criterios de <em>where</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.HDFStore.walk.html">HDFStore.walk</a>([where])</p></td>
+<td><p>Recorra la jerarquía de grupos de <em>pytables</em> para objetos de <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.read_hdf.html">read_hdf</a>(path_or_buf[, key, mode, errors, …])</p></td>
+<td><p>Importa un archivo <em>HDFStore</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="html">
+<h3>HTML<a class="headerlink" href="#html" title="Link to this heading">#</a></h3>
+<p>Funciones útiles para archivos <em>HTML</em>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_html.html">DataFrame.to_html</a>([buf, columns, col_space, …])</p></td>
+<td><p>Exporta un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> como una tabla HTML.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.io.formats.style.Styler.to_html.html">Styler.to_html</a>([buf, table_uuid, …])</p></td>
+<td><p>Exporta un objeto <code class="docutils literal notranslate"><span class="pre">Styler</span></code>  a una tabla, búfer o cadena un objeto a un archivo HTML-CSS.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.read_html.html">read_html</a>(io, *[, match, flavor, header, …])</p></td>
+<td><p>Importa tablas HTML en un <code class="docutils literal notranslate"><span class="pre">list</span></code> de objetos <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="json">
+<h3>JSON<a class="headerlink" href="#json" title="Link to this heading">#</a></h3>
+<p>Funciones útiles para archivos <em>JSON</em>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_json.html">DataFrame.to_json</a>([path_or_buf, orient, …])</p></td>
+<td><p>Convierte el objeto en una cadena JSON.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.io.json.build_table_schema.html">build_table_schema</a>(data[, index, …])</p></td>
+<td><p>Crea un esquema de tabla desde <code class="docutils literal notranslate"><span class="pre">data</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.json_normalize.html">json_normalize</a>(data[, record_path, meta, …])</p></td>
+<td><p>Normalice datos JSON semiestructurados en una tabla plana.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.read_json.html">read_json</a>(path_or_buf, *[, orient, typ, …])</p></td>
+<td><p>Convierte una cadena JSON en un objeto pandas.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="latex">
+<h3>LaTeX<a class="headerlink" href="#latex" title="Link to this heading">#</a></h3>
+<p>Funciones útiles para archivos de <em>LaTeX</em>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_latex.html">DataFrame.to_latex</a>([buf, columns, header, …])</p></td>
+<td><p>Representa un objeto en una tabla tabular de LaTeX.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.io.formats.style.Styler.to_latex.html">Styler.to_latex</a>([buf, column_format, …])</p></td>
+<td><p>Exporta un objeto Styler en un archivo, búfer o cadena en formato LaTeX.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="orc">
+<h3>ORC<a class="headerlink" href="#orc" title="Link to this heading">#</a></h3>
+<p>Funciones útiles para archivos <em>ORC</em>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_orc.html">DataFrame.to_orc</a>([path, engine, index, …])</p></td>
+<td><p>Exporta un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> al formato <em>ORC</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.read_orc.html">read_orc</a>(path[, columns, dtype_backend, …])</p></td>
+<td><p>Importa un objeto <em>ORC</em> desde la ruta del archivo, devolviendo un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="parquet">
+<h3>Parquet<a class="headerlink" href="#parquet" title="Link to this heading">#</a></h3>
+<p>Funciones útiles para archivos <em>Parquet</em>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_parquet.html">DataFrame.to_parquet</a>([path, engine, …])</p></td>
+<td><p>Exporta un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> al formato <em>parquet</em> binario.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.read_parquet.html">read_parquet</a>(path[, engine, columns, …])</p></td>
+<td><p>Importa un objeto <em>parquet</em> desde la ruta del archivo, devolviendo un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="pickle">
+<h3>Pickle<a class="headerlink" href="#pickle" title="Link to this heading">#</a></h3>
+<p>Funciones útiles para archivos con extensión <code class="docutils literal notranslate"><span class="pre">.pkl</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_pickle.html">DataFrame.to_pickle</a>(path, *[, compression, …])</p></td>
+<td><p>Serializa el objeto en un archivo <code class="docutils literal notranslate"><span class="pre">.pkl</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.read_pickle.html">read_pickle</a>(filepath_or_buffer[, …])</p></td>
+<td><p>Importa un objeto de <code class="docutils literal notranslate"><span class="pre">pandas</span></code> (o cualquier objeto) desde un archivo <code class="docutils literal notranslate"><span class="pre">.pkl</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="portapapeles">
+<h3>Portapapeles<a class="headerlink" href="#portapapeles" title="Link to this heading">#</a></h3>
+<p>Funciones para copiar y pegar datos desde el portapapeles.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_clipboard.html">DataFrame.to_clipboard</a>(*[, excel, sep])</p></td>
+<td><p>Copie el objeto al portapapeles del sistema.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.read_clipboard.html">read_clipboard</a>([sep, dtype_backend])</p></td>
+<td><p>Pegue texto del portapapeles y pasarlo a <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="sas">
+<h3>SAS<a class="headerlink" href="#sas" title="Link to this heading">#</a></h3>
+<p>Funciones útiles para archivos de <em>SAS</em>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.read_sas.html">read_sas</a>(filepath_or_buffer, *[, format, …])</p></td>
+<td><p>Importa archivos <em>SAS</em> almacenados en formato <em>XPORT</em> o <em>SAS7BDAT</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="spss">
+<h3>SPSS<a class="headerlink" href="#spss" title="Link to this heading">#</a></h3>
+<p>Funciones útiles para archivos de <em>SPSS</em>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.read_spss.html">read_spss</a>(path[, usecols, …])</p></td>
+<td><p>Importa archivos <em>SPSS</em> desde la ruta del archivo y devuelva un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="sql">
+<h3>SQL<a class="headerlink" href="#sql" title="Link to this heading">#</a></h3>
+<p>Funciones útiles para importar o exportar datos desde una base de datos SQL.</p>
+<p><strong>EJEMPLO</strong> de cómo crear conexión y funciones.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_sql.html">DataFrame.to_sql</a>(name, con, *[, schema, …])</p></td>
+<td><p>Escribe registros almacenados en un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> a una base de datos SQL.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.read_sql.html">read_sql</a>(sql, con[, index_col, …])</p></td>
+<td><p>Lee un <em>query</em> o una tabla de una base de datos en un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>. <strong>ejemplo</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.read_sql_query.html">read_sql_query</a>(sql, con[, index_col, …])</p></td>
+<td><p>Ejecuta un <em>query</em> y guarda el resultado en un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.read_sql_table.html">read_sql_table</a>(table_name, con[, schema, …])</p></td>
+<td><p>Lee una tabla de una base de datos. en un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="stata">
+<h3>Stata<a class="headerlink" href="#stata" title="Link to this heading">#</a></h3>
+<p>Funciones útiles para trabajar con archivos de <em>Stata</em>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_stata.html">DataFrame.to_stata</a>(path, *[, convert_dates, …])</p></td>
+<td><p>Exporta <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> al formato de datos <em>Stata</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.io.stata.StataReader.data_label.html">StataReader.data_label</a>()</p></td>
+<td><p>Etiqueta de datos de retorno del archivo <em>Stata</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.io.stata.StataReader.value_labels.html">StataReader.value_labels</a>()</p></td>
+<td><p>Retorna un <code class="docutils literal notranslate"><span class="pre">dict</span></code> anidado asociando cada nombre de variable a su valor y etiqueta.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.io.stata.StataReader.variable_labels.html">StataReader.variable_labels</a>()</p></td>
+<td><p>Retorna un <code class="docutils literal notranslate"><span class="pre">dict</span></code> asociando cada nombre de variable con la etiqueta correspondiente.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.io.stata.StataWriter.write_file.html">StataWriter.write_file</a>()</p></td>
+<td><p>Exporta <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> al formato de datos <em>Stata</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.read_stata.html">read_stata</a>(filepath_or_buffer, *[, …])</p></td>
+<td><p>Importa el archivo un <em>Stata</em> en <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="xml">
+<h3>XML<a class="headerlink" href="#xml" title="Link to this heading">#</a></h3>
+<p>Funciones útiles para archivos <em>XML</em>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_xml.html">DataFrame.to_xml</a>([path_or_buffer, index, …])</p></td>
+<td><p>Renderizar un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> a un documento XML.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.read_xml.html">read_xml</a>(path_or_buffer, *[, xpath, …])</p></td>
+<td><p>Importa un documento <em>XML</em> en un objeto <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./parts/04-pandas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="expanding-rolling-window.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Expanding, Rolling y Window</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../08-otros/otros-index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Otros</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creacion-y-conversion-de-objetos">Creación y conversión de objetos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numericas">Numéricas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fechas-y-tiempo">Fechas y tiempo</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datos-perdidos">Datos perdidos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graficado">Graficado</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hash">Hash</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#informacion-sobre-tipos-de-fecha-y-hora">Información sobre tipos de fecha y hora</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manipulacion-de-datos">Manipulación De Datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#categorizacion">Categorización</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dummies-crosstab-eval-y-unique">Dummies, crosstab, eval y unique</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reshaping">Reshaping</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uniones-y-apilaciones">Uniones y apilaciones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#i-o">I/O</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#archivo-de-texto">Archivo de texto</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#excel">Excel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#feather">Feather</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hdfstore">HDFStore</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#html">HTML</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#json">JSON</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#latex">LaTeX</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#orc">ORC</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parquet">Parquet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pickle">Pickle</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#portapapeles">Portapapeles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sas">SAS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spss">SPSS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql">SQL</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stata">Stata</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#xml">XML</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nebok
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

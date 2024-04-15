@@ -30,6 +30,14 @@ Los arrays correspondientes al tipo `ndarray` son objetos que pueden almacenar d
 :align: center
 ```
 
+:::{note}
+Para conceptualizar arrays de 4 dimensiones o más considerar:
+- 4D: Un arreglo de 4 dimensiones es un vector donde cada elemento es un _array_ 3D.
+- 5D: Un arreglo de 5 dimensiones es una matriz donde cada elemento es un _array_ 3D.
+- 6D: Un arreglo de 6 dimensiones es un tensor 3D donde cada elemento es un _array_ 3D.
+- 7D+: Aplicar la misma lógica anterior para conceptualizar arrays de más dimensiones.
+:::
+
 <br><br>
 
 ---
@@ -122,6 +130,8 @@ Algunas operaciones comunes que retornan views son:
 <br>
 
 ---
+
+(numpy-arrays-seleccion)=
 ## Selección de elementos
 
 Existen diversos métodos para seleccionar elementos de un array.
@@ -141,6 +151,7 @@ Para identificar los índices de los elementos de un array tomar como referencia
 <br>
 
 ---
+(numpy-arrays-subsetting)=
 ### Subsetting
 
 _Subsetting_ se refiere a seleccionar elementos en índices específicos.
@@ -361,7 +372,7 @@ Es posible combinar _boolean masking_ con otras estrategías para seleccionar el
 _Fancy indexing_ es una estrategia para seleccionar elementos de un array en el que se indica por medio de un `array-like` los índices a seleccionar, de tal forma que se seleccionan los elementos que están en los índices de la lista/array. 
 
 :::{note}
-El array retornado al seleccionar elementos por _fancy indexing_ generalmente será de una dimensión. A menos de que se utilice un array con un determinado _shape_ como se verá más adelante.
+El array retornado al seleccionar elementos por _fancy indexing_ será de una dimensión si se utiliza un `list-like`. Si se desea que el array retornado tenga un _shape_ determinido se puede usar un `ndarray` con un determinado _shape_ como se verá más adelante.
 :::
 
 :::{warning}
@@ -382,7 +393,7 @@ print(X[ind])
 ```
 - Los índices en _ind_ pueden estar en cualquier orden, incluso se puede repetir más de una vez un mismo índice.
 
-El `array-like` utilizado puede tener un _shape_ en específico y el array devuelto tendrá ese mismo shape. En este caso sí es necesario que `ind` sea `np.ndarray`.
+Se puede usar un `np.ndarray` que tenga un _shape_ específico y el array devuelto tendrá ese mismo shape. Esto solo funciona si el objeto que se usa para hacer _fancy indexing_ es `np.ndarray`.
 
 ```{code-cell} ipython3
 # Definir el array
@@ -395,7 +406,9 @@ ind = np.array([[2, 0], [4, 0]])
 print(X[ind])
 ```
 
-En **dos dimensiones** se debe de pasar una lista/array con los índices de las filas y otra/o con los índices de las columnas por separado. Lo mismo se puede generalizar para arrays de más dimensiones.
+En **dos dimensiones** tener en cuenta lo siguiente:
+- Si se pasa un array 1D entonces se hará _fance indexing_ solo de las filas. Retornando un array 2D.
+- Se puede pasar una lista/array con los índices de las filas y otra/o con los índices de las columnas por separado, los elementos se empatan por posición. Lo mismo se puede generalizar para arrays de más dimensiones.
 
 ```{code-cell} ipython3
 # Definir el array
@@ -415,6 +428,28 @@ print(X[row, col])
 Es posible combinar _fancy indexing_ con otras estrategías para seleccionar elementos como _slicing_, _boolena masking_ o _subsetting_ para diferentes dimensiones del arreglo.
 :::
 
+<br/>
+
+---
+## Modificar elementos
+
+Para modificar elementos de un _array_ se puede utilizar cualquier estrategia de {ref}`numpy-arrays-seleccion` y asignar nuevos valores:
+
+```python
+# Modificar un elemento, ejemplo con indexing
+myarray[i] = val
+
+# Modificar múltiples elementos con el mismo valor, ejemplo con slicing
+myarray[i:j] = val
+
+# Modificar múltiples elementos con valores diferentes, ejemplo con slicing
+myarray[i:j] = [val_i, ..., val_j] 
+```
+- Si se van a asignar múltiples valores diferentes tener en cuenta lo siguiente:
+    - El objeto que asigne debe ser de tipo `array-like`.
+    - Se deben asignar el mismo número de elementos que los que se están seleccionando.
+    - Es técnicamente posible asignar múltiples valores por medio de _boolean masking_, pero no es recomendado ya que es necesario saber con anticipación cúantos elementos serán seleccionados.
+- **Importante**: Se puede usar cualquier operador de {ref}`built-in-operadores-asignacion`, no solo `=`, por ejemplo: `myarray[i:j] += val # Ejemplo con += y fancy indexing`
 <br>
 
 ---
@@ -565,7 +600,7 @@ En el ejemplo `(2, 2, 1)` cada cubito que conforma el cubo más grande represent
 <br>
 
 ---
-### Usando np.newaxis:
+### Usando np.newaxis
 
 Se puede utilizar `np.newaxis` para modificar el shape de un array, para ello se pone `np.newaxis` en la dimensión que se quiere agregar entre corchetes, como si se hiciera _slicing_. Esta forma de modificar el shape de una array es útil cuando se desea modificar el número de dimensiones, pero no agregar elementos en esas nuevas dimensiones.
 
@@ -598,7 +633,7 @@ X[:, :, np.newaxis] # Equivale a X.reshape((m, n, 1))
 <br><br>
 
 ---
-## Broadcasting:
+## Broadcasting
 
 Se refiere al ajuste que se hace en las dimensiones y/o el número de elementos de un array cuando se hacen operaciones vectorizadas entre arrays de distintas dimensiones y/o número de elementos en una misma dimensión. El array de menor dimensión se ajustará al de mayor dimensión. Existen algunas reglas para que se pueda hacer el broadcasting:
 

@@ -1,54 +1,33 @@
 # Matemáticas y numéricas
 
-En esta sección se enlistan las funciones para realizar cálculos matetmáticos y para trabajar con arrays numéricos.
+En esta sección se enlistan las funciones para realizar cálculos matemáticos y para trabajar con arrays numéricos/booleanos.
 
 :::{warning}
 Para una lista completa visitar la [documentación](https://numpy.org/doc/stable/reference/routines.math.html#mathematical-functions) de `numpy`.
 :::
 
-
 ---
-## Aritméticas
+## Cálculos acumulados y diferencias
 
-Funciones para hacer operaciones aritméticas vectorizadas. 
+Funciones para cálculos acumulados y diferencias con desfases.
 
 ```{list-table}
 :header-rows: 1
 
 * - Función
   - Descripción
-* - [add](https://numpy.org/doc/stable/reference/generated/numpy.add.html)(x1, x2, /[, out, where, casting, order, ...])
-  - Suma `x1` y `x2`, por elementos. Equivale a usar el operador `+`.
-* - [divide](https://numpy.org/doc/stable/reference/generated/numpy.divide.html)(x1, x2, /[, out, where, casting, ...])
-  - Divide `x1` y `x2`, por elementos. Equivale a usar el operador `/`.
-* - [divmod](https://numpy.org/doc/stable/reference/generated/numpy.divmod.html)(x1, x2[, out1, out2], / [[, out, ...])
-  - Devuelve el cociente y el residuo de la división de `x1` y `x2`, simultáneamente.
-* - [float_power](https://numpy.org/doc/stable/reference/generated/numpy.float_power.html)(x1, x2, /[, out, where, ...])
-  - Eleva los elementos de `x1` a los elementos de `x2`. Equivale a usar el operador `**`.
-* - [floor_divide](https://numpy.org/doc/stable/reference/generated/numpy.floor_divide.html)(x1, x2, /[, out, where, ...])
-  - División entera de `x1` y `x2`, por elementos. Equivale a usar el operador `//`.
-* - [fmod](https://numpy.org/doc/stable/reference/generated/numpy.fmod.html)(x1, x2, /[, out, where, casting, ...])
-  - Módulo de `x1` y `x2`, por elementos. Equivale a usar el operador `%`.
-* - [mod](https://numpy.org/doc/stable/reference/generated/numpy.mod.html)(x1, x2, /[, out, where, casting, order, ...])
-  - Módulo de `x1` y `x2`, por elementos.
-* - [modf](https://numpy.org/doc/stable/reference/generated/numpy.modf.html)(x[, out1, out2], / [[, out, where, ...])
-  - Devuelve las partes fraccionaria y entera de un arreglo, por elementos.
-* - [multiply](https://numpy.org/doc/stable/reference/generated/numpy.multiply.html)(x1, x2, /[, out, where, casting, ...])
-  - Multiplica `x1` y `x2`, por elementos. Equivale a usar el operador `*`.
-* - [negative](https://numpy.org/doc/stable/reference/generated/numpy.negative.html)(x, /[, out, where, casting, order, ...])
-  - Negativo numérico, por elementos.
-* - [positive](https://numpy.org/doc/stable/reference/generated/numpy.positive.html)(x, /[, out, where, casting, order, ...])
-  - Positivo numérico, por elementos.
-* - [power](https://numpy.org/doc/stable/reference/generated/numpy.power.html)(x1, x2, /[, out, where, casting, ...])
-  - Eleva los elementos de `x1` a los elementos de `x2`. Equivale a usar el operador `**`.
-* - [reciprocal](https://numpy.org/doc/stable/reference/generated/numpy.reciprocal.html)(x, /[, out, where, casting, ...])
-  - Devuelve el recíproco de `x`, por elementos.
-* - [remainder](https://numpy.org/doc/stable/reference/generated/numpy.remainder.html)(x1, x2, /[, out, where, casting, ...])
-  - Módulo de `x1` y `x2`, por elementos. Equivale a usar el operador `%`.
-* - [subtract](https://numpy.org/doc/stable/reference/generated/numpy.subtract.html)(x1, x2, /[, out, where, casting, ...])
-  - Resta `x1` y `x2`, por elementos. Equivale a usar el operador `-`.
-* - [true_divide](https://numpy.org/doc/stable/reference/generated/numpy.true_divide.html)(x1, x2, /[, out, where, ...])
-  - Divide `x1` y `x2`, por elementos.
+* - [cumprod](https://numpy.org/doc/stable/reference/generated/numpy.cumprod.html)(a[, axis, dtype, out])
+  - Devuelve el producto acumulativo de elementos a lo largo de un eje dado.
+* - [cumsum](https://numpy.org/doc/stable/reference/generated/numpy.cumsum.html)(a[, axis, dtype, out])
+  - Devuelve la suma acumulada de los elementos a lo largo de un eje dado.
+* - [diff](https://numpy.org/doc/stable/reference/generated/numpy.diff.html)(a[, n, axis, prepend, append])
+  - Calcula la n-ésima diferencia discreta a lo largo del eje dado.
+* - [ediff1d](https://numpy.org/doc/stable/reference/generated/numpy.ediff1d.html)(ary[, to_end, to_begin])
+  - Calcula las diferencias entre elementos consecutivos de un arreglo.
+* - [nancumprod](https://numpy.org/doc/stable/reference/generated/numpy.nancumprod.html)(a[, axis, dtype, out])
+  - Devuelve el producto acumulativo de los elementos de la arreglo sobre un eje determinado tratando `NaN` como uno.
+* - [nancumsum](https://numpy.org/doc/stable/reference/generated/numpy.nancumsum.html)(a[, axis, dtype, out])
+  - Devuelve la suma acumulativa de los elementos de la arreglo sobre un eje determinado tratando `NaN` como cero.
 ```
 
 <br>
@@ -101,13 +80,13 @@ Funciones relacionadas con exponentes y logaritmos para cálculos vectorizados.
 * - [exp2](https://numpy.org/doc/stable/reference/generated/numpy.exp2.html)(x, /[, out, where, casting, order, ...])
   - Calcula `2**p` para todo `p` en el arreglo de entrada.
 * - [expm1](https://numpy.org/doc/stable/reference/generated/numpy.expm1.html)(x, /[, out, where, casting, order, ...])
-  - Calcula `exp(x) - 1` para todos los elementos del arreglo.
+  - Calcula `exp(x) - 1` para todos los elementos del arreglo. Útil cuando `x` tiene valores muy pequeños.
 * - [log](https://numpy.org/doc/stable/reference/generated/numpy.log.html)(x, /[, out, where, casting, order, ...])
   - Logaritmo natural, por elementos.
 * - [log10](https://numpy.org/doc/stable/reference/generated/numpy.log10.html)(x, /[, out, where, casting, order, ...])
   - Logaritmo base 10, por elementos.
 * - [log1p](https://numpy.org/doc/stable/reference/generated/numpy.log1p.html)(x, /[, out, where, casting, order, ...])
-  - Devuelve el `ln(1)+x` para el arreglo de entrada, por elementos.
+  - Devuelve el `ln(1+x)` para el arreglo de entrada, por elementos. Útil cuando `x` tiene valores muy pequeños.
 * - [log2](https://numpy.org/doc/stable/reference/generated/numpy.log2.html)(x, /[, out, where, casting, order, ...])
   - Logaritmo base 2, por elementos.
 * - [logaddexp](https://numpy.org/doc/stable/reference/generated/numpy.logaddexp.html)(x1, x2, /[, out, where, casting, ...])
@@ -143,6 +122,52 @@ Funciones relacionadas con funciones hiperbólicas para cálculos vectorizados.
 
 <br>
 
+## Lógicas
+
+Funciones útiles en arrays booleanos. 
+
+```{list-table}
+:header-rows: 1
+
+* - Función
+  - Descripción
+* - [all](https://numpy.org/doc/stable/reference/generated/numpy.all.html)(a[, axis, out, keepdims, where])
+  - Prueba si todos los elementos del arreglo a lo largo de un eje dado se evalúan como `True`.
+* - [any](https://numpy.org/doc/stable/reference/generated/numpy.any.html)(a[, axis, out, keepdims, where])
+  - Prueba si algún elemento del arreglo a lo largo de un eje dado se evalúa como `True`.
+```
+
+<br>
+
+## Mínimos y máximos
+
+Funciones relacionadas con valores mínimos y máximos de arreglos o entre arreglos.
+
+```{list-table}
+:header-rows: 1
+
+* - Función
+  - Descripción
+* - [amax](https://numpy.org/doc/stable/reference/generated/numpy.amax.html)(a[, axis, out, keepdims, initial, where])
+  - Devuelve el valor máximo de un arreglo o el valor máximo a lo largo de un eje. Es igual a la función `np.max()`.
+* - [amin](https://numpy.org/doc/stable/reference/generated/numpy.amin.html)(a[, axis, out, keepdims, initial, where])
+  - Devuelve el valor mínimo de un arreglo o el valor mínimo a lo largo de un eje. `np.min()`.
+* - [fmax](https://numpy.org/doc/stable/reference/generated/numpy.fmax.html)(x1, x2, /[, out, where, casting, ...])
+  - Valor máximo entre dos arreglos, por elementos, ignorando `NaN`s.
+* - [fmin](https://numpy.org/doc/stable/reference/generated/numpy.fmin.html)(x1, x2, /[, out, where, casting, ...])
+  - Valor mínimo entre dos arreglos, por elementos, ignorando `NaN`s.
+* - [maximum](https://numpy.org/doc/stable/reference/generated/numpy.maximum.html)(x1, x2, /[, out, where, casting, ...])
+  - Valor máximo entre dos arreglos, por elementos.
+* - [minimum](https://numpy.org/doc/stable/reference/generated/numpy.minimum.html)(x1, x2, /[, out, where, casting, ...])
+  - Valor mínimo entre dos arreglos, por elementos.
+* - [nanmax](https://numpy.org/doc/stable/reference/generated/numpy.nanmax.html)(a[, axis, out, keepdims, initial, where])
+  - Devuelve el valor máximo de un arreglo o el valor máximo a lo largo de un eje, ignorando cualquier `NaN`.
+* - [nanmin](https://numpy.org/doc/stable/reference/generated/numpy.nanmin.html)(a[, axis, out, keepdims, initial, where])
+  - Devuelve el valor mínimo de un arreglo o el valor mínimo a lo largo de un eje, ignorando cualquier `NaN`.
+```
+
+<br>
+
 ## Misceláneos
 
 Funciones matemáticas generales como raíces cuadradas y cúbicas, valores absolutos, entre otras.
@@ -159,7 +184,7 @@ Funciones matemáticas generales como raíces cuadradas y cúbicas, valores abso
 * - [convolve](https://numpy.org/doc/stable/reference/generated/numpy.convolve.html)(a, v[, mode])
   - Devuelve la convolución lineal discreta de dos secuencias unidimensionales.
 * - [fabs](https://numpy.org/doc/stable/reference/generated/numpy.fabs.html)(x, /[, out, where, casting, order, ...])
-  - Calcula los valores absolutos, por elementos.
+  - Calcula los valores absolutos, por elementos. No soporta números complejos, usar `np.absolute()` en su lugar.
 * - [interp](https://numpy.org/doc/stable/reference/generated/numpy.interp.html)(x, xp, fp[, left, right, period])
   - Interpolación lineal unidimensional para puntos de muestra que aumentan monótonamente.
 * - [nan_to_num](https://numpy.org/doc/stable/reference/generated/numpy.nan_to_num.html)(x[, copy, nan, posinf, neginf])
@@ -195,7 +220,7 @@ Funciones relacionadas con números complejos para cálculos vectorizados.
   - Devuelve la parte real del argumento complejo.
 ```
 
-<br>
+<br/>
 
 ## Redondeo y truncamiento
 
@@ -224,7 +249,7 @@ Funciones relacionadas con redondear y truncar arrays numéricos.
 
 <br>
 
-## Sumas, productos, diferencias y cálculos acumulados
+## Sumas y productos
 
 Funciones para realizar sumas, productos y diferencias en arrays numéricos, así como cálculos acumulados.
 
@@ -233,18 +258,6 @@ Funciones para realizar sumas, productos y diferencias en arrays numéricos, as�
 
 * - Función
   - Descripción
-* - [cumprod](https://numpy.org/doc/stable/reference/generated/numpy.cumprod.html)(a[, axis, dtype, out])
-  - Devuelve el producto acumulativo de elementos a lo largo de un eje dado.
-* - [cumsum](https://numpy.org/doc/stable/reference/generated/numpy.cumsum.html)(a[, axis, dtype, out])
-  - Devuelve la suma acumulada de los elementos a lo largo de un eje dado.
-* - [diff](https://numpy.org/doc/stable/reference/generated/numpy.diff.html)(a[, n, axis, prepend, append])
-  - Calcula la n-ésima diferencia discreta a lo largo del eje dado.
-* - [ediff1d](https://numpy.org/doc/stable/reference/generated/numpy.ediff1d.html)(ary[, to_end, to_begin])
-  - Calcula las diferencias entre elementos consecutivos de un arreglo.
-* - [nancumprod](https://numpy.org/doc/stable/reference/generated/numpy.nancumprod.html)(a[, axis, dtype, out])
-  - Devuelve el producto acumulativo de los elementos de la arreglo sobre un eje determinado tratando `NaN` como uno.
-* - [nancumsum](https://numpy.org/doc/stable/reference/generated/numpy.nancumsum.html)(a[, axis, dtype, out])
-  - Devuelve la suma acumulativa de los elementos de la arreglo sobre un eje determinado tratando `NaN` como cero.
 * - [nanprod](https://numpy.org/doc/stable/reference/generated/numpy.nanprod.html)(a[, axis, dtype, out, keepdims, ...])
   - Devuelve el producto de los elementos de la arreglo sobre un eje determinado tratando `NaN` como uno.
 * - [nansum](https://numpy.org/doc/stable/reference/generated/numpy.nansum.html)(a[, axis, dtype, out, keepdims, ...])
@@ -291,34 +304,3 @@ Funciones relacionadas con funciones trigonométricas para cálculos vectorizado
 * - [tan](https://numpy.org/doc/stable/reference/generated/numpy.tan.html)(x, /[, out, where, casting, order, ...])
   - Tangente trigonométrica, por elementos.
 ```
-
-<br>
-
-## Valores extremos
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-
-```{list-table}
-:header-rows: 1
-
-* - Función
-  - Descripción
-* - [amax](https://numpy.org/doc/stable/reference/generated/numpy.amax.html)(a[, axis, out, keepdims, initial, where])
-  - Devuelve el valor máximo de un arreglo o el valor máximo a lo largo de un eje.
-* - [amin](https://numpy.org/doc/stable/reference/generated/numpy.amin.html)(a[, axis, out, keepdims, initial, where])
-  - Devuelve el valor mínimo de un arreglo o el valor mínimo a lo largo de un eje.
-* - [fmax](https://numpy.org/doc/stable/reference/generated/numpy.fmax.html)(x1, x2, /[, out, where, casting, ...])
-  - Valor máximo del arreglo.
-* - [fmin](https://numpy.org/doc/stable/reference/generated/numpy.fmin.html)(x1, x2, /[, out, where, casting, ...])
-  - Valor mínimo del arreglo.
-* - [maximum](https://numpy.org/doc/stable/reference/generated/numpy.maximum.html)(x1, x2, /[, out, where, casting, ...])
-  - Valor máximo del arreglo.
-* - [minimum](https://numpy.org/doc/stable/reference/generated/numpy.minimum.html)(x1, x2, /[, out, where, casting, ...])
-  - Valor mínimo del arreglo.
-* - [nanmax](https://numpy.org/doc/stable/reference/generated/numpy.nanmax.html)(a[, axis, out, keepdims, initial, where])
-  - Devuelve el valor máximo de un arreglo o el valor máximo a lo largo de un eje, ignorando cualquier `NaN`.
-* - [nanmin](https://numpy.org/doc/stable/reference/generated/numpy.nanmin.html)(a[, axis, out, keepdims, initial, where])
-  - Devuelve el valor mínimo de un arreglo o el valor mínimo a lo largo de un eje, ignorando cualquier `NaN`.
-```
-
-<br>

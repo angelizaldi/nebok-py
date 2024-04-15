@@ -1,0 +1,1157 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Escalares y Arrays &#8212; Manual de Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'parts/04-pandas/escalares-arrays';</script>
+    <link rel="icon" href="../../_static/nebok-favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Otras clases" href="otras-clases.html" />
+    <link rel="prev" title="DataFrame" href="dataframe.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/nebok-logo.png" class="logo__image only-light" alt="Manual de Python - Home"/>
+    <script>document.write(`<img src="../../_static/nebok-logo.png" class="logo__image only-dark" alt="Manual de Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Manual de Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Built-in</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01-built-in/built-in-index.html">Python estándar</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/ayuda.html">Obtener ayuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/comentarios.html">Comentarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/tipos-datos.html">Tipos de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/operadores-palabras.html">Operadores y palabras reservadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/entrada-salida.html">Entrada y salida de datos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/tipos-index.html">Tipos Built-In</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/booleanos.html">Valores booleanos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/numeros.html">Números</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/cadenas.html">Cadenas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/listas.html">Listas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/tuples.html">Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/sets.html">Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/diccionarios.html">Diccionarios</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/if-else.html">If … Else</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/for-loop.html">For Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/do-while.html">Do While</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/funciones.html">Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/try-except.html">Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/context.html">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/io.html">Lectura y escritura de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/modulos.html">Paquetes y Módulos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/avanzado-index.html">Temas avanzados</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/decorators.html">Decorators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/iterators.html">Iterators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/generators.html">Generators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/oop.html">Programación orientada a objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/func-built-in.html">Funciones built-in</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-modulos/modulos-index.html">Módulos built-in</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/csv.html">CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/datetime.html">Datetime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/itertools.html">Itertools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/json.html">JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/math.html">Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os.html">os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os-path.html">os.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/pickle.html">Pickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/random.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/regular-expression.html">Regular Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/statistics.html">Statistics</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otras librerías</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-numpy/numpy-index.html">Numpy</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/arrays.html">Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../03-numpy/funciones-index.html">Funciones</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/ufuncs.html">Ufuncs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/buscar-contar-ordenar-unicos.html">Buscar, contar, ordenar y valores únicos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/creacion-arrays.html">Creación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/estadisticas.html">Estadísticas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/indices.html">Índices e iteración</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/informacion.html">Información</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/lectura-escritura.html">Lectura y escritura de datos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/manipulacion-arrays.html">Manipulación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/matematicas-numericas.html">Matemáticas y numéricas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/operadores.html">Operadores</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/algebra-lineal.html">Módulo linalg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/cadenas.html">Modulo char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/random.html">Módulo random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/patrones-numpy.html">Patrones útiles</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="pandas-index.html">Pandas</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html">Index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="series.html">Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dataframe.html">DataFrame</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Escalares y Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="otras-clases.html">Otras clases</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="groupby.html">GroupBy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="expanding-rolling-window.html">Expanding, Rolling y Window</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="funciones.html">Funciones</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otros</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-otros/otros-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08-otros/IPython.html">IPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-otros/beautifulsoup.html">Web Scraping</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/parts/04-pandas/escalares-arrays.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Escalares y Arrays</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creacion-de-arrays">Creación de <em>arrays</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#timestamp">Timestamp</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-timestamp">Atributos de <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-timestamp">Métodos de <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#timedelta">Timedelta</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-timedelta">Atributos de <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-timedelta">Métodos de <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#period">Period</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-period">Atributos de <code class="docutils literal notranslate"><span class="pre">Period</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-period">Métodos de <code class="docutils literal notranslate"><span class="pre">Period</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interval">Interval</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-interval">Atributos de <code class="docutils literal notranslate"><span class="pre">Interval</span></code></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="escalares-y-arrays">
+<h1>Escalares y Arrays<a class="headerlink" href="#escalares-y-arrays" title="Link to this heading">#</a></h1>
+<p>En esta sección se revisan brevemente algunos escalares y <em>arrays</em> de <code class="docutils literal notranslate"><span class="pre">pandas</span></code> que no son soportados por <code class="docutils literal notranslate"><span class="pre">numpy</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tipo de Dato</p></th>
+<th class="head"><p>Escalar</p></th>
+<th class="head"><p><em>Array</em></p></th>
+<th class="head"><p>Alias en cadena</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Datetime</p></td>
+<td><p><a class="reference internal" href="#pandas-scalars-timestamp"><span class="std std-ref">Timestamp</span></a></p></td>
+<td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.arrays.DatetimeArray.html#pandas.arrays.DatetimeArray">pd.arrays.DatetimeArray</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">'datetime64[ns,</span> <span class="pre">&lt;tz&gt;]'</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Timedelta</p></td>
+<td><p><a class="reference internal" href="#pandas-scalars-timedelta"><span class="std std-ref">Timedelta</span></a></p></td>
+<td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.arrays.TimedeltaArray.html">pd.arrays.TimedeltaArray</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">'timedelta64[&lt;freq&gt;]'</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Period</p></td>
+<td><p><a class="reference internal" href="#pandas-scalars-period"><span class="std std-ref">Period</span></a></p></td>
+<td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.arrays.PeriodArray.html#pandas.arrays.PeriodArray">pd.arrays.PeriodArray</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">'period[&lt;freq&gt;]'</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Interval</p></td>
+<td><p><a class="reference internal" href="#pandas-scalars-interval"><span class="std std-ref">Interval</span></a></p></td>
+<td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.arrays.IntervalArray.html#pandas.arrays.IntervalArray">pd.arrays.IntervalArray</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">'interval'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Interval'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Interval[&lt;numpy_dtype&gt;]'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Interval[datetime64[ns,</span> <span class="pre">&lt;tz&gt;``'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Interval[timedelta64[&lt;freq&gt;``'</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Categorical</p></td>
+<td><p>(none)</p></td>
+<td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/arrays.html#categoricals">pd.Categorical</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">'category'</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>String</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+<td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/arrays.html#strings">pd.arrays.StringArray</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">'string'</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Nullable Integer</p></td>
+<td><p>(none)</p></td>
+<td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/arrays.html##nullable-integer">pd.arrays.IntegerArray</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">'Int8'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Int16'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Int32'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Int64'</span></code>, <code class="docutils literal notranslate"><span class="pre">'UInt8'</span></code>, <code class="docutils literal notranslate"><span class="pre">'UInt16'</span></code>, <code class="docutils literal notranslate"><span class="pre">'UInt32'</span></code>, <code class="docutils literal notranslate"><span class="pre">'UInt64'</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Nullable Float</p></td>
+<td><p>(none)</p></td>
+<td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/arrays.html#nullable-float">pd.arrays.FloatingArray</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">'Float32'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Float64'</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Nullable Boolean</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/arrays.html#nullable-boolean">pd.arrays.BooleanArray</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">'boolean'</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Sparse</p></td>
+<td><p>(none)</p></td>
+<td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/arrays.html#sparse">pd.arrays.SparseArray</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">'Sparse'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Sparse[int</span></code>’<code class="docutils literal notranslate"><span class="pre">,</span> </code>‘Sparse[float<code class="docutils literal notranslate"><span class="pre">'</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>En esta sección se revisarán solo los primeros cuatro (<code class="docutils literal notranslate"><span class="pre">Timestamp</span></code>, <code class="docutils literal notranslate"><span class="pre">Timedeltas</span></code>, <code class="docutils literal notranslate"><span class="pre">Period</span></code> e <code class="docutils literal notranslate"><span class="pre">Intervals</span></code>). Para más información sobre el resto de tipos digirse a los links de la tabla.</p>
+</div>
+<br/>
+<section id="creacion-de-arrays">
+<h2>Creación de <em>arrays</em><a class="headerlink" href="#creacion-de-arrays" title="Link to this heading">#</a></h2>
+<p>Para crear objetos con algún tipo de dato con arrays o escalares presentados en esta sección se puede usar el parámetro <em>dtype</em> y el alias en cadena del tipo de dato o a la clase de <code class="docutils literal notranslate"><span class="pre">pandas</span></code> equivalente. Ejemplo con <code class="docutils literal notranslate"><span class="pre">Series</span></code> de <em>nullable integer</em>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Con alias de cadena</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;Int32&#39;</span><span class="p">)</span>
+
+<span class="c1"># Con la clase</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Int32Dtype</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Para crear concretamente un <em>arreglo</em> usar la función <code class="docutils literal notranslate"><span class="pre">pd.array()</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Con alias de cadena</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;Int32&#39;</span><span class="p">)</span>
+
+<span class="c1"># Con la clase</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Int32Dtype</span><span class="p">())</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>En este ejemplo se retornaría un objeto de tipo <code class="docutils literal notranslate"><span class="pre">pd.arrays.IntegerArray</span></code>.</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="timestamp">
+<span id="pandas-scalars-timestamp"></span><h2>Timestamp<a class="headerlink" href="#timestamp" title="Link to this heading">#</a></h2>
+<p>El tipo <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code> es un escalar similar a <code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code> y cuyo <em>array</em> equivalente es <code class="docutils literal notranslate"><span class="pre">pd.arrays.DatetimeArray</span></code>. A diferencia de <code class="docutils literal notranslate"><span class="pre">np.datetime</span></code>, <code class="docutils literal notranslate"><span class="pre">pd.arrays.DatetimeArray</span></code> permite especificar la zona horaria.</p>
+<p>Para crear un escalar <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code> o un <em>array</em> <code class="docutils literal notranslate"><span class="pre">DatetimeArray</span></code> se pueden usar los constructores:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Constructor</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.html">Timestamp</a>([ts_input, year, month, day, …])</p></td>
+<td><p>Reemplaza de <code class="docutils literal notranslate"><span class="pre">pandas</span></code> del objeto <code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.arrays.DatetimeArray.html">arrays.DatetimeArray</a>(values[, dtype, freq, copy])</p></td>
+<td><p><em>Array</em> de <code class="docutils literal notranslate"><span class="pre">pandas</span></code> para datos de fecha y hora compatibles con <em>tz</em> o sin <em>tz</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DatetimeTZDtype.html">DatetimeTZDtype</a>([unit, tz])</p></td>
+<td><p>Tipo de dato de fecha y hora que reconoce la zona horaria. Se puede usar como argumento del parámetro <em>dtype</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>Existen diversas formas de específicar la fecha-tiempo en <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code>, las principales son:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">str</span></code>: Cadena que representa una fecha-tiempo, se puedo usar ISO 8601 u otros formatos.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">year</span></code>, <code class="docutils literal notranslate"><span class="pre">month</span></code>, <code class="docutils literal notranslate"><span class="pre">day</span></code>, <code class="docutils literal notranslate"><span class="pre">hour</span></code>, <code class="docutils literal notranslate"><span class="pre">minute</span></code>, <code class="docutils literal notranslate"><span class="pre">second</span></code>, <code class="docutils literal notranslate"><span class="pre">microsecond</span></code>: Indicando los elementos individuales de la fecha y tiempo.</p></li>
+<li><p>Para más formas visitar el link en la tabla.</p></li>
+</ul>
+</li>
+<li><p>Para la zona horaria se puede usar cadena del tipo <code class="docutils literal notranslate"><span class="pre">'Continent/City'</span></code>, parar conocer las posibles opciones visitar <a class="reference external" href="http://www.healthstream.com/hlchelp/Administrator/Classes/HLC_Time_Zone_Abbreviations.htm">esta página</a>.</p></li>
+</ul>
+<p><strong>Ejemplo</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar librería</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Con cadena ISO 8601</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;2021-01-15T12:30:45&#39;</span><span class="p">))</span>
+
+<span class="c1"># Con cadena</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;15/01/2021 12:30:45&#39;</span><span class="p">))</span>
+
+<span class="c1"># Indicando elementos individuales</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2021</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">hour</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">minute</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">second</span><span class="o">=</span><span class="mi">45</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2021-01-15 12:30:45
+2021-01-15 12:30:45
+2021-12-15 12:30:45
+</pre></div>
+</div>
+</div>
+</div>
+<br/>
+<hr class="docutils" />
+<section id="atributos-de-timestamp">
+<h3>Atributos de <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code><a class="headerlink" href="#atributos-de-timestamp" title="Link to this heading">#</a></h3>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Algunos de estos atributos son atributos de clase y otros son atributos de instancia. Recordar que <code class="docutils literal notranslate"><span class="pre">pd.Timestamp</span></code> es una subclase de <code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code>, por lo que se puede consultar la sección de <code class="docutils literal notranslate"><span class="pre">ref</span></code>{builtin-datetime-datetime} para más información.</p>
+</div>
+<p>Atributos de la clase <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.asm8</span></code>: Retorna el objeto como <code class="docutils literal notranslate"><span class="pre">numpy.datetime64</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.day</span></code>: Día del mes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.day_of_week</span></code>: El día de la semana, donde lunes=0 y domingo=6.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.day_of_year</span></code>: El día ordinal del año.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.dayofweek</span></code>: El día de la semana, donde lunes=0, domingo=6.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.dayofyear</span></code>: El día ordinal del año.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.days_in_month</span></code>: Retorna el número de días en el mes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.daysinmonth</span></code>: Retorna el número de días en el mes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.fold</span></code>: Entre <em>[0, 1]</em>. Se utiliza para eliminar la ambigüedad de los tiempos de pared durante un intervalo repetido..</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.hour</span></code>: La Hora.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.is_leap_year</span></code>: Indica si la fecha pertenece a un año bisiesto.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.is_month_end</span></code>: Indica si la fecha es el último día del mes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.is_month_start</span></code>: Indica si la fecha es el primer día del mes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.is_quarter_end</span></code>: Indica si la fecha es el último día del trimestre.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.is_quarter_start</span></code>: Indica si la fecha es el primer día del trimestre.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.is_year_end</span></code>: Indica si la fecha es el último día del año.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.is_year_start</span></code>: Indica si la fecha es el primer día de un año.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.max</span></code>: La máxima fecha y hora representable, <code class="docutils literal notranslate"><span class="pre">datetime(MAXYEAR,</span> <span class="pre">12,</span> <span class="pre">31,</span> <span class="pre">23,</span> <span class="pre">59,</span> <span class="pre">59,</span> <span class="pre">999999,</span> <span class="pre">tzinfo=None)</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.microsecond</span></code>: Los microsegundos.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.min</span></code>: La mínima fecha y hora representable, <code class="docutils literal notranslate"><span class="pre">datetime(MINYEAR,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">tzinfo=None)</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.minute</span></code>: Los minutos.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.month</span></code>: El mes, donde enero=1, diciembre=12.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.nanosecond</span></code>: Los nanosegundos.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.quarter</span></code>: El trimestre.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.resolution</span></code>: La diferencia más pequeña posible entre objetos datetime no iguales, <code class="docutils literal notranslate"><span class="pre">timedelta(microsegundos=1)</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.second</span></code>: Los segundos.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.tz</span></code>: Retorna la zona horaria.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.tzinfo</span></code>: Retorna la zona horaria.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.unit</span></code>: La abreviatura asociada a self._creso.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.value</span></code>: .</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.week</span></code>: Retorna el número de semana del año.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.weekofyear</span></code>: Retorna el número de semana del año.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.year</span></code>: El año.</p></li>
+<li><p>Para más información visitar la <a class="reference external" href="https://pandas.pydata.org/docs/reference/arrays.html#properties">documentación</a> de <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p></li>
+</ul>
+<br/>
+</section>
+<hr class="docutils" />
+<section id="metodos-de-timestamp">
+<h3>Métodos de <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code><a class="headerlink" href="#metodos-de-timestamp" title="Link to this heading">#</a></h3>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Algunos de estos métodos son métodos de clase y otros son métodos de instancia. Recordar que <code class="docutils literal notranslate"><span class="pre">pd.Timestamp</span></code> es una subclase de <code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code>, por lo que se puede consultar la sección de <code class="docutils literal notranslate"><span class="pre">ref</span></code>{builtin-datetime-datetime} para más información.</p>
+</div>
+<p>A continuación se enlistan los métodos de la clase <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.as_unit.html">Timestamp.as_unit</a>(unit[, round_ok])</p></td>
+<td><p>Convierte el valor <code class="docutils literal notranslate"><span class="pre">int64</span></code> subyacente a la unidad dada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.astimezone.html">Timestamp.astimezone</a>(tz)</p></td>
+<td><p>Convierte la zona horaria a otra zona horaria. Modificando el tiempo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.ceil.html">Timestamp.ceil</a>(freq[, ambiguous, nonexistent])</p></td>
+<td><p>Redondea hacía arriba los datos a la frecuencia especificada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.combine.html">Timestamp.combine</a>(date, time)</p></td>
+<td><p>Combina objetos de tipo <code class="docutils literal notranslate"><span class="pre">datetime.date</span></code> y <code class="docutils literal notranslate"><span class="pre">datetime.time</span></code> en <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code> con los mismos campos de fecha y hora.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.ctime.html">Timestamp.ctime</a>()</p></td>
+<td><p>Retorna una cadena de estilo <code class="docutils literal notranslate"><span class="pre">ctime()</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.date.html">Timestamp.date</a>()</p></td>
+<td><p>Retorna un objeto de tipo <code class="docutils literal notranslate"><span class="pre">datetime.date</span></code> con el mismo año, mes y día.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.day_name.html">Timestamp.day_name</a>([locale])</p></td>
+<td><p>Retorna el nombre del día con la configuración regional especificada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.dst.html">Timestamp.dst</a>()</p></td>
+<td><p>Retorna el ajuste por el horario de verano (DST).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.floor.html">Timestamp.floor</a>(freq[, ambiguous, nonexistent])</p></td>
+<td><p>Redondea hacía abajo los datos a la frecuencia especificada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.fromordinal.html">Timestamp.fromordinal</a>(ordinal[, tz])</p></td>
+<td><p>Construye un <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code> a partir de un ordinal gregoriano proléptico.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.fromtimestamp.html">Timestamp.fromtimestamp</a>(ts)</p></td>
+<td><p>Construye un <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code> desde la marca de tiempo POSIX usando la zona horaria local.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.isocalendar.html">Timestamp.isocalendar</a>()</p></td>
+<td><p>Retorna un <code class="docutils literal notranslate"><span class="pre">namedtuple</span></code> que contiene año, número de semana y día de la semana.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.isoformat.html">Timestamp.isoformat</a>([sep, timespec])</p></td>
+<td><p>Retorna el tiempo en un formato según ISO 8601.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.isoweekday.html">Timestamp.isoweekday</a>()</p></td>
+<td><p>Retorna el día de la semana.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.month_name.html">Timestamp.month_name</a>([locale])</p></td>
+<td><p>Retorna el nombre del mes con la configuración regional especificada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.normalize.html">Timestamp.normalize</a>()</p></td>
+<td><p>Normaliza la el <em>timestamp</em> hasta la medianoche, preservando la información de tz.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.now.html">Timestamp.now</a>([tz])</p></td>
+<td><p>Retorna un nuevo objeto <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code> que representa la hora actual.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.replace.html">Timestamp.replace</a>([year, month, day, hour, …])</p></td>
+<td><p>Implementa <code class="docutils literal notranslate"><span class="pre">datetime.replace</span></code>. Retorna la misma fecha-tiempo con una modificación en los elementos especificados.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.round.html">Timestamp.round</a>(freq[, ambiguous, nonexistent])</p></td>
+<td><p>Redondea la fecha-tiempo a la resolución especificada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.strftime.html">Timestamp.strftime</a>(format)</p></td>
+<td><p>Retorna una cadena con un formato especificado de la fecha-tiempo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.time.html">Timestamp.time</a>()</p></td>
+<td><p>Retorna el objeto <code class="docutils literal notranslate"><span class="pre">datetime.time</span></code> con la misma hora pero con <code class="docutils literal notranslate"><span class="pre">tzinfo=None</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.timestamp.html">Timestamp.timestamp</a>()</p></td>
+<td><p>Retorna la marca de tiempo POSIX como <code class="docutils literal notranslate"><span class="pre">float</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.timetuple.html">Timestamp.timetuple</a>()</p></td>
+<td><p>Retorna un <code class="docutils literal notranslate"><span class="pre">tuple</span></code> con los elementos de la fecha-tiempo, compatible con <code class="docutils literal notranslate"><span class="pre">time.localtime()</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.timetz.html">Timestamp.timetz</a>()</p></td>
+<td><p>Retorna el objeto <code class="docutils literal notranslate"><span class="pre">datetime.time</span></code> con la misma hora y mismo <em>tzinfo</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.to_datetime64.html">Timestamp.to_datetime64</a>()</p></td>
+<td><p>Retorna un objeto <code class="docutils literal notranslate"><span class="pre">numpy.datetime64</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.to_julian_date.html">Timestamp.to_julian_date</a>()</p></td>
+<td><p>Convierte <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code> en una fecha juliana.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.to_numpy.html">Timestamp.to_numpy</a>([dtype, copy])</p></td>
+<td><p>Retorna un objeto <code class="docutils literal notranslate"><span class="pre">numpy.datetime64</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.to_period.html">Timestamp.to_period</a>([freq])</p></td>
+<td><p>Retorna un período del cual esta fecha-tiempo es una observación.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.to_pydatetime.html">Timestamp.to_pydatetime</a>([warn])</p></td>
+<td><p>Convierte un objeto <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code> en un objeto de fecha y hora nativo de Python.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.today.html">Timestamp.today</a>([tz])</p></td>
+<td><p>Retorna una fecha-tiempo con la hora actual en la zona horaria local.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.toordinal.html">Timestamp.toordinal</a>()</p></td>
+<td><p>Retorna un ordinal gregoriano proléptico.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.tz_convert.html">Timestamp.tz_convert</a>(tz)</p></td>
+<td><p>Convierte la zona horaria de a otra zona horaria, modificando el tiempo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.tz_localize.html">Timestamp.tz_localize</a>(tz[, ambiguous, …])</p></td>
+<td><p>Convierte la zona horaria de a otra zona horaria, Modifica la hora.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.tzname.html">Timestamp.tzname</a>()</p></td>
+<td><p>Retorna el nombre de la zona horaria.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.utcfromtimestamp.html">Timestamp.utcfromtimestamp</a>(ts)</p></td>
+<td><p>Construye una fecha-hora <em>UTC</em> con reconocimiento de zona horaria a partir de una marca de tiempo POSIX.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.utcnow.html">Timestamp.utcnow</a>()</p></td>
+<td><p>Retorna una nueva fecha-tiempo que representa el día y la hora <em>UTC</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.utcoffset.html">Timestamp.utcoffset</a>()</p></td>
+<td><p>Retorna el desplazamiento <em>utc</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.utctimetuple.html">Timestamp.utctimetuple</a>()</p></td>
+<td><p>Retorna un <code class="docutils literal notranslate"><span class="pre">tuple</span></code> de tiempo <em>UTC</em>, compatible con <code class="docutils literal notranslate"><span class="pre">time.localtime()</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p>[Timestamp.weekday]:</p></td>
+<td><p>Retorna el día de la semana.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<hr class="docutils" />
+</section>
+</section>
+<section id="timedelta">
+<span id="pandas-scalars-timedelta"></span><h2>Timedelta<a class="headerlink" href="#timedelta" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">pd.Timedelta</span></code> representa la diferencia entre dos fechas-tiempo, es similar a <code class="docutils literal notranslate"><span class="pre">datetime.timedelta</span></code>. Su equivalente en <em>array</em> es <code class="docutils literal notranslate"><span class="pre">pd.arrays.TimedeltaArray</span></code>.</p>
+<p>Para crear un escalar <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code> o un <em>array</em> <code class="docutils literal notranslate"><span class="pre">TimedeltaArray</span></code> se pueden usar los constructores:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Constructor</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timedelta.html">Timedelta</a>([value, unit]):</p></td>
+<td><p>Representa una duración, que es la diferencia entre dos fechas y tiempo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.arrays.TimedeltaArray.html">arrays.TimedeltaArray</a>(values[, dtype, freq, …]):</p></td>
+<td><p><em>Array</em> de <code class="docutils literal notranslate"><span class="pre">pandas</span></code> para <em>timedeltas</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<hr class="docutils" />
+<section id="atributos-de-timedelta">
+<h3>Atributos de <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code><a class="headerlink" href="#atributos-de-timedelta" title="Link to this heading">#</a></h3>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Algunos de estos atributos son atributos de clase y otros son atributos de instancia. Recordar que <code class="docutils literal notranslate"><span class="pre">pd.Timedelta</span></code> es una subclase de <code class="docutils literal notranslate"><span class="pre">datetime.timedelta</span></code>, por lo que se puede consultar la sección de <code class="docutils literal notranslate"><span class="pre">ref</span></code>{builtin-datetime-timedelta} para más información.</p>
+</div>
+<p>Atributos de la clase <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.asm8</span></code>: Retorna una vista escalar de un <em>array</em> numpy <code class="docutils literal notranslate"><span class="pre">timedelta64</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.components</span></code>: Retorna los componentes como un <code class="docutils literal notranslate"><span class="pre">namedtuple</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.days</span></code>: Retorna los días del <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.max</span></code>: El mayor objeto timedelta posible, <code class="docutils literal notranslate"><span class="pre">timedelta(days=999999999,</span> <span class="pre">hours=23,</span> <span class="pre">minutes=59,</span> <span class="pre">seconds=59,</span> <span class="pre">microseconds=999999)</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.microseconds</span></code>: Retorna el número de microsegundos.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.min</span></code>: El menor objeto timedelta posible, <code class="docutils literal notranslate"><span class="pre">timedelta(-999999999)</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.nanoseconds</span></code>: Retorna el número de nanosegundos <em>n</em>, donde <em>0 &lt;= n &lt; 1</em> microsegundos.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.resolution</span></code>: La diferencia más pequeña posible entre objetos timedelta no iguales, <code class="docutils literal notranslate"><span class="pre">timedelta(microseconds=1)</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.seconds</span></code>: Retorna el total de horas, minutos y segundos del <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code> como segundos.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.unit</span></code>: .</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.value</span></code>: .</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.view(dtype)</span></code>: Compatibilidad con <em>viesws</em> de arrays.</p></li>
+<li><p>Para más información visitar la <a class="reference external" href="https://pandas.pydata.org/docs/reference/arrays.html#id1">documentación</a> de <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p></li>
+</ul>
+<br/>
+</section>
+<hr class="docutils" />
+<section id="metodos-de-timedelta">
+<h3>Métodos de <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code><a class="headerlink" href="#metodos-de-timedelta" title="Link to this heading">#</a></h3>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Algunos de estos métodos son métodos de clase y otros son métodos de instancia. Recordar que <code class="docutils literal notranslate"><span class="pre">pd.Timedelta</span></code> es una subclase de <code class="docutils literal notranslate"><span class="pre">datetime.timedelta</span></code>, por lo que se puede consultar la sección de <code class="docutils literal notranslate"><span class="pre">ref</span></code>{builtin-datetime-timedelta} para más información.</p>
+</div>
+<p>A continuación se enlistan los métodos de la clase <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timedelta.as_unit.html">Timedelta.as_unit</a>(unit[, round_ok])</p></td>
+<td><p>Convierte el valor <code class="docutils literal notranslate"><span class="pre">int64</span></code> subyacente a la unidad dada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timedelta.ceil.html">Timedelta.ceil</a>(freq)</p></td>
+<td><p>Redondea hacía arriba la duración a la frecuencia especificada.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timedelta.floor.html">Timedelta.floor</a>(freq)</p></td>
+<td><p>Redondea hacía abajo la duración a la frecuencia especificada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timedelta.isoformat.html">Timedelta.isoformat</a>()</p></td>
+<td><p>Retorna la duración en un formato según ISO 8601.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timedelta.round.html">Timedelta.round</a>(freq)</p></td>
+<td><p>Redondea la duración a la frecuencia especificada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timedelta.to_numpy.html">Timedelta.to_numpy</a>([dtype, copy])</p></td>
+<td><p>Convierte el <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code> a <code class="docutils literal notranslate"><span class="pre">timedelta64</span></code> de <code class="docutils literal notranslate"><span class="pre">numpy</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timedelta.to_pytimedelta.html">Timedelta.to_pytimedelta</a>()</p></td>
+<td><p>Convierte el <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code> en un objeto <code class="docutils literal notranslate"><span class="pre">datetime.timedelta</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timedelta.to_timedelta64.html">Timedelta.to_timedelta64</a>()</p></td>
+<td><p>Retorna un objeto <code class="docutils literal notranslate"><span class="pre">numpy.timedelta64</span></code> con precisión ‘ns’.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timedelta.total_seconds.html">Timedelta.total_seconds</a>()</p></td>
+<td><p>Segundos totales en la duración.</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+</section>
+</section>
+<section id="period">
+<span id="pandas-scalars-period"></span><h2>Period<a class="headerlink" href="#period" title="Link to this heading">#</a></h2>
+<p>El tipo <code class="docutils literal notranslate"><span class="pre">Period</span></code> representa intervalos de tiempo y cuyo <em>array</em> equivalente es <code class="docutils literal notranslate"><span class="pre">pd.arrays.PeriodArray</span></code>.</p>
+<p>Para crear un escalar <code class="docutils literal notranslate"><span class="pre">Period</span></code> o un <em>array</em> <code class="docutils literal notranslate"><span class="pre">PeriodArray</span></code> se pueden usar los constructores:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Constructor</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Period.html">Period</a>([value, freq, ordinal, year, month, …])</p></td>
+<td><p>Representa un periodo de tiempo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.arrays.PeriodArray.html">arrays.PeriodArray</a>(values[, dtype, freq, copy])</p></td>
+<td><p><em>Array</em> de <code class="docutils literal notranslate"><span class="pre">pandas</span></code> para periodos de tiempo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.PeriodDtype.html">PeriodDtype</a>(freq)</p></td>
+<td><p>Tipo de dato de periodos de tiempo. Se puede usar como argumento del parámetro <em>dtype</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<hr class="docutils" />
+<section id="atributos-de-period">
+<h3>Atributos de <code class="docutils literal notranslate"><span class="pre">Period</span></code><a class="headerlink" href="#atributos-de-period" title="Link to this heading">#</a></h3>
+<p>Atributos de la clase <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.day</span></code>: Recupera el día del mes en el que cae un período.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.day_of_week</span></code>: Día de la semana en el que se encuentra el período, siendo lunes=0 y domingo=6.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.day_of_year</span></code>: Retorna el día del año.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.dayofweek</span></code>: Día de la semana en el que se encuentra el período, siendo lunes=0 y domingo=6.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.dayofyear</span></code>: Retorna el día del año.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.days_in_month</span></code>: Recupera el número total de días del mes en los que cae este período.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.daysinmonth</span></code>: Recupera el número total de días del mes en los que cae este período.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.end_time</span></code>: Recupera el <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code> del final del período.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.freq</span></code>: .</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.freqstr</span></code>: Retorna una representación de cadena de la frecuencia.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.hour</span></code>: Recupera el componente de hora del día del Período.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.is_leap_year</span></code>: Retorna <code class="docutils literal notranslate"><span class="pre">True</span></code> si el año del período es bisiesto.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.minute</span></code>: Recupera el minuto del componente de hora del Período.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.month</span></code>: Devuelva el mes en el que cae este Período.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.ordinal</span></code>: .</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.quarter</span></code>: Retorna el trimestre en el que cae este Período.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.qyear</span></code>: Ejercicio económico en el que se encuentra el Periodo según su trimestre de inicio.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.second</span></code>: Recupera el componente de segundos del Periodo.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.start_time</span></code>: Recupera el <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code> del inicio del período.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.week</span></code>: Recupera la semana del año en el período determinado.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.weekday</span></code>: Día de la semana en el que se encuentra el período, siendo lunes=0 y domingo=6.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.weekofyear</span></code>: Recupera la semana del año en el período determinado.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.year</span></code>: Devuelve el año en el que cae este Período.</p></li>
+</ul>
+<br/>
+</section>
+<hr class="docutils" />
+<section id="metodos-de-period">
+<h3>Métodos de <code class="docutils literal notranslate"><span class="pre">Period</span></code><a class="headerlink" href="#metodos-de-period" title="Link to this heading">#</a></h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Period.asfreq.html">Period.asfreq</a>(freq[, how])</p></td>
+<td><p>Convierte el período a la frecuencia deseada, al inicio o al final del intervalo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Period.now.html">Period.now</a>(freq)</p></td>
+<td><p>Retorna el período de la fecha actual.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Period.strftime.html">Period.strftime</a>(fmt)</p></td>
+<td><p>Retorna una representación de cadena con determinado formato del <code class="docutils literal notranslate"><span class="pre">Period</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Period.to_timestamp.html">Period.to_timestamp</a>([freq, how])</p></td>
+<td><p>Retorna la representación <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code> del período.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<hr class="docutils" />
+</section>
+</section>
+<section id="interval">
+<span id="pandas-scalars-interval"></span><h2>Interval<a class="headerlink" href="#interval" title="Link to this heading">#</a></h2>
+<p>El tipo <code class="docutils literal notranslate"><span class="pre">Interval</span></code> representa intervalos arbitrarios y cuyo <em>array</em> equivalente es <code class="docutils literal notranslate"><span class="pre">pd.arrays.IntervalArray</span></code>.</p>
+<p>Para crear un escalar <code class="docutils literal notranslate"><span class="pre">Interval</span></code> o un <em>array</em> <code class="docutils literal notranslate"><span class="pre">IntervalArray</span></code> se pueden usar los constructores:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Constructor</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Period.html">Period</a>([left, right, closed])</p></td>
+<td><p>Objeto inmutable que representa un intervalo arbitrario.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.arrays.IntervalArray.html">arrays.IntervalArray</a>(data[, closed, dtype, …])</p></td>
+<td><p><em>Array</em> de <code class="docutils literal notranslate"><span class="pre">pandas</span></code> para intervalos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.IntervalDtype.html">IntervalDtype</a>([subtype, closed])</p></td>
+<td><p>Tipo de dato de intervalos. Se puede usar como argumento del parámetro <em>dtype</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<hr class="docutils" />
+<section id="atributos-de-interval">
+<h3>Atributos de <code class="docutils literal notranslate"><span class="pre">Interval</span></code><a class="headerlink" href="#atributos-de-interval" title="Link to this heading">#</a></h3>
+<p>Atributos de la clase <code class="docutils literal notranslate"><span class="pre">Interval</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.closed</span></code>: Cadena que describe el lado inclusivo de los intervalos.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.closed_left</span></code>: Verifica si el intervalo está cerrado en el lado izquierdo.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.closed_right</span></code>: Verifica si el intervalo está cerrado en el lado derecho.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.is_empty</span></code>: Indica si un intervalo está vacío, lo que significa que no contiene puntos.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.left</span></code>: Límite izquierdo para el intervalo.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.length</span></code>: Retorna la longitud del intervalo.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.mid</span></code>: Retorna el punto medio del intervalo.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.open_left</span></code>: Verifica si el intervalo está abierto en el lado izquierdo.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.open_right</span></code>: Verifica si el intervalo está abierto en el lado derecho.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.overlaps</span></code>: Verifica si dos objetos de intervalo se superponen.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.right</span></code>: Límite derecho para el intervalo.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./parts/04-pandas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="dataframe.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">DataFrame</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="otras-clases.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Otras clases</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creacion-de-arrays">Creación de <em>arrays</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#timestamp">Timestamp</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-timestamp">Atributos de <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-timestamp">Métodos de <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#timedelta">Timedelta</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-timedelta">Atributos de <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-timedelta">Métodos de <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#period">Period</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-period">Atributos de <code class="docutils literal notranslate"><span class="pre">Period</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-period">Métodos de <code class="docutils literal notranslate"><span class="pre">Period</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interval">Interval</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-interval">Atributos de <code class="docutils literal notranslate"><span class="pre">Interval</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nebok
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

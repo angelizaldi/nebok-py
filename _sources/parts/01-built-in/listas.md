@@ -130,6 +130,7 @@ Para verificar si un elemento está dentro de una lista usar el operador de memb
 # Si X es una lista
 x in X
 ```
+- La expresión anterior retornará un valor `bool`.
 - Alternativamente se puede usar `not in`.
 
 <br>

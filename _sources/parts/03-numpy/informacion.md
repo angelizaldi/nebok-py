@@ -1,4 +1,4 @@
-# Información y lógicas
+# Información
 
 Funciones para obtener información sobre arrays que retornan arrays booleanos y funciones para trabajar con arrays booleanos.
 
@@ -7,7 +7,7 @@ Para una lista completa visitar la [documentación](https://numpy.org/doc/stable
 :::
 
 ---
-## Contenido array
+## Contenido del array
 
 Funciones que retornan información sobre el contenido del array. 
 
@@ -32,24 +32,7 @@ Funciones que retornan información sobre el contenido del array.
 
 <br>
 
-## Lógicas
-
-Funciones útiles en arrays booleanos. 
-
-```{list-table}
-:header-rows: 1
-
-* - Función
-  - Descripción
-* - [all](https://numpy.org/doc/stable/reference/generated/numpy.all.html)(a[, axis, out, keepdims, where])
-  - Prueba si todos los elementos del arreglo a lo largo de un eje dado se evalúan como `True`.
-* - [any](https://numpy.org/doc/stable/reference/generated/numpy.any.html)(a[, axis, out, keepdims, where])
-  - Prueba si algún elemento del arreglo a lo largo de un eje dado se evalúa como `True`.
-```
-
-<br>
-
-## Tipo array
+## Tipo de array
 
 Funciones que retornan información sobre el tipo de array. 
 

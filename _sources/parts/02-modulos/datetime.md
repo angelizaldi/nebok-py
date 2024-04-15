@@ -75,6 +75,7 @@ A continuación se presenta una lista de las constantes disponibles en el módul
 ```
 
 ---
+(builtin-datetime-datetime)=
 ## Datetime
 
 
@@ -824,7 +825,7 @@ A continuación la lista de métodos de instancia de la clase `datetime.datetime
 <br>
 
 ---
-(timedelta)=
+(builtin-datetime-timedelta)=
 ## Timedelta
 
 ```{warning}
@@ -1005,7 +1006,7 @@ A continuación se presentan los códigos de fechas y tiempo que usan los métod
 
 ```{list-table}
 :header-rows: 1
-:name: date_codes
+:name: date-codes
 
 * - Código
   - Elemento
