@@ -1111,6 +1111,7 @@ DataFrame.plot(x=None, y=None, kind='line', ax=None, subplots=False, layout=None
     - `clrmap=None` - `str`, `Clrmap`: Colores de la gráfica.
     - `include_bl=False` - `bool`: Indica que los valores booleanos puedan ser graficados.
     - `yerr`, `xerr` - `DataFrame`, `Series`, `array-like`, `dict`,  `str`: Para agregar _error bars_.
+
 **Retorna:**
 - `Axes` o `ndarray` de `Axes`.
 

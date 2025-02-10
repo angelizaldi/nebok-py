@@ -205,9 +205,9 @@ Existen diversos métodos para seleccionar elementos de un _array_.
 
 <br/>
 
-```{image} ../images/axis-3D.png
-:name: axis-3D
-:width: 300px
+```{image} ../images/axis.png
+:name: axis
+:width: 500px
 :align: center
 ```
 

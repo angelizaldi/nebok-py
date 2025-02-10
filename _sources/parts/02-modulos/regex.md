@@ -400,11 +400,11 @@ print(f"Grupo 2: {result.group(2)}")
 
 Es una estrategia para verificar que se cumpla cierta condición antes o después de un patrón, donde esas condiciones son otros patrones. Estas condicionales se definen como un grupo pero no serán capturados.
 - **Antes** (_look-ahead_):
-    - Positiva: Verifica que exista un subpatrón antes del patrón principal, se utiliza la sintaxis: <code>(?<=<i>pattern</i>)</code>
-    - Negativa: Verifica que no exista un subpatrón antes del patrón principal, se utiliza la sintaxis: <code>(?<!<i>pattern</i>)</code>
+    - Positiva: Verifica que exista un subpatrón antes del patrón principal, se utiliza la sintaxis: <br/> <code>(?<=<i>pattern</i>)</code>
+    - Negativa: Verifica que no exista un subpatrón antes del patrón principal, se utiliza la sintaxis: <br/> <code>(?<!<i>pattern</i>)</code>
 - **Después**  (_look-behind_):
-    - Positiva: Verifica que exista un subpatrón después del patrón principal, se utiliza la sintaxis: <code>(?=<i>pattern</i>)</code>
-    - Negativa: Verifica que no exista un subpatrón después del patrón principal, se utiliza la sintaxis: <code>(?=<i>pattern</i>)</code>
+    - Positiva: Verifica que exista un subpatrón después del patrón principal, se utiliza la sintaxis: <br/> <code>(?=<i>pattern</i>)</code>
+    - Negativa: Verifica que no exista un subpatrón después del patrón principal, se utiliza la sintaxis: <br/> <code>(?=<i>pattern</i>)</code>
 
 ```python
 # Look-ahead positivo

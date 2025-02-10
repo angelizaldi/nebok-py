@@ -858,7 +858,7 @@ sns.set_style(style=None, rc=None)
 # Crear gráfica para cada tipo de estilo
 for style in ['white','dark','whitegrid','darkgrid','ticks']:
     sns.set_style(style)
-    _ = sns.histplot(tips['total_bill'])
+    _ = sns.histplot(tips['total_bill'], color=azul)
     _.set_title(style)
     plt.show()
 ```
@@ -964,7 +964,7 @@ g.map(sns.axes_plot, **kwargs)
 
 **Ejemplo**
 
-```python
+```{code-cell} ipython3
 # Importar dataset
 exercise = sns.load_dataset("exercise")
 
@@ -1090,7 +1090,10 @@ g.plot_marginals(sns.axes_function_marginal, **kwargs)
 
 **Ejemplo**
 
-```python
+```{code-cell} ipython3
+# Importar dataset
+iris = sns.load_dataset("iris")
+
 # Preparar JointGrid
 g = sns.JointGrid(data=iris, x="sepal_length", y="petal_length")
 
@@ -1187,10 +1190,7 @@ g.map_offdiag(sns.axes_function, **kwargs)
 
 **Ejemplo**
 
-```python
-# Importar dataset
-iris = sns.load_dataset("iris")
-
+```{code-cell} ipython3
 # Preparar PairGrid 
 g = sns.PairGrid(iris)
 
