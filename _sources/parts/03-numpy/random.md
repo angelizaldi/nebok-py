@@ -35,19 +35,21 @@ Existen dos formas pricipales de usar este módulo, aunque solo una de ella es r
 (clase-generator)=
 ## Clase Generator
 
-La forma básica de usar _Random Generator_ (método recomendado) es:
+La forma básica de usar _Random Generator_ (método recomendado) es con la función [default_rng](https://numpy.org/doc/stable/reference/random/generator.html#numpy.random.default_rng)`(seed)`:
 
 ```python
 # Importar módulo
 from numpy import random
 
 # Crear instancia de la clase "Generator"
-rng = random.default_rng()
+rng = random.default_rng([seed])
 
 # Utilizar los métodos de la clase
 rng.method_name()
 ```
+- _seed_ es posible indicar la semilla para reproducibilidad de los resultados.
 - _method_name_ es el nombre del método que se desea usar, los cuales se enlistan a continuación.
+
 
 ---
 ### Distribuciones
@@ -147,9 +149,9 @@ Métodos para la generación básica de números aleatorios.
 * - [choice](https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.choice.html)(a[, size, replace, p, axis, shuffle])
   - Genera una muestra aleatoria de un arreglo 1D.
 * - [integers](https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.integers.html)(low[, high, size, dtype, endpoint])
-  - Retorna números enteros aleatorios de `low` (inclusivo) a `high` (exclusivo), o si `endpoint=True`, de `low` (inclusivo) a `high` (inclusivo).
+  - Retorna números enteros aleatorios de _low_ (inclusivo) a _high_ (exclusivo), o si `endpoint=True`, de _low_ (inclusivo) a _high_ (inclusivo).
 * - [random](https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.random.html)([size, dtype, out])
-  - Devuelve flotantes aleatorios en el intervalo semiabierto [0.0, 1.0).
+  - Devuelve flotantes aleatorios en el intervalo semiabierto _[0.0, 1.0)_.
 ```
 
 <br>
@@ -166,7 +168,7 @@ Métodos para permutaciones aleatorias.
 * - [permutation](https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.permutation.html)(x[, axis])
   - Permuta aleatoriamente una secuencia o devuelve un rango permutado.
 * - [permuted](https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.permuted.html)(x[, axis, out])
-  - Permuta aleatoriamente `x` a lo largo del eje `axis`.
+  - Permuta aleatoriamente _x_ a lo largo del eje _axis_.
 * - [shuffle](https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.shuffle.html)(x[, axis])
   - Modifica una secuencia _in-place_ ordenando su contenido aleatoriamente.
 ```
@@ -260,9 +262,9 @@ Funciones para la generación de muestras aleatorias de distribuciones de probab
 * - [standard_normal](https://numpy.org/doc/stable/reference/random/generated/numpy.random.standard_normal.html)([size])
   - Genera muestras de una distribución normal estándar (media = 0, desviación estándar = 1).
 * - [standard_t](https://numpy.org/doc/stable/reference/random/generated/numpy.random.standard_t.html)(df[, size])
-  - Genera muestras de una distribución t de Student estándar con `df` grados de libertad.
+  - Genera muestras de una distribución t de Student estándar con _df_ grados de libertad.
 * - [triangular](https://numpy.org/doc/stable/reference/random/generated/numpy.random.triangular.html)(left, mode, right[, size])
-  - Genera muestras de la distribución triangular sobre el intervalo `[left, right]`.
+  - Genera muestras de la distribución triangular sobre el intervalo _[left, right]_.
 * - [uniform](https://numpy.org/doc/stable/reference/random/generated/numpy.random.uniform.html)([low, high, size])
   - Genera muestras de una distribución uniforme.
 * - [vonmises](https://numpy.org/doc/stable/reference/random/generated/numpy.random.vonmises.html)(mu, kappa[, size])
@@ -291,13 +293,13 @@ Funciones para la generación básica de números aleatorios.
 * - [rand](https://numpy.org/doc/stable/reference/random/generated/numpy.random.rand.html)(d0, d1, ..., dn)
   - Retorna un arreglo con valores aleatorios en un _shape_ determinado.
 * - [randint](https://numpy.org/doc/stable/reference/random/generated/numpy.random.randint.html)(low[, high, size, dtype])
-  - Devuelve números enteros aleatorios entre `low` y `high` (exclusivo).
+  - Devuelve números enteros aleatorios entre _low_ y _high_ (exclusivo).
 * - [randn](https://numpy.org/doc/stable/reference/random/generated/numpy.random.randn.html)(d0, d1, ..., dn)
   - Devuelva una muestra (o muestras) de la distribución "normal estándar".
 * - [random](https://numpy.org/doc/stable/reference/random/generated/numpy.random.random.html)([size])
   - Devuelve flotantes aleatorios en el intervalo semiabierto [0.0, 1.0).
 * - [random_integers](https://numpy.org/doc/stable/reference/random/generated/numpy.random.random_integers.html)(low[, high, size])
-  - Números enteros aleatorios de tipo `np.int_` entre `low` y `high`, inclusivos.
+  - Números enteros aleatorios de tipo `np.int_` entre _low_ y _high_, inclusivos.
 * - [random_sample](https://numpy.org/doc/stable/reference/random/generated/numpy.random.random_sample.html)([size])
   - Devuelve flotantes aleatorios en el intervalo semiabierto [0.0, 1.0).
 ```

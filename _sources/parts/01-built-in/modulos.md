@@ -1,6 +1,6 @@
 # Paquetes y Módulos
 
-Un **módulo** es un archivo de Python, con extensión _.py_, que contiene una seríe de funciones, variables y/o contantes. Un **paquete** es un conjunto de módulos. Es posible importar módulos y paquetes a un script para tener acceso a todo el contenido del módulo o paquete.
+Un **módulo** es un archivo de Python, con extensión _.py_, que contiene una serie de clases, funciones, variables y/o contantes. Un **paquete** es un conjunto de módulos. Es posible importar módulos y paquetes a un _script_ para tener acceso a todo el contenido del módulo o paquete.
 
 ```{attention} Antes de importar un módulo/paquete externo se tuvo que haber instalado.
 ```
@@ -34,14 +34,19 @@ import package_name as alias
 ```python
 # Importar módulo de un paquete
 import package_name.module_name
+import package_name.module_name as alias # Con alias
+
+# Importar módulo de un paquete
+from package_name import module_name
+from package_name import module_name as alias # Con alias
 
 # Importar módulo de un paquete con un alias
-import package_name.module_name as alias
+
 ```
 - _package_name_ es el nombre del paquete.
 - _module_name_ es el nombre del módulo.
 - _alias_ es un nombre arbitrario opcional.
-- Al importar un paquete de esta forma, para usar los objetos del módulo es necesario poner el nombre del paquete y módulo o alias del módulo antes del nombre del objeto: <br/> `package_name.module_name.object_name`  <br/> `alias.object_name`
+- Al importar un paquete de esta forma, para usar los objetos del módulo es necesario poner el nombre del paquete y módulo, solo el módulo o alias del módulo antes del nombre del objeto, dependiendo de cómo se haya importado: <br/> `package_name.module_name.object_name` <br/> `module_name.object_name`  <br/> `alias.object_name`
 
 
 <br/>
@@ -56,7 +61,7 @@ from package_name.module_name import obj1, obj2, ...
 ```
 - _package_name_ es el nombre del paquete.
 - _module_name_ es el nombre del módulo.
-- _obji_ es el nombre del objeto _i_. 
+- _obj1, obj2, ..._ son los nombres de los objetos. 
 - Si se importa un objeto de esta forma se puede usar directamente en el _script_ únicamente con el nombre del objeto, sin hacer referencia al paquete/módulo: <br/> `obj_name`
 
 <br/>

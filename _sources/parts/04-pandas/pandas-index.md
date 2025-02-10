@@ -25,6 +25,7 @@ conda install pandas
 
 Una vez instalado se debe de importar
 ```python
+# Importar pandas a la sesión
 import pandas as pd
 ```
 - `pd` es el alias por convención.
@@ -32,13 +33,16 @@ import pandas as pd
 
 Para conocer la versión de `pandas` instalada usar:
 ```python
+# Verificar la versión de pandas
 pd.__version__ 
 ```
 
+</br>
+
 En pandas existen tres objetos que son con los que se estará trabajando principalmente:
-- `Index`: Es un array inmutable que puede ser de cualquier tipo de dato, pero todos los elementos del mismo tipo, funje el papel de identificar por medio de etiquetas cada fila o columna. Puede ser visto como un `set` ordenado o un multi set ordenado, aunque `Index` puede tener valores repetidos.
-- `Series`: Es un `ndarray` unidimensional (un vector columna) que puede ser de cualquier tipo de dato, pero todos los elementos del mismo tipo. Además las filas tienen un `Index` para identificar a cada fila.
-- `DataFrame`: Aunque principalemente se podría considerar a un `DataFrame` como un `ndarray` bidimensional, como una matriz que tiene filas y columnas, en términos generales es un `ndarray` multidimensional, pero para efectos prácticos se considerará como una matriz. Las columnas pueden ser de diferentes tipos entre sí, pero los elementos de cada columna deben de ser todos del mismo tipo. Tanto las filas como las columna tiene etiquetas que identifican los elementos mediante objetos `Index`.
+- {doc}`./index`: Es un array inmutable que puede ser de cualquier tipo de dato, pero todos los elementos del mismo tipo, funje el papel de identificar por medio de etiquetas cada fila o columna. Puede ser visto como un `set` ordenado o un multi set ordenado, aunque `Index` puede tener valores repetidos.
+- {doc}`./series`: Es un `ndarray` unidimensional (un vector columna) que puede ser de cualquier tipo de dato, pero todos los elementos del mismo tipo. Además las filas tienen un `Index` para identificar a cada fila.
+- {doc}`./dataframe`: Aunque se podría considerar a un `DataFrame` como un `ndarray` bidimensional, como una matriz que tiene filas y columnas, en términos generales es un `ndarray` multidimensional, pero para efectos prácticos se considerará como una matriz. Las columnas pueden ser de diferentes tipos entre sí, pero los elementos de cada columna deben de ser todos del mismo tipo. Tanto las filas como las columna tiene etiquetas que identifican los elementos mediante objetos `Index`.
 
 Las tres clases anteriores funcionan de manera similar a como funcionan los arrays de `numpy`, por ejemplo, las operaciones entre estos objetos están vectorizadas y muchas funciones de `numpy` también se pueden usar con estas clases.
 
@@ -80,18 +84,14 @@ En las principales clases de `pandas` existen restricciones con respecto a los t
 1. `None`: Es un objeto _built-in_ de Python que representa un valor pérdido.
 2. `NaN`: Es un valor `float` que representa un valor numérico pérdido. 
 
-Por lo tanto para que los objetos de `pandas` puedan contener valores perdidos, respetando las restrcciones de tipos de datos, es necesario que éstos se conviertan a tipo `object` o `float`, siguiendo la siguientes reglas:
+Por lo tanto para que los objetos de `pandas` puedan contener valores perdidos, respetando las restricciones de tipos de datos, es necesario que éstos se conviertan a tipo `object` o `float`, siguiendo la siguientes reglas:
 1. Los objetos de tipo `object` pueden contener `None` o `np.nan`.
-2. En los objetos de tipo `float` se convierte los `None` a `np.nan`.
+2. En los objetos de tipo `float` se convierten los `None` a `np.nan`.
 3. Los objetos de tipo `int` se covierten a `float` en caso de que haya valores `np.nan` o `None`.
 4. Los objetos de tipo `bool` se convierten a `object` en caso de que haya valores `np.nan` o `None`.
 
 :::{note}
-En `pandas` existen _arrays_ que permiten valores perdidos como _nullable integer_, _nullable float_, _nullable boolean_, así como otros de tipo fecha  y tiempo como _datetimes_ y _timedeltas_, para ello se usan las clases `pd.NA` y `pd.NaT`.
-:::
-
-:::{warning}
-
+En `pandas` existen _arrays_ que permiten valores perdidos como _nullable integer_, _nullable float_, _nullable boolean_, así como otros de tipo fecha  y tiempo como _datetimes_ y _timedeltas_, estos valores pérdidos se representarán por los objetos `pd.NA` y `pd.NaT`.
 :::
 
 <br>
@@ -99,11 +99,11 @@ En `pandas` existen _arrays_ que permiten valores perdidos como _nullable intege
 ---
 ## Operaciones entre objetos 
 
-Al realizar operaciones con las clases de _pandas_ tener en cuenta las siguientes características.
+Al realizar operaciones con las clases de `pandas` tener en cuenta las siguientes características.
 
 ### Operaciones unitarias
 
-Si la operación es unitaria, es decir, que utiliza un solo objeto como elevar al cuadrado, entonces el objeto resultante tendrá el mismo `Index` que el objeto original:
+Si la operación es unitaria, es decir, que utiliza un solo objeto, como elevar al cuadrado, entonces el objeto resultante tendrá el mismo `Index` que el objeto original:
 
 ```{code-cell} ipython3
 # Importar librería
@@ -133,7 +133,7 @@ o = pd.Series(data = [1, 3, 5, 7, 9],
 # Imprimir el objeto
 print(s+o)
 ```
-- **Importante**: Notar que el índice se ordena de manera ascendente. Lo mismo ocurriría en el caso de únion de columnas en `DataFrame`s.
+- **Importante**: Notar que el índice se ordena de manera ascendente. Lo mismo ocurriría con las columnas en `DataFrame`s.
 
 :::{tip}
 En caso de que la operación se realice con una función o método, es posible que se pueda utilizar el parámetro _fill_ para indicar algún valor para rellenar los valores `NaN`.
@@ -166,7 +166,7 @@ Recordar que la operación únicamente se realizará entre los índices coincide
 ```
 
 **Ejemplo:**
-En este ejemplo se puede observar una operación a nivel columnas (en el eje 1, comportamiento por default), el índice del `Series` se alinea con las columnas del `DataFrame`, de tal forma que a toda la columna `a` del `df` se le suma 2 y a toda las columna `b` se le suma 4. Además se puede observar que los índices que no están en los dos objetos (en este caso `c`) también aparecen en el resultado pero con `NaN`.
+En este ejemplo se puede observar una operación a nivel columnas (en el eje 1, comportamiento por default), el índice del `Series` se alinea con las columnas del `DataFrame`, de tal forma que a toda la columna _a_ del `df` se le suma 2 y a toda las columna _b_ se le suma 4. Además se puede observar que los índices que no están en los dos objetos (en este caso _c_) también aparecen en el resultado pero con `NaN`.
 
 ```{code-cell} ipython3
 # Importar libreria
@@ -181,6 +181,22 @@ df = pd.DataFrame({'a': [1, 2, 3], 'b': [4, 5, 6]})
 # Realizar operación a nivel de columnas
 print(df.add(x))
 ```
+
+<br>
+
+---
+## Parámetro _axis_
+
+En las funciones y/o métodos que tienen el parámetro _axis_ significa que la función/método se puede aplicar únicamente en un eje determinado, dando como resultado un objeto de una dimensión menor con respecto al número de dimensiones del objeto original. Tomar como referencia la imagen para conceptualizar cómo se aplica la función dependiendo del eje indicado en un `DataFrame`.
+
+```{image} ../images/2d-func-axis.png
+:name: axis-2D-func
+:width: 300px
+:align: center
+```
+Independientemente del eje indicado el objeto retornado en la mayoría de los casos será un `Series` o un escalar.
+- `axis=0` o `'index'`: En este caso se aplica la función a cada colummna a lo largo del índice.
+- `axis=1` o `'columns'`: En este caso se aplica la función a cada fila a lo largo de las columnas.
 
 ## Tabla de contenido
 

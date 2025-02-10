@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -70,7 +70,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Arrays" href="arrays.html" />
-    <link rel="prev" title="Statistics" href="../02-modulos/statistics.html" />
+    <link rel="prev" title="urllib.request" href="../02-modulos/urllib-request.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -181,26 +181,26 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    Manual de Python
+                    Manual de Python para Data Science
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Built-in</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../01-built-in/built-in-index.html">Python estándar</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01-built-in/built-in-index.html">Python Estándar</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../01-built-in/ayuda.html">Obtener ayuda</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../01-built-in/comentarios.html">Comentarios</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../01-built-in/tipos-datos.html">Tipos de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/tipos-datos.html">Tipos de Datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/variables-constantes.html">Variables y Constantes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../01-built-in/operadores-palabras.html">Operadores y palabras reservadas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../01-built-in/entrada-salida.html">Entrada y salida de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/entrada-salida.html">Impresión y solicitud de datos</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/tipos-index.html">Tipos Built-In</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../01-built-in/booleanos.html">Valores booleanos</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../01-built-in/numeros.html">Números</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../01-built-in/cadenas.html">Cadenas</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../01-built-in/listas.html">Listas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/none-bool-numericos.html"><em>None</em>, <em>bool</em> y Numéricos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/str.html">str</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/lists.html">list</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../01-built-in/tuples.html">Tuples</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../01-built-in/sets.html">Sets</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../01-built-in/diccionarios.html">Diccionarios</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/dicts.html">dict</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -209,10 +209,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l3"><a class="reference internal" href="../01-built-in/do-while.html">Do While</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../01-built-in/funciones.html">Funciones</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../01-built-in/try-except.html">Exceptions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../01-built-in/context.html">Context Managers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../01-built-in/io.html">Lectura y escritura de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/udf.html">Funciones (UDF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/exceptions.html">Excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/context-managers.html">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/io.html">Lectura y escritura de archivos (IO)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../01-built-in/modulos.html">Paquetes y Módulos</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/avanzado-index.html">Temas avanzados</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../01-built-in/decorators.html">Decorators</a></li>
@@ -231,12 +231,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/itertools.html">Itertools</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/json.html">JSON</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/math.html">Math</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os.html">os</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os-path.html">os.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os.html">Os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os-path.html">Os.path</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/pickle.html">Pickle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/random.html">Random</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02-modulos/regular-expression.html">Regular Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/regex.html">Regex</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/statistics.html">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/urllib-request.html">urllib.request</a></li>
 </ul>
 </li>
 </ul>
@@ -270,16 +271,32 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../04-pandas/escalares-arrays.html">Escalares y Arrays</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../04-pandas/otras-clases.html">Otras clases</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../04-pandas/groupby.html">GroupBy</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../04-pandas/expanding-rolling-window.html">Expanding, Rolling y Window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/expanding-rolling-window.html"><em>Expanding, Rolling</em> y <em>Window</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/resampler.html">Resampler</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../04-pandas/funciones.html">Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/patrones-pandas.html">Patrones útiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05-matplotlib/matplotlib-index.html">Matplotlib</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/pyplot.html">Pyplot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/figure.html">Figure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/axes.html">Axes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/otros.html">Otras Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06-seaborn/seaborn-index.html">Seaborn</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06-seaborn/funciones-clases.html">Funciones y Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-seaborn/objects-interface.html">Interface por objetos</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Otros</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../08-otros/otros-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-otros/otros-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../08-otros/IPython.html">IPython</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../08-otros/beautifulsoup.html">Web Scraping</a></li>
 </ul>
@@ -432,7 +449,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-datos">Tipos de datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-datos">Tipos de datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crear-escalares">Crear escalares</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indicar-el-tipo-de-dato-de-un-array">Indicar el tipo de dato de un <em>array</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetimes-y-timedeltas">Datetimes y Timedeltas</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tabla-de-contenido">Tabla de contenido</a></li>
 </ul>
             </nav>
@@ -457,7 +479,8 @@ document.write(`
 </pre></div>
 </div>
 <p>Una vez instalado se debe de importar</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar numpy a la sesión activa</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -465,7 +488,8 @@ document.write(`
 <li><p>En este sitio se utilizará <code class="docutils literal notranslate"><span class="pre">np</span></code> como alias.</p></li>
 </ul>
 <p>Para conocer la versión de <code class="docutils literal notranslate"><span class="pre">numpy</span></code> instalada usar:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">__version__</span> 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Concer la versión de numpy instalada</span>
+<span class="n">np</span><span class="o">.</span><span class="n">__version__</span> 
 </pre></div>
 </div>
 <br/>
@@ -487,91 +511,91 @@ document.write(`
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">int8</span></code></p></td>
+<tr class="row-even"><td><p><em>int8</em></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">np.byte</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">'i1'</span></code></p></td>
 <td><p>Entero de 8 bits (-128 a 127)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">int16</span></code></p></td>
+<tr class="row-odd"><td><p><em>int16</em></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">np.short</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">'i2'</span></code></p></td>
 <td><p>Entero de 16 bits (-32768 a 32767)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">int32</span></code></p></td>
+<tr class="row-even"><td><p><em>int32</em></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">np.intc</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">'i4'</span></code></p></td>
 <td><p>Entero de 32 bits</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">int64</span></code></p></td>
+<tr class="row-odd"><td><p><em>int64</em></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">np.int_</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">'i8'</span></code></p></td>
 <td><p>Entero de 64 bits</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">int</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">uint8</span></code></p></td>
+<tr class="row-even"><td><p><em>uint8</em></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">np.ubyte</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">'u1'</span></code></p></td>
 <td><p>Entero sin signo de 8 bits (0 a 255)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">uint16</span></code></p></td>
+<tr class="row-odd"><td><p><em>uint16</em></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">np.ushort</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">'u2'</span></code></p></td>
 <td><p>Entero sin signo de 16 bits (0 a 65535)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">uint32</span></code></p></td>
+<tr class="row-even"><td><p><em>uint32</em></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">np.uintc</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">'u4'</span></code></p></td>
 <td><p>Entero sin signo de 32 bits</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">uint64</span></code></p></td>
+<tr class="row-odd"><td><p><em>uint64</em></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">np.uint</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">'u8'</span></code></p></td>
 <td><p>Entero sin signo de 64 bits</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">float16</span></code></p></td>
+<tr class="row-even"><td><p><em>float16</em></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">np.half</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">'f2'</span></code></p></td>
 <td><p>Punto flotante de 16 bits</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<tr class="row-odd"><td><p><em>float32</em></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">np.single</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">'f4'</span></code></p></td>
 <td><p>Punto flotante de 32 bits</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">float64</span></code></p></td>
+<tr class="row-even"><td><p><em>float64</em></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">np.double</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">'f8'</span></code></p></td>
 <td><p>Punto flotante de 64 bits</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">float128</span></code></p></td>
+<tr class="row-odd"><td><p><em>float128</em></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">np.longdouble</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">'f16'</span></code></p></td>
 <td><p>Punto flotante de 128 bits</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">complex64</span></code></p></td>
+<tr class="row-even"><td><p><em>complex64</em></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">np.csingle</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">'c8'</span></code></p></td>
 <td><p>Número complejo de 64 bits</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">complex128</span></code></p></td>
+<tr class="row-odd"><td><p><em>complex128</em></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">np.cdouble</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">'c16'</span></code></p></td>
 <td><p>Número complejo de 128 bits</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">complex</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">complex256</span></code></p></td>
+<tr class="row-even"><td><p><em>complex256</em></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">np.clongdouble</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">'c32'</span></code></p></td>
 <td><p>Número complejo de 256 bits</p></td>
@@ -582,39 +606,39 @@ document.write(`
 <p>Además existen los siguientes otros tipos de datos:</p>
 <table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Objeto NumPy</p></th>
+<tr class="row-odd"><th class="head"><p>Clase de <code class="docutils literal notranslate"><span class="pre">numpy</span></code></p></th>
 <th class="head"><p>Código en Cadena</p></th>
 <th class="head"><p>Descripción</p></th>
 <th class="head"><p>Tipo <em>built-in</em> de Python relacionado</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">np.str_</span></code></p></td>
+<tr class="row-even"><td><p><em>np.str_</em></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">'U'</span></code></p></td>
 <td><p>Cadena <em>unicode</em></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">np.bool_</span></code></p></td>
+<tr class="row-odd"><td><p><em>np.bool</em></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">'?'</span></code></p></td>
 <td><p>Tipo booleano (<code class="docutils literal notranslate"><span class="pre">True</span></code> o <code class="docutils literal notranslate"><span class="pre">False</span></code>)</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">np.bytes_</span></code></p></td>
+<tr class="row-even"><td><p><em>np.bytes</em>_</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">'b'</span></code></p></td>
 <td><p>Tipo booleano (<code class="docutils literal notranslate"><span class="pre">True</span></code> o <code class="docutils literal notranslate"><span class="pre">False</span></code>)</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">bytes</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">np.datetime64</span></code></p></td>
+<tr class="row-odd"><td><p><em>np.datetime64</em></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">'M'</span></code></p></td>
 <td><p>Fecha y hora</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">np.timedelta64</span></code></p></td>
+<tr class="row-even"><td><p><em>np.timedelta64</em></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">'m'</span></code></p></td>
 <td><p>Diferencia entre dos fechas y horas</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">datetime.timedelta</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">np.object_</span></code></p></td>
+<tr class="row-odd"><td><p><em>np.object</em>_</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">'O'</span></code></p></td>
 <td><p>Objeto genérico (cualquier tipo de dato)</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">object</span></code></p></td>
@@ -623,14 +647,142 @@ document.write(`
 </table>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
-<p>La gran mayoría de tipos en <code class="docutils literal notranslate"><span class="pre">numpy</span></code> tienen alias, por ejemplo <code class="docutils literal notranslate"><span class="pre">np.float_</span></code> es un alias de <code class="docutils literal notranslate"><span class="pre">np.double</span></code>, para revisar los alias visitar la <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#built-in-scalar-types">documentación</a> de <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, particularmente la sección de <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#other-aliases">Otros alias</a>.</p>
+<p>La gran mayoría de tipos en <code class="docutils literal notranslate"><span class="pre">numpy</span></code> tienen alias, por ejemplo <code class="docutils literal notranslate"><span class="pre">np.float_</span></code> es un alias de <code class="docutils literal notranslate"><span class="pre">np.double</span></code>, para revisar los alias visitar la <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#built-in-scalar-types">documentación</a> de <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, particularmente la sección de <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#sized-aliases">Otros alias</a>.</p>
 </div>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>Para una lista completa visitar la <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html">documentación</a> de <code class="docutils literal notranslate"><span class="pre">numpy</span></code>.</p>
 </div>
 <br/>
+<hr class="docutils" />
+<section id="crear-escalares">
+<h3>Crear escalares<a class="headerlink" href="#crear-escalares" title="Link to this heading">#</a></h3>
+<p>Es posible crear escalares de los tipos de datos de <code class="docutils literal notranslate"><span class="pre">numpy</span></code>. Para ello se puede usar cualquiera de las clases enlistadas anteriormente y un valor válido correspondiente a la clase:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ejemplo de escalar numérico</span>
+<span class="n">np</span><span class="o">.</span><span class="n">single</span><span class="p">(</span><span class="mf">3.14</span><span class="p">)</span> <span class="c1"># Opción con la clase</span>
+<span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">(</span><span class="mf">3.14</span><span class="p">)</span> <span class="c1"># Opción con el alias de la clase</span>
+
+<span class="c1"># Ejemplo de escalas de cadena</span>
+<span class="n">np</span><span class="o">.</span><span class="n">str_</span><span class="p">(</span><span class="s2">&quot;Hola mundo!&quot;</span><span class="p">)</span>
+
+<span class="c1"># Ejemplo de escalar booleano</span>
+<span class="n">np</span><span class="o">.</span><span class="n">bool_</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Ejemplo de escalar de fecha y tiempo</span>
+<span class="n">np</span><span class="o">.</span><span class="n">datetime64</span><span class="p">(</span><span class="s1">&#39;2000-01-01&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Se puede usar tanto las clases como sus alias para crear los escalares.</p></li>
+</ul>
+<hr class="docutils" />
 </section>
+<section id="indicar-el-tipo-de-dato-de-un-array">
+<span id="numpy-tipo-datos-array"></span><h3>Indicar el tipo de dato de un <em>array</em><a class="headerlink" href="#indicar-el-tipo-de-dato-de-un-array" title="Link to this heading">#</a></h3>
+<p>Se puede usar la función <code class="docutils literal notranslate"><span class="pre">np.array()</span></code> junto con el parámetro <em>dtype</em> asignado a una clase del escalar, su alias o su código para indicar el tipo de dato, como argumento se debe de pasar un valor válido correspondiente al tipo de dato indicado:</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>La función <code class="docutils literal notranslate"><span class="pre">np.array()</span></code> no es la única que acepta el parámetro <em>dtype</em>, otras <a class="reference internal" href="creacion-arrays.html"><span class="doc">Funciones</span></a> como <code class="docutils literal notranslate"><span class="pre">np.arange()</span></code> también lo admiten y es útil para crear rangos de fechas.</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ejemplo de array numérico</span>
+<span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">3.14</span><span class="p">,</span> <span class="mf">3.15</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">single</span><span class="p">)</span> <span class="c1"># Opción con la clase</span>
+<span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">3.14</span><span class="p">,</span> <span class="mf">3.15</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="c1"># Opción con el alias de la clase</span>
+<span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">3.14</span><span class="p">,</span> <span class="mf">3.15</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span> <span class="c1"># Opción con el código de la clase</span>
+
+<span class="c1"># Ejemplo de array de cadenas</span>
+<span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s2">&quot;Hola&quot;</span><span class="p">,</span> <span class="s2">&quot;mundo!&quot;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">str_</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s2">&quot;Hola&quot;</span><span class="p">,</span> <span class="s2">&quot;mundo!&quot;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;U&#39;</span><span class="p">)</span>
+
+<span class="c1"># Ejemplo de array booleano</span>
+<span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">bool</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">bool_</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;?&#39;</span><span class="p">)</span>
+
+<span class="c1"># Ejemplo de array de fechas y tiempo</span>
+<span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;2000-01-01&#39;</span><span class="p">,</span> <span class="s1">&#39;2000-01-02&#39;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">datetime64</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;2000-01-01&#39;</span><span class="p">,</span> <span class="s1">&#39;2000-01-02&#39;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;datetime64[D]&#39;</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;2000-01-01&#39;</span><span class="p">,</span> <span class="s1">&#39;2000-01-02&#39;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;M&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="datetimes-y-timedeltas">
+<h3>Datetimes y Timedeltas<a class="headerlink" href="#datetimes-y-timedeltas" title="Link to this heading">#</a></h3>
+<p>En los tipos <em>np.datetime64</em> y <em>np.timedelta64</em> se pueden indicar la unidad en la que están los datos, tomar en cuenta lo siguiente:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">np.datetime64</span></code>:</p>
+<ul>
+<li><p>Representa un desfase desde 1970-01-01 00:00:00.</p></li>
+<li><p>Se puede definir de las siguientes maneras:</p>
+<ul>
+<li><p>Como un número (es necesario indicar una unidad), tener en cuenta que el resultado será un desfase desde 1970-01-01 00:00:00.</p></li>
+<li><p>Como una cadena que respete <em>ISO 8601</em> o el formato <em>datetime</em>, se puede forzar una unidad al indicarla.</p></li>
+<li><p>Como <em>NaT</em> que representa un valor que no es una fecha.</p></li>
+<li><p>Si se define en el parámetro <em>dtype</em> se debe de poner como una cadena y entre corchetes indicar la unidad: <code class="docutils literal notranslate"><span class="pre">datetime64[unit]</span></code>.</p></li>
+<li><p>Ejemplos: <br/> <code class="docutils literal notranslate"><span class="pre">np.datetime64('2005-02-25T03:30')</span> <span class="pre">#</span> <span class="pre">-&gt;</span> <span class="pre">np.datetime64('2005-02-25T03:30')</span></code> <br/> <code class="docutils literal notranslate"><span class="pre">np.datetime64(1,</span> <span class="pre">'Y')</span> <span class="pre">#</span> <span class="pre">-&gt;</span> <span class="pre">np.datetime64('1971')</span></code> <br/> <code class="docutils literal notranslate"><span class="pre">np.datetime64('2005-02')</span> <span class="pre">#</span> <span class="pre">-&gt;</span> <span class="pre">np.datetime64('2005-02')</span></code> <br/> <code class="docutils literal notranslate"><span class="pre">np.datetime64('2005-02',</span> <span class="pre">'D')</span> <span class="pre">#</span> <span class="pre">-&gt;</span> <span class="pre">np.datetime64('2005-02-01')</span></code> <br/> <code class="docutils literal notranslate"><span class="pre">np.datetime64('nat')</span> <span class="pre">#</span> <span class="pre">-&gt;</span> <span class="pre">np.datetime64('NaT')</span></code></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">np.timedelta</span></code>:</p>
+<ul>
+<li><p>Representa una diferencia entre dos fechas y tiempos.</p></li>
+<li><p>Se puede definir de las siguientes maneras:</p>
+<ul>
+<li><p>Como un número (es necesario indicar una unidad). Para <em>timedeltas</em> más complejos (de múltiples unidades) se pueden sumar/restar <em>timedeltas</em> para conseguir el valor deseado.</p></li>
+<li><p>Como <em>NaT</em> que representa un valor que no es una fecha.</p></li>
+<li><p>Si se define en el parámetro <em>dtype</em> se debe de poner como una cadena y entre corchetes indicar la unidad: <code class="docutils literal notranslate"><span class="pre">timedelta64[unit]</span></code>.</p></li>
+<li><p>Ejemplos: <br/> <code class="docutils literal notranslate"><span class="pre">np.timedelta64(1,</span> <span class="pre">'D')</span> <span class="pre">#</span> <span class="pre">-&gt;</span> <span class="pre">np.timedelta64(1,'D')</span></code> <br/> <code class="docutils literal notranslate"><span class="pre">np.timedelta64('nAt')</span> <span class="pre">#</span> <span class="pre">-&gt;</span> <span class="pre">np.timedelta64('NaT')</span></code></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Las unidades válidas son las siguientes:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Código</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>D</p></td>
+<td><p>Día.</p></td>
+</tr>
+<tr class="row-odd"><td><p>M</p></td>
+<td><p>Mes.</p></td>
+</tr>
+<tr class="row-even"><td><p>W</p></td>
+<td><p>Semana.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Y</p></td>
+<td><p>año.</p></td>
+</tr>
+<tr class="row-even"><td><p>h</p></td>
+<td><p>Horas.</p></td>
+</tr>
+<tr class="row-odd"><td><p>m</p></td>
+<td><p>Minutos.</p></td>
+</tr>
+<tr class="row-even"><td><p>s</p></td>
+<td><p>Segundos.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ms</p></td>
+<td><p>Milisegundos.</p></td>
+</tr>
+<tr class="row-even"><td><p>us</p></td>
+<td><p>Microsegundos.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ns</p></td>
+<td><p>Nanosegundos.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Para más información visitar la <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.datetime.html#datetime-units">documentación</a> de <code class="docutils literal notranslate"><span class="pre">numpy</span></code>.</p>
+<br/>
+</section>
+</section>
+<hr class="docutils" />
 <section id="tabla-de-contenido">
 <h2>Tabla de contenido<a class="headerlink" href="#tabla-de-contenido" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
@@ -689,12 +841,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../02-modulos/statistics.html"
+       href="../02-modulos/urllib-request.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Statistics</p>
+        <p class="prev-next-title">urllib.request</p>
       </div>
     </a>
     <a class="right-next"
@@ -722,7 +874,12 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-datos">Tipos de datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-datos">Tipos de datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crear-escalares">Crear escalares</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indicar-el-tipo-de-dato-de-un-array">Indicar el tipo de dato de un <em>array</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datetimes-y-timedeltas">Datetimes y Timedeltas</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tabla-de-contenido">Tabla de contenido</a></li>
 </ul>
   </nav></div>

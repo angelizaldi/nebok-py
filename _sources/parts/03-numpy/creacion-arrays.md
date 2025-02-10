@@ -1,6 +1,6 @@
 # Creación de arrays
 
-En esta sección se enlistan funciones relacionadas con la creación de arrays.
+En esta sección se enlistan funciones relacionadas con la creación de _arrays_.
 
 :::{warning}
 Para una lista completa visitar la [documentación](https://numpy.org/doc/stable/reference/routines.array-creation.html#array-creation-routines) de `numpy`.
@@ -9,7 +9,7 @@ Para una lista completa visitar la [documentación](https://numpy.org/doc/stable
 ---
 ## Datos existentes
 
-Funciones para crear arrays desde otros objetos. Para importar datos desde archivos consultar {doc}`lectura-escritura`. 
+Funciones para crear _arrays_ desde otros objetos. Para importar datos desde archivos consultar {doc}`lectura-escritura`. 
 
 ```{list-table}
 :header-rows: 1
@@ -32,7 +32,7 @@ Funciones para crear arrays desde otros objetos. Para importar datos desde archi
 
 ## Forma o valor
 
-Funciones para crear arrays indicando la forma (_shape_) del array y valores por default que deben de tener. 
+Funciones para crear _arrays_ indicando la forma (_shape_) del _array_ y valores por default que deben de tener. 
 
 ```{list-table}
 :header-rows: 1
@@ -46,9 +46,9 @@ Funciones para crear arrays indicando la forma (_shape_) del array y valores por
 * - [eye](https://numpy.org/doc/stable/reference/generated/numpy.eye.html)(N[, M, k, dtype, order, like])
   - Devuelve un arreglo 2D con unos en la diagonal y ceros en el resto de los elementos.
 * - [full](https://numpy.org/doc/stable/reference/generated/numpy.full.html)(shape, fill_value[, dtype, order, like])
-  - Devuelve un arreglo nuevo de forma y tipo dados, relleno con `fill_value`.
+  - Devuelve un arreglo nuevo de forma y tipo dados, relleno con _fill_value_.
 * - [full_like](https://numpy.org/doc/stable/reference/generated/numpy.full_like.html)(a, fill_value[, dtype, order, ...])
-  - Devuelve un arreglo relleno con `fill_value` con la misma forma y tipo que un arreglo determinado.
+  - Devuelve un arreglo relleno con _fill_value_ con la misma forma y tipo que un arreglo determinado.
 * - [identity](https://numpy.org/doc/stable/reference/generated/numpy.identity.html)(n[, dtype, like])
   - Devuelve una matriz identidad.
 * - [ones](https://numpy.org/doc/stable/reference/generated/numpy.ones.html)(shape[, dtype, order, like])

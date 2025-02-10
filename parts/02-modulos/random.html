@@ -69,7 +69,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="icon" href="../../_static/nebok-favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Regular Expressions" href="regular-expression.html" />
+    <link rel="next" title="Regex" href="regex.html" />
     <link rel="prev" title="Pickle" href="pickle.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -181,26 +181,26 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    Manual de Python
+                    Manual de Python para Data Science
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Built-in</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../01-built-in/built-in-index.html">Python estándar</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01-built-in/built-in-index.html">Python Estándar</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../01-built-in/ayuda.html">Obtener ayuda</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../01-built-in/comentarios.html">Comentarios</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../01-built-in/tipos-datos.html">Tipos de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/tipos-datos.html">Tipos de Datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/variables-constantes.html">Variables y Constantes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../01-built-in/operadores-palabras.html">Operadores y palabras reservadas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../01-built-in/entrada-salida.html">Entrada y salida de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/entrada-salida.html">Impresión y solicitud de datos</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/tipos-index.html">Tipos Built-In</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../01-built-in/booleanos.html">Valores booleanos</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../01-built-in/numeros.html">Números</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../01-built-in/cadenas.html">Cadenas</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../01-built-in/listas.html">Listas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/none-bool-numericos.html"><em>None</em>, <em>bool</em> y Numéricos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/str.html">str</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/lists.html">list</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../01-built-in/tuples.html">Tuples</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../01-built-in/sets.html">Sets</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../01-built-in/diccionarios.html">Diccionarios</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/dicts.html">dict</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -209,10 +209,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l3"><a class="reference internal" href="../01-built-in/do-while.html">Do While</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../01-built-in/funciones.html">Funciones</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../01-built-in/try-except.html">Exceptions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../01-built-in/context.html">Context Managers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../01-built-in/io.html">Lectura y escritura de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/udf.html">Funciones (UDF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/exceptions.html">Excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/context-managers.html">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/io.html">Lectura y escritura de archivos (IO)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../01-built-in/modulos.html">Paquetes y Módulos</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/avanzado-index.html">Temas avanzados</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../01-built-in/decorators.html">Decorators</a></li>
@@ -231,12 +231,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="itertools.html">Itertools</a></li>
 <li class="toctree-l2"><a class="reference internal" href="json.html">JSON</a></li>
 <li class="toctree-l2"><a class="reference internal" href="math.html">Math</a></li>
-<li class="toctree-l2"><a class="reference internal" href="os.html">os</a></li>
-<li class="toctree-l2"><a class="reference internal" href="os-path.html">os.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="os.html">Os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="os-path.html">Os.path</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pickle.html">Pickle</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Random</a></li>
-<li class="toctree-l2"><a class="reference internal" href="regular-expression.html">Regular Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regex.html">Regex</a></li>
 <li class="toctree-l2"><a class="reference internal" href="statistics.html">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="urllib-request.html">urllib.request</a></li>
 </ul>
 </li>
 </ul>
@@ -264,22 +265,38 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04-pandas/pandas-index.html">Pandas</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../04-pandas/index.html">Objetos Index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/index.html">Index</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04-pandas/series.html">Series</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04-pandas/dataframe.html">DataFrame</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04-pandas/escalares-arrays.html">Escalares y Arrays</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../04-pandas/otras-clases.html">Otras clases</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../04-pandas/groupby.html">GroupBy</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../04-pandas/expanding-rolling-window.html">Expanding, Rolling y Window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/expanding-rolling-window.html"><em>Expanding, Rolling</em> y <em>Window</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/resampler.html">Resampler</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../04-pandas/funciones.html">Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/patrones-pandas.html">Patrones útiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05-matplotlib/matplotlib-index.html">Matplotlib</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/pyplot.html">Pyplot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/figure.html">Figure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/axes.html">Axes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/otros.html">Otras Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06-seaborn/seaborn-index.html">Seaborn</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06-seaborn/funciones-clases.html">Funciones y Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-seaborn/objects-interface.html">Interface por objetos</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Otros</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../08-otros/otros-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-otros/otros-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../08-otros/IPython.html">IPython</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../08-otros/beautifulsoup.html">Web Scraping</a></li>
 </ul>
@@ -476,37 +493,37 @@ document.write(`
 </thead>
 <tbody>
 <tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/random.html#random.betavariate">betavariate</a>(alpha, beta)</p></td>
-<td><p>Distribución beta. Las condiciones de los parámetros son <code class="docutils literal notranslate"><span class="pre">alpha</span></code> &gt; 0 y <code class="docutils literal notranslate"><span class="pre">beta</span></code> &gt; 0. Los valores devueltos oscilan entre 0 y 1.</p></td>
+<td><p>Distribución beta. Con <em>alpha &gt; 0</em> y <em>beta &gt; 0</em>. Los valores devueltos oscilan entre 0 y 1.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/random.html#random.expovariate">expovariate</a>(lambd)</p></td>
-<td><p>Distribución exponencial. <code class="docutils literal notranslate"><span class="pre">lambd</span></code> es igual a 1.0 entre la media deseada, debe ser distinto de cero.</p></td>
+<td><p>Distribución exponencial. <em>lambd</em> debe ser igual a 1.0 entre la media deseada (<em>1/theta</em>), con <em>thetha != 0</em>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/random.html#random.gammavariate">gammavariate</a>(alpha, beta)</p></td>
-<td><p>Distribución gamma. Condiciones en los parámetros son <code class="docutils literal notranslate"><span class="pre">alpha</span></code> &gt; 0 y <code class="docutils literal notranslate"><span class="pre">beta</span></code> &gt; 0.</p></td>
+<td><p>Distribución gamma. Con <em>alpha &gt; 0</em> y <em>beta &gt; 0</em>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/random.html#random.gauss">gauss</a>(mu=0.0, sigma=1.0)</p></td>
-<td><p>Distribución normal, <code class="docutils literal notranslate"><span class="pre">mu</span></code> es la media, y <code class="docutils literal notranslate"><span class="pre">sigma</span></code> es la desviación estándar. Es un poco más rápida que la función <code class="docutils literal notranslate"><span class="pre">normalvariate()</span></code>.</p></td>
+<td><p>Distribución normal, <em>mu</em> es la media, y <em>sigma</em> es la desviación estándar, con <em>sigma &gt; 0</em>. Es un poco más rápida que la función <code class="docutils literal notranslate"><span class="pre">normalvariate()</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/random.html#random.lognormvariate">lognormvariate</a>(mu, sigma)</p></td>
-<td><p>Distribución lognormal. El logaritmo natural de este distribución es una distribución normal con media <code class="docutils literal notranslate"><span class="pre">mu</span></code> y desviación estándar <code class="docutils literal notranslate"><span class="pre">sigma</span></code>. <code class="docutils literal notranslate"><span class="pre">mu</span></code> puede tomar cualquier valor y <code class="docutils literal notranslate"><span class="pre">sigma</span></code> debe ser mayor que cero.</p></td>
+<td><p>Distribución lognormal. El logaritmo natural de este distribución es una distribución normal con media <em>mu</em> y desviación estándar <em>sigma</em>. , con <em>sigma &gt; 0</em>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/random.html#random.normalvariate">normalvariate</a>(mu=0.0, sigma=1.0)</p></td>
-<td><p>Distribución normal. <code class="docutils literal notranslate"><span class="pre">mu</span></code> es la media y <code class="docutils literal notranslate"><span class="pre">sigma</span></code> es la desviación estándar.</p></td>
+<td><p>Distribución normal. <em>mu</em> es la media y <em>sigma</em> es la desviación estándar.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/random.html#random.paretovariate">paretovariate</a>(alpha)</p></td>
-<td><p>Distribución de Pareto. <code class="docutils literal notranslate"><span class="pre">alpha</span></code> es el parámetro de forma.</p></td>
+<td><p>Distribución de Pareto. <em>alpha</em> es el parámetro de forma.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/random.html#random.triangular">triangular</a>(low, high, mode)</p></td>
-<td><p>Devuelve un número <code class="docutils literal notranslate"><span class="pre">float</span></code> aleatorio N tal que <code class="docutils literal notranslate"><span class="pre">low</span></code> &lt;= N &lt;= <code class="docutils literal notranslate"><span class="pre">high</span></code> y con <code class="docutils literal notranslate"><span class="pre">mode</span></code> especificado entre esos límites. El argumento de <code class="docutils literal notranslate"><span class="pre">mode</span></code> por defecto es el punto medio.</p></td>
+<td><p>Devuelve un número <code class="docutils literal notranslate"><span class="pre">float</span></code> aleatorio N tal que <em>low &lt;= N &lt;= high</em> y con <em>mode</em> especificado entre esos límites. El argumento de <em>mode</em> por defecto es el punto medio.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/random.html#random.uniform">uniform</a>(a, b)</p></td>
-<td><p>Retorna un número <code class="docutils literal notranslate"><span class="pre">float</span></code> aleatorio N tal que a &lt;= N &lt;= b para a &lt;= b y b &lt;= N &lt;= a para b &lt; a.</p></td>
+<td><p>Retorna un número <code class="docutils literal notranslate"><span class="pre">float</span></code> aleatorio <em>N</em> tal que <em>a &lt;= N &lt;= b</em> para <em>a &lt;= b</em> y <em>b &lt;= N &lt;= a</em> para <em>b &lt; a</em>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/random.html#random.vonmisesvariate">vonmisesvariate</a>(mu, kappa)</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">mu</span></code> es el ángulo medio, expresado en radianes entre 0 y 2*pi, y <code class="docutils literal notranslate"><span class="pre">kappa</span></code> es el parámetro de concentración, que debe ser mayor o igual a cero. Si <code class="docutils literal notranslate"><span class="pre">kappa</span></code> es igual a cero, esta distribución se reduce a un ángulo aleatorio uniforme en el rango de 0 a 2*pi.</p></td>
+<td><p><em>mu</em> es el ángulo medio, expresado en radianes entre 0 y <em>2*pi</em>, y <em>kappa</em> es el parámetro de concentración, que debe ser mayor o igual a cero. Si <em>kappa</em> es igual a cero, esta distribución se reduce a un ángulo aleatorio uniforme en el rango de 0 a 2*pi.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/random.html#random.weibullvariate">weibullvariate</a>(alpha, beta)</p></td>
-<td><p>Distribución Weibull. <code class="docutils literal notranslate"><span class="pre">alpha</span></code> es el parámetro de escala y <code class="docutils literal notranslate"><span class="pre">beta</span></code> es el parámetro de forma.</p></td>
+<td><p>Distribución Weibull. <em>alpha</em> es el parámetro de escala y <em>beta</em> es el parámetro de forma.</p></td>
 </tr>
 </tbody>
 </table>
@@ -523,13 +540,13 @@ document.write(`
 </thead>
 <tbody>
 <tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/random.html#random.randint">randint</a>(a, b)</p></td>
-<td><p>Devuelve un entero aleatorio N tal que a &lt;= N &lt;= b. Alias para <code class="docutils literal notranslate"><span class="pre">randrange(a,</span> <span class="pre">b+1)</span></code>.</p></td>
+<td><p>Devuelve un entero aleatorio <em>N</em> tal que <em>a &lt;= N &lt;= b</em>. Alias para <code class="docutils literal notranslate"><span class="pre">randrange(a,</span> <span class="pre">b+1)</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/random.html#random.random">random</a>()</p></td>
-<td><p>Devuelve un número <code class="docutils literal notranslate"><span class="pre">float</span></code> aleatorio en el rango [0.0, 1.0).</p></td>
+<td><p>Devuelve un número <code class="docutils literal notranslate"><span class="pre">float</span></code> aleatorio en el rango <em>[0.0, 1.0)</em>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/random.html#random.randrange">randrange</a>(start, stop[, step])</p></td>
-<td><p>Devuelve un número aleatorio del rango <code class="docutils literal notranslate"><span class="pre">(start,</span> <span class="pre">stop,</span> <span class="pre">step)</span></code>.</p></td>
+<td><p>Devuelve un número aleatorio del rango <code class="docutils literal notranslate"><span class="pre">range(start,</span> <span class="pre">stop,</span> <span class="pre">step)</span></code>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -546,16 +563,16 @@ document.write(`
 </thead>
 <tbody>
 <tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/random.html#random.choice">choice</a>(seq)</p></td>
-<td><p>Devuelve un elemento aleatorio de la secuencia no vacía <code class="docutils literal notranslate"><span class="pre">seq</span></code>. Si <code class="docutils literal notranslate"><span class="pre">seq</span></code> está vacía, genera <code class="docutils literal notranslate"><span class="pre">IndexError</span></code>.</p></td>
+<td><p>Devuelve un elemento aleatorio de la secuencia no vacía <em>seq</em>. Si <em>seq</em> está vacía, genera <code class="docutils literal notranslate"><span class="pre">IndexError</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/random.html#random.choices">choices</a>(population, weights=None, *, cum_weights=None, k=1)</p></td>
-<td><p>Devuelve una lista de tamaño <code class="docutils literal notranslate"><span class="pre">k</span></code> de elementos aleatorios de <code class="docutils literal notranslate"><span class="pre">population</span></code> (<code class="docutils literal notranslate"><span class="pre">sequence</span></code> o <code class="docutils literal notranslate"><span class="pre">iterable</span></code>) con reemplazo. Si <code class="docutils literal notranslate"><span class="pre">population</span></code> está vacía, genera <code class="docutils literal notranslate"><span class="pre">IndexError</span></code>.</p></td>
+<td><p>Devuelve una lista de tamaño <em>k</em> de elementos aleatorios de <em>population</em> (<code class="docutils literal notranslate"><span class="pre">sequence</span></code> o <code class="docutils literal notranslate"><span class="pre">iterable</span></code>) con reemplazo. Si <em>population</em> está vacía, genera <code class="docutils literal notranslate"><span class="pre">IndexError</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/random.html#random.sample">sample</a>(population, k, *, counts=None)</p></td>
-<td><p>Devuelve una lista de longitud <code class="docutils literal notranslate"><span class="pre">k</span></code> de elementos únicos elegidos de <code class="docutils literal notranslate"><span class="pre">population</span></code> (<code class="docutils literal notranslate"><span class="pre">sequence</span></code> o <code class="docutils literal notranslate"><span class="pre">iterable</span></code>). Se utiliza para muestreo aleatorio sin reemplazo.</p></td>
+<td><p>Devuelve una lista de longitud <em>k</em> de elementos únicos elegidos de <em>population</em> (<code class="docutils literal notranslate"><span class="pre">sequence</span></code> o <code class="docutils literal notranslate"><span class="pre">iterable</span></code>). Se utiliza para muestreo aleatorio sin reemplazo.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/random.html#random.shuffle">shuffle</a>(x)</p></td>
-<td><p>Reordena los elementos de <code class="docutils literal notranslate"><span class="pre">x</span></code> (<code class="docutils literal notranslate"><span class="pre">sequence</span></code> o <code class="docutils literal notranslate"><span class="pre">iterable</span></code>) de manera aleatoria <em>in-place</em>.</p></td>
+<td><p>Reordena los elementos de <em>x</em> (<code class="docutils literal notranslate"><span class="pre">sequence</span></code> o <code class="docutils literal notranslate"><span class="pre">iterable</span></code>) de manera aleatoria <em>in-place</em>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -619,11 +636,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="regular-expression.html"
+       href="regex.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Regular Expressions</p>
+        <p class="prev-next-title">Regex</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

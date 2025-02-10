@@ -1,0 +1,2285 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Pyplot &#8212; Manual de Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'parts/05-matplotlib/pyplot';</script>
+    <link rel="icon" href="../../_static/nebok-favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Figure" href="figure.html" />
+    <link rel="prev" title="Matplotlib" href="matplotlib-index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/nebok-logo.png" class="logo__image only-light" alt="Manual de Python - Home"/>
+    <script>document.write(`<img src="../../_static/nebok-logo.png" class="logo__image only-dark" alt="Manual de Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Manual de Python para Data Science
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Built-in</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01-built-in/built-in-index.html">Python Estándar</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/ayuda.html">Obtener ayuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/comentarios.html">Comentarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/tipos-datos.html">Tipos de Datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/variables-constantes.html">Variables y Constantes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/operadores-palabras.html">Operadores y palabras reservadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/entrada-salida.html">Impresión y solicitud de datos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/tipos-index.html">Tipos Built-In</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/none-bool-numericos.html"><em>None</em>, <em>bool</em> y Numéricos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/str.html">str</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/lists.html">list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/tuples.html">Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/sets.html">Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/dicts.html">dict</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/if-else.html">If … Else</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/for-loop.html">For Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/do-while.html">Do While</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/udf.html">Funciones (UDF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/exceptions.html">Excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/context-managers.html">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/io.html">Lectura y escritura de archivos (IO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/modulos.html">Paquetes y Módulos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/avanzado-index.html">Temas avanzados</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/decorators.html">Decorators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/iterators.html">Iterators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/generators.html">Generators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/oop.html">Programación orientada a objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/func-built-in.html">Funciones built-in</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-modulos/modulos-index.html">Módulos built-in</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/csv.html">CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/datetime.html">Datetime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/itertools.html">Itertools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/json.html">JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/math.html">Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os.html">Os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os-path.html">Os.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/pickle.html">Pickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/random.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/regex.html">Regex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/statistics.html">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/urllib-request.html">urllib.request</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otras librerías</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-numpy/numpy-index.html">Numpy</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/arrays.html">Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../03-numpy/funciones-index.html">Funciones</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/ufuncs.html">Ufuncs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/buscar-contar-ordenar-unicos.html">Buscar, contar, ordenar y valores únicos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/creacion-arrays.html">Creación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/estadisticas.html">Estadísticas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/indices.html">Índices e iteración</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/informacion.html">Información</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/lectura-escritura.html">Lectura y escritura de datos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/manipulacion-arrays.html">Manipulación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/matematicas-numericas.html">Matemáticas y numéricas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/operadores.html">Operadores</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/algebra-lineal.html">Módulo linalg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/cadenas.html">Modulo char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/random.html">Módulo random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/patrones-numpy.html">Patrones útiles</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04-pandas/pandas-index.html">Pandas</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/index.html">Index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/series.html">Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/dataframe.html">DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/escalares-arrays.html">Escalares y Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../04-pandas/otras-clases.html">Otras clases</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/groupby.html">GroupBy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/expanding-rolling-window.html"><em>Expanding, Rolling</em> y <em>Window</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/resampler.html">Resampler</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/funciones.html">Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/patrones-pandas.html">Patrones útiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="matplotlib-index.html">Matplotlib</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Pyplot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="figure.html">Figure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="axes.html">Axes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otros.html">Otras Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06-seaborn/seaborn-index.html">Seaborn</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06-seaborn/funciones-clases.html">Funciones y Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-seaborn/objects-interface.html">Interface por objetos</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otros</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-otros/otros-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08-otros/IPython.html">IPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-otros/beautifulsoup.html">Web Scraping</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/parts/05-matplotlib/pyplot.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Pyplot</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interfaz-basada-en-matlab">Interfaz basada en Matlab</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#figura-con-un-solo-axes">Figura con un solo <em>axes</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#figura-con-multiples-axes">Figura con múltiples <em>axes</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuracion">Configuración</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-plt-rc">Notas de <em>plt.rc</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figuras-y-axes">Figuras y <em>Axes</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-de-graficas">Funciones de gráficas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basicas">Básicas</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lineas-y-marcadores">Líneas y Marcadores</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-plot">Notas de <em>plot</em></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-scatter">Notas de <em>scatter</em></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#barras">Barras</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-plt-bar">Notas de <em>plt.bar</em></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rectas-y-areas">Rectas y áreas</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#circulares">Circulares</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bins">Bins</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-hist">Notas de <em>hist</em></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#campos-vectoriales">Campos Vectoriales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contornos">Contornos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#espectral">Espectral</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estadisticas">Estadísticas</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-plt-boxplot">Notas de <em>plt.boxplot</em></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arreglos-2d">Arreglos 2D</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyplot-funciones-spans">Rectas y Áreas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#texto-y-anotaciones">Texto y Anotaciones</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-annote">Notas de <em>annote</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-text">Notas de <em>text</em></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#triangulos-no-estructurados">Triangulos no Estructurados</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-de-personalizacion">Funciones de Personalización</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#titulos-y-etiquetas">Títulos y etiquetas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#leyenda">Leyenda</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-legend">Notas de <em>legend</em></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grids">Grids</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejes">Ejes</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-generales">Funciones generales</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#escala">Escala</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#limites">Límites</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ticks">Ticks</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#layout">Layout</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#colormapping">Colormapping</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#otros">Otros</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#produccion">Producción</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="pyplot">
+<h1>Pyplot<a class="headerlink" href="#pyplot" title="Link to this heading">#</a></h1>
+<div class="cell tag_remove-input docutils container">
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code> es un módulo que contiene una diversa cantidad de funciones útiles para crear gráficas en una interfaz basada en <em>Matlab</em>, aunque también contiene las funciones necesarias para trabajar en una interfaz orientada a objetos.</p>
+<hr class="docutils" />
+<section id="interfaz-basada-en-matlab">
+<h2>Interfaz basada en Matlab<a class="headerlink" href="#interfaz-basada-en-matlab" title="Link to this heading">#</a></h2>
+<p>Para crear gráficas en un interfaz basada en <em>Matlab</em> se utiliza las funciones del módulo <code class="docutils literal notranslate"><span class="pre">pyplot</span></code>, lo que permite llevar un control implícito de los objetos <em>ax</em> y <em>figure</em>, es decir, no es necesario declararlos. Las figuras pueden tener un <em>axes</em> o múltiples <em>axes</em> como se verá a continuación.</p>
+<p>Para los ejemplos de esta sección se utilizará el <em>dataset</em> “flights” de la librería <a class="reference internal" href="../06-seaborn/seaborn-index.html"><span class="doc">Seaborn</span></a>, además se agrupan los datos por año para las visualizaciones de un solo <em>axes</em>. Para las figuras con más de un <em>axes</em> se crean dos <em>datasets</em> uno para el años 1950 y otro para 1960.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cargar el dataset</span>
+<span class="n">flights</span><span class="o">=</span><span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;flights&quot;</span><span class="p">)</span>
+
+<span class="c1"># Agrupar datos por año</span>
+<span class="n">yearly_data</span><span class="o">=</span><span class="n">flights</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="p">)[</span><span class="s1">&#39;passengers&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+<span class="c1"># Filtrar datos para 1950 y 1960</span>
+<span class="n">flights_1950</span><span class="o">=</span><span class="n">flights</span><span class="p">[</span><span class="n">flights</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1950</span><span class="p">]</span>
+<span class="n">flights_1960</span><span class="o">=</span><span class="n">flights</span><span class="p">[</span><span class="n">flights</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1960</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="figura-con-un-solo-axes">
+<h3>Figura con un solo <em>axes</em><a class="headerlink" href="#figura-con-un-solo-axes" title="Link to this heading">#</a></h3>
+<p>Para crear una figura con un único axes basta con llamar cualquiera de las <a class="reference internal" href="#pyplot-funciones"><span class="std std-ref">Funciones de gráficas</span></a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Llamar a alguna función de pyplot para crear una gráfica.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span> <span class="c1"># Ejemplo con plt.plot()</span>
+<span class="c1"># Llamar a alguna función de pyplot para personalizar gráficas.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tile</span><span class="p">()</span> <span class="c1"># Ejemplo con plt.title()</span>
+<span class="o">...</span>
+
+<span class="c1"># Imprimir la gráfica</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Notas</strong>:</p>
+<ul class="simple">
+<li><p>Hacer llamadas de las funciones de <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code> para agregar <a class="reference internal" href="#pyplot-funciones"><span class="std std-ref">Funciones de gráficas</span></a> o <a class="reference internal" href="#pyplot-personalizacion"><span class="std std-ref">Funciones de Personalización</span></a>.</p></li>
+<li><p>Este estilo mantiene un seguimiento de los <em>fig</em> y <em>ax</em> actuales de manera implícita.</p></li>
+<li><p>Al finalizar para mostrar la gráfica usar <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code>.</p></li>
+</ul>
+<br/>
+<p><strong>Ejemplo</strong>:
+En este ejemplo se utiliza directamente la función <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> para crear una figura con un <em>axes</em>, además se hacen llamadas a las funciones <code class="docutils literal notranslate"><span class="pre">plt.xlabel()</span></code>, <code class="docutils literal notranslate"><span class="pre">plt.ylabel()</span></code>, <code class="docutils literal notranslate"><span class="pre">plt.title()</span></code> y <code class="docutils literal notranslate"><span class="pre">plt.legend()</span></code> para añadir elementos a la gráfica.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear nueva figura (opcional)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span> 
+
+<span class="c1"># Graficar los datos</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">yearly_data</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">],</span> 
+         <span class="n">yearly_data</span><span class="p">[</span><span class="s1">&#39;passengers&#39;</span><span class="p">],</span> 
+         <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Passengers&#39;</span><span class="p">,</span> 
+         <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> 
+         <span class="n">color</span><span class="o">=</span><span class="n">azul</span><span class="p">)</span>
+
+<span class="c1"># Agregar elementos</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Año&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Total de pasajeros&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Tendencia de total de pasajeros&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="c1"># Imprimir la figura</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/7d0c36a3304944915faab5d189f46286f7567166c72cc97ce47d0b426b65baf1.png" src="../../_images/7d0c36a3304944915faab5d189f46286f7567166c72cc97ce47d0b426b65baf1.png" />
+</div>
+</div>
+<br/>
+</section>
+<section id="figura-con-multiples-axes">
+<h3>Figura con múltiples <em>axes</em><a class="headerlink" href="#figura-con-multiples-axes" title="Link to this heading">#</a></h3>
+<p>Para crear una figura con múltiples axes, se usa la función <code class="docutils literal notranslate"><span class="pre">plt.subplot()</span></code>, en cada llamada se debe de indicar el número total de filas y columnas que tendrá la figura y el indice del <em>axes</em> con el que se estará trabajando en cada llamada.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Opcionalmente llamar a la función plt.figure()</span>
+<span class="p">[</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()]</span>
+
+<span class="c1"># Llamar a la función plt.subplot()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">i1</span><span class="p">)</span>
+<span class="c1"># Llamar a alguna función de pyplot para crear una gráfica.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span> <span class="c1"># Ejemplo con plt.plot()</span>
+<span class="c1"># Llamar a alguna función de pyplot para personalizar gráficas.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tile</span><span class="p">()</span> <span class="c1"># Ejemplo con plt.title()</span>
+
+<span class="c1"># Llamar a la función plt.subplot()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">i2</span><span class="p">)</span>
+<span class="c1"># Llamar a alguna función de pyplot para crear una gráfica.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span> <span class="c1"># Ejemplo con plt.plot()</span>
+<span class="c1"># Llamar a alguna función de pyplot para personalizar gráficas.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tile</span><span class="p">()</span> <span class="c1"># Ejemplo con plt.title()</span>
+
+<span class="c1"># Hacer tantas llamadas a las funciones como sea necesario</span>
+<span class="o">...</span>
+
+<span class="c1"># Imprimir la gráfica</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Notas</strong>:</p>
+<ul class="simple">
+<li><p>Para trabajar con una gráfica en particular hacer una llamada a la función <code class="docutils literal notranslate"><span class="pre">plt.subplot()</span></code> indicando el índice y el número total de filas y columnas.</p></li>
+<li><p>Una vez se haya llamado a la función <code class="docutils literal notranslate"><span class="pre">plt.subplot()</span></code> indicando el índice, hacer llamadas de las funciones de <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code> para agregar <a class="reference internal" href="#pyplot-funciones"><span class="std std-ref">Funciones de gráficas</span></a> o para <a class="reference internal" href="#pyplot-personalizacion"><span class="std std-ref">Funciones de Personalización</span></a>.</p></li>
+<li><p>Este estilo mantiene un seguimiento de los <em>fig</em> y <em>ax</em> actuales de manera implícita.</p></li>
+<li><p>Al finalizar para mostrar la gráfica usar <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code>.</p></li>
+</ul>
+<br/>
+<p><strong>Ejemplo</strong>:
+En este ejemplo se llama a la función <code class="docutils literal notranslate"><span class="pre">plt.subplot()</span></code> para cada <em>axes</em> en la figura, en este caso se hacen dos llamadas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear nueva figura (opcional)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># Graficar datos de 1950</span>
+<span class="n">ax1</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">flights_1950</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">],</span> <span class="n">flights_1950</span><span class="p">[</span><span class="s1">&#39;passengers&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">azul</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Pasajeros en 1950&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Mes&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Número de Pasajeros&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+
+<span class="c1"># Graficar datos de 1960</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">flights_1960</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">],</span> <span class="n">flights_1960</span><span class="p">[</span><span class="s1">&#39;passengers&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">cafe</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Pasajeros en 1960&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Mes&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+
+<span class="c1"># Ajustar el layout</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+<span class="c1"># Imprimir la figura</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/34ab3fe460d66e02ed9adfe8f157956475c4f083f813f5ce42c51c10900248a4.png" src="../../_images/34ab3fe460d66e02ed9adfe8f157956475c4f083f813f5ce42c51c10900248a4.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="configuracion">
+<h2>Configuración<a class="headerlink" href="#configuracion" title="Link to this heading">#</a></h2>
+<p>Funciones para establecer la configuración general de <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.rc.html">rc</a>(group, **kwargs)</p></td>
+<td><p>Modifica la configuración por default de las gráficas. Ver <a class="reference internal" href="#pyplot-config-rc-notes"><span class="std std-ref">Notas de plt.rc</span></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.rc_context.html">rc_context</a>(rc=None, fname=None)</p></td>
+<td><p>Retorna un administrador de contexto para cambiar temporalmente <em>rcParams</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.rcdefaults.html">rcdefaults</a>()</p></td>
+<td><p>Restaura el <code class="docutils literal notranslate"><span class="pre">rcParams</span></code> de estilos predeterminados de <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<section id="notas-de-plt-rc">
+<span id="pyplot-config-rc-notes"></span><h3>Notas de <em>plt.rc</em><a class="headerlink" href="#notas-de-plt-rc" title="Link to this heading">#</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Se recomienda antes de modificar las configuraciones estándar, guardar una copia de la configuración: <br/> <code class="docutils literal notranslate"><span class="pre">config_default=plt.rcParams.copy()</span></code>, alternativamente se puede usar la función <code class="docutils literal notranslate"><span class="pre">plt.rcdefaults()</span></code>.</p>
+<p>Para retornar a la configuración por default usar: <br> <code class="docutils literal notranslate"><span class="pre">plt.rcParams.update(Ipython_default)</span></code></p>
+</div>
+<p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.rc.html">rc</a>: Modifica la configuración por default de las gráficas.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>group</strong> - <code class="docutils literal notranslate"><span class="pre">str</span></code>: Es el grupo para el <em>rc</em>. Por ejemplo ‘figure’, ‘axes’, ‘grid’, ‘xtick’, ‘ytick’, ‘patch’, ‘lines’, etc.</p></li>
+<li><p><strong>**kwargs</strong>: Son los parámetros de group, para ver todos los grupos y parámetros  (están en la forma de <em>group.param_nom</em>) revisar la <a class="reference external" href="https://matplotlib.org/stable/api/matplotlib_configuration_api.html#matplotlib.RcParams">documentacion</a></p></li>
+<li><p>Una forma de definir los parámetros es usando un diccionario donde <em>key</em> es el nombre del parámetro y <em>value</em> es el valor de ese parámetro, posteriormente al llamar la función usar (donde <em>Y</em> es <code class="docutils literal notranslate"><span class="pre">dict</span></code>): <br> <code class="docutils literal notranslate"><span class="pre">plt.rc(group,</span> <span class="pre">**Y)</span></code></p></li>
+<li><p>Otra forma de definir los valores por default es sobreescribiendo los valores de los <em>keys</em>:  <br> <code class="docutils literal notranslate"><span class="pre">plt.rcParams['group.param']=value</span></code></p></li>
+</ul>
+<br/>
+</section>
+</section>
+<hr class="docutils" />
+<section id="figuras-y-axes">
+<h2>Figuras y <em>Axes</em><a class="headerlink" href="#figuras-y-axes" title="Link to this heading">#</a></h2>
+<p>A continuación se presentan las funciones relacionadas con la creación y manipulaciones de figuras y axes.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.axes.html">axes</a>(arg=None, **kwargs)</p></td>
+<td><p>Añade un <code class="docutils literal notranslate"><span class="pre">Axes</span></code> a la figura actual y lo convierte en el <code class="docutils literal notranslate"><span class="pre">Axes</span></code> actual.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.cla.html">cla</a>()</p></td>
+<td><p>Limpia los <em>Axes</em> actuales.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.clf.html">clf</a>()</p></td>
+<td><p>Limpia la figura actual.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.close.html">close</a>(fig=None)</p></td>
+<td><p>Cierra una ventana de una figura.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.delaxes.html">delaxes</a>(ax=None)</p></td>
+<td><p>Elimina un <code class="docutils literal notranslate"><span class="pre">Axes</span></code> (por defecto los <em>Axes</em> actuales) de una figura.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.fignum_exists.html">fignum_exists</a>(num)</p></td>
+<td><p>Indica si existe la figura con la identificación dada.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html">figure</a>(num=None, figsize=None, dpi=None, …)</p></td>
+<td><p>Crea una nueva figura o activa una figura existente.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.gca.html">gca</a>()</p></td>
+<td><p>Retorna el <code class="docutils literal notranslate"><span class="pre">Axes</span></code> actual.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.gcf.html">gcf</a>()</p></td>
+<td><p>Retorna la figura actual.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.get_figlabels.html">get_figlabels</a>()</p></td>
+<td><p>Retorna un <code class="docutils literal notranslate"><span class="pre">list</span></code> de etiquetas de figuras existentes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.get_fignums.html">get_fignums</a>()</p></td>
+<td><p>Retorna un <code class="docutils literal notranslate"><span class="pre">list</span></code> de los identificadores numéricos de figuras existentes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.sca.html">sca</a>(ax)</p></td>
+<td><p>Establece el <code class="docutils literal notranslate"><span class="pre">Axes</span></code> actual a <em>ax</em> y la <code class="docutils literal notranslate"><span class="pre">Figure</span></code> actual al padre de <em>ax</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplot.html">subplot</a>(*args, **kwargs)</p></td>
+<td><p>Añade un <code class="docutils literal notranslate"><span class="pre">Axes</span></code> a la figura actual o recupera un <code class="docutils literal notranslate"><span class="pre">Axes</span></code> existente.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplot2grid.html">subplot2grid</a>(shape, loc, rowspan=1, colspan=1, fig=None, **kwargs)</p></td>
+<td><p>Crea un <em>subplot</em> en una ubicación específica dentro de un <em>grid</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplot_mosaic.html">subplot_mosaic</a>(mosaic, …)</p></td>
+<td><p>Crea un <em>layout</em> de <code class="docutils literal notranslate"><span class="pre">Axes</span></code> basado en arte ASCII o listas anidadas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots.html">subplots</a>(nrows=1, ncols=1, …)</p></td>
+<td><p>Crea una figura y un <code class="docutils literal notranslate"><span class="pre">set</span></code> de <em>subplots</em></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.twinx.html">twinx</a>(ax=None)</p></td>
+<td><p>Crea y devuelve un segundo eje que comparte el eje <em>x</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.twiny.html">twiny</a>(ax=None)</p></td>
+<td><p>Crea y devuelve un segundo eje que comparte el eje <em>y</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<hr class="docutils" />
+</section>
+<section id="funciones-de-graficas">
+<span id="pyplot-funciones"></span><h2>Funciones de gráficas<a class="headerlink" href="#funciones-de-graficas" title="Link to this heading">#</a></h2>
+<section id="basicas">
+<h3>Básicas<a class="headerlink" href="#basicas" title="Link to this heading">#</a></h3>
+<p>Funciones útiles para crear gráficas básicas.</p>
+<section id="lineas-y-marcadores">
+<h4>Líneas y Marcadores<a class="headerlink" href="#lineas-y-marcadores" title="Link to this heading">#</a></h4>
+<p>Estas gráficas están relaciones con gráficas de líneas, diagramas de dispersión, entre otras.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.errorbar.html">errorbar</a>(x, y, yerr=None, xerr=None, fmt=’’, …)</p></td>
+<td><p>Grafica <em>x</em> contra <em>y</em> como línea o <em>markers</em>, junto con <em>errorbars</em>. Los errores se indican como escalar (el mismo para todas las observaciones), como 1D <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> el error para cada observación o como 2D <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> la parte positiva y negativa del error individualmente para cada observación.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.eventplot.html">eventplot</a>(positions, orientation=’horizontal’, …)</p></td>
+<td><p>Grafica líneas paralelas idénticas en las posiciones dadas.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.loglog.html">loglog</a>(*args, **kwargs)</p></td>
+<td><p>Crea una gráfica con escala logarítmica en los ejes <em>x</em> e <em>y</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html">plot</a>(*args, scalex=True, scaley=True, data=None, **kwargs)</p></td>
+<td><p>Grafica <em>y</em> versus <em>x</em> como líneas y/o marcadores.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html">scatter</a>(x, y, s=None, c=None, marker=None, …)</p></td>
+<td><p>Realiza una gráfica de dispersión dando los valores de los ejes <em>x</em> y <em>y</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.semilogx.html">semilogx</a>(*args, **kwargs)</p></td>
+<td><p>Crea un gráfico con escala logarítmica en el eje <em>x</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.semilogy.html">semilogy</a>(*args, **kwargs)</p></td>
+<td><p>Crea un gráfico con escala logarítmica en el eje <em>y</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.stem.html">stem</a>(*args, linefmt=None, markerfmt=None, …)</p></td>
+<td><p>Crea un gráfica con rectas verticales para cada observación desde <em>base</em> hasta <em>head</em>, y con un marcador en <em>head</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.step.html">step</a>(x, y, *args, where=’pre’, data=None, **kwargs)</p></td>
+<td><p>Crea una gráfica de <em>pasos</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<section id="notas-de-plot">
+<h5>Notas de <em>plot</em><a class="headerlink" href="#notas-de-plot" title="Link to this heading">#</a></h5>
+<p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html">plot</a>: Realiza una gráfica dando los valores de los ejes <em>x</em> y <em>y</em>, ya sean líneas o puntos.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">x</span><span class="p">],</span> <span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="n">fmt</span><span class="p">],</span> <span class="o">*</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">x</span><span class="p">],</span> <span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="n">fmt</span><span class="p">],</span> <span class="p">[</span><span class="n">x2</span><span class="p">],</span> <span class="n">y2</span><span class="p">,</span> <span class="p">[</span><span class="n">fmt2</span><span class="p">],</span> <span class="o">...</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong>x</strong>, <strong>y</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code> o <code class="docutils literal notranslate"><span class="pre">label</span></code>: Coordenadas de los puntos horizontales y verticales, respectivamente. Si no se especifica <em>x</em> será un rango de <em>0</em> a <code class="docutils literal notranslate"><span class="pre">len(y)</span> <span class="pre">-</span> <span class="pre">1</span></code>. Pueden ser etiquetas en caso de que se defina el argumento <em>data</em>.</p></li>
+<li><p><strong>data</strong> - <code class="docutils literal notranslate"><span class="pre">indexable</span> <span class="pre">object</span></code>: Objeto que se pueda aplicar <code class="docutils literal notranslate"><span class="pre">obj['label']</span></code> y retorne un 1D <code class="docutils literal notranslate"><span class="pre">array-like</span></code>, lo más común que sea un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p></li>
+<li><p><strong>fmt</strong> - <code class="docutils literal notranslate"><span class="pre">str</span></code>: Es una cadena de formato, para indicar cierto formato que debe de tener la gráfica especificamente, el tipo de linea, tipo de marker y el color de los mismos. Ver <a class="reference internal" href="anexos.html#matplotlib-fmt"><span class="std std-ref">Cadenas de Formato (fmt)</span></a>.</p></li>
+<li><p><strong>**kwargs</strong>: Propiedades de <a class="reference internal" href="otros.html#matplotlib-line2d"><span class="std std-ref">Line2D</span></a>.</p></li>
+<li><p>Parámetros en la segunda forma de llamar la función:</p>
+<ul>
+<li><p><strong>xi</strong>, <strong>yi</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code> o <code class="docutils literal notranslate"><span class="pre">scalar</span></code>: Cordenadas de los puntos horizontales y verticales, respectivamente.</p></li>
+<li><p><strong>fmti</strong> - <code class="docutils literal notranslate"><span class="pre">str</span></code>: Es una cadena de formato, para indicar cierto formato que debe de tener la gráfica.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">list</span></code> de <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D">Line2D</a>.</p></li>
+</ul>
+<p><strong>Ejemplo</strong>:
+En este ejemplo se utiliza directamente la función <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> para crear una figura con un <em>axes</em>, además se hacen llamadas a las funciones <code class="docutils literal notranslate"><span class="pre">plt.xlabel()</span></code>, <code class="docutils literal notranslate"><span class="pre">plt.ylabel()</span></code>, <code class="docutils literal notranslate"><span class="pre">plt.title()</span></code> y <code class="docutils literal notranslate"><span class="pre">plt.legend()</span></code> para añadir elementos a la gráfica.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear nueva figura (opcional)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span> 
+
+<span class="c1"># Graficar los datos</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">yearly_data</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">],</span> 
+         <span class="n">yearly_data</span><span class="p">[</span><span class="s1">&#39;passengers&#39;</span><span class="p">],</span> 
+         <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> 
+         <span class="n">color</span><span class="o">=</span><span class="n">azul</span><span class="p">)</span>
+
+<span class="c1"># Imprimir la figura</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/9c4fccf3961e03480ff956781f5af915c50996bcbdff3efc510fc6a6e70818fb.png" src="../../_images/9c4fccf3961e03480ff956781f5af915c50996bcbdff3efc510fc6a6e70818fb.png" />
+</div>
+</div>
+<br/>
+</section>
+<section id="notas-de-scatter">
+<h5>Notas de <em>scatter</em><a class="headerlink" href="#notas-de-scatter" title="Link to this heading">#</a></h5>
+<p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html">scatter</a>: Realiza una gráfica de dispersión dando los valores de los ejes X y Y.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+            <span class="n">vmax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">colorizer</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+            <span class="n">plotnonfinite</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong>x</strong>, <strong>y</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code> o <code class="docutils literal notranslate"><span class="pre">float</span></code>: Cordenadas de los puntos horizontales y verticales, respectivamente.</p></li>
+<li><p><strong>s</strong> - <code class="docutils literal notranslate"><span class="pre">float</span></code> o <code class="docutils literal notranslate"><span class="pre">array-like</span></code>: Tamaño de los markers en puntos, al cuadrado.</p></li>
+<li><p><strong>c</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code> de <code class="docutils literal notranslate"><span class="pre">color</span></code> o <code class="docutils literal notranslate"><span class="pre">color</span></code>: Color de los markers.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">scalar</span></code> o <code class="docutils literal notranslate"><span class="pre">secuencia</span></code> de números: Esos números serán mapeados con <em>cmap</em>, dependiendo del valor se le asignará un color del mapa de color, los número se emparejarán por posición con los valores de <em>x</em> y <em>y</em>, para determinar qué color usar en cada coordenada. Por lo tanto la longitud de la secuencia debe de ser igual que la de <em>x</em> y <em>y</em>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">secuencia</span></code> de <code class="docutils literal notranslate"><span class="pre">color</span></code>: Colores a usar para cada valor de <em>x</em> y <em>y</em>, se empatan por posición y debe de tener la misma longitud que <em>x</em> y <em>y</em>. Ver <a class="reference internal" href="anexos.html#matplotlib-color"><span class="std std-ref">Colores</span></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">color</span></code>: Un solo color para usar en todos lo puntos. Ver <a class="reference internal" href="anexos.html#matplotlib-color"><span class="std std-ref">Colores</span></a>.</p></li>
+<li><p>Se puede usar los valores de una variable categórica para que cada uno tenga un valor diferente. Ver <a class="reference internal" href="anexos.html#matplotlib-colormap"><span class="std std-ref">ColorMap</span></a>.</p></li>
+</ul>
+</li>
+<li><p><strong>marker</strong> - <code class="docutils literal notranslate"><span class="pre">MarkeyStyle</span></code>: Revisar <a class="reference internal" href="anexos.html#matplotlib-markers"><span class="std std-ref">Markers</span></a>.</p></li>
+<li><p><strong>cmap</strong> - <code class="docutils literal notranslate"><span class="pre">str</span></code> o <code class="docutils literal notranslate"><span class="pre">ColorMap</span></code>: Mapa de color. Se usa solo si <em>c</em> es un <code class="docutils literal notranslate"><span class="pre">array-like</span></code> de <code class="docutils literal notranslate"><span class="pre">float</span></code>. Ver <a class="reference internal" href="anexos.html#matplotlib-colormap"><span class="std std-ref">ColorMap</span></a>.</p></li>
+<li><p><strong>alpha</strong> - <code class="docutils literal notranslate"><span class="pre">float</span></code>: Para indicar la opacidad de la gráfica. Es un valor entre 0 y 1, donde 0 es completamente transparente y 1 es completamente opaco.</p></li>
+<li><p><strong>linewidths</strong> - <code class="docutils literal notranslate"><span class="pre">float</span></code> o <code class="docutils literal notranslate"><span class="pre">array-like</span></code>: Grosor del borde de los markers.</p></li>
+<li><p><strong>edgecolors</strong> - {‘face’, ‘none’, <code class="docutils literal notranslate"><span class="pre">None</span></code>}, <code class="docutils literal notranslate"><span class="pre">color</span></code> o <code class="docutils literal notranslate"><span class="pre">secuencia</span></code> de <code class="docutils literal notranslate"><span class="pre">color</span></code>: Color del borde de los markers. Si es ‘face’ será el mismo que el fondo del <em>marker</em>, si es ‘none’ no tendrá color o se puede especificar el color. Ver <a class="reference internal" href="anexos.html#matplotlib-color"><span class="std std-ref">Colores</span></a>.</p></li>
+<li><p><strong>**kwargs</strong>: Propiedades de los objetos <a class="reference external" href="https://matplotlib.org/stable/api/collections_api.html#matplotlib.collections.Collection">Collection</a>.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://matplotlib.org/stable/api/collections_api.html#matplotlib.collections.PathCollection">PathCollection</a>.</p></li>
+</ul>
+<p><strong>Ejemplo:</strong></p>
+<p>En este ejemplo se utiliza la función <code class="docutils literal notranslate"><span class="pre">plt.scatter()</span></code> para crear un diagrama de dispersión entre <em>petal length</em> vs <em>petal width</em>, usando el dataset <em>iris</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar el dataset iris</span>
+<span class="n">iris</span><span class="o">=</span><span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;iris&quot;</span><span class="p">)</span>
+
+<span class="c1"># Crear scatterplot: petal length vs petal width</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">scatter</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">iris</span><span class="p">[</span><span class="s2">&quot;petal_length&quot;</span><span class="p">],</span> 
+                      <span class="n">iris</span><span class="p">[</span><span class="s2">&quot;petal_width&quot;</span><span class="p">],</span> 
+                      <span class="n">c</span><span class="o">=</span><span class="n">iris</span><span class="p">[</span><span class="s2">&quot;species&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;category&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">codes</span><span class="p">,</span> 
+                      <span class="n">s</span><span class="o">=</span><span class="n">iris</span><span class="p">[</span><span class="s2">&quot;sepal_length&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">10</span><span class="p">,</span> 
+                      <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">,</span> 
+                      <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+
+<span class="c1"># Crear leyenda para &quot;species&quot;</span>
+<span class="n">species_labels</span><span class="o">=</span><span class="n">iris</span><span class="p">[</span><span class="s2">&quot;species&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="n">colors</span><span class="o">=</span><span class="n">scatter</span><span class="o">.</span><span class="n">cmap</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">species_labels</span><span class="p">)))</span>
+<span class="n">handles</span><span class="o">=</span><span class="p">[</span><span class="n">plt</span><span class="o">.</span><span class="n">Line2D</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">markerfacecolor</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">species_labels</span><span class="p">))]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="p">,</span> <span class="n">species_labels</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Species&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper left&quot;</span><span class="p">)</span>
+
+<span class="c1"># Imprimir la figura</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/b8ebf03f1bcf70fabade2ff2cec46a3cad388df5401c52b1e37d8bb1dce80c7f.png" src="../../_images/b8ebf03f1bcf70fabade2ff2cec46a3cad388df5401c52b1e37d8bb1dce80c7f.png" />
+</div>
+</div>
+<br/>
+</section>
+</section>
+<section id="barras">
+<h4>Barras<a class="headerlink" href="#barras" title="Link to this heading">#</a></h4>
+<p>Gráficas que involucran barras verticales y horizontales.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.bar.html">bar</a>(x, height, width=0.8, bottom=None, …)</p></td>
+<td><p>Crea una gráfica de barras.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.bar_label.html">bar_label</a>(container, labels=None, …)</p></td>
+<td><p>Genera etiquetas para una gráfica de barras.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.barh.html">barh</a>(y, width, height=0.8, left=None, …)</p></td>
+<td><p>Crea una gráfica de barras horizontales.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.broken_barh.html">broken_barh</a>(xranges, yrange, …)</p></td>
+<td><p>Grafica una secuencia horizontal de rectángulos.</p></td>
+</tr>
+</tbody>
+</table>
+<section id="notas-de-plt-bar">
+<h5>Notas de <em>plt.bar</em><a class="headerlink" href="#notas-de-plt-bar" title="Link to this heading">#</a></h5>
+<p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.bar.html">bar</a>: Crea una gráfica de barras.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong>x</strong> - <code class="docutils literal notranslate"><span class="pre">float</span></code> o <code class="docutils literal notranslate"><span class="pre">array-like</span></code>: Coordenadas del eje <em>x</em>, pueden ser las categorías a grafícar o solo una etiqueta.</p></li>
+<li><p><strong>height</strong> - <code class="docutils literal notranslate"><span class="pre">float</span></code> o <code class="docutils literal notranslate"><span class="pre">array-like</span></code>: Valores que tienen la altura de las barras. Tiene que ser de la misma longitud que <em>x</em>.</p></li>
+<li><p><strong>width</strong> - <code class="docutils literal notranslate"><span class="pre">float</span></code> o <code class="docutils literal notranslate"><span class="pre">array-like</span></code>: Ancho de las barras.</p></li>
+<li><p><strong>bottom</strong> - <code class="docutils literal notranslate"><span class="pre">float</span></code> o <code class="docutils literal notranslate"><span class="pre">array-like</span></code>: Coordenas de <em>y</em>, de las bases de las barras. Útil en caso de que quieres apilar varios valores.</p></li>
+<li><p><strong>align</strong> - {‘center’, ‘edge’}: Alineación de las etiquetas de las barras en la coordenada <em>x</em>.</p></li>
+<li><p><strong>**kwargs</strong>: Propiedades de <a class="reference internal" href="otros.html#matplotlib-rectangle"><span class="std std-ref">Rectangle</span></a>.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">tick_label</span></code> - <code class="docutils literal notranslate"><span class="pre">str</span></code> o <code class="docutils literal notranslate"><span class="pre">list</span></code> de <code class="docutils literal notranslate"><span class="pre">str</span></code>: Para modificar las etiquetas de las barras. Debe ser igual a la longitud de <em>x</em>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xerr</span></code>, <code class="docutils literal notranslate"><span class="pre">yerr</span></code> - <code class="docutils literal notranslate"><span class="pre">float</span></code> o <code class="docutils literal notranslate"><span class="pre">array-like</span></code> de shape <em>(N)</em> o <em>(2, N)</em>.</p>
+<ul>
+<li><p>Si es un escalar: Agrega +/- el valor a todas las barras.</p></li>
+<li><p>shape(N): Agrega +/- los valores a cada barra.</p></li>
+<li><p>shape(2, N): Valores separados para la parte negativa y la parte positiva para cada barra. La primer fila son los negativos y la segunda los positivos.</p></li>
+</ul>
+</li>
+<li><p><strong>ecolor</strong> - <code class="docutils literal notranslate"><span class="pre">color</span></code>: Color de las <em>errorbars</em>.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://matplotlib.org/stable/api/container_api.html#matplotlib.container.BarContainer">BarContainer</a>.</p></li>
+</ul>
+<p>Patrones útles</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Barras apiladas</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;col1&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;col2&#39;</span><span class="p">],</span> <span class="n">bottom</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;col1&#39;</span><span class="p">])</span>
+
+<span class="c1"># Barras de dos cantidades independientes</span>
+<span class="c1"># Usar str con nombre de la categoría</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="s2">&quot;Cat 1&quot;</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;col&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">agg_func</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="s2">&quot;Cat 2&quot;</span><span class="p">,</span> <span class="n">df2</span><span class="p">[</span><span class="s2">&quot;col&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">agg_func</span><span class="p">())</span>
+
+<span class="c1"># Barras con barras de error (ejm std)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="s2">&quot;Cat 1&quot;</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;col&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">agg_func</span><span class="p">(),</span> <span class="n">yerr</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;col&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="s2">&quot;Cat 2&quot;</span><span class="p">,</span> <span class="n">df2</span><span class="p">[</span><span class="s2">&quot;col&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">agg_func</span><span class="p">(),</span> <span class="n">yerr</span><span class="o">=</span><span class="n">df2</span><span class="p">[</span><span class="s2">&quot;col&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
+</pre></div>
+</div>
+<p><strong>Ejemplo:</strong></p>
+<p>En este ejemplo se grafican barras apiladas, para el número de pasajeros en 1950 y 1960.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear gráfica</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">flights_1950</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">],</span> 
+        <span class="n">flights_1950</span><span class="p">[</span><span class="s1">&#39;passengers&#39;</span><span class="p">],</span> 
+        <span class="n">color</span><span class="o">=</span><span class="n">azul</span><span class="p">,</span> 
+        <span class="n">label</span><span class="o">=</span><span class="s1">&#39;1950&#39;</span><span class="p">)</span>
+
+<span class="c1"># Crear gráfica apilada</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">flights_1950</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">],</span> 
+        <span class="n">flights_1960</span><span class="p">[</span><span class="s1">&#39;passengers&#39;</span><span class="p">],</span> 
+        <span class="n">bottom</span><span class="o">=</span><span class="n">flights_1950</span><span class="p">[</span><span class="s1">&#39;passengers&#39;</span><span class="p">],</span> 
+        <span class="n">color</span><span class="o">=</span><span class="n">cafe</span><span class="p">,</span> 
+        <span class="n">label</span><span class="o">=</span><span class="s1">&#39;1960&#39;</span><span class="p">)</span>
+
+<span class="c1"># Añadir leyenda</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="c1"># Imprimir gráfica</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/dd09470bbe354b9769961dbb89bbe7ca03becb047fd1f0681cccef7f7d9c6c60.png" src="../../_images/dd09470bbe354b9769961dbb89bbe7ca03becb047fd1f0681cccef7f7d9c6c60.png" />
+</div>
+</div>
+<br/>
+</section>
+</section>
+<section id="rectas-y-areas">
+<span id="pyplot-funciones-areas-rectas"></span><h4>Rectas y áreas<a class="headerlink" href="#rectas-y-areas" title="Link to this heading">#</a></h4>
+<p>Gráficas para generar áreas y líneas horizontales y verticales.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Considerar lo siguiente:</p>
+<ul class="simple">
+<li><p>Las rectas aquí presentadas son múltiples rectas en un intervalo. Para graficar una única recta revisar funciones en <a class="reference internal" href="#pyplot-funciones-spans"><span class="std std-ref">Rectas y Áreas</span></a>.</p></li>
+<li><p>Las áreas aquí presentadas son para rellenar áreas entre curvas o gráficas de áreas. Para generar <em>spans</em> (rectángulos para resaltar zonas en gráficas) ver funciones en <a class="reference internal" href="#pyplot-funciones-spans"><span class="std std-ref">Rectas y Áreas</span></a>.</p></li>
+</ul>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.fill.html">fill</a>(*args, data=None, **kwargs)</p></td>
+<td><p>Grafica polígonos rellenos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.fill_between.html">fill_between</a>(x, y1, y2=0, where=None, interpolate=False, step=None, …)</p></td>
+<td><p>Rellena el área entre dos curvas horizontales (<span class="math notranslate nohighlight">\(y=f(x)\)</span>).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.fill_betweenx.html">fill_betweenx</a>(y, x1, x2=0, where=None, step=None, interpolate=False, …)</p></td>
+<td><p>Rellena el área entre dos curvas verticales (<span class="math notranslate nohighlight">\(x=g(y)\)</span>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hlines.html">hlines</a>(y, xmin, xmax, colors=None, linestyles=’solid’, label=’’, …)</p></td>
+<td><p>Grafica líneas horizontales en cada <em>y</em> desde <em>xmin</em> hasta <em>xmax</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.stackplot.html">stackplot</a>(x, *args, labels=(), colors=None, baseline=’zero’, data=None, **kwargs)</p></td>
+<td><p>Crea una gráfica de áreas apiladas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.vlines.html">vlines</a>(x, ymin, ymax, colors=None, linestyles=’solid’, label=’’, …)</p></td>
+<td><p>Grafica líneas verticales en cada <em>x</em> desde <em>ymin</em> hasta <em>ymax</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="circulares">
+<h4>Circulares<a class="headerlink" href="#circulares" title="Link to this heading">#</a></h4>
+<p>Funciones para crear gráficas circulares.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.pie.html">pie</a>(x, , …)</p></td>
+<td><p>Grafica un gráfico circular.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.polar.html">polar</a>(*args, **kwargs)</p></td>
+<td><p>Crea una gráfica polar.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+<section id="bins">
+<h3>Bins<a class="headerlink" href="#bins" title="Link to this heading">#</a></h3>
+<p>Gráficas para datos en <em>bins</em> como histogramas.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hexbin.html">hexbin</a>(x, y, …)</p></td>
+<td><p>Crea un gráfico de agrupación hexagonal 2D de los puntos <em>x</em>, <em>y</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html">hist</a>(x, bins=None, range=None, density=False, weights=None, cumulative=False, …)</p></td>
+<td><p>Calcula y grafica un histograma.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist2d.html">hist2d</a>(x, y, bins=10, range=None, density=False, …)</p></td>
+<td><p>Crea un gráfico de histograma 2D.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.stairs.html">stairs</a>(values, edges=None, …)</p></td>
+<td><p>Grafica de escalera como una línea con bordes delimitadores o un gráfico relleno.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<section id="notas-de-hist">
+<h4>Notas de <em>hist</em><a class="headerlink" href="#notas-de-hist" title="Link to this heading">#</a></h4>
+<p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html">hist</a>: Realiza un histograma.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cumulative</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+         <span class="n">bottom</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s1">&#39;mid&#39;</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">,</span> <span class="n">rwidth</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+         <span class="n">log</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">stacked</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong>x</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code> o <code class="docutils literal notranslate"><span class="pre">secuencia</span></code> de <code class="docutils literal notranslate"><span class="pre">array-like</span></code>: Datos de entrada. Si es una secuencia, los <em>arrays</em> pueden ser de diferentes tamaños.</p></li>
+<li><p><strong>bins</strong> - <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">secuencia</span></code> o <code class="docutils literal notranslate"><span class="pre">str</span></code>: Definir los <em>bins</em> del histograma.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span></code>: Número de <em>bins</em> en el rango.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">secuencia</span></code>: Define los limites de cada <em>bin</em>. Es inclusivo.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">str</span></code>: El nombre de una estrategia para hacer los <em>bins</em>, las posibles opciones son ‘auto’, ‘fd’, ‘doane’, ‘scott’, ‘stone’, ‘rice’, ‘sturges’, o ‘sqrt’.</p></li>
+</ul>
+</li>
+<li><p><strong>range</strong> - <code class="docutils literal notranslate"><span class="pre">tuple</span></code> o <code class="docutils literal notranslate"><span class="pre">None</span></code>: Rango de los bins. Ignorado si <em>bins</em> es <code class="docutils literal notranslate"><span class="pre">sequence</span></code>. Por default es <code class="docutils literal notranslate"><span class="pre">(x.min(),</span> <span class="pre">x.max())</span></code>.</p></li>
+<li><p><strong>density</strong> - <code class="docutils literal notranslate"><span class="pre">bool</span></code>: Para indicar que retorne la densidad de probabilidad (eje <em>y</em> entre 0 y 1).</p></li>
+<li><p><strong>cumulative</strong> - <code class="docutils literal notranslate"><span class="pre">bool</span></code>: Para indicar si realizar el histograma cumulativo. Si es -1 entonces la acumulación es al revés (empieza acumulado y se van restando los nuevos valores).</p></li>
+<li><p><strong>histtype</strong> - {‘bar’, ‘barstacked’, ‘step’, ‘stepfilled’}: Tipo de histograma.</p></li>
+<li><p><strong>align</strong> - {‘left’, ‘mid’, ‘right’}: Alineación de las barras.</p></li>
+<li><p><strong>orientation</strong> - {‘vertical’, ‘horizontal’}: Orientación de las barras.</p></li>
+<li><p><strong>stacked</strong> - <code class="docutils literal notranslate"><span class="pre">bool</span></code>: Para indicar, en caso de múltiples datos, que las barras se apilen.</p></li>
+<li><p><strong>**kwargs</strong>: Propiedades de <a class="reference internal" href="otros.html#matplotlib-patch"><span class="std std-ref">Patch</span></a>.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><strong>n</strong> -<code class="docutils literal notranslate"><span class="pre">array</span></code> o <code class="docutils literal notranslate"><span class="pre">list</span></code> de <code class="docutils literal notranslate"><span class="pre">array</span></code>: Valores de los <em>bins</em> (alturas de las barras).</p></li>
+<li><p><strong>bins</strong> -<code class="docutils literal notranslate"><span class="pre">array</span></code>: Extremos de los bins.</p></li>
+<li><p><strong>patches</strong> - <code class="docutils literal notranslate"><span class="pre">BarContainer</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code> de <code class="docutils literal notranslate"><span class="pre">Polygon</span></code> o <code class="docutils literal notranslate"><span class="pre">list</span></code> de esos objetos: Contenedor de los artistas individuales usados para crear el histograma.</p></li>
+</ul>
+<p><strong>Ejemplo:</strong>
+En este ejemplo se gráfica el histograma de la columna <em>total_bill</em> del dataset <em>tips</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar el dataset</span>
+<span class="n">tips</span><span class="o">=</span><span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;tips&quot;</span><span class="p">)</span>
+
+<span class="c1"># Crear la figura</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># Graficar el histograma</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">tips</span><span class="p">[</span><span class="s1">&#39;total_bill&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">azul</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histogram of Total Bill&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Total Bill ($)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Frequency&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="c1"># Imprimir la figura</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/b4bec8d7c404fe2c8bad2071756df6a32c9b080ee691279f19cc15a3b0cd1c9f.png" src="../../_images/b4bec8d7c404fe2c8bad2071756df6a32c9b080ee691279f19cc15a3b0cd1c9f.png" />
+</div>
+</div>
+<br/>
+</section>
+</section>
+<section id="campos-vectoriales">
+<h3>Campos Vectoriales<a class="headerlink" href="#campos-vectoriales" title="Link to this heading">#</a></h3>
+<p>Funciones para graficar campos vectoriales.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.barbs.html">barbs</a>(*args, data=None, **kwargs)</p></td>
+<td><p>Grafica un campo 2D de púas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.quiver.html">quiver</a>(*args, data=None, **kwargs)</p></td>
+<td><p>Grafica un campo 2D de flechas.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.quiverkey.html">quiverkey</a>(Q, X, Y, U, label, **kwargs)</p></td>
+<td><p>Agrega una clave a una gráfica <em>quiver</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.streamplot.html">streamplot</a>(x, y, u, v, density=1, linewidth=None, color=None, cmap=None, …)</p></td>
+<td><p>Grafica líneas de corriente de un flujo vectorial.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="contornos">
+<h3>Contornos<a class="headerlink" href="#contornos" title="Link to this heading">#</a></h3>
+<p>Funciones para gráficar de contornos. Útiles para representaciones 2D de de gráficas 3D.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.clabel.html">clabel</a>(CS, levels=None, **kwargs)</p></td>
+<td><p>Etiqueta un una gráfica de contorno.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.contour.html">contour</a>(*args, data=None, **kwargs)</p></td>
+<td><p>Grafica líneas de contorno.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.contourf.html">contourf</a>(*args, data=None, **kwargs)</p></td>
+<td><p>Grafica contornos rellenos.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="espectral">
+<h3>Espectral<a class="headerlink" href="#espectral" title="Link to this heading">#</a></h3>
+<p>Funciones útiles para diagramas espectrales, utilizados para analizar frecuencias y estructuras cíclicas.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.acorr.html">acorr</a>(x, …)</p></td>
+<td><p>Grafica la autocorrelación de <em>x</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.angle_spectrum.html">angle_spectrum</a>(x, …)</p></td>
+<td><p>Grafica el espectro de ángulos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.cohere.html">cohere</a>(x, y, …)</p></td>
+<td><p>Grafica la coherencia entre <em>x</em> y <em>y</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.csd.html">csd</a>(x, y, …)</p></td>
+<td><p>Grafica la densidad espectral cruzada.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.magnitude_spectrum.html">magnitude_spectrum</a>(x, …)</p></td>
+<td><p>Grafica el espectro de magnitudes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.phase_spectrum.html">phase_spectrum</a>(x, …)</p></td>
+<td><p>Grafica el espectro de fases.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.psd.html">psd</a>(x, …)</p></td>
+<td><p>Grafica la densidad espectral de potencia.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.specgram.html">specgram</a>(x, …)</p></td>
+<td><p>Grafica un espectrograma.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xcorr.html">xcorr</a>(x, y, …)</p></td>
+<td><p>Grafica la correlación cruzada entre <em>x</em> y <em>y</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="estadisticas">
+<h3>Estadísticas<a class="headerlink" href="#estadisticas" title="Link to this heading">#</a></h3>
+<p>Funciones útiles para gráficar visualizaciones estadísticas como <em>boxplots</em>, funciones acumuladas de probabilidad, entre otros.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.boxplot.html">boxplot</a>(x, …)</p></td>
+<td><p>Genera una gráfica de caja y bigotes. Retorna un diccionario que contiene las siguientes <em>keys</em>: <em>boxes</em>, <em>medians</em>, <em>whiskers</em>, <em>caps</em>, <em>fliers</em>, <em>means</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ecdf.html">ecdf</a>(x, weights=None, …)</p></td>
+<td><p>Calcula y grafica la función de distribución acumulada de <em>x</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.violinplot.html">violinplot</a>(dataset, …)</p></td>
+<td><p>Genera una gráfica de violín.</p></td>
+</tr>
+</tbody>
+</table>
+<section id="notas-de-plt-boxplot">
+<h4>Notas de <em>plt.boxplot</em><a class="headerlink" href="#notas-de-plt-boxplot" title="Link to this heading">#</a></h4>
+<p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.boxplot.html">boxplot</a>: Crea un boxplot por cada columna que se le pase.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">notch</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sym</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vert</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">,</span> <span class="n">whis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+            <span class="n">positions</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">widths</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">patch_artist</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bootstrap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+            <span class="n">usermedians</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">conf_intervals</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">meanline</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">showmeans</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+            <span class="n">showcaps</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">showbox</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">showfliers</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">boxprops</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tick_labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+            <span class="n">flierprops</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">medianprops</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">meanprops</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">capprops</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+            <span class="n">whiskerprops</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">manage_ticks</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">autorange</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+            <span class="n">capwidths</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong>x</strong> - <code class="docutils literal notranslate"><span class="pre">array</span></code> o <code class="docutils literal notranslate"><span class="pre">secuencia</span></code> de <code class="docutils literal notranslate"><span class="pre">2D</span> <span class="pre">array</span></code>: Los datos.</p></li>
+<li><p><strong>notch</strong> - <code class="docutils literal notranslate"><span class="pre">bool</span></code>: <code class="docutils literal notranslate"><span class="pre">False</span></code> para que se la figura sean rectángulos. <code class="docutils literal notranslate"><span class="pre">True</span></code> para que tengan hendiduras en la media.</p></li>
+<li><p><strong>vert</strong> - <code class="docutils literal notranslate"><span class="pre">bool</span></code>: Para indicar si los boxes deben ser verticales (True) u horizontales (False).</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dict</span></code>: Diccionario que contiene las siguientes keys: <em>boxes</em>, <em>medians</em>, <em>whiskers</em>, <em>caps</em>, <em>fliers</em>, <em>means</em>.</p></li>
+</ul>
+<p><strong>Ejemplo:</strong>
+En este ejemplo se gráfica el histograma de la columna <em>total_bill</em> del dataset <em>tips</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear la figura</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># Graficar el histograma</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">tips</span><span class="p">[</span><span class="s1">&#39;total_bill&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Boxplot of Total Bill&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="c1"># Imprimir la figura</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/bd07696beb642515068a1879c9756e584d5aa9089bd01b685c094f3771481bda.png" src="../../_images/bd07696beb642515068a1879c9756e584d5aa9089bd01b685c094f3771481bda.png" />
+</div>
+</div>
+<br/>
+</section>
+</section>
+<section id="arreglos-2d">
+<h3>Arreglos 2D<a class="headerlink" href="#arreglos-2d" title="Link to this heading">#</a></h3>
+<p>Funciones para generar visualizaciones a partir de datos contenidos en arreglos.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figimage.html">figimage</a>(X, …)</p></td>
+<td><p>Agrega una imagen no remuestreada a la figura.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.imshow.html">imshow</a>(X, cmap=None, norm=None, …)</p></td>
+<td><p>Muestra un array como una imagen.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.matshow.html">matshow</a>(A, fignum=None, **kwargs)</p></td>
+<td><p>Muestra un arreglo como matriz en una nueva figura.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.pcolor.html">pcolor</a>(*args, …)</p></td>
+<td><p>Crea una gráfica de pseudocolor con una cuadrícula rectangular no regular.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.pcolormesh.html">pcolormesh</a>(*args, …)</p></td>
+<td><p>Crea una gráfica de pseudocolor con una cuadrícula rectangular no regular.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.spy.html">spy</a>(Z, …)</p></td>
+<td><p>Traza el patrón de un arreglo 2D <em>sparse</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="pyplot-funciones-spans">
+<span id="id1"></span><h3>Rectas y Áreas<a class="headerlink" href="#pyplot-funciones-spans" title="Link to this heading">#</a></h3>
+<p>Funciones para añadir rectas y áreas a gráficas.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Para añadir <em>n</em> rectas en un intervalo o agregar áreas entre curvas o áreas con formas más complejas (polígonos) revisar funciones de <a class="reference internal" href="#pyplot-funciones-areas-rectas"><span class="std std-ref">Rectas y áreas</span></a>.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.axhline.html">axhline</a>(y=0, xmin=0, xmax=1, **kwargs)</p></td>
+<td><p>Añade una línea horizontal a la gráfica.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.axhspan.html">axhspan</a>(ymin, ymax, xmin=0, xmax=1, **kwargs)</p></td>
+<td><p>Agrega un área (rectángulo horizontal) a la gráfica.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.axline.html">axline</a>(xy1, xy2=None, …)</p></td>
+<td><p>Agrega una línea recta infinitamente larga.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.axvline.html">axvline</a>(x=0, ymin=0, ymax=1, **kwargs)</p></td>
+<td><p>Añade una línea vertical a la gráfica.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.axvspan.html">axvspan</a>(xmin, xmax, ymin=0, ymax=1, **kwargs)</p></td>
+<td><p>Agrega un tramo vertical (rectángulo) a la gráfica.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ejemplo</strong>
+En el siguiente ejemplo se añade una recta horizontal en y un área entre 1953 y 1954:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span> 
+
+<span class="c1"># Graficar los datos</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">yearly_data</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">],</span> 
+         <span class="n">yearly_data</span><span class="p">[</span><span class="s1">&#39;passengers&#39;</span><span class="p">],</span> 
+         <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> 
+         <span class="n">color</span><span class="o">=</span><span class="n">azul</span><span class="p">)</span>
+
+<span class="c1"># Añadir recta horizontal</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">4500</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">cafe</span><span class="p">)</span>
+
+<span class="c1"># Añadir área vertical</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="mi">1953</span><span class="p">,</span> <span class="mi">1954</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">cafe_claro</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.3</span><span class="p">)</span>
+
+<span class="c1"># Imprimir la figura</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/ee3bc6455a2ca1977142e826e871d403d4c888bcdc05182e700d6b0279f1685b.png" src="../../_images/ee3bc6455a2ca1977142e826e871d403d4c888bcdc05182e700d6b0279f1685b.png" />
+</div>
+</div>
+<br/>
+</section>
+<section id="texto-y-anotaciones">
+<h3>Texto y Anotaciones<a class="headerlink" href="#texto-y-anotaciones" title="Link to this heading">#</a></h3>
+<p>Funciones útiles para añadir texto y otras anotaciones a las gráficas o a las figuras.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.annotate.html">annotate</a>(text, xy, …)</p></td>
+<td><p>Agrega un texto a una gráfica para resaltar algún punto. Es posible agregar una flecha que apunte hacia un punto en particular y se agrege un texto.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.arrow.html">arrow</a>(x, y, dx, dy, **kwargs)</p></td>
+<td><p>Añade una flecha al <code class="docutils literal notranslate"><span class="pre">Axes</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figlegend.html">figlegend</a>(*args, **kwargs)</p></td>
+<td><p>Coloca una leyenda en la <strong>figura</strong>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figtext.html">figtext</a>(x, y, s, fontdict=None, **kwargs)</p></td>
+<td><p>Añade texto a la <strong>figura</strong>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.legend.html">legend</a>(*args, **kwargs)</p></td>
+<td><p>Coloca una leyenda en el <code class="docutils literal notranslate"><span class="pre">Axes</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.table.html">table</a>(cellText=None, …)</p></td>
+<td><p>Agrega una tabla a un <code class="docutils literal notranslate"><span class="pre">Axes</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.text.html">text</a>(x, y, s, fontdict=None, **kwargs)</p></td>
+<td><p>Agrega un texto al <code class="docutils literal notranslate"><span class="pre">Axes</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<section id="notas-de-annote">
+<h4>Notas de <em>annote</em><a class="headerlink" href="#notas-de-annote" title="Link to this heading">#</a></h4>
+<p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.annotate.html">annotate</a>: Agrega un texto a una gráfica para resaltar algún punto de la gráfica bajo una condición. Es posible agregar una flecha que apunte hacia un punto en particular y se agrege un texto.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">xy</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong>text</strong> - <code class="docutils literal notranslate"><span class="pre">str</span></code>: La cadena que se mostará en la gráfica.</p></li>
+<li><p><strong>xy</strong> - <code class="docutils literal notranslate"><span class="pre">secuencia</span></code> de <code class="docutils literal notranslate"><span class="pre">float</span></code>: Es la posición del punto a resaltar, debe ser la misma escala que usan los ejes.</p></li>
+<li><p><strong>xytext</strong> - <code class="docutils literal notranslate"><span class="pre">secuencia</span></code> de <code class="docutils literal notranslate"><span class="pre">float</span></code>: Es para indicar la posición del texto, es útil en caso de que en <em>xy</em> se sobre encime con muchas cosas.</p></li>
+<li><p><strong>xycoords</strong> - <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">Artist</span></code>, <code class="docutils literal notranslate"><span class="pre">Transform</span></code> o <code class="docutils literal notranslate"><span class="pre">callable</span></code>: Sistema de coordenadas para el argumetno <em>xy</em>. Consultar la documentación para más información.</p></li>
+<li><p><strong>arrowprops</strong> - <code class="docutils literal notranslate"><span class="pre">dict</span></code>: Es para crear una fecha que una el texto (<em>xytext</em>) con el punto <em>xy</em>, es útil en caso de que moviste de lugar el texto con <em>xytext</em>, se utiliza un diccionario para cambiar las propiedades de la flecha (la key es el nombre de la propiedad values el es valor de la propiedad). Si se quiere la flecha en su formato por default poner un diccionario vacío (con ‘’ o <code class="docutils literal notranslate"><span class="pre">dict()</span></code>). Para ver las posibles <em>keys</em> consultar los parámetros de <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.FancyArrowPatch.html#matplotlib-patches-fancyarrowpatch">FancyArrowPatch</a>.</p></li>
+<li><p><strong>**kwargs</strong>: Propiedades de <a class="reference internal" href="otros.html#matplotlib-text"><span class="std std-ref">Text</span></a>.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Annotation</span></code>.</p></li>
+</ul>
+<p><strong>Ejemplo</strong></p>
+<p>En este ejemplo se añade el número de pasajeros exactos en el año 1954.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear figura</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+
+<span class="c1"># Graficar los datos</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">yearly_data</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">],</span> 
+         <span class="n">yearly_data</span><span class="p">[</span><span class="s1">&#39;passengers&#39;</span><span class="p">],</span> 
+         <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Passengers&#39;</span><span class="p">,</span> 
+         <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> 
+         <span class="n">color</span><span class="o">=</span><span class="n">azul</span><span class="p">)</span>
+
+<span class="c1"># Añadir etiquetas y título</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Año&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Total de pasajeros&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Tendencia de total de pasajeros&#39;</span><span class="p">)</span>
+
+<span class="c1"># Añadir texto en el punto 1954</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;2,867&quot;</span><span class="p">,</span> 
+             <span class="n">xy</span><span class="o">=</span><span class="p">[</span><span class="mi">1954</span><span class="p">,</span> <span class="mi">2867</span><span class="p">],</span> 
+             <span class="n">xytext</span><span class="o">=</span><span class="p">[</span><span class="mi">1954</span><span class="p">,</span> <span class="mi">2000</span><span class="p">],</span> 
+             <span class="n">arrowprops</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;arrowstyle&quot;</span><span class="p">:</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;color&quot;</span><span class="p">:</span><span class="s2">&quot;gray&quot;</span><span class="p">})</span>
+
+<span class="c1"># Show the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/d87dadbe787e6533327228325709e2625a68473f0db6c14c54a025be962967b0.png" src="../../_images/d87dadbe787e6533327228325709e2625a68473f0db6c14c54a025be962967b0.png" />
+</div>
+</div>
+<br/>
+</section>
+<section id="notas-de-text">
+<h4>Notas de <em>text</em><a class="headerlink" href="#notas-de-text" title="Link to this heading">#</a></h4>
+<p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.text.html">text</a>: Agrega texto a un <code class="docutils literal notranslate"><span class="pre">Axes</span></code> en las coordenadas de <em>x</em> y <em>y</em>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">fontdict</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong>x</strong>, <strong>y</strong> - <code class="docutils literal notranslate"><span class="pre">float</span></code>: Posición en el cual colocar el texto. Los valores son en la misma escala que los ejes. Excepto si se aplica una transformación, con el parámetro <em>transform</em>.</p></li>
+<li><p><strong>s</strong> - <code class="docutils literal notranslate"><span class="pre">str</span></code>: El texto a mostrar.</p></li>
+<li><p><strong>fontdict</strong> - <code class="docutils literal notranslate"><span class="pre">dict</span></code>: Diccionario que sirve para especificar la apariencia del texto (propiedades de <code class="docutils literal notranslate"><span class="pre">Text</span></code>), los <em>keys</em> son los nombres de las propiedades y <em>values</em> sus respectivos valores.</p></li>
+<li><p><strong>**kwargs</strong>: Propiedades de <a class="reference internal" href="otros.html#matplotlib-text"><span class="std std-ref">Text</span></a>.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Text</span></code>.</p></li>
+</ul>
+<p><strong>Ejemplo:</strong></p>
+<p>En este ejemplo se añade el número de pasajeros exactos en el año 1954.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear figura</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+
+<span class="c1"># Graficar los datos</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">yearly_data</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">],</span> 
+         <span class="n">yearly_data</span><span class="p">[</span><span class="s1">&#39;passengers&#39;</span><span class="p">],</span> 
+         <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> 
+         <span class="n">color</span><span class="o">=</span><span class="n">azul</span><span class="p">)</span>
+
+<span class="c1"># Añadir etiquetas y título</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Año&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Total de pasajeros&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Tendencia de total de pasajeros&#39;</span><span class="p">)</span>
+
+<span class="c1"># Añadir texto en el punto 1954</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">1954</span><span class="p">,</span> <span class="mi">2650</span><span class="p">,</span> <span class="s2">&quot;2867&quot;</span><span class="p">)</span>
+
+<span class="c1"># Show the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/b07596589f40f0cafa7b7dcef60e3995853d4f0132a15e17639d88826aa81f70.png" src="../../_images/b07596589f40f0cafa7b7dcef60e3995853d4f0132a15e17639d88826aa81f70.png" />
+</div>
+</div>
+<br/>
+</section>
+</section>
+<section id="triangulos-no-estructurados">
+<h3>Triangulos no Estructurados<a class="headerlink" href="#triangulos-no-estructurados" title="Link to this heading">#</a></h3>
+<p>Funciones para crear gráficas de mallas no estructuradas. Este tipo de mallas se compoenen de puntos espaciados de manera irregular conectados por elementos triangulares, una aplicación común es visualización de datos geoespaciales.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.tricontour.html">tricontour</a>(*args, **kwargs)</p></td>
+<td><p>Grafica líneas de contorno en una cuadrícula triangular no estructurada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.tricontourf.html">tricontourf</a>(*args, **kwargs)</p></td>
+<td><p>Grafica regiones de contorno en una cuadrícula triangular no estructurada.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.tripcolor.html">tripcolor</a>(*args, …)</p></td>
+<td><p>Crea una gráfica de pseudocolor de una cuadrícula triangular no estructurada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.triplot.html">triplot</a>(*args, **kwargs)</p></td>
+<td><p>Grafica una cuadrícula triangular no estructurada como líneas y/o marcadores.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<hr class="docutils" />
+</section>
+</section>
+<section id="funciones-de-personalizacion">
+<span id="pyplot-personalizacion"></span><h2>Funciones de Personalización<a class="headerlink" href="#funciones-de-personalizacion" title="Link to this heading">#</a></h2>
+<p>Funciones para personalización de las gráficas. Las funciones aquí presentadas funcionan principalmente para los <code class="docutils literal notranslate"><span class="pre">Axes</span></code>.</p>
+<section id="titulos-y-etiquetas">
+<h3>Títulos y etiquetas<a class="headerlink" href="#titulos-y-etiquetas" title="Link to this heading">#</a></h3>
+<p>Funciones para establecer los títulos y etiquetas de figuras, <em>axes</em> y ejes.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.suptitle.html">suptitle</a>(t, **kwargs)</p></td>
+<td><p>Añade un subtítulo centrado a la <strong>figura</strong>. Es útil en figuras que tienen más de un gráfica.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.title.html">title</a>(label, fontdict=None, loc=None, pad=None, …)</p></td>
+<td><p>Establece un título para el <code class="docutils literal notranslate"><span class="pre">Axes</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlabel.html">xlabel</a>(xlabel, fontdict=None, labelpad=None, …)</p></td>
+<td><p>Establece la etiqueta para el eje <em>x</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ylabel.html">ylabel</a>(ylabel, fontdict=None, labelpad=None, …)</p></td>
+<td><p>Establece la etiqueta para el eje <em>y</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Patrones útiles:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Establecer título de la figura</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Title&#39;</span><span class="p">)</span>
+
+<span class="c1"># Establecer etiqueta del eje x</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x label&#39;</span><span class="p">)</span>
+
+<span class="c1"># Establecer etiqueta del eje y</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y label&#39;</span><span class="p">)</span>
+
+<span class="c1"># Establecer título</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<br/>
+</section>
+<section id="leyenda">
+<h3>Leyenda<a class="headerlink" href="#leyenda" title="Link to this heading">#</a></h3>
+<p>Funciones para añadir leyendas a las gráficas.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figlegend.html">figlegend</a>(*args, **kwargs)</p></td>
+<td><p>Coloca una leyenda en la <strong>figura</strong>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.legend.html">legend</a>(*args, **kwargs)</p></td>
+<td><p>Coloca una leyenda en el <code class="docutils literal notranslate"><span class="pre">Axes</span></code>. Si no se pone ningún argumento, se infieren los argumentos, el nombre que se mostrará en la leyenda será el que se le puso a cada gráfica con el parámetro <em>label</em>. Si una gráfica no tiene <em>label</em> no se mostrará en la leyenda.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<section id="notas-de-legend">
+<h4>Notas de <em>legend</em><a class="headerlink" href="#notas-de-legend" title="Link to this heading">#</a></h4>
+<p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.legend.html">legend</a>: Añade una leyenda a un <code class="docutils literal notranslate"><span class="pre">Axes</span></code>. Si no se pone ningún argumento, se infieren los argumentos, por las gráficas presenten en el <code class="docutils literal notranslate"><span class="pre">Axes</span></code>, el nombre que se mostrará en la leyenda será al que se le puso a cada gráfica con el argumento label. Si una gráfica no tiene label no se mostrará en la leyenda.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sinxis de llamada</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">labelcolor</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+           <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">title_fontsize</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong>labels</strong> - <code class="docutils literal notranslate"><span class="pre">list</span></code> de <code class="docutils literal notranslate"><span class="pre">str</span></code>: Nombres a mostrar en la leyenda, debe ser de la misma longitud que el número de gráficas y en el mismo orden que <code class="docutils literal notranslate"><span class="pre">Axes</span></code>.</p></li>
+<li><p><strong>loc</strong> - <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code> o <code class="docutils literal notranslate"><span class="pre">2-tuple</span></code> de <code class="docutils literal notranslate"><span class="pre">float</span></code>: Posición de la leyenda en la gráfica. Si es <code class="docutils literal notranslate"><span class="pre">str</span></code> o <code class="docutils literal notranslate"><span class="pre">int</span></code> ver más abajo la tabla de posibles valores. Si es <code class="docutils literal notranslate"><span class="pre">tuple</span></code> es la posición en el eje <em>x</em> y <em>y</em>, es un valor entre 0 y 1.</p></li>
+<li><p><strong>ncol</strong> - <code class="docutils literal notranslate"><span class="pre">int</span></code>: Número de columnas en la leyenda.</p></li>
+<li><p><strong>labelcolor</strong> - <code class="docutils literal notranslate"><span class="pre">str</span></code> o <code class="docutils literal notranslate"><span class="pre">list</span></code> de <code class="docutils literal notranslate"><span class="pre">str</span></code>: Color de las etiquetas en la leyenda.</p></li>
+<li><p><strong>fontsize</strong> - {‘xx-small’, ‘x-small’, ‘small’, ‘medium’, ‘large’, ‘x-large’, ‘xx-large’}: Tamaño de la fuente de la leyenda.</p></li>
+<li><p><strong>facecolor</strong> ‘inherit’ o - <code class="docutils literal notranslate"><span class="pre">color</span></code>: Color del fondo de la leyenda.</p></li>
+<li><p><strong>edgecolor</strong> ‘inherit’ o - <code class="docutils literal notranslate"><span class="pre">color</span></code>: Color del borde de la leyenda.</p></li>
+<li><p><strong>title</strong> - <code class="docutils literal notranslate"><span class="pre">str</span></code> o <code class="docutils literal notranslate"><span class="pre">None</span></code>: Título de la leyenda.</p></li>
+<li><p><strong>title_fontsize</strong> - {‘xx-small’, ‘x-small’, ‘small’, ‘medium’, ‘large’, ‘x-large’, ‘xx-large’}: Tamaño del título de la leyenda.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Legend</span></code>.</p></li>
+</ul>
+<p>Posibles valores del parámetro <em>loc</em>, como cadena o como entero:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>loc &lt;str/&gt;</p></th>
+<th class="head"><p>loc &lt;int&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'best'</span></code></p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">'upper</span> <span class="pre">right'</span></code></p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'upper</span> <span class="pre">left'</span></code></p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">'lower</span> <span class="pre">left'</span></code></p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'lower</span> <span class="pre">right'</span></code></p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">'right'</span></code></p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'center</span> <span class="pre">left'</span></code></p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">'center</span> <span class="pre">right'</span></code></p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'lower</span> <span class="pre">center'</span></code></p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">'upper</span> <span class="pre">center'</span></code></p></td>
+<td><p>9</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'center'</span></code></p></td>
+<td><p>10</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+<section id="grids">
+<h3>Grids<a class="headerlink" href="#grids" title="Link to this heading">#</a></h3>
+<p>Funciones para establecer o configurar el <em>grid</em> (líneas de cruadrículas) en las gráficas.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.grid.html">grid</a>(visible=None, which=’major’, axis=’both’, **kwargs)</p></td>
+<td><p>Configuración de las líneas de la cuadrícula.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.rgrids.html">rgrids</a>(radii=None, labels=None, angle=None, fmt=None, **kwargs)</p></td>
+<td><p>Recupera o establece las líneas de cuadrícula radiales en el gráfico polar actual.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.thetagrids.html">thetagrids</a>(angles=None, labels=None, fmt=None, **kwargs)</p></td>
+<td><p>Recupera o establece las líneas de cuadrícula <em>theta</em> en la gráfica polar actual.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="ejes">
+<h3>Ejes<a class="headerlink" href="#ejes" title="Link to this heading">#</a></h3>
+<p>En esta sección se enlistan las funciones relacionadas con los ejes de los objetos <code class="docutils literal notranslate"><span class="pre">Axes</span></code>.</p>
+<section id="funciones-generales">
+<h4>Funciones generales<a class="headerlink" href="#funciones-generales" title="Link to this heading">#</a></h4>
+<p>Funciones para manipular los ejes en general.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.axis.html">axis</a>(arg=None, /, …)</p></td>
+<td><p>Método de conveniencia <em>get</em> o <em>set</em> de algunas propiedades del eje.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.box.html">box</a>(on=None)</p></td>
+<td><p>Activa o desactiva el cuadro de ejes en los ejes actuales.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="escala">
+<h4>Escala<a class="headerlink" href="#escala" title="Link to this heading">#</a></h4>
+<p>Funciones para establecer la escala de los ejes.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.autoscale.html">autoscale</a>(enable=True, axis=’both’, tight=None)</p></td>
+<td><p>Escala automáticamente la vista del eje a los datos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xscale.html">xscale</a>(value, **kwargs)</p></td>
+<td><p>Establece la escala del eje <em>x</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.yscale.html">yscale</a>(value, **kwargs)</p></td>
+<td><p>Establece la escala del eje <em>y</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<p><strong>Ejemplo</strong></p>
+<p>En este ejemplo se ajustan las escalas en ambos ejes a una escalar logarítmica para que los datos se puedan visualizar de mejor manera.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar dataset</span>
+<span class="n">planets</span><span class="o">=</span><span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;planets&quot;</span><span class="p">)</span>
+
+<span class="c1"># Crear gráfica</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">planets</span><span class="p">[</span><span class="s1">&#39;orbital_period&#39;</span><span class="p">],</span> <span class="n">planets</span><span class="p">[</span><span class="s1">&#39;distance&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">azul</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+<span class="c1"># Ajustar escalar en ambos ejes</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+
+<span class="c1"># Imprimir la figura</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/e4ad82212166d11e3bf87b09e9076f556a41ed243577b774ed052e28d747ce4c.png" src="../../_images/e4ad82212166d11e3bf87b09e9076f556a41ed243577b774ed052e28d747ce4c.png" />
+</div>
+</div>
+<br/>
+</section>
+<section id="limites">
+<h4>Límites<a class="headerlink" href="#limites" title="Link to this heading">#</a></h4>
+<p>Funciones para establecer los límites de los ejes, es decir, el rango de valores en los ejes.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlim.html">xlim</a>(*args, **kwargs)</p></td>
+<td><p>Recupera o establece los límites <em>x</em> de los ejes actuales.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ylim.html">ylim</a>(*args, **kwargs)</p></td>
+<td><p>Recupera o establece los límites <em>y</em> de los ejes actuales.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Otras formas de establecer los límites: <br/> <code class="docutils literal notranslate"><span class="pre">plt.axis([xmin,</span> <span class="pre">xmax,</span> <span class="pre">ymin,</span> <span class="pre">ymax],</span> <span class="pre">*args)</span></code> <br/> <code class="docutils literal notranslate"><span class="pre">gca().set(xlim=(xmin,</span> <span class="pre">xmax),</span> <span class="pre">ylim=(ymin,</span> <span class="pre">ymax))</span></code></p>
+</div>
+<br/>
+</section>
+<section id="ticks">
+<h4>Ticks<a class="headerlink" href="#ticks" title="Link to this heading">#</a></h4>
+<p>Funciones para configurar los <em>ticks</em> en los ejes. Los <em>ticks</em> son los valores en los ejes, ya sean numéricos o categóricos. Se puede configurar sus ubicaciones, sus valores, la cantidad, etc.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.locator_params.html">locator_params</a>(axis=’both’, tight=None, **kwargs)</p></td>
+<td><p>Controla el comportamiento de los localizadores de <em>major ticks</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.minorticks_off.html">minorticks_off</a>()</p></td>
+<td><p>Remueve los <em>minor ticks</em> del <code class="docutils literal notranslate"><span class="pre">Axes</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.minorticks_on.html">minorticks_on</a>()</p></td>
+<td><p>Muestra los <em>minor ticks</em> del <code class="docutils literal notranslate"><span class="pre">Axes</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.tick_params.html">tick_params</a>(axis=’both’, **kwargs)</p></td>
+<td><p>Modifica la apariencia de los <em>ticks</em>, sus etiquetas y las líneas de cuadrícula.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ticklabel_format.html">ticklabel_format</a>(axis=’both’, style=’’, …)</p></td>
+<td><p>Configura el <code class="docutils literal notranslate"><span class="pre">ScalarFormatter</span></code> utilizado por defecto para <code class="docutils literal notranslate"><span class="pre">Axes</span></code> lineales.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xticks.html">xticks</a>(ticks=None, labels=None, …)</p></td>
+<td><p>Recupera o establece las ubicaciones y las etiquetas de los <em>ticks</em> del eje <em>x</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.yticks.html">yticks</a>(ticks=None, labels=None, …)</p></td>
+<td><p>Recupera o establece las ubicaciones y las etiquetas de los <em>ticks</em> del eje <em>y</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<p><strong>Ejemplo</strong>:</p>
+<p>En este ejemplo se modifican los <em>ticks</em> del eje <em>y</em>. Por default, en esa gráfica, se muestran los <em>ticks</em> del 2,000 al 5,000, con un paso de 1,000. Con esta nueva configuración se muestran desde 1,000 hasta 6,000 con un paso de 500.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear figura</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+
+<span class="c1"># Graficar los datos</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">yearly_data</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">],</span> 
+         <span class="n">yearly_data</span><span class="p">[</span><span class="s1">&#39;passengers&#39;</span><span class="p">],</span> 
+         <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> 
+         <span class="n">color</span><span class="o">=</span><span class="n">azul</span><span class="p">)</span>
+
+<span class="c1"># Añadir etiquetas y título</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Año&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Total de pasajeros&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Tendencia de total de pasajeros&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">6500</span><span class="p">,</span> <span class="mi">500</span><span class="p">)))</span>
+
+<span class="c1"># Show the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/885d95a4f2c1573e973df3b368542ed60aaa5bfbc03f8e432c97bb6097ea5e83.png" src="../../_images/885d95a4f2c1573e973df3b368542ed60aaa5bfbc03f8e432c97bb6097ea5e83.png" />
+</div>
+</div>
+<br/>
+</section>
+</section>
+<hr class="docutils" />
+<section id="layout">
+<h3>Layout<a class="headerlink" href="#layout" title="Link to this heading">#</a></h3>
+<p>Funciones para configurar el <em>layout</em> de las gráficas.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.margins.html">margins</a>(*margins, x=None, y=None, tight=True)</p></td>
+<td><p>Establece o retorna los márgenes de escala automática.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplot_tool.html">subplot_tool</a>(targetfig=None)</p></td>
+<td><p>Inicializa una ventana de herramientas de <em>subplot</em> para una figura.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots_adjust.html">subplots_adjust</a>(left=None, bottom=None, right=None, top=None, wspace=None, hspace=None)</p></td>
+<td><p>Ajusta los parámetros del <em>layout</em> para <em>subplots</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.tight_layout.html">tight_layout</a>(*, pad=1.08, h_pad=None, w_pad=None, rect=None)</p></td>
+<td><p>Ajusta el espacio entre y alrededor de los <em>subplots</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<hr class="docutils" />
+<section id="colormapping">
+<h3>Colormapping<a class="headerlink" href="#colormapping" title="Link to this heading">#</a></h3>
+<p>Funciones para recuperar o establecer propiedades relacionadas con el mapeo de colores de los datos en la gráfica.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.clim.html">clim</a>(vmin=None, vmax=None)</p></td>
+<td><p>Establece los límites de color de la imagen actual.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.colorbar.html">colorbar</a>(mappable=None, cax=None, ax=None, **kwargs)</p></td>
+<td><p>Agrega una barra de colores a un gráfico.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.gci.html">gci</a>()</p></td>
+<td><p>Recupera el <em>colorable artist</em> actual.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.get_cmap.html">get_cmap</a>(name=None, lut=None)</p></td>
+<td><p>Recupera una instancia de <code class="docutils literal notranslate"><span class="pre">colormap</span></code>, con valores predeterminados de <em>rc</em> si el <em>name</em> es <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.imread.html">imread</a>(fname, format=None)</p></td>
+<td><p>Lee una imagen de un archivo como un arreglo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.imsave.html">imsave</a>(fname, arr, **kwargs)</p></td>
+<td><p>Asigna colores y guarda un arreglo como una imagen localmente.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.sci.html">sci</a>(im)</p></td>
+<td><p>Establece la imagen actual.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.set_cmap.html">set_cmap</a>(cmap)</p></td>
+<td><p>Establece el <em>colormap</em> predeterminado y lo aplica a la imagen actual.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+<hr class="docutils" />
+<section id="otros">
+<h2>Otros<a class="headerlink" href="#otros" title="Link to this heading">#</a></h2>
+<p>Otras funciones.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.connect.html">connect</a>(s, func)</p></td>
+<td><p>Vincula la función <em>func</em> a el evento <em>s</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.disconnect.html">disconnect</a>(cid)</p></td>
+<td><p>Desconecta el <em>callback</em> con id <em>cid</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.findobj.html">findobj</a>(o=None, match=None, include_self=True)</p></td>
+<td><p>Encuentra objetos <em>artist</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.get.html">get</a>(obj, *args, **kwargs)</p></td>
+<td><p>Retorna el valor de una propiedad de un <code class="docutils literal notranslate"><span class="pre">Artist</span></code> o imprime todas las propiedades.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.get_current_fig_manager.html">get_current_fig_manager</a>()</p></td>
+<td><p>Retorna el administrador de figuras de la figura actual.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.getp.html">getp</a>(obj, *args, **kwargs)</p></td>
+<td><p>Retorna el valor de una propiedad de un <code class="docutils literal notranslate"><span class="pre">Artist</span></code> o imprime todas las propiedades.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ginput.html">ginput</a>(n=1, timeout=30, show_clicks=True, mouse_add=MouseButton.LEFT, mouse_pop=MouseButton.RIGHT, mouse_stop=MouseButton.MIDDLE)</p></td>
+<td><p>Llamada de “bloqueo” para interactuar con una figura.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.new_figure_manager.html">new_figure_manager</a>(num, *args, **kwargs)</p></td>
+<td><p>Crea una nueva instancia de administrador de figuras.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.set_loglevel.html">set_loglevel</a>(*args, **kwargs)</p></td>
+<td><p>Configure los niveles de <em>logging</em> de Matplotlib.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.setp.html">setp</a>(obj, *args, **kwargs)</p></td>
+<td><p>Establece una o más propiedades en un <code class="docutils literal notranslate"><span class="pre">Artist</span></code> , o <code class="docutils literal notranslate"><span class="pre">list</span></code> valores permitidos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.waitforbuttonpress.html">waitforbuttonpress</a>(timeout=-1)</p></td>
+<td><p>Llamada de “bloqueo” para interactuar con la figura.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xkcd.html">xkcd</a>(scale=1, length=100, randomness=2)</p></td>
+<td><p>Activa el modo de dibujo <em>sketch-style xkcd</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<hr class="docutils" />
+<section id="produccion">
+<h2>Producción<a class="headerlink" href="#produccion" title="Link to this heading">#</a></h2>
+<p>Funciones para configurar la visualización de las gráficas.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.draw.html">draw</a>()</p></td>
+<td><p>Vuelve a dibujar la figura actual.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.draw_if_interactive.html">draw_if_interactive</a>()</p></td>
+<td><p>Vuelve a dibujar la figura actual si está en modo interactivo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.install_repl_displayhook.html">install_repl_displayhook</a>()</p></td>
+<td><p>Se conecta al <em>hook</em> de visualización del shell actual.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ioff.html">ioff</a>()</p></td>
+<td><p>Desactiva el modo interactivo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ion.html">ion</a>()</p></td>
+<td><p>Habilita el modo interactivo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.isinteractive.html">isinteractive</a>()</p></td>
+<td><p>Indica si los gráficos se actualizan después de cada comando de graficado.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.pause.html">pause</a>(interval)</p></td>
+<td><p>Ejecuta el cíclo de eventos de la GUI durante por intervalos de segundos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html">savefig</a>(*args, **kwargs)</p></td>
+<td><p>Almacena la figura actual localmente.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html">show</a>(*, block=None)</p></td>
+<td><p>Imprime todas las figuras abiertas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.switch_backend.html">switch_backend</a>(newbackend)</p></td>
+<td><p>Establece el <em>backend</em> de pyplot.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.uninstall_repl_displayhook.html">uninstall_repl_displayhook</a>()</p></td>
+<td><p>Se deconecta del <em>hook</em> de visualización del <em>shell</em> actual.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./parts/05-matplotlib"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="matplotlib-index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Matplotlib</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="figure.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Figure</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interfaz-basada-en-matlab">Interfaz basada en Matlab</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#figura-con-un-solo-axes">Figura con un solo <em>axes</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#figura-con-multiples-axes">Figura con múltiples <em>axes</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuracion">Configuración</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-plt-rc">Notas de <em>plt.rc</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figuras-y-axes">Figuras y <em>Axes</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-de-graficas">Funciones de gráficas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basicas">Básicas</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lineas-y-marcadores">Líneas y Marcadores</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-plot">Notas de <em>plot</em></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-scatter">Notas de <em>scatter</em></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#barras">Barras</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-plt-bar">Notas de <em>plt.bar</em></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rectas-y-areas">Rectas y áreas</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#circulares">Circulares</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bins">Bins</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-hist">Notas de <em>hist</em></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#campos-vectoriales">Campos Vectoriales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contornos">Contornos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#espectral">Espectral</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estadisticas">Estadísticas</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-plt-boxplot">Notas de <em>plt.boxplot</em></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arreglos-2d">Arreglos 2D</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyplot-funciones-spans">Rectas y Áreas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#texto-y-anotaciones">Texto y Anotaciones</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-annote">Notas de <em>annote</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-text">Notas de <em>text</em></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#triangulos-no-estructurados">Triangulos no Estructurados</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-de-personalizacion">Funciones de Personalización</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#titulos-y-etiquetas">Títulos y etiquetas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#leyenda">Leyenda</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-legend">Notas de <em>legend</em></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grids">Grids</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejes">Ejes</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-generales">Funciones generales</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#escala">Escala</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#limites">Límites</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ticks">Ticks</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#layout">Layout</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#colormapping">Colormapping</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#otros">Otros</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#produccion">Producción</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nebok
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

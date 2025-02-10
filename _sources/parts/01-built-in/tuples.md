@@ -12,7 +12,8 @@ kernelspec:
 
 # Tuples
 
-Corresponde al tipo de dato `tuple`. Las tuplas son una secuencia. Algunas caractacterísticas son:
+Corresponde al tipo de dato `tuple`. Algunas caractacterísticas son:
+- Las tuplas son una secuencia.
 - Sirven para almacenar múltiples valores de diferentes tipos en una sola variable. 
 - Está indexado: Cada elemento está asociado con un índice y por lo tanto sus elementos están ordenados.
 - Es inmutable: No se puede modificar una vez creado el `tuple`.
@@ -20,7 +21,9 @@ Corresponde al tipo de dato `tuple`. Las tuplas son una secuencia. Algunas carac
 - Es un iterable: Se puede iterar por sus elementos y se puede usar la palabra reservada `in` para verificar memebresía.
 - Se puede concatenar con otras tuplas.
 
+:::{note}
 Para más información visitar la [documentación](https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range) de Python.
+:::
 
 <br>
 
@@ -65,10 +68,10 @@ Y = X * n
 <br>
 
 ---
-## Verificar que un elemento exista en un tuple
+## Verificar membresía
 Para verificar si un elemento está dentro de un `tuple` usar el operador de membresía `in`:
 ```python
-# Si X es una tupla
+# Verificar la membresia de x en X
 x in X
 ```
 - Alternativamente se puede usar `not in`.
@@ -93,6 +96,19 @@ Algunos patrones útiles:
 - El elemento _n_: <br> `X[n-1]`
 - El último elemento: <br> `X[-1]`
 
+**Ejemplos**
+
+```{code-cell} ipython3
+# Definir la tupla
+x = (0, 1, 1, 2, 3, 5, 8, 13, 21, 34)
+
+# Acceder al cuarto elemento
+print(x[3])
+
+# Acceder al penúltimo elemento
+print(x[-2])
+```
+
 <br/>
 
 ### Slicing
@@ -102,13 +118,21 @@ Para seleccionar un rango de elementos consecutivos tener en cuenta las siguient
 - La selección por rango, tienen la característica que el primer elemento es inclusivo y el último es exclusivo, esto quiere decir que no se incluirá en el rango, si se usa el rango `[m:n]`, en realidad solo se accederá a `[m:n-1]`.
 
 Algunos patrones útiles:
-- Desde el índice `i` hasta el `j`, sin incluir el `j`: <br> `X[i:j]`
-- Desde el inicio hasta el `j`, sin incluir el `j`: <br> `X[:j]`
-- Desde la posición `i` hasta el final de la tupla: <br>`X[i:]`
+- Desde el índice _i_ hasta el _j_, sin incluir el _j_: <br> `X[i:j]`
+- Desde el inicio hasta el _j_, sin incluir el _j_: <br> `X[:j]`
+- Desde la posición _i_ hasta el final de la tupla: <br>`X[i:]`
 - Toda la tupla: <br> `X[:]`
-- Desde el índice `i` hasta el `j`, sin incluir el `j`, cada `k` elementos: <br> `X[i:j:k]`
+- Desde el índice _i_ hasta el _j_, sin incluir el _j_, cada `k` elementos: <br> `X[i:j:k]`
 - Toda la tupla cada `k` elementos: <br> `X[::k]`
 - Toda la tupla al revés: <br> `X[::-1]`
+
+```{code-cell} ipython3
+# Definir la tupla
+x = (0, 1, 1, 2, 3, 5, 8, 13, 21, 34)
+
+# Acceder del tercer elemento al antepenúltimo
+print(x[2:-2])
+```
 
 <br>
 
@@ -175,16 +199,17 @@ for i in range(len(X)):
 for i, ele in enumerate(X):
     ...
 ```
-- En todos los ejemplos anteriores `i` y `ele` son nombres opcionales.
+- En todos los ejemplos anteriores _i_ y `ele` son nombres opcionales.
 
 <br>
 
 ---
+(tuple-metodos)=
 ## Métodos de tuple
 
 En esta sección se enlistan los métodos del tipo `tuple`. 
 
-Tener en cuenta que los métodos generalmente se aplican sobre un objeto de tipo `tuple`, por ejemplo, si `X` es `tuple`, entonces se utiliza <code>X.<i>method_name</i></code>. Sin embargo es posible usar la tupla como argumento de <code>tuple.<i>method_name</i></code>. Por ejemplo.
+Tener en cuenta que los métodos generalmente se aplican sobre un objeto de tipo `tuple`, por ejemplo, si _x_ es `tuple`, entonces se utiliza <code>X.<i>method_name</i></code>. Sin embargo es posible usar la tupla como argumento de <code>tuple.<i>method_name</i></code>. Por ejemplo.
 
 ```{code-cell} ipython3
 # Definir una tupla
@@ -210,9 +235,9 @@ Métodos para recuperar información sobre el `tuple`.
 * - Método
   - Descripción
 * - [count](https://docs.python.org/3/library/stdtypes.html#common-sequence-operations)(x)
-  - Devuelve el número de veces que hay un elemento `x` en el `tuple`.
+  - Devuelve el número de veces que hay un elemento _x_ en el `tuple`.
 * - [index](https://docs.python.org/3/library/stdtypes.html#common-sequence-operations)(x[, i[, j]])
-  - Devuelve el índice en el que se encuentra un elemento `x`.
+  - Devuelve el índice en el que se encuentra un elemento _x_.
 ```
 
 <br>

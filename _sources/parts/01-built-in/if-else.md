@@ -2,20 +2,14 @@
 
 Es una estructura condicional. Se utiliza usando las palabras reservada `if` y `else`:
 ```python
+# Sintaxis básica de if else
 if condition:
     # true body
 else:
     # false body
-```
-- _condition_ es una expresión que retorne `True` o `False`. Es posible poner un objeto y por default se evaluará ese objeto con la función `bool()`.
-- Si _condition_ es `True` entonces se ejecutará _true body_, si es `False`, se ejecutará _false body_.
-- No estrictamente se debe de poner `else`, se puede poner solo el `if`. En ese caso solo se ejecutará el código si se cumple la condición.
 
-```{warning} Es muy importante que se respete la indentación, esa es la forma como Python determina qué parte del código forma parte de cada bloque de la estructura. Los dos puntos indican el inicio de un bloque que debe de estar indentado.
-```
 
-Se pueden verificar varias condiciones con la palabra reservada `elif`:
-```python
+# Sintaxis con mútiples condiciones
 if condition_1:
     # condition1 body
 elif condition_2:
@@ -23,6 +17,12 @@ elif condition_2:
 ...
 else:
     # else body
+```
+- _condition_ es una expresión que retorne `True` o `False`. Es posible poner un objeto y por default se evaluará ese objeto con la función `bool()`.
+- Si _condition_ es `True` entonces se ejecutará _true body_, si es `False`, se ejecutará _false body_.
+- No estrictamente se debe de poner `else`, se puede poner solo el `if`. En ese caso solo se ejecutará el código si se cumple la condición.
+
+```{warning} Es muy importante que se respete la indentación, esa es la forma como Python determina qué parte del código forma parte de cada bloque de la estructura. Los dos puntos indican el inicio de un bloque que debe de estar indentado.
 ```
 
 <br/>
@@ -66,8 +66,9 @@ Se puede utilizar los operadores `and`, `or` y `not` en las condiciones de las e
 ---
 ## Pass
 
-Las estructuras `if else` no pueden estar vacías, pero por si alguna razón se necesita una estructura `if ... else` vacía se puede usar la sentencia `pass` para evitar errores:
+Las estructuras `if else` no pueden estar vacías, pero por si alguna razón se necesita una estructura `if else` vacía se puede usar la sentencia `pass` para evitar errores:
 ```python
-if condicion:
+# Estructura if vacía
+if condition:
     pass
 ```

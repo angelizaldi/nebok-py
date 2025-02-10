@@ -2,10 +2,11 @@
 
 El cíclo `while` ejecuta un código mientras una condición sea `True`.
 ```python
+# Sintaxis básica de while loop
 while condition:
     # while body
 ```
-- _condition_ es una expresión que utiliza operadores de comparación, `bool()`, o en general cualquier expresión que retorne `True` o `False`.
+- _condition_ es una expresión que retorne `True` o `False`.
 
 ```{warning} Es muy importante que se respete la indentación, esa es la forma como Python determina qué parte del código forma parte de cada bloque de la estructura. Los dos puntos indican el inicio de un bloque que debe de estar indentado.
 ```
@@ -24,6 +25,7 @@ Son palabras reservadas para manipular el comportamiento del cíclo:
 - `pass`: Un cíclo `for` no puede estar vacío, si por alguna razón se necesita un `for` vacío usar `pass` para evitar un error.
 - `else`: Se ejecuta un código una vez que el cíclo ya se terminó de ejecutar. Esta parte no se ejecuta si se usa un `break`. La sintaxis es:
 ```python
+# Uso de la sentencia else
 while condition:
     expression
 else:

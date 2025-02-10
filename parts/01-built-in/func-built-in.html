@@ -181,26 +181,26 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    Manual de Python
+                    Manual de Python para Data Science
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Built-in</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="built-in-index.html">Python estándar</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="built-in-index.html">Python Estándar</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="ayuda.html">Obtener ayuda</a></li>
 <li class="toctree-l2"><a class="reference internal" href="comentarios.html">Comentarios</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tipos-datos.html">Tipos de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tipos-datos.html">Tipos de Datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variables-constantes.html">Variables y Constantes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="operadores-palabras.html">Operadores y palabras reservadas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="entrada-salida.html">Entrada y salida de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrada-salida.html">Impresión y solicitud de datos</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="tipos-index.html">Tipos Built-In</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="booleanos.html">Valores booleanos</a></li>
-<li class="toctree-l3"><a class="reference internal" href="numeros.html">Números</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cadenas.html">Cadenas</a></li>
-<li class="toctree-l3"><a class="reference internal" href="listas.html">Listas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="none-bool-numericos.html"><em>None</em>, <em>bool</em> y Numéricos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="str.html">str</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lists.html">list</a></li>
 <li class="toctree-l3"><a class="reference internal" href="tuples.html">Tuples</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sets.html">Sets</a></li>
-<li class="toctree-l3"><a class="reference internal" href="diccionarios.html">Diccionarios</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dicts.html">dict</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -209,10 +209,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l3"><a class="reference internal" href="do-while.html">Do While</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="funciones.html">Funciones</a></li>
-<li class="toctree-l2"><a class="reference internal" href="try-except.html">Exceptions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="context.html">Context Managers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="io.html">Lectura y escritura de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="udf.html">Funciones (UDF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html">Excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="context-managers.html">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="io.html">Lectura y escritura de archivos (IO)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modulos.html">Paquetes y Módulos</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="avanzado-index.html">Temas avanzados</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="decorators.html">Decorators</a></li>
@@ -231,12 +231,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/itertools.html">Itertools</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/json.html">JSON</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/math.html">Math</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os.html">os</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os-path.html">os.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os.html">Os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os-path.html">Os.path</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/pickle.html">Pickle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/random.html">Random</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02-modulos/regular-expression.html">Regular Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/regex.html">Regex</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/statistics.html">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/urllib-request.html">urllib.request</a></li>
 </ul>
 </li>
 </ul>
@@ -264,22 +265,38 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04-pandas/pandas-index.html">Pandas</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../04-pandas/index.html">Objetos Index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/index.html">Index</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04-pandas/series.html">Series</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04-pandas/dataframe.html">DataFrame</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04-pandas/escalares-arrays.html">Escalares y Arrays</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../04-pandas/otras-clases.html">Otras clases</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../04-pandas/groupby.html">GroupBy</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../04-pandas/expanding-rolling-window.html">Expanding, Rolling y Window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/expanding-rolling-window.html"><em>Expanding, Rolling</em> y <em>Window</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/resampler.html">Resampler</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../04-pandas/funciones.html">Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/patrones-pandas.html">Patrones útiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05-matplotlib/matplotlib-index.html">Matplotlib</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/pyplot.html">Pyplot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/figure.html">Figure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/axes.html">Axes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/otros.html">Otras Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06-seaborn/seaborn-index.html">Seaborn</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06-seaborn/funciones-clases.html">Funciones y Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-seaborn/objects-interface.html">Interface por objetos</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Otros</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../08-otros/otros-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-otros/otros-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../08-otros/IPython.html">IPython</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../08-otros/beautifulsoup.html">Web Scraping</a></li>
 </ul>
@@ -458,108 +475,106 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="funciones-built-in">
 <h1>Funciones built-in<a class="headerlink" href="#funciones-built-in" title="Link to this heading">#</a></h1>
-<p>En esta sección se presentan algunas funciones que ya vienen incluídas y no es necesario importar ningún paquete o módulo. Las funciones están presentadas por categorías.</p>
+<p>En esta sección se presentan algunas funciones que forman parte de la librería estándar de Python y no es necesario importar ningún paquete o módulo. Las funciones están presentadas por categorías.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Esta sección no incluye todas las funciones built-in de Python, sino algunas de las más importantes. Para un listado completo de las funciones built-in de python visitar la <a class="reference external" href="https://docs.python.org/3/library/index.html">pagina oficial de Python</a>.</p>
+<p>Esta sección no incluye todas las funciones <em>built-in</em> de Python, sino algunas de las más importantes. Para un listado completo de las funciones built-in de Python visitar la <a class="reference external" href="https://docs.python.org/3/library/index.html">documentación</a> de Python.</p>
 </div>
 <hr class="docutils" />
 <section id="cadenas">
 <h2>Cadenas<a class="headerlink" href="#cadenas" title="Link to this heading">#</a></h2>
-<p>Funciones útiles para recuperar códigos Unicode o para recuperar representacios de cadenas de números.</p>
+<p>Funciones útiles para recuperar códigos Unicode o para recuperar representacios en cadenas de números.</p>
 <table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Funciones</p></th>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
 <th class="head"><p>Descripción</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#chr">chr</a>(i)</p></td>
-<td><p>Devuelve la cadena que representa un carácter cuyo código Unicode es el entero <code class="docutils literal notranslate"><span class="pre">i</span></code>.</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bin">bin</a>(x)</p></td>
+<td><p>Convierte un número entero en una cadena binaria con el prefijo “0b”.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#hex">hex</a>(x)</p></td>
-<td><p>Convierta un número entero en una cadena hexadecimal en minúsculas con el prefijo “0x”.</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#chr">chr</a>(i)</p></td>
+<td><p>Devuelve la cadena que representa un carácter cuyo código Unicode es el entero <em>i</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#hex">hex</a>(x)</p></td>
+<td><p>Convierte un número entero en una cadena hexadecimal en minúsculas con el prefijo “0x”.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#format">format</a>(value, format_spec=’’)</p></td>
+<td><p>Convierte <em>value</em> en una representación “formateada”, controlada por <em>format_spec</em>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#oct">oct</a>(x)</p></td>
 <td><p>Convierta un número entero en una cadena octal con el prefijo “0o”.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#ord">ord</a>(c)</p></td>
-<td><p>Dado un carácter Unicode, devuelve un número entero que representa el código Unicode de ese carácter.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#format">format</a>(value, format_spec=’’)</p></td>
-<td><p>Convierte <code class="docutils literal notranslate"><span class="pre">value</span></code> en una representación “formateada”, controlada por <code class="docutils literal notranslate"><span class="pre">format_spec</span></code>.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bin">bin</a>(x)</p></td>
-<td><p>Convierta un número entero en una cadena binaria con el prefijo “0b”.</p></td>
+<td><p>Dado un carácter Unicode, devuelve un número entero que representa el código Unicode de ese carácter</p></td>
 </tr>
 </tbody>
 </table>
 <br/>
 </section>
-<hr class="docutils" />
 <section id="archivos">
 <h2>Archivos<a class="headerlink" href="#archivos" title="Link to this heading">#</a></h2>
 <p>Función para crear conexiones con achivos locales.</p>
 <table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Funciones</p></th>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
 <th class="head"><p>Descripción</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#open">open</a>(file, mode=’r’, buffering=- 1, encoding=None, errors=None, newline=None, closefd=True, opener=None)</p></td>
-<td><p>Abre un archivo y retorna un <code class="docutils literal notranslate"><span class="pre">file</span> <span class="pre">object</span></code> correspondiente. Si el archivo no se puede abrir, se genera un <code class="docutils literal notranslate"><span class="pre">OSError</span></code>.</p></td>
+<td><p>Abre un archivo y retorna un <code class="docutils literal notranslate"><span class="pre">file</span> <span class="pre">object</span></code> correspondiente. Si el archivo no se puede abrir, se genera un <code class="docutils literal notranslate"><span class="pre">OSError</span></code>. Ver <a class="reference internal" href="io.html"><span class="doc">Lectura y escritura de archivos (IO)</span></a>.</p></td>
 </tr>
 </tbody>
 </table>
 <br/>
 </section>
-<hr class="docutils" />
 <section id="iterables">
-<h2>Iterables<a class="headerlink" href="#iterables" title="Link to this heading">#</a></h2>
+<span id="func-iterables"></span><h2>Iterables<a class="headerlink" href="#iterables" title="Link to this heading">#</a></h2>
 <p>Funciones útiles para objetos <code class="docutils literal notranslate"><span class="pre">iterable</span></code>.</p>
 <table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Funciones</p></th>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
 <th class="head"><p>Descripción</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#sorted">sorted</a>(iterable, /, *, key=None, reverse=False)</p></td>
-<td><p>Devuelve una nueva lista ordenada de los elementos en <code class="docutils literal notranslate"><span class="pre">iterable</span></code>.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#enumerate">enumerate</a>(iterable, start=0)</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#enumerate">enumerate</a>(iterable, start=0)</p></td>
 <td><p>Crea un índice para cada elemento de un objeto iterable, por default comienza en cero.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#filter">filter</a>(function, iterable)</p></td>
-<td><p>Retorna un <code class="docutils literal notranslate"><span class="pre">iterator</span></code> con los  elementos de <code class="docutils literal notranslate"><span class="pre">iterable</span></code> para los cuales <code class="docutils literal notranslate"><span class="pre">function</span></code> retorna <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#filter">filter</a>(function, iterable)</p></td>
+<td><p>Retorna un <code class="docutils literal notranslate"><span class="pre">iterator</span></code> con los  elementos de <em>iterable</em> para los cuales <em>function</em> retorna <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#iter">iter</a>(object)</p></td>
+<td><p>Convierte un <code class="docutils literal notranslate"><span class="pre">iterable</span></code> en un <code class="docutils literal notranslate"><span class="pre">iterator</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#len">len</a>(s)</p></td>
 <td><p>Devuelve la longitud (el número de elementos) de un objeto. El argumento puede ser un secuencia (como una cadena, bytes, tupla, lista o rango) o una colección (como un diccionario, un <code class="docutils literal notranslate"><span class="pre">set</span></code> o <code class="docutils literal notranslate"><span class="pre">frozenset</span></code>).</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#map">map</a>(function, iterable, *iterables)</p></td>
-<td><p>Aplica una función a todos los elementos de un iterable. Retorna un <code class="docutils literal notranslate"><span class="pre">iterator</span></code>. Cada argumento de <code class="docutils literal notranslate"><span class="pre">function</span></code> se pasa como <code class="docutils literal notranslate"><span class="pre">iterable</span></code> y todos los <code class="docutils literal notranslate"><span class="pre">iterable</span></code> deben de ser del mismo tamaño.</p></td>
+<td><p>Aplica una función a todos los elementos de un iterable. Retorna un <code class="docutils literal notranslate"><span class="pre">iterator</span></code>. En caso de que se pase más de un <code class="docutils literal notranslate"><span class="pre">iterable</span></code>, todos los <code class="docutils literal notranslate"><span class="pre">iterable</span></code> deben de ser del mismo tamaño.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#reversed">reversed</a>(seq)</p></td>
-<td><p>Retorna un <code class="docutils literal notranslate"><span class="pre">iterator</span></code> de <code class="docutils literal notranslate"><span class="pre">seq</span></code> al inverso.</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#next">next</a>(iterator, default)</p></td>
+<td><p>Recupera cada uno de los elementos de un <code class="docutils literal notranslate"><span class="pre">iterator</span></code>, uno a la vez. Si se proporcionó <em>default</em>, retorna ese valor cuando ya no haya elementos en el <code class="docutils literal notranslate"><span class="pre">iterator</span></code>, en caso contrario retornar <code class="docutils literal notranslate"><span class="pre">StopIteration</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#reversed">reversed</a>(seq)</p></td>
+<td><p>Retorna un <code class="docutils literal notranslate"><span class="pre">iterator</span></code> de <em>seq</em> al inverso.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#sorted">sorted</a>(iterable, /, *, key=None, reverse=False)</p></td>
+<td><p>Devuelve una nueva lista ordenada de los elementos en <em>iterable</em>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#zip">zip</a>(*iterables, strict=False)</p></td>
-<td><p>Combina dos (o más) objetos iterables, de manera que se crea un <code class="docutils literal notranslate"><span class="pre">tuple</span></code> con los elementos en posiciones correspondientes. El objeto con el tamaño menor determinará el tamaño del zip.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#iter">iter</a>(object)</p></td>
-<td><p>Convierte un <code class="docutils literal notranslate"><span class="pre">iterable</span></code> en un <code class="docutils literal notranslate"><span class="pre">iterator</span></code>.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#next">next</a>(iterator, default)</p></td>
-<td><p>Recupera cada uno de los elementos de un <code class="docutils literal notranslate"><span class="pre">iterator</span></code>, uno a la vez. Si se proporcionó <code class="docutils literal notranslate"><span class="pre">default</span></code>, retorna ese valor cuando ya no haya elementos en el <code class="docutils literal notranslate"><span class="pre">iterator</span></code>, en caso contrario retornar <code class="docutils literal notranslate"><span class="pre">StopIteration</span></code>.</p></td>
+<td><p>Combina dos (o más) objetos iterables, de manera que se crea un <code class="docutils literal notranslate"><span class="pre">tuple</span></code> con los elementos en posiciones correspondientes (<code class="docutils literal notranslate"><span class="pre">iterator</span></code> de <code class="docutils literal notranslate"><span class="pre">tuple</span></code>). El objeto con el tamaño menor determinará el tamaño del zip.</p></td>
 </tr>
 </tbody>
 </table>
 <br/>
 <section id="uso-de-enumerate">
 <h3>Uso de enumerate<a class="headerlink" href="#uso-de-enumerate" title="Link to this heading">#</a></h3>
-<p>A continuación se presentan algunas acciones comunes con objetos <code class="docutils literal notranslate"><span class="pre">enumerate</span></code> sobre el iterable <code class="docutils literal notranslate"><span class="pre">X</span></code>.</p>
+<p>A continuación se presentan algunas acciones comunes con objetos <code class="docutils literal notranslate"><span class="pre">enumerate</span></code> sobre el iterable <em>X</em>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear un objeto enumerate</span>
-<span class="n">enumerate_obj</span> <span class="o">=</span> <span class="n">Enumerate</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">enumerate_obj</span> <span class="o">=</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 
 <span class="c1"># Definir un for-loop con enumerate</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ele</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
@@ -569,22 +584,22 @@ document.write(`
 <span class="o">*</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 
 <span class="c1"># Convertir enumerate a una lista:</span>
-<span class="p">[</span><span class="o">*</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">X</span><span class="p">)]</span>
+<span class="p">[</span><span class="o">*</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">X</span><span class="p">)]</span> <span class="c1"># equivalente a usar list(enumerate(X))</span>
 
 <span class="c1"># Convertir enumerate a un tuple:</span>
-<span class="p">(</span><span class="o">*</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+<span class="p">(</span><span class="o">*</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">X</span><span class="p">))</span> <span class="c1"># equivalente a usar tuple(enumerate(X))</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">enumerate</span></code> crea tuplas de elementos en posiciones correspondientes entre el iterable y un rango numérico del mismo tamaño que <code class="docutils literal notranslate"><span class="pre">X</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">X</span></code> es un <code class="docutils literal notranslate"><span class="pre">iterable</span></code>.</p></li>
+<li><p><em>X</em> es un <code class="docutils literal notranslate"><span class="pre">iterable</span></code>.</p></li>
 </ul>
 <br/>
 </section>
 <hr class="docutils" />
 <section id="uso-de-map">
 <h3>Uso de map<a class="headerlink" href="#uso-de-map" title="Link to this heading">#</a></h3>
-<p>A cuantinuación se presenta un ejemplo del uso de <code class="docutils literal notranslate"><span class="pre">map</span></code>.</p>
+<p>A continuación se presenta algunos ejemplos del uso de <code class="docutils literal notranslate"><span class="pre">map</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Aplicar una función en cada elemento de un iterable X</span>
 <span class="nb">map</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
 
@@ -596,13 +611,13 @@ document.write(`
 </pre></div>
 </div>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">X</span></code>, <code class="docutils literal notranslate"><span class="pre">Y</span></code> son <code class="docutils literal notranslate"><span class="pre">iterable</span></code> del mismo tamaño cuyos elementos se usan como argumentos de la función <code class="docutils literal notranslate"><span class="pre">fun</span></code>, los elementos se empatan por posición.</p></li>
+<li><p><em>X, Y, …</em> son <code class="docutils literal notranslate"><span class="pre">iterable</span></code> del mismo tamaño cuyos elementos se usan como argumentos de la función <em>fun</em>, los elementos se empatan por posición.</p></li>
 </ul>
 </section>
 <hr class="docutils" />
 <section id="uso-de-zip">
 <h3>Uso de zip<a class="headerlink" href="#uso-de-zip" title="Link to this heading">#</a></h3>
-<p>A continuación se presentan algunas acciones comunes con objetos <code class="docutils literal notranslate"><span class="pre">enumerate</span></code> sobre los iterables <code class="docutils literal notranslate"><span class="pre">X</span></code> y <code class="docutils literal notranslate"><span class="pre">Y</span></code>.</p>
+<p>A continuación se presentan algunas acciones comunes con objetos <code class="docutils literal notranslate"><span class="pre">zip</span></code> sobre los iterables <em>X</em> y <em>Y</em>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear un objeto zip</span>
 <span class="n">zip_obj</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
 
@@ -617,10 +632,10 @@ document.write(`
 <span class="o">*</span><span class="nb">zip</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
 
 <span class="c1"># Convertir un objeto zip a una lista:</span>
-<span class="p">[</span><span class="o">*</span><span class="nb">zip</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)]</span>
+<span class="p">[</span><span class="o">*</span><span class="nb">zip</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)]</span> <span class="c1"># equivalente a usar list(zip(X, Y))</span>
 
 <span class="c1"># Convertir un objeto zip a un tuple:</span>
-<span class="p">(</span><span class="o">*</span><span class="nb">zip</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">))</span>
+<span class="p">(</span><span class="o">*</span><span class="nb">zip</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">))</span> <span class="c1"># equivalente a usar tuple(zip(X, Y))</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -629,13 +644,12 @@ document.write(`
 <br/>
 </section>
 </section>
-<hr class="docutils" />
 <section id="iterables-booleanos">
 <h2>Iterables booleanos<a class="headerlink" href="#iterables-booleanos" title="Link to this heading">#</a></h2>
 <p>Funciones útiles para iterables con valores booleanos.</p>
 <table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Funciones</p></th>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
 <th class="head"><p>Descripción</p></th>
 </tr>
 </thead>
@@ -651,23 +665,23 @@ document.write(`
 <br/>
 </section>
 <section id="iterables-numericos">
-<h2>Iterables numéricos<a class="headerlink" href="#iterables-numericos" title="Link to this heading">#</a></h2>
+<span id="func-iterables-numbericos"></span><h2>Iterables numéricos<a class="headerlink" href="#iterables-numericos" title="Link to this heading">#</a></h2>
 <p>Funciones útiles para iterables numéricos.</p>
 <table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Funciones</p></th>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
 <th class="head"><p>Descripción</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#min">min</a>(iterable, *, key=None)</p></td>
-<td><p>Devuelve el valor mínimo en un iterable o el valor mínimo de dos o más argumentos.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#sum">sum</a>(iterable, /, start=0)</p></td>
-<td><p>Suma los elementos de un objeto iterable.</p></td>
-</tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#max">max</a>(iterable, *, key=None)</p></td>
 <td><p>Devuélve el valor máximo de un iterable.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#min">min</a>(iterable, *, key=None)</p></td>
+<td><p>Devuelve el valor mínimo en un iterable o el valor mínimo de dos o más argumentos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#sum">sum</a>(iterable, /, start=0)</p></td>
+<td><p>Suma los elementos de un objeto iterable.</p></td>
 </tr>
 </tbody>
 </table>
@@ -678,63 +692,62 @@ document.write(`
 <p>Funciones útiles para tipos numéricos.</p>
 <table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Funciones</p></th>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
 <th class="head"><p>Descripción</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#pow">pow</a>(base, exp, mod=None)</p></td>
-<td><p>Regrese <code class="docutils literal notranslate"><span class="pre">base</span></code> a la potencia <code class="docutils literal notranslate"><span class="pre">exp</span></code>.</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#abs">abs</a>(x)</p></td>
+<td><p>Devuelve el valor absoluto de un número.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#round">round</a>(number, ndigits=None)</p></td>
-<td><p>Devuelve el número redondeado a la precisión indicada. Si se omite <code class="docutils literal notranslate"><span class="pre">ndigits</span></code> o es <code class="docutils literal notranslate"><span class="pre">None</span></code>, devuelve el entero más cercano.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#divmod">divmod</a>(a, b)</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#divmod">divmod</a>(a, b)</p></td>
 <td><p>Devuélve un <code class="docutils literal notranslate"><span class="pre">tuple</span></code> con el cociente y residuo de la división de dos números.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#abs">abs</a>(x)</p></td>
-<td><p>Devuelve el valor absoluto de un número.</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#round">round</a>(number, ndigits=None)</p></td>
+<td><p>Devuelve el número redondeado a la precisión indicada. Si se omite <em>ndigits</em> o es <code class="docutils literal notranslate"><span class="pre">None</span></code>, devuelve el entero más cercano.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#pow">pow</a>(base, exp, mod=None)</p></td>
+<td><p>Retorna <em>base</em> a la potencia <em>exp</em>.</p></td>
 </tr>
 </tbody>
 </table>
 <br/>
 </section>
 <section id="objetos-y-clases">
-<h2>Objetos y Clases<a class="headerlink" href="#objetos-y-clases" title="Link to this heading">#</a></h2>
+<span id="func-objetos-clases"></span><h2>Objetos y Clases<a class="headerlink" href="#objetos-y-clases" title="Link to this heading">#</a></h2>
 <p>Funciones útiles para instancias y clases.</p>
 <table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Funciones</p></th>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
 <th class="head"><p>Descripción</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#isinstance">isinstance</a>(object, classinfo)</p></td>
-<td><p>Retorna <code class="docutils literal notranslate"><span class="pre">True</span></code> si el argumento <code class="docutils literal notranslate"><span class="pre">object</span></code> es una instancia de <code class="docutils literal notranslate"><span class="pre">classinfo</span></code>.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#dir">dir</a>(object)</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#dir">dir</a>(object)</p></td>
 <td><p>Sin argumentos, devuelve la lista de nombres en el ámbito local actual. Con argumentos, retorna una lista de atributos válidos para ese objeto.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#id">id</a>(object)</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#id">id</a>(object)</p></td>
 <td><p>Retorna la identidad de un objeto, que es un identificador único durante una sesión. También sirve para identificar en dónde está almacenado en memoria el objeto.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#isinstance">isinstance</a>(object, classinfo)</p></td>
+<td><p>Retorna <code class="docutils literal notranslate"><span class="pre">True</span></code> si el argumento <em>object</em> es una instancia de <em>classinfo</em>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#help">help</a>(request)</p></td>
 <td><p>Invoca el sistema de ayuda integrado.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#super">super</a>(type, object_or_type=None)</p></td>
-<td><p>Determina la siguiente clase en el <em>�eO</em> de <code class="docutils literal notranslate"><span class="pre">type</span></code>. Útil para acceder a métodos heredados de otras clases que fueron sobreescritos.</p></td>
+<td><p>Determina la siguiente clase en el <em>MRO</em> de <code class="docutils literal notranslate"><span class="pre">type</span></code>. Útil para acceder a métodos heredados de otras clases que fueron sobreescritos.</p></td>
 </tr>
 </tbody>
 </table>
 <br/>
 </section>
-<hr class="docutils" />
 <section id="print-input">
 <h2>Print/Input<a class="headerlink" href="#print-input" title="Link to this heading">#</a></h2>
-<p>Funciones para imprimir en consola o solicitrar ingreso de información al usuario.</p>
+<p>Funciones para imprimir en consola o solicitar ingreso de información al usuario.</p>
 <table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Funciones</p></th>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
 <th class="head"><p>Descripción</p></th>
 </tr>
 </thead>
@@ -743,7 +756,7 @@ document.write(`
 <td><p>La función lee una línea de la entrada, la convierte a una cadena y la retorna.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#print">print</a>(*objects, sep=’ ‘, end=’\n’, file=None, flush=False)</p></td>
-<td><p>Imprime en pantalla objetos, separados por <code class="docutils literal notranslate"><span class="pre">sep</span></code> y seguidos por <code class="docutils literal notranslate"><span class="pre">end</span></code>.</p></td>
+<td><p>Imprime en pantalla objetos, separados por <em>sep</em>.</p></td>
 </tr>
 </tbody>
 </table>

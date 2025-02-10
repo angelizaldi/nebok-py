@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -181,26 +181,26 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    Manual de Python
+                    Manual de Python para Data Science
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Built-in</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../01-built-in/built-in-index.html">Python estándar</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01-built-in/built-in-index.html">Python Estándar</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../01-built-in/ayuda.html">Obtener ayuda</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../01-built-in/comentarios.html">Comentarios</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../01-built-in/tipos-datos.html">Tipos de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/tipos-datos.html">Tipos de Datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/variables-constantes.html">Variables y Constantes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../01-built-in/operadores-palabras.html">Operadores y palabras reservadas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../01-built-in/entrada-salida.html">Entrada y salida de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/entrada-salida.html">Impresión y solicitud de datos</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/tipos-index.html">Tipos Built-In</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../01-built-in/booleanos.html">Valores booleanos</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../01-built-in/numeros.html">Números</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../01-built-in/cadenas.html">Cadenas</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../01-built-in/listas.html">Listas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/none-bool-numericos.html"><em>None</em>, <em>bool</em> y Numéricos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/str.html">str</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/lists.html">list</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../01-built-in/tuples.html">Tuples</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../01-built-in/sets.html">Sets</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../01-built-in/diccionarios.html">Diccionarios</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/dicts.html">dict</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -209,10 +209,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l3"><a class="reference internal" href="../01-built-in/do-while.html">Do While</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../01-built-in/funciones.html">Funciones</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../01-built-in/try-except.html">Exceptions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../01-built-in/context.html">Context Managers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../01-built-in/io.html">Lectura y escritura de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/udf.html">Funciones (UDF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/exceptions.html">Excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/context-managers.html">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/io.html">Lectura y escritura de archivos (IO)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../01-built-in/modulos.html">Paquetes y Módulos</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/avanzado-index.html">Temas avanzados</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../01-built-in/decorators.html">Decorators</a></li>
@@ -231,12 +231,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/itertools.html">Itertools</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/json.html">JSON</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/math.html">Math</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os.html">os</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os-path.html">os.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os.html">Os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os-path.html">Os.path</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/pickle.html">Pickle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/random.html">Random</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02-modulos/regular-expression.html">Regular Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/regex.html">Regex</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/statistics.html">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/urllib-request.html">urllib.request</a></li>
 </ul>
 </li>
 </ul>
@@ -270,16 +271,32 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="escalares-arrays.html">Escalares y Arrays</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="otras-clases.html">Otras clases</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="groupby.html">GroupBy</a></li>
-<li class="toctree-l3"><a class="reference internal" href="expanding-rolling-window.html">Expanding, Rolling y Window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="expanding-rolling-window.html"><em>Expanding, Rolling</em> y <em>Window</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="resampler.html">Resampler</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="funciones.html">Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patrones-pandas.html">Patrones útiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05-matplotlib/matplotlib-index.html">Matplotlib</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/pyplot.html">Pyplot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/figure.html">Figure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/axes.html">Axes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/otros.html">Otras Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06-seaborn/seaborn-index.html">Seaborn</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06-seaborn/funciones-clases.html">Funciones y Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-seaborn/objects-interface.html">Interface por objetos</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Otros</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../08-otros/otros-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-otros/otros-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../08-otros/IPython.html">IPython</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../08-otros/beautifulsoup.html">Web Scraping</a></li>
 </ul>
@@ -442,6 +459,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operaciones-entre-series-y-dataframe">Operaciones entre <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametro-axis">Parámetro <em>axis</em></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tabla-de-contenido">Tabla de contenido</a></li>
 </ul>
             </nav>
@@ -466,7 +484,8 @@ document.write(`
 </pre></div>
 </div>
 <p>Una vez instalado se debe de importar</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar pandas a la sesión</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -474,14 +493,16 @@ document.write(`
 <li><p>En el sitio se utilizará <code class="docutils literal notranslate"><span class="pre">pd</span></code> para hacer referencia a <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p></li>
 </ul>
 <p>Para conocer la versión de <code class="docutils literal notranslate"><span class="pre">pandas</span></code> instalada usar:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">__version__</span> 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verificar la versión de pandas</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">__version__</span> 
 </pre></div>
 </div>
+</br>
 <p>En pandas existen tres objetos que son con los que se estará trabajando principalmente:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Index</span></code>: Es un array inmutable que puede ser de cualquier tipo de dato, pero todos los elementos del mismo tipo, funje el papel de identificar por medio de etiquetas cada fila o columna. Puede ser visto como un <code class="docutils literal notranslate"><span class="pre">set</span></code> ordenado o un multi set ordenado, aunque <code class="docutils literal notranslate"><span class="pre">Index</span></code> puede tener valores repetidos.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Series</span></code>: Es un <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> unidimensional (un vector columna) que puede ser de cualquier tipo de dato, pero todos los elementos del mismo tipo. Además las filas tienen un <code class="docutils literal notranslate"><span class="pre">Index</span></code> para identificar a cada fila.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>: Aunque principalemente se podría considerar a un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> como un <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> bidimensional, como una matriz que tiene filas y columnas, en términos generales es un <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> multidimensional, pero para efectos prácticos se considerará como una matriz. Las columnas pueden ser de diferentes tipos entre sí, pero los elementos de cada columna deben de ser todos del mismo tipo. Tanto las filas como las columna tiene etiquetas que identifican los elementos mediante objetos <code class="docutils literal notranslate"><span class="pre">Index</span></code>.</p></li>
+<li><p><a class="reference internal" href="index.html"><span class="doc">Index</span></a>: Es un array inmutable que puede ser de cualquier tipo de dato, pero todos los elementos del mismo tipo, funje el papel de identificar por medio de etiquetas cada fila o columna. Puede ser visto como un <code class="docutils literal notranslate"><span class="pre">set</span></code> ordenado o un multi set ordenado, aunque <code class="docutils literal notranslate"><span class="pre">Index</span></code> puede tener valores repetidos.</p></li>
+<li><p><a class="reference internal" href="series.html"><span class="doc">Series</span></a>: Es un <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> unidimensional (un vector columna) que puede ser de cualquier tipo de dato, pero todos los elementos del mismo tipo. Además las filas tienen un <code class="docutils literal notranslate"><span class="pre">Index</span></code> para identificar a cada fila.</p></li>
+<li><p><a class="reference internal" href="dataframe.html"><span class="doc">DataFrame</span></a>: Aunque se podría considerar a un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> como un <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> bidimensional, como una matriz que tiene filas y columnas, en términos generales es un <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> multidimensional, pero para efectos prácticos se considerará como una matriz. Las columnas pueden ser de diferentes tipos entre sí, pero los elementos de cada columna deben de ser todos del mismo tipo. Tanto las filas como las columna tiene etiquetas que identifican los elementos mediante objetos <code class="docutils literal notranslate"><span class="pre">Index</span></code>.</p></li>
 </ul>
 <p>Las tres clases anteriores funcionan de manera similar a como funcionan los arrays de <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, por ejemplo, las operaciones entre estos objetos están vectorizadas y muchas funciones de <code class="docutils literal notranslate"><span class="pre">numpy</span></code> también se pueden usar con estas clases.</p>
 </br>
@@ -569,16 +590,16 @@ document.write(`
 <li><p><code class="docutils literal notranslate"><span class="pre">None</span></code>: Es un objeto <em>built-in</em> de Python que representa un valor pérdido.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">NaN</span></code>: Es un valor <code class="docutils literal notranslate"><span class="pre">float</span></code> que representa un valor numérico pérdido.</p></li>
 </ol>
-<p>Por lo tanto para que los objetos de <code class="docutils literal notranslate"><span class="pre">pandas</span></code> puedan contener valores perdidos, respetando las restrcciones de tipos de datos, es necesario que éstos se conviertan a tipo <code class="docutils literal notranslate"><span class="pre">object</span></code> o <code class="docutils literal notranslate"><span class="pre">float</span></code>, siguiendo la siguientes reglas:</p>
+<p>Por lo tanto para que los objetos de <code class="docutils literal notranslate"><span class="pre">pandas</span></code> puedan contener valores perdidos, respetando las restricciones de tipos de datos, es necesario que éstos se conviertan a tipo <code class="docutils literal notranslate"><span class="pre">object</span></code> o <code class="docutils literal notranslate"><span class="pre">float</span></code>, siguiendo la siguientes reglas:</p>
 <ol class="arabic simple">
 <li><p>Los objetos de tipo <code class="docutils literal notranslate"><span class="pre">object</span></code> pueden contener <code class="docutils literal notranslate"><span class="pre">None</span></code> o <code class="docutils literal notranslate"><span class="pre">np.nan</span></code>.</p></li>
-<li><p>En los objetos de tipo <code class="docutils literal notranslate"><span class="pre">float</span></code> se convierte los <code class="docutils literal notranslate"><span class="pre">None</span></code> a <code class="docutils literal notranslate"><span class="pre">np.nan</span></code>.</p></li>
+<li><p>En los objetos de tipo <code class="docutils literal notranslate"><span class="pre">float</span></code> se convierten los <code class="docutils literal notranslate"><span class="pre">None</span></code> a <code class="docutils literal notranslate"><span class="pre">np.nan</span></code>.</p></li>
 <li><p>Los objetos de tipo <code class="docutils literal notranslate"><span class="pre">int</span></code> se covierten a <code class="docutils literal notranslate"><span class="pre">float</span></code> en caso de que haya valores <code class="docutils literal notranslate"><span class="pre">np.nan</span></code> o <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
 <li><p>Los objetos de tipo <code class="docutils literal notranslate"><span class="pre">bool</span></code> se convierten a <code class="docutils literal notranslate"><span class="pre">object</span></code> en caso de que haya valores <code class="docutils literal notranslate"><span class="pre">np.nan</span></code> o <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>En <code class="docutils literal notranslate"><span class="pre">pandas</span></code> existen <em>arrays</em> que permiten valores perdidos como <em>nullable integer</em>, <em>nullable float</em>, <em>nullable boolean</em>, así como otros de tipo fecha  y tiempo como <em>datetimes</em> y <em>timedeltas</em>, para ello se usan las clases <code class="docutils literal notranslate"><span class="pre">pd.NA</span></code> y <code class="docutils literal notranslate"><span class="pre">pd.NaT</span></code>.</p>
+<p>En <code class="docutils literal notranslate"><span class="pre">pandas</span></code> existen <em>arrays</em> que permiten valores perdidos como <em>nullable integer</em>, <em>nullable float</em>, <em>nullable boolean</em>, así como otros de tipo fecha  y tiempo como <em>datetimes</em> y <em>timedeltas</em>, estos valores pérdidos se representarán por los objetos <code class="docutils literal notranslate"><span class="pre">pd.NA</span></code> y <code class="docutils literal notranslate"><span class="pre">pd.NaT</span></code>.</p>
 </div>
 <br>
 </section>
@@ -586,10 +607,10 @@ document.write(`
 <hr class="docutils" />
 <section id="operaciones-entre-objetos">
 <h2>Operaciones entre objetos<a class="headerlink" href="#operaciones-entre-objetos" title="Link to this heading">#</a></h2>
-<p>Al realizar operaciones con las clases de <em>pandas</em> tener en cuenta las siguientes características.</p>
+<p>Al realizar operaciones con las clases de <code class="docutils literal notranslate"><span class="pre">pandas</span></code> tener en cuenta las siguientes características.</p>
 <section id="operaciones-unitarias">
 <h3>Operaciones unitarias<a class="headerlink" href="#operaciones-unitarias" title="Link to this heading">#</a></h3>
-<p>Si la operación es unitaria, es decir, que utiliza un solo objeto como elevar al cuadrado, entonces el objeto resultante tendrá el mismo <code class="docutils literal notranslate"><span class="pre">Index</span></code> que el objeto original:</p>
+<p>Si la operación es unitaria, es decir, que utiliza un solo objeto, como elevar al cuadrado, entonces el objeto resultante tendrá el mismo <code class="docutils literal notranslate"><span class="pre">Index</span></code> que el objeto original:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar librería</span>
@@ -647,7 +668,7 @@ dtype: float64
 </div>
 </div>
 <ul class="simple">
-<li><p><strong>Importante</strong>: Notar que el índice se ordena de manera ascendente. Lo mismo ocurriría en el caso de únion de columnas en <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>s.</p></li>
+<li><p><strong>Importante</strong>: Notar que el índice se ordena de manera ascendente. Lo mismo ocurriría con las columnas en <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>s.</p></li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -684,7 +705,7 @@ dtype: float64
 <p>Recordar que la operación únicamente se realizará entre los índices coincidentes.</p>
 </div>
 <p><strong>Ejemplo:</strong>
-En este ejemplo se puede observar una operación a nivel columnas (en el eje 1, comportamiento por default), el índice del <code class="docutils literal notranslate"><span class="pre">Series</span></code> se alinea con las columnas del <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, de tal forma que a toda la columna <code class="docutils literal notranslate"><span class="pre">a</span></code> del <code class="docutils literal notranslate"><span class="pre">df</span></code> se le suma 2 y a toda las columna <code class="docutils literal notranslate"><span class="pre">b</span></code> se le suma 4. Además se puede observar que los índices que no están en los dos objetos (en este caso <code class="docutils literal notranslate"><span class="pre">c</span></code>) también aparecen en el resultado pero con <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p>
+En este ejemplo se puede observar una operación a nivel columnas (en el eje 1, comportamiento por default), el índice del <code class="docutils literal notranslate"><span class="pre">Series</span></code> se alinea con las columnas del <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, de tal forma que a toda la columna <em>a</em> del <code class="docutils literal notranslate"><span class="pre">df</span></code> se le suma 2 y a toda las columna <em>b</em> se le suma 4. Además se puede observar que los índices que no están en los dos objetos (en este caso <em>c</em>) también aparecen en el resultado pero con <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar libreria</span>
@@ -710,7 +731,19 @@ En este ejemplo se puede observar una operación a nivel columnas (en el eje 1, 
 </div>
 </div>
 </div>
+<br>
 </section>
+</section>
+<hr class="docutils" />
+<section id="parametro-axis">
+<h2>Parámetro <em>axis</em><a class="headerlink" href="#parametro-axis" title="Link to this heading">#</a></h2>
+<p>En las funciones y/o métodos que tienen el parámetro <em>axis</em> significa que la función/método se puede aplicar únicamente en un eje determinado, dando como resultado un objeto de una dimensión menor con respecto al número de dimensiones del objeto original. Tomar como referencia la imagen para conceptualizar cómo se aplica la función dependiendo del eje indicado en un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
+<a class="reference internal image-reference" href="../../_images/2d-func-axis.png" id="axis-2d-func"><img alt="../../_images/2d-func-axis.png" class="align-center" id="axis-2d-func" src="../../_images/2d-func-axis.png" style="width: 300px;" /></a>
+<p>Independientemente del eje indicado el objeto retornado en la mayoría de los casos será un <code class="docutils literal notranslate"><span class="pre">Series</span></code> o un escalar.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">axis=0</span></code> o <code class="docutils literal notranslate"><span class="pre">'index'</span></code>: En este caso se aplica la función a cada colummna a lo largo del índice.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">axis=1</span></code> o <code class="docutils literal notranslate"><span class="pre">'columns'</span></code>: En este caso se aplica la función a cada fila a lo largo de las columnas.</p></li>
+</ul>
 </section>
 <section id="tabla-de-contenido">
 <h2>Tabla de contenido<a class="headerlink" href="#tabla-de-contenido" title="Link to this heading">#</a></h2>
@@ -722,10 +755,13 @@ En este ejemplo se puede observar una operación a nivel columnas (en el eje 1, 
 <li class="toctree-l1"><a class="reference internal" href="escalares-arrays.html">Escalares y Arrays</a></li>
 <li class="toctree-l1"><a class="reference internal" href="otras-clases.html">Otras clases</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="groupby.html">GroupBy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="expanding-rolling-window.html">Expanding, Rolling y Window</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expanding-rolling-window.html"><em>Expanding, Rolling</em> y <em>Window</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="resampler.html">Resampler</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="funciones.html">Funciones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patrones-pandas.html">Patrones útiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anexos.html">Anexos</a></li>
 </ul>
 </div>
 </section>
@@ -805,6 +841,7 @@ En este ejemplo se puede observar una operación a nivel columnas (en el eje 1, 
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operaciones-entre-series-y-dataframe">Operaciones entre <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametro-axis">Parámetro <em>axis</em></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tabla-de-contenido">Tabla de contenido</a></li>
 </ul>
   </nav></div>

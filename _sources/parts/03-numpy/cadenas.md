@@ -1,6 +1,6 @@
 # Modulo char
 
-`numpy.char` es un módulo que provee de funciones relacionadas con arrays de cadenas. Es posible importar solo el módulo o una función específica.
+`numpy.char` es un módulo que provee de funciones relacionadas con _arrays_ de cadenas. Es posible importar solo el módulo o una función específica.
 
 ```python
 # Importar el módulo
@@ -29,13 +29,13 @@ Funciones para buscar subcadenas.
 * - Función
   - Descripción
 * - [char.find](https://numpy.org/doc/stable/reference/generated/numpy.char.find.html)(a, sub[, start, end])
-  - Para cada elemento, devuelve el índice más bajo de la cadena donde se encuentra la subcadena `sub`.
+  - Para cada elemento, devuelve el índice más bajo de la cadena donde se encuentra la subcadena _sub_.
 * - [char.index](https://numpy.org/doc/stable/reference/generated/numpy.char.index.html)(a, sub[, start, end])
-  - Como `find`, pero genera `ValueError` cuando no se encuentra la subcadena.
+  - Como `.find()`, pero genera `ValueError` cuando no se encuentra la subcadena.
 * - [char.rfind](https://numpy.org/doc/stable/reference/generated/numpy.char.rfind.html)(a, sub[, start, end])
-  - Para cada elemento en `a`, devuelva el índice más alto en la cadena donde se encuentra la subcadena `sub`, de modo que `sub` esté contenido dentro de `[start, end]`.
+  - Para cada elemento en _a_, devuelva el índice más alto en la cadena donde se encuentra la subcadena _sub_, de modo que _sub_ esté contenido dentro de _[start, end]_.
 * - [char.rindex](https://numpy.org/doc/stable/reference/generated/numpy.char.rindex.html)(a, sub[, start, end])
-  - Como `rfind`, pero genera `ValueError` cuando no se encuentra la subcadena `sub`.
+  - Como `.rfind()`, pero genera `ValueError` cuando no se encuentra la subcadena _sub_.
 ```
 
 <br>
@@ -75,15 +75,15 @@ Funciones que modifican el formato de los elementos.
 * - Función
   - Descripción
 * - [char.capitalize](https://numpy.org/doc/stable/reference/generated/numpy.char.capitalize.html)(a)
-  - Devuelve una copia de `a` con solo el primer carácter de cada elemento en mayúscula.
+  - Devuelve una copia de _a_ con solo el primer carácter de cada elemento en mayúscula.
 * - [char.center](https://numpy.org/doc/stable/reference/generated/numpy.char.center.html)(a, width[, fillchar])
-  - Devuelve una copia de `a` con sus elementos centrados en una cadena de largo `width`.
+  - Devuelve una copia de _a_ con sus elementos centrados en una cadena de largo _width_.
 * - [char.ljust](https://numpy.org/doc/stable/reference/generated/numpy.char.ljust.html)(a, width[, fillchar])
-  - Devuelve un arreglo con los elementos de `a` justificados a la izquierda en una cadena de longitud `width`.
+  - Devuelve un arreglo con los elementos de _a_ justificados a la izquierda en una cadena de longitud _width_.
 * - [char.lower](https://numpy.org/doc/stable/reference/generated/numpy.char.lower.html)(a)
   - Devuelve un arreglo con los elementos convertidos a minúsculas.
 * - [char.rjust](https://numpy.org/doc/stable/reference/generated/numpy.char.rjust.html)(a, width[, fillchar])
-  - Devuelve un arreglo con los elementos de `a` justificados a la derecha en una cadena de longitud `width`.
+  - Devuelve un arreglo con los elementos de _a_ justificados a la derecha en una cadena de longitud _width_.
 * - [char.swapcase](https://numpy.org/doc/stable/reference/generated/numpy.char.swapcase.html)(a)
   - Devuelve por elementos una copia de la cadena con los caracteres en mayúsculas convertidos a minúsculas y viceversa.
 * - [char.title](https://numpy.org/doc/stable/reference/generated/numpy.char.title.html)(a)
@@ -98,7 +98,7 @@ Funciones que modifican el formato de los elementos.
 
 ## Información
 
-Funciones que retornan información sobre los elementos de los arrays. 
+Funciones que retornan información sobre los elementos de los _arrays_. 
 
 ```{list-table}
 :header-rows: 1
@@ -106,9 +106,9 @@ Funciones que retornan información sobre los elementos de los arrays.
 * - Función
   - Descripción
 * - [char.count](https://numpy.org/doc/stable/reference/generated/numpy.char.count.html)(a, sub[, start, end])
-  - Devuelve un arreglo con el número de ocurrencias no superpuestas de la subcadena `sub` en el rango `[start, end]`.
+  - Devuelve un arreglo con el número de ocurrencias no superpuestas de la subcadena _sub_ en el rango _[start, end]_.
 * - [char.endswith](https://numpy.org/doc/stable/reference/generated/numpy.char.endswith.html)(a, suffix[, start, end])
-  - Devuelve un arreglo booleano que es `True` donde el elemento de cada cadena en `a` termina con `suffix`, de lo contrario, es `False`.
+  - Devuelve un arreglo booleano que es `True` donde el elemento de cada cadena en _a_ termina con _suffix_, de lo contrario, es `False`.
 * - [char.isalnum](https://numpy.org/doc/stable/reference/generated/numpy.char.isalnum.html)(a)
   - Devuelve `True` para cada elemento si todos los caracteres de la cadena son alfanuméricos y hay al menos un carácter; de lo contrario, devuelve `False`.
 * - [char.isalpha](https://numpy.org/doc/stable/reference/generated/numpy.char.isalpha.html)(a)
@@ -128,7 +128,7 @@ Funciones que retornan información sobre los elementos de los arrays.
 * - [char.isupper](https://numpy.org/doc/stable/reference/generated/numpy.char.isupper.html)(a)
   - Devuelve `True` para cada elemento si todos los caracteres en la cadena están en mayúsculas y hay al menos un carácter; de lo contrario, devuelve `False`.
 * - [char.startswith](https://numpy.org/doc/stable/reference/generated/numpy.char.startswith.html)(a, prefix[, start, end])
-  - Devuelve un arreglo booleano que es `True` donde el elemento de cadena en `a` comienza con `prefix`; de lo contrario, es `False`.
+  - Devuelve un arreglo booleano que es `True` donde el elemento de cadena en _a_ comienza con `prefix`; de lo contrario, es `False`.
 * - [char.str_len](https://numpy.org/doc/stable/reference/generated/numpy.char.str_len.html)(a)
   - Devuelve `len(a)` por elementos.
 ```
@@ -145,11 +145,11 @@ Otras funciones.
 * - Función
   - Descripción
 * - [char.decode](https://numpy.org/doc/stable/reference/generated/numpy.char.decode.html)(a[, encoding, errors])
-  - Llama `bytes.decode` por elementos.
+  - Llama `bytes.decode()` por elementos.
 * - [char.encode](https://numpy.org/doc/stable/reference/generated/numpy.char.encode.html)(a[, encoding, errors])
-  - Llama `str.encode` por elementos.
+  - Llama `str.encode()` por elementos.
 * - [char.translate](https://numpy.org/doc/stable/reference/generated/numpy.char.translate.html)(a, table[, deletechars])
-  - Para cada elemento en `a`, devuelve una copia de la cadena donde se eliminan todos los caracteres que aparecen en el argumento opcional `deletechars`, y los caracteres restantes se han mapeado a través de la tabla de traducción dada.
+  - Para cada elemento en _a_, devuelve una copia de la cadena donde se eliminan todos los caracteres que aparecen en el argumento opcional _deletechars_, y los caracteres restantes se han mapeado a través de la tabla de traducción dada.
 ```
 
 <br>
@@ -166,7 +166,7 @@ Funciones para reemplazar subcadenas por otras.
 * - [char.expandtabs](https://numpy.org/doc/stable/reference/generated/numpy.char.expandtabs.html)(a[, tabsize])
   - Devuelve una copia de cada elemento de la cadena donde los caracteres de tabulación se reemplazan por uno o más espacios.
 * - [char.replace](https://numpy.org/doc/stable/reference/generated/numpy.char.replace.html)(a, old, new[, count])
-  - Para cada elemento en `a`, devuelva una copia de la cadena con todas las apariciones de la subcadena `old` reemplazada por `new`.
+  - Para cada elemento en _a_, devuelva una copia de la cadena con todas las apariciones de la subcadena _old_ reemplazada por _new_.
 ```
 
 <br>
@@ -183,19 +183,19 @@ Funciones para hacer _splitting_ y concatenaciones.
 * - [char.add](https://numpy.org/doc/stable/reference/generated/numpy.char.add.html)(x1, x2)
   - Devuelve la concatenación de cadenas por elementos para dos arreglos de `str` o unicode.
 * - [char.join](https://numpy.org/doc/stable/reference/generated/numpy.char.join.html)(sep, seq)
-  - Devuelve una cadena que es la concatenación de las cadenas en la secuencia `seq`.
+  - Devuelve una cadena que es la concatenación de las cadenas en la secuencia _seq_.
 * - [char.multiply](https://numpy.org/doc/stable/reference/generated/numpy.char.multiply.html)(a, i)
   - Retorna `(a * i)`, es decir, la concatenación múltiple de cadenas, por elementos.
 * - [char.partition](https://numpy.org/doc/stable/reference/generated/numpy.char.partition.html)(a, sep)
-  - Divide cada elemento con base a `sep`.
+  - Divide cada elemento con base a _sep_.
 * - [char.rpartition](https://numpy.org/doc/stable/reference/generated/numpy.char.rpartition.html)(a, sep)
-  - Divide cada elemento con base a `sep` más a la derecha.
+  - Divide cada elemento con base a _sep_ más a la derecha.
 * - [char.rsplit](https://numpy.org/doc/stable/reference/generated/numpy.char.rsplit.html)(a[, sep, maxsplit])
-  - Para cada elemento de `a`, devuelva una lista de las palabras de la cadena, utilizando `sep` como cadena delimitadora.
+  - Para cada elemento de _a_, devuelva una lista de las palabras de la cadena, utilizando _sep_ como cadena delimitadora.
 * - [char.split](https://numpy.org/doc/stable/reference/generated/numpy.char.split.html)(a[, sep, maxsplit])
-  - Para cada elemento de `a`, devuelva una lista de las palabras de la cadena, utilizando `sep` como cadena delimitadora.
+  - Para cada elemento de _a_, devuelva una lista de las palabras de la cadena, utilizando _sep_ como cadena delimitadora.
 * - [char.splitlines](https://numpy.org/doc/stable/reference/generated/numpy.char.splitlines.html)(a[, keepends])
-  - Para cada elemento de `a`, devuelva una lista de las líneas del elemento, rompiendo en los límites de línea.
+  - Para cada elemento de _a_, devuelva una lista de las líneas del elemento, rompiendo en los límites de línea.
 ```
 
 <br>
@@ -210,12 +210,9 @@ Funciones para eliminar caracteres al inicio, al final o ambos de los elementos 
 * - Función
   - Descripción
 * - [char.lstrip](https://numpy.org/doc/stable/reference/generated/numpy.char.lstrip.html)(a[, chars])
-  - Para cada elemento en `a`, devuelva una copia con `chars` eliminados al inicio de la cadena.
+  - Para cada elemento en _a_, devuelva una copia con _chars_ eliminados al inicio de la cadena.
 * - [char.rstrip](https://numpy.org/doc/stable/reference/generated/numpy.char.rstrip.html)(a[, chars])
-  - Para cada elemento en `a`, devuelva una copia con los caracteres finales eliminados.
+  - Para cada elemento en _a_, devuelva una copia con los caracteres finales eliminados.
 * - [char.strip](https://numpy.org/doc/stable/reference/generated/numpy.char.strip.html)(a[, chars])
-  - Para cada elemento en `a`, devuelva una copia con los caracteres iniciales y finales eliminados.
+  - Para cada elemento en _a_, devuelva una copia con los caracteres iniciales y finales eliminados.
 ```
-
-<br>
-

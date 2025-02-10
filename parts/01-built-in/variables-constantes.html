@@ -1,0 +1,841 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Variables y Constantes &#8212; Manual de Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'parts/01-built-in/variables-constantes';</script>
+    <link rel="icon" href="../../_static/nebok-favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Operadores y palabras reservadas" href="operadores-palabras.html" />
+    <link rel="prev" title="Tipos de Datos" href="tipos-datos.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/nebok-logo.png" class="logo__image only-light" alt="Manual de Python - Home"/>
+    <script>document.write(`<img src="../../_static/nebok-logo.png" class="logo__image only-dark" alt="Manual de Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Manual de Python para Data Science
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Built-in</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="built-in-index.html">Python Estándar</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ayuda.html">Obtener ayuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="comentarios.html">Comentarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tipos-datos.html">Tipos de Datos</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Variables y Constantes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operadores-palabras.html">Operadores y palabras reservadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrada-salida.html">Impresión y solicitud de datos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="tipos-index.html">Tipos Built-In</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="none-bool-numericos.html"><em>None</em>, <em>bool</em> y Numéricos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="str.html">str</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lists.html">list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tuples.html">Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sets.html">Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dicts.html">dict</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="if-else.html">If … Else</a></li>
+<li class="toctree-l3"><a class="reference internal" href="for-loop.html">For Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="do-while.html">Do While</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="udf.html">Funciones (UDF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html">Excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="context-managers.html">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="io.html">Lectura y escritura de archivos (IO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modulos.html">Paquetes y Módulos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="avanzado-index.html">Temas avanzados</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="decorators.html">Decorators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="iterators.html">Iterators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generators.html">Generators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="oop.html">Programación orientada a objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="func-built-in.html">Funciones built-in</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-modulos/modulos-index.html">Módulos built-in</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/csv.html">CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/datetime.html">Datetime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/itertools.html">Itertools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/json.html">JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/math.html">Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os.html">Os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os-path.html">Os.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/pickle.html">Pickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/random.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/regex.html">Regex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/statistics.html">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/urllib-request.html">urllib.request</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otras librerías</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-numpy/numpy-index.html">Numpy</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/arrays.html">Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../03-numpy/funciones-index.html">Funciones</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/ufuncs.html">Ufuncs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/buscar-contar-ordenar-unicos.html">Buscar, contar, ordenar y valores únicos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/creacion-arrays.html">Creación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/estadisticas.html">Estadísticas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/indices.html">Índices e iteración</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/informacion.html">Información</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/lectura-escritura.html">Lectura y escritura de datos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/manipulacion-arrays.html">Manipulación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/matematicas-numericas.html">Matemáticas y numéricas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/operadores.html">Operadores</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/algebra-lineal.html">Módulo linalg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/cadenas.html">Modulo char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/random.html">Módulo random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/patrones-numpy.html">Patrones útiles</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04-pandas/pandas-index.html">Pandas</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/index.html">Index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/series.html">Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/dataframe.html">DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/escalares-arrays.html">Escalares y Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../04-pandas/otras-clases.html">Otras clases</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/groupby.html">GroupBy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/expanding-rolling-window.html"><em>Expanding, Rolling</em> y <em>Window</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/resampler.html">Resampler</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/funciones.html">Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/patrones-pandas.html">Patrones útiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05-matplotlib/matplotlib-index.html">Matplotlib</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/pyplot.html">Pyplot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/figure.html">Figure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/axes.html">Axes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/otros.html">Otras Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06-seaborn/seaborn-index.html">Seaborn</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06-seaborn/funciones-clases.html">Funciones y Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-seaborn/objects-interface.html">Interface por objetos</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otros</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-otros/otros-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08-otros/IPython.html">IPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-otros/beautifulsoup.html">Web Scraping</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/parts/01-built-in/variables-constantes.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Variables y Constantes</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#constantes">Constantes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ellipsis">Ellipsis</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marcador-de-posicion">Marcador de posición</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing-en-numpy">Slicing en numpy</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#type-hints">Type Hints</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">Variables</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="variables-y-constantes">
+<h1>Variables y Constantes<a class="headerlink" href="#variables-y-constantes" title="Link to this heading">#</a></h1>
+<p>En esta sección se explica brevemente la declaración de constantes y variables en Python.</p>
+<section id="constantes">
+<h2>Constantes<a class="headerlink" href="#constantes" title="Link to this heading">#</a></h2>
+<p>De manera nativa Python no proporciona ningún método para definir constantes inmutables. Sin embargo existen algunas constantes predeterminadas en la librería estándar:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="operadores-palabras.html#built-in-operadores-bool"><span class="std std-ref">False y True</span></a>.</p></li>
+<li><p><a class="reference internal" href="none-bool-numericos.html#tipos-none"><span class="std std-ref">None</span></a>.</p></li>
+<li><p><a class="reference internal" href="#const-ellipsis"><span class="std std-ref">Ellipsis</span></a>.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#NotImplemented">NotImplemented</a>.</p></li>
+</ul>
+<p>A pesar de que Python no fuerza la inmutabilidad de las constantes, existe la siguiente convención para declarar constantes:</p>
+<ul class="simple">
+<li><p>Poner los nombres en mayúsculas separando cada palabra con guiones bajos.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ejemplos de cómo declarar una constante</span>
+<span class="n">PI</span> <span class="o">=</span> <span class="mf">3.141516</span>
+<span class="n">MI_CONSTANTE</span> <span class="o">=</span> <span class="mi">100</span>
+</pre></div>
+</div>
+<p>Algunas opciones para poder crear constantes insmutables en Python son las siguientes:</p>
+<p><strong>Con DataClasses</strong>:
+Se puede definir una clase de constantes con el <em>decorator</em> <code class="docutils literal notranslate"><span class="pre">dataclass</span></code> y el parámetro <code class="docutils literal notranslate"><span class="pre">frozen=True</span></code>, de esta manera no se podrán modificar las constantes:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">Constants</span><span class="p">:</span>
+    <span class="n">PI</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">3.14159</span>
+    <span class="n">GRAVITY</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">9.8</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Para usar las constantes se tendría que crear una instancia de la clase y acceder a sus atributos.</p></li>
+</ul>
+<br>
+<p><strong>Con el módulo typing</strong>:
+Se puede usar la clase <code class="docutils literal notranslate"><span class="pre">Final</span></code> del módulo <em>built-in</em> <code class="docutils literal notranslate"><span class="pre">typing</span></code> para declarar constantes inmutables.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Final</span>
+
+<span class="n">PI</span><span class="p">:</span> <span class="n">Final</span> <span class="o">=</span> <span class="mf">3.14159</span>
+<span class="n">GRAVITY</span><span class="p">:</span> <span class="n">Final</span> <span class="o">=</span> <span class="mf">9.8</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Para más información de este módulo visitar la <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing-support-for-type-hints">documentación</a> de Python.</p>
+</div>
+<br>
+<section id="ellipsis">
+<span id="const-ellipsis"></span><h3>Ellipsis<a class="headerlink" href="#ellipsis" title="Link to this heading">#</a></h3>
+<p>La constante <code class="docutils literal notranslate"><span class="pre">Ellipsis</span></code> funciona igual que la literal <code class="docutils literal notranslate"><span class="pre">...</span></code>, entre las funcionalidades de esta constante están las siguientes:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>El uso de la literal <code class="docutils literal notranslate"><span class="pre">...</span></code> es preferible sobre la constante <code class="docutils literal notranslate"><span class="pre">Ellipsis</span></code>.</p>
+</div>
+<section id="marcador-de-posicion">
+<h4>Marcador de posición<a class="headerlink" href="#marcador-de-posicion" title="Link to this heading">#</a></h4>
+<p>Permite definir estructuras de control y funciones vacías sin que se arroje un error, de manera similar como lo haría la palabra reservada <code class="docutils literal notranslate"><span class="pre">pass</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definir función vacía</span>
+<span class="k">def</span> <span class="nf">my_function</span><span class="p">():</span>
+    <span class="o">...</span>
+
+<span class="c1"># Definir función vacía</span>
+<span class="k">def</span> <span class="nf">my_function</span><span class="p">():</span>
+    <span class="bp">Ellipsis</span>
+</pre></div>
+</div>
+</section>
+<section id="slicing-en-numpy">
+<span id="const-ellipsis-slicing"></span><h4>Slicing en numpy<a class="headerlink" href="#slicing-en-numpy" title="Link to this heading">#</a></h4>
+<p>Permite hacer <a class="reference internal" href="../03-numpy/arrays.html#numpy-arrays-slicing"><span class="std std-ref">Slicing</span></a> en arreglos multidimensionales de <code class="docutils literal notranslate"><span class="pre">numpy</span></code>. Básicamente la <em>Ellipsis</em> indica que se expandan a tantos <em>slicings</em> (<code class="docutils literal notranslate"><span class="pre">:</span></code>) como sean necesarios para completar las dimensiones que faltan. Cuando aparece:</p>
+<ul class="simple">
+<li><p>Al inicio: Se refiere a las dimensiones principales.</p></li>
+<li><p>En el medio: Se refiere a dimensiones intermedias.</p></li>
+<li><p>Al final: Se refiere a las dimensiones finales.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Slicing al inicio:</span>
+<span class="n">X</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="c1"># Equivale a X[Ellipsis, j]</span>
+
+<span class="c1"># Slicing intermedio:</span>
+<span class="n">X</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="c1"># Equivale a X[k, Ellipsis, j]</span>
+
+<span class="c1"># Slicing al final:</span>
+<span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="c1"># Equivale a X[i, Ellipsis]</span>
+</pre></div>
+</div>
+<p>Para entender lo anterior supongamos que se tiene un array 4D con <em>shape</em> <em>(blocks, depth, rows, columns)</em>, entonces:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">X[...,</span> <span class="pre">j]</span></code> equivale a <code class="docutils literal notranslate"><span class="pre">X[:,</span> <span class="pre">:,</span> <span class="pre">:,</span> <span class="pre">j]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">X[b,</span> <span class="pre">...,</span> <span class="pre">j]</span></code> equivale a <code class="docutils literal notranslate"><span class="pre">X[b,</span> <span class="pre">:,</span> <span class="pre">:,</span> <span class="pre">j]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">X[b,</span> <span class="pre">...]</span></code> equivale a <code class="docutils literal notranslate"><span class="pre">X[b,</span> <span class="pre">:,</span> <span class="pre">:,</span> <span class="pre">:]</span></code></p></li>
+</ul>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>No es posible usar <em>ellipsis</em> múltiples veces, por ejemplo <code class="docutils literal notranslate"><span class="pre">X[...,</span> <span class="pre">i,</span> <span class="pre">...]</span></code> no está permitido.</p>
+</div>
+<p><strong>Ejemplo</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definir un array 4D</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">array_4d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">17</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Array: &#39;</span><span class="p">,</span> <span class="n">array_4d</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Aplicar ellipsis al inicio</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Slicing al incio: &#39;</span><span class="p">,</span> <span class="n">array_4d</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Aplicar ellipsis en medio</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Slicing intermedio: &#39;</span><span class="p">,</span> <span class="n">array_4d</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Aplicar ellipsis al final</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Slicing al final: &#39;</span><span class="p">,</span> <span class="n">array_4d</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array: 
+[[[[ 1  2]
+   [ 3  4]]
+
+  [[ 5  6]
+   [ 7  8]]]
+
+
+ [[[ 9 10]
+   [11 12]]
+
+  [[13 14]
+   [15 16]]]]
+
+Slicing al incio: 
+[[[ 2  4]
+  [ 6  8]]
+
+ [[10 12]
+  [14 16]]]
+
+Slicing intermedio: 
+[[2 4]
+ [6 8]]
+
+Slicing al final: 
+[[[1 2]
+  [3 4]]
+
+ [[5 6]
+  [7 8]]]
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Notas</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">array_4d[...,</span> <span class="pre">-1]</span></code>: Equivale a seleccionar la última “columna” para todas las filas, rebanadas y “bloques” (segunda, tercera y cuarta dimensión repectivamente).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">array_4d[0,</span> <span class="pre">...,</span> <span class="pre">-1]</span></code>: Equivale a seleccionar la última “columna” para todas las filas, rebanadas y del primer “bloque” (segunda, tercera y cuarta dimensión repectivamente).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">array_4d[0,</span> <span class="pre">...]</span></code>: Equivale a seleccionar todo el primer “bloque” (cuarta dimensión).</p></li>
+</ul>
+</section>
+<section id="type-hints">
+<h4>Type Hints<a class="headerlink" href="#type-hints" title="Link to this heading">#</a></h4>
+<p><em>Type Hinting</em> se refiere a declarar variables, parámetros, funciones, entre otros objetos de algún tipo de dato específico. La <code class="docutils literal notranslate"><span class="pre">Ellipsis</span></code> es útil particularmente en las siguientes situaciones:</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Python no verifica estas restricciones durante la ejecución, como su nombre lo indica son <em>pistas</em> de los tipos de datos de las variables, mas no se fuerza a que las variables sean de ese tipo, excepto si se ejecuta el <em>script</em> con <a class="reference external" href="https://mypy-lang.org/">mypy</a>, en ese caso sí se arrojará un error si se violan las restriciones de los tipos de datos.</p>
+</div>
+<ul class="simple">
+<li><p>Declarar un <code class="docutils literal notranslate"><span class="pre">tuple</span></code> de un tipo heterogéneo de longitud variable.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tuple de enteros de longitud variable</span>
+<span class="n">numbers</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> 
+
+<span class="n">numbers</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Especificar que un <code class="docutils literal notranslate"><span class="pre">Callable</span></code> puede aceptar cualquier parámetro.</p></li>
+</ul>
+<p>Un <code class="docutils literal notranslate"><span class="pre">Callable</span></code> especifica los argumentos que debe de recibir una función y el tipo de dato retornado. Los <code class="docutils literal notranslate"><span class="pre">Callable</span></code> se pueden especificar con la clase <code class="docutils literal notranslate"><span class="pre">Callable</span></code> del módulo <em>built-in</em> <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing-support-for-type-hints">typing</a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar clase</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span>
+
+<span class="c1"># Parámetro Callable</span>
+<span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">action</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">action</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+
+<span class="c1"># Función Callable</span>
+<span class="k">def</span> <span class="nf">func_with_args</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Parámetro</strong>: En este ejemplo <code class="docutils literal notranslate"><span class="pre">Callable</span></code> indica que <em>action</em> es una función que puede tomar cualquier cantidad y tipo de argumentos, pero debe de retornar un entero.</p></li>
+<li><p><strong>Función</strong>: En este ejemplo <code class="docutils literal notranslate"><span class="pre">Callable</span></code> indica que <em>func_with_args</em> puede tomar cualquier cantidad y tipo de argumentos, pero debe de retornar un entero.</p></li>
+</ul>
+<br>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Link to this heading">#</a></h2>
+<p>Las variables permiten almacenar objetos de los diferentes tipos de datos por medio de un nombre. Las variables en Python tienen las siguientes características:</p>
+<ul class="simple">
+<li><p>No necesitan declararse con algun tipo de dato en específico, son dinámicas.</p></li>
+<li><p>No necesitan declararse, basta con asignarles un valor.</p></li>
+<li><p>Las variables pueden almacenar cualquier tipo de objeto, incluyendo funciones y clases.</p></li>
+<li><p>Los nombres de las variables son sensibles a mayúsculas y minúsculas y deben de seguir las siguientes reglas:</p>
+<ul>
+<li><p>Debe de empezar con una letras o un guión bajo (_).</p></li>
+<li><p>La variables puede contener letras, números y guiones bajos.</p></li>
+<li><p>Las <a class="reference internal" href="operadores-palabras.html#keywords"><span class="std std-ref">Palabras reservadas</span></a> no pueden usarse como nombres de variables.</p></li>
+</ul>
+</li>
+<li><p>Las variables almacenan la referencia a los objetos en memoria, no los objetos en sí.</p></li>
+<li><p>Las variables tienen diferentes <a class="reference internal" href="udf.html#functions-scopes"><span class="std std-ref">Scopes</span></a> que indican en qué partes del código se puede acceder al contenido de la variable.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definir varible con valor nulo</span>
+<span class="n">x</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="c1"># Definir varible con valor booleano</span>
+<span class="n">x</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="c1"># Definir varible con valor numérico</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="c1"># Definir variable con una cadena</span>
+<span class="n">my_string</span> <span class="o">=</span> <span class="s2">&quot;Python&quot;</span>
+
+<span class="c1"># Realizar una operación con una variable</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">y</span> <span class="o">*</span> <span class="mi">10</span> 
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Para conocer el tipo de dato de una varible se puede usar la función <code class="docutils literal notranslate"><span class="pre">type()</span></code>.</p>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./parts/01-built-in"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="tipos-datos.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Tipos de Datos</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="operadores-palabras.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Operadores y palabras reservadas</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#constantes">Constantes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ellipsis">Ellipsis</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#marcador-de-posicion">Marcador de posición</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing-en-numpy">Slicing en numpy</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#type-hints">Type Hints</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">Variables</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nebok
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

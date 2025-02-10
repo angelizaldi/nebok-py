@@ -12,9 +12,9 @@ kernelspec:
 
 # Index
 
-Los objetos _Index_ son una serie de objetos que pueden utilizarse para identificar los elementos de los objetos `Series` y `DataFrame` por medio de etiquetas. Estos objetos pueden ser de varios tipos y con diversas características.
+Los objetos `Index` son un conjunto de de objetos que pueden utilizarse para identificar los elementos de los objetos `Series` y `DataFrame` por medio de etiquetas. Estos objetos pueden ser de varios tipos y con diversas características.
 
-En esta sección se presentará el objeto `Index` y algunas se sus subclases, las subclases que no se explicarán en esta sección son las siguientes:
+En esta sección se presentará el objeto `Index` y algunas de sus subclases, las subclases que no se explicarán en esta sección son las siguientes:
 - [RangeIndex](https://pandas.pydata.org/docs/reference/api/pandas.RangeIndex.html#pandas.RangeIndex): Índice numérico monotono. Es similar al índice implícito por default.
 - [CategoricalIndex](https://pandas.pydata.org/docs/reference/api/pandas.CategoricalIndex.html#pandas-categoricalindex): Índice categórico.
 - [IntervalIndex](https://pandas.pydata.org/docs/reference/api/pandas.IntervalIndex.html#pandas-intervalindex): Índice por intervalos.
@@ -25,11 +25,20 @@ En esta sección se presentará el objeto `Index` y algunas se sus subclases, la
 (index-index)=
 ## Index
 
-Los objetos `Index` son un array inmutable, funje el papel de identificar por medio de etiquetas las filas y/o columnas. Pueden ser vistos como un `set` ordenado (cada elemento se identifica por un índice) o un multi-set ordenado, aunque `Index` puede tener valores repetidos.
+Los objetos `Index` son un array inmutable, funje el papel de identificar por medio de etiquetas las filas y/o columnas. Pueden ser vistos como un `set` ordenado (cada elemento se identifica por un índice) o un multi-set ordenado, aunque `Index` puede tener valores repetidos. Algunas características de las listas, son:
+- Es inmutable: Sus elementos no se pueden modificar una vez creado el objeto.
+- Está indexado: Cada elemento está asociado con un índice y por lo tanto sus elementos están ordenados.
+- Es un iterable: Se puede iterar por sus elementos y se puede usar la palabra reservada `in` para verificar memebresía.
+- Permite valores duplicados.
+- Sus elementos pueden ser de diferentes tipos, pero es recomendado que todos sean del mismo tipo.
+- Es _hashable_, lo que quiere decir que se puede utilizar como _key_ en un diccionario.
+- Soporta {ref}`index-index-operaciones` de manera similar a los `set`.
+
+<br/>
 
 ### Creación de Index.
 
-La forma más sencilla de crear un índex es con el constructor:
+La forma más sencilla de crear un `Index` es con el constructor:
 
 ```{list-table}
 :header-rows: 1
@@ -39,7 +48,7 @@ La forma más sencilla de crear un índex es con el constructor:
 * - [Index](https://pandas.pydata.org/docs/reference/api/pandas.Index.html#pandas.Index)(data=None, dtype=None, copy=False, name=None, tupleize_cols=True)
   - Secuencia inmutable para selección de elementos y alineación con con otros objetos.
 ```
-- _data_ - `array-like`, `iterable: Un arreglo o una lista unidimensional con los datos.
+- _data_ - `array-like`, `iterable`: Un arreglo o una lista unidimensional con los datos.
 
 **Ejemplo**:
 
@@ -60,11 +69,11 @@ print(ind)
 (index-index-seleccion)=
 ### Selección de elementos
 
-Para seleccionar elementos se pueden usar las mismas estrategias que la {ref}`selección de elementos <numpy-arrays-seleccion>` de arrays unidimensionales de numpy:
-- {ref}`numpy-arrays-subsetting`.
+Para seleccionar elementos se pueden usar las mismas estrategias que la {ref}`selección de elementos <numpy-arrays-seleccion>` de arrays unidimensionales de `numpy`:
+- {ref}`numpy-arrays-indexing`.
 - {ref}`numpy-arrays-slicing`.
 - {ref}`numpy-arrays-masking`.
-- {ref}`numpy-arrays-indexing`.
+- {ref}`numpy-arrays-fancy-indexing`.
 
 **Ejemplos**: A continuación se verán algunos ejemplos utilizando las distintas estrategias enlistadas anteriormente.
 
@@ -72,8 +81,8 @@ Para seleccionar elementos se pueden usar las mismas estrategias que la {ref}`se
 # Crear objeto ind
 ind = pd.Index(["a", "e", "i", "o", "u"])
 
-# Seleccionar haciendo subsetting -> "i"
-print(f"Subsetting: {ind[2]}", end = "\n"*2)  
+# Seleccionar haciendo Indexing -> "i"
+print(f"Indexing: {ind[2]}", end = "\n"*2)  
 
 # Seleccionar haciendo slicing -> ["a", "i", "u"]
 print(f"Slicing: {ind[::2]}", end = "\n"*2)  
@@ -88,14 +97,15 @@ print(f"Fancy indexing: {ind[[3, 0, 4]]}", end = "\n"*2)
 <br/>
 
 ---
+(index-index-operaciones)=
 ### Operaciones de conjuntos
 
 Los objetos `Index` son similares a un `set`, por lo tanto se pueden realizar operaciones de conjuntos entre objetos `Index` con métodos de {ref}`Operaciones de conjuntos <index-index-metodos-conjuntos>`.
 
 - **Unión**: Para determinar la unión de dos `Index` se usa el método `.union`: <br/> `X.union(Y)`
 - **Intersección**: Para determinar la intersección (elementos en común) de dos `Index` se usa el método `.intersection`: <br/> `X.intersection(Y)`
-- **Diferencia**: Para determinar la diferencia de dos `Index` (elementos en `X` pero no en `Y`) se usa el método `.difference(Y)`: <br/> `X.difference(Y)`
-- **Diferencia simétrica**: Para determinar la diferencia simétrica de dos `Index` (elementos en `X` o `Y`, pero no en ambos) se usa el método `.symmetric_difference(Y)`: <br/> `X.symmetric_difference(Y)`
+- **Diferencia**: Para determinar la diferencia de dos `Index` (elementos en _X_ pero no en _Y_) se usa el método `.difference(Y)`: <br/> `X.difference(Y)`
+- **Diferencia simétrica**: Para determinar la diferencia simétrica de dos `Index` (elementos en _X_ o _Y_, pero no en ambos) se usa el método `.symmetric_difference(Y)`: <br/> `X.symmetric_difference(Y)`
 
 :::{warning}
 No se pueden usar los operadores _bitwise_ `|`, `&`, `-`, etc. para realizar operaciones de conjuntos entre objetos `Index`.
@@ -123,7 +133,7 @@ print("Diferencia: ", ind1.difference(ind2))
 <br/>
 
 ---
-### Atributos de `Index`
+### Atributos de _Index_
 
 En esta sección se enlistan los atributos del objeto `Index`.
 
@@ -182,7 +192,7 @@ Atributos que indican si el `Index` cumple determinadas características.
 <br/>
 
 ---
-### Métodos de `Index`
+### Métodos de _Index_
 
 En esta sección se enlistan los métodos del objeto `Index` por categorías.
 
@@ -280,7 +290,7 @@ Métodos para trabajar con objetos `Index` boolenos.
 
 <br/>
 
-#### Compatibilidad Con `MultiIndex`
+#### Compatibilidad Con MultiIndex
 
 Métodos compatibles con objetos `Index` anidados, es decir, que tienen más de una nivel similar a los objetos `MultiIndex`. 
 
@@ -384,11 +394,11 @@ Métodos para seleccionar elementos en el objeto `Index`.
 * - [Index.asof_locs](http://pandas.pydata.org/docs/reference/api/pandas.Index.asof_locs.html)(where, mask)
   - Retorna las posiciones (índices) de unas etiquetas determinadas en el índice.
 * - [Index.get_indexer](http://pandas.pydata.org/docs/reference/api/pandas.Index.get_indexer.html)(target[, method, limit, ...])
-  - Retorna un _indexador_ dado el índice actual y un nuevo índice. El _indexador_ es un arreglo que indica las posiciones de los valores en un nuevo índice `target` dadas las posiciones actuales de los mismos valores en el índice actual. Si un valor en _target_ no existe en el índice actual se le asigna la posición -1.
+  - Retorna un _indexador_ dado el índice actual y un nuevo índice. El _indexador_ es un arreglo que indica las posiciones de los valores en un nuevo índice _target_ dadas las posiciones actuales de los mismos valores en el índice actual. Si un valor en _target_ no existe en el índice actual se le asigna la posición -1.
 * - [Index.get_indexer_for](http://pandas.pydata.org/docs/reference/api/pandas.Index.get_indexer_for.html)(target)
-  - Garantiza el retorno de un _indexador_ incluso cuando los valores en el índice actual no son únicos. El _indexador_ es un arreglo que indica las posiciones de los valores en un nuevo índice `target` dadas las posiciones actuales de los mismos valores en el índice actual. Para un valor no único dado retorna todas las posiciones en el índice actual.
+  - Garantiza el retorno de un _indexador_ incluso cuando los valores en el índice actual no son únicos. El _indexador_ es un arreglo que indica las posiciones de los valores en un nuevo índice _target_ dadas las posiciones actuales de los mismos valores en el índice actual. Para un valor no único dado retorna todas las posiciones en el índice actual.
 * - [Index.get_indexer_non_unique](http://pandas.pydata.org/docs/reference/api/pandas.Index.get_indexer_non_unique.html)(target)
-  - Retorna un _indexador_ incluso cuando los valores en el índice actual no son únicos. El _indexador_ es un arreglo que indica las posiciones de los valores en un nuevo índice `target` dadas las posiciones actuales de los mismos valores en el índice actual. Para un valor no único dado retorna todas las posiciones en el índice actual.
+  - Retorna un _indexador_ incluso cuando los valores en el índice actual no son únicos. El _indexador_ es un arreglo que indica las posiciones de los valores en un nuevo índice _target_ dadas las posiciones actuales de los mismos valores en el índice actual. Para un valor no único dado retorna todas las posiciones en el índice actual.
 * - [Index.get_level_values](http://pandas.pydata.org/docs/reference/api/pandas.Index.get_level_values.html)(level)
   - Retorna un `Index` de valores para el nivel solicitado.
 * - [Index.get_loc](http://pandas.pydata.org/docs/reference/api/pandas.Index.get_loc.html)(key)
@@ -503,9 +513,15 @@ Métodos para trabajar con valores únicos en el `Index`.
 ---
 ## MultiIndex
 
-La clase `MultiIndex` es una subclase de `Index`, es un multiset ordenado, que permite tener índices jearquizados por niveles. Esta clase es una alternativa para crear objetos de más de dos dimensiones.
+La clase `MultiIndex` es una subclase de `Index`, es un multiset ordenado, que permite tener índices jearquizados por niveles. Esta clase es una alternativa para crear objetos de más de dos dimensiones. Algunas características de las listas, son:
+- Es inmutable: Sus elementos no se pueden modificar una vez creado el objeto.
+- Está indexado: Cada elemento está asociado con un índice y por lo tanto sus elementos están ordenados.
+- Es un iterable: Se puede iterar por sus elementos y se puede usar la palabra reservada `in` para verificar memebresía.
+- Permite valores duplicados.
 
-### Creación de un `MultiIndex`
+<br/>
+
+### Creación de un _MultiIndex_
 
 La clase `MultiIndex` tiene varios {ref}`index-multiindex-metodos-constructores` para crear un multi-índice a partir de secuencias anidadas, productos cartesianos, objetos `DataFrame`, entre otros.
 
@@ -515,7 +531,7 @@ La clase `MultiIndex` tiene varios {ref}`index-multiindex-metodos-constructores`
 arrays = [[1, 1, 2, 2], ['red', 'blue', 'red', 'blue']]
 
 multind1 = pd.MultiIndex.from_arrays(arrays, names=('number', 'color'))
-print(f"Multiíndice desde secuencias:\n{multind1}", end="\n*2")
+print(f"Multiíndice desde secuencias:\n{multind1}", end="\n"*2)
 
 # Crear MultiIndex desde un producto cartesiano
 numbers = [0, 1, 2]
@@ -534,7 +550,7 @@ Los multi-índice creados con los constructores se pueden usar como argumentos d
 
 <br/>
 
-#### Objetos con `MultiIndex`
+#### Objetos con _MultiIndex_
 
 Otra alternativa para crear un multi-índice directamente en un objeto como en `Series` o `DataFrame` es definiendo el parámetro utilizando alguna de las siguientes estategias:
 - Pasando al parámetro `index` alguna secuencia anidada. Cada secuencia interior debe de ser del mismo tamaño y tener el mismo número de filas que el objeto. El número de secuencias interiores determina el número de niveles en el multiíndice y los elementos se empatan por posición. Básicamente funciona igual que `pd.MultiIndex.from_arrays()`.
@@ -548,7 +564,7 @@ nested_sequence = [[1, 1, 2, 2], ['red', 'blue', 'red', 'blue']]
 
 # Inicializar objeto
 s1 = pd.Series([10, 11, 12, 13], index=nested_sequence)
-print(f"Multiíndice desde secuencias:\n{s1}", end="\n*2")
+print(f"Multiíndice desde secuencias:\n{s1}", end="\n"*2)
 
 # Definir diccioanrio
 data = {
@@ -570,24 +586,24 @@ Notar que con el método anterior el objeto retornado es de tipo `Index` y no `M
 <br/>
 
 ---
-### Seleccion elementos de `MultiIndex`
+### Seleccion elementos de _MultiIndex_
 
 :::{warning}
 En esta sección se explica cómo seleccionar elementos en objetos con índices de tipo `MultiIndex`. Los métodos aquí explicados **no** se aplican directamente sobre objetos `MultiIndex`. Para seleccionar elementos directamente en un objeto `MultiIndex` ver {ref}`index-index-seleccion`, pero en esencia se pueden aplicar las mismas estrategias para seleccionar elementos que en un `ndarray` unidimensional y cuyos elementos son objetos de tipo `tuple`.
 :::
 
-#### `Series`
+#### _Series_
 
 Selección de elementos en un `Series` con `MultiIndex`.
 
-- **Subsetting**: Selección de elementos específicos o niveles completos.
+- **Indexing**: Selección de elementos específicos o niveles completos.
     - **Elementos específicos**: Para seleccionar elementos específicos se puede separar las etiquetas de cada nivel con comas o usar un `tuple` con las etiquetas de cada nivel, aplica lo mismo con el método `.loc()`. <br/> `X['label1', 'label2', ...]` <br/> `X[('label1', 'label2', ...)]` <br/> `X.loc['label1', 'label2', ...]` <br/> `X.loc[('label1', 'label2', ...)]`
     - **Niveles completos superiores**: Se puede seleccionar una etiqueta de un nivel superior o una serie de etiquetas en niveles superiores y mostrar todos los elementos en los niveles inferiores, simplemente indicar la etiqueta o las etiquetas, respetando la jerarquía de los niveles, se puede usar corchetes o el método `.loc()`: <br/> `X['label1'] # Primer nivel` <br/> `X[('label1', 'label2')] # Segundo nivel` <br/> `...`
 - **Slicing**: Para seleccionar _slices_ de los elementos, indicando el inicio, fin y paso (`start:stop:step`). Al usar las etiquetas de los elementos, entonces ambos extremos del _slice_ son inclusivos. **Importante**: Los elementos del índice deben estar ordenados para que funcione correctamente.
     - **Slicing en niveles superiores**: Se puede aplicar slicing en todos los niveles o solo algunos superiores y mostrar todos los elementos en los niveles inferiores. Se puede usar corchetes o el método `.loc()`, no usar `tuple`: <br/> `X['label1i':'label1:j', 'label2i':'label2j', ...]`
     - **Omitir niveles**: Se pueden omitir niveles (mostrar todas las etiquetas en ese nivel) usando `:`: <br/> `X[:, 'label2i':'label2j'] # Todo primer nivel y slice en segundo nivel` <br/> `...`
-    - **Niveles inferiores completos**: Se puede combinar _slicing_ y _subsetting_ para seleccionar todas las etiquetas en niveles inferiores, independientemente de los niveles superiores: <br/> `X[:, 'label2'] # Todas los label2` <br/> `X[:, :, 'label3'] # Todas los label3` <br/> `...`
-- **Fancy indexing**: Seleccionar un conjunto de elementos en posiciones específicas. Se usa una lista en cada nivel con los _labels_ a seleccionar en cualquier orden e incluso se pueden repetir. Se puede definir como `tuple` o separado por comas y con corchetes o con el método `.loc()`. <br/> `X[['label1i', 'label1j', ...], ['label2i', 'label2j', ...], ...]` <br/> `X[(['label1i', 'label1j', ...], ['label2i', 'label2j', ...], ...)]` <br/> `X.loc[(['label1i', 'label1j', ...], ['label2i', 'label2j', ...], ...)]`
+    - **Niveles inferiores completos**: Se puede combinar _slicing_ y _Indexing_ para seleccionar todas las etiquetas en niveles inferiores, independientemente de los niveles superiores: <br/> `X[:, 'label2'] # Todas los label2` <br/> `X[:, :, 'label3'] # Todas los label3` <br/> `...`
+- **Fancy indexing**: Seleccionar un conjunto de elementos en posiciones específicas. Se usa una lista en cada nivel con los _labels_ a seleccionar en cualquier orden e incluso se pueden repetir. Se puede definir como `tuple` o separado por comas y con corchetes o con el método `.loc()`. <br/> `X[['label1i', 'label1j', ...], ['label2i', 'label2j', ...], ...]` <br/> `X[(['label1i', 'label1j', ...], ['label2i', 'label2j', ...], ...)]` <br/> `X[[('label1i', 'label1j', ...), ('label2i', 'label2j', ...), ...]]` <br/> `X.loc[(['label1i', 'label1j', ...], ['label2i', 'label2j', ...], ...)]`
 - **Boolean masking**: En _boolean masking_ es indiferente si el índice es un multi-índice. Se debe usar un _array booleano_ del mismo tamaño que el `Series`.
 
 :::{tip}
@@ -602,13 +618,13 @@ s = pd.Series([*'abcdef'], index = multind2)
 # Imprimir objeto:
 print(f"Series:\n{s}", end='\n'*2)
 
-# Subsetting: Elemento específico
+# Indexing: Elemento específico
 print("Elemento específico:", s[(0, 'purple')], sep='\n', end='\n'*2)
 
-# Subsetting: Elemento de nivel superior
+# Indexing: Elemento de nivel superior
 print("Elemento de nivel superior:", s[1], sep='\n', end='\n'*2)
 
-# Slicing: Nivele superior
+# Slicing: Nivel superior
 print("Slicing:", s.loc[1:], sep='\n', end='\n'*2)
 
 # Fancy indexing
@@ -616,33 +632,12 @@ print("Fancy indexing:", s.loc[([0, 2], ['purple'])], sep='\n', end='\n'*2)
 
 # Combinación de estrategias
 print("Todos los green:", s[:, 'green'], sep='\n')
-s[:, 'green']
 ```
 
-#### `DataFrame`
-
-Para los ejemplos de esta sección se utilizar el siguiente `DataFrame`:
-
-```{code-cell} ipython3
-# Definir los datos
-data = [[1, 2, 3, 4],
-   [4, 5, 6, 7],
-   [7, 8, 9, 10],
-   [10, 11, 12, 13],
-   [14, 15, 16, 17],
-   [18, 19, 20, 21]]
-
-# Crear índices de filas y columnas
-index = pd.MultiIndex.from_tuples([('row1', 'row_1'), ('row1', 'row_2'), ('row2', 'row_1'), ('row2', 'row_2'), ('row3', 'row_1'), ('row3', 'row_2')], names=['Level_1', 'Level_2'])
-columns = pd.MultiIndex.from_tuples([('Group_A', 'X'), ('Group_A', 'Y'), ('Group_B', 'X'), ('Group_B', 'Y')], names=['Group', 'Variable'])
-
-# Crear DataFrame
-df_mul = pd.DataFrame(data, index=index, columns=columns)
-print(df_mul)
-```
+#### _DataFrame_
 
 Selección de elementos en un `DataFrame` con `MultiIndex`. En esta sección se estará usando el método `.loc()`. 
-- **Subsetting**: Se puede específicar los niveles en orden, opcionalmente omitiendo niveles más profundos y mostrando todos los niveles restantes. Se puede aplicar tanto en el índice, columnas o ambos: <br/> `X.loc[(ind1, ind2, ...), (col1, col2, ...)] # Ambos ejes` <br/> `X.loc[(ind1, ind2, ...), :] # Solo filas` <br/> `X.loc[:, (col1, col2, ...)] # Solo columnas`
+- **Indexing**: Se puede específicar los niveles en orden, opcionalmente omitiendo niveles más profundos y mostrando todos los niveles restantes. Se puede aplicar tanto en el índice, columnas o ambos: <br/> `X.loc[(ind1, ind2, ...), (col1, col2, ...)] # Ambos ejes` <br/> `X.loc[(ind1, ind2, ...), :] # Solo filas` <br/> `X.loc[:, (col1, col2, ...)] # Solo columnas`
 - **Slicing**: Se puede aplicar _slicing_ para seleccionar _slices_ de los datos, indicando el inicio, fin y paso (`start:stop:step`). Se usa un `tuple` para `start`, `stop` y `step`, los elementos son _labels_ de los niveles en orden, opcionalmente se pueden omitir niveles más profundo y mostrar todos los niveles restantes. Se puede aplicar tanto en el índice, columnas o ambos. **Importante**: Los elementos del índice deben estar ordenados para que funcione correctamente. <br/> `X.loc[(ind1_i, ind2_i, ...):(ind1_j, ind2_j, ...), (col1_i, col2_i, ...):(col1_j, col2_j, ...)] # Ambos ejes` <br/> `X.loc[(ind1_i, ind2_i, ...):(ind1_j, ind2_j, ...), :] # Solo filas` <br/> `X.loc[:, (col1_i, col2_i, ...):(col1_j, col2_j, ...)] # Solo columnas`
 - **Fancy indexing**: Se puede aplicar _fancy indexing_ para seleccionar un conjunto de elementos en posiciones específicas. Se usa una lista para cada nivel indicando los _labels_ a seleccionar en cualquier orden e incluso se pueden repetir. Los niveles se especifican en orden, opcionalmente omitiendo niveles más profundo y mostrando todos los niveles restantes. Se puede aplicar tanto en el índice, columnas o ambos. <br/> `X.loc[([ind1_i, ind1_j, ...], [ind2_i, ind2_j, ...], ...), ([col1_i, col1_j, ...], [col2_i, col2_j, ...], ...)] # Ambos ejes` <br/> `X.loc[([ind1_i, ind1_j, ...], [ind2_i, ind2_j, ...], ...), :] # Solo filas` <br/> `X.loc[:, ([col1_i, col1_j, ...], [col2_i, col2_j, ...], ...)] # Solo columnas`
 - **Boolean masking**: En _boolean masking_ es indiferente si el índice o las columnas son multi-índice. Se debe usar un _array booleano_ del mismo tamaño que el número de elementos en el índice o las columnas, según sea el caso.
@@ -656,8 +651,24 @@ Se pueden combinar distintas estrategias de selección para diferentes niveles y
 **Ejemplos**:
 
 ```{code-cell} ipython3
-# Subsetting: Elemento específico
-print("Elemento específico:", df_mul.loc[('row2', 'row_1'), ('Group_B', 'X')], sep='\n', end='\n'*2)
+# Definir los datos
+data = [[1, 2, 3, 4],
+   [4, 5, 6, 7],
+   [7, 8, 9, 10],
+   [10, 11, 12, 13],
+   [14, 15, 16, 17],
+   [18, 19, 20, 21]]
+
+# Crear índices de filas y columnas
+index = pd.MultiIndex.from_tuples([('row1', 'a'), ('row1', 'b'), ('row2', 'c'), ('row2', 'd'), ('row3', 'e'), ('row3', 'f')], names=['Level_1', 'Level_2'])
+columns = pd.MultiIndex.from_tuples([('Group_A', 'X'), ('Group_A', 'Y'), ('Group_B', 'X'), ('Group_B', 'Y')], names=['Group', 'Variable'])
+
+# Crear DataFrame
+df_mul = pd.DataFrame(data, index=index, columns=columns)
+print(df_mul, sep='\n', end='\n'*2)
+
+# Indexing: Elemento específico
+print("Elemento específico:", df_mul.loc[('row2', 'd'), ('Group_B', 'X')], sep='\n', end='\n'*2)
 
 # Slicing
 print("Slicing:", df_mul.loc[('row1'):('row2'), :], sep='\n', end='\n'*2)
@@ -685,7 +696,7 @@ obj.names = ['level_name1', 'level_name2', ...]
 <br/>
 
 ---
-### Conversiones entre objetos con `MultiIndex`
+### Conversiones entre objetos con _MultiIndex_
 
 A continuación se presentará de manera breve algunos métodos para realizar conversiones entre objetos con un `MultiIndex`:
 - **Convertir niveles del índice a niveles de columnas**: Para pasar niveles del índice de las filas a niveles de las columnas usar los métodos [Series.unstack()](http://pandas.pydata.org/docs/reference/api/pandas.Series.unstack.html) o [DataFrame.unstack()](http://pandas.pydata.org/docs/reference/api/pandas.DataFrame.unstack.html).
@@ -694,7 +705,7 @@ A continuación se presentará de manera breve algunos métodos para realizar co
 - **Convertir columnas en niveles del índice**: Una o varias columnas se pueden convertir en niveles del índice de las filas con el método [DataFrame.set_index()](http://pandas.pydata.org/docs/reference/api/pandas.DataFrame.set_index.html).
 
 ---
-### Atributos de `MultiIndex`
+### Atributos de _MultiIndex_
 
 Atributos de los objetos `MultiIndex`. 
 
@@ -719,7 +730,7 @@ Atributos de los objetos `MultiIndex`.
 <br/>
 
 ---
-### Métodos de `MultiIndex`
+### Métodos de _MultiIndex_
 
 Métodos de la clase `MultiIndex`.
 
@@ -788,7 +799,7 @@ Métodos que permiten modificar un `MultiIndex` como agregar niveles, eliminar n
 * - [MultiIndex.sortlevel](http://pandas.pydata.org/docs/reference/api/pandas.MultiIndex.sortlevel.html)([level, ascending, ...])
   - Ordena el `MultiIndex` en el nivel indicado.
 * - [MultiIndex.swaplevel](http://pandas.pydata.org/docs/reference/api/pandas.MultiIndex.swaplevel.html)([i, j])
-  - Intercambia el nivel `i` con el nivel `j`.
+  - Intercambia el nivel _i_ con el nivel _j_.
 * - [MultiIndex.truncate](http://pandas.pydata.org/docs/reference/api/pandas.MultiIndex.truncate.html)([before, after])
   - Trunca el índice entre dos etiquetas/tuplas, retorna un nuevo `MultiIndex`.
 ```
@@ -805,7 +816,7 @@ Métodos para seleccionar y recuperar ubicaciones de determinados elementos en e
 * - Método
   - Descripción
 * - [MultiIndex.get_indexer](http://pandas.pydata.org/docs/reference/api/pandas.MultiIndex.get_indexer.html)(target[, method, ...])
-  - Retorna un _indexador_ dado el índice actual y un nuevo índice. El _indexador_ es un arreglo que indica las posiciones de los valores en un nuevo índice `target` dadas las posiciones actuales de los mismos valores en el índice actual. Si un valor en _target_ no existe en el índice actual se le asigna la posición -1.
+  - Retorna un _indexador_ dado el índice actual y un nuevo índice. El _indexador_ es un arreglo que indica las posiciones de los valores en un nuevo índice _target_ dadas las posiciones actuales de los mismos valores en el índice actual. Si un valor en _target_ no existe en el índice actual se le asigna la posición -1.
 * - [MultiIndex.get_level_values](http://pandas.pydata.org/docs/reference/api/pandas.MultiIndex.get_level_values.html)(level)
   - Retorna un vector con los valores de etiqueta para el nivel solicitado.
 * - [MultiIndex.get_loc](http://pandas.pydata.org/docs/reference/api/pandas.MultiIndex.get_loc.html)(key)
@@ -821,7 +832,13 @@ Métodos para seleccionar y recuperar ubicaciones de determinados elementos en e
 ---
 ## DateTimeIndex
 
-La clase `DateTimeIndex` es una subclase de `Index` de tipo `datetime64` que representan fechas y tiempos. Para crear un objeto `Series` o `DataFrame` con un índice de fecha primero se debe de crear un objeto `DateTimeIndex`, posteriormente asignar ese objeto al argumento `index`.
+La clase `DateTimeIndex` es una subclase de `Index` de tipo `datetime64` que representan fechas y tiempos. Para crear un objeto `Series` o `DataFrame` con un índice de fecha primero se debe de crear un objeto `DateTimeIndex`, posteriormente asignar ese objeto al parámetro _index_. Algunas características de las listas, son:
+- Es inmutable: Sus elementos no se pueden modificar una vez creado el objeto.
+- Está indexado: Cada elemento está asociado con un índice y por lo tanto sus elementos están ordenados.
+- Es un iterable: Se puede iterar por sus elementos y se puede usar la palabra reservada `in` para verificar memebresía.
+- Permite valores duplicados.
+
+<br/>
 
 ### Creación
 
@@ -853,27 +870,27 @@ print(f"DatetimeIndex:\n{dtidx}")
 
 **2.  Con la función** `pd.date_range()`.
 
-La función [pd.date_range()](https://pandas.pydata.org/docs/reference/api/pandas.date_range.html#pandas.date_range) retorna un `DateTimeIndex`, se debe indicar la fechas-tiempo de inicio y fin (`str` o `datetinme-like`) y opcionalmente el número de periodos y frecuencia.
+La función [pd.date_range()](https://pandas.pydata.org/docs/reference/api/pandas.date_range.html#pandas.date_range) retorna un `DateTimeIndex`, se debe indicar la fechas-tiempo de inicio y fin (`str` o `datetime-like`) y opcionalmente el número de periodos y frecuencia.
 
 **Ejemplo**:
 ```{code-cell} ipython3
-# Crear DateTimeIndex con el constructor
+# Crear DateTimeIndex con la función pd.date_range()
 dtidx = pd.date_range('2020-01-01', '2024-01-01', freq='YE')
 
 # Imprimir objeto
 print(f"DatetimeIndex:\n{dtidx}")
 ```
-- **Importante**: Esta función no incluirá la fecha en el parámetro `end`, es decir, no es inclusiva en el parámetro `end`.
+- Para ver la manera de definir el parámetro _freq_ revisar {ref}`pd-anexos-offsets`.
 
 :::{warning}
-Notar que para replicar el `DateTimeIndex` retornado por el ejemplo con el constructor, fue necesario especificar el parámetro `freq='YE'`, esto es así porque por default `pd.date_range()` tiene `freq='D'` que significa con una frecuencia por día.
+Notar que para replicar el `DateTimeIndex` retornado por el ejemplo con el constructor, fue necesario especificar el parámetro `freq='YS'`, esto es así porque por default `pd.date_range()` tiene `freq='D'` que significa con una frecuencia por día.
 :::
 
 <br/>
 
 **3 Con la función** `pd.to_datetime()`
 
-Si se provee de un `list-like` de `str`, `pd.TimeStamp` u objetos `datetime-like` entonces la función `pd.to_datetime()` retorna `DateTimeIndex`.
+Si se provee de un `list-like` de `str`, {ref}`pd.TimeStamp <pandas-scalars-timestamp>` u objetos `datetime-like` entonces la función [pd.to_datetime()](https://pandas.pydata.org/docs/reference/api/pandas.to_datetime.html#pandas.to_datetime) retorna `DateTimeIndex`.
 
 **Ejemplo**:
 ```{code-cell} ipython3
@@ -890,10 +907,10 @@ print(f"DatetimeIndex:\n{dtidx}")
 <br/>
 
 ---
-### Seleccion elementos de `DateTimeIndex`
+### Seleccion elementos de _DateTimeIndex_
 
 :::{warning}
-En esta sección se explica cómo seleccionar elementos en objetos con índices de tipo `DatetimeIndex`. Los métodos aquí explicados **no** se aplican directamente sobre objetos `DatetimeIndex`. Para seleccionar elementos directamente en un objeto `DatetimeIndex` ver {ref}`index-index-seleccion`, pero en esencia se pueden aplicar las mismas estrategias para seleccionar elementos en un `ndarray`.
+En esta sección se explica cómo seleccionar elementos en objetos con índices de tipo `DatetimeIndex`. Los métodos aquí explicados **no** se aplican directamente sobre objetos `DatetimeIndex`. Para seleccionar elementos directamente en un objeto `DatetimeIndex` ver {ref}`index-index-seleccion`, pero en esencia se pueden aplicar las mismas estrategias para seleccionar elementos que en un `ndarray`.
 :::
 
 Al especificar la fecha y tiempo se puede hacer de diversas formas:
@@ -909,44 +926,44 @@ No se puede usar cadenas con el formato `DD/MM/YYYY` porque se va a interpretar 
 
 :::{caution}
 Para esta sección tener en cuenta lo siguiente:
-- Todos los ejemplos presentados en esta sección se harán suponiendo que se aplican a un `Series` con `DateTimeIndex`. No es posible seleccionar elementos (filas) es un `DataFrame` con este método, en un `DataFrame` usar el método `.iloc[]`.
-- Los ejemplos aquí presentados se harán con cadenas ISO 8601 `'YYYY-MM-DD'`, pero como se comentó anteriormente se pueden usar otros formato, incluir el tiempo también o usar instancias de otras clases.
+- Todos los ejemplos presentados en esta sección se harán suponiendo que se aplican a un `Series` con `DateTimeIndex`. No es posible seleccionar elementos (filas) en un `DataFrame` con este método, en un `DataFrame` usar el método `.iloc[]`.
+- Los ejemplos aquí presentados se harán con cadenas ISO 8601 _'YYYY-MM-DD'_, pero como se comentó anteriormente se pueden usar otros formatos, incluir el tiempo también o usar instancias de otras clases.
 :::
 
-Estrategias de selcción de elementos:
-- **Subsetting**: Seleccionar elementos con una fecha específica o unidades específicas
+Estrategias de selección de elementos:
+- **Indexing**: Seleccionar elementos con una fecha específica o unidades específicas
     - Fechas indicando todas las unidades, las coincidencias serán exactas: <br/> `X['YYYY-MM-DD']` <br/> `X[datetime(yyyy, mm, dd)]` <br/> `X[pd.Timestamp(year = yyyy, month = mm, day = dd)]`
-    - Fechas indicando solo algunas unidades jerarquizadas y en orden, entonces se seleccionarán todos los registros que satisfagan esas unidades: <br/> `X['YYYY'] # Con base al año` <br/> `X['YYYY-MM'] # Con base al año y mes`
+    - Fechas indicando solo algunas unidades parciales, entonces se seleccionarán todos los registros que satisfagan esas unidades: <br/> `X['YYYY'] # Con base al año` <br/> `X['YYYY-MM'] # Con base al año y mes`
 - **Slicing**:
     - Rangos considerando todas las unidades y que muestren todos las fechas que estén dentro de ese rango, ambos extremos son inclusivos: <br/> `X['YYYY-MM-DD':'YYYY-MM-DD']`
-    - Rangos de solo algunas unidades jerarquizadas y en orden, que muestren todos las fechas que estén dentro de ese rango, ambos extremos son inclusivos: <br/> `X['YYYY':'YYYY'] # Rangos con base al año` <br/> `X['YYYY-MM':'YYYY-MM'] # Rangos con base al año y mes`
+    - Rangos de solo algunas unidades parciles, que muestren todos las fechas que estén dentro de ese rango, ambos extremos son inclusivos: <br/> `X['YYYY':'YYYY'] # Rangos con base al año` <br/> `X['YYYY-MM':'YYYY-MM'] # Rangos con base al año y mes`
 - **Fancy indexing**:
     - Múltiples fechas específicas indicando todas las unidades: <br/> `X[['YYYY-MM-DD', 'YYYY-MM-DD', ...]]`
-    - Múltiples fechas indicando solo algunas unidades jerazquidazas y en orden: <br/> `X[['YYYY', 'YYYY', ...]] # Elementos con base a múltiples años` <br/> `X[['YYYY-MM', 'YYYY-MM', ...]] # Elementos con base a múltiples años y meses`
+    - Múltiples fechas indicando solo algunas unidades parciales: <br/> `X[['YYYY', 'YYYY', ...]] # Elementos con base a múltiples años` <br/> `X[['YYYY-MM', 'YYYY-MM', ...]] # Elementos con base a múltiples años y meses`
 
-#### Con el método `.loc[]`
+#### Con el método .loc[]
 
 :::{caution}
 Para esta sección tener en cuenta lo siguiente:
-- Todos los ejemplos presentados en esta sección se harán suponiendo que se aplican a un `DataFrame` con `DateTimeIndex` y que las columnas se seleccionan por subsetting, pero se puede seleccionar las columnas con cualquier otra estrategia válida. En caso de que se aplique en un `Series` simplemente omitir la parte de las columnas.
+- Todos los ejemplos presentados en esta sección se harán suponiendo que se aplican a un `DataFrame` con `DateTimeIndex` y que las columnas se seleccionan por indexing, pero se puede seleccionar las columnas con cualquier otra estrategia válida. En caso de que se aplique en un `Series` simplemente omitir la parte de las columnas.
 - Los ejemplos aquí presentados se harán con cadenas ISO 8601 `'YYYY-MM-DD'`, pero como se comentó anteriormente se pueden usar otros formatos, incluir el tiempo también o usar instancias de otras clases.
 :::
 
 Estrategias de selcción de elementos con el método `.loc[]`:
-- **Subsetting**: Seleccionar elementos con una fecha específica o unidades específicas
+- **Indexing**: Seleccionar elementos con una fecha específica o unidades específicas
     - Fechas indicando todas las unidades, las coincidencias serán exactas: <br/> `X.loc['YYYY-MM-DD', col]` <br/> `X.loc[datetime(yyyy, mm, dd), col]` <br/> `X.loc[pd.Timestamp(year = yyyy, month = mm, day = dd), col]`
-    - Fechas indicando solo algunas unidades jerarquizadas y en orden, entonces se seleccionarán todos los registros que satisfagan esas unidades: <br/> `X.loc['YYYY', col] # Con base al año` <br/> `X.loc['YYYY-MM', col] # Con base al año y mes`
+    - Fechas indicando solo algunas unidades parciales, entonces se seleccionarán todos los registros que satisfagan esas unidades: <br/> `X.loc['YYYY', col] # Con base al año` <br/> `X.loc['YYYY-MM', col] # Con base al año y mes`
 - **Slicing**:
     - Rangos considerando todas las unidades y que muestren todos las fechas que estén dentro de ese rango, ambos extremos son inclusivos: <br/> `X.loc['YYYY-MM-DD':'YYYY-MM-DD', col]`
-    - Rangos de solo algunas unidades jerarquizadas y en orden, que muestren todos las fechas que estén dentro de ese rango, ambos extremos son inclusivos: <br/> `X.loc['YYYY':'YYYY', col] # Rangos con base al año` <br/> `X.loc['YYYY-MM':'YYYY-MM', col] # Rangos con base al año y mes`
+    - Rangos de solo algunas unidades parciales, que muestren todos las fechas que estén dentro de ese rango, ambos extremos son inclusivos: <br/> `X.loc['YYYY':'YYYY', col] # Rangos con base al año` <br/> `X.loc['YYYY-MM':'YYYY-MM', col] # Rangos con base al año y mes`
 - **Fancy indexing**:
     - Múltiples fechas específicas indicando todas las unidades: <br/> `X.loc[['YYYY-MM-DD', 'YYYY-MM-DD', ...], col]`
-    - Múltiples fechas indicando solo algunas unidades jerazquidazas y en orden: <br/> `X.loc[['YYYY', 'YYYY', ...], col] # Elementos con base a múltiples años` <br/> `Xloc[['YYYY-MM', 'YYYY-MM', ...], col] # Elementos con base a múltiples años y meses`
+    - Múltiples fechas indicando solo algunas unidades parciales: <br/> `X.loc[['YYYY', 'YYYY', ...], col] # Elementos con base a múltiples años` <br/> `Xloc[['YYYY-MM', 'YYYY-MM', ...], col] # Elementos con base a múltiples años y meses`
 
 <br/>
 
 ---
-### Atributos de `DatetimeIndex`
+### Atributos de _DatetimeIndex_
 
 Atributos para recuperar partes individuales del `DateTimeIndex`.
 
@@ -954,44 +971,82 @@ Atributos para recuperar partes individuales del `DateTimeIndex`.
 Los atributos retornarnan _arrays_.
 :::
 
-- `DatetimeIndex.date`: Retorna objetos `datetime.date` que representan la fecha. 
-- `DatetimeIndex.day`: Día del mes.
-- `DatetimeIndex.day_name`: Retorna el nombre del día con la configuración regional especificada.
-- `DatetimeIndex.day_of_week`: El día de la semana, donde lunes=0 y domingo=6.
-- `DatetimeIndex.day_of_year`: El día ordinal del año.
-- `DatetimeIndex.dayofweek`: El día de la semana, donde lunes=0, domingo=6.
-- `DatetimeIndex.dayofyear`: El día ordinal del año.
-- `DatetimeIndex.freq`: Frecuencia del índice.
-- `DatetimeIndex.freqstr`.
-- `DatetimeIndex.hour`: La Hora.
-- `DatetimeIndex.inferred_freq`: Intenta devolver una cadena que representa una frecuencia generada por `infer_freq`.
-- `DatetimeIndex.is_leap_year`: Indica si la fecha pertenece a un año bisiesto.
-- `DatetimeIndex.is_month_end`: Indica si la fecha es el último día del mes.
-- `DatetimeIndex.is_month_start`: Indica si la fecha es el primer día del mes.
-- `DatetimeIndex.is_quarter_end`: Indicador de si la fecha es el último día del trimestre.
-- `DatetimeIndex.is_quarter_start`: Indicador de si la fecha es el primer día del trimestre.
-- `DatetimeIndex.is_year_end`: Indica si la fecha es el último día del año.
-- `DatetimeIndex.is_year_start`: Indica si la fecha es el primer día de un año.
-- `DatetimeIndex.microsecond`: Los microsegundos.
-- `DatetimeIndex.minute`: Los minutos.
-- `DatetimeIndex.month`: El mes, donde enero=1, diciembre=12.
-- `DatetimeIndex.month_name`: Retorna los nombres de los meses con la configuración regional especificada.
-- `DatetimeIndex.nanosecond`: Los nanosegundos.
-- `DatetimeIndex.quarter`: El trimestre.
-- `DatetimeIndex.second`: Los segundos.
-- `DatetimeIndex.time`: Retorna objetos `datetime.time` que representa el tiempo.
-- `DatetimeIndex.timetz`: Retorna objetos `datetime.time` que representa el tiempo con zona horaria.
-- `DatetimeIndex.tz`: Retorna la zona horaria.
-- `DatetimeIndex.weekday`: El día de la semana, donde lunes=0, domingo=6.
-- `DatetimeIndex.year`: El año.
+```{list-table}
+:header-rows: 1
+
+* - Atributo
+  - Descripción
+* - `DatetimeIndex.date`
+  - Retorna objetos `datetime.date` que representan la fecha. 
+* - `DatetimeIndex.day`
+  - Día del mes.
+* - `DatetimeIndex.day_name`
+  - Retorna el nombre del día con la configuración regional especificada.
+* - `DatetimeIndex.day_of_week`
+  - El día de la semana, donde lunes=0 y domingo=6.
+* - `DatetimeIndex.day_of_year`
+  - El día ordinal del año.
+* - `DatetimeIndex.dayofweek`
+  - El día de la semana, donde lunes=0, domingo=6.
+* - `DatetimeIndex.dayofyear`
+  - El día ordinal del año.
+* - `DatetimeIndex.freq`
+  - Frecuencia del índice.
+* - `DatetimeIndex.freqstr`.
+  - Retorna la frecuencia como cadena, o `None` si no tiene.
+* - `DatetimeIndex.hour`
+  - La Hora.
+* - `DatetimeIndex.inferred_freq`
+  - Intenta devolver una cadena que representa una frecuencia generada por `infer_freq`.
+* - `DatetimeIndex.is_leap_year`
+  - Indica si la fecha pertenece a un año bisiesto.
+* - `DatetimeIndex.is_month_end`
+  - Indica si la fecha es el último día del mes.
+* - `DatetimeIndex.is_month_start`
+  - Indica si la fecha es el primer día del mes.
+* - `DatetimeIndex.is_quarter_end`
+  - Indicador de si la fecha es el último día del trimestre.
+* - `DatetimeIndex.is_quarter_start`
+  - Indicador de si la fecha es el primer día del trimestre.
+* - `DatetimeIndex.is_year_end`
+  - Indica si la fecha es el último día del año.
+* - `DatetimeIndex.is_year_start`
+  - Indica si la fecha es el primer día de un año.
+* - `DatetimeIndex.microsecond`
+  - Los microsegundos.
+* - `DatetimeIndex.minute`
+  - Los minutos.
+* - `DatetimeIndex.month`
+  - El mes, donde enero=1, diciembre=12.
+* - `DatetimeIndex.month_name`
+  - Retorna los nombres de los meses con la configuración regional especificada.
+* - `DatetimeIndex.nanosecond`
+  - Los nanosegundos.
+* - `DatetimeIndex.quarter`
+  - El trimestre.
+* - `DatetimeIndex.second`
+  - Los segundos.
+* - `DatetimeIndex.time`
+  - Retorna objetos `datetime.time` que representa el tiempo.
+* - `DatetimeIndex.timetz`
+  - Retorna objetos `datetime.time` que representa el tiempo con zona horaria.
+* - `DatetimeIndex.tz`
+  - Retorna la zona horaria.
+* - `DatetimeIndex.weekday`
+  - El día de la semana, donde lunes=0, domingo=6.
+* - `DatetimeIndex.year`: 
+  - El año.
+```
 - Para más información visitar la [documentación](https://pandas.pydata.org/docs/reference/indexing.html#time-date-components) de `pandas`.
 
 <br/>
 
 ---
-### Métodos de `DatetimeIndex`
+### Métodos de _DatetimeIndex_
 
 #### Conversión 
+
+Métodos para modificar el _dtype_ o el tipo de objeto del índice.
 
 ```{list-table}
 :header-rows: 1
@@ -1003,7 +1058,7 @@ Los atributos retornarnan _arrays_.
 * - [DatetimeIndex.to_frame](https://pandas.pydata.org/docs/reference/api/pandas.DatetimeIndex.to_frame.html)([index, name])
   - Retorna un `DataFrame` con una columna que contiene el `Index`.
 * - [DatetimeIndex.to_period](https://pandas.pydata.org/docs/reference/api/pandas.DatetimeIndex.to_period.html)(*args, **kwargs)
-  - Convierte el objeto a `PeriodArray`/`PeriodIndex` en una frecuencia particular.
+  - Convierte el objeto a `PeriodArray`/`PeriodIndex` con una frecuencia particular.
 * - [DatetimeIndex.to_pydatetime](https://pandas.pydata.org/docs/reference/api/pandas.DatetimeIndex.to_pydatetime.html)(*args, **kwargs)
   - Retorna un `ndarray` de objetos `datetime.datetime`.
 * - [DatetimeIndex.to_series](https://pandas.pydata.org/docs/reference/api/pandas.DatetimeIndex.to_series.html)([index, name])
@@ -1013,6 +1068,8 @@ Los atributos retornarnan _arrays_.
 <br/>
 
 #### Métodos estadísticos
+
+Métodos útiles para calcular estadísticas del índice.
 
 ```{list-table}
 :header-rows: 1
@@ -1028,6 +1085,8 @@ Los atributos retornarnan _arrays_.
 <br/>
 
 #### Operaciones específicas de tiempo
+
+Métodos para trabajar con los valores de fechas y tiempo.
 
 ```{list-table}
 :header-rows: 1
@@ -1056,6 +1115,8 @@ Los atributos retornarnan _arrays_.
 
 #### Selección
 
+Métodos últiles para seleccionar elementos que cumplan determinadas características.
+
 ```{list-table}
 :header-rows: 1
 
@@ -1074,13 +1135,15 @@ Los atributos retornarnan _arrays_.
 
 La clase `TimeDeltaIndex` es una subclase de `Index` de tipo `timedelta64` que representan diferencias de fechas y/o tiempos (duraciones).
 
+<br/>
+
 ### Creación
 
 Para crear un `TimeDeltaIndex` existen principalmente tres métodos:
 
 **1. Con el constructor**.
 
-Usar el constructor con un `array-like` 1D de `str`, `datetime.timedelta` o `pd.TimeDelta`.
+Usar el constructor con un `array-like` 1D de `str`, `datetime.timedelta` o {ref}`pd.Timedelta <pandas-scalars-timedelta>`.
 
 ```{list-table}
 :header-rows: 1
@@ -1106,36 +1169,53 @@ Si se provee de un `list-like` de `str`, `datetime.timedelta` o `pd.TimeDelta` e
 
 **Ejemplo**:
 ```{code-cell} ipython3
-# Crear TimeDeltaIndex con el constructor
+# Crear TimeDeltaIndex con la función to_timedelta()
 tdidx = pd.to_timedelta(['0 days', '1 days', '2 days', '3 days', '4 days'])
 
 # Imprimir objeto
-print(f"DatetimeIndex:\n{tdidx}")
+print(f"TimedeltaIndex:\n{tdidx}")
 ```
 
-### Selección de elementos de `TimeDeltaIndex`
+<br/>
+
+**3.  Con la función** `pd.timedelta_range()`.
+
+La función [pd.timedelta_range()](https://pandas.pydata.org/docs/reference/api/pandas.timedelta_range.html#pandas.timedelta_range) retorna un `TimeDeltaIndex`, se debe indicar las duraciones de inicio y fin (`str` o `datetime-like`) y/u opcionalmente el número de periodos y frecuencia.
+
+**Ejemplo**:
+```{code-cell} ipython3
+# Crear DateTimeIndex con la función timedelta_range()
+tdidx = pd.timedelta_range(start='1 day', end='2 days', freq='6h')
+
+# Imprimir objeto
+print(f"TimeDeltaIndex:\n{tdidx}")
+```
+
+<br/>
+
+### Selección de elementos de _TimeDeltaIndex_
 
 :::{warning}
-En esta sección se explica cómo seleccionar elementos en objetos con índices de tipo `TimeDeltaIndex`. Los métodos aquí explicados **no** se aplican directamente sobre objetos `TimeDeltaIndex`. Para seleccionar elementos directamente en un objeto `TimeDeltaIndex` ver {ref}`index-index-seleccion`, pero en esencia se pueden aplicar las mismas estrategias para seleccionar elementos en un `ndarray`.
+En esta sección se explica cómo seleccionar elementos en objetos con índices de tipo `TimeDeltaIndex`. Los métodos aquí explicados **no** se aplican directamente sobre objetos `TimeDeltaIndex`. Para seleccionar elementos directamente en un objeto `TimeDeltaIndex` ver {ref}`index-index-seleccion`, pero en esencia se pueden aplicar las mismas estrategias para seleccionar elementos que en un `ndarray`.
 :::
 
-Al especificar el _timedelta_ se puede hacer principalmente de dos formas:
+Al especificar el _timedelta_ se puede hacer principalmente de tres formas:
 - Se pueden usar cadenas que representen _timedeltas_. 
 - Se pueden usar objetos de tipo `datetime.timedelta`.
-- Se pueden usar objetos de tipo `pd.TimeDelta`.
+- Se pueden usar objetos de tipo {ref}`pd.Timedelta <pandas-scalars-timedelta>`.
 
 :::{caution}
 Para esta sección tener en cuenta lo siguiente:
 - Los ejemplos aquí presentados se harán con cadenas.
 - Los ejemplos aquí presentados se harán con el método `.loc[]`, tambien se pueden usar corchetes y funcionaría de manera muy similar que con `.loc[]`. También se podría usar el método `.iloc[]` y usando los índices implícitos.
-- Todos los ejemplos presentados en esta sección se harán suponiendo que se aplican a un `DataFrame` con `TimeDeltaIndex` y que las columnas se seleccionan por subsetting, pero se puede seleccionar las columnas con cualquier otra estrategia válida. En caso de que se aplique en un `Series` simplemente omitir la parte de las columnas.
+- Todos los ejemplos presentados en esta sección se harán suponiendo que se aplican a un `DataFrame` con `TimeDeltaIndex` y que las columnas se seleccionan por _indexing_, pero se puede seleccionar las columnas con cualquier otra estrategia válida. En caso de que se aplique en un `Series` simplemente omitir la parte de las columnas.
 :::
-- **Subsetting**: Seleccionar elementos con _timedelta_ específico <br/> `X.loc['timedelta', col]` <br/> `X.loc[datetime.timedelta(days, seconds, ...), col]` <br/> `X.loc[pd.TimeDelta(timedelta), col]`
+- **Indexing**: Seleccionar elementos con _timedelta_ específico <br/> `X.loc['timedelta', col]` <br/> `X.loc[datetime.timedelta(days, seconds, ...), col]` <br/> `X.loc[pd.TimeDelta(timedelta), col]`
 - **Slicing**: _Slices_ de elementos indicando inicion, fin y paso (`start:stop:step`), al usar los _labels_ se incluyen ambos extremos (inclusivo): <br/> `X.loc['timdeltai':'timedeltaj', col]`
 - **Fancy indexing**:
     - Múltiples _timedeltas_ específicos: <br/> `X.loc[['timedelta1', 'timedelta2', ...], col]`
 
-### Atributos de `TimeDeltaIndex`
+### Atributos de _TimeDeltaIndex_
 
 Atributos para recuperar partes individuales del `TimeDeltaIndex`.
 
@@ -1143,22 +1223,36 @@ Atributos para recuperar partes individuales del `TimeDeltaIndex`.
 Los atributos retornarnan _arrays_.
 :::
 
-- `TimedeltaIndex.components`: Retorna un `DataFrame` con los componentes individuales como columnas de los `Timedeltas`.
-- `TimedeltaIndex.days`: Número de días para cada elemento.
-- `TimedeltaIndex.inferred_freq`: Intenta devolver una cadena que representa una frecuencia generada por `infer_freq`.
-- `TimedeltaIndex.microseconds`: Número de microsegundos (>= 0 y menos de 1 segundo) para cada elemento.
-- `TimedeltaIndex.nanoseconds`: Número de nanosegundos (>= 0 y menos de 1 microsegundo) para cada elemento.
-- `TimedeltaIndex.seconds`: Número de segundos (>= 0 y menos de 1 día) para cada elemento.
+```{list-table}
+:header-rows: 1
+
+* - Atributo
+  - Descripción
+* - `TimedeltaIndex.components`
+  - Retorna un `DataFrame` con los componentes individuales como columnas de los `Timedeltas`.
+* - `TimedeltaIndex.days`
+  - Número de días para cada elemento.
+* - `TimedeltaIndex.inferred_freq`
+  - Intenta devolver una cadena que representa una frecuencia generada por `infer_freq`.
+* - `TimedeltaIndex.microseconds`
+  - Número de microsegundos (>= 0 y menor de 1 segundo) para cada elemento.
+* - `TimedeltaIndex.nanoseconds`
+  - Número de nanosegundos (>= 0 y menor de 1 microsegundo) para cada elemento.
+* - `TimedeltaIndex.seconds`
+  - Número de segundos (>= 0 y menor de 1 día) para cada elemento.
+```
 - Para más información visitar la [documentación](https://pandas.pydata.org/docs/reference/indexing.html#components) de `pandas`.
 
 <br/>
 
 ---
-### Métodos de `TimeDeltaIndex`
+### Métodos de _TimeDeltaIndex_
 
 Métodos de la clase `TimeDeltaIndex`
 
 #### Conversión 
+
+Métodos para modificar el _dtype_ o el tipo de objeto del índice.
 
 ```{list-table}
 :header-rows: 1
@@ -1186,6 +1280,8 @@ Métodos de la clase `TimeDeltaIndex`
 ---
 #### Métodos estadísticos
 
+Métodos para trabajar con los valores de las duraciones.
+
 ```{list-table}
 :header-rows: 1
 
@@ -1200,13 +1296,15 @@ Métodos de la clase `TimeDeltaIndex`
 ---
 ## PeriodIndex
 
-La clase `PeriodIndex` es una subclase de `Index` que representa un arreglo inmutable de valores ordinales que representan peridos de tiempo regulares.
+La clase `PeriodIndex` es una subclase de `Index` que representa un arreglo inmutable de valores ordinales que representan periodos de tiempo regulares.
+
+<br/>
 
 ### Creación
 
 **1. Con el constructor**
 
-Usar el constructor con un `array-like` 1D de `int` u objetos `pd.Period`.
+Usar el constructor con un `array-like` 1D de `int`, `str` u objetos {ref}`pd.Period <pandas-scalars-period>`.
 
 ```{list-table}
 :header-rows: 1
@@ -1217,60 +1315,156 @@ Usar el constructor con un `array-like` 1D de `int` u objetos `pd.Period`.
   - Arreglo inmutable de valores ordinales que representan peridos de tiempo regulares.
 ```
 
-**2. Con métodos de** `pd.PeriodIndex`
-
-La clase `pd.PeriodIndex` tiene algunos métodos que permiten contruir `PeriodIndex` de distintas formas. Consultar los {ref}`Métodos <pandas-index-periodindex-methods>`, particularmente `pd.PeriodIndex.from_fields()` y `pd.PeriodIndex.from_ordinals()`. Tener en cuenta que los métodos se usan directamente sobre la clase `pd.PeriodIndex` y no sobre sus instancias.
-
-**3. Con la función** `pd.period_range()`:
-
-La función [pd.period_range()` y opcionalmente el número de periodos y frecuencia.
-
 **Ejemplo**:
 
-- **Importante**: Esta función no incluirá la fecha en el parámetro `end`, es decir, no es inclusiva en el parámetro `end`.
+```{code-cell} ipython3
+# Crear PeriodIndex con el constructor
+pidx = pd.PeriodIndex(['2023-01', '2023-02', '2023-03'], freq='M')
 
-**4. Con la función** `pd.to_datetime()`:
-
-Si se provee de un `list-like` de `pd.Period` entonces la función `pd.to_datetime()` retorna `PeriodIndex`.
-
-### Seleccipn de elementos de `PeriodIndex`
-
-### Atributos de `PeriodIndex`
-
-
-- `PeriodIndex.day`: Los días del período.
-- `PeriodIndex.day_of_week`: El día de la semana con lunes=0, domingo=6.
-- `PeriodIndex.day_of_year`: El día ordinal del año.
-- `PeriodIndex.dayofweek`: El día de la semana con lunes=0, domingo=6.
-- `PeriodIndex.dayofyear`: El día ordinal del año.
-- `PeriodIndex.days_in_month`: El número de días del mes.
-- `PeriodIndex.daysinmonth`: El número de días del mes.
-- `PeriodIndex.end_time`: Recupera la marca de tiempo del final del período.
-- `PeriodIndex.freq`: .
-- `PeriodIndex.freqstr`: Retorna el objeto de frecuencia como una cadena si es `set` , de lo contrario `None`.
-- `PeriodIndex.hour`: La hora del período.
-- `PeriodIndex.is_leap_year`: Lógico indicar si la fecha pertenece a un año bisiesto.
-- `PeriodIndex.minute`: El minuto del periodo.
-- `PeriodIndex.month`: El mes como enero=1, diciembre=12.
-- `PeriodIndex.quarter`: El cuarto de la fecha.
-- `PeriodIndex.qyear`: .
-- `PeriodIndex.second`: El segundo del periodo.
-- `PeriodIndex.start_time`: Recupera la marca de tiempo del inicio del período.
-- `PeriodIndex.week`: El ordinal de semana del año.
-- `PeriodIndex.weekday`: El día de la semana con lunes=0, domingo=6.
-- `PeriodIndex.weekofyear`: El ordinal de semana del año.
-- `PeriodIndex.year`: El año del período.
-- Para más información visitar la [documentación](https://pandas.pydata.org/docs/reference/indexing.html#id7) de `pandas`.
- 
+# Imprimir objeto
+print(f"PeriodIndex:\n{pidx}")
+```
 
 <br/>
 
+**2. Con métodos de pd.PeriodIndex**
+
+La clase `pd.PeriodIndex` tiene algunos métodos que permiten construir `PeriodIndex` de distintas formas. Consultar los {ref}`Métodos <pandas-index-periodindex-methods>`, particularmente `pd.PeriodIndex.from_fields()` y `pd.PeriodIndex.from_ordinals()`. Tener en cuenta que los métodos se usan directamente sobre la clase `pd.PeriodIndex` y no sobre sus instancias.
+
+**Ejemplo**:
+
+```{code-cell} ipython3
+# Crear PeriodIndex desde el método .from_fields()
+pidx = pd.PeriodIndex.from_fields(year=[2023]*3, month=[1, 2, 3], freq='M')
+
+# Imprimir objeto
+print(f"PeriodIndex:\n{pidx}")
+```
+
+<br/>
+
+**3. Con la función** `pd.period_range()`:
+
+La función [pd.period_range()](https://pandas.pydata.org/docs/reference/api/pandas.period_range.html)` retorna un `PeriodIndex`, se debe indicar el periodo inicial y final, y opcionalmente el número de periodos y/o frecuencia.
+
+**Ejemplo**:
+
+```{code-cell} ipython3
+# Crear PeriodIndex con la función pd.period_range()
+pidx = pd.period_range(start='2023-01', end='2023-03', freq='M')
+
+# Imprimir objeto
+print(f"PeriodIndex:\n{pidx}")
+```
+
+<br/>
+
+**4. Con la función** `pd.to_datetime()`:
+
+La función [pd.to_datetime()](https://pandas.pydata.org/docs/reference/api/pandas.to_datetime.html) se puede aprovechar para crear un `DateTimeIndex` y posteriormente convertilos a `PeriodIndex` con el método `DateTimeIndex.to_period()`, en el cual se debe especificar la frecuencia.
+
+```{code-cell} ipython3
+# Crear PeriodIndex con la función pd.to_datetime()
+dtidx = pd.to_datetime(['2023-01', '2023-02', '2023-03'])
+pidx = dtidx.to_period('M')
+
+# Imprimir objeto
+print(f"PeriodIndex:\n{pidx}")
+```
+
+<br/>
+
+### Selección de elementos de _PeriodIndex_
+
+:::{warning}
+En esta sección se explica cómo seleccionar elementos en objetos con índices de tipo `PeriodIndex`. Los métodos aquí explicados **no** se aplican directamente sobre objetos `PeriodIndex`. Para seleccionar elementos directamente en un objeto `PeriodIndex` ver {ref}`index-index-seleccion`, pero en esencia se pueden aplicar las mismas estrategias para seleccionar elementos que en un `ndarray`.
+:::
+
+Al especificar el _period_ se puede hacer principalmente de dos formas:
+- Se pueden usar cadenas que representen _periods_. 
+- Se pueden usar objetos de tipo `datetime.datetime`.
+- Se pueden usar objetos de tipo {ref}`pd.TimeStamp <pandas-scalars-timestamp>`.
+
+:::{caution}
+Para esta sección tener en cuenta lo siguiente:
+- Los ejemplos aquí presentados se harán con cadenas.
+- Los ejemplos aquí presentados se harán con el método `.loc[]`, tambien se pueden usar corchetes y funcionaría de manera muy similar que con `.loc[]`. También se podría usar el método `.iloc[]` y usando los índices implícitos.
+- Todos los ejemplos presentados en esta sección se harán suponiendo que se aplican a un `DataFrame` con `PeriodIndex` y que las columnas se seleccionan por _indexing_, pero se puede seleccionar las columnas con cualquier otra estrategia válida. En caso de que se aplique en un `Series` simplemente omitir la parte de las columnas.
+:::
+- **Indexing**: Seleccionar elementos con _period_ específico <br/> `X.loc['YYYY-MM-DD', col]` <br/> `X.loc[datetime.datetime(year, month, day, ...), col]` <br/> `X.loc[pd.TimeStamp(yyyy, mm, dd), col]`
+- **Slicing**: _Slices_ de elementos indicando inicion, fin y paso (`start:stop:step`), al usar los _labels_ se incluyen ambos extremos (inclusivo): <br/> `X.loc['YYYY-MM-DD':'YYYY-MM-DD', col]`
+- **Fancy indexing**:
+    - Múltiples _timedeltas_ específicos: <br/> `X.loc[['YYYY-MM-DD', 'YYYY-MM-DD', ...], col]`
+
+<br/>
+
+### Atributos de _PeriodIndex_
+
+Atributos para recuperar partes individuales del `DateTimeIndex`.
+
+:::{caution}
+Los atributos retornarnan _arrays_.
+:::
+
+```{list-table}
+:header-rows: 1
+:name: pandas-index-periodindex-attributes
+
+* - Método
+  - Descripción
+* - `PeriodIndex.day`
+  - Los días del período.
+* - `PeriodIndex.day_of_week`
+  - El día de la semana con lunes=0, domingo=6.
+* - `PeriodIndex.day_of_year`
+  - El día ordinal del año.
+* - `PeriodIndex.dayofweek`
+  - El día de la semana con lunes=0, domingo=6.
+* - `PeriodIndex.dayofyear`
+  - El día ordinal del año.
+* - `PeriodIndex.days_in_month`
+  - El número de días del mes.
+* - `PeriodIndex.daysinmonth`
+  - El número de días del mes.
+* - `PeriodIndex.end_time`
+  - Recupera la marca de tiempo del final del período.
+* - `PeriodIndex.freq`
+  - .
+* - `PeriodIndex.freqstr`
+  - Retorna el objeto de frecuencia como una cadena si es `set` , de lo contrario `None`.
+* - `PeriodIndex.hour`
+  - La hora del período.
+* - `PeriodIndex.is_leap_year`
+  - Lógico indicar si la fecha pertenece a un año bisiesto.
+* - `PeriodIndex.minute`
+  - El minuto del periodo.
+* - `PeriodIndex.month`
+  - El mes como enero=1, diciembre=12.
+* - `PeriodIndex.quarter`
+  - El cuarto de la fecha.
+* - `PeriodIndex.qyear`
+  - .
+* - `PeriodIndex.second`
+  - El segundo del periodo.
+* - `PeriodIndex.start_time`
+  - Recupera la marca de tiempo del inicio del período.
+* - `PeriodIndex.week`
+  - El ordinal de semana del año.
+* - `PeriodIndex.weekday`
+  - El día de la semana con lunes=0, domingo=6.
+* - `PeriodIndex.weekofyear`
+  - El ordinal de semana del año.
+* - `PeriodIndex.year`
+  - El año del período.
+```
+- Para más información visitar la [documentación](https://pandas.pydata.org/docs/reference/indexing.html#id7) de `pandas`.
+ 
+<br/>
+
 ---
-### Métodos de `PeriodIndex`
+### Métodos de _PeriodIndex_
 
-#### Conversión
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+Métodos de objeto `PeriodIndex`. Tener en cuenta que `.from_ordinals()` y `.from_fields()` son métodos de clase y no de instancia.
 
 ```{list-table}
 :header-rows: 1

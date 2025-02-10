@@ -41,11 +41,11 @@ A continuación se presenta una lista de funciones que retornan combinaciones, p
 * - Función
   - Descripción
 * - [combinations](https://docs.python.org/3/library/itertools.html#itertools.combinations)(iterable, r)
-  - Retorna secuencias de todos las combinaciones posibles, sin reemplazo e ignorando el orden, de _r_ de elementos de `iterable`.
+  - Retorna secuencias de todos las combinaciones posibles, sin reemplazo e ignorando el orden, de _r_ de elementos de _iterable_.
 * - [combinations_with_replacement](https://docs.python.org/3/library/itertools.html#itertools.combinations_with_replacement)(iterable, r)
-  - Retorna combinaciones de longitud `r` de los elementos de `iterable` permitiendo que los elementos individuales se repitan más de una vez.
+  - Retorna combinaciones de longitud `r` de los elementos de _iterable_ permitiendo que los elementos individuales se repitan más de una vez.
 * - [permutations](https://docs.python.org/3/library/itertools.html#itertools.permutations)(iterable, r=None)
-  - Retorna secuencias de todos las combinaciones posibles, donde el orden importa (permutaciones), sin reemplazo, de _r_ elementos consecutivos del `iterable` de entrada.
+  - Retorna secuencias de todos las combinaciones posibles, donde el orden importa (permutaciones), sin reemplazo, de _r_ elementos consecutivos del _iterable_ de entrada.
 * - [product](https://docs.python.org/3/library/itertools.html#itertools.product)(*iterables, repeat=1)
   - Crea un `iterator` con el producto cartesiano de los iterables de entrada.
 ```
@@ -81,7 +81,7 @@ for element in result:
 
 A continuación se presenta un ejemplo de uso de `itertools.product()`.
 
-En este ejemplo se definen dos cadenas, cada una con 3 caracteres y se pretende conocer el producto cartesiano de ambas cadenas. El producto cartesiano son todas las posibles combinaciones entre los elementos de dos o más iterables donde el primer elemento del producto cartesiano solo pueden ser elementos del primer `iterable`, el segundo elemento solo pueden ser elementos del segundo `iterable`, etc.
+En este ejemplo se definen dos cadenas, cada una con 3 caracteres y se pretende conocer el producto cartesiano de ambas cadenas. El producto cartesiano son todas las posibles combinaciones entre los elementos de dos o más iterables donde el primer elemento del producto cartesiano solo pueden ser elementos del primer _iterable_, el segundo elemento solo pueden ser elementos del segundo _iterable_, etc.
 
 
 Equivale a `for-loops` anidados, por ejemplo `[*product(A, B)]` equivale a `[(a, b) for a in A for b in B]`
@@ -116,11 +116,11 @@ A continuación se presenta una lista de funciones que generan `iterators` infin
 * - Función
   - Descripción
 * - [count](https://docs.python.org/3/library/itertools.html#itertools.count)(start=0, step=1)
-  - Crea un `iterator` que retorna valores espaciados uniformemente que comiencen en `start`.
+  - Crea un `iterator` que retorna valores espaciados uniformemente que comiencen en _start_.
 * - [cycle](https://docs.python.org/3/library/itertools.html#itertools.cycle)(iterable)
-  - Crea un `iterator` que devuelve los elementos de `iterable` y guarda una copia de cada uno. Cuando se agota el `iterable`, devuelve la copia guardada de los elementos.
+  - Crea un `iterator` que devuelve los elementos de _iterable_ y guarda una copia de cada uno. Cuando se agota el _iterable_, devuelve la copia guardada de los elementos. Básicamente crea un `iterator` cíclico infinito.
 * - [repeat](https://docs.python.org/3/library/itertools.html#itertools.repeat)(object[, times])
-  - Crea un `iterator` que devuelve `object` una y otra vez.
+  - Crea un `iterator` que devuelve `object` (cualquier objeto) una y otra vez. El `iterator` será infinito a menos de que se especifique el parámetro _times_.
 ```
 
 ### Ejemplo de `count()`
@@ -149,7 +149,7 @@ print("...")
 ---
 ## Iterators finitos
 
-A continuación se presenta una lista de funciones que retornan `iterators` finitos, cuya logitud está determinada por el `iterable` más corto pasado como argumento.
+A continuación se presenta una lista de funciones que retornan `iterators` finitos, cuya logitud está determinada por el _iterable_ más corto pasado como argumento.
 
 ```{list-table}
 :header-rows: 1
@@ -157,29 +157,29 @@ A continuación se presenta una lista de funciones que retornan `iterators` fini
 * - Función
   - Descripción
 * - [accumulate](https://docs.python.org/3/library/itertools.html#itertools.accumulate)(iterable[, func, *, initial=None])
-  - Crea un `iterator` que devuelve sumas acumuladas, o resultados acumulados de otras funciones binarias (especificadas a través del argumento `func`).
+  - Crea un `iterator` que devuelve sumas acumuladas, o resultados acumulados de otras funciones binarias (especificadas a través del argumento _func_).
 * - [chain](https://docs.python.org/3/library/itertools.html#itertools.chain)(*iterables)
-  - Crea un `iterator` que devuelve los elementos desde el primer `iterable` hasta que sea agotado, luego continúa con el siguiente `iterable`, hasta que todos los iterables estén exhaustos. Se utiliza para tratar secuencias consecutivas como una sola secuencia.
+  - Crea un `iterator` que devuelve los elementos desde el primer _iterable_ hasta que sea agotado, luego continúa con el siguiente _iterable_, hasta que todos los iterables estén exhaustos. Se utiliza para tratar secuencias consecutivas como una sola secuencia.
 * - [compress](https://docs.python.org/3/library/itertools.html#itertools.compress)(data, selectors)
-  - Crea un `iterator` que filtra los elementos de `data` y devuelve solo aquellos que tienen un elemento correspondiente en `selectors` que se evalúe como `True`.
+  - Crea un `iterator` que filtra los elementos de _data_ y devuelve solo aquellos que tienen un elemento correspondiente en  _selectors_ que se evalúe como `True`.
 * - [dropwhile](https://docs.python.org/3/library/itertools.html#itertools.dropwhile)(predicate, iterable)
-  - Crea un `iterator` que elimina elementos del `iterable` siempre que `predicate` sea `True`; después, devuelve todos los elementos.
+  - Crea un `iterator` que elimina elementos del _iterable_ siempre que _predicate_ sea `True`; después, devuelve todos los elementos.
 * - [filterfalse](https://docs.python.org/3/library/itertools.html#itertools.filterfalse)(predicate, iterable)
-  - Crea un `iterator` que filtra los elementos de `iterable` y devuelve solo aquellos para cuyo `predicate` es `False`.
+  - Crea un `iterator` que filtra los elementos de _iterable_ y devuelve solo aquellos para cuyo _predicate_ es `False`.
 * - [groupby](https://docs.python.org/3/library/itertools.html#itertools.groupby)(iterable, key=None)
-  - Genera un `iterator` tomando una función y una `iterable` y agrupa elementos consecutivos en el `iterable`, dependiendo del valor retornado por `key`. La `key` por default es una función de identidad y devuelve el elemento sin cambios.
+  - Genera un `iterator` tomando una función y un _iterable_ y agrupa elementos consecutivos en el _iterable_, dependiendo del valor retornado por _key_. La _key_ por default es una función de identidad y devuelve el elemento sin cambios.
 * - [islice](https://docs.python.org/3/library/itertools.html#itertools.islice)(iterable, start, stop[, step])
-  - Crea un `iterator` que devuelve elementos específicos de `iterable`.
+  - Crea un `iterator` que devuelve elementos específicos de _iterable_.
 * - [pairwise](https://docs.python.org/3/library/itertools.html#itertools.pairwise)(iterable)
-  - Devuelve pares superpuestos sucesivos tomados de `iterable`.
+  - Devuelve pares superpuestos sucesivos tomados de _iterable_.
 * - [starmap](https://docs.python.org/3/library/itertools.html#itertools.starmap)(function, iterable)
-  - Crea un `iterator` que calcula `function` usando los argumentos obtenidos de `iterable`.
+  - Crea un `iterator` que calcula _function_ usando los argumentos obtenidos de _iterable_.
 * - [takewhile](https://docs.python.org/3/library/itertools.html#itertools.takewhile)(predicate, iterable)
-  - Crea un `iterator` que devuelve elementos de `iterable` siempre que `predicate` sea `True`.
+  - Crea un `iterator` que devuelve elementos de _iterable_ siempre que _predicate_ sea `True`.
 * - [tee](https://docs.python.org/3/library/itertools.html#itertools.tee)(iterable, n=2)
-  - Devuelve `n` `iterators` independientes de un solo `iterable`.
+  - Devuelve _n_ `iterators` independientes de un solo _iterable_.
 * - [zip_longest](https://docs.python.org/3/library/itertools.html#itertools.zip_longest)(*iterables, fillvalue=None)
-  - Crea un `iterator` que combina elementos de cada uno de los iterables. Si los iterables tienen una longitud desigual, los valores faltantes se completan con `fillvalue`.
+  - Crea un `iterator` que combina elementos de cada uno de los iterables. Si los iterables tienen una longitud desigual, los valores faltantes se completan con _fillvalue_.
 ```
 
 ### Ejemplo de `groupby()`

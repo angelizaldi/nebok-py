@@ -1,6 +1,6 @@
 # Manipulación de arrays
 
-En esta sección se enlistan las funciones relacionadas con la manipulación de arrays como, cambiar el _shape_, agregar o eliminar elementos, concatenar o apilar arrays, etc.
+En esta sección se enlistan las funciones relacionadas con la manipulación de arrays como, cambiar el _shape_, agregar o eliminar elementos, concatenar o apilar _arrays_, etc.
 
 :::{warning}
 Para una lista completa visitar la [documentación](https://numpy.org/doc/stable/reference/routines.array-manipulation.html#array-manipulation-routines) de `numpy`.
@@ -9,7 +9,7 @@ Para una lista completa visitar la [documentación](https://numpy.org/doc/stable
 ---
 ## Agregar y eliminar elementos
 
-Funciones para agregar y eliminar elementos a un array. 
+Funciones para agregar y eliminar elementos a un _array_. 
 
 ```{list-table}
 :header-rows: 1
@@ -28,9 +28,10 @@ Funciones para agregar y eliminar elementos a un array.
 
 <br>
 
+(numpy-func-manipulacion-concat-stack)=
 ## Concatenación y apilación
 
-Funciones para concatenar y apilar arrays. 
+Funciones para concatenar y apilar _arrays_. 
 
 ```{list-table}
 :header-rows: 1
@@ -59,7 +60,7 @@ Funciones para concatenar y apilar arrays.
 
 ## Manipulación del shape
 
-Funciones para modificar el _shape_ de un array. 
+Funciones para modificar el _shape_ de un _array_. 
 
 ```{list-table}
 :header-rows: 1
@@ -69,7 +70,7 @@ Funciones para modificar el _shape_ de un array.
 * - [broadcast_arrays](https://numpy.org/doc/stable/reference/generated/numpy.broadcast_arrays.html)(*args[, subok])
   - Realiza _broadcasting_ entre un conjunto de arreglos entre sí.
 * - [broadcast_to](https://numpy.org/doc/stable/reference/generated/numpy.broadcast_to.html)(array, shape[, subok])
-  - Modifica el _shape_ de un array a un shape específico.
+  - Modifica el _shape_ de un _array_ a un shape específico.
 * - [expand_dims](https://numpy.org/doc/stable/reference/generated/numpy.expand_dims.html)(a, axis)
   - Expande el _shape_ de un arreglo.
 * - [ravel](https://numpy.org/doc/stable/reference/generated/numpy.ravel.html)(a[, order])
@@ -79,14 +80,14 @@ Funciones para modificar el _shape_ de un array.
 * - [resize](https://numpy.org/doc/stable/reference/generated/numpy.resize.html)(a, new_shape)
   - Devuelve un arreglo nuevo con un nuevo _shape_ especificado.
 * - [squeeze](https://numpy.org/doc/stable/reference/generated/numpy.squeeze.html)(a[, axis])
-  - Elimina los ejes de longitud uno de `a`.
+  - Elimina los ejes de longitud uno de _a_.
 ```
 
 <br>
 
 ## Reacomodar elementos
 
-Funciones para modificar el orden de los elementos de un array, únicamente para revertir el orden, recorrer o girar elementos. 
+Funciones para modificar el orden de los elementos de un _array_, únicamente para revertir el orden, recorrer o girar elementos. 
 
 ```{list-table}
 :header-rows: 1
@@ -119,14 +120,14 @@ Funciones para repetir y concatenar elementos de arreglos o arreglos completos.
 * - [repeat](https://numpy.org/doc/stable/reference/generated/numpy.repeat.html)(a, repeats[, axis])
   - Repite elementos de un arreglo.
 * - [tile](https://numpy.org/doc/stable/reference/generated/numpy.tile.html)(A, reps)
-  - Construye una matriz repitiendo `A` la cantidad de veces dada por `reps`.
+  - Construye una matriz repitiendo _A_ la cantidad de veces dada por _reps_.
 ```
 
 <br>
 
 ## Splitting
 
-Funciones para separar (split) arrays. 
+Funciones para separar (_split_) _arrays_. 
 
 ```{list-table}
 :header-rows: 1

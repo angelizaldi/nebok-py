@@ -1,0 +1,1065 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Anexos &#8212; Manual de Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'parts/05-matplotlib/anexos';</script>
+    <link rel="icon" href="../../_static/nebok-favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Seaborn" href="../06-seaborn/seaborn-index.html" />
+    <link rel="prev" title="Otras Clases" href="otros.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/nebok-logo.png" class="logo__image only-light" alt="Manual de Python - Home"/>
+    <script>document.write(`<img src="../../_static/nebok-logo.png" class="logo__image only-dark" alt="Manual de Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Manual de Python para Data Science
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Built-in</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01-built-in/built-in-index.html">Python Estándar</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/ayuda.html">Obtener ayuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/comentarios.html">Comentarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/tipos-datos.html">Tipos de Datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/variables-constantes.html">Variables y Constantes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/operadores-palabras.html">Operadores y palabras reservadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/entrada-salida.html">Impresión y solicitud de datos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/tipos-index.html">Tipos Built-In</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/none-bool-numericos.html"><em>None</em>, <em>bool</em> y Numéricos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/str.html">str</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/lists.html">list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/tuples.html">Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/sets.html">Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/dicts.html">dict</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/if-else.html">If … Else</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/for-loop.html">For Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/do-while.html">Do While</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/udf.html">Funciones (UDF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/exceptions.html">Excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/context-managers.html">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/io.html">Lectura y escritura de archivos (IO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/modulos.html">Paquetes y Módulos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/avanzado-index.html">Temas avanzados</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/decorators.html">Decorators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/iterators.html">Iterators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/generators.html">Generators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/oop.html">Programación orientada a objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/func-built-in.html">Funciones built-in</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-modulos/modulos-index.html">Módulos built-in</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/csv.html">CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/datetime.html">Datetime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/itertools.html">Itertools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/json.html">JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/math.html">Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os.html">Os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os-path.html">Os.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/pickle.html">Pickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/random.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/regex.html">Regex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/statistics.html">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/urllib-request.html">urllib.request</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otras librerías</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-numpy/numpy-index.html">Numpy</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/arrays.html">Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../03-numpy/funciones-index.html">Funciones</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/ufuncs.html">Ufuncs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/buscar-contar-ordenar-unicos.html">Buscar, contar, ordenar y valores únicos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/creacion-arrays.html">Creación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/estadisticas.html">Estadísticas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/indices.html">Índices e iteración</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/informacion.html">Información</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/lectura-escritura.html">Lectura y escritura de datos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/manipulacion-arrays.html">Manipulación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/matematicas-numericas.html">Matemáticas y numéricas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/operadores.html">Operadores</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/algebra-lineal.html">Módulo linalg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/cadenas.html">Modulo char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/random.html">Módulo random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/patrones-numpy.html">Patrones útiles</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04-pandas/pandas-index.html">Pandas</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/index.html">Index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/series.html">Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/dataframe.html">DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/escalares-arrays.html">Escalares y Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../04-pandas/otras-clases.html">Otras clases</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/groupby.html">GroupBy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/expanding-rolling-window.html"><em>Expanding, Rolling</em> y <em>Window</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/resampler.html">Resampler</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/funciones.html">Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/patrones-pandas.html">Patrones útiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="matplotlib-index.html">Matplotlib</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pyplot.html">Pyplot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="figure.html">Figure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="axes.html">Axes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otros.html">Otras Clases</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06-seaborn/seaborn-index.html">Seaborn</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06-seaborn/funciones-clases.html">Funciones y Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-seaborn/objects-interface.html">Interface por objetos</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otros</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-otros/otros-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08-otros/IPython.html">IPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-otros/beautifulsoup.html">Web Scraping</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/parts/05-matplotlib/anexos.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Anexos</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estilos">Estilos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#markers">Markers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lines">Lines</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#colores">Colores</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#colormap">ColorMap</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#color-map-personalizados">Color Map Personalizados</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#color-map-discretos">Color Map Discretos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cadenas-de-formato-fmt">Cadenas de Formato (fmt)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#marker">Marker</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#line">Line</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#color">Color</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="anexos">
+<h1>Anexos<a class="headerlink" href="#anexos" title="Link to this heading">#</a></h1>
+<p>En esta sección se presentan algunos temas para la personalización de las gráficas como podría ser modifcar las líneas, marcadores, colores, barras de colores, estilos, etc. en las visualizaciones.</p>
+<br/>
+<hr class="docutils" />
+<section id="estilos">
+<h2>Estilos<a class="headerlink" href="#estilos" title="Link to this heading">#</a></h2>
+<p>Para cambiar el estilo de una gráfica, como la gama de colores, las fuentes, entre otros elementos se puede usar la función <code class="docutils literal notranslate"><span class="pre">use()</span></code> del módulo <code class="docutils literal notranslate"><span class="pre">style</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Modificar estilo de las gráficas</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="n">style_name</span> <span class="o">=</span> <span class="s1">&#39;default&#39;</span><span class="p">)</span>
+
+<span class="c1"># Definir estilo de manera temporal</span>
+<span class="k">with</span> <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">context</span><span class="p">(</span><span class="s1">&#39;stylename&#39;</span><span class="p">):</span>
+    <span class="c1"># Definición de la gráfica</span>
+
+<span class="c1"># Definir estilo de seaborn</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><em>style_name</em> - <code class="docutils literal notranslate"><span class="pre">str</span></code>: Es el nombre del estilo. Algunos estilos disponibles son:</p>
+<ul>
+<li><p><em>classic</em>: Estilo clásico de <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.</p></li>
+<li><p><em>ggplot</em>: Simula las gráficas creadas en <em>ggplot</em> con <em>R</em>.</p></li>
+<li><p><em>default</em>: Es el default con lo que <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> grafica.</p></li>
+<li><p><em>seaborn-colorblind</em>: Usa colores amigables con personas daltónicas.</p></li>
+<li><p><em>grayscale</em>: Gráfica en escala de grises.</p></li>
+</ul>
+</li>
+<li><p>Para enlistar todos los estilos disponibles usar: <br> <code class="docutils literal notranslate"><span class="pre">plt.style.available</span></code></p></li>
+<li><p>Para utilizar el estilo de <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> usar <code class="docutils literal notranslate"><span class="pre">sns.set()</span></code>, utilizar antes de definir cualquier gráfica.</p></li>
+<li><p>Para ver todos los estilos disponibles y visualizar cómo se ven, visitar la <a class="reference external" href="https://matplotlib.org/stable/gallery/style_sheets/style_sheets_reference.html">documentación</a>.</p></li>
+<li><p>Para cambiar el estilo de manera temporal en una gráfica en específico y no afectar toda la sesión utilizar la función <code class="docutils literal notranslate"><span class="pre">plt.style.context</span></code> y un administrador de contextos.</p></li>
+</ul>
+<br/>
+<hr class="docutils" />
+</section>
+<section id="markers">
+<span id="matplotlib-markers"></span><h2>Markers<a class="headerlink" href="#markers" title="Link to this heading">#</a></h2>
+<p>Para establecer el parámetro <em>marker</em> se utiliza una cadena para indicar el tipo de marcados. Los más comunes son:</p>
+<a class="reference internal image-reference" href="../../_images/markers_table.png" id="markers-table"><img alt="../../_images/markers_table.png" class="align-center" id="markers-table" src="../../_images/markers_table.png" style="width: 400px;" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Para una lista completa vistar la <a class="reference external" href="https://matplotlib.org/stable/api/markers_api.html#module-matplotlib.markers">documentación</a>.</p>
+</div>
+<br/>
+<hr class="docutils" />
+</section>
+<section id="lines">
+<span id="matplotlib-lines"></span><h2>Lines<a class="headerlink" href="#lines" title="Link to this heading">#</a></h2>
+<p>El argumento <em>linestyle</em> se puede de las siguientes maneras:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Cadena</p></th>
+<th class="head"><p>Nombre</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'-'</span></code></p></td>
+<td><p>‘solid’</p></td>
+<td><p>Línea sólida</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">'--'</span></code></p></td>
+<td><p>‘dashed’</p></td>
+<td><p>Línea intermitente</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'-.'</span></code></p></td>
+<td><p>‘dashdot’</p></td>
+<td><p>Línea de guiones y puntos</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">':'</span></code></p></td>
+<td><p>‘dotted’</p></td>
+<td><p>Línea de puntos</p></td>
+</tr>
+</tbody>
+</table>
+<p>Personalizables:</p>
+<p>Se puede utilizar estilos personalizados con un <code class="docutils literal notranslate"><span class="pre">tuple</span></code> :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Linestyles personalizados</span>
+<span class="p">(</span><span class="n">offset</span><span class="p">,</span> <span class="p">(</span><span class="n">on_off_seq</span><span class="p">))</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><em>offset</em>: Indica la posición relativa en relación con los datos en <em>x</em> desde donde se debe de mostrar la línea. Este valor está en las mismas unidades que <em>x</em>, tal cual es el valor de <em>x</em> donde debe iniciar la línea.</p></li>
+<li><p><em>on_off_seq</em>: Es para indicar el patrón de la línea, se define por pares. El primer elemento es cuántos puntos consecutivos (sin espacios) tendrá el patrón, el segundo elemento es cuántos puntos vacíos dejar entre cada patrón de puntos (el definido en el primer elemento Ejemplos: <br> <code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">(1,1))</span> <span class="pre">-&gt;</span> <span class="pre">_</span> <span class="pre">_</span> <span class="pre">_</span> <span class="pre">_</span> <span class="pre">_</span> <span class="pre">_</span> <span class="pre">_</span> <span class="pre">_</span></code> <br> <code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">(2,1))</span> <span class="pre">-&gt;</span> <span class="pre">__</span> <span class="pre">__</span> <span class="pre">__</span> <span class="pre">__</span> <span class="pre">__</span> <span class="pre">__</span></code> <br/> Se puede poner más de un par, para un patrón más complejo: <br> <code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">(3,</span> <span class="pre">3,</span> <span class="pre">1,</span> <span class="pre">3))</span> <span class="pre">-&gt;</span> <span class="pre">___</span>&#160;&#160; <span class="pre">_</span>&#160;&#160; <span class="pre">___</span>&#160;&#160; <span class="pre">_</span>&#160;&#160; <span class="pre">___</span></code></p></li>
+<li><p><strong>IMPORTANTE</strong>: Los ejemplos de aquí son ilustrativos, se hicieron usando guión bajo, pero en realidad son puntos.</p></li>
+<li><p>Para más información visitar <a class="reference external" href="https://matplotlib.org/stable/gallery/lines_bars_and_markers/linestyles.html">la documentación</a>.</p></li>
+</ul>
+<br/>
+<hr class="docutils" />
+</section>
+<section id="colores">
+<span id="matplotlib-color"></span><h2>Colores<a class="headerlink" href="#colores" title="Link to this heading">#</a></h2>
+<p>El argumento <code class="docutils literal notranslate"><span class="pre">color</span></code> se puede definir de las siguientes maneras:</p>
+<ul class="simple">
+<li><p><strong>Tuple RGB o RGBA</strong> - <code class="docutils literal notranslate"><span class="pre">tuple</span></code> de 3 o 4 elementos entre <em>[0, 1]</em>: Representando colores RGB o RGBA (<em>alpha=1</em> es opaco), por ejemplo: <code class="docutils literal notranslate"><span class="pre">(0.1,</span> <span class="pre">0.2,</span> <span class="pre">0.3)</span></code>.</p></li>
+<li><p><strong>Cadena hexadécimal</strong> (RGB o RGBA) - <code class="docutils literal notranslate"><span class="pre">str</span></code>: Código que represente un número en formato hexadécimal. Ejemplo: <code class="docutils literal notranslate"><span class="pre">'#0f0f0f'</span></code>.</p>
+<ul>
+<li><p>Las cadenas se pueden consultar en <a class="reference external" href="https://htmlcolorcodes.com/es/">esta página</a> en la parte de <em>Hex</em> o <em>#</em>):</p></li>
+</ul>
+</li>
+<li><p><strong>Cadena de escala de grises</strong> - <code class="docutils literal notranslate"><span class="pre">str</span></code> de un número  entre <em>[0, 1]</em>: Representa la escala de gris, donde 1 es negro y 0 es blanco. Ejemplo <code class="docutils literal notranslate"><span class="pre">'0.5'</span></code>.</p></li>
+<li><p><strong>Color xkcd</strong> - <code class="docutils literal notranslate"><span class="pre">str</span></code> con prefijo ‘xkcd:’ Son colores con nombres. Ejemplo <code class="docutils literal notranslate"><span class="pre">'xkcd:sky</span> <span class="pre">blue'</span></code>.</p>
+<ul>
+<li><p>Las cadenas se pueden consultar en <a class="reference external" href="https://xkcd.com/color/rgb/">esta página</a>.</p></li>
+</ul>
+</li>
+<li><p><strong>Colores con Nombre</strong> -  <code class="docutils literal notranslate"><span class="pre">str</span></code>: Los nombres se pueden consultar en <a class="reference external" href="https://htmlcolorcodes.com/es/">esta página</a>.</p></li>
+<li><p>Colores X11 – str: Los colores se pueden consultar en <a class="reference external" href="https://www.w3schools.com/colors/colors_x11.asp">esta página</a>.</p></li>
+<li><p><strong>Carácter</strong>:</p></li>
+</ul>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Caracter</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'b'</span></code></p></td>
+<td><p>Azul</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">'g'</span></code></p></td>
+<td><p>Verde</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'r'</span></code></p></td>
+<td><p>Rojo</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">'c'</span></code></p></td>
+<td><p>Azul cielo</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'m'</span></code></p></td>
+<td><p>Morado</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">'y'</span></code></p></td>
+<td><p>Amarillo</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'k'</span></code></p></td>
+<td><p>Negro</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">'w'</span></code></p></td>
+<td><p>Blanco</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p><strong>Paleta categórica ‘T10’</strong>:</p></li>
+</ul>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Caracter</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'blue'</span></code></p></td>
+<td><p>Azul</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">'green'</span></code></p></td>
+<td><p>Verde</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'red'</span></code></p></td>
+<td><p>Rojo</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">'cyan'</span></code></p></td>
+<td><p>Azul cielo</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'purple'</span></code></p></td>
+<td><p>Morado</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">'brown'</span></code></p></td>
+<td><p>Café</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'pink'</span></code></p></td>
+<td><p>Rosa</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">'gray'</span></code></p></td>
+<td><p>Gris</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'orange'</span></code></p></td>
+<td><p>Naranja</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">'olive'</span></code></p></td>
+<td><p>Olivo</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<hr class="docutils" />
+</section>
+<section id="colormap">
+<span id="matplotlib-colormap"></span><h2>ColorMap<a class="headerlink" href="#colormap" title="Link to this heading">#</a></h2>
+<p>Para poder aplicar un mapeo de color a una gráfica, ésta debe de tener el parámetro <em>cmap</em> o <em>colormap</em>, simplemente se debe definir el parámetro con el nombre de una mapa de color válido. Además el argumento <em>color</em> debe de tener un <code class="docutils literal notranslate"><span class="pre">array-like</span></code> de valores los cuales se mapearán a los valores de los datos por posición, para definir el color de cada dato.
+Algunos colormaps válidos son:</p>
+<ul class="simple">
+<li><p><strong>Secuencia uniforme</strong>.</p>
+<ul>
+<li><p>‘viridis’</p></li>
+<li><p>‘plasma’</p></li>
+<li><p>‘inferno’</p></li>
+<li><p>‘magma’</p></li>
+<li><p>‘cividis’</p></li>
+</ul>
+</li>
+<li><p><strong>Secuencial</strong>:</p>
+<ul>
+<li><p>‘Greys’</p></li>
+<li><p>‘Purples’</p></li>
+<li><p>‘Blues’</p></li>
+<li><p>‘Oranges’</p></li>
+<li><p>‘Reds’</p></li>
+<li><p>‘Greens’</p></li>
+</ul>
+</li>
+<li><p><strong>Divergentes</strong> (divergen desde la mitad hacía dos colores distintos):</p>
+<ul>
+<li><p>‘coolwarm’</p></li>
+<li><p>‘seismic’</p></li>
+<li><p>‘vanimo’</p></li>
+</ul>
+</li>
+<li><p><strong>Cíclicos</strong>:</p>
+<ul>
+<li><p>‘twilight’</p></li>
+<li><p>‘hsv’</p></li>
+</ul>
+</li>
+<li><p><strong>Categóricos</strong>:</p>
+<ul>
+<li><p>‘Pastel1’</p></li>
+<li><p>‘Paired’</p></li>
+<li><p>‘Dark2’</p></li>
+<li><p>‘Set1’</p></li>
+</ul>
+</li>
+<li><p>Existen una versión al revés de cada <em>colormap</em>, para ello solo agregar como sufijo <em>‘r’</em> al nombre, por ejemplo <em>‘viridis_r’</em>.</p></li>
+<li><p>Para más estilos y visualización de las paletas visitar la <a class="reference external" href="https://matplotlib.org/stable/gallery/color/colormap_reference.html">documentación</a>.</p></li>
+</ul>
+<p><img alt="" src="https://matplotlib.org/stable/_images/sphx_glr_colormap_reference_001.png" /></p>
+<p><img alt="" src="https://matplotlib.org/stable/_images/sphx_glr_colormap_reference_002.png" /></p>
+<p><img alt="" src="https://matplotlib.org/stable/_images/sphx_glr_colormap_reference_003.png" /></p>
+<p><img alt="" src="https://matplotlib.org/stable/_images/sphx_glr_colormap_reference_004.png" /></p>
+<p><img alt="" src="https://matplotlib.org/stable/_images/sphx_glr_colormap_reference_005.png" /></p>
+<p><img alt="" src="https://matplotlib.org/stable/_images/sphx_glr_colormap_reference_006.png" /></p>
+<p><img alt="" src="https://matplotlib.org/stable/_images/sphx_glr_colormap_reference_007.png" /></p>
+<br/>
+<section id="color-map-personalizados">
+<h3>Color Map Personalizados<a class="headerlink" href="#color-map-personalizados" title="Link to this heading">#</a></h3>
+<p>Es posible crear un <em>colormap</em> personalizado con diccionarios. Es particularmente útil cuando se quiere establecer un color para cada valor de una variable categórica. Para ello en el diccionario usar como <em>keys</em> cada uno de los valores de la variable categórica y como <em>values</em> el color que tendrá ese valor, posteriormente al gráficar usar el argumento <em>c</em> de la siguiente manera:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definir diccionario</span>
+<span class="n">my_colormap</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;cat1&#39;</span><span class="p">:</span> <span class="n">col1</span><span class="p">,</span> <span class="s1">&#39;cat2&#39;</span><span class="p">:</span> <span class="n">col2</span><span class="p">,</span> <span class="o">...</span><span class="p">}</span>
+
+<span class="c1"># Mapear colores a valores</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;var_cat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">my_colormap</span><span class="p">))</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>‘var_cat’ es el nombre de una variable categórica.</p></li>
+<li><p><em>my_colormap</em> es el diccionario con los valores de la variable categórica como <em>keys</em> y el color como <em>values</em>.</p></li>
+<li><p>Hacer esto es equivalente a usar el argumento <em>hue</em> en <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>.</p></li>
+</ul>
+<br/>
+</section>
+<section id="color-map-discretos">
+<h3>Color Map Discretos<a class="headerlink" href="#color-map-discretos" title="Link to this heading">#</a></h3>
+<p>Por default los <em>colormap</em> son continuos, para crear un <em>colormap</em> discreto hacerlo de la siguiente manera:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">I</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;cmap_name&#39;</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><em>‘cmap_name’</em>: Es el nombre de un <em>colormap</em> válido.</p></li>
+<li><p><em>N</em> - <code class="docutils literal notranslate"><span class="pre">int</span></code>: Es el número de categorías discretas que se quieren poner en el <em>colormap</em>.</p></li>
+</ul>
+<br/>
+<hr class="docutils" />
+</section>
+</section>
+<section id="cadenas-de-formato-fmt">
+<span id="matplotlib-fmt"></span><h2>Cadenas de Formato (fmt)<a class="headerlink" href="#cadenas-de-formato-fmt" title="Link to this heading">#</a></h2>
+<p>Una cadena de formato es una cadena para especificar el tipo de marker, tipo de linea y el color de los mismos en una gráfica. La sintaxis general es:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cadena de formato</span>
+<span class="n">fmt</span> <span class="o">=</span> <span class="s1">&#39;[marker = &#39;</span><span class="n">o</span><span class="s1">&#39;][line=&#39;</span><span class="o">-</span><span class="s1">&#39;][color=&#39;</span><span class="sa">b</span><span class="s1">&#39;]&#39;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Cada una de las partes es opcional.</p></li>
+<li><p>Si se indica <em>line</em>, pero no <em>marker</em>, entonces, los datos serán líneas sin markers.</p></li>
+<li><p>Si se omite una parte entonces no se pondrá esa parte.</p></li>
+<li><p>Ejemplos de <em>fmt</em>: <br> <code class="docutils literal notranslate"><span class="pre">'b'</span> <span class="pre">#</span> <span class="pre">markers</span> <span class="pre">azules</span> <span class="pre">con</span> <span class="pre">forma</span> <span class="pre">por</span> <span class="pre">default</span> <span class="pre">('o')</span></code> <br> <code class="docutils literal notranslate"><span class="pre">'or'</span> <span class="pre">#</span> <span class="pre">Círculos</span> <span class="pre">rojos</span></code> <br> <code class="docutils literal notranslate"><span class="pre">'-g'</span> <span class="pre">#</span> <span class="pre">Línea</span> <span class="pre">sólida</span> <span class="pre">verde</span></code> <br> <code class="docutils literal notranslate"><span class="pre">'--'</span> <span class="pre">#</span> <span class="pre">Línea</span> <span class="pre">intermitente</span> <span class="pre">con</span> <span class="pre">color</span> <span class="pre">por</span> <span class="pre">default</span> <span class="pre">(azul)</span></code> <br> <code class="docutils literal notranslate"><span class="pre">'^k:'</span> <span class="pre">#</span> <span class="pre">Markers</span> <span class="pre">de</span> <span class="pre">triángulos</span> <span class="pre">negros,</span> <span class="pre">conectados</span> <span class="pre">por</span> <span class="pre">una</span> <span class="pre">línea</span> <span class="pre">de</span> <span class="pre">puntos</span></code></p></li>
+</ul>
+<br/>
+<section id="marker">
+<h3>Marker<a class="headerlink" href="#marker" title="Link to this heading">#</a></h3>
+<p>Los <em>markers</em> admitidos en <em>fmt</em> son:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Caracter</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>‘.’</p></td>
+<td><p>Punto</p></td>
+</tr>
+<tr class="row-odd"><td><p>‘,’</p></td>
+<td><p>Pixel</p></td>
+</tr>
+<tr class="row-even"><td><p>‘o’</p></td>
+<td><p>Círculo relleno</p></td>
+</tr>
+<tr class="row-odd"><td><p>‘v’</p></td>
+<td><p>Tríangulo invertido</p></td>
+</tr>
+<tr class="row-even"><td><p>‘^’</p></td>
+<td><p>Triángulo</p></td>
+</tr>
+<tr class="row-odd"><td><p>‘&lt;’</p></td>
+<td><p>Triángulo a la izquierda</p></td>
+</tr>
+<tr class="row-even"><td><p>‘&gt;’</p></td>
+<td><p>Triángulo a la derecha</p></td>
+</tr>
+<tr class="row-odd"><td><p>‘1’</p></td>
+<td><p>Tríangulo pequeño invertido</p></td>
+</tr>
+<tr class="row-even"><td><p>‘2’</p></td>
+<td><p>Triángulo pequeño</p></td>
+</tr>
+<tr class="row-odd"><td><p>‘3’</p></td>
+<td><p>Triángulo pequeño a la izquierda</p></td>
+</tr>
+<tr class="row-even"><td><p>‘4’</p></td>
+<td><p>Triángulo pequeño a la derecha</p></td>
+</tr>
+<tr class="row-odd"><td><p>‘8’</p></td>
+<td><p>Octágono</p></td>
+</tr>
+<tr class="row-even"><td><p>‘s’</p></td>
+<td><p>Cuadrado</p></td>
+</tr>
+<tr class="row-odd"><td><p>‘p’</p></td>
+<td><p>Pentágono</p></td>
+</tr>
+<tr class="row-even"><td><p>‘P’</p></td>
+<td><p>Cruz rellena (+)</p></td>
+</tr>
+<tr class="row-odd"><td><p>‘*’</p></td>
+<td><p>Estrella</p></td>
+</tr>
+<tr class="row-even"><td><p>‘h’</p></td>
+<td><p>Hexágono</p></td>
+</tr>
+<tr class="row-odd"><td><p>‘H’</p></td>
+<td><p>Hexágono</p></td>
+</tr>
+<tr class="row-even"><td><p>‘+’</p></td>
+<td><p>plus marker</p></td>
+</tr>
+<tr class="row-odd"><td><p>‘x’</p></td>
+<td><p>Equis (X)</p></td>
+</tr>
+<tr class="row-even"><td><p>‘X’</p></td>
+<td><p>Equis rellena</p></td>
+</tr>
+<tr class="row-odd"><td><p>‘D’</p></td>
+<td><p>Diamante relleno</p></td>
+</tr>
+<tr class="row-even"><td><p>‘d’</p></td>
+<td><p>Diamante</p></td>
+</tr>
+<tr class="row-odd"><td><p>‘</p></td>
+<td><p>‘</p></td>
+</tr>
+<tr class="row-even"><td><p>‘_’</p></td>
+<td><p>Línea horizontal</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>Para más información visitar la <a class="reference external" href="https://matplotlib.org/stable/api/markers_api.html#module-matplotlib.markers">documentación</a>.</p></li>
+</ul>
+<br/>
+</section>
+<section id="line">
+<h3>Line<a class="headerlink" href="#line" title="Link to this heading">#</a></h3>
+<p>Los tipos de líneas admitidos en <em>fmt</em> son:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Caracter</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>‘-’</p></td>
+<td><p>Línea sólida</p></td>
+</tr>
+<tr class="row-odd"><td><p>‘–’</p></td>
+<td><p>Línea intermitente</p></td>
+</tr>
+<tr class="row-even"><td><p>‘-.’</p></td>
+<td><p>Línea de guiones y puntos</p></td>
+</tr>
+<tr class="row-odd"><td><p>‘:’</p></td>
+<td><p>Línea de puntos</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>Para más información visitar <a class="reference external" href="https://matplotlib.org/stable/gallery/lines_bars_and_markers/linestyles.html">la documentación</a>.</p></li>
+</ul>
+<br/>
+</section>
+<section id="color">
+<h3>Color<a class="headerlink" href="#color" title="Link to this heading">#</a></h3>
+<p>Los colores admitidos en <em>fmt</em> son:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Caracter</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>‘b’</p></td>
+<td><p>Azul</p></td>
+</tr>
+<tr class="row-odd"><td><p>‘g’</p></td>
+<td><p>Verde</p></td>
+</tr>
+<tr class="row-even"><td><p>‘r’</p></td>
+<td><p>Rojo</p></td>
+</tr>
+<tr class="row-odd"><td><p>‘c’</p></td>
+<td><p>Azul cielo</p></td>
+</tr>
+<tr class="row-even"><td><p>‘m’</p></td>
+<td><p>Morado</p></td>
+</tr>
+<tr class="row-odd"><td><p>‘y’</p></td>
+<td><p>Amarillo</p></td>
+</tr>
+<tr class="row-even"><td><p>‘k’</p></td>
+<td><p>Negro</p></td>
+</tr>
+<tr class="row-odd"><td><p>‘w’</p></td>
+<td><p>Blanco</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./parts/05-matplotlib"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="otros.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Otras Clases</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../06-seaborn/seaborn-index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Seaborn</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estilos">Estilos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#markers">Markers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lines">Lines</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#colores">Colores</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#colormap">ColorMap</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#color-map-personalizados">Color Map Personalizados</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#color-map-discretos">Color Map Discretos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cadenas-de-formato-fmt">Cadenas de Formato (fmt)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#marker">Marker</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#line">Line</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#color">Color</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nebok
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

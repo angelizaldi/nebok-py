@@ -9,7 +9,7 @@ Para una lista completa visitar la [documentación](https://numpy.org/doc/stable
 ---
 ## Correlaciones
 
-Funciones para cálculos de convarianzas y correlaciones.
+Funciones para cálculo de convarianzas y correlaciones.
 
 ```{list-table}
 :header-rows: 1
@@ -132,10 +132,23 @@ Funciones para cálculo de medidadas de tendencia cental como medias y medianas.
 * - [median](https://numpy.org/doc/stable/reference/generated/numpy.median.html)(a[, axis, out, overwrite_input, keepdims])
   - Calcula la mediana a lo largo del eje especificado.
 * - [nanmean](https://numpy.org/doc/stable/reference/generated/numpy.nanmean.html)(a[, axis, dtype, out, keepdims, where])
-  - Calcula la media aritmética a lo largo del eje especificado, ignorando `NaNs`.
+  - Calcula la media aritmética a lo largo del eje especificado, ignorando `NaN`s.
 * - [nanmedian](https://numpy.org/doc/stable/reference/generated/numpy.nanmedian.html)(a[, axis, out, overwrite_input, ...])
   - Calcula la mediana a lo largo del eje especificado, ignorando los `NaN`.
 ```
 
 <br>
+
+## Regresiones
+
+Funciones para cálculos de rangos, cuantiles y percentiles. 
+
+```{list-table}
+:header-rows: 1
+
+* - Función
+  - Descripción
+* - [polyfit](https://numpy.org/doc/stable/reference/generated/numpy.polyfit.html)(x, y, deg, rcond=None, full=False, w=None, cov=False)
+  - Ajusta un polinomio de grado _deg_ a los datos.
+```
 

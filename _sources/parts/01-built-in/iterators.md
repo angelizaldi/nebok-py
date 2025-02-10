@@ -12,7 +12,7 @@ kernelspec:
 
 # Iterators
 
-Un `iterator` es un objeto que es iterable, es decir que se puede acceder a sus elementos uno por uno. Técnicamente hablando, en Python un iterator es un objeto que se le puede aplicar los protócolos `__iter__()` y `__next__()`.
+Un `iterator` es un objeto que es iterable, es decir que se puede acceder a sus elementos uno por uno. Técnicamente hablando, en Python un `iterator` es un objeto que se le puede aplicar los protócolos `__iter__()` y `__next__()`.
 
 Se puede obtener un `iterator` de los objetos iterables (`list`, `tuple`, `set`, `dict` y `str`)  con la función `iter()`.
 
@@ -25,7 +25,7 @@ Se puede obtener un `iterator` de los objetos iterables (`list`, `tuple`, `set`,
 * - [iter](https://docs.python.org/3/library/functions.html#iter)(object)
   - Convierte un `iterable` en un `iterator`.
 * - [next](https://docs.python.org/3/library/functions.html#next)(iterator, default)
-  - Recupera cada uno de los elementos de un `iterator`, uno a la vez. Si se proporcionó `default`, retorna ese valor cuando ya no haya elementos en el `iterator`, en caso contrario retornar `StopIteration`.
+  - Recupera cada uno de los elementos de un `iterator`, uno a la vez. Si se proporcionó _default_, retorna ese valor cuando ya no haya elementos en el `iterator`, en caso contrario retornar `StopIteration`.
 ```
 
 <br>

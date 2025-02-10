@@ -1,21 +1,22 @@
-# Lectura y escritura de archivos
+# Lectura y escritura de archivos (IO)
 
-Se refiere a importar datos desde una fuente externa para poder trabajar con esos datos directamente desde python. Existen diversas formas de importar archivos a Python, pero en esta sección solo se explicará la función `open()`.
+Se refiere a importar datos desde una fuente externa para poder trabajar con esos datos directamente desde Python o exportar esos datos a archivos externos. Existen diversas formas de importar/exportar archivos a Python, pero en esta sección solo se explicará la función `open()`.
 
 <br>
 
 ---
 ## Función open
 
-Es la función principal para trabajar con archivos en Python, permite leer, crear y modificar archivos de texto y archivos binarios.
+Es la función principal para trabajar con archivos en Python, permite leer, crear y modificar archivos de texto y archivos binarios. Esta función retorna un objeto de las clases `IOBase` o `TextIOBase`, dependiendo de la configuración de la función.
 
+```{list-table}
+:header-rows: 1
 
-[open](https://docs.python.org/3/library/functions.html#open)(): Lee un archivo ubicado en `file` y retorna un `file object` correspondiente. Si el archivo no se puede leer, se genera un `OSError`.
-```python
-open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)
+* - Función
+  - Descripción
+* - [open](https://docs.python.org/3/library/functions.html#open)(file, mode='r', buffering=-1, encoding=None, ...)
+  - Lee un archivo ubicado en `file` y retorna un `file object` correspondiente. Si el archivo no se puede leer, se genera un `OSError`.
 ```
-**Notas:**
-
 - El argumento **`mode`** (`str`) es para indicar qué tipo de conexión, existen caracteres para indicar la acción a realizar en el archivo y otros para indicar el tipo de archivo. Al momento de definir el `mode` los caracteres se deben de poner en el siguiente orden y con las siguientes opciones:
     1. Tipo de acción. 
         - `r`: Abre un archivo solo para su lectura. Arroja un error si el archivo no existe.
@@ -43,6 +44,10 @@ open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, clo
 
 Para usar la función `open()` se puede hacer de dos formas principales.
 
+:::{note}
+Recordar que el modo por default es de lectura `mode='r'`.
+:::
+
 **1. Sin administrador de contextos**. En esta caso se establece una conexión con un archivo, y se almacenará en una variable esa conexión, con ese objeto se puede usar los métodos de `file`.
 ```python
 # Establecer conexión
@@ -61,6 +66,21 @@ file.close()
 with open("path/to/file.ext") as file:
     # Usar métodos, por ejempo .read()
     lines = file.read()
+```
+
+**3. Como iterator**. El objeto _file_ es un {doc}`iterator <./iterators>` por sí mismo, permitiendo leer el archivo línea por línea junto con la función `nex()` o en un cíclo `for`:
+```python
+with open('path/to/file.ext') as file:
+    
+    # Opcionalmente: Omitir la línea de encabezados
+    next(file)
+    
+    # iterar por el resto del archivo
+    for line in file:
+        # Si el archivo es csv podría ser útil recuperar los valores individuales
+        # row = line.split(',')
+        
+        # for body
 ```
 
 <br>
@@ -99,7 +119,7 @@ Métodos para escibir en un archivo.
 * - [writelines](https://docs.python.org/3/library/io.html#io.IOBase.writelines)(lines, /)
   - Escribe una lista de textos en un archivo.
 * - [write](https://docs.python.org/3/library/io.html#io.TextIOBase.write)(s, /)
-  - Escriba la cadena `s` en un archivo y devuelva la cantidad de caracteres escritos.
+  - Escriba la cadena _s_ en un archivo y devuelva la cantidad de caracteres escritos.
 ```
 
 <br>
@@ -135,7 +155,7 @@ Métodos para leer archivos.
 * - Método
   - Descripción
 * - [read](https://docs.python.org/3/library/io.html#io.TextIOBase.read)(size=- 1, /)
-  - Permite leer e imprimir el contenido de un archivo de texto.
+  - Permite leer e imprimir todo el contenido de un archivo de texto como una sola cadena.
 * - [readlines](https://docs.python.org/3/library/io.html#io.IOBase.readlines)(hint=- 1, /)
   - Devuelve todas las líneas de un texto, en formato de lista, donde cada línea es un elemento de la lista.
 * - [readline](https://docs.python.org/3/library/io.html#io.TextIOBase.readline)(size=- 1, /)

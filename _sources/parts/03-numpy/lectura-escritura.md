@@ -1,6 +1,6 @@
 # Lectura y escritura de datos
 
-En esta sección se enlistan las funciones relacionadas con la lectura de datos en arrays o almacenar arrays en archivos locales .
+En esta sección se enlistan las funciones relacionadas con la lectura de datos en _arrays_ o almacenar _arrays_ en archivos locales.
 
 :::{warning}
 Para una lista completa visitar la [documentación](https://numpy.org/doc/stable/reference/routines.io.html#input-and-output) de `numpy`.
@@ -41,7 +41,13 @@ Funciones relacionadas con la lectura de archivos binarios crudos.
 
 ## Archivos texto
 
-Funciones relaciones con la lectura y escritura de archivos de texto. 
+Funciones relaciones con la lectura y escritura de archivos de texto (_.txt_, _.csv_, etc.). 
+
+:::{caution}
+Tener en cuenta los siguiente al trabajar con estas funciones:
+- Se debe especificar el separador del archivo con el parámetro _delimiter_
+- Es recomendado que los archivos tengan solo datos numéricos, en caso de que tenga otra clase de datos se debe de especificar el tipo con el parámetro _dtype_.
+:::
 
 ```{list-table}
 :header-rows: 1
@@ -53,7 +59,7 @@ Funciones relaciones con la lectura y escritura de archivos de texto.
 * - [loadtxt](https://numpy.org/doc/stable/reference/generated/numpy.loadtxt.html)(fname[, dtype, comments, delimiter, ...])
   - Carga datos desde un archivo de texto.
 * - [savetxt](https://numpy.org/doc/stable/reference/generated/numpy.savetxt.html)(fname, X[, fmt, delimiter, newline, ...])
-  - Guarda un arreglo en un archivo de texto.
+  - Guarda un arreglo en un archivo de texto. Por default la función espera que los datos sean numéricos, para almacenar otro tipo de datos o en diferentes formatos usar el parámetro _fmt_.
 ```
 
 <br>

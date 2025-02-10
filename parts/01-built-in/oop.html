@@ -181,26 +181,26 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    Manual de Python
+                    Manual de Python para Data Science
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Built-in</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="built-in-index.html">Python estándar</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="built-in-index.html">Python Estándar</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="ayuda.html">Obtener ayuda</a></li>
 <li class="toctree-l2"><a class="reference internal" href="comentarios.html">Comentarios</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tipos-datos.html">Tipos de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tipos-datos.html">Tipos de Datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variables-constantes.html">Variables y Constantes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="operadores-palabras.html">Operadores y palabras reservadas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="entrada-salida.html">Entrada y salida de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entrada-salida.html">Impresión y solicitud de datos</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="tipos-index.html">Tipos Built-In</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="booleanos.html">Valores booleanos</a></li>
-<li class="toctree-l3"><a class="reference internal" href="numeros.html">Números</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cadenas.html">Cadenas</a></li>
-<li class="toctree-l3"><a class="reference internal" href="listas.html">Listas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="none-bool-numericos.html"><em>None</em>, <em>bool</em> y Numéricos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="str.html">str</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lists.html">list</a></li>
 <li class="toctree-l3"><a class="reference internal" href="tuples.html">Tuples</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sets.html">Sets</a></li>
-<li class="toctree-l3"><a class="reference internal" href="diccionarios.html">Diccionarios</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dicts.html">dict</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -209,10 +209,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l3"><a class="reference internal" href="do-while.html">Do While</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="funciones.html">Funciones</a></li>
-<li class="toctree-l2"><a class="reference internal" href="try-except.html">Exceptions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="context.html">Context Managers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="io.html">Lectura y escritura de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="udf.html">Funciones (UDF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html">Excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="context-managers.html">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="io.html">Lectura y escritura de archivos (IO)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modulos.html">Paquetes y Módulos</a></li>
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="avanzado-index.html">Temas avanzados</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="decorators.html">Decorators</a></li>
@@ -231,12 +231,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/itertools.html">Itertools</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/json.html">JSON</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/math.html">Math</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os.html">os</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os-path.html">os.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os.html">Os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os-path.html">Os.path</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/pickle.html">Pickle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/random.html">Random</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02-modulos/regular-expression.html">Regular Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/regex.html">Regex</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/statistics.html">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/urllib-request.html">urllib.request</a></li>
 </ul>
 </li>
 </ul>
@@ -264,22 +265,38 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04-pandas/pandas-index.html">Pandas</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../04-pandas/index.html">Objetos Index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/index.html">Index</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04-pandas/series.html">Series</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04-pandas/dataframe.html">DataFrame</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../04-pandas/escalares-arrays.html">Escalares y Arrays</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../04-pandas/otras-clases.html">Otras clases</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../04-pandas/groupby.html">GroupBy</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../04-pandas/expanding-rolling-window.html">Expanding, Rolling y Window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/expanding-rolling-window.html"><em>Expanding, Rolling</em> y <em>Window</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/resampler.html">Resampler</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../04-pandas/funciones.html">Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/patrones-pandas.html">Patrones útiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05-matplotlib/matplotlib-index.html">Matplotlib</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/pyplot.html">Pyplot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/figure.html">Figure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/axes.html">Axes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/otros.html">Otras Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06-seaborn/seaborn-index.html">Seaborn</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06-seaborn/funciones-clases.html">Funciones y Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-seaborn/objects-interface.html">Interface por objetos</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Otros</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../08-otros/otros-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-otros/otros-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../08-otros/IPython.html">IPython</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../08-otros/beautifulsoup.html">Web Scraping</a></li>
 </ul>
@@ -441,13 +458,13 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos">Atributos</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-instancias">Atributos de instancias</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-en-metodos">Atributos en métodos</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#recuperar-valores-de-atributos-de-instancia-dentro-de-la-clase">Recuperar valores de atributos de instancia dentro de la clase</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#acceder-a-valores-de-atributos-de-instancia-de-una-instancia">Acceder a valores de atributos de instancia de una instancia</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#acceder-los-atributos-de-instancia-dentro-de-la-clase">Acceder los atributos de instancia dentro de la clase</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#acceder-a-los-atributos-de-instancia-en-una-instancia">Acceder a los atributos de instancia en una instancia</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-clase">Atributos de clase</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#recuperar-valores-de-atributos-de-clase-dentro-de-la-clase">Recuperar valores de atributos de clase dentro de la clase</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#recuperar-valores-de-atributos-de-clase-de-una-instancia">Recuperar valores de atributos de clase de una instancia</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#acceder-a-atributos-de-clase-dentro-de-la-clase">Acceder a atributos de clase dentro de la clase</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#acceder-a-atributos-de-clase-en-una-instancia">Acceder a atributos de clase en una instancia</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#definir-atributos-de-clase-de-forma-dinamica">Definir atributos de clase de forma dinámica</a></li>
 </ul>
 </li>
@@ -462,14 +479,29 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definir-metodos-de-manera-dinamica">Definir métodos de manera dinámica</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-clase">Métodos de clase</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-estaticos">Métodos estáticos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-y-metodos-privados">Atributos y Métodos privados</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#convenciones-de-nombres">Convenciones de nombres</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-restringidos-y-de-solo-lectura">Atributos restringidos y de solo lectura</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-especiales">Métodos especiales</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aritmeticos">Aritméticos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bitwise">Bitwise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacion">Comparación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hash">Hash</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#representacion-en-cadena">Representación en cadena</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#excepciones">Excepciones</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-classes">Data Classes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#buenas-practicas">Buenas prácticas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-utiles">Métodos útiles</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-utiles">Funciones útiles</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uso-de-super">Uso de <em>super()</em></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-utiles">Métodos útiles</a></li>
 </ul>
             </nav>
         </div>
@@ -483,9 +515,10 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="programacion-orientada-a-objetos">
 <h1>Programación orientada a objetos<a class="headerlink" href="#programacion-orientada-a-objetos" title="Link to this heading">#</a></h1>
+<p>En esta sección se presentan algunas acciones comunes en <em>POO</em> como crear clases, definir atributos, métodos, etc.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>En esta sección no se explican detallamente conceptos relacionados con la <em>POO</em>, se da por hecho que ya se conocen. Simplemente se presentan algunas acciones comunes en <em>POO</em> como crear clases, definir atributos, métodos, etc.</p>
+<p>En esta sección no se explican conceptos relacionados con la <em>POO</em>, se da por hecho que ya se conocen.</p>
 </div>
 <hr class="docutils" />
 <section id="clases">
@@ -518,14 +551,14 @@ document.write(`
 </pre></div>
 </div>
 <ul class="simple">
-<li><p><em>obj</em> será una instancia de la clase <code class="docutils literal notranslate"><span class="pre">ClassName</span></code>.</p></li>
+<li><p><em>obj</em> será una instancia de la clase <em>ClassName</em>.</p></li>
 <li><p><em>args</em> por lo general, son los argumentos del método <code class="docutils literal notranslate"><span class="pre">__init__()</span></code>, pero no necesariamente tiene que ser así. Se deben de proveer al menos los argumentos obligatorios, es decir, los que no tienen un valor por default.</p></li>
 </ul>
 <br/>
 </section>
 <section id="clases-hijas">
 <h3>Clases hijas<a class="headerlink" href="#clases-hijas" title="Link to this heading">#</a></h3>
-<p>Las clases hijas son clases que heredan los métodos y atributos de otra clase. Para definir una clase hija que heredará los atributos y métodos de la clase padre se utiliza:</p>
+<p>Las clases hijas son clases que heredan los métodos y atributos de su clase padre. Para definir una clase hija que heredará los atributos y métodos de la clase padre se utiliza:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definir una clase hija</span>
 <span class="k">class</span> <span class="nc">ChildClass</span><span class="p">(</span><span class="n">ParentClass</span><span class="p">):</span>
     <span class="c1"># Class body</span>
@@ -538,12 +571,13 @@ document.write(`
 <p>Para utilizar los métodos o el constructor de la clase padre dentro de la clase hija usar:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Usar un método de ParentClass en ChildClass</span>
 <span class="k">class</span> <span class="nc">ChildClass</span><span class="p">(</span><span class="n">ParentClass</span><span class="p">):</span>
+    <span class="c1"># Class body</span>
     <span class="o">...</span>
-    <span class="n">ParentClass</span><span class="o">.</span><span class="n">method_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="p">[</span><span class="n">args</span><span class="p">])</span>
+    <span class="n">ParentClass</span><span class="o">.</span><span class="n">method_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="p">[</span><span class="n">params</span><span class="p">])</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>No estrictamente el primer argumento debe ser <code class="docutils literal notranslate"><span class="pre">self</span></code>, pero sí un objeto. Puede ser otro objeto que tenga sentido con el método al que se está llamando.</p></li>
+<li><p>No estrictamente el primer argumento debe ser <em>self</em>, pero sí un objeto. Puede ser otro objeto que tenga sentido con el método al que se está llamando.</p></li>
 </ul>
 <p>Para utilizar los atributos o métodos de la clase padre en una instancia de la clase hija en el <em>script</em> usar:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Usar métodos/atributos de la clase padre en una instancia de la clase hija</span>
@@ -569,14 +603,14 @@ document.write(`
 <span class="k">class</span> <span class="nc">ClassName</span><span class="p">:</span>
     
     <span class="c1"># Definir atributos de instancia en el método init</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="p">[</span><span class="n">args</span><span class="p">])</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="p">[</span><span class="n">params</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">attribute_name</span> <span class="o">=</span> <span class="n">expression</span>
         <span class="o">...</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>De esta manera <em>attribute_name</em> será un atributo de la clase al momento de inicializar el objeto.</p></li>
-<li><p>El método puede reciber otros parámetros expresados como <em>args</em> en este ejemplo, pero son opcionales.</p></li>
+<li><p>De esta manera <em>attribute_name</em> será un atributo de la instancia al momento de inicializar el objeto.</p></li>
+<li><p>El método puede reciber otros parámetros expresados como <em>params</em> en este ejemplo, pero son opcionales.</p></li>
 <li><p><em>expression</em> puede ser un escalar o una expresión que utilice uno o más argumentos del método y retorne un objeto.</p></li>
 </ul>
 <br/>
@@ -587,7 +621,7 @@ document.write(`
 <span class="k">class</span> <span class="nc">ClassName</span><span class="p">:</span>
         
     <span class="c1"># Definir atributos de instancia dentro de un método</span>
-    <span class="k">def</span> <span class="nf">method_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="p">[</span><span class="n">args</span><span class="p">]):</span>
+    <span class="k">def</span> <span class="nf">method_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="p">[</span><span class="n">params</span><span class="p">]):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">attribute_name</span> <span class="o">=</span> <span class="n">expression</span>
 </pre></div>
 </div>
@@ -598,9 +632,9 @@ document.write(`
 </ul>
 <br/>
 </section>
-<section id="recuperar-valores-de-atributos-de-instancia-dentro-de-la-clase">
-<h4>Recuperar valores de atributos de instancia dentro de la clase<a class="headerlink" href="#recuperar-valores-de-atributos-de-instancia-dentro-de-la-clase" title="Link to this heading">#</a></h4>
-<p>Si se quiere obtener al valor un atributo de instancia dentro la misma de la clase se usa <code class="docutils literal notranslate"><span class="pre">self.attribute_name</span></code>:</p>
+<section id="acceder-los-atributos-de-instancia-dentro-de-la-clase">
+<h4>Acceder los atributos de instancia dentro de la clase<a class="headerlink" href="#acceder-los-atributos-de-instancia-dentro-de-la-clase" title="Link to this heading">#</a></h4>
+<p>Si se quiere obtener al valor un atributo de instancia dentro la misma de la clase se usa <em>self.attribute_name</em>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definir una clase nueva</span>
 <span class="k">class</span> <span class="nc">ClassName</span><span class="p">:</span>
     
@@ -614,13 +648,13 @@ document.write(`
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>En este ejemplo <code class="docutils literal notranslate"><span class="pre">method_name</span></code> recupera el valor de <code class="docutils literal notranslate"><span class="pre">attribute_name</span></code> para retornarlo. Cabe destacar que no es necesario definir métodos para recuperar los valores de los atributos de instancia.</p></li>
+<li><p>En este ejemplo <em>method_name</em> recupera el valor de <em>attribute_name</em> para retornarlo. Cabe destacar que no es necesario definir métodos para recuperar los valores de los atributos de instancia.</p></li>
 </ul>
 <br/>
 </section>
-<section id="acceder-a-valores-de-atributos-de-instancia-de-una-instancia">
-<h4>Acceder a valores de atributos de instancia de una instancia<a class="headerlink" href="#acceder-a-valores-de-atributos-de-instancia-de-una-instancia" title="Link to this heading">#</a></h4>
-<p>Una vez definido una instancia (objeto) de la clase se puede acceder los valores de sus atributos de instancia con <code class="docutils literal notranslate"><span class="pre">obj.attribute_name</span></code>:</p>
+<section id="acceder-a-los-atributos-de-instancia-en-una-instancia">
+<h4>Acceder a los atributos de instancia en una instancia<a class="headerlink" href="#acceder-a-los-atributos-de-instancia-en-una-instancia" title="Link to this heading">#</a></h4>
+<p>Una vez definido una instancia (objeto) de la clase se puede acceder los valores de sus atributos de instancia con <em>obj.attribute_name</em>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear un instancia</span>
 <span class="n">obj</span> <span class="o">=</span> <span class="n">ClassName</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
 
@@ -649,11 +683,12 @@ document.write(`
 </div>
 <ul class="simple">
 <li><p>Por convencion los nombres de atributos a nivel de clase se ponen en mayúsculas, pero no es obligatorio.</p></li>
+<li><p>Los atributos de clase usualmente se usan para definir valor mínimos o máximos de otros atributos o definir constantes dentro de la clase.</p></li>
 </ul>
 <br/>
-<section id="recuperar-valores-de-atributos-de-clase-dentro-de-la-clase">
-<h4>Recuperar valores de atributos de clase dentro de la clase<a class="headerlink" href="#recuperar-valores-de-atributos-de-clase-dentro-de-la-clase" title="Link to this heading">#</a></h4>
-<p>Si se quiere obtener el valor de un atributo de clase dentro la misma de la clase usar <code class="docutils literal notranslate"><span class="pre">ClassName.ATTRIBUTE_NAME</span></code> o <code class="docutils literal notranslate"><span class="pre">self.ATTRIBUTE_NAME</span></code>:</p>
+<section id="acceder-a-atributos-de-clase-dentro-de-la-clase">
+<h4>Acceder a atributos de clase dentro de la clase<a class="headerlink" href="#acceder-a-atributos-de-clase-dentro-de-la-clase" title="Link to this heading">#</a></h4>
+<p>Si se quiere obtener el valor de un atributo de clase dentro la misma de la clase usar <em>ClassName.ATTRIBUTE_NAME</em> o <em>self.ATTRIBUTE_NAME</em>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definir una clase nueva</span>
 <span class="k">class</span> <span class="nc">ClassName</span><span class="p">:</span>
     
@@ -667,17 +702,17 @@ document.write(`
 </pre></div>
 </div>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">ClassName</span></code> es un nombre arbitrario de la clase.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ATTRIBUTE_NAME</span></code> es un nombre arbitrario del atributo de clase.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">method_name</span></code> es un nombre arbitrario de un método.</p></li>
-<li><p>Se recomienda usar <code class="docutils literal notranslate"><span class="pre">ClassName.ATTRIBUTE_NAME</span></code>, para identificar que es un atributo a nivel de clase.</p></li>
-<li><p>En este ejemplo <code class="docutils literal notranslate"><span class="pre">method_name</span></code> recupera el valor de <code class="docutils literal notranslate"><span class="pre">ATTRIBUTE_NAME</span></code> para retornarlo. Cabe destacar que no es necesario definir métodos para recuperar los valores de los atributos de clase.</p></li>
+<li><p><em>ClassName</em> es un nombre arbitrario de la clase.</p></li>
+<li><p><em>attribute_name</em> es un nombre arbitrario del atributo de clase.</p></li>
+<li><p><em>method_name</em> es un nombre arbitrario de un método.</p></li>
+<li><p>Se recomienda usar <em>ClassName.ATTRIBUTE_NAME</em>, para identificar que es un atributo a nivel de clase.</p></li>
+<li><p>En este ejemplo <em>method_name</em> recupera el valor de <em>ATTRIBUTE_NAME</em> para retornarlo. Cabe destacar que no es necesario definir métodos para recuperar los valores de los atributos de clase.</p></li>
 </ul>
 <br/>
 </section>
-<section id="recuperar-valores-de-atributos-de-clase-de-una-instancia">
-<h4>Recuperar valores de atributos de clase de una instancia<a class="headerlink" href="#recuperar-valores-de-atributos-de-clase-de-una-instancia" title="Link to this heading">#</a></h4>
-<p>Una vez definido una instancia (objeto) de la clase se puede acceder a los valores de sus atributos de clase desde un <em>script</em> o desde la consola con <code class="docutils literal notranslate"><span class="pre">obj.__class__.ATTRIBUTE_NAME</span></code> o <code class="docutils literal notranslate"><span class="pre">obj.ATTRIBUTE_NAME</span></code>:</p>
+<section id="acceder-a-atributos-de-clase-en-una-instancia">
+<h4>Acceder a atributos de clase en una instancia<a class="headerlink" href="#acceder-a-atributos-de-clase-en-una-instancia" title="Link to this heading">#</a></h4>
+<p>Una vez definido una instancia (objeto) de la clase se puede acceder a los valores de sus atributos de clase desde un <em>script</em> o desde la consola con <em>obj.__class__.ATTRIBUTE_NAME</em> o <em>obj.ATTRIBUTE_NAME</em>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear un instancia</span>
 <span class="n">obj</span> <span class="o">=</span> <span class="n">ClassName</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
 
@@ -687,10 +722,10 @@ document.write(`
 </pre></div>
 </div>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">ClassName</span></code> es un nombre arbitrario de la clase.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ATTRIBUTE_NAME</span></code> es un nombre arbitrario del atributo de clase.</p></li>
-<li><p><em>obj</em> es una instacia de <code class="docutils literal notranslate"><span class="pre">ClassName</span></code>.</p></li>
-<li><p>Se recomienda usar <code class="docutils literal notranslate"><span class="pre">obj.__class__.ATTRIBUTE_NAME</span></code>, para identificar que es un atributo a nivel de clase.</p></li>
+<li><p><em>ClassName</em> es un nombre arbitrario de la clase.</p></li>
+<li><p><em>ATTRIBUTE_NAME</em> es un nombre arbitrario del atributo de clase.</p></li>
+<li><p><em>obj</em> es una instacia de <em>ClassName</em>.</p></li>
+<li><p>Se recomienda usar <em>obj.<strong>class</strong>.ATTRIBUTE_NAME</em>, para identificar que es un atributo a nivel de clase.</p></li>
 </ul>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
@@ -702,8 +737,8 @@ document.write(`
 </pre></div>
 </div>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">ClassName</span></code> es un nombre arbitrario de la clase.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ATTRIBUTE_NAME</span></code> es un nombre arbitrario del atributo de clase.</p></li>
+<li><p><em>ClassName</em> es un nombre arbitrario de la clase.</p></li>
+<li><p><em>ATTRIBUTE_NAME</em> es un nombre arbitrario del atributo de clase.</p></li>
 </ul>
 <br/>
 </section>
@@ -715,7 +750,7 @@ document.write(`
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>Se creará el atributo <em>NEW_ATTRIBUTE_NAME</em> y todos las instancias tendrán ese nuevo atributo.</p></li>
+<li><p>Se creará el atributo <em>NEW_ATTRIBUTE_NAME</em> y la clase y todos las instancias tendrán ese nuevo atributo.</p></li>
 </ul>
 <br/>
 </section>
@@ -734,10 +769,12 @@ document.write(`
     <span class="c1"># Definir el método __init__</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="p">[</span><span class="n">params</span><span class="p">]):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">attribute1</span> <span class="o">=</span> <span class="n">expression</span>
+        <span class="o">...</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>El primer parámetro del método debe de ser <code class="docutils literal notranslate"><span class="pre">self</span></code>, incluso cuando no hay más parámetros.</p></li>
+<li><p>El primer parámetro del método debe de ser <em>self</em>, incluso cuando no hay más parámetros. El nombre <em>self</em> es por convención pero se puede llamar de cualquier otra forma.</p></li>
+<li><p><em>params</em> son otros posibles parámetros de la función, pero son opcionales.</p></li>
 <li><p><em>expression</em> puede ser un escalar o una expresión que utilice uno o más argumentos del método y retorne un objeto.</p></li>
 <li><p>El método <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> puede o no reciber otros parámetros adicionales los cuales pueden o no tener valores por default. Si no tienen valores por default, los valores de esos parámetros se deben de indicar al momento de crear el objeto.</p></li>
 </ul>
@@ -745,7 +782,7 @@ document.write(`
 </section>
 <section id="metodos-de-instancia">
 <h3>Métodos de instancia<a class="headerlink" href="#metodos-de-instancia" title="Link to this heading">#</a></h3>
-<p>Los métodos de instancia son las acciones asociadas a una instancia de una clase. Para crear métodos de instancia se utiliza una función, cuyo primer argumento debe de ser <code class="docutils literal notranslate"><span class="pre">self</span></code>.</p>
+<p>Los métodos de instancia son las acciones asociadas a una instancia de una clase. Para crear métodos de instancia se utiliza una función, cuyo primer argumento debe de ser <em>self</em>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definir una clase nueva</span>
 <span class="k">class</span> <span class="nc">ClassName</span><span class="p">:</span>
     
@@ -755,14 +792,14 @@ document.write(`
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>El primer parámetro del método debe de ser <code class="docutils literal notranslate"><span class="pre">self</span></code>, incluso cuando no hay más parámetros.</p></li>
+<li><p>El primer parámetro del método debe de ser <em>self</em>, incluso cuando no hay más parámetros. El nombre <em>self</em> es por convención pero se puede llamar de cualquier otra forma.</p></li>
 <li><p><em>params</em> son otros posibles parámetros de la función, pero son opcionales.</p></li>
-<li><p>Es altamente recomendado poner <a class="reference internal" href="funciones.html#func-docstrings"><span class="std std-ref">Docstrings</span></a> para indicar qué hace cada método.</p></li>
+<li><p>Es altamente recomendado poner <a class="reference internal" href="udf.html#func-docstrings"><span class="std std-ref">Docstrings</span></a> para indicar qué hace cada método.</p></li>
 </ul>
 <br/>
 <section id="usar-un-metodo">
 <h4>Usar un método<a class="headerlink" href="#usar-un-metodo" title="Link to this heading">#</a></h4>
-<p>Para llamar a un método de una clase, se utiliza el nombre del objeto, un punto y el nombre del método con sus argumentos, en caso de que tenga.</p>
+<p>Para llamar a un método de una instancia, se utiliza el nombre del objeto, un punto y el nombre del método con sus argumentos, en caso de que tenga.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear una instancia</span>
 <span class="n">obj</span> <span class="o">=</span> <span class="n">ClassName</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
 
@@ -771,23 +808,17 @@ document.write(`
 </pre></div>
 </div>
 <ul class="simple">
-<li><p><em>obj</em> es un objeto de una clase <code class="docutils literal notranslate"><span class="pre">ClassName</span></code>.</p></li>
-<li><p>No se pone el argumento self, porque la sintaxis anterior equivale a:</p></li>
-</ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ClassName</span><span class="o">.</span><span class="n">method_name</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>El mismo objeto será el primer argumento, del método <em>method_name</em> de la clase <em>ClassName</em>.</p></li>
+<li><p><em>obj</em> es un objeto de una clase <em>ClassName</em>.</p></li>
+<li><p>No se pone el argumento self, porque la sintaxis anterior equivale a: <br/> <code class="docutils literal notranslate"><span class="pre">ClassName.method_name(obj,</span> <span class="pre">args)</span></code></p></li>
 </ul>
 <br/>
 </section>
 </section>
 <section id="definir-metodos-de-manera-dinamica">
 <h3>Definir métodos de manera dinámica<a class="headerlink" href="#definir-metodos-de-manera-dinamica" title="Link to this heading">#</a></h3>
-<p>Se pueden crear métodos fuera de la definición de clase de forma dinámica (<em>on-demand</em>), para ello se define una función y posteriormente se asigna el nuevo método a la clase</p>
+<p>Se pueden crear <strong>métodos de instancia</strong> fuera de la definición de la clase de forma dinámica (<em>on-demand</em>), para ello se define una función y posteriormente se asigna el nuevo método a la clase</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definir una función</span>
-<span class="k">def</span> <span class="nf">method_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="p">[</span><span class="n">args</span><span class="p">]):</span>
+<span class="k">def</span> <span class="nf">method_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="p">[</span><span class="n">params</span><span class="p">]):</span>
     <span class="c1"># method body</span>
 
 <span class="c1"># Asignar el método a una clase</span>
@@ -795,13 +826,13 @@ document.write(`
 </pre></div>
 </div>
 <ul class="simple">
-<li><p><em>method_name</em> será un nuevo método de <code class="docutils literal notranslate"><span class="pre">ClassName</span></code>.</p></li>
+<li><p><em>method_name</em> será un nuevo método de <em>ClassName</em>.</p></li>
 </ul>
 <br/>
 </section>
 <section id="metodos-de-clase">
 <h3>Métodos de clase<a class="headerlink" href="#metodos-de-clase" title="Link to this heading">#</a></h3>
-<p>Existen métodos que se pueden definir a nivel de clase. Para definir este tipo de métodos se utiliza el decorator <code class="docutils literal notranslate"><span class="pre">&#64;classmethod</span></code>. Este tipo de métodos se usan para crear objetos sin llamar al constructor, como solo puede haber un constructor este método permite modificar la forma como se llama al constructor permitiendo tener diferentes formas de inicializar un objeto.</p>
+<p>Existen métodos que se pueden definir a nivel de clase y no puede usar información de las instancias. Para definir este tipo de métodos se utiliza el decorator <code class="docutils literal notranslate"><span class="pre">&#64;classmethod</span></code>. Un caso de uso de este tipo de métodos es para crear instancias sin llamar al constructor, como solo puede haber un constructor este método permite modificar la forma como se llama al constructor permitiendo tener diferentes formas de inicializar un objeto.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear una clase nueva</span>
 <span class="k">class</span> <span class="nc">ClassName</span><span class="p">:</span>
     
@@ -813,7 +844,7 @@ document.write(`
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>El primer argumento debe de ser <code class="docutils literal notranslate"><span class="pre">cls</span></code> por convención. <code class="docutils literal notranslate"><span class="pre">cls</span></code> es un objeto que hace referencia a la clase misma. <code class="docutils literal notranslate"><span class="pre">csl</span></code> es equivalente a usar la clase como tal <code class="docutils literal notranslate"><span class="pre">ClassName</span></code>.</p></li>
+<li><p>El primer parámetro debe de ser <code class="docutils literal notranslate"><span class="pre">cls</span></code>, se utiliza ese nombre por convención, pero se puede llamar de cualquier otra forma. <code class="docutils literal notranslate"><span class="pre">cls</span></code> es un objeto que hace referencia a la clase misma. <code class="docutils literal notranslate"><span class="pre">csl</span></code> es equivalente a usar la clase como tal <em>ClassName</em>.</p></li>
 <li><p>En el cuerpo de la función se puede hacer cualquier modificación a los valores de los parámetros.</p></li>
 <li><p>En el <code class="docutils literal notranslate"><span class="pre">return</span></code>, <code class="docutils literal notranslate"><span class="pre">cls()</span></code> llamará a <code class="docutils literal notranslate"><span class="pre">__init__(args])</span></code>, es decir <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">cls([args])</span></code> equivale a <code class="docutils literal notranslate"><span class="pre">__init__([args])</span></code> o <code class="docutils literal notranslate"><span class="pre">ClassName([args])</span></code> (que en todo caso lo que hace es llamar al método <code class="docutils literal notranslate"><span class="pre">__init__()</span></code>).</p></li>
 </ul>
@@ -824,7 +855,7 @@ document.write(`
 </pre></div>
 </div>
 <ul class="simple">
-<li><p><em>method_name</em> es un método a nivel de la clase <code class="docutils literal notranslate"><span class="pre">ClassName</span></code>.</p></li>
+<li><p><em>method_name</em> es un método a nivel de la clase <em>ClassName</em>.</p></li>
 </ul>
 <br>
 <p><strong>Ejemplo</strong>: En este ejemplo se define una clase que crea una fecha indicando el año, mes y día individualemente. Posteriormente se define un método de clase que permite crear la fecha desde una cadena <a class="reference internal" href="../02-modulos/datetime.html#datetime-iso"><span class="std std-ref">ISO 8601</span></a> en lugar de los elementos individuales.</p>
@@ -839,10 +870,9 @@ document.write(`
     
     <span class="c1"># Se definie el método a nivel de clase &quot;desde_str&quot;</span>
     <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">desde_str</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">datestr</span><span class="p">):</span>
-        <span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">datestr</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">))</span>
-        <span class="c1"># Equivale a: Fecha.__init__(year, month, day)</span>
-        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">desde_str</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">str_date</span><span class="p">):</span>
+        <span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">str_date</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">))</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">)</span> <span class="c1"># Equivale a: Fecha.__init__(year, month, day)</span>
 
 <span class="c1"># Crear instancia desde el metodo de clase</span>
 <span class="n">fecha</span> <span class="o">=</span> <span class="n">Fecha</span><span class="o">.</span><span class="n">desde_str</span><span class="p">(</span><span class="s1">&#39;2023-01-01&#39;</span><span class="p">)</span>   
@@ -863,7 +893,7 @@ document.write(`
 </div>
 </div>
 <ul class="simple">
-<li><p>El método de clase <code class="docutils literal notranslate"><span class="pre">desde_str</span></code> permite inicializar un objeto con base a una cadena que contiene una fecha en lugar de pasar individualmente cada atributo.</p></li>
+<li><p>El método de clase <em>desde_str</em> permite inicializar un objeto con base a una cadena que contiene una fecha en lugar de pasar individualmente cada atributo.</p></li>
 </ul>
 <br/>
 </section>
@@ -876,15 +906,16 @@ document.write(`
     <span class="c1"># Definir un método estático</span>
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">method_name</span><span class="p">([</span><span class="n">params</span><span class="p">]):</span>
-        <span class="c1"># Definición del método</span>
+        <span class="c1"># method body</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>Los métodos estáticos no tienen el parámetros <code class="docutils literal notranslate"><span class="pre">self</span></code> porque <code class="docutils literal notranslate"><span class="pre">self</span></code> se asocia a las instancias.</p></li>
+<li><p>Los métodos estáticos no tienen el parámetros <em>self</em> porque <em>self</em> se asocia a las instancias.</p></li>
 <li><p>Los métodos estáticos no pueden acceder a los atributos de instancia o métodos de instancias.</p></li>
 </ul>
 <p>Para usar un método estático usar:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ClassName</span><span class="o">.</span><span class="n">method_name</span><span class="p">([</span><span class="n">params</span><span class="p">])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Usar un método estático</span>
+<span class="n">ClassName</span><span class="o">.</span><span class="n">method_name</span><span class="p">([</span><span class="n">params</span><span class="p">])</span>
 </pre></div>
 </div>
 <br/>
@@ -913,6 +944,326 @@ document.write(`
 </div>
 <br/>
 </section>
+<section id="atributos-y-metodos-privados">
+<h3>Atributos y Métodos privados<a class="headerlink" href="#atributos-y-metodos-privados" title="Link to this heading">#</a></h3>
+<p>Es posible restringir el acceso a atributos y métodos para prevenir modificación de datos. Para ello existen diversas estrategias.</p>
+<section id="convenciones-de-nombres">
+<h4>Convenciones de nombres<a class="headerlink" href="#convenciones-de-nombres" title="Link to this heading">#</a></h4>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Las convenciones no convierten a los atributos como privados, únicamente es para indicar que no se debe de interactuar con esos atributos.</p>
+</div>
+<p>Existen ciertas convenciones para trabajar con atributos/métodos privados (todos los atributos/métodos de todas las clases en Python son públicas por default.</p>
+<ul class="simple">
+<li><p>Atributos/métodos internos: Se utiliza un guión bajo al principio del nombre, para indicar que es un atributo/método el cual no se debe de utilizar ni modificar (aunque sí se puede hacer), no deben de formar parte de la <em>API</em> pública: <br/> <code class="docutils literal notranslate"><span class="pre">_attr_name</span></code> <br/> <code class="docutils literal notranslate"><span class="pre">_method_name</span></code></p></li>
+<li><p>Atributos/métodos pseudo-privados: Se utilizan dos guión bajos la principio del nombre para indicar que no se deben heredar a las clases hijas: <br/> <code class="docutils literal notranslate"><span class="pre">__attr_name</span></code> <br/> <code class="docutils literal notranslate"><span class="pre">__method_name</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="atributos-restringidos-y-de-solo-lectura">
+<h3>Atributos restringidos y de solo lectura<a class="headerlink" href="#atributos-restringidos-y-de-solo-lectura" title="Link to this heading">#</a></h3>
+<p>Son atributos especiales que tienen un control de acceso y son particularmente útiles cuando se quiere asignar valores a un atributo: La forma de crear una propiedad es:</p>
+<ol class="arabic simple">
+<li><p>Definir el atributo como “protegido” (usando un guión bajo en el nombre).</p></li>
+<li><p>Crear un método con el decorador <code class="docutils literal notranslate"><span class="pre">&#64;property</span></code> que tiene el mismo nombre que el atributo (sin el guión bajo) y retorne el atributo.</p></li>
+<li><p>Crear un método con el decorador <code class="docutils literal notranslate"><span class="pre">&#64;attr_name.setter</span></code> que tiene el mismo nombre que el atributo (sin el guión bajo) y que será llamado cuando se trate de usar <code class="docutils literal notranslate"><span class="pre">obj.attr=val</span></code>, cuyo argumento será el valor que se está tratando de asignar.</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ClassName</span><span class="p">:</span>
+    <span class="n">def__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr_val</span><span class="p">):</span>
+        <span class="c1"># Definir atributo como protegido</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_attr</span> <span class="o">=</span> <span class="n">attr_val</span>
+
+<span class="nd">@property</span>
+<span class="k">def</span> <span class="nf">attr</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_attr</span>
+
+<span class="nd">@attr</span><span class="o">.</span><span class="n">setter</span>
+<span class="k">def</span> <span class="nf">attr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_value</span><span class="p">):</span>
+    <span class="c1"># method body</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_attr</span> <span class="o">=</span> <span class="n">new_value</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>El método con el decorador <code class="docutils literal notranslate"><span class="pre">&#64;attr.setter</span></code> debe de validar en qué casos si se puede modificar el atributo.</p></li>
+<li><p>Existe posibilidad de no modificar un atributo si no se agrega el método <code class="docutils literal notranslate"><span class="pre">&#64;attr.setter</span></code>.</p></li>
+<li><p>Existen otros decoradores como <code class="docutils literal notranslate"><span class="pre">&#64;attr.getter</span></code> y <code class="docutils literal notranslate"><span class="pre">&#64;attr.deleter</span></code> para indicar qué hacer en caso de que se trate de acceder al valor del atributo o eliminar el valor del atributo.</p></li>
+</ul>
+<br/>
+</section>
+</section>
+<hr class="docutils" />
+<section id="metodos-especiales">
+<h2>Métodos especiales<a class="headerlink" href="#metodos-especiales" title="Link to this heading">#</a></h2>
+<p>Al utilizar instancias de clases y {doc}{./operadores-palabras} por default se ejecutan ciertos métodos, a continuación se enlistan los principales métodos de este tipo para definir como se debe de operar con las instancias de las clases, así como otros métodos especiales:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Para más información y una lista completa de métodos especiales visitar la <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#special-method-names">documentación</a> de Python.</p>
+</div>
+<section id="aritmeticos">
+<h3>Aritméticos<a class="headerlink" href="#aritmeticos" title="Link to this heading">#</a></h3>
+<p>Métodos que se ejecutan al utilizar operadores aritméticos entre dos objetos.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Todos estos métodos deben de retornar una instancia de la misma clase o <code class="docutils literal notranslate"><span class="pre">NotImplemented</span></code>.</p>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Es altamente recomendado verificar que la operación se está haciendo entre instancias de la misma clase o clases compatibles, aunque también se debe de poder manejar las operaciones entre instancias de clases diferentes para evitar que se arroje una excepción. Ver el ejemplo.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Para más información de estos métodos especiales visitar la <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#emulating-numeric-types">documentación</a> de Python.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Operador</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">__add__(self,</span> <span class="pre">other)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">+</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">__sub__(self,</span> <span class="pre">other)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">-</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">__mul__(self,</span> <span class="pre">other)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">*</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">__truediv__(self,</span> <span class="pre">other)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">__floordiv__(self,</span> <span class="pre">other)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">//</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">__mod__(self,</span> <span class="pre">other)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">__pow__(self,</span> <span class="pre">other)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">**</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>Ejemplo de implementación con el operador <code class="docutils literal notranslate"><span class="pre">+</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definir clase</span>
+<span class="k">class</span> <span class="nc">Numero</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">valor</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">valor</span> <span class="o">=</span> <span class="n">valor</span>
+
+    <span class="c1"># Sobreescribir operador</span>
+    <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="n">Numero</span><span class="p">)):</span>
+            <span class="k">return</span> <span class="n">Numero</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">valor</span> <span class="o">+</span> <span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">valor</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Numero</span><span class="p">)</span> <span class="k">else</span> <span class="n">other</span><span class="p">))</span>
+        <span class="k">return</span> <span class="bp">NotImplemented</span>
+</pre></div>
+</div>
+</section>
+<section id="bitwise">
+<h3>Bitwise<a class="headerlink" href="#bitwise" title="Link to this heading">#</a></h3>
+<p>Métodos que se ejecutan al utilizar operadores bitwise entre dos objetos.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Estos métodos solo deben implementarse con enteros o tipos compatibles (si el objeto tiene sentido bit a bit).</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Todos estos métodos deben de retornar una instancia de la misma clase o <code class="docutils literal notranslate"><span class="pre">NotImplemented</span></code>.</p>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Es altamente recomendado verificar que los operandos son enteros, aunque también se debe de poder manejar operandos de otras clases para evitar que se arroje una excepción. Ver el ejemplo.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Para más información de estos métodos especiales visitar la <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#emulating-numeric-types">documentación</a> de Python.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Operador</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">__and__(self,</span> <span class="pre">other)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&amp;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">__or__(self,</span> <span class="pre">other)</span></code></p></td>
+<td><p>`</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">__xor__(self,</span> <span class="pre">other)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">^</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">__lshift__(self,</span> <span class="pre">other)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">__rshift__(self,</span> <span class="pre">other)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>Ejemplo de implementación con el operador <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definir clase</span>
+<span class="k">class</span> <span class="nc">BitwiseNumero</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">valor</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">valor</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Solo se permiten enteros para operaciones bitwise&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">valor</span> <span class="o">=</span> <span class="n">valor</span>
+
+    <span class="c1"># Sobreescribir operador</span>
+    <span class="k">def</span> <span class="fm">__and__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">BitwiseNumero</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">BitwiseNumero</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">valor</span> <span class="o">&amp;</span> <span class="n">other</span><span class="o">.</span><span class="n">valor</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">BitwiseNumero</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">valor</span> <span class="o">&amp;</span> <span class="n">other</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">NotImplemented</span>
+</pre></div>
+</div>
+</section>
+<section id="comparacion">
+<h3>Comparación<a class="headerlink" href="#comparacion" title="Link to this heading">#</a></h3>
+<p>Métodos que se ejecutan al utilizar operadores de comparación entre dos objetos.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Todos estos métodos deben de retornar <code class="docutils literal notranslate"><span class="pre">bool</span></code> o <code class="docutils literal notranslate"><span class="pre">NotImplemented</span></code>.</p>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Es altamente recomendado verificar que la comparación se está haciendo entre instancias de la misma clase, aunque también se debe de poder manejar las comparaciones entre instancias de clases diferentes para evitar que se arroje una excepción. Ver el ejemplo.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Por default estos operadores retornar la comparación del valor retornado por la función <code class="docutils literal notranslate"><span class="pre">id()</span></code>, es decir, retorna la comparación de la ubicación en memoria.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Para más información de estos métodos especiales visitar la <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__lt__">documentación</a> de Python.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Método</p></th>
+<th class="head text-center"><p>Operador</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">__eq__(self,</span> <span class="pre">other)</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">==</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">__ne__(self,</span> <span class="pre">other)</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">!=</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">__lt__(self,</span> <span class="pre">other)</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">&lt;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">__gt__(self,</span> <span class="pre">other)</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">&gt;</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">__le__(self,</span> <span class="pre">other)</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">&lt;=</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">__ge__(self,</span> <span class="pre">other)</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">&gt;=</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>Ejemplo de implementación con el operador <code class="docutils literal notranslate"><span class="pre">==</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definir clase</span>
+<span class="k">class</span> <span class="nc">ClassName</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="c1"># Sobreescribir operador</span>
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">ClassName</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">value</span>
+        <span class="k">return</span> <span class="bp">NotImplemented</span>
+</pre></div>
+</div>
+</section>
+<section id="hash">
+<h3>Hash<a class="headerlink" href="#hash" title="Link to this heading">#</a></h3>
+<p>Método para retornar identificadores únicos de instancias. Este identificador se define y se retorna en este método. Estos identificadores se utilizan para poder utilizar las instancias como llaves de diccionarios y añadirse en <code class="docutils literal notranslate"><span class="pre">sets</span></code>. Si dos objetos tienen el mismo <em>hash</em> entonces se considera que son iguales.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Este método debe de retornar <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Para más información de este método especial visitar la <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__hash__">documentación</a> de Python.</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definir clase</span>
+<span class="k">class</span> <span class="nc">ClassName</span><span class="p">:</span>
+    <span class="c1"># Class body</span>
+
+    <span class="c1"># Definir método hash</span>
+    <span class="k">def</span> <span class="fm">__hash__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># method body</span>
+        <span class="o">...</span>
+        <span class="k">return</span> <span class="n">hash_value</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Las instancias con la propiedad <em>hash</em> deben de tener las siguientes características:</p>
+<ol class="arabic simple">
+<li><p>Deben de ser <em>inmutables</em> (ver <a class="reference internal" href="tipos-datos.html"><span class="doc">Tipos de Datos</span></a>) y sus valores <em>hash</em> no pueden modificarse durante su tiempo de vida.</p></li>
+<li><p>Si dos objetos retornan <code class="docutils literal notranslate"><span class="pre">True</span></code> al usar el operador <code class="docutils literal notranslate"><span class="pre">==</span></code>, entonces sus valores <em>hash</em> deben de ser los mismos.</p></li>
+<li><p>Si se sobreescribe el operador <code class="docutils literal notranslate"><span class="pre">==</span></code>, también se debe de sobreescribir <code class="docutils literal notranslate"><span class="pre">__hash__()</span></code>. Si solo se sobreescribir el operador <code class="docutils literal notranslate"><span class="pre">==</span></code> entonces las instancias si volverán <em>unhashable</em>, y no podrán usarse como llaves en diccionarios ni añadirse a <code class="docutils literal notranslate"><span class="pre">sets</span></code>.</p></li>
+</ol>
+</div>
+</section>
+<section id="representacion-en-cadena">
+<h3>Representación en cadena<a class="headerlink" href="#representacion-en-cadena" title="Link to this heading">#</a></h3>
+<p>Existen dos métodos para imprimir la representanción en cadena de un objeto los cuales se explican a continuación:</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Se debe definir al menos el método <code class="docutils literal notranslate"><span class="pre">__repr__()</span></code>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Al usar la función <code class="docutils literal notranslate"><span class="pre">print()</span></code> con un objeto automáticamente se llama al método <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> y si este método no existe entonces se llama a <code class="docutils literal notranslate"><span class="pre">__repr__()</span></code>. En caso de que tampoco exista entonces se imprime información sobre la clase y su ubicación en memoria.</p>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Ambos métodos deben de retornar <code class="docutils literal notranslate"><span class="pre">str</span></code>.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Método</p></th>
+<th class="head text-center"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__str__">__str__(self)</a></p></td>
+<td class="text-center"><p>Debe imprimir el objeto de una manera que sea amigable con el usuario. Debe ser una representación en cadena del objeto. Para invocarlo usar la función <code class="docutils literal notranslate"><span class="pre">str()</span></code> o <code class="docutils literal notranslate"><span class="pre">print()</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__repr__">__repr__(self)</a></p></td>
+<td class="text-center"><p>Debe de imprimir la manera tal cual de construir el objeto en cuestión (evaluando la expresión retornada debe retornar el mismo objeto). Está más orientada a desarrolladores. Para invocarlo usar la función <code class="docutils literal notranslate"><span class="pre">repr()</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<br>
+</section>
+</section>
+<hr class="docutils" />
+<section id="excepciones">
+<h2>Excepciones<a class="headerlink" href="#excepciones" title="Link to this heading">#</a></h2>
+<p>Las excepciones son clases, la mayoría de las excepciones heredan sus características de <code class="docutils literal notranslate"><span class="pre">Exception</span></code>. Es posible crear una excepción personaliza. Para ello se debe de crear una clase cuya clase padre sea <code class="docutils literal notranslate"><span class="pre">Exception</span></code>, aunque se podría usar otras excepciones como clase padre.</p>
+<p>Las excepciones personalizadas son útiles para personalizar el nombre de la excepción y de esta forma ser más explícitos respecto al error ocurrido cuando se muestre el <em>traceback</em>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definir clase</span>
+<span class="n">MyException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Lo más común es que la clase esté vacía.</p></li>
+<li><p>También es posible definir un constructor con el método <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> para definir un mensaje (una propiedad heredada de <code class="docutils literal notranslate"><span class="pre">Exception</span></code>): <br/> <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">__init__(self,</span> <span class="pre">message):</span></code> <br/><pre><code>       self.message = message</code></pre></p></li>
+<li><p>No estrictamente la clase padre tiene que ser <code class="docutils literal notranslate"><span class="pre">Exception</span></code>, puede ser cualquiera de sus subclases.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Para más información de las excepciones revisar <a class="reference internal" href="exceptions.html"><span class="doc">Excepciones</span></a>.</p>
+</div>
+<br/>
 </section>
 <hr class="docutils" />
 <section id="data-classes">
@@ -927,12 +1278,12 @@ document.write(`
 <span class="nd">@dataclass</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">repr</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">eq</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">unsafe_hash</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">frozen</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="k">class</span> <span class="nc">ClassName</span><span class="p">:</span>
 
-    <span class="c1"># Sintaxis para atributos de instancia:</span>
+    <span class="c1"># Sintaxis para atributos de instancia</span>
     <span class="n">attr1</span><span class="p">:</span> <span class="n">type1</span>
     <span class="n">attr2</span><span class="p">:</span> <span class="n">type2</span>
     <span class="o">...</span>
     
-    <span class="c1"># Sintaxis los métodos</span>
+    <span class="c1"># Sintaxis de los métodos</span>
     <span class="k">def</span> <span class="nf">method_name</span><span class="p">([</span><span class="n">params</span><span class="p">]):</span>
         <span class="c1"># Definición del método</span>
 
@@ -940,7 +1291,7 @@ document.write(`
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>Se pueden indicar atributos de clase e instancia. <code class="docutils literal notranslate"><span class="pre">type_i</span></code> son los tipos de datos  de los atributos.</p></li>
+<li><p>Se pueden indicar atributos de clase e instancia. <em>type_i</em> son los tipos de datos  de los atributos.</p></li>
 <li><p>Los métodos se definen de la misma manera que en las clases normales.</p></li>
 </ul>
 <br>
@@ -971,15 +1322,39 @@ document.write(`
 <br/>
 </section>
 <hr class="docutils" />
+<section id="buenas-practicas">
+<h2>Buenas prácticas<a class="headerlink" href="#buenas-practicas" title="Link to this heading">#</a></h2>
+<p>Al trabajar con clases es aconsejable seguir las siguientes recomendaciones:</p>
+<ol class="arabic simple">
+<li><p>Inicializar los atributos en el método <code class="docutils literal notranslate"><span class="pre">.__init__()</span></code>.</p></li>
+<li><p>Nombrar a la clase en <em>CamelCase</em> y a los atributos y métodos separados por guión bajo (<em>attibute_name</em> y <em>method_name</em>).</p></li>
+<li><p>Usar <em>docstring</em> para indicar qué hacen las clases y los métodos.</p></li>
+</ol>
+<br/>
+</section>
+<hr class="docutils" />
+<section id="metodos-utiles">
+<h2>Métodos útiles<a class="headerlink" href="#metodos-utiles" title="Link to this heading">#</a></h2>
+<p>Algunos métodos de clases que existen para todas las clases son:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ClassName.mro()</span></code>: Muestra el “method resolution order”, que en esencia es el orden en el que, las clases buscarán los metodos y atributos, es decir primero buscan dentro de la misma clase y después en las clases padres, si son más de una muestra en que orden se buscan.</p></li>
+</ul>
+<br/>
+</section>
+<hr class="docutils" />
 <section id="funciones-utiles">
 <h2>Funciones útiles<a class="headerlink" href="#funciones-utiles" title="Link to this heading">#</a></h2>
 <p>Algunas funciones útiles al trabajar con objetos y clases son:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">type()</span></code>: Retorna la clase a la que pertenece un objeto.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">dir()</span></code>: Elista todos los atributos y métodos de la clase de un objeto.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dir()</span></code>: Enlista todos los atributos y métodos de la clase de un objeto.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">isinstance()</span></code>: Verifica que un objeto pertenezca a una clase. Tener en cuenta que los objetos de las clases hijas, también son instancias de las clases padres.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">super()</span></code>: Determina la siguiente clase en el <em>MRO</em> de <code class="docutils literal notranslate"><span class="pre">type</span></code> y permite llamar a métodos de esa clase.</p></li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Para más información de estas funciones visitar la sección de funciones de <a class="reference internal" href="func-built-in.html#func-objetos-clases"><span class="std std-ref">Objetos y Clases</span></a>.</p>
+</div>
 <section id="uso-de-super">
 <h3>Uso de <em>super()</em><a class="headerlink" href="#uso-de-super" title="Link to this heading">#</a></h3>
 <p>En el siguiente ejemplo vemos cómo se puede usar la función <code class="docutils literal notranslate"><span class="pre">super()</span></code> para poder acceder a métodos de una clase padre.</p>
@@ -1025,16 +1400,7 @@ Area: 4
 </div>
 </div>
 </div>
-<br/>
 </section>
-</section>
-<hr class="docutils" />
-<section id="metodos-utiles">
-<h2>Métodos útiles<a class="headerlink" href="#metodos-utiles" title="Link to this heading">#</a></h2>
-<p>Algunos métodos de clases que existen para todas las clases son:</p>
-<ul class="simple">
-<li><p><em>ClassName</em><code class="docutils literal notranslate"><span class="pre">.mro()</span></code>: Muestra el “method resolution order”, que en esencia es el orden en el que, las clases buscarán los metodos y atributos, es decir primero buscan dentro de la misma clase y después en las clases padres, si son más de una muestra en que orden se buscan.</p></li>
-</ul>
 </section>
 </section>
 
@@ -1111,13 +1477,13 @@ Area: 4
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos">Atributos</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-instancias">Atributos de instancias</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-en-metodos">Atributos en métodos</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#recuperar-valores-de-atributos-de-instancia-dentro-de-la-clase">Recuperar valores de atributos de instancia dentro de la clase</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#acceder-a-valores-de-atributos-de-instancia-de-una-instancia">Acceder a valores de atributos de instancia de una instancia</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#acceder-los-atributos-de-instancia-dentro-de-la-clase">Acceder los atributos de instancia dentro de la clase</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#acceder-a-los-atributos-de-instancia-en-una-instancia">Acceder a los atributos de instancia en una instancia</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-clase">Atributos de clase</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#recuperar-valores-de-atributos-de-clase-dentro-de-la-clase">Recuperar valores de atributos de clase dentro de la clase</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#recuperar-valores-de-atributos-de-clase-de-una-instancia">Recuperar valores de atributos de clase de una instancia</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#acceder-a-atributos-de-clase-dentro-de-la-clase">Acceder a atributos de clase dentro de la clase</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#acceder-a-atributos-de-clase-en-una-instancia">Acceder a atributos de clase en una instancia</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#definir-atributos-de-clase-de-forma-dinamica">Definir atributos de clase de forma dinámica</a></li>
 </ul>
 </li>
@@ -1132,14 +1498,29 @@ Area: 4
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definir-metodos-de-manera-dinamica">Definir métodos de manera dinámica</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-clase">Métodos de clase</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-estaticos">Métodos estáticos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-y-metodos-privados">Atributos y Métodos privados</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#convenciones-de-nombres">Convenciones de nombres</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-restringidos-y-de-solo-lectura">Atributos restringidos y de solo lectura</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-especiales">Métodos especiales</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aritmeticos">Aritméticos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bitwise">Bitwise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacion">Comparación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hash">Hash</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#representacion-en-cadena">Representación en cadena</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#excepciones">Excepciones</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-classes">Data Classes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#buenas-practicas">Buenas prácticas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-utiles">Métodos útiles</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-utiles">Funciones útiles</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uso-de-super">Uso de <em>super()</em></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-utiles">Métodos útiles</a></li>
 </ul>
   </nav></div>
 

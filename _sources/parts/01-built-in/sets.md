@@ -19,7 +19,9 @@ Corresponde al tipo `set`. Son objetos iterables para almacener múltiples eleme
 - Es mutable: Se pueden modificar una vez creado el `set`. 
 - Es un iterable: Se puede iterar por sus elementos y se puede usar la palabra reservada `in` para verificar memebresía.
 
+:::{note}
 Para más información visitar la [documentación](https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset) de Python.
+:::
 
 <br/>
 
@@ -40,9 +42,11 @@ X = {x1, x2, ..., xn}
 # Convertir el iterable Y a un set
 X = set(Y)
 ```
-- Si `Y` tenía elementos repetidos, entonces solo se mantendrá una copia de ellos en `X`.
+- Si _y_ tenía elementos repetidos, entonces solo se mantendrá una copia de ellos en _x_.
 
+:::{note]
 Otra forma de crear un `set` es con {ref}`set-comp`.
+:::
 
 <br/>
 
@@ -58,22 +62,22 @@ No se puede extraer los elementos de un set. La única forma para acceder a los 
 
 Para agregar y eliminar elementos de un `set` usar los siguientes métodos:
 - Para agregar:
-  - Agregar un elemento al set usar el método `set.add()`.
-  - Concatenar sets usar el método `set.update()`.
+  - `set.add()`: Agregar un elemento al set.
+  - `set.update()`: Concatenar _sets_.
 
 - Para eliminar:
-  - Eliminar todos los elementos usar el método `set.clear()`.
-  - Eliminar un elemento específico usar el método `set.discard()`. 
-  - Eliminar y retornar un elemento específico usar el método `set.pop()`.
-  - Eliminar un elemento específico y retornar error si no existe usar el método `set.remove()`.
+  - `set.clear()`: Eliminar todos los elementos.
+  - `set.discard()`: Eliminar un elemento específico. 
+  - `set.pop()`: Eliminar y retornar un elemento específico.
+  - `set.remove()`: Eliminar un elemento específico y retornar error si no existe.
  
 ```{note}
-Para más información de esos métodos consultar la sección de {ref}`Metodos-Agregar <set-metodos-agregar>` y {ref}`Metodos-Eliminar <set-metodos-eliminar>`.
+Para más información de esos métodos consultar la sección de {ref}`Metodos agregar <set-metodos-agregar>` y {ref}`Metodos eliminar <set-metodos-eliminar>`.
 ```
 
 Para eliminar todo el `set` (no solo sus elementos) se puede usar la palabra reservada `del`:
 ```python
-# Si X es un set
+# Eliminar el set X
 del X
 ```
 
@@ -83,7 +87,7 @@ del X
 ## Verificar que un elemento exista en un set
 Para verificar si un elemento está dentro de un `set` usar el operador de membresía `in`:
 ```python
-# Si X es un set
+# Verificar la membresia de x en X
 x in X
 ```
 - Alternativamente se puede usar `not in`.
@@ -94,34 +98,37 @@ x in X
 (iteracion-sets)=
 ## Iteración en sets
 
-Para interar sobre todos los elementos de una `set` se puede usar un `for loop`. 
+Para iterar sobre todos los elementos de un `set` se puede usar un `for loop`. 
 ```python
 # Iterar sobre los elementos del set X:
 for ele in X:
     ...
 ```
 
-```{caution} Como los sets no están indexados el orden en el que aparecen los elementos puede diferir si se itera un mismo set varias veces.
+```{caution} Como los sets no están indexados el orden en el que aparecen los elementos puede diferir si se itera un mismo _set_ varias veces.
 ```
 
 <br/>
 
 ---
+(set-operaciones-conjuntos)=
 ## Operaciones entre conjuntos
 
 Los `set` básicamente son la representación de un conjunto matemático en Python, es decir, una colección de elementos únicos. Por ello se puede realizar operaciones entre sets de la misma manera como se hacen operaciones entre conjuntos. A continuación se enlistan las operaciones disponibles:
-- **Unión**: Para determinar la unión de dos sets se usa el operador `|`: <br> `X|Y`
-- **Intersección**: Para determinar la intersección (elementos en común) de dos sets se usa el operador `&`: <br> `X&Y`.
-- **Diferencia**: Para determinar la diferencia de dos sets (elementos en `X` pero no en `Y`) se usa el operador `-`: <br> `X-Y`.
-- **Diferencia simétrica**: Para determinar la diferencia simétrica de dos sets (elementos en `X` o `Y`, pero no en ambos) se usa el operador `^`: <br> `X^Y`.
+- **Unión**: Para determinar la unión de dos sets se usa el operador `|`: <br> _x|y_
+- **Intersección**: Para determinar la intersección (elementos en común) de dos sets se usa el operador `&`: <br> _x&y_.
+- **Diferencia**: Para determinar la diferencia de dos sets (elementos en _x_ pero no en _y_) se usa el operador `-`: <br> _x-y_.
+- **Diferencia simétrica**: Para determinar la diferencia simétrica de dos sets (elementos en _x_ o _y_, pero no en ambos) se usa el operador `^`: <br> _x^y_.
 - **Subconjunto propio**: Para determinar si un set es un subcojunto propio se puede usar los operadores `<` o `>`:
-    - `X<Y`: Verificar si `X` está contenido en `Y`.
-    - `X>Y`: Verificar si `Y` está contenido en `X`.
+    - _x<y_: Verificar si _x_ está contenido en _y_.
+    - _x>y_: Verificar si _y_ está contenido en _x_.
 - **Subconjunto**: Para determinar si un set es un subcojunto se puede usar los operadores `<=` o `>=`:
-    - `X<=Y`: Verificar si `X` está contenido o es igual a `Y`.
-    - `X>=Y`: Verificar si `Y` está contenido o es igual a `X`.
+    - _x<=y_: Verificar si _x_ está contenido o es igual a _y_.
+    - _x>=y_: Verificar si _y_ está contenido o es igual a _x_.
 
+:::{note}
 Todos estos operadores tienen sus métodos equivalente los cuales se pueden encontrar en {ref}`Operaciones <set-metodos-operaciones>` y {ref}`Operaciones in-place <set-metodos-informacion>`.
+:::
 
 <br/>
 
@@ -137,7 +144,7 @@ donde:
 - _collection_ es cualquier `iterable`
 - _expression_ es cualquier expresión cuya evaluación retorne un objeto.
 
-Los sets comprehension pueden tener condicionales, tanto en la parte de _expression_ como en la parte de _collection_, de manera que solo a cierto elementos se les aplique el código o de que dependiendo del resultado de _expression_ se ponga un valor u otro. Sintaxis:
+Los sets comprehension pueden tener condicionales, tanto en la parte de _expression_ como en la parte de _collection_, de manera que solo a ciertos en elementos se evalúe la expresión o de que dependiendo del resultado de _expression_ se ponga un valor u otro. Sintaxis:
 
 **En el iterable**: En este caso _expression_ solo se evalua si los elementos de _collection_ cumplen una condición.
 ```python
@@ -145,7 +152,7 @@ Los sets comprehension pueden tener condicionales, tanto en la parte de _express
 X = {expression for i in collection if condition}
 ```
 
-**En _expression_**: En este caso el elemento de `X` dependerá del resultado de _condition_.
+**En _expression_**: En este caso el elemento de _x_ dependerá del resultado de _condition_.
 ```python
 # set comprehension con condicional en expression
 X = {val_true if condition else val_false for i in collection}
@@ -158,7 +165,7 @@ X = {val_true if condition else val_false for i in collection}
 
 En esta sección se enlistan los métodos del tipo `set` por categorias. 
 
-Tener en cuenta que los métodos generalmente se aplican sobre un objeto de tipo `set`, por ejemplo, si `X` es `set`, entonces se utiliza <code>X.<i>method_name</i></code>. Sin embargo es posible usar el `set` como argumento de <code>set.<i>method_name</i></code>. Por ejemplo.
+Tener en cuenta que los métodos generalmente se aplican sobre un objeto de tipo `set`, por ejemplo, si _x_ es `set`, entonces se utiliza <code>X.<i>method_name</i></code>. Sin embargo es posible usar el `set` como argumento de <code>set.<i>method_name</i></code>. Por ejemplo.
 
 ```{code-cell} ipython3
 # Definir el set
@@ -218,11 +225,11 @@ Métodos para eliminar elementos de un `set`.
 * - [clear](https://docs.python.org/3/library/stdtypes.html#frozenset.clear)()
   - Remueve todos los elementos del `set`.
 * - [discard](https://docs.python.org/3/library/stdtypes.html#frozenset.discard)(elem)
-  - Elimina el elemento `elem` del `set` si está presente. La operación se realiza "_in-place_".
+  - Elimina el elemento _elem_ del `set` si está presente. La operación se realiza "_in-place_".
 * - [pop](https://docs.python.org/3/library/stdtypes.html#frozenset.pop)()
   - Elimina y devuelve un elemento arbitrario del conjunto. Retorna `KeyError` si el conjunto está vacío. La operación se realiza "_in-place_".
 * - [remove](https://docs.python.org/3/library/stdtypes.html#frozenset.remove)(elem)
-  - Elimina el elemento `elem` del conjunto. Genera `KeyError` si `elem` no está en el conjunto. La operación se realiza "_in-place_".
+  - Elimina el elemento _elem_ del conjunto. Genera `KeyError` si _elem_ no está en el conjunto. La operación se realiza "_in-place_".
 ```
 
 <br/>
@@ -238,11 +245,11 @@ Métodos para recuperar información sobre el `set` en relación con otros objet
 * - Método
   - Descripción
 * - [isdisjoint](https://docs.python.org/3/library/stdtypes.html#frozenset.isdisjoint)(other)
-  - Devuelve `True` si el conjunto no tiene elementos en común con `other`. Los conjuntos son disjuntos si y sólo si su intersección es el conjunto vacío.
+  - Devuelve `True` si el conjunto no tiene elementos en común con _other_. Los conjuntos son disjuntos si y sólo si su intersección es el conjunto vacío.
 * - [issubset](https://docs.python.org/3/library/stdtypes.html#frozenset.issubset)(other)
-  - Retorna `True` si cada elemento del conjunto está en `other`. Equivale al operador `<`.
+  - Retorna `True` si cada elemento del conjunto está en _other_. Equivale al operador `<`.
 * - [issuperset](https://docs.python.org/3/library/stdtypes.html#frozenset.issuperset)(other)
-  - Retorna `True` si cada elemento en `other` está en el conjunto. Equivale al operador `>`.
+  - Retorna `True` si cada elemento en _other_ está en el conjunto. Equivale al operador `>`.
 ```
 
 <br/>
@@ -261,11 +268,11 @@ Métodos para realizar operaciones entre conjuntos y que retornan un nuevo `set`
 * - [difference](https://docs.python.org/3/library/stdtypes.html#frozenset.difference)(*others)
   - Devuelve un nuevo conjunto con elementos que están en el conjunto que no están en los demás. Equivale a usar el operador `-`.
 * - [intersection](https://docs.python.org/3/library/stdtypes.html#frozenset.intersection)(*others)
-  - Devuelve un nuevo conjunto con elementos comunes al conjunto y `*others`. Equivale a usar el operador `&`.
+  - Devuelve un nuevo conjunto con elementos comunes al conjunto y _*others_. Equivale a usar el operador `&`.
 * - [symmetric_difference](https://docs.python.org/3/library/stdtypes.html#frozenset.symmetric_difference)(other)
-  - Devuelve un nuevo conjunto con elementos en el conjunto o en `other` pero no en ambos. Equivale a usar el operador `^`.
+  - Devuelve un nuevo conjunto con elementos en el conjunto o en _other_ pero no en ambos. Equivale a usar el operador `^`.
 * - [union](https://docs.python.org/3/library/stdtypes.html#frozenset.union)(*others)
-  - Devuelve un nuevo conjunto con elementos del conjunto y `*others`. Equivale a usar el operador `|`.
+  - Devuelve un nuevo conjunto con elementos del conjunto y _*others_. Equivale a usar el operador `|`.
 ```
 
 <br/>
@@ -287,7 +294,7 @@ Métodos para realizar operaciones entre conjuntos y que actualizan un `set` en 
 * - [symmetric_difference_update](https://docs.python.org/3/library/stdtypes.html#frozenset.symmetric_difference_update)(other)
   - Actualiza el `set`, conservando solo los elementos que se encuentran en cualquiera de los conjuntos, pero no en ambos. Equivale a usar el operador `^=`.
 * - [update](https://docs.python.org/3/library/stdtypes.html#frozenset.update)(*others)
-  - Actualiza un `set` con los elementos de `*others`. Equivale a usar el operador `|=`.
+  - Actualiza un `set` con los elementos de _*others_. Equivale a usar el operador `|=`.
 ```
 
 <br/>

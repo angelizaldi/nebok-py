@@ -12,15 +12,24 @@ kernelspec:
 
 # Series
 
-`Series` es una clase de `pandas` que representa un array unidimensional con etiquetas para identificar a cada elemento, todos los elementos del series deben de ser del mismo tipo. Los `Series` tiene dos tipos de índices:
+`Series` es una clase de `pandas` que representa un array unidimensional con etiquetas para identificar a cada elemento. Los `Series` tiene dos tipos de índices:
 - **índice implícito**: Es un índice númerico, que comienza desde cero, similiar a los índices de las secuencias.
-- **índice explícito**: Es el objeto `Index` asociado, que puede tener etiquetas`int` o `str`.
+- **índice explícito**: Es el objeto `Index` asociado, que puede tener etiquetas `int` o `str`.
+
+Algunas características de los `Series` son:
+- Los `Series` se podrían considerar como secuencias.
+- Sirven para almacenar múltiples valores de diferentes tipos en un un solo objeto. 
+- Es mutable: Sus elementos se pueden modificar.
+- Está indexado: Cada elemento está asociado con un índice y por lo tanto sus elementos están ordenados. Además sus elementos también se pueden identificar por medio de una etiqueta.
+- Es un iterable: Se puede iterar por sus elementos y se puede usar la palabra reservada `in` para verificar memebresía, pero la verificación se hará sobre el índice y no sobre los valores.
+- Un mismo valor puede existir múltiples veces en un `Series`.
+- Se puede apilar con otros `Series`.
 
 <br/>
 
 ---
 (pandas-series-creacion)=
-## Creación de `Series`
+## Creación de _Series_
 
 La forma más sencilla de crear un objeto `Series` es con el constructor.
 
@@ -36,19 +45,18 @@ La forma más sencilla de crear un objeto `Series` es con el constructor.
 - _data_: Es un objeto que contiene los datos, se puede definir de diversas formas:
     - `array-like`, `iterable`: Un arreglo o una lista unidimensional con los datos.
     - `dict`: Un diccionario cuyos _keys_ serán los índices de los elementos y cuyos _values_ serán los elementos del `Series`.
-    - `scalar`: Si se pasa un `scalar` y de define _index_, entonces todos los elementos serán el escalar con la misma longitud que _index_.
+    - `scalar`: Si se pasa un `scalar` y se define _index_, entonces todos los elementos serán el escalar, y el `Series` tendrá la misma longitud que _index_.
 - _index_: Es un `array-like` o un objeto `Index` con los índices del `Series`. Normalmente debe ser de la misma longitud que _data_. En caso de que _data_ sea `dict`, _index_ se puede usar para generar el `Series` con solo determinados índices-elementos, excluyendo los que no definan en este parámetro.
 
-**Ejemplo**
-A continuación se crea un objeto `Series` cuyos valores son los cuadrados de los números del 1 al 5 y cuyo índice explícito son los nombres de los número del 0 al 4. Además el `Series` llevará por nombre _cuadrados_.
+**Ejemplo**: A continuación se crea un objeto `Series` cuyos valores son los cuadrados de los números del 1 al 5 y cuyo índice explícito son los nombres de los número del 1 al 5. Además el `Series` llevará por nombre _cuadrados_.
 
 ```{code-cell} ipython3
 # Importar librería
 import pandas as pd
 
 # Crear Series
-s = pd.Series(data=[i**2 for i in range(1, 6)], 
-              index = ['uno', 'dos', 'tres', 'cuatro', 'cinco'], 
+s=pd.Series(data=[i**2 for i in range(1, 6)], 
+              index=['uno', 'dos', 'tres', 'cuatro', 'cinco'], 
               name="cuadrados")
 
 # Imprimir el objeto
@@ -58,31 +66,36 @@ print(s)
 <br/>
 
 ---
+(pandas-series-seleccion-elementos)=
 ## Selección de elementos
 
-Existen diversos métodos para seleccionar elementos en un Series. Aquí se explicarán los más comunes. Todos los ejemplos de esta sección utilizará el `Series` definido en [la sección anterior](pandas-series-creacion):
+Existen diversos métodos para seleccionar elementos en un `Series`. Aquí se explicarán los más comunes. Todos los ejemplos de esta sección utilizará el `Series` definido en [la sección anterior](pandas-series-creacion).
 
 ### Notación con corchetes
 
-Todas las estrategias para seleccionar elementos que aplican para `ndarray` de `numpy` funcionan también con `Series` la principal diferencia es que en el caso del `Series` se deben usar índices explícitos. **Importante**: El uso de los índices implícitos con esta notación está desaconsejado, para ello se recomienda usar el método `.iloc[]`.
-    
-- **Indexing**: Útil para seleccionar elementos específicos. Se utilizan corchetes `[]` para acceder a la fila, junto con el nombre del `Series` y el índice explícito del elemento
-    - **Una fila específica** - `scalar`: Retorna el elemento en la etiqueta _'label'_: <br/> `X['label']`
+Todas las estrategias para {ref}`seleccionar elementos <numpy-arrays-seleccion>` que aplican para `ndarray` de `numpy` funcionan también con `Series` la principal diferencia es que en el caso del `Series` se deben usar índices explícitos. 
+
+:::{caution}
+El uso de los índices implícitos con esta notación está desaconsejado, para ello se recomienda usar el método {ref}`iloc <pd-series-seleccion-iloc>`.
+:::
+
+- **Indexing**: Útil para seleccionar elementos específicos. Se utilizan corchetes `[]` para acceder al elemento, junto con el nombre del `Series` y el índice explícito del elemento
+    - **Un elemento específico** - `object`: Retorna el elemento en la etiqueta _'label'_: <br/> `X['label']`
 
 <br/>
 
-- **Slicing**: Útil para seleccionar _slices_ utilizando `start:stop:step`. Ambos extremos son inclusivos.
-    - **Slices de filas** - `Series`: Retorna _slices_ de filas, entre las filas con etiquetas _'indi'_ y _'indj'_: <br/> `X.['indi':'indj']` <br/> `X['indi':'indj':step]`
+- **Slicing**: Útil para seleccionar _slices_ utilizando la notación `start:stop:step`. Ambos extremos son inclusivos.
+    - **Slices de filas** - `Series`: Retorna _slices_ de filas, entre las filas con etiquetas _'labeli'_ y _'labelj'_: <br/> `X['labeli':'labelj']` <br/> `X['labeli':'labelj':step]`
 
 <br/>
 
-- **Fancy indexing**: Útil para seleccionar un conjunto de filas por medio de una secuencia los índices explícitos a seleccionar. Los índices se pueden poner en culquier orden e incluso se puedo poner más de una vez: <br/> `X[[labeli, labelj, ...]]` 
-    - **Conjunto de filas** - `Series`: Retorna las filas en las etiquetas indicadas: <br/> `X.[['ind1', 'ind2', ...]]`
+- **Fancy indexing**: Útil para seleccionar un conjunto de filas por medio de una secuencia con los índices explícitos a seleccionar. Los índices se pueden poner en cualquier orden e incluso se puedo poner más de una vez el mismo índice:
+    - **Conjunto de filas** - `Series`: Retorna las filas con las etiquetas indicadas: <br/> `X[['labeli', 'labelj', ...]]`
 
 <br/>
 
-- **Boolean masking**: Útil para seleccionar filas con base a _masks_. **Importante**: Asegurarse que el tamaño del _mask_ coincide con el tamaño del eje donde se va a aplicar.
-    - **Mask en filas** - `Series`: Retorna los elementos que satisfacen el _mask_: <br/> `X.[row_mask, col_mask]`
+- **Boolean masking**: Útil para seleccionar filas con base a _masks_. **Importante**: Asegurarse que el tamaño del _mask_ coincide con el tamaño del `Series`.
+    - **Mask en filas** - `Series`: Retorna los elementos que satisfacen el _mask_: <br/> `X[row_mask]`
 
 :::{tip}
 Se pueden usar los operadores {ref}`built-in-operadores-bitwise` para crear mask más complejos: <br/> `X[(mask1) & (mask2)] # Ejemplo con '&'`
@@ -95,7 +108,7 @@ Se pueden usar los operadores {ref}`built-in-operadores-bitwise` para crear mask
 **Ejemplos**: A continuación se ejemplifica la selección de elementos con las diversas estategias en notación con conchetes en un `Series`.
 
 ```{code-cell} ipython3
-# Subsetting: Seleccionar 2 elemento ->
+# Subsetting: Seleccionar 2 elemento -> 4
 print(s['dos'], end="\n"*2)
 
 # Slicing: Seleccionar elementos del 2 al 4 -> 4, 9, 16
@@ -111,24 +124,25 @@ print(s[s%2==0])
 <br/>
 
 ---
-### Usando método `.loc[]`
+### Usando método _.loc[]_
 
 El método `.loc[]` es útil para seleccionar elementos con base al **índice explícito**.
 
 - **Indexing**: Útil para seleccionar elementos específicos.
-	- **Elemento específico** - `scalar`: Retorna el elemento en la etiqueta _'ind'_: <br/> `X.loc['ind']`
-
+	- **Elemento específico** - `object`: Retorna el elemento en la etiqueta _'label'_: <br/> `X.loc['label']`
+<br/>
 - **Slicing**: Útil para seleccionar _slices_ utilizando `start:stop:step`. Ambos extremos son inclusivos.
-    - **Slices de filas** - `Series`: Retorna _slices_ de filas, entre las filas con etiquetas _'indi'_ y _'indj'_: <br/> `X.loc['indi':'indj']` <br/> `X.loc['indi':'indj':step]`
-
-- **Fancy indexing**: Útil para seleccionar un conjunto de filas específicas. Las etiquetas de fila se pueden poner en culquier orden e incluso se puedo poner más de una vez.
-    - **Conjunto de filas** - `Series`: Retorna las filas en las etiquetas indicadas: <br/> `X.loc[['ind1', 'ind2', ...]]`
-
-- **Boolean masking** - `Series`: Retorna las filas que satisfacen el _mask_. **Importante**: Asegurarse que el tamaño del _mask_ coincide con el tamaño del `Series`: <br/> `X.loc[mask]`
+    - **Slices de filas** - `Series`: Retorna _slices_ de filas, entre las filas con etiquetas _'labeli'_ y _'labelj'_: <br/> `X.loc['labeli':'labelj']` <br/> `X.loc['labeli':'labelj':step]`
+<br/>
+- **Fancy indexing**: Útil para seleccionar un conjunto de filas específicas. Las etiquetas de fila se pueden poner en cualquier orden e incluso se puedo poner más de una vez.
+    - **Conjunto de filas** - `Series`: Retorna las filas en las etiquetas indicadas: <br/> `X.loc[['label1', 'label2', ...]]`
+<br/>
+- **Boolean masking** - `Series`: Retorna las filas que satisfacen el _mask_. **Importante**: Asegurarse que el tamaño del _mask_ coincide con el tamaño del `Series`:
+  - **Mask en filas** - `Series`: Retorna los elementos que satisfacen el _mask_: <br/> `X.loc[mask]`
 
 :::{tip}
-Se pueden usar los operadores {ref}`built-in-operadores-bitwise` para crear mask más complejos: <br/> `X[(mask1) & (mask2)] # Ejemplo con '&'`
-- Notar que cada mask se pone entre paréntesis.
+Se pueden usar los operadores {ref}`built-in-operadores-bitwise` para crear _masks_ más complejos: <br/> `X.loc[(mask1) & (mask2)] # Ejemplo con '&'`
+- Notar que cada _mask_ se pone entre paréntesis.
 - **No usar** los operadores lógicos para conformar _masks_ más complicados.
 :::
 
@@ -153,26 +167,57 @@ print(s.loc[s%2==0], end="\n"*2)
 <br/>
 
 ---
-### Usando método `.iloc[]`
+(pd-series-seleccion-iloc)=
+### Usando método _.iloc[]_
 
-El método `.iloc[]` es útil para seleccionar elementos con base al **índice explícito**.
+El método `.iloc[]` es útil para seleccionar elementos con base al **índice implícito**.
 
 - **Indexing**: Útil para seleccionar elementos específicos.
-	- **Elemento específico** - `scalar`: Retorna el elemento en índice _i_: <br/> `X.loc[i]`
+	- **Elemento específico** - `object`: Retorna el elemento en el índice _i_: <br/> `X.iloc[i]`
 
 <br/>
 
 - **Slicing**: Útil para seleccionar _slices_ utilizando `start:stop:step`. En este caso no se incluye al elemento en el índice `stop`, es decir, es exclusivo.
-    - **Slices de filas** - `Series`: Retorna _slices_ de filas, entre las filas con índices _start_ y _stop_: <br/> `X.loc[start:stop]` <br/> `X.loc[start:stop:step]`
+    - **Slices de filas** - `Series`: Retorna _slices_ de filas, entre las filas con índices _start_ y _stop_: <br/> `X.iloc[start:stop]` <br/> `X.iloc[start:stop:step]`
 
 <br/>
 
-- **Fancy indexing**: Útil para seleccionar combinaciones de filas específicas. Los índices se pueden poner en culquier orden e incluso se puedo poner más de una vez.
-    - **Combinación de filas** - `Series`: Retorna las filas en las etiquetas indicadas: <br/> `X.loc[[i, j, ...]]`
+- **Fancy indexing**: Útil para seleccionar un conjunto de filas específicas. Los índices se pueden poner en culquier orden e incluso se puedo poner más de una vez.
+    - **Combinación de filas** - `Series`: Retorna las filas en los índices indicados: <br/> `X.iloc[[i, j, ...]]`
 
 <br/>
 
 - **Boolean masking**: No se puede hacer _boolean masking_ con este método.
+
+<br/>
+
+**Ejemplos**: A continuación se ejemplifica la selección de elementos con las diversas estategias con el método `.iloc[]` en un `Series`.
+
+```{code-cell} ipython3
+# Subsetting: Seleccionar 2do elemento -> 4
+print(s.iloc[1], end="\n"*2)
+
+# Slicing: Seleccionar elementos del 2 al 4 -> 4, 9, 16
+print(s.iloc[1:4], end="\n"*2)
+
+# Fancy indexing: Seleccionar elementos 4 y 2 -> 16, 4
+print(s.iloc[[3, 1]], end="\n"*2)
+```
+
+<br/><br/>
+
+---
+## Exploración básica
+
+Para explorar el contenido de un `Series` se puede hacer uso de varios métodos.
+
+- `.describe()`: Genera estadísticas del contenido del `Series`.
+- `.head(n=5)`: Imprime las primeras _n_ filas del `Series`.
+- `.tail(n=5)`: Imprime las útlimas _n_ filas del `Series`.
+
+:::{note}
+Existen varios atributos que retornan información relevante, para más información visitar {ref}`pd-series-atributtes`.
+:::
 
 <br/><br/>
 
@@ -182,10 +227,14 @@ El método `.iloc[]` es útil para seleccionar elementos con base al **índice e
 Para verificar si una etiqueta existe en un `Series` usar el operador de membresía `in`:
 ```python
 # Si X es un Series
-x in X
+'label' in X
 ```
 - La expresión anterior retornará un valor `bool`.
 - Alternativamente se puede usar `not in`.
+
+:::{note}
+Para verificar que un valor existe en un `Series` se puede usar el método `.isin()` o se puede convertir el `Series` a otro tipo como unas lista o un `set` y utilizar el operador `in`.
+:::
 
 <br>
 
@@ -195,15 +244,19 @@ x in X
 Para agregar un elemento a un `Series` se puede simplmente crear una nueva etiqueta y asignarle un valor:
 ```python
 # Agregar elemento
-X['label'] = val
+X['label']=val
 ```
+
+:::{note}
+Alternativamente se pueden aplicar {ref}`pd-series-union-apilacion` para añadir nuevos elementos a un `Series` utilizando otros objectos.
+:::
 
 <br>
 
 ---
 ## Modificar elementos
 
-Se pueden acceder a determinados elementos con cualquier método de selección de elementos y asignarle un nuevo valor.
+Se pueden acceder a determinados elementos con cualquier método de {ref}`pandas-series-seleccion-elementos` y asignarle un nuevo valor.
 
 :::{warning}
 Al asignar elementos asegurarse que los tipos coincidan con el tipo del `Series` o al menos que sea posible forzar la conversión.
@@ -211,22 +264,49 @@ Al asignar elementos asegurarse que los tipos coincidan con el tipo del `Series`
 
 ```python
 # Modificar elementos específicos
-s.loc['ind'] = val	
-s.iloc[i] = val
+s.loc['label']=val	
+s.iloc[i]=val
 
 # Múltiples valores con mismo valor (ejemplo con slicing)
-s.loc['indi':'indj'] = val
+s.loc['labeli':'labelj']=val
 
 # Múltiples valores con diferentes valores (ejemplo con slicing)
-df.loc['indi':'indj'] = [vali, ..., valj]
+df.loc['labeli':'labelj']=[vali, ..., valj]
 ```
 **Notas**:
 - **Un elemento específico**: Seleccionar el elemento por cualquier estrategia de selección y asigarle un nuevo valor.
-- **Múltiples elementos con un mismo valor**: Seleccionar los elementos por cualquier estrategia de selección y asignarles un `scalar`.
+- **Múltiples elementos con un mismo valor**: Seleccionar los elementos por cualquier estrategia de selección y asignarles un `object`.
 - **Múltiples elementos con valores diferentes**: Seleccionar los elementos por cualquier estrategia de selección y asignarles un `array-like` del mismo _shape_ que el objeto retornado por la selección.
 
 <br/>
 
+---
+## Iteración
+
+Se puede iterar directamente por los valores de un `Series` con un `for loop` o usar el método `.items` para iterar sobre las etiquetas del índice y los valores al mismo tiempo:
+
+```python
+# Iteración en el Series X
+for val in X:
+    # for body
+
+# Iteración de etqieutas y valores en el Series X
+for ind, val in X.items():
+    # for body
+```
+- _val_ tendrá en cada iteración los valores del `Series`.
+- _ind_ tendrá en cada iteración las etiquetas del índice del `Series`.
+
+:::{note}
+Para más opciones de iteración o más información revisar los métodos en la sección de {ref}`pd-series-metodos-seleccion-filtrado-iteracion`, particularmente los métodos:
+- `.__iter__`: Retorna `iterator` de los valores del `Series`.
+- `.items`: Retorna un `iterable` de tuplas _(index, value)_.
+:::
+
+<br/>
+
+---
+(pd-series-union-apilacion)=
 ## Uniones y apilaciones
 
 Para unir objetos de pandas, ya sea apilando los objetos o en una operación similar a un _join_ de SQL, revisar los siguientes funciones de `pandas`:
@@ -240,6 +320,7 @@ Para más información vistar {ref}`Funciones de uniones y apilaciones <pandas-f
 <br/>
 
 ---
+(pd-series-atributtes)=
 ## Atributos
 
 Atributos del objeto `Series`. 
@@ -284,7 +365,7 @@ Atributos del objeto `Series`.
 
 ### Conversión y copias
 
-Métodos para convertir el objeto `Series` a algún otro tipo. 
+Métodos para convertir el objeto `Series` a algún otro tipo o crear un copia del objeto. 
 
 ```{list-table}
 :header-rows: 1
@@ -325,6 +406,8 @@ Métodos para exportar el `Series` en un formato específico o serializar el mis
 ```{list-table}
 :header-rows: 1
 
+* - Método
+  - Descripción
 * - [Series.to_clipboard](https://pandas.pydata.org/docs/reference/api/pandas.Series.to_clipboard.html)(*[, excel, sep])
   - Copia el objeto al portapapeles del sistema.
 * - [Series.to_csv](https://pandas.pydata.org/docs/reference/api/pandas.Series.to_csv.html)([path_or_buf, sep, na_rep, ...])
@@ -340,9 +423,9 @@ Métodos para exportar el `Series` en un formato específico o serializar el mis
 * - [Series.to_json](https://pandas.pydata.org/docs/reference/api/pandas.Series.to_json.html)([path_or_buf, orient, ...])
   - Escribe el objeto en una cadena _JSON_.
 * - [Series.to_latex](https://pandas.pydata.org/docs/reference/api/pandas.Series.to_latex.html)([buf, columns, header, ...])
-  - Escribe el objeto en una tabla tabular de LaTeX.
+  - Escribe el objeto en una tabla tabular de _LaTeX_.
 * - [Series.to_markdown](https://pandas.pydata.org/docs/reference/api/pandas.Series.to_markdown.html)([buf, mode, index, ...])
-  - Escribe el `Series` en formato compatible con Markdown.
+  - Escribe el `Series` en formato compatible con _Markdown.
 * - [Series.to_pickle](https://pandas.pydata.org/docs/reference/api/pandas.Series.to_pickle.html)(path, *[, compression, ...])
   - Serializa el objeto en un _pickle_.
 * - [Series.to_sql](https://pandas.pydata.org/docs/reference/api/pandas.Series.to_sql.html)(name, con, *[, schema, ...])
@@ -353,15 +436,31 @@ Métodos para exportar el `Series` en un formato específico o serializar el mis
   - Retorna un objeto _xarray_ del objeto pandas.
 ```
 
+Patrones útiles:
+```python
+# Exportar a excel
+s.to_excel(excel_writer='path/to/file.xls', sheet_name='sheet_name'[,startrow, startcol])
+
+# Exportar a múltiples hojas
+
+```
+
 <br/>
 
----
+
 ### Cálculos y operadores
 
 Métodos para realizar cálculos con el `Series` o métodos equivalentes a operadores de Python. 
 
 
 #### Aggregates
+
+Métodos para calcular _aggregates_, en esencia calculan un único número de resumen para todo el `Series`. En esta categoría se enlistan todos los métodos que cumplen esa descripción, pero los mismos métodos se podrán encontrar en otras categorías.
+
+:::{note}
+Estos métodos ignoran valores `NA`/`NaN`, a menos de que se indique lo contrario.
+:::
+
 
 ```{list-table}
 :header-rows: 1
@@ -373,22 +472,51 @@ Métodos para realizar cálculos con el `Series` o métodos equivalentes a opera
   - Calcula _aggregates_ usando una o más operaciones.
 * - [Series.aggregate](http://pandas.pydata.org/docs/reference/api/pandas.Series.aggregate.html)([func, axis])
   - Calcula _aggregates_ usando una o más operaciones.
+* - [Series.all](http://pandas.pydata.org/docs/reference/api/pandas.Series.all.html)([axis, bool_only, skipna])
+  - Retorna `True` si todos los valores son `True` en el  `Series`.
+* - [Series.any](http://pandas.pydata.org/docs/reference/api/pandas.Series.any.html)(*[, axis, bool_only, skipna])
+  - Retorna `True` si hay al menos un valor `True` en el  `Series`.
+* - [Series.corr](http://pandas.pydata.org/docs/reference/api/pandas.Series.corr.html)(other[, method, min_periods])
+  - Calcula la correlación con _other_, excluye los valores perdidos.
+* - [Series.count](http://pandas.pydata.org/docs/reference/api/pandas.Series.count.html)()
+  - Retorna el número de observaciones no nulas en el `Series`.
+* - [Series.cov](http://pandas.pydata.org/docs/reference/api/pandas.Series.cov.html)(other[, min_periods, ddof])
+  - Calcula la covarianza con _other_, excluye los valores perdidos.
+* - [Series.kurt](http://pandas.pydata.org/docs/reference/api/pandas.Series.kurt.html)([axis, skipna, numeric_only])
+  - Retorna la curtosis de los datos.
+* - [Series.kurtosis](http://pandas.pydata.org/docs/reference/api/pandas.Series.kurtosis.html)([axis, skipna, numeric_only])
+  - Retorna la curtosis de los datos.
+* - [Series.mean](http://pandas.pydata.org/docs/reference/api/pandas.Series.mean.html)([axis, skipna, numeric_only])
+  - Retorna la media aritmética de los valores.
+* - [Series.median](http://pandas.pydata.org/docs/reference/api/pandas.Series.median.html)([axis, skipna, numeric_only])
+  - Retorna la mediana de los valores.
+* - [Series.mode](http://pandas.pydata.org/docs/reference/api/pandas.Series.mode.html)([dropna])
+  - Retorna la moda de los valores.
 * - [Series.prod](http://pandas.pydata.org/docs/reference/api/pandas.Series.prod.html)([axis, skipna, numeric_only, ...])
   - Retorna el producto de los valores.
 * - [Series.product](http://pandas.pydata.org/docs/reference/api/pandas.Series.product.html)([axis, skipna, numeric_only, ...])
   - Retorna el producto de los valores.
+* - [Series.sem](http://pandas.pydata.org/docs/reference/api/pandas.Series.sem.html)([axis, skipna, ddof, numeric_only])
+  - Retorna el error estándar de la media de los valores.
+* - [Series.skew](http://pandas.pydata.org/docs/reference/api/pandas.Series.skew.html)([axis, skipna, numeric_only])
+  - Retorna el sesgo de los valores.
+* - [Series.std](http://pandas.pydata.org/docs/reference/api/pandas.Series.std.html)([axis, skipna, ddof, numeric_only])
+  - Retorna la desviación estándar de la muestra de los valores.
 * - [Series.sum](http://pandas.pydata.org/docs/reference/api/pandas.Series.sum.html)([axis, skipna, numeric_only, ...])
   - Retorna la suma de los valores.
+* - [Series.var](http://pandas.pydata.org/docs/reference/api/pandas.Series.var.html)([axis, skipna, ddof, numeric_only])
+  - Retorna la varianza de los valores.
 ```
-
-:::{caution}
-Para funciones como `.mean()`, `.std()`, etc. consultar los métodos {ref}`Estadísticas <series-metodos-estadisticas>`.
-:::
 
 <br/>
 
 #### Booleanos
 
+Métodos para trabajar con `Series` que contienen valores `bool`.
+
+:::{note}
+Estos métodos ignoran valores `NA`/`NaN`, a menos de que se indique lo contrario.
+:::
 
 ```{list-table}
 :header-rows: 1
@@ -405,6 +533,11 @@ Para funciones como `.mean()`, `.std()`, etc. consultar los métodos {ref}`Estad
 
 #### Cálculos acumulados, diferencias, cambios porcentuales y rank
 
+Métodos para calcular productos o sumas acumuladas, también cálculo de diferencias y cambios porcentuales con desfases y rankings.
+
+:::{note}
+Estos métodos ignoran valores `NA`/`NaN`, a menos de que se indique lo contrario.
+:::
 
 ```{list-table}
 :header-rows: 1
@@ -429,28 +562,12 @@ Para funciones como `.mean()`, `.std()`, etc. consultar los métodos {ref}`Estad
 
 <br/>
 
-#### Conteo
-
-
-```{list-table}
-:header-rows: 1
-
-* - Método
-  - Descripción
-* - [Series.count](http://pandas.pydata.org/docs/reference/api/pandas.Series.count.html)()
-  - Retorna el número de observaciones no nulas en el `Series`.
-* - [Series.value_counts](http://pandas.pydata.org/docs/reference/api/pandas.Series.value_counts.html)([normalize, sort, ...])
-  - Retorna un `Series` que contiene recuentos de los valores únicos.
-```
-
-<br/>
-
 #### Estadísticas
 
 Métodos para el cálculo de estadísticas descriptivas, generar muestras aleatorias o calcular correlaciones y covarianzas entre dos variables.
 
 :::{note}
-Estos métodos ignoran valores `NA`.
+Estos métodos ignoran valores `NA`/`NaN`, a menos de que se indique lo contrario.
 :::
 
 ```{list-table}
@@ -460,9 +577,9 @@ Estos métodos ignoran valores `NA`.
 * - Método
   - Descripción
 * - [Series.corr](http://pandas.pydata.org/docs/reference/api/pandas.Series.corr.html)(other[, method, min_periods])
-  - Calcula la correlación con `other`, excluye los valores perdidos.
+  - Calcula la correlación con _other_, excluye los valores perdidos.
 * - [Series.cov](http://pandas.pydata.org/docs/reference/api/pandas.Series.cov.html)(other[, min_periods, ddof])
-  - Calcula la covarianza con `other`, excluye los valores perdidos.
+  - Calcula la covarianza con _other_, excluye los valores perdidos.
 * - [Series.describe](http://pandas.pydata.org/docs/reference/api/pandas.Series.describe.html)([percentiles, include, exclude])
   - Genera estadísticas descriptivas de los datos. 
 * - [Series.kurt](http://pandas.pydata.org/docs/reference/api/pandas.Series.kurt.html)([axis, skipna, numeric_only])
@@ -491,6 +608,12 @@ Estos métodos ignoran valores `NA`.
 
 #### Estadísticos de orden
 
+Métodos útiles para trabajar con los valores numéricos ordenados, y algunos estadísticos destacados como mínimos, máximos, medianas y cuantiles.
+
+:::{note}
+Estos métodos ignoran valores `NA`/`NaN`, a menos de que se indique lo contrario.
+:::
+
 ```{list-table}
 :header-rows: 1
 
@@ -502,6 +625,8 @@ Estos métodos ignoran valores `NA`.
   - Retorna la posición `int` del valor mínimo en el objeto.
 * - [Series.max](http://pandas.pydata.org/docs/reference/api/pandas.Series.max.html)([axis, skipna, numeric_only])
   - Retorna el máximo de los valores sobre el eje solicitado.
+* - [Series.median](http://pandas.pydata.org/docs/reference/api/pandas.Series.median.html)([axis, skipna, numeric_only])
+  - Retorna la mediana de los valores.
 * - [Series.min](http://pandas.pydata.org/docs/reference/api/pandas.Series.min.html)([axis, skipna, numeric_only])
   - Retorna el mínimo de los valores.
 * - [Series.nlargest](http://pandas.pydata.org/docs/reference/api/pandas.Series.nlargest.html)([n, keep])
@@ -509,12 +634,14 @@ Estos métodos ignoran valores `NA`.
 * - [Series.nsmallest](http://pandas.pydata.org/docs/reference/api/pandas.Series.nsmallest.html)([n, keep])
   - Retorna los _n_ elementos más pequeños.
 * - [Series.quantile](http://pandas.pydata.org/docs/reference/api/pandas.Series.quantile.html)([q, interpolation])
-  - Retorna el cuantil dado de los valores. `q` es un valor entre cero y uno.
+  - Retorna el cuantil dado de los valores. _q_ es un valor entre cero y uno.
 ```
 
 <br/>
 
 #### Misceláneos
+
+Otros métodos de naturaleza numérica.
 
 ```{list-table}
 :header-rows: 1
@@ -527,49 +654,51 @@ Estos métodos ignoran valores `NA`.
 
 <br/>
 
-#### Operadores aritméticos y similares.
+#### Operadores aritméticos y similares
 
-Métodos para realizar operaciones binarias con operadores aritméticos y sus equivalentes que tienen por sufijo una `r`, que estos últimos son útiles para intercambiar las posiciones del `Series` y del argumento `other`. 
+Métodos para realizar operaciones binarias con operadores aritméticos y sus equivalentes que tienen por sufijo una `r`, estos últimos son útiles para intercambiar las posiciones del `Series` y del argumento _other_.
 
 ```{list-table}
 :header-rows: 1
 
 * - Método
   - Descripción
+* - [Series.abs](http://pandas.pydata.org/docs/reference/api/pandas.Series.abs.html)()
+  - Retorna el valor numérico absoluto de cada elemento.
 * - [Series.add](http://pandas.pydata.org/docs/reference/api/pandas.Series.add.html)(other[, level, fill_value, axis])
-  - Retorna la suma del `Series` y `other`, por elementos. Equivale a usar el operador `+`.
+  - Retorna la suma del `Series` y _other_, por elementos. Equivale a usar el operador `+`.
 * - [Series.div](http://pandas.pydata.org/docs/reference/api/pandas.Series.div.html)(other[, level, fill_value, axis])
-  - Retornar la división flotante del `Series` y `other`, por elementos. Equivale a usar el operador `/`.
+  - Retornar la división flotante del `Series` y _other_, por elementos. Equivale a usar el operador `/`.
 * - [Series.dot](http://pandas.pydata.org/docs/reference/api/pandas.Series.dot.html)(other)
-  - Calcula el producto escalar entre `Series` y `other`.
+  - Calcula el producto escalar entre `Series` y _other_.
 * - [Series.floordiv](http://pandas.pydata.org/docs/reference/api/pandas.Series.floordiv.html)(other[, level, fill_value, axis])
-  - Retornar la división entera del `Series` y `other`, por elementos. Equivale a usar el operador `//`.
+  - Retornar la división entera del `Series` y _other_, por elementos. Equivale a usar el operador `//`.
 * - [Series.mod](http://pandas.pydata.org/docs/reference/api/pandas.Series.mod.html)(other[, level, fill_value, axis])
-  - Retornar el módulo de la división del `Series` y `other`, por elementos. Equivale a usar el operador `%`.
+  - Retornar el módulo de la división del `Series` y _other_, por elementos. Equivale a usar el operador `%`.
 * - [Series.mul](http://pandas.pydata.org/docs/reference/api/pandas.Series.mul.html)(other[, level, fill_value, axis])
-  - Retornar la multiplicación del `Series` y `other`, por elementos. Equivale a usar el operador `*`.
+  - Retornar la multiplicación del `Series` y _other_, por elementos. Equivale a usar el operador `*`.
 * - [Series.pow](http://pandas.pydata.org/docs/reference/api/pandas.Series.pow.html)(other[, level, fill_value, axis])
-  - Retornar la potenciación del `Series` y `other`, por elementos. Equivale a usar el operador `^`.
+  - Retornar la potenciación del `Series` y _other_, por elementos. Equivale a usar el operador `^`.
 * - [Series.radd](http://pandas.pydata.org/docs/reference/api/pandas.Series.radd.html)(other[, level, fill_value, axis])
-  - Retorna la suma del `Series` y `other`, por elementos. Equivale a usar el operador `+`.
+  - Retorna la suma del `Series` y _other_, por elementos. Equivale a usar el operador `+`.
 * - [Series.rdiv](http://pandas.pydata.org/docs/reference/api/pandas.Series.rdiv.html)(other[, level, fill_value, axis])
-  - Retornar la división flotante de `other` y `Series`, por elementos. Equivale a usar el operador `/`, siendo `other` el numerador.
+  - Retornar la división flotante de _other_ y `Series`, por elementos. Equivale a usar el operador `/`, siendo _other_ el numerador.
 * - [Series.rfloordiv](http://pandas.pydata.org/docs/reference/api/pandas.Series.rfloordiv.html)(other[, level, fill_value, ...])
-  - Retornar la división entera de `other` y `Series`, por elementos. Equivale a usar el operador `//`, siendo `other` el numerador.
+  - Retornar la división entera de _other_ y `Series`, por elementos. Equivale a usar el operador `//`, siendo _other_ el numerador.
 * - [Series.rmod](http://pandas.pydata.org/docs/reference/api/pandas.Series.rmod.html)(other[, level, fill_value, axis])
-  - Retornar el módulo de la división de `other` y `Series`, por elementos. Equivale a usar el operador `%`, siendo `other` el numerador.
+  - Retornar el módulo de la división de _other_ y `Series`, por elementos. Equivale a usar el operador `%`, siendo _other_ el numerador.
 * - [Series.rmul](http://pandas.pydata.org/docs/reference/api/pandas.Series.rmul.html)(other[, level, fill_value, axis])
-  - Retornar la multiplicación del `Series` y `other`, por elementos. Equivale a usar el operador `*`.
+  - Retornar la multiplicación del `Series` y _other_, por elementos. Equivale a usar el operador `*`.
 * - [Series.rpow](http://pandas.pydata.org/docs/reference/api/pandas.Series.rpow.html)(other[, level, fill_value, axis])
-  - Retornar la potenciación de `other` y `Series`, por elementos. Equivale a usar el operador `^`, siendo `other` la base.
+  - Retornar la potenciación de _other_ y `Series`, por elementos. Equivale a usar el operador `^`, siendo _other_ la base.
 * - [Series.rsub](http://pandas.pydata.org/docs/reference/api/pandas.Series.rsub.html)(other[, level, fill_value, axis])
-  - Retornar la resta de `other` y `Series`, por elementos. Equivale a usar el operador `-`, siendo `other` el minuendo.
+  - Retornar la resta de _other_ y `Series`, por elementos. Equivale a usar el operador `-`, siendo _other_ el minuendo.
 * - [Series.rtruediv](http://pandas.pydata.org/docs/reference/api/pandas.Series.rtruediv.html)(other[, level, fill_value, axis])
-  - Retornar la división flotante del `other` y `Series`, por elementos. Equivale a usar el operador `/`, siendo `other` el numerador. Permite reemplazar valores perdidos por algún valor en particular.
+  - Retornar la división flotante del _other_ y `Series`, por elementos. Equivale a usar el operador `/`, siendo _other_ el numerador. Permite reemplazar valores perdidos por algún valor en particular.
 * - [Series.sub](http://pandas.pydata.org/docs/reference/api/pandas.Series.sub.html)(other[, level, fill_value, axis])
-  - Retornar la resta del `Series` y `other`, por elementos. Equivale a usar el operador `-`.
+  - Retornar la resta del `Series` y _other_, por elementos. Equivale a usar el operador `-`.
 * - [Series.truediv](http://pandas.pydata.org/docs/reference/api/pandas.Series.truediv.html)(other[, level, fill_value, axis])
-  - Retornar la división flotante del `Series` y `other`, por elementos. Equivale a usar el operador `/`. Permite reemplazar valores perdidos por algún valor en particular.
+  - Retornar la división flotante del `Series` y _other_, por elementos. Equivale a usar el operador `/`. Permite reemplazar valores perdidos por algún valor en particular.
 ```
 
 <br/>
@@ -584,30 +713,30 @@ Métodos para comparar los elementos del `Series` con otro objeto o verificar qu
 * - Método
   - Descripción
 * - [Series.between](http://pandas.pydata.org/docs/reference/api/pandas.Series.between.html)(left, right[, inclusive])
-  - Retorna `Series` booleano que indica si `left` <= `Series` <= `right`, por elementos.
+  - Retorna `Series` booleano que indica si _left_ <= `Series` <= _right_, por elementos.
 * - [Series.eq](http://pandas.pydata.org/docs/reference/api/pandas.Series.eq.html)(other[, level, fill_value, axis])
-  - Indica la igualdad del `Series` y `other`, por elementos. Equivale a usar el operador `==`.
+  - Indica la igualdad del `Series` y _other_, por elementos. Equivale a usar el operador `==`.
 * - [Series.equals](http://pandas.pydata.org/docs/reference/api/pandas.Series.equals.html)(other)
   - Verifica si dos objetos contienen los mismos elementos.
 * - [Series.ge](http://pandas.pydata.org/docs/reference/api/pandas.Series.ge.html)(other[, level, fill_value, axis])
-  - Indica si es mayor o igual el `Series` y `other`, por elementos. Equivale a usar el operador `>=`.
+  - Indica si es mayor o igual el `Series` y _other_, por elementos. Equivale a usar el operador `>=`.
 * - [Series.gt](http://pandas.pydata.org/docs/reference/api/pandas.Series.gt.html)(other[, level, fill_value, axis])
-  - Indica si es mayor el `Series` y `other`, por elementos. Equivale a usar el operador `>`.
+  - Indica si es mayor el `Series` y _other_, por elementos. Equivale a usar el operador `>`.
 * - [Series.isin](http://pandas.pydata.org/docs/reference/api/pandas.Series.isin.html)(values)
-  - Retorna `Series` booleano que indica si `Series in values`, por elementos.
+  - Retorna `Series` booleano que indica si cada elementos del `Series` está en _values_.
 * - [Series.le](http://pandas.pydata.org/docs/reference/api/pandas.Series.le.html)(other[, level, fill_value, axis])
-  - Indica si es menor o igual el `Series` y `other`, por elementos. Equivale a usar el operador `<=`.
+  - Indica si es menor o igual el `Series` y _other_, por elementos. Equivale a usar el operador `<=`.
 * - [Series.lt](http://pandas.pydata.org/docs/reference/api/pandas.Series.lt.html)(other[, level, fill_value, axis])
-  - Indica si es menor el `Series` y `other`, por elementos. Equivale a usar el operador `<`.
+  - Indica si es menor el `Series` y _other_, por elementos. Equivale a usar el operador `<`.
 * - [Series.ne](http://pandas.pydata.org/docs/reference/api/pandas.Series.ne.html)(other[, level, fill_value, axis])
-  - Indica si no son iguales el `Series` y `other`, por elementos. Equivale a usar el operador `!=`.
+  - Indica si no son iguales el `Series` y _other_, por elementos. Equivale a usar el operador `!=`.
 ```
 
 <br/>
 
 #### Series de tiempo
 
-Métodos útiles para `Series` que tienen un `Index` que representa una serie de tiempo.
+Métodos útiles para `Series` que tienen un `Index` que representa una serie de tiempo (no necesariamente).
 
 ```{list-table}
 :header-rows: 1
@@ -617,29 +746,28 @@ Métodos útiles para `Series` que tienen un `Index` que representa una serie de
 * - [Series.asfreq](http://pandas.pydata.org/docs/reference/api/pandas.Series.asfreq.html)(freq[, method, how, ...])
   - Modifica la frecuencia de una serie de tiempo. El `Series` debe de tener un índice `datetime-like`. Si se va a realizar un _aggregate_ con la nueva frecuencia se recomienda usar el método `Series.resample()`.
 * - [Series.asof](http://pandas.pydata.org/docs/reference/api/pandas.Series.asof.html)(where[, subset])
-  - Retorna la/s última/s fila/s válida sin incluir `NaNs` antes o en `where`, donde `where` son etiquetas del índice.
+  - Retorna la/s última/s fila/s válida/s sin incluir `NaNs` antes o en _where_ (`datetime-like`), donde _where_ son etiquetas del índice.
 * - [Series.at_time](http://pandas.pydata.org/docs/reference/api/pandas.Series.at_time.html)(time[, asof, axis])
   - Selecciona valores en un momento particular del día (por ejemplo, 9:30 a. m.).
 * - [Series.autocorr](http://pandas.pydata.org/docs/reference/api/pandas.Series.autocorr.html)([lag])
-  - Calcula la autocorrelación de los datos con `lag` desfases.
+  - Calcula la autocorrelación de los datos con _lag_ desfases.
 * - [Series.between_time](http://pandas.pydata.org/docs/reference/api/pandas.Series.between_time.html)(start_time, end_time[, ...])
   - Selecciona valores entre horas particulares del día (por ejemplo, de 9:00 a 9:30 a. m.).
 * - [Series.resample](http://pandas.pydata.org/docs/reference/api/pandas.Series.resample.html)(rule[, axis, closed, label, ...])
-  - Modifica la frecuencia de una serie de tiempo, útil si se realizará un _aggregate_ con la nueva frecuencia. El objeto debe de tener un índice `datetime-like` o pasar valores `datetime-like` al argumento `on` o `level`. **IMPORTANTE**: Este método retorna un objeto `Resampler`, que tiene otros métodos como `Resampler.asfreq()` o _aggregates_ como `Resampler.mean()`. 
+  - Modifica la frecuencia de una serie de tiempo, útil si se realizará un _aggregate_ con la nueva frecuencia. El objeto debe de tener un índice `datetime-like` o pasar valores `datetime-like` al argumento _on_ o _level_. **IMPORTANTE**: Este método retorna un objeto {doc}`./resampler`, que tiene otros métodos como `Resampler.asfreq()` o _aggregates_ como `Resampler.mean()`. 
 * - [Series.shift](http://pandas.pydata.org/docs/reference/api/pandas.Series.shift.html)([periods, freq, axis, ...])
   - Desplaza el índice según el número deseado de períodos con una frecuencia de tiempo opcional.
 * - [Series.tz_convert](http://pandas.pydata.org/docs/reference/api/pandas.Series.tz_convert.html)(tz[, axis, level, copy])
-  - Convierte un _axis_ compatible con `tz` en la zona horaria objetivo.
+  - Convierte un _axis_ compatible con _tz_ en la zona horaria objetivo.
 * - [Series.tz_localize](http://pandas.pydata.org/docs/reference/api/pandas.Series.tz_localize.html)(tz[, axis, level, copy, ...])
-  - Localiza el índice `tz-naive` a la zona horaria de destino.
+  - Localiza el índice _tz-naive_ a la zona horaria de destino.
 ```
 
 <br/>
 
----
 ### Funciones ventana, agrupar, aplicar y mapeos
 
-Diversos métodos de operaciones comúnes con `Series`. 
+Diversos métodos de operaciones como cálculo por ventanas, cálculo de agrupamientos, aplicar funciones a cada elementos del `Series` y mapeos. 
 
 ```{list-table}
 :header-rows: 1
@@ -661,15 +789,33 @@ Diversos métodos de operaciones comúnes con `Series`.
 * - [Series.rolling](http://pandas.pydata.org/docs/reference/api/pandas.Series.rolling.html)(window[, min_periods, ...])
   - Provee calculos en ventanas moviles de datos. Posteriormente se puede aplicar un {ref}`método <pandas-rolling-methods>` del objeto `Rolling` o `Window`. 
 * - [Series.transform](http://pandas.pydata.org/docs/reference/api/pandas.Series.transform.html)(func[, axis])
-  - Aplica una función `func` en sí mismo, retornando un objeto con las mismas dimensiones que `self`.
+  - Aplica una función _func_ en sí mismo, retornando un objeto con las mismas dimensiones que `self`.
+```
+
+Patrones útiles:
+```python
+# Mapear valores de columna categórica por otra
+ mapping={'cat1':'new_cat1',
+            'cat2':'new_cat2',
+            ...}
+ s2=s.map(mapping)
+
+ # Cálculos sobre ventana móvil
+ s.rolling(window).method()
+
+ # Cálculos acumulados
+s.expanding().sum() # Equivale a s.cumsum()
 ```
 
 <br/>
 
----
 ### Gráficas
 
 Métodos para gráficar. 
+
+:::{note}
+Para usar estps métodos es necesario importar a la sesión el módulo `matplotlib.pyplot as plt`.
+:::
 
 ```{list-table}
 :header-rows: 1
@@ -700,9 +846,27 @@ Métodos para gráficar.
   - Genera un diagrama circular.
 ```
 
+Patrones útiles:
+
+```python
+# Barras
+s.plot(kind="bar")
+
+# Barras horizontales
+s.plot(kind="barh")
+
+# Ordenadas
+s.sort_values().plot(kind='bar')
+
+# Barras apiladas
+s.plot(kind="bar", stacked=True)
+
+# Histograma
+s.hist(bins)
+```
+
 <br/>
 
----
 ### Índice
 
 Métodos para operaciones con el `Index`, los niveles y las etiquetas del mismo en un objeto `Series`. 
@@ -726,6 +890,8 @@ Métodos para operaciones con el `Index`, los niveles y las etiquetas del mismo 
   - Retorna la etiqueta de fila del valor máximo.
 * - [Series.idxmin](http://pandas.pydata.org/docs/reference/api/pandas.Series.idxmin.html)([axis, skipna])
   - Retorna la etiqueta de fila del valor mínimo.
+* - [Series.keys](http://pandas.pydata.org/docs/reference/api/pandas.Series.keys.html)()
+  - Alias ​​para `Index`.
 * - [Series.last_valid_index](http://pandas.pydata.org/docs/reference/api/pandas.Series.last_valid_index.html)()
   - Retorna el último índice cuyo valor no sea `NA`, retorna `None` si no se encuentra ningún valor que no sea `NA`.
 * - [Series.reindex](http://pandas.pydata.org/docs/reference/api/pandas.Series.reindex.html)([index, axis, method, copy, ...])
@@ -742,13 +908,14 @@ Métodos para operaciones con el `Index`, los niveles y las etiquetas del mismo 
   - Reestablece el `Index` del objeto, al índice numérico, empezando en cero.
 * - [Series.set_axis](http://pandas.pydata.org/docs/reference/api/pandas.Series.set_axis.html)(labels, *[, axis, copy])
   - Asigna el índice deseado al eje dado.
+* - [Series.sort_index](http://pandas.pydata.org/docs/reference/api/pandas.Series.sort_index.html)(*[, axis, level, ...])
+  - Ordena el `Series` con base a las etiquetas del índice.
 * - [Series.swaplevel](http://pandas.pydata.org/docs/reference/api/pandas.Series.swaplevel.html)([i, j, copy])
-  - Intercambia los niveles `i` y `j` en un `MultiIndex`.
+  - Intercambia los niveles _i_ y _j_ en un `MultiIndex`.
 ```
 
 <br/>
 
----
 ### Manipulación
 
 Métodos para manipulación de los elementos en el `Series` como eliminar valores, reemplazar valores, repetir elementos, manipulación del _shape_, etc. 
@@ -763,17 +930,19 @@ Métodos para manipulación de los elementos en el `Series` como eliminar valore
 * - [Series.compare](http://pandas.pydata.org/docs/reference/api/pandas.Series.compare.html)(other[, align_axis, ...])
   - Realiza una comparación con otro `Series` y muestra las diferencias.
 * - [Series.combine](http://pandas.pydata.org/docs/reference/api/pandas.Series.combine.html)(other, func[, fill_value])
-  - Combina el `Series` con otro o un escalar según una función `func`.
+  - Combina el `Series` con otro o un escalar según una función _func_.
 * - [Series.combine_first](http://pandas.pydata.org/docs/reference/api/pandas.Series.combine_first.html)(other)
-  - Actualiza los elementos nulos con valor en la misma ubicación en `other`.
+  - Actualiza los elementos nulos con valor en la misma ubicación en _other_.
 * - [Series.drop](http://pandas.pydata.org/docs/reference/api/pandas.Series.drop.html)([labels, axis, index, columns, ...])
   - Retorna `Series` con las etiquetas de índice especificadas eliminadas.
+* - [Series.explode](http://pandas.pydata.org/docs/reference/api/pandas.Series.explode.html)([ignore_index])
+  - Transforma un `Series` cuyos elementos son `list-like`, en un `Series` donde cada elemento de los `list-like` se convierte en una fila en el `Series`, las nuevas filas mantendrán el mismo índice que la lista original.
 * - [Series.mask](http://pandas.pydata.org/docs/reference/api/pandas.Series.mask.html)(cond[, other, inplace, axis, level])
   - Reemplaza valores donde la condición es `True`.
 * - [Series.repeat](http://pandas.pydata.org/docs/reference/api/pandas.Series.repeat.html)(repeats[, axis])
   - Repite elementos de un `Series`.
 * - [Series.replace](http://pandas.pydata.org/docs/reference/api/pandas.Series.replace.html)([to_replace, value, inplace, ...])
-  - Reemplaza los valores `to_replace` con `value`.
+  - Reemplaza los valores _to_replace_ con _value_.
 * - [Series.unstack](http://pandas.pydata.org/docs/reference/api/pandas.Series.unstack.html)([level, fill_value, sort])
   - Convierte un `Series` con `MultiIndex` en `DataFrame`.
 * - [Series.update](http://pandas.pydata.org/docs/reference/api/pandas.Series.update.html)(other)
@@ -784,10 +953,13 @@ Métodos para manipulación de los elementos en el `Series` como eliminar valore
 
 <br/>
 
----
 ### Numéricas
 
+Métodos útiles para `Series` con datos numéricos.
+
 #### Redondear y truncar
+
+Métodos para redondear o truncar valores numéricos.
 
 ```{list-table}
 :header-rows: 1
@@ -795,7 +967,7 @@ Métodos para manipulación de los elementos en el `Series` como eliminar valore
 * - Método
   - Descripción
 * - [Series.clip](http://pandas.pydata.org/docs/reference/api/pandas.Series.clip.html)([lower, upper, axis, inplace])
-  - Ajusta los valores para que estén en el intervalo `[lower, upper]`.
+  - Ajusta los valores para que estén en el intervalo _[lower, upper]_.
 * - [Series.round](http://pandas.pydata.org/docs/reference/api/pandas.Series.round.html)([decimals])
   - Redondea cada valor en un `Series` al número de decimales dado.
 ```
@@ -804,20 +976,21 @@ Métodos para manipulación de los elementos en el `Series` como eliminar valore
 
 #### Información
 
+Métodos que retornan información sobre los datos numéricos en un `Series`.
+
 ```{list-table}
 :header-rows: 1
 
 * - Método
   - Descripción
 * - [Series.is_monotonic_decreasing](http://pandas.pydata.org/docs/reference/api/pandas.Series.is_monotonic_decreasing.html)()
-  - Retorna booleano si los valores del objeto disminuyen monótonamente.
+  - Indica si los valores del objeto disminuyen monótonamente.
 * - [Series.is_monotonic_increasing](http://pandas.pydata.org/docs/reference/api/pandas.Series.is_monotonic_increasing.html)()
-  - Retorna booleano si los valores del objeto aumentan monótonamente.
+  - Indica si los valores del objeto aumentan monótonamente.
 ```
 
 <br/>
 
----
 ### Ordenar
 
 Métodos útiles para ordenar un `Series`. 
@@ -829,8 +1002,6 @@ Métodos útiles para ordenar un `Series`.
   - Descripción
 * - [Series.argsort](http://pandas.pydata.org/docs/reference/api/pandas.Series.argsort.html)([axis, kind, order, stable])
   - Retorna los índices enteros que ordenarían el `Series`.
-* - [Series.explode](http://pandas.pydata.org/docs/reference/api/pandas.Series.explode.html)([ignore_index])
-  - Transforma un `Series` cuyos elementos son `list-like`, en un `Series` donde cada elemento de los `list-like` se convierte en una fila en el `Series`, las nuevas filas mantendrán el mismo índice que la lista original.
 * - [Series.searchsorted](http://pandas.pydata.org/docs/reference/api/pandas.Series.searchsorted.html)(value[, side, sorter])
   - Determina los índices donde se deben insertar elementos para mantener el orden.
 * - [Series.sort_index](http://pandas.pydata.org/docs/reference/api/pandas.Series.sort_index.html)(*[, axis, level, ...])
@@ -841,7 +1012,7 @@ Métodos útiles para ordenar un `Series`.
 
 <br/>
 
----
+(pd-series-metodos-seleccion-filtrado-iteracion)=
 ### Selección, filtrado e iteración de elementos
 
 Métodos útiles para seleccionar elementos con base a etiquetas, índices o condiciones o para iterar en ellos. 
@@ -863,15 +1034,13 @@ Métodos útiles para seleccionar elementos con base a etiquetas, índices o con
   - Retorna las primeras _n_ filas.
 * - [Series.iat](http://pandas.pydata.org/docs/reference/api/pandas.Series.iat.html)()
   - Accede a un valor único dada una posición del índice. Similar a `Series.iloc[]`.
-* - [Series.iloc](http://pandas.pydata.org/docs/reference/api/pandas.Series.loc.html)()
+* - [Series.iloc](http://pandas.pydata.org/docs/reference/api/pandas.Series.loc.html)\[]
   - Accede a un valor o un conjunto de valores dadas las posiciones del índice o un `array-like` booleano.
 * - [Series.item](http://pandas.pydata.org/docs/reference/api/pandas.Series.item.html)()
   - Retorna el primer elemento de los datos subyacentes como un escalar de Python.
 * - [Series.items](http://pandas.pydata.org/docs/reference/api/pandas.Series.items.html)()
-  - Retorna un `iterable` de tuplas `(index, value)`.
-* - [Series.keys](http://pandas.pydata.org/docs/reference/api/pandas.Series.keys.html)()
-  - Alias ​​para `Index`.
-* - [Series.loc](http://pandas.pydata.org/docs/reference/api/pandas.Series.loc.html)()
+  - Retorna un `iterable` de tuplas _(index, value)_.
+* - [Series.loc](http://pandas.pydata.org/docs/reference/api/pandas.Series.loc.html)\[]
   - Accede a un valor o un conjunto de valores dadas las etiquetas del índice o un `array-like` booleano.
 * - [Series.pop](http://pandas.pydata.org/docs/reference/api/pandas.Series.pop.html)(item)
   - Elimina y retorna un elemento dada su etiqueta.
@@ -887,7 +1056,6 @@ Métodos útiles para seleccionar elementos con base a etiquetas, índices o con
 
 <br/>
 
----
 ### Valores duplicados
 
 Métodos útiles para el manejo de valores duplicados. 
@@ -900,13 +1068,12 @@ Métodos útiles para el manejo de valores duplicados.
 * - [Series.drop_duplicates](http://pandas.pydata.org/docs/reference/api/pandas.Series.drop_duplicates.html)(*[, keep, inplace, ...])
   - Retorna `Series` con valores duplicados eliminados.
 * - [Series.duplicated](http://pandas.pydata.org/docs/reference/api/pandas.Series.duplicated.html)([keep])
-  - Indica si los valores del `Series` 
+  - Indica los valores duplicados del `Series`.
 ```
 
 <br/>
 
----
-### Valores perdidos
+### Valores nulos
 
 Métodos útiles para el manejo de valores perdidos. 
 
@@ -946,6 +1113,8 @@ Métodos para obtener información sobre valores únicos en el `Series`.
 
 * - Método
   - Descripción
+* - [Series.value_counts](http://pandas.pydata.org/docs/reference/api/pandas.Series.value_counts.html)([normalize, sort, ...])
+  - Retorna un `Series` que contiene recuentos de los valores únicos.
 * - [Series.is_unique](http://pandas.pydata.org/docs/reference/api/pandas.Series.is_unique.html)()
   - Indica si los valores del objeto son únicos.
 * - [Series.nunique](http://pandas.pydata.org/docs/reference/api/pandas.Series.nunique.html)([dropna])
@@ -979,6 +1148,8 @@ Este _accesor_ es para `Series` de tipo `categorical`.
 
 #### Atributos
 
+Lista de atributos de `Series.cat`.
+
 
 ```{list-table}
 :header-rows: 1
@@ -994,6 +1165,8 @@ Este _accesor_ es para `Series` de tipo `categorical`.
 ```
 
 #### Métodos
+
+Lista de metodos de `Series.cat`.
 
 ```{list-table}
 :header-rows: 1
@@ -1027,22 +1200,26 @@ Este _accesor_ es para `Series` de tipo `sparse`.
 
 #### Atributos
 
+Lista de atributos de `Series.sparse`.
+
 ```{list-table}
 :header-rows: 1
 
 * - Atributo
   - Descripción
 * - [Series.sparse.density](http://pandas.pydata.org/docs/reference/api/pandas.Series.sparse.density.html)()
-  - El porcentaje de puntos no-`fill_value`, como decimal.
+  - El porcentaje de puntos no-_fill_value_, como decimal.
 * - [Series.sparse.fill_value](http://pandas.pydata.org/docs/reference/api/pandas.Series.sparse.fill_value.html)()
-  - Los elementos de los datos que son `fill_value` no se almacenan.
+  - Los elementos de los datos que son _fill_value_ no se almacenan.
 * - [Series.sparse.npoints](http://pandas.pydata.org/docs/reference/api/pandas.Series.sparse.npoints.html)()
-  - El número de puntos no-`fill_value`.
+  - El número de puntos no-_fill_value_.
 * - [Series.sparse.sp_values](http://pandas.pydata.org/docs/reference/api/pandas.Series.sparse.sp_values.html)()
-  - Un `ndarray` que contiene los valores no-`fill_value`.
+  - Un `ndarray` que contiene los valores no-_fill_value_.
 ```
 
 #### Métodos
+
+Lista de metodos de `Series.sparse`.
 
 ```{list-table}
 :header-rows: 1
@@ -1050,7 +1227,7 @@ Este _accesor_ es para `Series` de tipo `sparse`.
 * - Método
   - Descripción
 * - [Series.sparse.from_coo](http://pandas.pydata.org/docs/reference/api/pandas.Series.sparse.from_coo.html)(A[, dense_index])
-  - Crea un `Series` con valores _sparse_ desde `scipy.sparse.coo_matrix()`.
+  - Crea un `Series` con valores _sparse_ desde `scipy.sparse.coo_matrix()`. **Importante**: Este es un método de clase.
 * - [Series.sparse.to_coo](http://pandas.pydata.org/docs/reference/api/pandas.Series.sparse.to_coo.html)([row_levels, ...])
   - Crea un `scipy.sparse.coo_matrixU a partir de un `Series` con `MultiIndex`.
 ```
@@ -1058,7 +1235,7 @@ Este _accesor_ es para `Series` de tipo `sparse`.
 <br/>
 
 ---
-### Accesor de `str`
+### Accesor de _str_
 
 Este _accesor_ es para `Series` de tipo `str`.
 
@@ -1070,17 +1247,17 @@ La gran mayoría de métodos de esta función también funcionan con objetos `In
 Algunos de estos métodos también funcionan incluso si los elementos del `Series` no son `str`, pero sí son de algún tipo `sequence`.
 :::
 
-#### Subsetting y Slicing
+#### Indexing y Slicing
 
-Es posible hacer _subsetting_ y _slicing_ de manera vectorizada (se aplicará el _subsetting_ o _slicing_ a cada valor del `Series`), para ello simplemente utilizar corchetes, junto con el nombre del objeto y `.str`:
+Es posible hacer _indexing_ y _slicing_ de manera vectorizada (se aplicará el _indexing_ o _slicing_ a cada valor del `Series`), para ello simplemente utilizar corchetes, junto con el nombre del objeto y `.str`:
 ```python
-# Subsetting.
+# Indexing
 X.str[i]
 	
-# Slicing.
+# Slicing
 X.str[start:stop:step]
 ```
-- `X` `Series` de `str` o `sequence`.
+- `X` - `Series` de `str` o `sequence`.
 
 :::{tip}
 Equivalentemente se pueden usar los métodos `Series.str.get()` y `Series.str.slice()` para obtener los mismos resultados.
@@ -1094,17 +1271,19 @@ No es posible usar las estrategias de _fancy indexing_ ni _boolean masking_.
 
 #### Buscar subcadenas
 
+Métodos para buscar subcadenas en una cadena.
+
 ```{list-table}
 :header-rows: 1
 
 * - Método
   - Descripción
 * - [Series.str.find](http://pandas.pydata.org/docs/reference/api/pandas.Series.str.find.html)(sub[, start, end])
-  - Devuelve la primer posición en cada cadena donde se encuentra una subcadena, si no encuentra la subcadena retorna `-1`.
+  - Devuelve la primer posición en cada cadena donde se encuentra una subcadena, si no encuentra la subcadena retorna _-1_.
 * - [Series.str.index](http://pandas.pydata.org/docs/reference/api/pandas.Series.str.index.html)(sub[, start, end])
   - Devuelve la primer posición en cada cadena donde se encuentra una subcadena. Si no encuentra la subcadena devuelve `ValueError`.
 * - [Series.str.rfind](http://pandas.pydata.org/docs/reference/api/pandas.Series.str.rfind.html)(sub[, start, end])
-  - Devuelve la última posición en cada cadena donde se encuentra una subcadena, si no encuentra la subcadena retorna `-1`.
+  - Devuelve la última posición en cada cadena donde se encuentra una subcadena, si no encuentra la subcadena retorna _-1_.
 * - [Series.str.rindex](http://pandas.pydata.org/docs/reference/api/pandas.Series.str.rindex.html)(sub[, start, end])
   - Devuelve la última posición en cada cadena donde se encuentra una subcadena. Si no encuentra la subcadena devuelve `ValueError`.
 ```
@@ -1112,6 +1291,8 @@ No es posible usar las estrategias de _fancy indexing_ ni _boolean masking_.
 <br/>
 
 #### Concatenación y separaciones
+
+Métodos para separar cadenas, concatenar con otras cadenas o para crear cadenas desde iterables.
 
 ```{list-table}
 :header-rows: 1
@@ -1123,11 +1304,11 @@ No es posible usar las estrategias de _fancy indexing_ ni _boolean masking_.
 * - [Series.str.join](http://pandas.pydata.org/docs/reference/api/pandas.Series.str.join.html)(sep)
   - Concatena `sequence` en el objeto con el delimitador indicado.
 * - [Series.str.partition](http://pandas.pydata.org/docs/reference/api/pandas.Series.str.partition.html)([sep, expand])
-  - Divide la cadena en tres partes en la primera aparición de `sep`.
+  - Divide la cadena en tres partes en la primera aparición de _sep_.
 * - [Series.str.repeat](http://pandas.pydata.org/docs/reference/api/pandas.Series.str.repeat.html)(repeats)
   - Duplica cada cadena en el objeto un número determinado de veces.
 * - [Series.str.rpartition](http://pandas.pydata.org/docs/reference/api/pandas.Series.str.rpartition.html)([sep, expand])
-  - Divida la cadena en tres partes en la última aparición de `sep`.
+  - Divida la cadena en tres partes en la última aparición de _sep_.
 * - [Series.str.rsplit](http://pandas.pydata.org/docs/reference/api/pandas.Series.str.rsplit.html)([pat, n, expand])
   - Retorna una lista de subcadenas de cada elemento del objeto de acuero al delimitador dado, patrón o expresión regular.
 * - [Series.str.split](http://pandas.pydata.org/docs/reference/api/pandas.Series.str.split.html)([pat, n, expand, regex])
@@ -1137,6 +1318,8 @@ No es posible usar las estrategias de _fancy indexing_ ni _boolean masking_.
 <br/>
 
 #### Formatos y modificaciones
+
+Métodos para modificar el formato de una cadena.
 
 ```{list-table}
 :header-rows: 1
@@ -1163,13 +1346,15 @@ No es posible usar las estrategias de _fancy indexing_ ni _boolean masking_.
 
 #### Información
 
+Métodos que retornan información sobre la cadena.
+
 ```{list-table}
 :header-rows: 1
 
 * - Método
   - Descripción
 * - [Series.str.count](http://pandas.pydata.org/docs/reference/api/pandas.Series.str.count.html)(pat[, flags])
-  - Cuenta las apariciones de un patrón o expresión regular `pat` en cada cadena del objeto.
+  - Cuenta las apariciones de un patrón o expresión regular _pat_ en cada cadena del objeto.
 * - [Series.str.endswith](http://pandas.pydata.org/docs/reference/api/pandas.Series.str.endswith.html)(pat[, na])
   - Verifica si el final de cada elemento de cadena coincide con un patrón.
 * - [Series.str.isalnum](http://pandas.pydata.org/docs/reference/api/pandas.Series.str.isalnum.html)()
@@ -1195,10 +1380,12 @@ No es posible usar las estrategias de _fancy indexing_ ni _boolean masking_.
 * - [Series.str.startswith](http://pandas.pydata.org/docs/reference/api/pandas.Series.str.startswith.html)(pat[, na])
   - Pruebe si el inicio de cada elemento de cadena coincide con un patrón.
 ```
-
+xs
 <br/>
 
 #### Otros y dummies
+
+Métodos para calcular las _dummies variables_ y otros métodos para cadenas.
 
 ```{list-table}
 :header-rows: 1
@@ -1217,6 +1404,8 @@ No es posible usar las estrategias de _fancy indexing_ ni _boolean masking_.
 
 #### Reemplazar y eliminar subcadenas
 
+Métodos para reemplazar o remover subcadenas dentro de una cadena.
+
 ```{list-table}
 :header-rows: 1
 
@@ -1227,7 +1416,7 @@ No es posible usar las estrategias de _fancy indexing_ ni _boolean masking_.
 * - [Series.str.removesuffix](http://pandas.pydata.org/docs/reference/api/pandas.Series.str.removesuffix.html)(suffix)
   - Elimina un sufijo en las cadenas del objeto.
 * - [Series.str.replace](http://pandas.pydata.org/docs/reference/api/pandas.Series.str.replace.html)(pat, repl[, n, case, ...])
-  - Reemplaza cada aparición de `pat` en el objeto con otra subcadena.
+  - Reemplaza cada aparición de _pat_ en el objeto con otra subcadena.
 * - [Series.str.slice_replace](http://pandas.pydata.org/docs/reference/api/pandas.Series.str.slice_replace.html)([start, stop, repl])
   - Reemplaza un segmento posicional de una cadena con otro valor.
 * - [Series.str.translate](http://pandas.pydata.org/docs/reference/api/pandas.Series.str.translate.html)(table)
@@ -1238,7 +1427,7 @@ No es posible usar las estrategias de _fancy indexing_ ni _boolean masking_.
 
 #### Regular expressions
 
-Métodos que pueden utilizar expresiones regulares con argumentos.
+Métodos que pueden utilizar expresiones regulares como argumentos.
 
 ```{list-table}
 :header-rows: 1
@@ -1246,13 +1435,13 @@ Métodos que pueden utilizar expresiones regulares con argumentos.
 * - Método
   - Descripción
 * - [Series.str.contains](http://pandas.pydata.org/docs/reference/api/pandas.Series.str.contains.html)(pat[, case, flags, na, ...])
-  - verifica si el patrón o la expresión regular están contenidos dentro de las cadenas del objeto.
+  - Verifica si el patrón o la expresión regular están contenidos dentro de las cadenas del objeto.
 * - [Series.str.count](http://pandas.pydata.org/docs/reference/api/pandas.Series.str.count.html)(pat[, flags])
-  - Cuenta las apariciones de un patrón o la expresión regular `pat` en cada cadena del objeto.
+  - Cuenta las apariciones de un patrón o la expresión regular _pat_ en cada cadena del objeto.
 * - [Series.str.extract](http://pandas.pydata.org/docs/reference/api/pandas.Series.str.extract.html)(pat[, flags, expand])
-  - Extrae grupos de captura en la expresión regular `pat` como columnas en un `DataFrame`.
+  - Extrae grupos de captura en la expresión regular _pat_ como columnas en un `DataFrame`.
 * - [Series.str.extractall](http://pandas.pydata.org/docs/reference/api/pandas.Series.str.extractall.html)(pat[, flags])
-  - Extrae los grupos de captura en la expresión regular `pat` como columnas en `DataFrame`.
+  - Extrae los grupos de captura en la expresión regular _pat_ como columnas en `DataFrame`.
 * - [Series.str.findall](http://pandas.pydata.org/docs/reference/api/pandas.Series.str.findall.html)(pat[, flags])
   - Determina todas las apariciones de patrones o expresiones regulares en el objeto.
 * - [Series.str.fullmatch](http://pandas.pydata.org/docs/reference/api/pandas.Series.str.fullmatch.html)(pat[, case, flags, na])
@@ -1267,7 +1456,7 @@ Métodos que pueden utilizar expresiones regulares con argumentos.
 
 <br/>
 
-### Selección
+#### Selección
 
 Métodos para seleccionar elementos en índices específicos o _slices_ de elementos en la secuencia.
 
@@ -1285,6 +1474,8 @@ Métodos para seleccionar elementos en índices específicos o _slices_ de eleme
 <br/>
 
 #### Strips y pads
+
+Métodos para agregar o eliminar caracteres al inicio, final o ambos de una cadena.
 
 ```{list-table}
 :header-rows: 1
@@ -1311,9 +1502,12 @@ Métodos para seleccionar elementos en índices específicos o _slices_ de eleme
 
 <br/>
 
+---
 ### Accesor de fechas y tiempo
 
-#### Atributos de `datetime`
+Este _accesor_ es para `Series` de tipo `datetime`, `timedelta` o `period`.
+
+#### Atributos de _datetime_
 
 A continuación se enlistan algunas propiedades de `Series` de tipo `datetime64`. Para retornar partes específicas de las fechas, usar:
 
@@ -1321,34 +1515,34 @@ A continuación se enlistan algunas propiedades de `Series` de tipo `datetime64`
 # Recuperar un atributo
 X.dt.part
 ```
-- X `Series` de `datetime64`.
+- X - `Series` de `datetime64`.
 - _part_: Es cualquiera de los siguientes:
     - `date`: Retorna la parte de la fecha, sin tiempo.
     - `time`: Retorna la parte del tiempo, sin la fecha.
-    - `year` \- `int`: Retorna el año.
-    - `month` \- `int`: Retorna el mes.
-    - `day` \- `int`: Retorna el día.
-    - `hour` \- `int`: Retorna la hora.
-    - `minute` \- `int`: Retorna los minutos.
-    - `second` \- `int`: Retorna los segundos.
-    - `microsecond` \- `int`: Retorna los milisegundos.
-    - `nanosecond` \- `int`: Retorna los nanosegundos.
-    - `second` \- `int`: Retorna los segundos.
-    - `dayofweek`  \- `int`: Retorna el día de la semana, donde lunes es cero y domingo es 6. Lo mismo que usar `day_of_week` o `weekday`.
-    - `dayofyear`  \- `int`: Retorna el día del año. Lo mismo que usar `day_of_year`.   
-    - `daysinmonth`  \- `int`: Retorna cuántos días hay en ese mes. Lo mismo que `days_in_month`.
-    - `quarter`  \- `int`: Retorna el trimestre.
-    - `is_leap_year` \- `bool`: Indica si el año bisiesto.
-    - `is_month_start` \- `bool`: Indica si el día el comienzo de un mes.
-    - `is_month_end` \- `bool`: Indica si el día el final de un mes.
-    - `is_year_start` \- `bool`: Indica si el día el comienzo de un año.
-    - `is_year_end` \- `bool`: Indica si el día el final de un año.
+    - `year` - `int`: Retorna el año.
+    - `month` - `int`: Retorna el mes.
+    - `day` - `int`: Retorna el día.
+    - `hour` - `int`: Retorna la hora.
+    - `minute` - `int`: Retorna los minutos.
+    - `second` - `int`: Retorna los segundos.
+    - `microsecond` - `int`: Retorna los milisegundos.
+    - `nanosecond` - `int`: Retorna los nanosegundos.
+    - `second` - `int`: Retorna los segundos.
+    - `dayofweek`  - `int`: Retorna el día de la semana, donde lunes es cero y domingo es 6. Lo mismo que usar `day_of_week` o `weekday`.
+    - `dayofyear`  - `int`: Retorna el día del año. Lo mismo que usar `day_of_year`.   
+    - `daysinmonth`  - `int`: Retorna cuántos días hay en ese mes. Lo mismo que `days_in_month`.
+    - `quarter`  - `int`: Retorna el trimestre.
+    - `is_leap_year` - `bool`: Indica si el año bisiesto.
+    - `is_month_start` - `bool`: Indica si el día el comienzo de un mes.
+    - `is_month_end` - `bool`: Indica si el día el final de un mes.
+    - `is_year_start` - `bool`: Indica si el día el comienzo de un año.
+    - `is_year_end` - `bool`: Indica si el día el final de un año.
     - Para una lista completa visitar la [documentación de pandas](https://pandas.pydata.org/docs/reference/series.html#datetime-properties).
 
 <br/>
 
 ---
-#### Métodos de `datetime`
+#### Métodos de _datetime_
 
 Métodos para `Series` de tipo `datetime64`.
 
@@ -1383,7 +1577,7 @@ Métodos para `Series` de tipo `datetime64`.
 
 <br/>
 
-#### Atributos de `period`
+#### Atributos de _period_
 
 Atributos para `Series` de tipo `period`.
 
@@ -1400,9 +1594,9 @@ Atributos para `Series` de tipo `period`.
 
 <br/>
 
-#### Atributos de `TimeDelta`
+#### Atributos de _TimeDelta_
 
-Atributos para `Series` de tipo `period`.
+Atributos para `Series` de tipo `TimeDelta`.
 
 ```{list-table}
 :header-rows: 1
@@ -1423,9 +1617,9 @@ Atributos para `Series` de tipo `period`.
 
 <br/>
 
-#### Métodos de `TimeDelta`
+#### Métodos de _TimeDelta_
 
-Métodos para `Series` de tipo `period`. 
+Métodos para `Series` de tipo `TimeDelta`. 
 
 ```{list-table}
 :header-rows: 1

@@ -1,0 +1,942 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Otras Clases &#8212; Manual de Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'parts/05-matplotlib/otros';</script>
+    <link rel="icon" href="../../_static/nebok-favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Anexos" href="anexos.html" />
+    <link rel="prev" title="Axes" href="axes.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/nebok-logo.png" class="logo__image only-light" alt="Manual de Python - Home"/>
+    <script>document.write(`<img src="../../_static/nebok-logo.png" class="logo__image only-dark" alt="Manual de Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Manual de Python para Data Science
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Built-in</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01-built-in/built-in-index.html">Python Estándar</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/ayuda.html">Obtener ayuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/comentarios.html">Comentarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/tipos-datos.html">Tipos de Datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/variables-constantes.html">Variables y Constantes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/operadores-palabras.html">Operadores y palabras reservadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/entrada-salida.html">Impresión y solicitud de datos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/tipos-index.html">Tipos Built-In</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/none-bool-numericos.html"><em>None</em>, <em>bool</em> y Numéricos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/str.html">str</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/lists.html">list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/tuples.html">Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/sets.html">Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/dicts.html">dict</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/if-else.html">If … Else</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/for-loop.html">For Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/do-while.html">Do While</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/udf.html">Funciones (UDF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/exceptions.html">Excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/context-managers.html">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/io.html">Lectura y escritura de archivos (IO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/modulos.html">Paquetes y Módulos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/avanzado-index.html">Temas avanzados</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/decorators.html">Decorators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/iterators.html">Iterators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/generators.html">Generators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/oop.html">Programación orientada a objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/func-built-in.html">Funciones built-in</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-modulos/modulos-index.html">Módulos built-in</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/csv.html">CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/datetime.html">Datetime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/itertools.html">Itertools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/json.html">JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/math.html">Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os.html">Os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os-path.html">Os.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/pickle.html">Pickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/random.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/regex.html">Regex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/statistics.html">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/urllib-request.html">urllib.request</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otras librerías</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-numpy/numpy-index.html">Numpy</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/arrays.html">Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../03-numpy/funciones-index.html">Funciones</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/ufuncs.html">Ufuncs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/buscar-contar-ordenar-unicos.html">Buscar, contar, ordenar y valores únicos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/creacion-arrays.html">Creación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/estadisticas.html">Estadísticas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/indices.html">Índices e iteración</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/informacion.html">Información</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/lectura-escritura.html">Lectura y escritura de datos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/manipulacion-arrays.html">Manipulación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/matematicas-numericas.html">Matemáticas y numéricas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/operadores.html">Operadores</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/algebra-lineal.html">Módulo linalg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/cadenas.html">Modulo char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/random.html">Módulo random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/patrones-numpy.html">Patrones útiles</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04-pandas/pandas-index.html">Pandas</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/index.html">Index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/series.html">Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/dataframe.html">DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/escalares-arrays.html">Escalares y Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../04-pandas/otras-clases.html">Otras clases</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/groupby.html">GroupBy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/expanding-rolling-window.html"><em>Expanding, Rolling</em> y <em>Window</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/resampler.html">Resampler</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/funciones.html">Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/patrones-pandas.html">Patrones útiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="matplotlib-index.html">Matplotlib</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pyplot.html">Pyplot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="figure.html">Figure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="axes.html">Axes</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Otras Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06-seaborn/seaborn-index.html">Seaborn</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06-seaborn/funciones-clases.html">Funciones y Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-seaborn/objects-interface.html">Interface por objetos</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otros</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-otros/otros-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08-otros/IPython.html">IPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-otros/beautifulsoup.html">Web Scraping</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/parts/05-matplotlib/otros.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Otras Clases</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#artist">Artist</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#line2d">Line2D</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text">Text</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#patch">Patch</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rectangle">Rectangle</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="otras-clases">
+<h1>Otras Clases<a class="headerlink" href="#otras-clases" title="Link to this heading">#</a></h1>
+<p>En esta sección se presentan los atributos de otras clases comúnes, que aunque normalmente no se trabaja con ellas directamente, son retornadas por algunas métodos de los objetos <code class="docutils literal notranslate"><span class="pre">Axes</span></code> y <code class="docutils literal notranslate"><span class="pre">Figure</span></code>.</p>
+<section id="artist">
+<h2>Artist<a class="headerlink" href="#artist" title="Link to this heading">#</a></h2>
+<p>Es la clase base para todos los elementos visuales en <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Atributo</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.artist.Artist.set_agg_filter.html">agg_filter</a></p></td>
+<td><p>una función de filtro, que toma un arreglo <em>(m, n, 3)</em> de <code class="docutils literal notranslate"><span class="pre">float</span></code> y un valor <em>dpi</em>, y devuelve un arreglo <em>(m, n, 3)</em> y dos desplazamientos desde la esquina inferior izquierda de la imagen.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.artist.Artist.set_alpha.html">alpha</a></p></td>
+<td><p>escalar o <code class="docutils literal notranslate"><span class="pre">None</span></code>. Para indicar la opacidad de la figura. Es un valor entre 0 y 1, donde 0 es completamente transparente y 1 es completamente opaco.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.artist.Artist.set_animated.html">animated</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code>. Indica si la figura se pretende usar en una animación</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.artist.Artist.set_clip_box.html">clip_box</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">BboxBase</span></code> o <code class="docutils literal notranslate"><span class="pre">None</span></code>. Establece el <em>clip</em> <code class="docutils literal notranslate"><span class="pre">Bbox</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.artist.Artist.set_clip_on.html">clip_on</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code>. Indica si la figura usa <em>clipping</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.artist.Artist.set_clip_path.html">clip_path</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Patch</span></code> o <code class="docutils literal notranslate"><span class="pre">(Path,</span> <span class="pre">Transform)</span></code> o <code class="docutils literal notranslate"><span class="pre">None</span></code>. Establece el <em>clip path</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.artist.Artist.set_figure.html">figure</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Figure</span></code>. Instancia <code class="docutils literal notranslate"><span class="pre">Figure</span></code> a la que el <em>artist</em> pertenece.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.artist.Artist.set_gid.html">gid</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code>. “id” del grupo del <em>artist</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.artist.Artist.set_in_layout.html">in_layout</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code>. Indica si el <em>artist</em> se debe incluir en el <em>layout</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.artist.Artist.set_label.html">label</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code>. Etiqueta que aparecerá en la leyenda.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.artist.Artist.set_mouseover.html">mouseover</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code>. Indica si este <em>artist</em> es <em>queried</em> cuando el cursor del mouse pasa por encima.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.artist.Artist.set_path_effects.html">path_effects</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">list</span></code> de <code class="docutils literal notranslate"><span class="pre">AbstractPathEffect</span></code>. Establece los <em>path effects</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.artist.Artist.set_picker.html">picker</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code>, <code class="docutils literal notranslate"><span class="pre">bool</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code> or <em>callable</em>. Define el comportamiento <em>picking</em> del <em>artist</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.artist.Artist.set_rasterized.html">rasterized</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code>. Indica si se debe forzar <em>rasterizar</em> el <em>output</em> para gráficos de vectores.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.artist.Artist.set_sketch_params.html">sketch_params</a></p></td>
+<td><p>(scale: <code class="docutils literal notranslate"><span class="pre">float</span></code>, length: <code class="docutils literal notranslate"><span class="pre">float</span></code>, randomness: <code class="docutils literal notranslate"><span class="pre">float</span></code>). Establece los parámetros del <em>sketch</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.artist.Artist.set_snap.html">snap</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code> o <code class="docutils literal notranslate"><span class="pre">None</span></code>. Establece el comportamiento del <em>snapping</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.artist.Artist.set_transform.html">transform</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Transform</span></code>. Establece el transformador del <em>artist</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.artist.Artist.set_url.html">url</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code>. Establece el url del <em>artist</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.artist.Artist.set_visible.html">visible</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code>. Indica la visibilidad del <em>artist</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.artist.Artist.set_zorder.html">zorder</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float</span></code>. Establece el <em>zorder</em> del <em>artist</em>. <em>Artists</em> con <em>zorder</em> menores son graficados primero. Útil para establecer la jerarquía de los objetos en el <em>eje z</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<hr class="docutils" />
+</section>
+<section id="line2d">
+<span id="matplotlib-line2d"></span><h2>Line2D<a class="headerlink" href="#line2d" title="Link to this heading">#</a></h2>
+<p>Es una clase contenida en el módulo <code class="docutils literal notranslate"><span class="pre">matplotlib.lines</span></code>, y es retornada por diversas funciones como <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code>. Representa líneas 2D en las gráficas.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Atributo</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_antialiased">antialiased | aa</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code>. Indica si se debe usar <em>antialiased rendering</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_color">color | c</a></p></td>
+<td><p><em>color</em>. <a class="reference internal" href="anexos.html#matplotlib-color"><span class="std std-ref">Colores</span></a> de las líneas.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_dash_capstyle">dash_capstyle</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CapStyle</span></code> o <code class="docutils literal notranslate"><span class="pre">{'butt',</span> <span class="pre">'projecting',</span> <span class="pre">'round'}</span></code>. Indica como dibujar las últimas <em>caps</em> si la línea es <em>is_dashed</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_dash_joinstyle">dash_joinstyle</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">JoinStyle</span></code> o {‘miter’, ‘round’, ‘bevel’}. Indica como unir los segmentos de las líneas si la línea es <em>is_dashed</em></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_dashes">dashes</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sequence</span></code> de <code class="docutils literal notranslate"><span class="pre">float</span></code> (on/off ink in points) o <code class="docutils literal notranslate"><span class="pre">(None,</span> <span class="pre">None)</span></code>. Establece el patrón de la línea.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_data">data</a></p></td>
+<td><p><em>(2, N) array</em> o dos 1D <em>arrays</em>. Datos del eje <em>x</em> y <em>y</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_drawstyle">drawstyle | ds</a></p></td>
+<td><p>{‘default’, ‘steps’, ‘steps-pre’, ‘steps-mid’, ‘steps-post’}, <em>default</em>: ‘default’. Determina como se unen los puntos que conforman la línea, por default son interpolaciones lineales.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_fillstyle">fillstyle</a></p></td>
+<td><p>{‘full’, ‘left’, ‘right’, ‘bottom’, ‘top’, ‘none’}. Indica el estilo de relleno de los marcadores.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_gapcolor">gapcolor</a></p></td>
+<td><p><em>color</em> o <code class="docutils literal notranslate"><span class="pre">None</span></code>. Establece cómo rellenar los espacios en una línea intermitente.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.artist.Artist.set_gid.html">gid</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code>. “id” del grupo del <em>artist</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_linestyle">linestyle | ls</a></p></td>
+<td><p>{‘-’, ‘–’, ‘-.’, ‘:’, ‘’, (offset, on-off-seq), …}. Estilo de la <a class="reference internal" href="anexos.html#matplotlib-lines"><span class="std std-ref">Lines</span></a>. Para no imprimir líneas usar una cadena vacía <code class="docutils literal notranslate"><span class="pre">''</span></code> o <code class="docutils literal notranslate"><span class="pre">None</span></code>. También se úede usar líneas con nombre.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_linewidth">linewidth | lw</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float</span></code>. Especifica el grueso de la línea en puntos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_marker">marker</a></p></td>
+<td><p><em>marker style string</em>, <code class="docutils literal notranslate"><span class="pre">Path</span></code> or <code class="docutils literal notranslate"><span class="pre">MarkerStyle</span></code>. Tipo de <a class="reference internal" href="anexos.html#matplotlib-markers"><span class="std std-ref">Markers</span></a> en la gráfica.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_markeredgecolor">markeredgecolor | mec</a></p></td>
+<td><p><em>color</em>: Color del borde del marker.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_markeredgewidth">markeredgewidth | mew</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float</span></code>. Ancho del borde del marker en puntos</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_markerfacecolor">markerfacecolor | mfc</a></p></td>
+<td><p><em>color</em>. Color del interior del marker.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_markerfacecoloralt">markerfacecoloralt | mfcalt</a></p></td>
+<td><p><em>color</em>. Color alternativo del interior del marker.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_markersize">markersize | ms</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float</span></code>. Tamaño del marker en puntos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_markevery">markevery</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">(int,</span> <span class="pre">int)</span></code>, <em>slice</em>, <code class="docutils literal notranslate"><span class="pre">list[int]</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">(float,</span> <span class="pre">float)</span></code> o <code class="docutils literal notranslate"><span class="pre">list[bool]</span></code>. Establece la propiedad <em>markvery</em> para muestras los puntos cuando se usan <em>markers</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_picker">picker</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float</span></code> o <code class="docutils literal notranslate"><span class="pre">callable[[Artist,</span> <span class="pre">Event],</span> <span class="pre">tuple[bool,</span> <span class="pre">dict]]</span></code>. Establece el evento <em>picker</em> para la línea.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_pickradius">pickradius</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float</span></code>. Radio del <em>pick</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_solid_capstyle">solid_capstyle</a></p></td>
+<td><p>{‘butt’, ‘projecting’, ‘round’}. Indica como dibujar los extremos de una línea sólida.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_solid_joinstyle">solid_joinstyle</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">JoinStyle</span></code> o {‘miter’, ‘round’, ‘bevel’}. Indica cómo unir los segmentos si la línea es sólida.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_xdata">xdata</a></p></td>
+<td><p>1D <em>array</em>. Datos del eje <em>x</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_ydata">ydata</a></p></td>
+<td><p>1D <em>array</em>. Datos del eje <em>y</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<hr class="docutils" />
+</section>
+<section id="text">
+<span id="matplotlib-text"></span><h2>Text<a class="headerlink" href="#text" title="Link to this heading">#</a></h2>
+<p>Es una clase contenida en el módulo <code class="docutils literal notranslate"><span class="pre">matplotlib.text</span></code>, y es retornada por diversas funciones como <code class="docutils literal notranslate"><span class="pre">plt.title()</span></code>, <code class="docutils literal notranslate"><span class="pre">plt.xlabel()</span></code>, <code class="docutils literal notranslate"><span class="pre">plt.ylabel()</span></code>, etc. Representa texto en las gráficas.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Atributo</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text.set_antialiased">antialiased</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code>. Indica si se debe usar <em>antialiased rendering</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text.set_backgroundcolor">backgroundcolor</a></p></td>
+<td><p><em>color</em>. Color de fondo del texto.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text.set_bbox">bbox</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">dict</span></code> con propiedades para <code class="docutils literal notranslate"><span class="pre">patches.FancyBboxPatch</span></code>. Rectángulo contenedor del texto.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text.set_color">color | c</a></p></td>
+<td><p><em>color</em>. Color del texto.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text.set_fontfamily">fontfamily | family | fontname</a></p></td>
+<td><p>{FONTNAME, ‘serif’, ‘sans-serif’, ‘cursive’, ‘fantasy’, ‘monospace’}. Familia del texto</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text.set_fontproperties">fontproperties 1 font 1 font_properties</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">font_manager.FontProperties</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code> o <code class="docutils literal notranslate"><span class="pre">pathlib.Path</span></code>. Propiedades de la fuente.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text.set_fontsize">fontsize | size</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float</span></code> o {‘xx-small’, ‘x-small’, ‘small’, ‘medium’, ‘large’, ‘x-large’, ‘xx-large’}: Tamaño de la fuente</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text.set_fontstretch">fontstretch | stretch</a></p></td>
+<td><p>{valor numérico entre [0,1000], ‘ultra-condensed’, ‘extra-condensed’, ‘condensed’, ‘semi-condensed’, ‘normal’, ‘semi-expanded’, ‘expanded’, ‘extra-expanded’, ‘ultra-expanded’}: Expansión horizontal del texto.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text.set_fontstyle">fontstyle | style</a></p></td>
+<td><p>{‘normal’, ‘italic’, ‘oblique’}. Estilo del texto.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text.set_fontvariant">fontvariant | variant</a></p></td>
+<td><p>{‘normal’, ‘small-caps’}. Variación de la fuente.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text.set_fontweight">fontweight 1 weight</a></p></td>
+<td><p>{valor numérico entre [0,1000], ‘ultralight’, ‘light’, ‘normal’, ‘regular’, ‘book’, ‘medium’, ‘roman’, ‘semibold’, ‘demibold’, ‘demi’, ‘bold’, ‘heavy’, ‘extra bold’, ‘black’}. Ancho de la fuente.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text.set_horizontalalignment">horizontalalignment | ha</a></p></td>
+<td><p>{‘left’, ‘center’, ‘right’}. Alineación horizontal.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text.set_linespacing">linespacing</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float</span></code>. Espaciamiento del texto, representa un múltiplo del tamaño de la fuente.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text.set_math_fontfamily">math_fontfamily</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code>. Nombre de la familia para textos matemáticos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text.set_multialignment">multialignment or ma</a></p></td>
+<td><p>{‘left’, ‘right’, ‘center’}. Alineación para textos multilíneas</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text.set_parse_math">parse_math</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text.set_position">position</a></p></td>
+<td><p>(float, float). Posición del texto</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text.set_rotation">rotation</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float</span></code> o {‘vertical’, ‘horizontal’}. Rotación del texto. Si es <code class="docutils literal notranslate"><span class="pre">float</span></code> reprente grados en sentido contrario a las manecillas del reloj.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text.set_rotation_mode">rotation_mode</a></p></td>
+<td><p>{None, ‘default’, ‘anchor’}. Modo de roración del texto.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text.set_text">text</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">object</span></code>. Texto.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text.set_transform_rotates_text">transform_rotates_text</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code>. Indica de las rotaciones del transformador afectan la dirección del texto.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text.set_usetex">usetex</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code> o <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text.set_verticalalignment">verticalalignment or va</a></p></td>
+<td><p>{‘baseline’, ‘bottom’, ‘center’, ‘center_baseline’, ‘top’}. Alineación verticla del texto.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text.set_wrap">wrap</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code>. Para indicar si ajustar el texto.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text.set_x">x</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float</span></code>. Posición <em>x</em> del texto.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text.set_y">y</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float</span></code>. Posición <em>y</em> del texto.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<hr class="docutils" />
+</section>
+<section id="patch">
+<span id="matplotlib-patch"></span><h2>Patch<a class="headerlink" href="#patch" title="Link to this heading">#</a></h2>
+<p>Es una clase contenida en el módulo <code class="docutils literal notranslate"><span class="pre">matplotlib.patches</span></code>, y sus propiedades se pueden utilizar en el objeto retornado por <code class="docutils literal notranslate"><span class="pre">plt.arrow()</span></code>. Representa figuras geométricas en las gráficas.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Atributo</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Patch.html#matplotlib.patches.Patch.set_antialiased">antialiased | aa</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code> o <code class="docutils literal notranslate"><span class="pre">None</span></code>. Indica si se debe usar <em>antialiased rendering</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Patch.html#matplotlib.patches.Patch.set_capstyle">capstyle</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CapStyle</span></code> o {‘butt’, ‘projecting’, ‘round’}. Establece el <em>capstyle</em></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Patch.html#matplotlib.patches.Patch.set_color">color</a></p></td>
+<td><p>color. Color del borde y relleno.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Patch.html#matplotlib.patches.Patch.set_edgecolor">edgecolor or ec</a></p></td>
+<td><p>color o <code class="docutils literal notranslate"><span class="pre">None</span></code>. Color del borde.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Patch.html#matplotlib.patches.Patch.set_facecolor">facecolor or fc</a></p></td>
+<td><p>color o <code class="docutils literal notranslate"><span class="pre">None</span></code>. Color del relleno</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Patch.html#matplotlib.patches.Patch.set_fill">fill</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code>. Indica si se debe de rellenar.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Patch.html#matplotlib.patches.Patch.set_hatch">hatch</a></p></td>
+<td><p>{‘/’, ‘’, ‘|’, ‘-’, ‘+’, ‘x’, ‘o’, ‘O’, ‘.’, ‘*’}. Establece el patrón <em>hatching</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Patch.html#matplotlib.patches.Patch.set_joinstyle">joinstyle</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">JoinStyle</span></code> o {‘miter’, ‘round’, ‘bevel’}. Establece el <em>JoinStyle</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Patch.html#matplotlib.patches.Patch.set_linestyle">linestyle or ls</a></p></td>
+<td><p>{‘-’, ‘–’, ‘-.’, ‘:’, ‘’, (offset, on-off-seq), …}. Establece el patrón del <em>patch</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Patch.html#matplotlib.patches.Patch.set_linewidth">linewidth or lw</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float</span></code> o <code class="docutils literal notranslate"><span class="pre">None</span></code>. Ancho del <em>patch</em> en puntos.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<hr class="docutils" />
+</section>
+<section id="rectangle">
+<span id="matplotlib-rectangle"></span><h2>Rectangle<a class="headerlink" href="#rectangle" title="Link to this heading">#</a></h2>
+<p>Es una clase contenida en el módulo <code class="docutils literal notranslate"><span class="pre">matplotlib.patches</span></code>, y es retornada por diversas funciones como <code class="docutils literal notranslate"><span class="pre">plt.hist()</span></code>, <code class="docutils literal notranslate"><span class="pre">plt.bar()</span></code>, etc. Es una subclase de <code class="docutils literal notranslate"><span class="pre">Patch</span></code> y representa un rectángulo</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Atributo</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Patch.html">antialiased or aa</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code> o <code class="docutils literal notranslate"><span class="pre">None</span></code>.. <code class="docutils literal notranslate"><span class="pre">bool</span></code> or <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Patch.html">capstyle</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CapStyle</span></code> o {‘trasero’, ‘proyectando’, ‘redondo’}.. <code class="docutils literal notranslate"><span class="pre">CapStyle</span></code> or {‘butt’, ‘projecting’, ‘round’}.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Patch.html">color</a></p></td>
+<td><p>color.. color.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Patch.html">edgecolor or ec</a></p></td>
+<td><p>color o <code class="docutils literal notranslate"><span class="pre">None</span></code>.. color or <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Patch.html">facecolor or fc</a></p></td>
+<td><p>color o <code class="docutils literal notranslate"><span class="pre">None</span></code>.. color or <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Patch.html">fill</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code>.. <code class="docutils literal notranslate"><span class="pre">bool</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Patch.html">hatch</a></p></td>
+<td><p>{‘/’, ‘’, ‘|’, ‘-’, ‘+’, ‘x’, ‘o’, ‘O’, ‘.’, ‘<em>’}.. {‘/’, ‘’, ‘|’, ‘-’, ‘+’, ‘x’, ‘o’, ‘O’, ‘.’, ‘</em>’}.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Patch.html">joinstyle</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">JoinStyle</span></code> o {‘inglete’, ‘redondo’, ‘bisel’}.. <code class="docutils literal notranslate"><span class="pre">JoinStyle</span></code> or {‘miter’, ‘round’, ‘bevel’}.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Patch.html">linestyle or ls</a></p></td>
+<td><p>{‘-’, ‘–’, ‘-.’, ‘:’, ‘’, (desplazamiento, secuencia de encendido-apagado), …}.. {‘-’, ‘–’, ‘-.’, ‘:’, ‘’, (offset, on-off-seq), …}.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Patch.html">linewidth or lw</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float</span></code> o <code class="docutils literal notranslate"><span class="pre">None</span></code>.. <code class="docutils literal notranslate"><span class="pre">float</span></code> or <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./parts/05-matplotlib"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="axes.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Axes</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="anexos.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Anexos</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#artist">Artist</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#line2d">Line2D</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text">Text</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#patch">Patch</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rectangle">Rectangle</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nebok
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -15,7 +15,7 @@ kernelspec:
 Las _ufuncs_ (_universal functions_) son funciones especiales de `numpy` que permiten operar sobre objetos `ndarray` de manera vectorizada o _element-wise_ (elemento por elemento). Existen de dos tipos, unitarias y binarias, dependiendo de la cantidad de operandos.
 
 :::{important}
-No todas las funciones en `numpy` son _ufunc_. Para una lista completa de las funciones _ufunc_ visitar la [documetación](https://numpy.org/doc/stable/reference/ufuncs.html#available-ufuncs) de `numpy`. En esta sitio las _ufunc_ se pueden encontrar principalmente en las siguientes secciones.
+No todas las funciones en `numpy` son _ufunc_. Para una lista completa de las funciones _ufunc_ visitar la [documentación](https://numpy.org/doc/stable/reference/ufuncs.html#available-ufuncs) de `numpy`. En esta sitio las _ufunc_ se pueden encontrar principalmente en las siguientes secciones.
 - [Matemáticas y numéricas](./matematicas-numericas.md).
 - [Operadores](./operadores.md).
 - [Información](./informacion.md).
@@ -28,7 +28,7 @@ Las funciones _ufunc_ de `numpy` también se pueden usar en los objetos de `pand
 Para saber si una función es _ufunc_ usar:
 ```python
 # Retorna el tipo de una función
-type(function_name) # -> Debe retornar <class ‘numpy.ufunc’>
+type(function_name) # Debe retornar <class ‘numpy.ufunc’>
 
 # Veririfacr el tipo de una función
 type(function_name) == np.ufunc # Retorna True o False
@@ -36,12 +36,13 @@ type(function_name) == np.ufunc # Retorna True o False
 
 <br/>
 
+---
 ## Párametros comunes
 
 Las funciones _ufunc_ comparten varios parámetros. A continuación se explicarán los más comunes, para una lista completa visitar la [documentación](https://numpy.org/doc/stable/reference/ufuncs.html) de `numpy`.
-- `where` \- `array-like` de `bool` (_mask_): Array booleano, para indicar en qué elementos sí aplicar la función y cuáles dejar intactos.
-- `dtype` \- `dtype`: Define el tipo de dato que deben de tener los elementos retornados.
-- `out`  \- `object` de tipo `ndarray` o `None`: Es para indicar el objeto donde se almacenará el resultado, es posible poner el mismo objeto en el que se está haciendo la operación para que sea _in-place_.
+- _where_ \- `array-like` de `bool` (_mask_): Array booleano, para indicar en qué elementos sí aplicar la función y cuáles dejar intactos.
+- _dtype_ \- `dtype`: Define el tipo de dato que deben de tener los elementos retornados.
+- _out_  \- `object` de tipo `ndarray` o `None`: Es para indicar el objeto donde se almacenará el resultado, es posible poner el mismo objeto en el que se está haciendo la operación para que sea _in-place_.
 
 
 <br/>
@@ -51,10 +52,12 @@ Las funciones _ufunc_ comparten varios parámetros. A continuación se explicar�
 
 Para crear una _ufuncs_ personalizadas, primero se debe definir una función de manera tradicional o utilizar una _built-in_, posteriormente se debe de agregar la función a la librería _ufunc_ de `numpy` con `frompyfunc()`.
 
-[numpy.frompyfunc](https://numpy.org/doc/stable/reference/generated/numpy.frompyfunc.html#numpy-frompyfunc)(func, /, nin, nout, *\[, identity])
-- `function` \-  `function`: Es el nombre de una función de Python.
-- `nin` \- `int`: Número de argumentos de ingreso.
-- `nout` \- `int`: Número de objetos retornados por la función.
+```python
+numpy.frompyfunc(func, /, nin, nout, *[, identity])
+```
+- _function_ \-  `function`: Es el nombre de una función de Python.
+- _nin_ \- `int`: Número de argumentos de ingreso.
+- _nout_ \- `int`: Número de objetos retornados por la función.
 
 ```python
 # Definir función
@@ -65,9 +68,7 @@ def my_func(params):
 my_ufunc = np.frompyfunc(my_func)
 ```
 
-**Ejemplo**
-
-En este ejemplo se convertirá la función `str.center(string, width[, fillchar)` en una _ufunc_.
+**Ejemplo**: En este ejemplo se convertirá la función `str.center(string, width[, fillchar)` en una _ufunc_.
 
 ```{code-cell} ipython3
 # Importar numpy
@@ -118,7 +119,7 @@ Atributos de las funciones `ufunc`.
 * - [ufunc.signature](https://numpy.org/doc/stable/reference/generated/numpy.ufunc.signature.html)
   - Definición de los elementos centrales sobre los que opera una _ufunc_ generalizada.
 * - [ufunc.types](https://numpy.org/doc/stable/reference/generated/numpy.ufunc.types.html)
-  - Retorna un ´list´ con tipos agrupados _entrada->salida_.
+  - Retorna un `list` con tipos agrupados _entrada->salida_.
 ```
 
 <br>
@@ -135,11 +136,11 @@ Métodos de las funciones `ufunc`.
 * - [ufunc.accumulate](https://numpy.org/doc/stable/reference/generated/numpy.ufunc.accumulate.html)(array[, axis, dtype, out])
   - Acumula el resultado de aplicar el operador a todos los elementos. Equivale a hacer cálculos acumulados.
 * - [ufunc.at](https://numpy.org/doc/stable/reference/generated/numpy.ufunc.at.html)(a, indices[, b])
-  - Realiza una operación _in\-place_ sin búfer en `a` para los elementos especificados por `indices`. Un mismo índice puede aparecer múltiples veces en `indices` y la operación se aplicaría ese mismo número de veces a ese elemento.
+  - Realiza una operación _in\-place_ sin búfer en _a_ para los elementos especificados por _indices_. Un mismo índice puede aparecer múltiples veces en _indices_ y la operación se aplicaría ese mismo número de veces a ese elemento.
 * - [ufunc.outer](https://numpy.org/doc/stable/reference/generated/numpy.ufunc.outer.html)(A, B, /, **kwargs)
-  - Aplica la operación _ufunc_ a todos los pares _(a, b)_ con _a_ en `A` y _b_ en `B` (en el producto cartesiando de `A` y `B`).
+  - Aplica la operación _ufunc_ a todos los pares _(a, b)_ con _a_ en _A_ y _b_ en _B_ (en el producto cartesiando de _A_ y _B_).
 * - [ufunc.reduce](https://numpy.org/doc/stable/reference/generated/numpy.ufunc.reduce.html)(array[, axis, dtype, out, ...])
-  - Reduce la dimensión de ´array´ a uno (vector), aplicando la _ufunc_ a lo largo de un eje. Equivale a hacer _aggregates_.
+  - Reduce la dimensión de _array_ a uno (vector), aplicando la _ufunc_ a lo largo de un eje. Equivale a hacer _aggregates_.
 * - [ufunc.reduceat](https://numpy.org/doc/stable/reference/generated/numpy.ufunc.reduceat.html)(array, indices[, axis, ...])
   - Realiza una reducción (local) con cortes especificados en un solo eje.
 ```

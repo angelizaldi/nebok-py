@@ -1,0 +1,1119 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Figure &#8212; Manual de Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'parts/05-matplotlib/figure';</script>
+    <link rel="icon" href="../../_static/nebok-favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Axes" href="axes.html" />
+    <link rel="prev" title="Pyplot" href="pyplot.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/nebok-logo.png" class="logo__image only-light" alt="Manual de Python - Home"/>
+    <script>document.write(`<img src="../../_static/nebok-logo.png" class="logo__image only-dark" alt="Manual de Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Manual de Python para Data Science
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Built-in</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01-built-in/built-in-index.html">Python Estándar</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/ayuda.html">Obtener ayuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/comentarios.html">Comentarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/tipos-datos.html">Tipos de Datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/variables-constantes.html">Variables y Constantes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/operadores-palabras.html">Operadores y palabras reservadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/entrada-salida.html">Impresión y solicitud de datos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/tipos-index.html">Tipos Built-In</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/none-bool-numericos.html"><em>None</em>, <em>bool</em> y Numéricos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/str.html">str</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/lists.html">list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/tuples.html">Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/sets.html">Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/dicts.html">dict</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/if-else.html">If … Else</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/for-loop.html">For Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/do-while.html">Do While</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/udf.html">Funciones (UDF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/exceptions.html">Excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/context-managers.html">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/io.html">Lectura y escritura de archivos (IO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/modulos.html">Paquetes y Módulos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/avanzado-index.html">Temas avanzados</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/decorators.html">Decorators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/iterators.html">Iterators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/generators.html">Generators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/oop.html">Programación orientada a objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/func-built-in.html">Funciones built-in</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-modulos/modulos-index.html">Módulos built-in</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/csv.html">CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/datetime.html">Datetime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/itertools.html">Itertools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/json.html">JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/math.html">Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os.html">Os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os-path.html">Os.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/pickle.html">Pickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/random.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/regex.html">Regex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/statistics.html">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/urllib-request.html">urllib.request</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otras librerías</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-numpy/numpy-index.html">Numpy</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/arrays.html">Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../03-numpy/funciones-index.html">Funciones</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/ufuncs.html">Ufuncs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/buscar-contar-ordenar-unicos.html">Buscar, contar, ordenar y valores únicos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/creacion-arrays.html">Creación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/estadisticas.html">Estadísticas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/indices.html">Índices e iteración</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/informacion.html">Información</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/lectura-escritura.html">Lectura y escritura de datos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/manipulacion-arrays.html">Manipulación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/matematicas-numericas.html">Matemáticas y numéricas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/operadores.html">Operadores</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/algebra-lineal.html">Módulo linalg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/cadenas.html">Modulo char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/random.html">Módulo random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/patrones-numpy.html">Patrones útiles</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04-pandas/pandas-index.html">Pandas</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/index.html">Index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/series.html">Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/dataframe.html">DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/escalares-arrays.html">Escalares y Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../04-pandas/otras-clases.html">Otras clases</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/groupby.html">GroupBy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/expanding-rolling-window.html"><em>Expanding, Rolling</em> y <em>Window</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/resampler.html">Resampler</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/funciones.html">Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/patrones-pandas.html">Patrones útiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="matplotlib-index.html">Matplotlib</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pyplot.html">Pyplot</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Figure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="axes.html">Axes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otros.html">Otras Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06-seaborn/seaborn-index.html">Seaborn</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06-seaborn/funciones-clases.html">Funciones y Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-seaborn/objects-interface.html">Interface por objetos</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otros</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-otros/otros-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08-otros/IPython.html">IPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-otros/beautifulsoup.html">Web Scraping</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/parts/05-matplotlib/figure.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Figure</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#constructor-de-figure">Constructor de Figure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos">Atributos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos">Métodos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apariencia">Apariencia</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#artists">Artists</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diseno-de-subplots">Diseño de <em>subplots</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejes-y-subfiguras">Ejes y subfiguras</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#etiquetas-y-anotaciones">Etiquetas y Anotaciones</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#guardar">Guardar</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interactividad">Interactividad</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modificacion-del-estado">Modificación del estado</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tamano-y-resolucion">Tamaño y resolución</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-utiles">Funciones útiles</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="figure">
+<h1>Figure<a class="headerlink" href="#figure" title="Link to this heading">#</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">matplotlib.figure</span></code> es un módulo que impleta las clases <code class="docutils literal notranslate"><span class="pre">Figure</span></code> y <code class="docutils literal notranslate"><span class="pre">SubFigure</span></code>. En esta sección únicamente se enlistan las propiedades y algunos métodos de la clase <code class="docutils literal notranslate"><span class="pre">Figure</span></code>. Para información sobre cómo crear y manipular instancias de la clase <code class="docutils literal notranslate"><span class="pre">Figure</span></code> consultar <a class="reference internal" href="matplotlib-index.html"><span class="doc">Matplotlib</span></a>.</p>
+<hr class="docutils" />
+<section id="constructor-de-figure">
+<h2>Constructor de Figure<a class="headerlink" href="#constructor-de-figure" title="Link to this heading">#</a></h2>
+<p>Es el <code class="docutils literal notranslate"><span class="pre">Artist</span></code> de nivel superior, que contiene todos los elementos de la gráfica.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Los usuarios no deben inicializar objetos <code class="docutils literal notranslate"><span class="pre">Figure</span></code> directamente, sino que se deben de utilizar métodos que retornen objetos <code class="docutils literal notranslate"><span class="pre">Figure</span></code> como los del módulo <a class="reference internal" href="pyplot.html"><span class="doc">Pyplot</span></a>.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Constructor</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.html">Figure</a>(figsize=None, dpi=None, …)</p></td>
+<td><p>El contenedor de nivel superior para todos los elementos de la gráfica.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<hr class="docutils" />
+<section id="atributos">
+<h2>Atributos<a class="headerlink" href="#atributos" title="Link to this heading">#</a></h2>
+<p>En <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> no se puede acceder directamente a los atributos por medio de la notación punto. Para modificar o retornar los atributos es necesario usar los métodos <code class="docutils literal notranslate"><span class="pre">Figure.set_*</span></code> y <code class="docutils literal notranslate"><span class="pre">Figure.get_*</span></code>. A continuación se presenta una tabla de los atributos de <code class="docutils literal notranslate"><span class="pre">Figure</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Los atributos se pueden definir como parámetros dentro de la función <code class="docutils literal notranslate"><span class="pre">plt.figure()</span></code>. Para ver los tipos de datos de los argumentos o las maneras de definirlos consultar <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure">la tabla de parámetros</a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Muchos atributos son heredados de la clase <code class="docutils literal notranslate"><span class="pre">Artist</span></code>.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Atributo</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.artist.Artist.set_agg_filter.html">agg_filter</a></p></td>
+<td><p>Filtro del gráfico.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.artist.Artist.set_alpha.html">alpha</a></p></td>
+<td><p>Transparencia de la figura (0 es transparente, 1 es opaco).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.artist.Artist.set_animated.html">animated</a></p></td>
+<td><p>Indica si el gráfico es animado o no.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.set_canvas.html">canvas</a></p></td>
+<td><p>Canvas de la figura.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.artist.Artist.set_clip_box.html">clip_box</a></p></td>
+<td><p>Indica el área de recorte para los gráficos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.artist.Artist.set_clip_on.html">clip_on</a></p></td>
+<td><p>Indica si se aplican recortes al gráfico.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.artist.Artist.set_clip_path.html">clip_path</a></p></td>
+<td><p>Indica la ruta de recorte para los gráficos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.set_dpi.html">dpi</a></p></td>
+<td><p>Resolución de la figura en puntos por pulgada.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.FigureBase.set_edgecolor">edgecolor</a></p></td>
+<td><p>Color del borde del rectángulo de la figura.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.FigureBase.set_facecolor">facecolor</a></p></td>
+<td><p>Color de fondo del rectángulo de la figura.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.set_figheight.html">figheight</a></p></td>
+<td><p>Altura de la figura en pulgadas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.artist.Artist.set_figure.html">figure</a></p></td>
+<td><p>Referencia a la figura contenedora del gráfico.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.set_figwidth.html">figwidth</a></p></td>
+<td><p>Ancho de la figura en pulgadas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.FigureBase.set_frameon">frameon</a></p></td>
+<td><p>Indica la visibilidad del fondo de la figura.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.artist.Artist.set_gid.html">gid</a></p></td>
+<td><p>ID único para el gráfico, útil para identificaciones.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.artist.Artist.set_in_layout.html">in_layout</a></p></td>
+<td><p>Indica si los ejes participan en el diseño de la figura.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.artist.Artist.set_label.html">label</a></p></td>
+<td><p>Etiqueta del gráfico, utilizada en leyendas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.set_layout_engine.html">layout_engine</a></p></td>
+<td><p>Indica el <em>engine</em> del diseño de la figura.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.FigureBase.set_linewidth">linewidth</a></p></td>
+<td><p>Grosor de la línea del rectángulo de la figura.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.artist.Artist.set_mouseover.html">mouseover</a></p></td>
+<td><p>Indica si están activos los eventos al pasar el ratón sobre el gráfico.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.artist.Artist.set_path_effects.html">path_effects</a></p></td>
+<td><p>Efectos de estilo aplicados a los gráficos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.artist.Artist.set_picker.html">picker</a></p></td>
+<td><p>Habilita la selección de elementos en el gráfico.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.artist.Artist.set_rasterized.html">rasterized</a></p></td>
+<td><p>Define cuándo rasterizar según el orden z.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.set_size_inches.html">size_inches</a></p></td>
+<td><p>Establece el tamaño de la figura en pulgadas.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.artist.Artist.set_sketch_params.html">sketch_params</a></p></td>
+<td><p>Parámetros para dar un efecto de boceto al gráfico.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.artist.Artist.set_snap.html">snap</a></p></td>
+<td><p>Ajuste de las coordenadas a los píxeles más cercanos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.artist.Artist.set_transform.html">transform</a></p></td>
+<td><p>Transformación aplicada a los datos del gráfico.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.artist.Artist.set_url.html">url</a></p></td>
+<td><p>URL asociada al gráfico, útil para interactividad.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.artist.Artist.set_visible.html">visible</a></p></td>
+<td><p>Indica si el gráfico es visible.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.artist.Artist.set_zorder.html">zorder</a></p></td>
+<td><p>Orden de dibujo del gráfico sobre otros elementos.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="metodos">
+<span id="matplotlib-figure-metodos"></span><h2>Métodos<a class="headerlink" href="#metodos" title="Link to this heading">#</a></h2>
+<p>A continuación se enlistas los métodos de la clase <code class="docutils literal notranslate"><span class="pre">Figure</span></code> por categorías.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Al utilizar los métodos tener en cuenta:</p>
+<ul class="simple">
+<li><p>Para utilizar los métodos, <em>fig</em> tuvo que haber sido asignada a una variable.</p></li>
+<li><p>En esta sección se enlistan solo algunos de los métodos de la clase <code class="docutils literal notranslate"><span class="pre">Figure</span></code>. Para una lista completa consultar la <a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure">documentación</a> de <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>. Tener en cuenta que en la documentación los métodos no están resumidos en una tabla, sino que se presentan a lo largo de toda la sección.</p></li>
+</ul>
+</div>
+<section id="apariencia">
+<h3>Apariencia<a class="headerlink" href="#apariencia" title="Link to this heading">#</a></h3>
+<p>Métodos para recuperar o modificar la apariencia de la figura.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Establecer</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.set_edgecolor.html">Figure.set_edgecolor</a>(color)</p></td>
+<td><p>Establece el color del borde de la <code class="docutils literal notranslate"><span class="pre">Figure</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.set_facecolor.html">Figure.set_facecolor</a>(color)</p></td>
+<td><p>Establece el color de la cara del <code class="docutils literal notranslate"><span class="pre">Figure</span></code> rectángulo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.set_frameon.html">Figure.set_frameon</a>(b)</p></td>
+<td><p>Establece la visibilidad del fondo de la figura.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.set_linewidth.html">Figure.set_linewidth</a>(linewidth)</p></td>
+<td><p>Establece el ancho de línea del rectángulo de la <code class="docutils literal notranslate"><span class="pre">Figure</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Recuperar</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.get_edgecolor.html">Figure.get_edgecolor</a>()</p></td>
+<td><p>Retorna el color del borde de la <code class="docutils literal notranslate"><span class="pre">Figure</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.get_facecolor.html">Figure.get_facecolor</a>()</p></td>
+<td><p>Retorna el color de la cara de la <code class="docutils literal notranslate"><span class="pre">Figure</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.get_frameon.html">Figure.get_frameon</a>()</p></td>
+<td><p>Retorna la visibilidad del fondo de la figura.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.get_linewidth.html">Figure.get_linewidth</a>()</p></td>
+<td><p>Retorna el ancho de línea del rectángulo la <code class="docutils literal notranslate"><span class="pre">Figure</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="artists">
+<h3>Artists<a class="headerlink" href="#artists" title="Link to this heading">#</a></h3>
+<p>Son métodos relacionados con agregar o retornar <em>artists</em> existentes en la figura.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.add_artist.html">Figure.add_artist</a>(artist, clip=False)</p></td>
+<td><p>Agrega un <code class="docutils literal notranslate"><span class="pre">Artist</span></code> a la figura.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.figimage.html">Figure.figimage</a>(X, xo=0, yo=0, alpha=None, norm=None, cmap=None, vmin=None, vmax=None, origin=None, resize=False, **kwargs)</p></td>
+<td><p>Añade una imagen <em>non-resampled</em> a la figura.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.get_children.html">Figure.get_children</a>()</p></td>
+<td><p>Retorna una <code class="docutils literal notranslate"><span class="pre">list</span></code> de los <em>artists</em> contenidos en la figura.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<hr class="docutils" />
+<section id="diseno-de-subplots">
+<h3>Diseño de <em>subplots</em><a class="headerlink" href="#diseno-de-subplots" title="Link to this heading">#</a></h3>
+<p>Funciones para establecer el <em>layout</em> de múltiples gráficas.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Establecer</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.set_layout_engine.html">Figure.set_layout_engine</a>(layout=None, **kwargs)</p></td>
+<td><p>Establece el motor de diseño para esta figura.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.subplots_adjust.html">Figure.subplots_adjust</a>(left=None, bottom=None, right=None, top=None, wspace=None, hspace=None)</p></td>
+<td><p>Ajusta los parámetros de diseño de los <em>subplots</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.tight_layout.html">Figure.tight_layout</a>(*, pad=1.08, h_pad=None, w_pad=None, rect=None)</p></td>
+<td><p>Ajusta de la mejor manera el espacio entre y alrededor de los <em>subplots</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Recuperar</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.get_constrained_layout.html">Figure.get_constrained_layout</a>()</p></td>
+<td><p>Indica si se está utilizando un diseño restringido.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.get_tight_layout.html">Figure.get_tight_layout</a>()</p></td>
+<td><p>Indica si <code class="docutils literal notranslate"><span class="pre">Figure.tight_layout</span></code> es llamado al graficarse la figura.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="ejes-y-subfiguras">
+<h3>Ejes y subfiguras<a class="headerlink" href="#ejes-y-subfiguras" title="Link to this heading">#</a></h3>
+<p>Son métodos relacionados con añadir y retornar <em>axes</em> de la figura.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.add_axes.html">Figure.add_axes</a>(*args, **kwargs)</p></td>
+<td><p>Agrega un <code class="docutils literal notranslate"><span class="pre">Axes</span></code> a la figura.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.add_gridspec.html">Figure.add_gridspec</a>(nrows=1, ncols=1, **kwargs)</p></td>
+<td><p>API de bajo nivel para crear un <code class="docutils literal notranslate"><span class="pre">GridSpec</span></code> que tiene a esta figura como padre.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.add_subfigure.html">Figure.add_subfigure</a>(subplotspec, **kwargs)</p></td>
+<td><p>Agrega un <code class="docutils literal notranslate"><span class="pre">SubFigure</span></code> a la figura como parte de un arreglo de subgráficas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.add_subplot.html">Figure.add_subplot</a>(*args, **kwargs)</p></td>
+<td><p>Agrega un <code class="docutils literal notranslate"><span class="pre">Axes</span></code> a la figura como parte de un arreglo de subgráficas.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.axes.html">Figure.axes</a>()</p></td>
+<td><p>Enlista los <code class="docutils literal notranslate"><span class="pre">Axes</span></code> en el <code class="docutils literal notranslate"><span class="pre">Figure</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.delaxes.html">Figure.delaxes</a>(ax)</p></td>
+<td><p>Elimina el <code class="docutils literal notranslate"><span class="pre">Axes</span></code> <em>ax</em> de la figura o actualiza el actual <code class="docutils literal notranslate"><span class="pre">Axes</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.get_axes.html">Figure.get_axes</a>()</p></td>
+<td><p>Enlista de <code class="docutils literal notranslate"><span class="pre">Axes</span></code> en el <code class="docutils literal notranslate"><span class="pre">Figure</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.subfigures.html">Figure.subfigures</a>(nrows=1, ncols=1, squeeze=True, wspace=None, …)</p></td>
+<td><p>Agrega un <code class="docutils literal notranslate"><span class="pre">set</span></code> de subfiguras a esta figura.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.subplot_mosaic.html">Figure.subplot_mosaic</a>(mosaic, …)</p></td>
+<td><p>Construye un diseño de <code class="docutils literal notranslate"><span class="pre">Axes</span></code> basado en arte ASCII o listas anidadas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.subplots.html">Figure.subplots</a>(nrows=1, ncols=1, …)</p></td>
+<td><p>Agrega un <code class="docutils literal notranslate"><span class="pre">set</span></code> de subgráficas a esta figura.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="etiquetas-y-anotaciones">
+<h3>Etiquetas y Anotaciones<a class="headerlink" href="#etiquetas-y-anotaciones" title="Link to this heading">#</a></h3>
+<p>A continuación se enlistan los métodos relacionados con etiquetas, títulos y otras anotaciones que se pueden hacer a las figuras.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.align_labels.html">Figure.align_labels</a>(axs=None)</p></td>
+<td><p>Alinea las etiquetas <em>x</em> y <em>y</em> de los <em>subplots</em> con la misma fila o columna (respectivamente).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.align_titles.html">Figure.align_titles</a>(axs=None)</p></td>
+<td><p>Alinea los títulos de los <em>subplots</em> en la misma fila.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.align_xlabels.html">Figure.align_xlabels</a>(axs=None)</p></td>
+<td><p>Alinea las etiquetas <em>x</em> de los <em>subplots</em> en la misma fila</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.align_ylabels.html">Figure.align_ylabels</a>(axs=None)</p></td>
+<td><p>Alinee las etiquetas <em>y</em> de los <em>subplots</em> en la misma columna.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.autofmt_xdate.html">Figure.autofmt_xdate</a>(bottom=0.2, rotation=30, ha=’right’, which=’major’)</p></td>
+<td><p>Rota y alinea a la derecha las etiquetas de los <em>ticks</em> de fechas para evitar que se solapen.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.colorbar.html">Figure.colorbar</a>(mappable, cax=None, ax=None, use_gridspec=True, **kwargs)</p></td>
+<td><p>Agrega una barra de colores a un gráfico.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.get_suptitle.html">Figure.get_suptitle</a>()</p></td>
+<td><p>Retorna el subtítulo como cadena o una cadena vacía si no se estableció.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.get_supxlabel.html">Figure.get_supxlabel</a>()</p></td>
+<td><p>Retorna la <em>supxlabel</em> como cadena o una cadena vacía si no `estableció.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.get_supylabel.html">Figure.get_supylabel</a>()</p></td>
+<td><p>Retorna la etiqueta <em>supylabel</em> como cadena o una cadena vacía si no estableció.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.legend.html">Figure.legend</a>(*args, **kwargs)</p></td>
+<td><p>Añade una leyenda a la figura.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.suptitle.html">Figure.suptitle</a>(t, **kwargs)</p></td>
+<td><p>Añade un subtítulo centrado a la figura.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.supxlabel.html">Figure.supxlabel</a>(t, **kwargs)</p></td>
+<td><p>Añade una etiqueta <em>supxlabel</em> centrada a la figura.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.supylabel.html">Figure.supylabel</a>(t, **kwargs)</p></td>
+<td><p>Añade una etiqueta <em>supylabel</em> centrada a la figura.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.text.html">Figure.text</a>(x, y, s, fontdict=None, **kwargs)</p></td>
+<td><p>Añade texto a la figura.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="guardar">
+<h3>Guardar<a class="headerlink" href="#guardar" title="Link to this heading">#</a></h3>
+<p>Métodos relacionados para guardar la figura.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.add_axobserver.html">Figure.savefig</a>(fname, *, transparent=None, **kwargs)</p></td>
+<td><p>Almacena la figura como una imagen o un gráfico de vectores. Por default se guarda en la ruta activa.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Patrones útiles</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Como png</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;path/to/file.png&quot;</span><span class="p">)</span>
+
+<span class="c1"># Como jpg</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;path/to/file.jpg&quot;</span><span class="p">)</span>
+
+<span class="c1"># Como svg</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;path/to/file.svg&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<br/>
+</section>
+<section id="interactividad">
+<h3>Interactividad<a class="headerlink" href="#interactividad" title="Link to this heading">#</a></h3>
+<p>Métodos relacionados con crear gráficas interactivas.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.add_axobserver.html">Figure.add_axobserver</a>(func)</p></td>
+<td><p>Se llama a <em>func</em> cada que el estado de la figura se modifica.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.ginput.html">Figure.ginput</a>(n=1, timeout=30, show_clicks=True, …)</p></td>
+<td><p>Llamada de bloqueo para interactuar con la figura.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.pick.html">Figure.pick</a>(mouseevent)</p></td>
+<td><p>Procesa un evento de selección.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.waitforbuttonpress.html">Figure.waitforbuttonpress</a>(timeout=-1)</p></td>
+<td><p>Llamada de bloqueo para interactuar con la figura.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="modificacion-del-estado">
+<h3>Modificación del estado<a class="headerlink" href="#modificacion-del-estado" title="Link to this heading">#</a></h3>
+<p>Métodos para graficar la figura, limpiarla, manipular los <em>axes</em>, entre otros.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.clear.html">Figure.clear</a>(keep_observers=False)</p></td>
+<td><p>Limpia la figura.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.draw.html">Figure.draw</a>(renderer)</p></td>
+<td><p>Grafica al Artista (y sus hijos) usando el renderizador dado.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.draw_artist.html">Figure.draw_artist</a>(a)</p></td>
+<td><p>Grafica un solo <code class="docutils literal notranslate"><span class="pre">Artist</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.draw_without_rendering.html">Figure.draw_without_rendering</a>()</p></td>
+<td><p>Grafica la figura sin <em>output</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.gca.html">Figure.gca</a>()</p></td>
+<td><p>Retorna el <code class="docutils literal notranslate"><span class="pre">Axes</span></code> actual.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.get_tightbbox.html">Figure.get_tightbbox</a>(renderer=None, …)</p></td>
+<td><p>Retorna un cuadro delimitador (estrecho) de la figura en pulgadas.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.get_window_extent.html">Figure.get_window_extent</a>(renderer=None)</p></td>
+<td><p>Retorna el cuadro delimitador del artista en el espacio de visualización.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.sca.html">Figure.sca</a>(a)</p></td>
+<td><p>Establece el <code class="docutils literal notranslate"><span class="pre">Axes</span></code> <em>a</em> como el actual y lo retorna.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.set_canvas.html">Figure.set_canvas</a>(canvas)</p></td>
+<td><p>Establece el lienzo que contiene la figura.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.show.html">Figure.show</a>(warn=True)</p></td>
+<td><p>Imprime la figura en pantalla.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="tamano-y-resolucion">
+<h3>Tamaño y resolución<a class="headerlink" href="#tamano-y-resolucion" title="Link to this heading">#</a></h3>
+<p>Métodos relacionados con el tañamo y resolución de la figura.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.dpi.html">Figure.dpi</a>()</p></td>
+<td><p>La resolución en puntos por pulgada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Establecer</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.set_dpi.html">Figure.set_dpi</a>(val)</p></td>
+<td><p>Establece la resolución de la figura en puntos por pulgada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.set_dpi.html">Figure.set_dpi</a>(val)</p></td>
+<td><p>Establece la resolución de la figura en puntos por pulgada.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.set_figheight.html">Figure.set_figheight</a>(val, forward=True)</p></td>
+<td><p>Establece la altura de la figura en pulgadas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.set_figwidth.html">Figure.set_figwidth</a>(val, forward=True)</p></td>
+<td><p>Establece el ancho de la figura en pulgadas.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.set_size_inches.html">Figure.set_size_inches</a>(w, h=None, forward=True)</p></td>
+<td><p>Establece el tamaño de la figura en pulgadas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Recuperar</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.get_figheight.html">Figure.get_figheight</a>()</p></td>
+<td><p>Retorna la altura de la figura en pulgadas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.get_figwidth.html">Figure.get_figwidth</a>()</p></td>
+<td><p>Retorna el ancho de la figura en pulgadas.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.get_size_inches.html">Figure.get_size_inches</a>()</p></td>
+<td><p>Retorna el tamaño actual de la figura en pulgadas.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+<hr class="docutils" />
+<section id="funciones-utiles">
+<h2>Funciones útiles<a class="headerlink" href="#funciones-utiles" title="Link to this heading">#</a></h2>
+<p>A continuación se presentan algunas funciones útiles al trabajar con instancias de la clase <code class="docutils literal notranslate"><span class="pre">Figure</span></code>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">plt.clf()</span></code>: Limpia la figura que se está manejando actualmente.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">plt.gcf()</span></code>:  Retorna la figura actual, si no hay una figura actual entonces crea una.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./parts/05-matplotlib"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="pyplot.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Pyplot</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="axes.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Axes</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#constructor-de-figure">Constructor de Figure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos">Atributos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos">Métodos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apariencia">Apariencia</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#artists">Artists</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diseno-de-subplots">Diseño de <em>subplots</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejes-y-subfiguras">Ejes y subfiguras</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#etiquetas-y-anotaciones">Etiquetas y Anotaciones</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#guardar">Guardar</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interactividad">Interactividad</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modificacion-del-estado">Modificación del estado</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tamano-y-resolucion">Tamaño y resolución</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-utiles">Funciones útiles</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nebok
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

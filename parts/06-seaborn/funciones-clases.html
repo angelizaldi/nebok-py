@@ -1,0 +1,2187 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Funciones y Clases &#8212; Manual de Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'parts/06-seaborn/funciones-clases';</script>
+    <link rel="icon" href="../../_static/nebok-favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Interface por objetos" href="objects-interface.html" />
+    <link rel="prev" title="Seaborn" href="seaborn-index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/nebok-logo.png" class="logo__image only-light" alt="Manual de Python - Home"/>
+    <script>document.write(`<img src="../../_static/nebok-logo.png" class="logo__image only-dark" alt="Manual de Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Manual de Python para Data Science
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Built-in</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01-built-in/built-in-index.html">Python Estándar</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/ayuda.html">Obtener ayuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/comentarios.html">Comentarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/tipos-datos.html">Tipos de Datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/variables-constantes.html">Variables y Constantes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/operadores-palabras.html">Operadores y palabras reservadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/entrada-salida.html">Impresión y solicitud de datos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/tipos-index.html">Tipos Built-In</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/none-bool-numericos.html"><em>None</em>, <em>bool</em> y Numéricos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/str.html">str</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/lists.html">list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/tuples.html">Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/sets.html">Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/dicts.html">dict</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/if-else.html">If … Else</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/for-loop.html">For Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/do-while.html">Do While</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/udf.html">Funciones (UDF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/exceptions.html">Excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/context-managers.html">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/io.html">Lectura y escritura de archivos (IO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/modulos.html">Paquetes y Módulos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/avanzado-index.html">Temas avanzados</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/decorators.html">Decorators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/iterators.html">Iterators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/generators.html">Generators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/oop.html">Programación orientada a objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/func-built-in.html">Funciones built-in</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-modulos/modulos-index.html">Módulos built-in</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/csv.html">CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/datetime.html">Datetime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/itertools.html">Itertools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/json.html">JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/math.html">Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os.html">Os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os-path.html">Os.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/pickle.html">Pickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/random.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/regex.html">Regex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/statistics.html">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/urllib-request.html">urllib.request</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otras librerías</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-numpy/numpy-index.html">Numpy</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/arrays.html">Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../03-numpy/funciones-index.html">Funciones</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/ufuncs.html">Ufuncs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/buscar-contar-ordenar-unicos.html">Buscar, contar, ordenar y valores únicos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/creacion-arrays.html">Creación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/estadisticas.html">Estadísticas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/indices.html">Índices e iteración</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/informacion.html">Información</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/lectura-escritura.html">Lectura y escritura de datos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/manipulacion-arrays.html">Manipulación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/matematicas-numericas.html">Matemáticas y numéricas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/operadores.html">Operadores</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/algebra-lineal.html">Módulo linalg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/cadenas.html">Modulo char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/random.html">Módulo random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/patrones-numpy.html">Patrones útiles</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04-pandas/pandas-index.html">Pandas</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/index.html">Index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/series.html">Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/dataframe.html">DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/escalares-arrays.html">Escalares y Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../04-pandas/otras-clases.html">Otras clases</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/groupby.html">GroupBy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/expanding-rolling-window.html"><em>Expanding, Rolling</em> y <em>Window</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/resampler.html">Resampler</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/funciones.html">Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/patrones-pandas.html">Patrones útiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05-matplotlib/matplotlib-index.html">Matplotlib</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/pyplot.html">Pyplot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/figure.html">Figure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/axes.html">Axes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/otros.html">Otras Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="seaborn-index.html">Seaborn</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Funciones y Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects-interface.html">Interface por objetos</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otros</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-otros/otros-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08-otros/IPython.html">IPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-otros/beautifulsoup.html">Web Scraping</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/parts/06-seaborn/funciones-clases.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Funciones y Clases</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#categoricas">Categóricas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-bar">Ejemplo de <em>bar</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-box">Ejemplo de <em>box</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-countplot">Ejemplo de <em>countplot</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-swarmplot">Ejemplo de <em>swarmplot</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion">Distribución</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-histplot">Ejemplo de <em>histplot</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-kdeplot">Ejemplo de <em>kdeplot</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz">Matriz</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-heatmap">Ejemplo de <em>heatmap</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regresion">Regresión</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-regplot">Ejemplo de <em>regplot</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relacionales">Relacionales</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-scatter">Ejemplo de <em>scatter</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-line">Ejemplo de <em>line</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#personalizacion">Personalización</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paletas-de-colores">Paletas de Colores</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-set-palette">Notas de <em>set_palette</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#widgets">Widgets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#temas">Temas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-set-context">Notas de <em>set_context</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-set-style">Notas de <em>set_style</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#utilidades">Utilidades</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clases">Clases</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#facetgrid">FacetGrid</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#uso">Uso</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos">Atributos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos">Métodos</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jointgrid">JointGrid</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Uso</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Atributos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Métodos</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pairgrid">PairGrid</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Uso</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Atributos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Métodos</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="funciones-y-clases">
+<h1>Funciones y Clases<a class="headerlink" href="#funciones-y-clases" title="Link to this heading">#</a></h1>
+<div class="cell tag_remove-input docutils container">
+</div>
+<p>En esta sección se resumen las funciones y clases relacionadas con la interface por funciones.</p>
+<hr class="docutils" />
+<section id="categoricas">
+<h2>Categóricas<a class="headerlink" href="#categoricas" title="Link to this heading">#</a></h2>
+<p>Funciones para graficar variables categóricas, incluyendo gráficas de barras, <em>boxplots</em>, gráfica de puntos, gráfica de recuentos, gráficas de violines y de panales, etc. Existe la gráfica a nivel de figura y varias a nivel de ejes.</p>
+<p><strong>Figure level</strong></p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.catplot.html">catplot</a>(data=None, …)</p></td>
+<td><p>Interfaz a nivel de figura para crear gráficos categóricos en un <code class="docutils literal notranslate"><span class="pre">FacetGrid</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong>x</strong>, <strong>y</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code> o <code class="docutils literal notranslate"><span class="pre">str</span></code>: Pueden ser vectores o etiquetas en <em>data</em>, que especifican los valores en los ejes <em>x</em> y <em>y</em> respectivamente. Una de ellas debe de ser una variable categórica. Dependiendo de en cuál eje se haya puesta la variable categórica la gráfica será horizontal o vertical.</p></li>
+<li><p><strong>data</strong> - <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="docutils literal notranslate"><span class="pre">mapping</span></code> o <code class="docutils literal notranslate"><span class="pre">secuencia</span></code>: Estructura de datos de entrada.</p></li>
+<li><p><strong>kind</strong> - <code class="docutils literal notranslate"><span class="pre">str</span></code>: Para especificar el tipo de gráfica:.</p>
+<ul>
+<li><p>Dispersión: ‘strip’, ‘swarm’.</p></li>
+<li><p>Distribución: ‘boxplot’, ‘violinplot’, ‘boxenplot’.</p></li>
+<li><p>Estimación: ‘pointplot’, ‘barplot’, ‘countplot’.</p></li>
+</ul>
+</li>
+<li><p><strong>hue</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code> o <code class="docutils literal notranslate"><span class="pre">str</span></code>: Pueden ser vectores o etiquetas en <em>data</em>, es una variable categórica que es mapeada para determinar el color de los elementos de la gráfica.</p></li>
+<li><p><strong>hue_order</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code> de <code class="docutils literal notranslate"><span class="pre">str</span></code>: Para indicar el orden de las categorías del argumento <em>hue</em>. Deben de ser los valores únicos ordenadas en orden que prefieras de <em>hue</em>.</p></li>
+<li><p><strong>row</strong>, <strong>col</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code> o <code class="docutils literal notranslate"><span class="pre">str</span></code>: Pueden ser vectores o etiquetas en <em>data</em>, es una variable categórica para crear <em>subplots</em> de acuerdo a los valores de ésta. Si se usan ambos se creará una matriz.</p></li>
+<li><p><strong>col_wrap</strong> - <code class="docutils literal notranslate"><span class="pre">int</span></code>: Para indicar un número máximo de columnas de gráficas a realizar, si se supera se crearán filas. Es incompatible con el argumento row.</p></li>
+<li><p><strong>estimator</strong> - <code class="docutils literal notranslate"><span class="pre">callable</span></code>: Una función que de entrada reciba un <code class="docutils literal notranslate"><span class="pre">vector</span></code> y retorne un <code class="docutils literal notranslate"><span class="pre">scalar</span></code>. Pueden ser métodos de <code class="docutils literal notranslate"><span class="pre">DataFRame</span></code> como <em>mean</em>, <em>median</em>, etc.</p></li>
+<li><p><strong>ci</strong> - <code class="docutils literal notranslate"><span class="pre">float</span></code>: Tamaño del intervalo de confianza al agregar un estimator.</p></li>
+<li><p><strong>order</strong> - <code class="docutils literal notranslate"><span class="pre">list</span></code> de <code class="docutils literal notranslate"><span class="pre">str</span></code>: Para modificar el orden de las categorías. Debe ser una lista con las categorías únicas ordenas en el orden deseado.</p></li>
+<li><p><strong>col_order</strong>, <strong>row_order</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code> de <code class="docutils literal notranslate"><span class="pre">str</span></code>: Los elementos de la columna/fila para indicar cómo ordenar cada uno de los valores.</p></li>
+<li><p><strong>height</strong> - <code class="docutils literal notranslate"><span class="pre">scalar</span></code>: Altura de cada facet en pulgadas.</p></li>
+<li><p><strong>aspect</strong> - <code class="docutils literal notranslate"><span class="pre">scalar</span></code>: Radio entre la altura y ancho de cada facet en pulgadas.</p></li>
+<li><p><strong>orient</strong> - {‘v’, ‘h’}: Orientación de la gráfica.</p></li>
+<li><p><strong>color</strong> - <code class="docutils literal notranslate"><span class="pre">color</span></code>: Color de todos los elementos.</p></li>
+<li><p><strong>palette</strong> - <code class="docutils literal notranslate"><span class="pre">string</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">dict</span></code> o <code class="docutils literal notranslate"><span class="pre">matplotlib.colors.Colormap</span></code>: Métodos para escoger la paleta de colores, cuando se mapea con base a hue.</p></li>
+<li><p><strong>legend</strong> - <code class="docutils literal notranslate"><span class="pre">bool</span></code>: Para indicar si mostrar una leyenda.</p></li>
+</ul>
+<p>Patrones útiles.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Uso de función a nivel de figura</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="n">data</span><span class="p">],</span> <span class="p">[</span><span class="n">kind</span><span class="p">],</span> <span class="p">[</span><span class="n">col</span><span class="p">],</span> <span class="p">[</span><span class="n">row</span><span class="p">])</span>
+
+<span class="c1"># Modificar orden de las categorías</span>
+<span class="n">category_order</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;cat1&#39;</span><span class="p">,</span> <span class="s1">&#39;cat2&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="n">data</span><span class="p">],</span> <span class="p">[</span><span class="n">kind</span><span class="p">],</span> <span class="p">[</span><span class="n">col</span><span class="p">],</span> <span class="p">[</span><span class="n">row</span><span class="p">],</span> <span class="n">order</span><span class="o">=</span><span class="n">category_order</span><span class="p">)</span>
+</pre></div>
+</div>
+<br/>
+<p><strong>Axes level</strong></p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.barplot.html">barplot</a>(data=None, …)</p></td>
+<td><p>Realiza una gráfica de barras, sumariza los datos con un <em>aggregate</em> (media por default) y añade <em>error bars</em> con un intevarlo de confianza del 95%, de acuerdo a los valores de una variable categórica.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.boxenplot.html">boxenplot</a>(data=None, …)</p></td>
+<td><p>Grafica un diagrama de caja mejorado para conjuntos de datos más grandes y permite visualizar de mejor manera la distribución de los datos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.boxplot.html">boxplot</a>(data=None, …)</p></td>
+<td><p>Grafica un boxplot, para mostrar la distribución de acuerdo a los valores de una variable categórica.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.countplot.html">countplot</a>(data=None, …)</p></td>
+<td><p>Genera una gráfica de barras, donde la altura de la barra será el número de veces que se repite cada categoría en toda la columna, de acuerdo a los valores de una variable categórica.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.pointplot.html">pointplot</a>(data=None, …)</p></td>
+<td><p>Grafica estimaciones puntuales y errores usando líneas con marcadores por categorías.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.stripplot.html">stripplot</a>(data=None, …)</p></td>
+<td><p>Grafica una diagrama de dispersión donde una de las variables es categórica, utilizando <em>jitter</em> para reducir marcas superpuestas.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.swarmplot.html">swarmplot</a>(data=None, …)</p></td>
+<td><p>Grafica un diagrama de dispersión donde una de las variables es categórica. Es similar a <code class="docutils literal notranslate"><span class="pre">sns.stipplot()</span></code>, la diferencia es que distribuye los puntos a lo largo del eje categórico de manera de éstos no se sobreencimen y permite una mejor visualización de la distribución de los valores.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.violinplot.html">violinplot</a>(data=None, …)</p></td>
+<td><p>Grafica una combinación entre un boxplot y una estimación de la densidad del kernel.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Parámetros comunes</strong>:</p>
+<ul class="simple">
+<li><p><strong>x</strong>, <strong>y</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code> o <code class="docutils literal notranslate"><span class="pre">str</span></code>: Pueden ser vectores o etiquetas en data, que especifican los valores en los ejes <em>x</em> y <em>y</em> respectivamente. Una de ellas debe de ser una variable categórica. Dependiendo de en cuál eje se haya puesta la variable categórica la gráfica será horizontal o vertical. Algunas gráficas aceptan solo uno de los dos y otras los dos.</p></li>
+<li><p><strong>data</strong> - <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="docutils literal notranslate"><span class="pre">mapping</span></code> o <code class="docutils literal notranslate"><span class="pre">secuencia</span></code>: Estructura de datos de entrada.</p></li>
+<li><p><strong>hue</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code> o <code class="docutils literal notranslate"><span class="pre">str</span></code>: Pueden ser vectores o etiquetas en <em>data</em>. Es una variable categórica que es mapeada para determinar el color de los elementos de la gráfica, estableciendo la leyenda de la gráfica.</p></li>
+<li><p><strong>order</strong> - <code class="docutils literal notranslate"><span class="pre">list</span></code> de <code class="docutils literal notranslate"><span class="pre">str</span></code>: Para modificar el orden de las categorías. . Deben de ser los valores únicos ordenados en orden que se prefiera</p></li>
+<li><p><strong>hue_order</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code> de <code class="docutils literal notranslate"><span class="pre">str</span></code>: Para indicar el orden de las categorías del argumento <em>hue</em>. Deben de ser los valores únicos ordenados en orden que se prefiera de <em>hue</em>.</p></li>
+<li><p><strong>orient</strong> - {‘v’, ‘h’}: Orientación de la gráfica.</p></li>
+<li><p><strong>color</strong> - <code class="docutils literal notranslate"><span class="pre">color</span></code>: Color de todos los elementos.</p></li>
+</ul>
+<p>Patrones útiles.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Uso de función a nivel de ejes</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">function_name</span><span class="p">([</span><span class="n">x</span><span class="p">],</span> <span class="p">[</span><span class="n">y</span><span class="p">],</span> <span class="p">[</span><span class="n">data</span><span class="p">])</span>
+
+<span class="c1"># Modificar orden de las categorías</span>
+<span class="n">category_order</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;cat1&#39;</span><span class="p">,</span> <span class="s1">&#39;cat2&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">function_name</span><span class="p">([</span><span class="n">x</span><span class="p">],</span> <span class="p">[</span><span class="n">y</span><span class="p">],</span> <span class="p">[</span><span class="n">data</span><span class="p">],</span> <span class="n">order</span><span class="o">=</span><span class="n">category_order</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="ejemplo-de-bar">
+<h3>Ejemplo de <em>bar</em><a class="headerlink" href="#ejemplo-de-bar" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.barplot.html">barplot</a>: Realiza una gráfica de barras, sumariza los datos con un <em>aggregate</em> (media por default) y añade <em>error bars</em> con un intevarlo de confianza del 95%, de acuerdo a los valores de una variable categórica.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Para cambiar la orientación de las barras intercambiar los argumentos <em>x</em> y <em>y</em>.</p>
+</div>
+<p>Patrones comunes:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Modificar el estimador (por default media)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">estimator</span><span class="o">=</span><span class="n">median</span><span class="p">)</span>
+
+<span class="c1"># Modificar intervalos de confianza</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">estimator</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;ci&#39;</span><span class="p">,</span> <span class="mi">95</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Notas:</p>
+<ul class="simple">
+<li><p><em>estimator</em> - <code class="docutils literal notranslate"><span class="pre">pandas</span> <span class="pre">method</span></code> o <code class="docutils literal notranslate"><span class="pre">callable</span></code>: Una función que de entrada reciba un <code class="docutils literal notranslate"><span class="pre">array-like</span></code> y retorne un <code class="docutils literal notranslate"><span class="pre">scalar</span></code>. Puede ser un método de <em>data</em> como <em>mean</em>, <em>median</em>, etc.</p></li>
+<li><p><em>errorbar</em> - <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, <code class="docutils literal notranslate"><span class="pre">callable</span></code> o <code class="docutils literal notranslate"><span class="pre">None</span></code>: Tipo de barras de errores.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">str</span></code> - {‘ci’, ‘pi’, ‘se’, or ‘sd’}: Nombre del método.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tuple</span></code>: Tupla de dos elementos con el nombre del método y el nivel del parámetro, por ejemplo <code class="docutils literal notranslate"><span class="pre">('ci',</span> <span class="pre">95)</span></code>, es un intervalo de confianza del 95%.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">callable</span></code>: Función que recibe un <code class="docutils literal notranslate"><span class="pre">array-like</span></code> y retorna un tuple <code class="docutils literal notranslate"><span class="pre">(min,</span> <span class="pre">max)</span></code> con el intervalo.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">None</span></code>: Para ocultar las barras de errores.</p></li>
+</ul>
+</li>
+</ul>
+<p>En este ejemplo de gráfica la media de <em>bill_length_mm</em> para cada <em>species</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar el dataset iris</span>
+<span class="n">penguins</span><span class="o">=</span><span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;penguins&quot;</span><span class="p">)</span>
+
+<span class="c1"># Definir graficar</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;bill_length_mm&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">penguins</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">azul</span><span class="p">)</span>
+<span class="c1"># Equivale a: sns.catplot(x=&quot;species&quot;, y=&#39;bill_length_mm&#39;, data=penguins, kind=&quot;bar&quot;)</span>
+
+<span class="c1"># Imprimir gráfica</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/acb7fcb763cc30bfe2b0037fd01d725304454adbb19cfd373654ebb5e01397e2.png" src="../../_images/acb7fcb763cc30bfe2b0037fd01d725304454adbb19cfd373654ebb5e01397e2.png" />
+</div>
+</div>
+</section>
+<section id="ejemplo-de-box">
+<h3>Ejemplo de <em>box</em><a class="headerlink" href="#ejemplo-de-box" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.boxenplot.html">boxenplot</a>: Grafica un boxplot, para mostrar la distribución de acuerdo a los valores de una variable categórica.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Para cambiar la orientación de las barras intercambiar los argumentos <em>x</em> y <em>y</em>.</p>
+</div>
+<p>Patrones útiles:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Omitir datos atíplicos</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">sym</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+<span class="c1"># Modificar orden las categorías</span>
+<span class="n">category_order</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;cat1&#39;</span><span class="p">,</span> <span class="s1">&#39;cat2&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">function_name</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">category_order</span><span class="p">)</span>
+
+<span class="c1"># Modificar los &quot;bigotes&quot;</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">whis</span><span class="o">=</span><span class="p">[</span><span class="n">q1</span><span class="p">,</span> <span class="n">q2</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Notas:</p>
+<ul class="simple">
+<li><p><em>whis</em> - <code class="docutils literal notranslate"><span class="pre">float</span></code> o <code class="docutils literal notranslate"><span class="pre">list</span></code>: Proporción del <em>IQR</em>, para indicar el rango máximo de los bigotes del boxplot, por default es <code class="docutils literal notranslate"><span class="pre">1.5*IQR</span></code>. Los puntos fuera de este rango serán considerados outliers. Si se quieren incluir todos los datos usar np.inf o <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">100]</span></code>. Se puede indificar percentiles específicos con una lista de dos elementos, por ejemplo <code class="docutils literal notranslate"><span class="pre">[5,</span> <span class="pre">95]</span></code>, mostraría hasta los percentiles 5 y 95.</p></li>
+</ul>
+<p>En este ejemplo de grafica la distribucipon de <em>total_bill</em> para cada <em>day</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar el dataset tips</span>
+<span class="n">tips</span><span class="o">=</span><span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;tips&quot;</span><span class="p">)</span>
+
+<span class="c1"># Definir graficar</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;total_bill&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">azul</span><span class="p">)</span>
+<span class="c1"># Equivale a: sns.catplot(x=&quot;day&quot;, y=&#39;total_bill&#39;, data=tips, kind=&quot;box&quot;)</span>
+
+<span class="c1"># Imprimir gráfica</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/dee53cd5affed7fcd74ebd827e2bba70a810ae1ca8232b5e4885cd97d827c45e.png" src="../../_images/dee53cd5affed7fcd74ebd827e2bba70a810ae1ca8232b5e4885cd97d827c45e.png" />
+</div>
+</div>
+</section>
+<section id="ejemplo-de-countplot">
+<h3>Ejemplo de <em>countplot</em><a class="headerlink" href="#ejemplo-de-countplot" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.countplot.html">countplot</a>: Genera una gráfica de barras, donde la altura de la barra será el número de veces que se repite cada categoría en toda la columna, de acuerdo a los valores de una variable categórica.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Para cambiar la orientación de las barras utilizar el argumento <em>y</em> en lugar de <em>x</em>, o viceversa.</p>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Solo se debe de especificar uno de los parámetros <em>x</em> o <em>y</em>, no ambos.</p>
+</div>
+<p>En este ejemplo de grafica la cantidad de observaciones para cada <em>species</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar el dataset iris</span>
+<span class="n">penguins</span><span class="o">=</span><span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;penguins&quot;</span><span class="p">)</span>
+
+<span class="c1"># Definir graficar</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">penguins</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">azul</span><span class="p">)</span>
+<span class="c1"># Equivale a: sns.catplot(x=&quot;species&quot;, data=penguins, kind=&quot;count&quot;)</span>
+
+<span class="c1"># Imprimir gráfica</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/181f199ca8ae5b1e5c6910d343a069c677f9eb40d612d6f973f609e0ffe877be.png" src="../../_images/181f199ca8ae5b1e5c6910d343a069c677f9eb40d612d6f973f609e0ffe877be.png" />
+</div>
+</div>
+</section>
+<section id="ejemplo-de-swarmplot">
+<h3>Ejemplo de <em>swarmplot</em><a class="headerlink" href="#ejemplo-de-swarmplot" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.swarmplot.html">swarmplot</a>: Grafica un diagrama de dispersión donde una de las variables es categórica. Es similar a <code class="docutils literal notranslate"><span class="pre">sns.stipplot()</span></code>, la diferencia es que distribuye los puntos a lo largo del eje categórico de manera de éstos no se sobreencimen y permite una mejor visualización de la distribución de los valores.</p>
+<p>En este ejemplo de gráfica la distribución de <em>total_bill</em> para cada <em>day</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definir grafica</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">swarmplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;total_bill&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">azul</span><span class="p">)</span>
+<span class="c1"># Equivale a: sns.catplot(x=&quot;day&quot;, y=&#39;total_bill&#39;, data=tips, kind=&quot;swarm&quot;)</span>
+
+<span class="c1"># Imprimir gráfica</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/e6824ab1a2a332a6eaa212a9ac97b6ebb1221b52ee4d7529181ad5982f3d7014.png" src="../../_images/e6824ab1a2a332a6eaa212a9ac97b6ebb1221b52ee4d7529181ad5982f3d7014.png" />
+</div>
+</div>
+<br/>
+</section>
+</section>
+<hr class="docutils" />
+<section id="distribucion">
+<h2>Distribución<a class="headerlink" href="#distribucion" title="Link to this heading">#</a></h2>
+<p>Funciones útiles para visualizar la distribución de los datos. Existe la gráfica a nivel de figura y varias a nivel de ejes.</p>
+<p><strong>Figure level</strong></p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.displot.html">displot</a>(data=None, …)</p></td>
+<td><p>Interfaz a nivel de figura para generar gráficos de distribución en un <code class="docutils literal notranslate"><span class="pre">FacetGrid</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong>x</strong>, <strong>y</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code> o <code class="docutils literal notranslate"><span class="pre">str</span></code>: Pueden ser vectores o etiquetas en <em>data</em>, que especifican los valores en los ejes <em>x</em> y <em>y</em> respectivamente.</p></li>
+<li><p><strong>data</strong> - <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="docutils literal notranslate"><span class="pre">mapping</span></code> o <code class="docutils literal notranslate"><span class="pre">secuencia</span></code>: Estructura de datos de entrada.</p></li>
+<li><p><strong>kind</strong> - {‘hist’, ‘kde’, ‘ecdf’}: Para especificar el tipo de gráfica:.</p>
+<ul>
+<li><p>‘hist’: Histograma.</p></li>
+<li><p>‘kde’: Kernel density.</p></li>
+<li><p>‘ecdf’: Empirical cumulative distribution function.</p></li>
+</ul>
+</li>
+<li><p><strong>hue</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code> o <code class="docutils literal notranslate"><span class="pre">str</span></code>: Pueden ser vectores o etiquetas en <em>data</em>. Es una variable categórica que es mapeada para determinar el color de los elementos de la gráfica.</p></li>
+<li><p><strong>row</strong>, <strong>col</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code> o <code class="docutils literal notranslate"><span class="pre">str</span></code>: Pueden ser vectores o etiquetas en <em>data</em>, es una variable categórica para crear <em>subplots</em> de acuerdo a los valores de ésta. Si se usan ambos se creará una matriz.</p></li>
+<li><p><strong>col_wrap</strong> - <code class="docutils literal notranslate"><span class="pre">int</span></code>: Para indicar un número máximo de columnas de gráficas a realizar, si se supera se crearán filas cuando se usa <em>col</em>. Es incompatible con el parámetro <em>row</em>.</p></li>
+<li><p><strong>col_order</strong>, <strong>row_order</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code> de <code class="docutils literal notranslate"><span class="pre">str</span></code>: Los elementos de la <em>col</em> o <em>row</em> para indicar cómo ordenar cada uno de los valores, se utilizan solo los valores únicos de esos argumentos.</p></li>
+<li><p><strong>rug</strong> - <code class="docutils literal notranslate"><span class="pre">bool</span></code>: Para indicar que para cada observación se muestren ticks marginales.</p></li>
+<li><p><strong>rug_kws</strong> - <code class="docutils literal notranslate"><span class="pre">dict</span></code>: Para manipular la apariencia del rug.</p></li>
+<li><p><strong>palette</strong> - <code class="docutils literal notranslate"><span class="pre">strin</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">dict</span></code> o <code class="docutils literal notranslate"><span class="pre">matplotlib.colors.Colormap</span></code>: Métodos para escoger la paleta de colores, cuando se mapea con base a <em>hue</em>.</p></li>
+<li><p><strong>hue_order</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code> de <code class="docutils literal notranslate"><span class="pre">str</span></code>: Para indicar el orden de las categorías del argumento <em>hue</em>. Deben de ser los valores únicos ordenadas en orden que prefieras de hue.</p></li>
+<li><p><strong>legend</strong> - {‘auto’, ‘brief’, ‘full’, False}: Para indicar cómo mostrar una leyenda.</p></li>
+<li><p><strong>height</strong> - <code class="docutils literal notranslate"><span class="pre">scalar</span></code>: Altura de cada <em>facet</em> en pulgadas.</p></li>
+<li><p><strong>aspect</strong> - <code class="docutils literal notranslate"><span class="pre">scalar</span></code>: Radio entre la altura y ancho de cada <em>facet</em> en pulgadas.</p></li>
+<li><p><strong>color</strong> - <code class="docutils literal notranslate"><span class="pre">color</span></code>: Color de todos los elementos.</p></li>
+<li><p><strong>**kwargs</strong>: Argumentos adicionales de <code class="docutils literal notranslate"><span class="pre">histplot()</span></code>, <code class="docutils literal notranslate"><span class="pre">kdeplot()</span></code> y <code class="docutils literal notranslate"><span class="pre">ecdfplot()</span></code>.</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Para crear dos tipos de gráficas en el mismo <em>facet</em>, por ejemplo un histograma y un <em>kde</em> se puede usar los argumentos: <em>kde</em> y <em>rug</em>.</p>
+</div>
+<br/>
+<p><strong>Axes level</strong></p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.ecdfplot.html">ecdfplot</a>(data=None, …)</p></td>
+<td><p>Grafica la función de distribución acumulada empirica.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.histplot.html">histplot</a>(data=None, …)</p></td>
+<td><p>Grafica histogramas univariados o bivariados, para visualizar la distribución de <em>datasets</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.kdeplot.html">kdeplot</a>(data=None, …)</p></td>
+<td><p>Grafica distribuciones univariadas o bivariadas, usando la estimación de la densidad del kernel.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.rugplot.html">rugplot</a>(data=None, …)</p></td>
+<td><p>Grafica distribuciones marginales por medio de <em>ticks</em> a lo largo de los ejes <em>x</em> y <em>y</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Parámetros comunes</strong>:</p>
+<ul class="simple">
+<li><p><strong>x</strong>, <strong>y</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code> o <code class="docutils literal notranslate"><span class="pre">str</span></code>: Pueden ser vectores o etiquetas en data, que especifican los valores en los ejes <em>x</em> y <em>y</em> respectivamente. Una de ellas debe de ser una variable categórica. Dependiendo de en cuál eje se haya puesta la variable categórica la gráfica será horizontal o vertical. Algunas gráficas aceptan solo uno de los dos y otras los dos.</p></li>
+<li><p><strong>data</strong> - <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="docutils literal notranslate"><span class="pre">mapping</span></code> o <code class="docutils literal notranslate"><span class="pre">secuencia</span></code>: Estructura de datos de entrada.</p></li>
+<li><p><strong>hue</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code> o <code class="docutils literal notranslate"><span class="pre">str</span></code>: Pueden ser vectores o etiquetas en <em>data</em>. Es una variable categórica que es mapeada para determinar el color de los elementos de la gráfica, estableciendo la leyenda de la gráfica.</p></li>
+<li><p><strong>hue_order</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code> de <code class="docutils literal notranslate"><span class="pre">str</span></code>: Para indicar el orden de las categorías del argumento <em>hue</em>. Deben de ser los valores únicos ordenados en orden que se prefiera de <em>hue</em>.</p></li>
+</ul>
+<section id="ejemplo-de-histplot">
+<h3>Ejemplo de <em>histplot</em><a class="headerlink" href="#ejemplo-de-histplot" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.histplot.html">histplot</a>: Grafica histogramas univariados o bivariados, para mostrar la distribución de datasets.</p>
+<p>Patrones útiles:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Agregar kde</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;col&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>En este ejemplo se gráfica la distribución de <em>total_bill</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definir grafica</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;total_bill&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">azul</span><span class="p">)</span>
+<span class="c1"># Equivale a: sns.displot(x=&quot;total_bill&quot;, data=tips, kind=&quot;hist&quot;, bins=20, color=azul)</span>
+
+<span class="c1"># Imprimir gráfica</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/7539c1f275855d7a20508044aa0165025c56f584f2b8a35fbe476b97997382d7.png" src="../../_images/7539c1f275855d7a20508044aa0165025c56f584f2b8a35fbe476b97997382d7.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>El valor por default es <code class="docutils literal notranslate"><span class="pre">kind=&quot;hist&quot;</span></code>, por lo que no es necesario especificarlo.</p></li>
+</ul>
+</section>
+<section id="ejemplo-de-kdeplot">
+<h3>Ejemplo de <em>kdeplot</em><a class="headerlink" href="#ejemplo-de-kdeplot" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.kdeplot.html">kdeplot</a>: Grafica distribuciones univariadas o bivariadas, usando la estimación de la densidad del kernel.</p>
+<p>Patrones útiles:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Agregar rug</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;col&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">rug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Con relleno</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;col&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>En este ejemplo se gráfica la distribución de <em>total_bill</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definir grafica</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;total_bill&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">azul</span><span class="p">)</span>
+<span class="c1"># Equivale a: sns.displot(x=&quot;total_bill&quot;, data=tips, kind=&quot;kde&quot;, color=azul)</span>
+
+<span class="c1"># Imprimir gráfica</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/9c53fa86fa8165f0e0837070aea711dd5f17877cb37a09466c87b4543f2f16f1.png" src="../../_images/9c53fa86fa8165f0e0837070aea711dd5f17877cb37a09466c87b4543f2f16f1.png" />
+</div>
+</div>
+<br/>
+</section>
+</section>
+<hr class="docutils" />
+<section id="matriz">
+<h2>Matriz<a class="headerlink" href="#matriz" title="Link to this heading">#</a></h2>
+<p>Funciones para crear gráficas matriciales como mapas de calor.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.clustermap.html">clustermap</a>(data, …)</p></td>
+<td><p>Grafica datos rectangulares, como una matriz, que muestra datos jerarquicamente agrupados (grupos de datos similares los pone juntos, es como un <em>heatmap</em> ordenado por grupos similares) y la magnitud en colores.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.heatmap.html">heatmap</a>(data, …)</p></td>
+<td><p>Grafica datos rectangulares como una matriz que muestra la magnitud como colores.</p></td>
+</tr>
+</tbody>
+</table>
+<section id="ejemplo-de-heatmap">
+<h3>Ejemplo de <em>heatmap</em><a class="headerlink" href="#ejemplo-de-heatmap" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.heatmap.html">heatmap</a>: Grafica datos rectangulares como una matriz que muestra la magnitud como colores.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Es común que para graficar mapas de calor se usen las siguientes funciones:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pd.crosstab()</span></code>: Calcula un <em>aggregate</em> de los valores de la combinación de dos variables categóricas.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pd.corr()</span></code>: Calcula la correlación en pares de variables cuantitativas.</p></li>
+</ul>
+</div>
+<p>Patrones útiles</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Añadir valor en cada celda</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Cambiar paleta y valor 0</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;cmap&#39;</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+<span class="c1"># Desactivar barra de color</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">cbar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Modificar valores mínimo y máximo de la barra de color</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>En este ejemplo se calcula el mapa de calor de la correlación de las variables numéricas del dataset <em>penguins</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear mapa de calor</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">penguins</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;BrBG&#39;</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Imprimir gráfica</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/8be1bebf1520926a455ed36287f7775f5d37e23e6b149f0d948845e3b5914d35.png" src="../../_images/8be1bebf1520926a455ed36287f7775f5d37e23e6b149f0d948845e3b5914d35.png" />
+</div>
+</div>
+<br/>
+</section>
+</section>
+<hr class="docutils" />
+<section id="regresion">
+<h2>Regresión<a class="headerlink" href="#regresion" title="Link to this heading">#</a></h2>
+<p>Funciones útiles para análisis de regresión.</p>
+<p><strong>Figure level</strong></p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.lmplot.html">lmplot</a>(data, …)</p></td>
+<td><p>Interfaz a nivel de figura para generar gráficos de datos y ajustar del modelo de regresión en un <code class="docutils literal notranslate"><span class="pre">FacetGrid</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong>x</strong>, <strong>y</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code> o <code class="docutils literal notranslate"><span class="pre">str</span></code>: Pueden ser vectores o etiquetas en <em>data</em>, que especifican los valores en los ejes <em>x</em> y <em>y</em> respectivamente. Una de ellas debe de ser una variable categórica. Dependiendo de en cuál eje se haya puesta la variable categórica la gráfica será horizontal o vertical.</p></li>
+<li><p><strong>data</strong> - <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="docutils literal notranslate"><span class="pre">mapping</span></code> o <code class="docutils literal notranslate"><span class="pre">secuencia</span></code>: Estructura de datos de entrada.</p></li>
+<li><p><strong>kind</strong> - <code class="docutils literal notranslate"><span class="pre">str</span></code>: Para especificar el tipo de gráfica:.</p>
+<ul>
+<li><p>Dispersión: ‘strip’, ‘swarm’.</p></li>
+<li><p>Distribución: ‘boxplot’, ‘violinplot’, ‘boxenplot’.</p></li>
+<li><p>Estimación: ‘pointplot’, ‘barplot’, ‘countplot’.</p></li>
+</ul>
+</li>
+<li><p><strong>hue</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code> o <code class="docutils literal notranslate"><span class="pre">str</span></code>: Pueden ser vectores o etiquetas en <em>data</em>, es una variable categórica que es mapeada para determinar el color de los elementos de la gráfica.</p></li>
+<li><p><strong>hue_order</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code> de <code class="docutils literal notranslate"><span class="pre">str</span></code>: Para indicar el orden de las categorías del argumento <em>hue</em>. Deben de ser los valores únicos ordenadas en orden que prefieras de <em>hue</em>.</p></li>
+<li><p><strong>row</strong>, <strong>col</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code> o <code class="docutils literal notranslate"><span class="pre">str</span></code>: Pueden ser vectores o etiquetas en <em>data</em>, es una variable categórica para crear <em>subplots</em> de acuerdo a los valores de ésta. Si se usan ambos se creará una matriz.</p></li>
+<li><p><strong>col_wrap</strong> - <code class="docutils literal notranslate"><span class="pre">int</span></code>: Para indicar un número máximo de columnas de gráficas a realizar, si se supera se crearán filas. Es incompatible con el argumento row.</p></li>
+<li><p><strong>x_estimator</strong> - <code class="docutils literal notranslate"><span class="pre">callable</span></code>: Una función que de entrada reciba un <code class="docutils literal notranslate"><span class="pre">vector</span></code> y retorne un <code class="docutils literal notranslate"><span class="pre">scalar</span></code>. Pueden ser métodos de <code class="docutils literal notranslate"><span class="pre">DataFRame</span></code> como <em>mean</em>, <em>median</em>, etc.</p></li>
+<li><p><strong>ci</strong> - <code class="docutils literal notranslate"><span class="pre">float</span></code>: Tamaño del intervalo de confianza al agregar un estimator.</p></li>
+<li><p><strong>order</strong> - <code class="docutils literal notranslate"><span class="pre">list</span></code> de <code class="docutils literal notranslate"><span class="pre">str</span></code>: Para modificar el orden de las categorías. Debe ser una lista con las categorías únicas ordenas en el orden deseado.</p></li>
+<li><p><strong>col_order</strong>, <strong>row_order</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code> de <code class="docutils literal notranslate"><span class="pre">str</span></code>: Los elementos de la columna/fila para indicar cómo ordenar cada uno de los valores.</p></li>
+<li><p><strong>height</strong> - <code class="docutils literal notranslate"><span class="pre">scalar</span></code>: Altura de cada facet en pulgadas.</p></li>
+<li><p><strong>aspect</strong> - <code class="docutils literal notranslate"><span class="pre">scalar</span></code>: Radio entre la altura y ancho de cada facet en pulgadas.</p></li>
+<li><p><strong>orient</strong> - {‘v’, ‘h’}: Orientación de la gráfica.</p></li>
+<li><p><strong>color</strong> - <code class="docutils literal notranslate"><span class="pre">color</span></code>: Color de todos los elementos.</p></li>
+<li><p><strong>palette</strong> - <code class="docutils literal notranslate"><span class="pre">string</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">dict</span></code> o <code class="docutils literal notranslate"><span class="pre">matplotlib.colors.Colormap</span></code>: Métodos para escoger la paleta de colores, cuando se mapea con base a hue.</p></li>
+<li><p><strong>legend</strong> - <code class="docutils literal notranslate"><span class="pre">bool</span></code>: Para indicar si mostrar una leyenda.</p></li>
+</ul>
+<p><strong>Axes level</strong></p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.regplot.html">regplot</a>(data=None, …)</p></td>
+<td><p>Gráfica datos (diagrama de dispersión) y ajusta un modelo de regresión.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.residplot.html">residplot</a>(data=None, …)</p></td>
+<td><p>Grafica los residules de un modelo de regresión.</p></td>
+</tr>
+</tbody>
+</table>
+<section id="ejemplo-de-regplot">
+<h3>Ejemplo de <em>regplot</em><a class="headerlink" href="#ejemplo-de-regplot" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.regplot.html">regplot</a>: Gráfica datos (diagrama de dispersión) y ajusta un modelo de regresión.</p>
+<p>Patrones útiles:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Modificar estilo de marker</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;sym&#39;</span><span class="p">)</span>
+
+<span class="c1"># Ajustar polinomio de otro grado</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+
+<span class="c1"># Jitter sobre el eje x</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">x_jitter</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+<span class="c1"># Jitter sobre el eje y</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">y_jitter</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+<span class="c1"># Estimador sobre eje x</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">x_estimator</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">marker</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">marker</span> <span class="pre">code</span></code> `: Tipo de marker en la gráfica.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">order</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">int</span></code>: Para indicar el orden de regresión, para regresiones polinómicas.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">x_jitter</span></code></strong>, <strong><code class="docutils literal notranslate"><span class="pre">y_jitter</span></code></strong>, - <code class="docutils literal notranslate"><span class="pre">int</span></code>: Añade ruido a los valores <em>x</em> y <em>y</em> respectivamente. Útil para visualizar mejor puntos que se sobreenciman mucho.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">x_estimator</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">callable</span></code>: Función que reciba un <code class="docutils literal notranslate"><span class="pre">vector</span></code> y retorne un <code class="docutils literal notranslate"><span class="pre">scalar</span></code>. Aplica esta función a cada valor único de <em>x</em> y grafica la estimación resultante. Es útil cuando <em>x</em> son valores categóricos ordenados.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">x_bins</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">int</span></code> o <code class="docutils literal notranslate"><span class="pre">vector</span></code>: Agrupa la variable <em>x</em> en <em>bins</em> discretos, estima la tendencia central y un intervalo de confianza por cada <em>bin</em>.</p></li>
+</ul>
+<p>En este ejemplo se gráfica el diagrama de dispersión y la regresión lineal de <em>bill_length_mm</em> vs <em>bill_depth_mm</em> del dataset <em>penguins</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definir grafica</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;bill_length_mm&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;bill_depth_mm&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">penguins</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">azul</span><span class="p">)</span>
+<span class="c1"># Equivale a: sns.lmplot(x=&quot;bill_length_mm&quot;, y=&quot;bill_depth_mm&quot;, data=penguins, color=azul)</span>
+
+<span class="c1"># Imprimir gráfica</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/1b5bbefc3bdfe7450c460f85500756e050298b6f6501d67ee23d46af49708f1e.png" src="../../_images/1b5bbefc3bdfe7450c460f85500756e050298b6f6501d67ee23d46af49708f1e.png" />
+</div>
+</div>
+<br/>
+</section>
+</section>
+<hr class="docutils" />
+<section id="relacionales">
+<h2>Relacionales<a class="headerlink" href="#relacionales" title="Link to this heading">#</a></h2>
+<p>Funciones útiles para visualizar la relación entre dos variales.</p>
+<p><strong>Figure level</strong></p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.relplot.html">relplot</a>(data=None, …)</p></td>
+<td><p>Interfaz a nivel de figura para generar gráficos relacionales en un <code class="docutils literal notranslate"><span class="pre">FacetGrid</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Parámetros comunes:</strong></p>
+<ul class="simple">
+<li><p><strong>x</strong>, <strong>y</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code> o <code class="docutils literal notranslate"><span class="pre">str</span></code>: Pueden ser vectores o etiquetas en <em>data</em>, que especifican los valores en los ejes <em>x</em> y <em>y</em> respectivamente.</p></li>
+<li><p><strong>data</strong> - <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="docutils literal notranslate"><span class="pre">mapping</span></code> o <code class="docutils literal notranslate"><span class="pre">secuencia</span></code>: Estructura de datos de entrada.</p></li>
+<li><p><strong>kind</strong> - <code class="docutils literal notranslate"><span class="pre">str</span></code>: Para especificar el tipo de gráfica.</p>
+<ul>
+<li><p>‘scatter’: Diagrama de dispersión.</p></li>
+<li><p>‘line’: Gráfico de líneas.</p></li>
+</ul>
+</li>
+<li><p><strong>hue</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code> o <code class="docutils literal notranslate"><span class="pre">str</span></code>: Pueden ser vectores o etiquetas en <em>data</em>. Es una variable categórica que es mapeada para determinar el color de los elementos de la gráfica.</p></li>
+<li><p><strong>size</strong> - <code class="docutils literal notranslate"><span class="pre">vector</span></code> o <code class="docutils literal notranslate"><span class="pre">str</span></code>: Un vector o una etiqueta en <em>data</em>, para realizar los puntos de diferente tamaño de acuerdo a los valores de esta variable.</p></li>
+<li><p><strong>style</strong> - <code class="docutils literal notranslate"><span class="pre">vector</span></code> o <code class="docutils literal notranslate"><span class="pre">str</span></code>: Un vector o una etiqueta en <em>data</em>, para realizar los puntos de diferente estilo de acuerdo a los valores de esta variable.</p></li>
+<li><p><strong>row</strong>, <strong>col</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code> o <code class="docutils literal notranslate"><span class="pre">str</span></code>: Pueden ser vectores o etiquetas en <em>data</em>, es una variable categórica para crear <em>subplots</em> de acuerdo a los valores de ésta. Si se usan ambos se creará una matriz.</p></li>
+<li><p><strong>col_wrap</strong> - <code class="docutils literal notranslate"><span class="pre">int</span></code>: Para indicar un número máximo de columnas de gráficas a realizar, si se supera se crearán filas cuando se usa <em>col</em>. Es incompatible con el parámetro <em>row</em>.</p></li>
+<li><p><strong>col_order</strong>, <strong>row_order</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code> de <code class="docutils literal notranslate"><span class="pre">str</span></code>: Los elementos de la <em>col</em> o <em>row</em> para indicar cómo ordenar cada uno de los valores, se utilizan solo los valores únicos de esos argumentos.</p></li>
+<li><p><strong>palette</strong> - <code class="docutils literal notranslate"><span class="pre">strin</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">dict</span></code> o <code class="docutils literal notranslate"><span class="pre">matplotlib.colors.Colormap</span></code>: Métodos para escoger la paleta de colores, cuando se mapea con base a <em>hue</em>.</p></li>
+<li><p><strong>hue_order</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code> de <code class="docutils literal notranslate"><span class="pre">str</span></code>: Para indicar el orden de las categorías del argumento <em>hue</em>. Deben de ser los valores únicos ordenadas en orden que prefieras de hue.</p></li>
+<li><p><strong>legend</strong> - {‘auto’, ‘brief’, ‘full’, False}: Para indicar cómo mostrar una leyenda.</p></li>
+<li><p><strong>height</strong> - <code class="docutils literal notranslate"><span class="pre">scalar</span></code>: Altura de cada <em>facet</em> en pulgadas.</p></li>
+<li><p><strong>aspect</strong> - <code class="docutils literal notranslate"><span class="pre">scalar</span></code>: Radio entre la altura y ancho de cada <em>facet</em> en pulgadas.</p></li>
+</ul>
+<p>Patrones útiles:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Gráfico de líneas con markers</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="p">[</span><span class="n">kind</span><span class="p">],</span> <span class="n">markers</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Subplots en las columnas</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="p">[</span><span class="n">kind</span><span class="p">],</span> <span class="n">col</span><span class="o">=</span><span class="s1">&#39;col&#39;</span><span class="p">)</span>
+
+<span class="c1"># Subplots en las filas</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="p">[</span><span class="n">kind</span><span class="p">],</span> <span class="n">row</span><span class="o">=</span><span class="s1">&#39;row&#39;</span><span class="p">)</span>
+
+<span class="c1"># Modificar orden de las categorías de los subplots (ejm col)</span>
+<span class="n">category_order</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;cat1&#39;</span><span class="p">,</span> <span class="s1">&#39;cat2&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="p">[</span><span class="n">kind</span><span class="p">],</span> <span class="n">col_order</span><span class="o">=</span><span class="n">category_order</span><span class="p">)</span>
+</pre></div>
+</div>
+<br/>
+<p><strong>Axes level</strong></p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.lineplot.html">lineplot</a>(data=None, …)</p></td>
+<td><p>Realiza una gráfica de líneas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.scatterplot.html">scatterplot</a>(data=None, …)</p></td>
+<td><p>Grafica un diagrama de dispersión.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Parámetros comunes:</strong></p>
+<ul class="simple">
+<li><p><strong>x</strong>, <strong>y</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code> o <code class="docutils literal notranslate"><span class="pre">str</span></code>: Pueden ser vectores o etiquetas en <em>data</em>, que especifican los valores en los ejes <em>x</em> y <em>y</em> respectivamente.</p></li>
+<li><p><strong>data</strong> - <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="docutils literal notranslate"><span class="pre">dict</span></code> o <code class="docutils literal notranslate"><span class="pre">secuencia</span></code>: Estructura de datos de entrada.</p></li>
+<li><p><strong>hue</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code> o <code class="docutils literal notranslate"><span class="pre">str</span></code>: Pueden ser vectores o etiquetas en <em>data</em>. Es una variable categórica que es mapeada para determinar el color de los elementos de la gráfica, estableciendo la leyenda de la gráfica.</p></li>
+<li><p><strong>size</strong> - <code class="docutils literal notranslate"><span class="pre">vector</span></code> o <code class="docutils literal notranslate"><span class="pre">str</span></code>: Un vector o un etiqueta en <em>data</em>, para realizar los puntos de diferente tamaño de acuerdo a los valores de esta variable.</p></li>
+<li><p><strong>style</strong> - <code class="docutils literal notranslate"><span class="pre">vector</span></code> o <code class="docutils literal notranslate"><span class="pre">str</span></code>: Un vector o un etiqueta en data, para realizar los trazos de diferente estilo de acuerdo a los valores de esta variable.</p></li>
+<li><p><strong>palette</strong> - <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">dict</span></code> o <code class="docutils literal notranslate"><span class="pre">matplotlib.colors.Colormap</span></code>: Métodos para escoger la paleta de colores, cuando se mapea con base a hue.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">str</span></code>: Nombre de una paleta de colores.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list</span></code>: Una lista con un color por cada valor único de la variable definida en <em>hue</em>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dict</span></code>: Un diccionario con <em>keys</em> como los valores únicos de la varaible definida en <em>hue</em> y como <em>values</em> un color.</p></li>
+</ul>
+</li>
+<li><p><strong>hue_order</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code> de <code class="docutils literal notranslate"><span class="pre">str</span></code>: Para indicar el orden de las categorías del argumento <em>hue</em>. Deben de ser los valores únicos ordenadas en el orden que se prefiera de <em>hue</em>.</p></li>
+<li><p><strong>alpha</strong> - <code class="docutils literal notranslate"><span class="pre">float</span></code>: Opacidad de los trazos.</p></li>
+</ul>
+<section id="ejemplo-de-scatter">
+<h3>Ejemplo de <em>scatter</em><a class="headerlink" href="#ejemplo-de-scatter" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.scatterplot.html">scatterplot</a>: Grafica un diagrama de dispersión.</p>
+<p>Patrones útiles:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Gráfico con leyenda</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;hue&#39;</span><span class="p">)</span>
+
+<span class="c1"># Modificar estilo de markers con base a variable categórica</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;style&#39;</span><span class="p">)</span>
+
+<span class="c1"># Modificar estilo de marker</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">)</span>
+
+<span class="c1"># Modificar transparencia de marker</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+
+<span class="c1"># Modificar tamaño de markers con base a variable categórica</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="s1">&#39;size&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>En este ejemplo se crea un diagrama de dispersión entre <em>bill_length_mm</em> y <em>bill_depth_mm</em>, además se crea una leyenda por <em>sex</em> y se modifica el estilo del marcador por <em>species</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear gráfica</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;bill_length_mm&quot;</span><span class="p">,</span> 
+                <span class="n">y</span><span class="o">=</span><span class="s2">&quot;bill_depth_mm&quot;</span><span class="p">,</span> 
+                <span class="n">data</span><span class="o">=</span><span class="n">penguins</span><span class="p">,</span>
+                <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;sex&#39;</span><span class="p">,</span>
+                <span class="n">style</span><span class="o">=</span><span class="s1">&#39;species&#39;</span><span class="p">,</span>
+                <span class="n">palette</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Male&#39;</span><span class="p">:</span> <span class="n">azul</span><span class="p">,</span> <span class="s1">&#39;Female&#39;</span><span class="p">:</span> <span class="n">cafe</span><span class="p">})</span>
+                
+<span class="c1"># Equivale a:            </span>
+<span class="c1"># sns.relplot(x=&quot;bill_length_mm&quot;, y=&quot;bill_depth_mm&quot;, data=penguins, hue=&#39;sex&#39;, style=&#39;species&#39;, kind=&quot;scatter&quot;)</span>
+
+<span class="c1"># Imprimir gráfica</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/53fdd37e1d9bc308c1c0d91fb88bae5931caa2d799b773cc9205412cc32a698e.png" src="../../_images/53fdd37e1d9bc308c1c0d91fb88bae5931caa2d799b773cc9205412cc32a698e.png" />
+</div>
+</div>
+</section>
+<section id="ejemplo-de-line">
+<h3>Ejemplo de <em>line</em><a class="headerlink" href="#ejemplo-de-line" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.lineplot.html">lineplot</a>: Realiza una gráfica de líneas.</p>
+<p>Patrones útiles:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Gráfico de líneas con markers</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">markers</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Gráfico con leyenda</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;hue&#39;</span><span class="p">)</span>
+
+<span class="c1"># Modificar estilo de trazos con base a variable categórica</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;style&#39;</span><span class="p">)</span>
+
+<span class="c1"># Modificar transparencia de trazos</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+
+<span class="c1"># Desactivar estilo de líneas</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">dashes</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Modificar estimador</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">estimator</span><span class="o">=</span><span class="n">median</span><span class="p">)</span>
+
+<span class="c1"># Modificar intervalo de confianza**</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">errorbars</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;ci&#39;</span><span class="p">,</span> <span class="mi">95</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Notas:</p>
+<ul class="simple">
+<li><p><em>dashes</em> - <code class="docutils literal notranslate"><span class="pre">bool</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">dict</span></code>: Para indicar cómo dibujar las líneas de las gráficas.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">bool</span></code>: Para indicar que se use lo estilos por default o que no se usen líneas.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list</span></code>: Una lista de los tipo de línea.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dict</span></code>: Para mapear un estilo a cada gráfica.</p></li>
+</ul>
+</li>
+<li><p><em>markers</em> - <code class="docutils literal notranslate"><span class="pre">bool</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">dict</span></code>: Para indicar cómo dibujar los markers de las gráficas.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">bool</span></code>: Para indicar que se use lo estilos por default o que no se usen markers.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list</span></code>: Una lista de los tipo de markers.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dict</span></code>: Para mapear un estilo a cada gráfica.</p></li>
+</ul>
+</li>
+<li><p><em>estimator</em> - <code class="docutils literal notranslate"><span class="pre">pandas</span> <span class="pre">method</span></code> o <code class="docutils literal notranslate"><span class="pre">callable</span></code>: Una función que de entrada reciba un <code class="docutils literal notranslate"><span class="pre">array-like</span></code> y retorne un <code class="docutils literal notranslate"><span class="pre">scalar</span></code>. Puede ser el nombre de un método de <em>data</em> como <em>mean</em>, <em>median</em>, etc.</p></li>
+<li><p><em>errorbar</em> - <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, <code class="docutils literal notranslate"><span class="pre">callable</span></code> o <code class="docutils literal notranslate"><span class="pre">None</span></code>: Tipo de barras de errores.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">str</span></code> - {‘ci’, ‘pi’, ‘se’, or ‘sd’}: Nombre del método.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tuple</span></code>: Tupla de dos elementos con el nombre del método y el nivel del parámetro, por ejemplo <code class="docutils literal notranslate"><span class="pre">('ci',</span> <span class="pre">95)</span></code>, es un intervalo de confianza del 95%.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">callble</span></code>: Función que recibe un <code class="docutils literal notranslate"><span class="pre">array-like</span></code> y retorna un tuple <code class="docutils literal notranslate"><span class="pre">(min,</span> <span class="pre">max)</span></code> con el intervalo.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">None</span></code>: Para ocultar las barras de errores.</p></li>
+</ul>
+</li>
+</ul>
+<p>En este ejemplo se grafica el <em>tip</em> para los días, con la leyenda por <em>smoker</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear el gráfico de líneas</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;smoker&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span>
+                <span class="n">palette</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Yes&#39;</span><span class="p">:</span> <span class="n">azul</span><span class="p">,</span> <span class="s1">&#39;No&#39;</span><span class="p">:</span> <span class="n">cafe</span><span class="p">})</span>
+<span class="c1"># Equivale a: sns.relplot(tips, x=&#39;day&#39;, y=&#39;tip&#39;, hue=&quot;smoker&quot;, kind=&quot;line&quot;, errorbar=None)</span>
+
+<span class="c1"># Imprimir gráfica</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/8cc8887995bc12d08d9cefaf600425fd7677df1939af0ccc8426672c169722e8.png" src="../../_images/8cc8887995bc12d08d9cefaf600425fd7677df1939af0ccc8426672c169722e8.png" />
+</div>
+</div>
+<br/>
+</section>
+</section>
+<hr class="docutils" />
+<section id="personalizacion">
+<h2>Personalización<a class="headerlink" href="#personalizacion" title="Link to this heading">#</a></h2>
+<p>Para personalizar gráficas en <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> dependerá del tipo retornado por la función:</p>
+<ul class="simple">
+<li><p>Funciones a nivel de figura: Para ver cómo personalizar las clases retornadas por funciones a nivel de figura revisar los métodos de la clase en cuestión. Tener en cuenta que todas las clases de <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> heredan métodos de la clase <code class="docutils literal notranslate"><span class="pre">Figure</span></code> de <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, por lo que los métodos de esta clase también se pueden usar para personalizar gráficas en <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>.</p></li>
+<li><p>Funciones a nivel de eje: Las funciones a nivel eje retornar instancias de la clase <code class="docutils literal notranslate"><span class="pre">Axes</span></code> de <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, por lo que se pueden usar sus <a class="reference internal" href="../05-matplotlib/axes.html#axes-methods-customization"><span class="std std-ref">métodos de personalización</span></a> para personalizar estas gráficas.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ejemplo de customización a nivel de ejes:</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">axes_function</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;col&#39;</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;x label&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;y label&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Title&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Nivel de ejes:</p>
+<ul>
+<li><p>En este ejemplo se uso la interfaz orienta a objetos para crear el objetos <em>ax</em>. También se podría asignar la función a una <em>dummy variable</em> y usar los métodos de <code class="docutils literal notranslate"><span class="pre">Axes</span></code> en esa variable: <code class="docutils literal notranslate"><span class="pre">_</span> <span class="pre">=</span> <span class="pre">sns.axes_function(df['col'])</span></code> <br/> <code class="docutils literal notranslate"><span class="pre">_.set(xlabel=&quot;x</span> <span class="pre">label&quot;,</span> <span class="pre">ylabel=&quot;y</span> <span class="pre">label&quot;,</span> <span class="pre">title=&quot;Title&quot;)</span></code></p></li>
+<li><p>En este ejemplo se uso el método <code class="docutils literal notranslate"><span class="pre">Axes.set()</span></code>, pero se podría usar cualquier otro método.</p></li>
+</ul>
+</li>
+</ul>
+<p>Las siguientes funciones se pueden utilizar para realizar ciertas acciones a las gráficas:</p>
+<p>Otras funciones útiles para manipulación de las gráficas, relacionadas con eliminar los ejes y reubicar la leyenda a otra posición.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.despine.html">despine</a>(fig=None, ax=None, top=True, right=True, left=False, bottom=False, offset=None, trim=False)</p></td>
+<td><p>Remueve los ejes (<em>spines</em>) de una gráfica (el cuadrado que rodea la gráfica), por default remueve el superior y el derecho.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.move_legend.html">move_legend</a>(obj, loc, **kwargs)</p></td>
+<td><p>Recrea la leyenda de una gráfica en una nueva ubicación.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<hr class="docutils" />
+<section id="paletas-de-colores">
+<h2>Paletas de Colores<a class="headerlink" href="#paletas-de-colores" title="Link to this heading">#</a></h2>
+<p>Funciones útiles para retornar o manipular la paleta de colores de las gráficas.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.blend_palette.html">blend_palette</a>(colors, n_colors=6, as_cmap=False, input=’rgb’)</p></td>
+<td><p>Crea una paleta que difumina entre los elementos de un <code class="docutils literal notranslate"><span class="pre">list</span></code> de colores.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.color_palette.html">color_palette</a>(palette=None, n_colors=None, desat=None, as_cmap=False)</p></td>
+<td><p>Retorna un <code class="docutils literal notranslate"><span class="pre">list</span></code> de colores o <em>colormap</em> continuos que definen una paleta. Si no se indica <em>palette</em> se usa la paleta actual.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.crayon_palette.html">crayon_palette</a>(colors)</p></td>
+<td><p>Crea una paleta con nombres de colores de crayones Crayola.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.cubehelix_palette.html">cubehelix_palette</a>(n_colors=6, start=0, rot=0.4, gamma=1.0, hue=0.8, light=0.85, dark=0.15, reverse=False, as_cmap=False)</p></td>
+<td><p>Crea una paleta secuencial a partir del sistema <em>cubehelix</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.dark_palette.html">dark_palette</a>(color, n_colors=6, reverse=False, as_cmap=False, input=’rgb’)</p></td>
+<td><p>Crea una paleta secuencial que difumina de oscuro a <code class="docutils literal notranslate"><span class="pre">color</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.diverging_palette.html">diverging_palette</a>(h_neg, h_pos, s=75, l=50, sep=1, n=6, center=’light’, as_cmap=False)</p></td>
+<td><p>Crea una paleta divergente entre dos colores <em>HUSL</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.hls_palette.html">hls_palette</a>(n_colors=6, h=0.01, l=0.6, s=0.65, as_cmap=False)</p></td>
+<td><p>Retorna tonos (h) con luminosidad (l) y saturación (s) constantes en el sistema HLS.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.husl_palette.html">husl_palette</a>(n_colors=6, h=0.01, s=0.9, l=0.65, as_cmap=False)</p></td>
+<td><p>Retorna tonos (h) con luminosidad (l) y saturación (s) constantes en el sistema <em>HUSL</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.light_palette.html">light_palette</a>(color, n_colors=6, reverse=False, as_cmap=False, input=’rgb’)</p></td>
+<td><p>Crea una paleta secuencial que difumina de claro a <code class="docutils literal notranslate"><span class="pre">color</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.mpl_palette.html">mpl_palette</a>(name, n_colors=6, as_cmap=False)</p></td>
+<td><p>Retorna una paleta o <em>colormap</em> del registro de <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.set_palette.html">set_palette</a>(palette, n_colors=None, desat=None, color_codes=False)</p></td>
+<td><p>Establece el ciclo de color <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> usando una paleta de <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.xkcd_palette.html">xkcd_palette</a>(colors)</p></td>
+<td><p>Crea una paleta con nombres de colores de tipo <em>xkcd</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<section id="notas-de-set-palette">
+<h3>Notas de <em>set_palette</em><a class="headerlink" href="#notas-de-set-palette" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.set_palette.html">set_palette</a>: Establece la gama de colores de las gráficas. Se utiliza antes de la gráfica.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Establecer un estilo</span>
+<span class="n">set_palette</span><span class="p">(</span><span class="n">palette</span><span class="p">,</span> <span class="n">n_colors</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">desat</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">color_codes</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong>palette</strong>: Define la paleta de colores. Puede ser:</p>
+<ul>
+<li><p>Nombre de una paleta de <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>: {‘deep’, ‘muted’, ‘bright’, ‘pastel’, ‘dark’, ‘colorblind’}. Cada paleta tiene 10 colores, existen sus variantes con 6 colores si se añade un 6 al final del nombre, por ejemplo <em>‘deep6’</em>.</p></li>
+<li><p>Nombre de un <em>colormap</em> de <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>. Ver <a class="reference internal" href="../05-matplotlib/anexos.html#matplotlib-colormap"><span class="std std-ref">ColorMap</span></a>.</p></li>
+<li><p>Un <code class="docutils literal notranslate"><span class="pre">sequence</span></code> de colores en cualquier formato que <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> acepte. Ver <a class="reference internal" href="../05-matplotlib/anexos.html#matplotlib-color"><span class="std std-ref">Colores</span></a>.</p></li>
+<li><p>{‘hls’, ‘huls’}.</p></li>
+<li><p>‘ch:&lt;cubehelix arguments&gt;’.</p></li>
+<li><p>‘light:&lt;color&gt;’, ‘dark:&lt;color&gt;’, ‘blend:&lt;color&gt;,&lt;color&gt;’.</p></li>
+</ul>
+</li>
+<li><p><strong>n_colors</strong> - <code class="docutils literal notranslate"><span class="pre">int</span></code>: Número de colores en la paleta.</p></li>
+<li><p><strong>desat</strong> - <code class="docutils literal notranslate"><span class="pre">float</span></code>: Proporción para desaturar cada color.</p></li>
+</ul>
+<p>Paleta de colores de <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imprimir cada paleta de colores</span>
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">sns</span><span class="o">.</span><span class="n">palettes</span><span class="o">.</span><span class="n">SEABORN_PALETTES</span><span class="p">:</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">set_palette</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">())</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/d593425268e5c1f73ef8bc9640dc90314cfdb5431579ab8ac2156ff209246e1b.png" src="../../_images/d593425268e5c1f73ef8bc9640dc90314cfdb5431579ab8ac2156ff209246e1b.png" />
+<img alt="../../_images/c9051625cb3c9acd0261092524aff13a9ef3382b78070c5c058406874c92ff09.png" src="../../_images/c9051625cb3c9acd0261092524aff13a9ef3382b78070c5c058406874c92ff09.png" />
+<img alt="../../_images/d874c5a8c6ae7770206b2459a7589d1d17d4f42d38d300b388ca3c75870c8fb0.png" src="../../_images/d874c5a8c6ae7770206b2459a7589d1d17d4f42d38d300b388ca3c75870c8fb0.png" />
+<img alt="../../_images/2fcc4de2c52684ae98fb1f20a99fda05ebc79453722a3f5f02642a53faef61f7.png" src="../../_images/2fcc4de2c52684ae98fb1f20a99fda05ebc79453722a3f5f02642a53faef61f7.png" />
+<img alt="../../_images/f2e8d740ed096ff7d66d958793206e6928b436b1dc1bccd33ecd8d63c5d28c0b.png" src="../../_images/f2e8d740ed096ff7d66d958793206e6928b436b1dc1bccd33ecd8d63c5d28c0b.png" />
+<img alt="../../_images/dc4621b7349072db6c72080a420319a4d9bef791b737612c0b7ef1a8ba99f8bd.png" src="../../_images/dc4621b7349072db6c72080a420319a4d9bef791b737612c0b7ef1a8ba99f8bd.png" />
+<img alt="../../_images/d5e309cd81ee23980881469fd1fa82f7f4b06090b49713a0bc7161aa7149fdcd.png" src="../../_images/d5e309cd81ee23980881469fd1fa82f7f4b06090b49713a0bc7161aa7149fdcd.png" />
+<img alt="../../_images/962ac4ac6c205c82012c035e43837221b9a3c2b76e9e739d2c084cb7bac44429.png" src="../../_images/962ac4ac6c205c82012c035e43837221b9a3c2b76e9e739d2c084cb7bac44429.png" />
+<img alt="../../_images/324485129d82df1641ad50d625565d273c2d93c36d2a529daba89c974284e3b1.png" src="../../_images/324485129d82df1641ad50d625565d273c2d93c36d2a529daba89c974284e3b1.png" />
+<img alt="../../_images/a04f1289a0f44ec2e6d2faff006e513d1caddbf6d9d3a9f02262e5849259b5e1.png" src="../../_images/a04f1289a0f44ec2e6d2faff006e513d1caddbf6d9d3a9f02262e5849259b5e1.png" />
+<img alt="../../_images/4b82d1c86525959c9f9ac52b35d96a111a1a1a5c83e372c6898652a0c22fdb2c.png" src="../../_images/4b82d1c86525959c9f9ac52b35d96a111a1a1a5c83e372c6898652a0c22fdb2c.png" />
+<img alt="../../_images/6942be109c3c3c97253f98b582d96929676d30dd30472aba5c4c7d9631dbbfab.png" src="../../_images/6942be109c3c3c97253f98b582d96929676d30dd30472aba5c4c7d9631dbbfab.png" />
+</div>
+</div>
+<br/>
+</section>
+</section>
+<hr class="docutils" />
+<section id="widgets">
+<h2>Widgets<a class="headerlink" href="#widgets" title="Link to this heading">#</a></h2>
+<p>Funciones útiles para inicializar widgets interactivos.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.choose_colorbrewer_palette.html">choose_colorbrewer_palette</a>(data_type, as_cmap=False)</p></td>
+<td><p>Selecciona una paleta del ColorBrewer <code class="docutils literal notranslate"><span class="pre">set</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.choose_cubehelix_palette.html">choose_cubehelix_palette</a>(as_cmap=False)</p></td>
+<td><p>Inicie un widget interactivo para crear una paleta <em>cubehelix</em> secuencial.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.choose_dark_palette.html">choose_dark_palette</a>(input=’husl’, as_cmap=False)</p></td>
+<td><p>Inicie un widget interactivo para crear una paleta secuencial oscura.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.choose_diverging_palette.html">choose_diverging_palette</a>(as_cmap=False)</p></td>
+<td><p>Inicie un widget interactivo para elegir una paleta de colores divergente.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.choose_light_palette.html">choose_light_palette</a>(input=’husl’, as_cmap=False)</p></td>
+<td><p>Inicie un widget interactivo para crear una paleta de colores secuencial <em>light</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<hr class="docutils" />
+<section id="temas">
+<h2>Temas<a class="headerlink" href="#temas" title="Link to this heading">#</a></h2>
+<p>Funciones para modificar el estilo de las gráficas como colores, escalas, establecer elementos personalizables, etc.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.axes_style.html">axes_style</a>(style=None, rc=None)</p></td>
+<td><p>Recupera los parámetros que controlan el estilo general de los gráficos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.plotting_context.html">plotting_context</a>(context=None, font_scale=1, rc=None)</p></td>
+<td><p>Recupera los parámetros que controlan la escala de los elementos de la gráfica.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.reset_defaults.html">reset_defaults</a>()</p></td>
+<td><p>Restaurs todos los parámetros <em>RC</em> a la configuración predeterminada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.reset_orig.html">reset_orig</a>()</p></td>
+<td><p>Restaurz todos los parámetros <em>RC</em> a la configuración original (respeta el <em>RC</em> personalizado).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.set.html">set</a>(*args, **kwargs)</p></td>
+<td><p>Alias ​​para <code class="docutils literal notranslate"><span class="pre">set_theme()</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.set_color_codes.html">set_color_codes</a>(palette=’deep’)</p></td>
+<td><p>Modifica la forma en que se interpretan los <em>shorthands</em> de color de <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.set_context.html">set_context</a>(context=None, font_scale=1, rc=None)</p></td>
+<td><p>Establece los parámetros que controlan la escala de los elementos de la gráfica. Sirve para modificar el tamaño y grosor de las etiquetas, las líneas y otros elementos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.set_style.html">set_style</a>(style=None, rc=None)</p></td>
+<td><p>Establece los parámetros que controlan el estilo general de los gráficos, como agregar una rendija, o los colores del fondo. Se pone antes de realizar cualquier gráfica.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.set_theme.html">set_theme</a>(context=’notebook’, style=’darkgrid’, palette=’deep’, font=’sans-serif’, font_scale=1, color_codes=True, rc=None)</p></td>
+<td><p>Establece múltiples parámetros del tema en un paso. Afecta también las gráficas de <code class="docutils literal notranslate"><span class="pre">matplotlib</span> </code> y <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. Existe una alias llamado <code class="docutils literal notranslate"><span class="pre">sns.set()</span></code>, pero es preferible usar <code class="docutils literal notranslate"><span class="pre">set_theme()</span></code>. Es equivalente a usar <code class="docutils literal notranslate"><span class="pre">set_context()</span></code>, <code class="docutils literal notranslate"><span class="pre">set_style()</span></code> y <code class="docutils literal notranslate"><span class="pre">set_palette()</span></code>, entre otras caracterísitcas en una sola función.</p></td>
+</tr>
+</tbody>
+</table>
+<section id="notas-de-set-context">
+<h3>Notas de <em>set_context</em><a class="headerlink" href="#notas-de-set-context" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.set_context.html">set_context</a>: Establece los parámetros que controlan la escala de los elementos de la gráfica. Sirve para modificar el tamaño y grosor de las etiquetas, las líneas y otros elementos.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Establecer un contexto</span>
+<span class="n">set_context</span><span class="p">(</span><span class="n">context</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">font_scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">rc</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong>context</strong> - <code class="docutils literal notranslate"><span class="pre">dict</span></code>, <code class="docutils literal notranslate"><span class="pre">None</span></code> o {‘paper’, ‘notebook’, ‘talk’, ‘poster’}: Diccionario de parámetos o algún contexto preestablecido.</p>
+<ul>
+<li><p>De menor a mayor: ‘paper’, ‘notebook’, ‘talk’ (útil en presentaciones), ‘poster’.</p></li>
+</ul>
+</li>
+<li><p><strong>font_scale</strong> - <code class="docutils literal notranslate"><span class="pre">float</span></code>: Factor para escalar el tamaño de manera independiente, usando como base el estilo ‘notebook’.</p></li>
+<li><p><strong>rc</strong> - <code class="docutils literal notranslate"><span class="pre">dict</span></code>: Mapeo de parámetros a modificar los valores en el estilo actual. Para conocer los parámetros y sus valores, del estilo actual, utilizar: <code class="docutils literal notranslate"><span class="pre">sns.axes_style</span></code></p></li>
+</ul>
+</section>
+<section id="notas-de-set-style">
+<h3>Notas de <em>set_style</em><a class="headerlink" href="#notas-de-set-style" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Establecer un estilo</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">rc</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><em>style</em> - <code class="docutils literal notranslate"><span class="pre">dict</span></code> o {‘darkgrid’, ‘whitegrid’, ‘dark’, ‘white’, ‘ticks’}: Estilo preconfigurado.</p></li>
+<li><p><em>rc</em> - <code class="docutils literal notranslate"><span class="pre">dict</span></code>: : Mapeo de parámetros a modificar los valores en el estilo actual. Para conocer los parámetros y sus valores, del estilo actual, utilizar: <code class="docutils literal notranslate"><span class="pre">sns.axes_style</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear gráfica para cada tipo de estilo</span>
+<span class="k">for</span> <span class="n">style</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;white&#39;</span><span class="p">,</span><span class="s1">&#39;dark&#39;</span><span class="p">,</span><span class="s1">&#39;whitegrid&#39;</span><span class="p">,</span><span class="s1">&#39;darkgrid&#39;</span><span class="p">,</span><span class="s1">&#39;ticks&#39;</span><span class="p">]:</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="n">style</span><span class="p">)</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">tips</span><span class="p">[</span><span class="s1">&#39;total_bill&#39;</span><span class="p">])</span>
+    <span class="n">_</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">style</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/bb1eef4908c7aff51384e207b99b44b40eda5725ecb4fadb6dd67445173bc149.png" src="../../_images/bb1eef4908c7aff51384e207b99b44b40eda5725ecb4fadb6dd67445173bc149.png" />
+<img alt="../../_images/cac2f90d71a8d2fd465381b04b7ef6258fe43cbc2fafaf5af657eb6ffb5b23ab.png" src="../../_images/cac2f90d71a8d2fd465381b04b7ef6258fe43cbc2fafaf5af657eb6ffb5b23ab.png" />
+<img alt="../../_images/d28369772a2292ee515173d46cabcba01f4b40b91d8285e130564138757bb98b.png" src="../../_images/d28369772a2292ee515173d46cabcba01f4b40b91d8285e130564138757bb98b.png" />
+<img alt="../../_images/950a80a223b9b7e25f6b8ca1548e4b4ecdd3b5d80819739b2f5112f0a5947a7e.png" src="../../_images/950a80a223b9b7e25f6b8ca1548e4b4ecdd3b5d80819739b2f5112f0a5947a7e.png" />
+<img alt="../../_images/f7998c28ca4548f21d88f7506fc73793a9c893941118b57822d2fa04f18a2ce6.png" src="../../_images/f7998c28ca4548f21d88f7506fc73793a9c893941118b57822d2fa04f18a2ce6.png" />
+</div>
+</div>
+<br/>
+</section>
+</section>
+<hr class="docutils" />
+<section id="utilidades">
+<h2>Utilidades<a class="headerlink" href="#utilidades" title="Link to this heading">#</a></h2>
+<p>Otras funciones útiles para manipulación de las gráficas.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.desaturate.html">desaturate</a>(color, prop)</p></td>
+<td><p>Disminuye el canal de saturación de un color en un porcentaje dado.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.despine.html">despine</a>(fig=None, ax=None, top=True, right=True, left=False, bottom=False, offset=None, trim=False)</p></td>
+<td><p>Remueve los ejes (<em>spines</em>) de una gráfica (el cuadrado que rodea la gráfica), por default remueve el superior y el derecho.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.get_data_home.html">get_data_home</a>(data_home=None)</p></td>
+<td><p>Retorna la ruta al directorio caché, por ejemplo, <em>datasts</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.get_dataset_names.html">get_dataset_names</a>()</p></td>
+<td><p>Retorna el nombre de todos los <em>datasets</em> disponibles en el repositorio de <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.load_dataset.html">load_dataset</a>(name, cache=True, data_home=None, **kws)</p></td>
+<td><p>Carga a la sesion un dataset del repositiorio de datasets de <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.move_legend.html">move_legend</a>(obj, loc, **kwargs)</p></td>
+<td><p>Recrea la leyenda de una gráfica en una nueva ubicación.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.saturate.html">saturate</a>(color)</p></td>
+<td><p>Retorna un color completamente saturado con el mismo <em>hue</em> (tono).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.set_hls_values.html">set_hls_values</a>(color, h=None, l=None, s=None)</p></td>
+<td><p>Manipula de forma independiente los canales <em>h</em> (tono), <em>l</em> (brillo) o <em>s</em> (saturación) de un color.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<hr class="docutils" />
+<section id="clases">
+<h2>Clases<a class="headerlink" href="#clases" title="Link to this heading">#</a></h2>
+<p>En esta sección se presentan algunas clases relacionadas con hacer gráficas múltiples en una sola figura. Existen tres clases con tales fines:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">FacetGrid</span></code>: Permite crear gráficas múltiples para cada valor de una variable categórica.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">JointGrid</span></code>: Permite crear gráficas múltiples para la variables bivariadas, al mismo tiempo que se grafican sus marginales.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PairGrid</span></code>: Permite crear gráficas múltiples para la combinación de dos variables categegóricas.</p></li>
+</ul>
+<hr class="docutils" />
+<section id="facetgrid">
+<h3>FacetGrid<a class="headerlink" href="#facetgrid" title="Link to this heading">#</a></h3>
+<p>Se utiliza para crear una malla de gráficas, cada una mostrando un subcojunto de los datos con base a los valores de una o más variables categóricas. Algunas de sus características son:</p>
+<ul class="simple">
+<li><p>Permite utilizar 4 tipos de gráficas diferentes.</p></li>
+<li><p>Permite establecer la variables categóricas tanto en las columnas, como en las filas.</p></li>
+</ul>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.FacetGrid.html">FacetGrid</a>(data, …)</p></td>
+<td><p>Crea la cuadricula para múltiples gráficas de relaciones condicionales (usar los valores de variables categóricas para separar por filas y columnas). Esta función no crea las gráficas como tal, solo prepara la cuadricula, para agregar las gráficas es necesario usar los métodos <code class="docutils literal notranslate"><span class="pre">FacetGrid.map()</span></code> y <code class="docutils literal notranslate"><span class="pre">FacetGrid.map_DataFrame()</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Parámetros</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">data</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>: Estructura de datos de entrada.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">row</span></code></strong>, <strong><code class="docutils literal notranslate"><span class="pre">col</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">str</span></code>: Etiquetas en <em>data</em>, es una variable categórica para crear subplots de acuerdo a los valores de ésta. Si se usan ambos se creará una matriz.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">hue</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">str</span></code>: Etiquetas en <em>data</em>, es una variable categórica que es mapeada para determinar el color de los elementos de la gráfica.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">col_wrap</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">int</span></code>: Para indicar un número máximo de columnas de gráficas a realizar, si se supera se crearán filas. Es incompatible con el parámetro <em>row</em>.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">height</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">scalar</span></code>: Altura de cada <em>facet</em> en pulgadas.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">aspect</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">scalar</span></code>: Proporción entre la altura y ancho de cada <em>facet</em> en pulgadas.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">palette</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">dict</span></code>: Métodos para escoger la paleta de colores, cuando se mapea con base a <em>hue</em>.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">hue_order</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">list</span></code> de <code class="docutils literal notranslate"><span class="pre">str</span></code>: Para indicar el orden de las categorías del argumento <em>hue</em>. Deben de ser los valores únicos ordenadas en orden que prefieras de <em>hue</em>.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">col_order</span></code></strong>, <strong><code class="docutils literal notranslate"><span class="pre">row_order</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">list</span></code> de <code class="docutils literal notranslate"><span class="pre">str</span></code>: Los elementos de la columna/fila para indicar cómo ordenar cada uno de los valores.</p></li>
+</ul>
+<p><strong>Patrones útiles</strong></p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Algunos patrones aquí prensentados utilizan métodos de objetos de <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Asignar gráfica a una variable</span>
+<span class="n">g</span><span class="o">=</span><span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">()</span>
+
+<span class="c1"># Cambiar título de la figura</span>
+<span class="n">g</span><span class="o">.</span><span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;New Title&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.03</span><span class="p">)</span>
+
+<span class="c1"># Cambiar títulos de los _subplots_ (ejm cols)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">set_titles</span><span class="p">(</span><span class="s2">&quot;Template </span><span class="si">{col_name}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Cambiar etiquetas de los ejes</span>
+<span class="n">g</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;New X Label&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;New Y Label&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="uso">
+<h4>Uso<a class="headerlink" href="#uso" title="Link to this heading">#</a></h4>
+<p>Para usar esta clase es necesario indicar los datos y las variables categóricas sobre las cuales de creara el <em>grid</em> en las columnas y/o filas con <em>col</em> y <em>row</em> respectivaemente. Posteriormente se debe usar el método <code class="docutils literal notranslate"><span class="pre">FacetGrid.map()</span></code> para añadir las gráficas, se debe indicar la función y pasar los argumentos de la misma.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Preparar FacetGrid</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;col&quot;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="s1">&#39;row&#39;</span><span class="p">)</span>
+
+<span class="c1"># Aplicar gráficas</span>
+<span class="n">g</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">axes_plot</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><em>**kwargs</em> son argumentos de <em>axes_function</em>.</p></li>
+</ul>
+<p><strong>Ejemplo</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar dataset</span>
+<span class="n">exercise</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;exercise&quot;</span><span class="p">)</span>
+
+<span class="c1"># Preparar FacetGrid</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">exercise</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;kind&quot;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="s1">&#39;diet&#39;</span><span class="p">)</span>
+
+<span class="c1"># Aplicar gráficas</span>
+<span class="n">g</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">,</span> <span class="s1">&#39;pulse&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">azul</span><span class="p">)</span>
+</pre></div>
+</div>
+<br/>
+</section>
+<section id="atributos">
+<h4>Atributos<a class="headerlink" href="#atributos" title="Link to this heading">#</a></h4>
+<p>Atributos de <code class="docutils literal notranslate"><span class="pre">FacetGrid</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Atributos</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">FacetGrid.ax</span></code></p></td>
+<td><p>El objeto <code class="docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code> cuando no se asignan variables de <em>faceting</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">FacetGrid.axes</span></code></p></td>
+<td><p>Una matriz de los objetos <code class="docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code> en la cuadricula.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">FacetGrid.axes_dict</span></code></p></td>
+<td><p>Un diccionario de los nombres de <em>facets</em> con su correspondiente <code class="docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.FacetGrid.facet_data.html">FacetGrid.facet_data</a></p></td>
+<td><p><em>Generator</em> de nombres y subconjuntos de datos para cada <em>facet</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">FacetGrid.figure</span></code></p></td>
+<td><p>El objeto <code class="docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code> subyacente de la cuadrícula.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">FacetGrid.legend</span></code></p></td>
+<td><p>El objeto <code class="docutils literal notranslate"><span class="pre">matplotlib.legend.Legend</span></code>, si está presente.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="metodos">
+<h4>Métodos<a class="headerlink" href="#metodos" title="Link to this heading">#</a></h4>
+<p>Métodos de <code class="docutils literal notranslate"><span class="pre">FacetGrid</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.FacetGrid.__init__.html">FacetGrid.__init__</a>(data,  *[,  row,  col,  hue,  col_wrap,  …])</p></td>
+<td><p>Inicializa la figura <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> y el objeto <code class="docutils literal notranslate"><span class="pre">FacetGrid</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.FacetGrid.add_legend.html">FacetGrid.add_legend</a>([legend_data,  title,  …])</p></td>
+<td><p>Añade una leyenda, posiblemente colocándola fuera de los ejes y cambiando el tamaño de la figura.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.FacetGrid.apply.html">FacetGrid.apply</a>(func,  *args,  **kwargs)</p></td>
+<td><p>Pasa la cuadrícula a una función proporcionada por el usuario y retorna <em>self</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.FacetGrid.despine.html">FacetGrid.despine</a>(**kwargs)</p></td>
+<td><p>Remueve los <em>spines</em> de los ejes de las <em>facets</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.FacetGrid.facet_axis.html">FacetGrid.facet_axis</a>(row_i,  col_j[,  modify_state])</p></td>
+<td><p>Activa el eje identificado por los índices y lo retorna.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.FacetGrid.map.html">FacetGrid.map</a>(func,  *args,  **kwargs)</p></td>
+<td><p>Aplica una función de trazado al subconjunto de datos de cada <em>facet</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.FacetGrid.map_dataframe.html">FacetGrid.map_dataframe</a>(func,  *args,  **kwargs)</p></td>
+<td><p>Similar a  <code class="docutils literal notranslate"><span class="pre">FacetGrid.map</span></code> pero pasa <em>args</em> como cadenas e inserta datos en <em>kwargs</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.FacetGrid.pipe.html">FacetGrid.pipe</a>(func,  *args,  **kwargs)</p></td>
+<td><p>Pasa la cuadrícula a una función proporcionada por el usuario y devuelve su valor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.FacetGrid.refline.html">FacetGrid.refline</a>(*[,  x,  y,  color,  linestyle])</p></td>
+<td><p>Agrega una(s) línea(s) de referencia a cada <em>facet</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.FacetGrid.savefig.html">FacetGrid.savefig</a>(*args,  **kwargs)</p></td>
+<td><p>Almacena una imagen de la gráfica.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.FacetGrid.set.html">FacetGrid.set</a>(**kwargs)</p></td>
+<td><p>Establece atributos en cada <em>subplot</em> <code class="docutils literal notranslate"><span class="pre">Axes</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.FacetGrid.set_axis_labels.html">FacetGrid.set_axis_labels</a>([x_var,  y_var,  clear_inner])</p></td>
+<td><p>Establece etiquetas de los ejes en la columna izquierda y en la fila inferior de la cuadrícula.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.FacetGrid.set_titles.html">FacetGrid.set_titles</a>([template,  row_template,  …])</p></td>
+<td><p>Dibuja títulos encima de cada <em>facet</em> o en los márgenes de la cuadrícula.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.FacetGrid.set_xlabels.html">FacetGrid.set_xlabels</a>([label,  clear_inner])</p></td>
+<td><p>Establece las etiquetas en el eje <em>x</em>, en la fila inferior de la cuadrícula.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.FacetGrid.set_xticklabels.html">FacetGrid.set_xticklabels</a>([labels,  step])</p></td>
+<td><p>Establece las etiquetas de los <em>ticks</em> del eje <em>x</em> de la cuadrícula.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.FacetGrid.set_ylabels.html">FacetGrid.set_ylabels</a>([label,  clear_inner])</p></td>
+<td><p>Establece las etiquetas en el eje <em>y</em>, en la columna izquierda de la cuadrícula.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.FacetGrid.set_yticklabels.html">FacetGrid.set_yticklabels</a>(labels=None, **kwargs)</p></td>
+<td><p>Establece las etiquetas de los <em>ticks</em> del eje <em>y</em> en la columna izquierda de la cuadrícula</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.FacetGrid.tick_params.html">FacetGrid.tick_params</a>(axis=’both’, **kwargs)</p></td>
+<td><p>Modifica los <em>ticks</em>, las etiquetas de los <em>ticks</em> y las líneas de cuadrícula.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.FacetGrid.tight_layout.html">FacetGrid.tight_layout</a>(*args,  **kwargs)</p></td>
+<td><p>Llama a <code class="docutils literal notranslate"><span class="pre">fig.tight_layout</span></code>, que excluye la leyenda.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+<hr class="docutils" />
+<section id="jointgrid">
+<h3>JointGrid<a class="headerlink" href="#jointgrid" title="Link to this heading">#</a></h3>
+<p>Gráficos conjuntos (relación bivariada + distribuciones marginales).</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.JointGrid.html">JointGrid</a>(data=None, …)</p></td>
+<td><p>Crea la cuadrícula para generar un gráfico bivariado con gráficos univariados marginales. Esta función no crea las gráficas como tal, solo prepara la cuadricula para agregar las gráficas es necesario usar los métodos <code class="docutils literal notranslate"><span class="pre">JointGrid.plot()</span></code>, <code class="docutils literal notranslate"><span class="pre">JointGrid.plot_joint()</span></code> o <code class="docutils literal notranslate"><span class="pre">JointGrid.plot_marginals()</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.jointplot.html">jointplot</a>(data=None, …)</p></td>
+<td><p>Grafica la distribución bivariada y las marginales. El tipo de la gráfica bivariada se puede especificar, las marginales serán histogramas o <em>kde</em>, dependiendo de los argumentos.</p></td>
+</tr>
+</tbody>
+</table>
+<section id="id1">
+<h4>Uso<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<p>Para usar esta clase es necesario indicar los datos y las variables. Posteriormente se deben usar los métodos <code class="docutils literal notranslate"><span class="pre">JointGrid.plot()</span></code>, <code class="docutils literal notranslate"><span class="pre">JointGrid.plot_joint()</span></code> o <code class="docutils literal notranslate"><span class="pre">JointGrid.plot_marginals()</span></code> para añadir las gráficas.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Preparar JointGrid </span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">JointGrid</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;col&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;col&#39;</span><span class="p">)</span>
+<span class="c1"># Aplicar gráficas</span>
+<span class="n">g</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">axes_function_join</span><span class="p">,</span> <span class="n">sns</span><span class="o">.</span><span class="n">axes_function_marginal</span><span class="p">)</span>
+
+<span class="c1"># Preparar JointGrid </span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">JointGrid</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;col&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;col&#39;</span><span class="p">)</span>
+<span class="c1"># Aplicar gráfica a la diagonal</span>
+<span class="n">g</span><span class="o">.</span><span class="n">plot_joint</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">axes_function_join</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="c1"># Aplicar gráfica fuera de la diagonal</span>
+<span class="n">g</span><span class="o">.</span><span class="n">plot_marginals</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">axes_function_marginal</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><em>**kwargs</em> son argumentos de <em>axes_function</em>.</p></li>
+</ul>
+<p><strong>Ejemplo</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Preparar JointGrid</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">JointGrid</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">iris</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;sepal_length&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;petal_length&quot;</span><span class="p">)</span>
+
+<span class="c1"># Aplicar gráfica a la diagonal</span>
+<span class="n">g</span><span class="o">.</span><span class="n">plot_joint</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">cafe</span><span class="p">)</span>
+
+<span class="c1"># Aplicar gráfica fuera de la diagonal</span>
+<span class="n">g</span><span class="o">.</span><span class="n">plot_marginals</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">azul</span><span class="p">)</span>
+</pre></div>
+</div>
+<br/>
+</section>
+<section id="id2">
+<h4>Atributos<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
+<p>Atributos de la clase <code class="docutils literal notranslate"><span class="pre">JointGrid</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/">figure</a>()</p></td>
+<td><p>Retorna el objeto <code class="docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code> subyacente de la cuadrícula.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id3">
+<h4>Métodos<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
+<p>Métodos de la clase <code class="docutils literal notranslate"><span class="pre">JointGrid</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.JointGrid.__init__.html"><strong>init</strong></a>([data,  x,  y,  hue,  height,  ratio,  …])</p></td>
+<td><p>ConfigurA la cuadrícula de <em>subplots</em> y almacena los datos internamente para facilitar el graficado.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.JointGrid.apply.html">apply</a>(func,  *args,  **kwargs)</p></td>
+<td><p>Pasa la cuadrícula a una función proporcionada por el usuario y retorna <em>self</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.JointGrid.pipe.html">pipe</a>(func,  *args,  **kwargs)</p></td>
+<td><p>Pasa la cuadrícula a una función proporcionada por el usuario y devuelve su valor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.JointGrid.plot.html">plot</a>(joint_func,  marginal_func,  **kwargs)</p></td>
+<td><p>Genera la gráfica pasando funciones para los <code class="docutils literal notranslate"><span class="pre">Axes</span></code> <em>joint</em> y marginal.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.JointGrid.plot_joint.html">plot_joint</a>(func,  **kwargs)</p></td>
+<td><p>Grafica un gráfico bivariado en los <code class="docutils literal notranslate"><span class="pre">Axes</span></code> <em>joint</em> de la cuadrícula.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.JointGrid.plot_marginals.html">plot_marginals</a>(func,  **kwargs)</p></td>
+<td><p>Genera los gráficos univariados en cada eje marginal.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.JointGrid.refline.html">refline</a>(*[,  x,  y,  joint,  marginal,  color,  …])</p></td>
+<td><p>Agrega una(s) línea(s) de referencia a cada <em>facet</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.JointGrid.savefig.html">savefig</a>(*args,  **kwargs)</p></td>
+<td><p>Almacena una imagen de la gráfica.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.JointGrid.set.html">set</a>(**kwargs)</p></td>
+<td><p>Establece atributos en cada <em>subplot</em> <code class="docutils literal notranslate"><span class="pre">Axes</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.JointGrid.set_axis_labels.html">set_axis_labels</a>([xlabel,  ylabel])</p></td>
+<td><p>Establece etiquetas de los ejes en la columna izquierda y en la fila inferior de la cuadrícula.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+<hr class="docutils" />
+<section id="pairgrid">
+<h3>PairGrid<a class="headerlink" href="#pairgrid" title="Link to this heading">#</a></h3>
+<p>Matrices de gráficos bivariados entre todas las combinaciones de variables numéricas.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.PairGrid.html">PairGrid</a>(data, …)</p></td>
+<td><p>Crea la cuadricula para múltiples gráficas de relaciones en pares. Esta función no crea las gráficas como tal, solo prepara la cuadricula, para agregar las gráficas es necesario usar los métodos <code class="docutils literal notranslate"><span class="pre">PairGrid.map()</span></code>, <code class="docutils literal notranslate"><span class="pre">PairGrid.map_diag()</span></code> y <code class="docutils literal notranslate"><span class="pre">PairGrid.map_offdiag()</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.pairplot.html">pairplot</a>(data, …)</p></td>
+<td><p>Grafica relaciones en pares de variables de un <em>dataset</em>, generando una matriz de gráficas. Se puede especificar tanto el tipo de gráfica de la relación de cada par, como las de la diagonal de la matriz.</p></td>
+</tr>
+</tbody>
+</table>
+<section id="id4">
+<h4>Uso<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
+<p>Para usar esta clase es necesario indicar los datos y las variables categóricas sobre las cuales de creara el <em>grid</em> en las columnas y filas con <em>vars</em>. Posteriormente se deben usar los métodos <code class="docutils literal notranslate"><span class="pre">PairGrid.map()</span></code>, <code class="docutils literal notranslate"><span class="pre">PairGrid.map_diag()</span></code> o <code class="docutils literal notranslate"><span class="pre">PairGrid.map_offdiag()</span></code> para añadir las gráficas.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Preparar PairGrid </span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">vars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;row&#39;</span><span class="p">,</span> <span class="s1">&#39;col&#39;</span><span class="p">])</span>
+<span class="c1"># Aplicar misma gráfica a todas las celdas</span>
+<span class="n">g</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">axes_function</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="c1"># Preparar PairGrid</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">vars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;row&#39;</span><span class="p">,</span> <span class="s1">&#39;col&#39;</span><span class="p">])</span>
+<span class="c1"># Aplicar gráfica a la diagonal</span>
+<span class="n">g</span><span class="o">.</span><span class="n">map_diag</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">axes_function</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="c1"># Aplicar gráfica fuera de la diagonal</span>
+<span class="n">g</span><span class="o">.</span><span class="n">map_offdiag</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">axes_function</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><em>**kwargs</em> son argumentos de <em>axes_function</em>.</p></li>
+</ul>
+<p><strong>Ejemplo</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar dataset</span>
+<span class="n">iris</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;iris&quot;</span><span class="p">)</span>
+
+<span class="c1"># Preparar PairGrid </span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">PairGrid</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span>
+
+<span class="c1"># Aplicar gráfica a la diagonal</span>
+<span class="n">g</span><span class="o">.</span><span class="n">map_diag</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">cafe</span><span class="p">)</span>
+
+<span class="c1"># Aplicar gráfica fuera de la diagonal</span>
+<span class="n">g</span><span class="o">.</span><span class="n">map_offdiag</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">azul</span><span class="p">)</span>
+</pre></div>
+</div>
+<br/>
+</section>
+<section id="id5">
+<h4>Atributos<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
+<p>Atributos de la clase <code class="docutils literal notranslate"><span class="pre">PairGrid</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/">PairGrid.figure</a></p></td>
+<td><p>Retorna el objeto <code class="docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code> subyacente de la cuadrícula.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/">PairGrid.legend</a></p></td>
+<td><p>El objeto <code class="docutils literal notranslate"><span class="pre">matplotlib.legend.Legend</span></code>, si está presente.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="id6">
+<h4>Métodos<a class="headerlink" href="#id6" title="Link to this heading">#</a></h4>
+<p>Métodos de la clase <code class="docutils literal notranslate"><span class="pre">PairGrid</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.PairGrid.__init__.html">PairGrid.<strong>init</strong></a>(data,  *[,  hue,  vars,  x_vars,  …])</p></td>
+<td><p>Inicializa la figura <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> y el objeto <code class="docutils literal notranslate"><span class="pre">PairGrid</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.PairGrid.add_legend.html">PairGrid.add_legend</a>([legend_data,  title,  …])</p></td>
+<td><p>Añade una leyenda, posiblemente colocándola fuera de los ejes y cambiando el tamaño de la figura.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.PairGrid.apply.html">PairGrid.apply</a>(func,  *args,  **kwargs)</p></td>
+<td><p>Pasa la cuadrícula a una función proporcionada por el usuario y retorna <em>self</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.PairGrid.map.html">PairGrid.map</a>(func,  **kwargs)</p></td>
+<td><p>Grafica con la misma función en cada <em>subplot</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.PairGrid.map_diag.html">PairGrid.map_diag</a>(func,  **kwargs)</p></td>
+<td><p>Gráfica con una función univariada en cada <em>subplot</em> diagonal.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.PairGrid.map_lower.html">PairGrid.map_lower</a>(func,  **kwargs)</p></td>
+<td><p>Gráfica con una función bivariada en los <em>subplots</em> diagonales inferiores.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.PairGrid.map_offdiag.html">PairGrid.map_offdiag</a>(func,  **kwargs)</p></td>
+<td><p>Gráfica con una función bivariada en los <em>subplots</em> fuera de la diagonal.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.PairGrid.map_upper.html">PairGrid.map_upper</a>(func,  **kwargs)</p></td>
+<td><p>Gráfica con una función bivariada en los <em>subplots</em> diagonales superiores.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.PairGrid.pipe.html">PairGrid.pipe</a>(func,  *args,  **kwargs)</p></td>
+<td><p>Pasa la cuadrícula a una función proporcionada por el usuario y devuelve su valor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.PairGrid.savefig.html">PairGrid.savefig</a>(*args,  **kwargs)</p></td>
+<td><p>Almacena una imagen de la gráfica.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.PairGrid.set.html">PairGrid.set</a>(**kwargs)</p></td>
+<td><p>Establece atributos en cada <em>subplot</em> <code class="docutils literal notranslate"><span class="pre">Axes</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.PairGrid.tick_params.html">PairGrid.tick_params</a>([axis])</p></td>
+<td><p>Modifica los <em>ticks</em>, las etiquetas de los <em>ticks</em> y las líneas de cuadrícula.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.PairGrid.tight_layout.html">PairGrid.tight_layout</a>(*args,  **kwargs)</p></td>
+<td><p>Llama a <code class="docutils literal notranslate"><span class="pre">fig.tight_layout</span></code>, que excluye la leyenda.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./parts/06-seaborn"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="seaborn-index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Seaborn</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="objects-interface.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Interface por objetos</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#categoricas">Categóricas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-bar">Ejemplo de <em>bar</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-box">Ejemplo de <em>box</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-countplot">Ejemplo de <em>countplot</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-swarmplot">Ejemplo de <em>swarmplot</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion">Distribución</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-histplot">Ejemplo de <em>histplot</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-kdeplot">Ejemplo de <em>kdeplot</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz">Matriz</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-heatmap">Ejemplo de <em>heatmap</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regresion">Regresión</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-regplot">Ejemplo de <em>regplot</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relacionales">Relacionales</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-scatter">Ejemplo de <em>scatter</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-line">Ejemplo de <em>line</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#personalizacion">Personalización</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paletas-de-colores">Paletas de Colores</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-set-palette">Notas de <em>set_palette</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#widgets">Widgets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#temas">Temas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-set-context">Notas de <em>set_context</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-set-style">Notas de <em>set_style</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#utilidades">Utilidades</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clases">Clases</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#facetgrid">FacetGrid</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#uso">Uso</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos">Atributos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos">Métodos</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jointgrid">JointGrid</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Uso</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Atributos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Métodos</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pairgrid">PairGrid</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Uso</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Atributos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Métodos</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nebok
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

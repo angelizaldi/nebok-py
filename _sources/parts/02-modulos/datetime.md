@@ -47,10 +47,10 @@ y el siguiente para fechas y tiempo:
 ## Clases
 
 Existen diferentes tipos de datos de fecha y tiempo, cada tipo es una clase dentro del módulo `datetime` y cada clase tiene métodos y atributos diferentes:
-- [date](https://docs.python.org/3/library/datetime.html#date-objects): (año, mes, día), Asume el calendario gregoriano.
-- [time](https://docs.python.org/3/library/datetime.html#time-objects): (hora, minuto, segundo, microsegundo, zona horaria), Asume que cada día tiene exactamente 24 horas, cada hora 60 minutos y cada minuto 60 segundos.
-- [datetime](https://docs.python.org/3/library/datetime.html#datetime-objects): (año, mes, día, hora, minuto, segundo, microsegundo, zona horaria), Combinación de `date` y `time`.
-- [timedelta](https://docs.python.org/3/library/datetime.html#timedelta-objects): Representa la diferencia de dos fechas o tiempos. Se pueden hacer operaciones aritméticas con objetos `timedelta`. 
+- [](datetime-date): (año, mes, día), Asume el calendario gregoriano.
+- [](datetime-time): (hora, minuto, segundo, microsegundo, zona horaria), Asume que cada día tiene exactamente 24 horas, cada hora 60 minutos y cada minuto 60 segundos.
+- [](datetime-datetime): (año, mes, día, hora, minuto, segundo, microsegundo, zona horaria), Combinación de `date` y `time`.
+- [](datetime-timedelta): Representa la diferencia de dos fechas o tiempos. Se pueden hacer operaciones aritméticas con objetos `timedelta`. 
 - [tzinfo](https://docs.python.org/3/library/datetime.html#tzinfo-objects): Objetos con información sobre la zona horaria.
 - [timezone](https://docs.python.org/3/library/datetime.html#timezone-objects): Implementa la clase base abstracta `tzinfo` como un desfase fijo de UTC.
 
@@ -58,25 +58,11 @@ Existen diferentes tipos de datos de fecha y tiempo, cada tipo es una clase dent
 En este sitio solo se presentarán las clases `date`, `time`, `datetime` y `timedelta`.
 ```
 
----
-## Constantes
-
-A continuación se presenta una lista de las constantes disponibles en el módulo `datetime`. 
-
-```{list-table}
-:header-rows: 1
-
-* - Constante
-  - Descripción
-* - [MAXYEAR](https://docs.python.org/3/library/datetime.html#datetime.MAXYEAR)
-  - El mayor número de año permitido en un objeto de fecha o fecha y tiempo. `MAXYEAR` es 9999.
-* - [MINYEAR](https://docs.python.org/3/library/datetime.html#datetime.MINYEAR)
-  - El número de año más pequeño permitido en un objeto de fecha o fecha y tiempo. `MINYEAR` es 1.
-```
+<br/>
 
 ---
-(builtin-datetime-datetime)=
-## Datetime
+(datetime-datetime)=
+### Datetime
 
 
 ```{warning}
@@ -93,15 +79,15 @@ En este sitio no se documenta todas las características de la clase `datetime`,
 * - Constructor
   - Descripción
 * - [datetime](https://docs.python.org/3/library/datetime.html#datetime.datetime)(year, month, day, hour=0, minute=0, second=0, microsecond=0, tzinfo=None, *, fold=0)
-  - Los argumentos de `year`, `month` y `day` son obligatorios. `tzinfo` puede ser `None`, o un instancia de la subclase `tzinfo`. Los argumentos restantes deben ser números enteros.
+  - Los argumentos de _year_, _month_ y _day_ son obligatorios. `tzinfo` puede ser `None`, o un instancia de la subclase `tzinfo`. Los argumentos restantes deben ser números enteros.
 ```
 **Notas**:
-- **`tzinfo`** \- `str`, `tzinfo`: Es la zona horaria, se puede usar un objeto creado con `datetime.tzinfo()` o usar una cadena, para ver las zonas horarias disponibles visitar [Zonas Horarias](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+- `tzinfo` \- `tzinfo`: Es la zona horaria. Para más información ver {ref}`datetime-zonas-horarias`.
 
-<br>
+<br/>
 
 ---
-### Crear una fecha y tiempo
+#### Crear un _datetime_
 
 Existen diversas formas para crear una instancia de `datetime`. A continuación se presentan algunas de las más comunes.
 
@@ -145,31 +131,42 @@ print(X)
 ```
 
 :::{note}
-Existen más métodos para crear fechas y tiempo, revisar {ref}`datetime-metodos-clase`.
+Existen más métodos para crear fechas y tiempo, revisar {ref}`datetime-datetime-metodos-clase`.
 :::
 
-<br>
+<br/>
 
 ---
-### Recuperar componentes de una fecha
+#### Dar formato concreto a _datetime_
 
-Para recuperar los componentes de una fecha utilizar los {ref}`datetime-atributos-instancia`.
+Para darle un formato concreto a un objeto `datetime` y retornarlo como cadena se puede usar el método de instancia `datetime.strftime()`, para ello se debe indicar una cadena con los {ref}`Códigos de fechas <date-codes>`.
 
-<br>
+```{code-cell} python3
+# Crear una instancia
+X = datetime.fromisoformat("2020-01-01 12:30:00")
 
----
-### Operaciones con objetos datetime
+# Imprimir la instancia en un formato concreto
+print(X.strftime('%B %d, %Y at %H %p'))
+```
 
-Las operaciones válidas que se pueden hacer con objetos `datetime` son:
-- `datetime2 = datetime1 + timedelta`: A un objeto `datetime` sumarle un objeto `timedelta` y retornar un objeto `datetime`.
-- `datetime2 = datetime1 - timedelta`: A un objeto `datetime` restarle un objeto `timedelta` y retornar un objeto `datetime`.
-- `timedelta = datetime1 - datetime2`: Restar dos objetos `datetime` y retornar un objeto `timedelta`.
-- `datetime1 < datetime2`: Usar {ref}`built-in-operadores-comparacion` con dos objetos `datetime`.
-
-<br>
+<br/>
 
 ---
-### Atributos de clase
+#### Operaciones con objetos _datetime_
+
+Las opciones válidas que se pueden hacer con objetos `datetime` son:
+- **Sumar o restar _timedelta_**: A un objeto `datetime` se le puede sumar o restar un objeto `timedelta` y retornar un objeto `datetime`. <br/> `datetime2 = datetime + timedelta` <br/> `datetime2 = datetime1 - timedelta`
+- **Diferencia entre _datetimes_**: Se pueden restar dos objetos `datetime` y retornar un objeto `timedelta`. <br/> `timedelta = datetime1 - datetime2`
+- **Comparaciones**: Se pueden usar operadores de  {ref}`built-in-operadores-comparacion` con dos objetos `datetime` y retornar `bool`. <br/> `datetime1 < datetime2 # Ejm. con '<'`
+
+:::{tip}
+Muchas funciones que aceptan valores numéricos como `min()` o `max()` se pueden usar con objetos `datetime` ya que se puede considerar a los objetos `datetime` como valores numéricos.
+:::
+
+<br/>
+
+---
+#### Atributos de clase de _datetime_
 
 A continuación se presenta una lista de atributos de clase. Tener en cuenta que los atributos de clase son atributos asociados con la clase misma y no con las instancias.
 
@@ -200,10 +197,10 @@ Lista de atributos de clase de `datetime.datetime`.
   - La diferencia más pequeña posible entre objetos `datetime` no iguales, `timedelta(microsegundos=1)`.
 ```
 
-<br>
+<br/>
 
-(datetime-atributos-instancia)=
-### Atributos de instancia
+(datedatetime-time-atributos-instancia)=
+#### Atributos de instancia de _datetime_
 
 Los atributos de instancia se aplican directamente sobre un objeto `datetime`. 
 
@@ -224,6 +221,10 @@ print(X.year)
 
 Lista de atributos de instancia de `datetime.datetime`.
 
+:::{tip}
+Para retornar el día de la semana revisar los métodos de instancia `.weekday()` y `.isoweekday()`.
+:::
+
 ```{list-table}
 :header-rows: 1
 
@@ -234,25 +235,25 @@ Lista de atributos de instancia de `datetime.datetime`.
 * - [fold](https://docs.python.org/3/library/datetime.html#datetime.datetime.fold)
   - Entre [0, 1]. Se utiliza para eliminar la ambigüedad de los tiempos de pared durante un intervalo repetido.
 * - [hour](https://docs.python.org/3/library/datetime.html#datetime.datetime.hour)
-  - En rango (24).
+  - En rango (00 a 23).
 * - [microsecond](https://docs.python.org/3/library/datetime.html#datetime.datetime.microsecond)
   - En rango (1000000).
 * - [minute](https://docs.python.org/3/library/datetime.html#datetime.datetime.minute)
-  - En rango (60).
+  - En rango (00 a 59).
 * - [month](https://docs.python.org/3/library/datetime.html#datetime.datetime.month)
   - Entre 1 y 12 inclusivo.
 * - [second](https://docs.python.org/3/library/datetime.html#datetime.datetime.second)
-  - En rango (60).
+  - En rango (00 a 59).
 * - [tzinfo](https://docs.python.org/3/library/datetime.html#datetime.datetime.tzinfo)
   - El objeto pasado como argumento de `tzinfo` al constructor de `datetime`, o `None` si no se pasó ninguno.
 * - [year](https://docs.python.org/3/library/datetime.html#datetime.datetime.year)
   - Entre `MINYEAR` y `MAXYEAR` inclusivo.
 ```
 
-<br>
+<br/>
 
-(datetime-metodos-clase)=
-### Métodos de clase
+(datetime-datetime-metodos-clase)=
+#### Métodos de clase de _datetime_
 
 Son métodos que se aplican directamente sobre la clase `datetime.datetime`. 
 
@@ -271,7 +272,6 @@ print(X)
 
 <br/>
 
-Lista de métodos de la clase `datetime.datetime`.
 
 ```{list-table}
 :header-rows: 1
@@ -279,30 +279,30 @@ Lista de métodos de la clase `datetime.datetime`.
 * - Método
   - Descripción
 * - [combine](https://docs.python.org/3/library/datetime.html#datetime.datetime.combine)(date, time, tzinfo=self.tzinfo)
-  - Devuelve un nuevo objeto de fecha y hora cuyos componentes de fecha son iguales a el objeto `date` dado, y cuyos componentes de tiempo son iguales a los del objeto `time` dado.
+  - Devuelve un nuevo objeto de fecha y hora cuyos componentes de fecha son iguales a el objeto _date_ dado, y cuyos componentes de tiempo son iguales a los del objeto _time_ dado.
 * - [fromisocalendar](https://docs.python.org/3/library/datetime.html#datetime.datetime.fromisocalendar)(year, week, day)
-  - Devuelve una fecha y hora correspondiente a la fecha del calendario ISO especificada por `year`, `week` y `day`.
+  - Devuelve una fecha y hora correspondiente a la fecha del calendario ISO especificada por _year_, _week_ y _day_.
 * - [fromisoformat](https://docs.python.org/3/library/datetime.html#datetime.datetime.fromisoformat)(date_string)
   - Devuelve una fecha y hora correspondiente a una cadena de fecha en cualquier formato válido ISO 8601.
 * - [fromordinal](https://docs.python.org/3/library/datetime.html#datetime.datetime.fromordinal)(ordinal)
   - Devuelve la fecha y hora correspondiente al ordinal gregoriano proléptico, donde el 1 de enero del año 1 tiene el ordinal 1.
 * - [fromtimestamp](https://docs.python.org/3/library/datetime.html#datetime.datetime.fromtimestamp)(timestamp, tz=None)
-  - Devuelve la fecha y hora locales correspondientes a la marca de tiempo POSIX, como es devuelto por time.time().
+  - Devuelve la fecha y hora locales correspondientes a la marca de tiempo POSIX, como es devuelto por `time.time()`.
 * - [now](https://docs.python.org/3/library/datetime.html#datetime.datetime.now)(tz=None)
   - Devuelve la fecha y hora locales actuales.
 * - [strptime](https://docs.python.org/3/library/datetime.html#datetime.datetime.strptime)(date_string, format)
-  - Devuelve una fecha y hora correspondiente a `date_string`, de acuerdo con `format`.
+  - Devuelve una fecha y hora correspondiente a _date_string_, de acuerdo con _format_.
 * - [today](https://docs.python.org/3/library/datetime.html#datetime.datetime.today)()
   - Devuelve la fecha y hora local actual, con `tzinfo` `None`.
 * - [utcfromtimestamp](https://docs.python.org/3/library/datetime.html#datetime.datetime.utcfromtimestamp)(timestamp)
-  - Devuelve la fecha y hora UTC correspondiente a la marca de tiempo POSIX, con `tzinfo` `None`.
+  - Devuelve la fecha y hora UTC correspondiente a la marca de tiempo POSIX, con `tzinfo` igual a `None`.
 * - [utcnow](https://docs.python.org/3/library/datetime.html#datetime.datetime.utcnow)()
-  - Devuelve la fecha y hora UTC actuales, con `tzinfo` `None`.
+  - Devuelve la fecha y hora UTC actuales, con `tzinfo` igual a `None`.
 ```
 
-<br>
+<br/>
 
-### Métodos de instancia
+#### Métodos de instancia de _datetime_
 
 Son métodos que se aplican directamente en instancias (objetos) de la clase `datetime.datetime`. 
 
@@ -321,15 +321,13 @@ print(X.timestamp())
 
 <br/>
 
-A continuación la lista de métodos de instancia de la clase `datetime.datetime`.
-
 ```{list-table}
 :header-rows: 1
 
 * - Método
   - Descripción
 * - [astimezone](https://docs.python.org/3/library/datetime.html#datetime.datetime.astimezone)(tz=None)
-  - Devuelve un objeto `datetime` con el nuevo atributo `tzinfo` igual a `tz`, ajustando los datos de fecha y hora para que el resultado sea la misma hora UTC que `self`, pero en la hora local de `tz`.
+  - Devuelve un objeto `datetime` con el nuevo atributo `tzinfo` igual a _tz_, ajustando los datos de fecha y hora para que el resultado sea la misma hora UTC que `self`, pero en la hora local de _tz_.
 * - [ctime](https://docs.python.org/3/library/datetime.html#datetime.datetime.ctime)()
   - Devuelve una cadena que representa la fecha y la hora.
 * - [date](https://docs.python.org/3/library/datetime.html#datetime.datetime.date)()
@@ -337,7 +335,7 @@ A continuación la lista de métodos de instancia de la clase `datetime.datetime
 * - [dst](https://docs.python.org/3/library/datetime.html#datetime.datetime.dst)()
   - Si `tzinfo` es `None`, devuelve `None`, de lo contrario, devuelve `self.tzinfo.dst(self)`.
 * - [isocalendar](https://docs.python.org/3/library/datetime.html#datetime.datetime.isocalendar)()
-  - Devuelve un `namedtuple` con con tres componentes: `year`, `week` y `day`.
+  - Devuelve un `namedtuple` con con tres componentes: _year_, _week_ y _day_.
 * - [isoformat](https://docs.python.org/3/library/datetime.html#datetime.datetime.isoformat)(sep='T', timespec='auto')
   - Devuelve una cadena que representa la fecha y la hora en formato ISO 8601.
 * - [isoweekday](https://docs.python.org/3/library/datetime.html#datetime.datetime.isoweekday)()
@@ -361,16 +359,17 @@ A continuación la lista de métodos de instancia de la clase `datetime.datetime
 * - [utcoffset](https://docs.python.org/3/library/datetime.html#datetime.datetime.utcoffset)()
   - Si `tzinfo` es `None`, devuelve `None`, de lo contrario, devuelve `self.tzinfo.utcoffset(self)`.
 * - [utctimetuple](https://docs.python.org/3/library/datetime.html#datetime.datetime.utctimetuple)()
-  - Si la instancia `d` de `datetime` es _naive_, esto es lo mismo que `d.timetuple()` excepto que `tm_isds`t se fuerza a 0 sin importar qué retorne `d.dst()`.
+  - Si la instancia _d_ de `datetime` es _naive_, este método se comporta igual que `d.timetuple()` excepto que _tm_isdst_ se fuerza a 0 sin importar qué retorne `d.dst()`.
 * - [weekday](https://docs.python.org/3/library/datetime.html#datetime.datetime.weekday)()
   - Devuelve el día de la semana como un número entero, donde el lunes es 0 y el domingo es 6.
 ```
 
-<br>
-<br>
+<br/>
+<br/>
 
 ---
-## Date
+(datetime-date)=
+### Date
 
 ```{warning}
 En este sitio no se documenta todas las características de la clase `date`, para un tratado completo visitar la [documentación](https://docs.python.org/3.11/library/datetime.html#date-objects) de Python.
@@ -390,9 +389,9 @@ En este sitio no se documenta todas las características de la clase `date`, par
   - Todos los argumentos son necesarios. Los argumentos deben ser números enteros.
 ```
 
-<br>
+<br/>
 
-### Crear una fecha
+#### Crear un _date_
 
 Existen diversas formas para crear una instancia de `date`. A continuación se presentan algunas de las más comunes.
 
@@ -423,31 +422,42 @@ print(X)
 ```
 
 :::{note}
-Existen más métodos para crear fechas, revisar {ref}`date-metodos-clase`.
+Existen más métodos para crear fechas, revisar {ref}`datetime-date-metodos-clase`.
 :::
-
-<br>
-
----
-### Recuperar componentes de una fecha
-
-Para recuperar los componentes de una fecha utilizar los {ref}`date-atributos-instancia`.
-
-<br>
-
----
-### Operaciones con objetos datetime
-
-Las opciones válidas que se pueden hacer con objetos `date` son:
-- `date2 = date1 + timedelta`: A un objeto `date` sumarle un objeto `timedelta` y retornar un objeto `date`.
-- `date2 = date1 - timedelta`: A un objeto `date` restarle un objeto `timedelta` y retornar un objeto `date`.
-- `timedelta = datetime1 - datetime2`: Restar dos objetos `date` y retornar un objeto `timedelta`.
-- `date1 < date2`: Usar {ref}`built-in-operadores-comparacion` con dos objetos `date`.
 
 <br/>
 
 ---
-### Atributos de clase
+#### Dar formato concreto a _date_
+
+Para darle un formato concreto a un objeto `date` y retornarlo como cadena se puede usar el método de instancia `date.strftime()`, para ello se debe indicar una cadena con los {ref}`Códigos de fechas <date-codes>`.
+
+```{code-cell} python3
+# Crear una instancia
+X = date.fromisoformat("2020-01-01")
+
+# Imprimir la instancia en un formato concreto
+print(X.strftime('%B %d, %Y'))
+```
+
+<br/>
+
+---
+#### Operaciones con objetos _date_
+
+Las opciones válidas que se pueden hacer con objetos `date` son:
+- **Sumar o restar _timedelta_**: A un objeto `date` se le puede sumar o restar un objeto `timedelta` y retornar un objeto `date`. <br/> `date2 = date1 + timedelta` <br/> `date2 = date1 - timedelta`
+- **Diferencia entre _dates_**: Se pueden restar dos objetos `date` y retornar un objeto `timedelta`. <br/> `timedelta = date1 - date2`
+- **Comparaciones**: Se pueden usar operadores de  {ref}`built-in-operadores-comparacion` con dos objetos `date` y retornar `bool`. <br/> `date1 < date2 # Ejm. con '<'`
+
+:::{tip}
+Muchas funciones que aceptan valores numéricos como `min()` o `max()` se pueden usar con objetos `date` ya que se puede considerar a los objetos `date` como valores numéricos.
+:::
+
+<br/>
+
+---
+#### Atributos de clase de _date_
 
 A continuación se presenta una lista de atributos de clase. Tener en cuenta que los atributos de clase son atributos asociados con la clase misma y no con las instancias.
 
@@ -463,7 +473,11 @@ print(date.max)
 
 <br/>
 
-Lista de atributos de clase de `datetime.datetime`.
+Lista de atributos de clase de `datetime.date`.
+
+:::{tip}
+Para retornar el día de la semana revisar los métodos de instancia `.weekday()` y `.isoweekday()`.
+:::
 
 ```{list-table}
 :header-rows: 1
@@ -478,12 +492,12 @@ Lista de atributos de clase de `datetime.datetime`.
   - La diferencia más pequeña posible entre objetos de fecha no iguales, `timedelta(days=1)`.
 ```
 
-<br>
+<br/>
 
-(date-atributos-instancia)=
-### Atributos de instancia
+(datetime-date-atributos-instancia)=
+#### Atributos de instancia de _date_
 
-Los atributos de instancia se aplican directamente sobre un objeto `datetime`. 
+Los atributos de instancia se aplican directamente sobre un objeto `date`. 
 
 Ejemplo de cómo usar un atributo de instancia:
 
@@ -500,9 +514,6 @@ print(X.year)
 
 <br/>
 
-Lista de atributos de instancia de `datetime.date`.
-
-
 ```{list-table}
 :header-rows: 1
 
@@ -516,10 +527,10 @@ Lista de atributos de instancia de `datetime.date`.
   - Entre `MINYEAR` y `MAXYEAR` inclusivo.
 ```
  
-<br> 
+<br/> 
  
-(date-metodos-clase)=
-### Métodos de clase
+(datetime-date-metodos-clase)=
+#### Métodos de clase de _date_
 
 
 Son métodos que se aplican directamente sobre la clase `datetime.date`. 
@@ -540,8 +551,6 @@ print(X)
 
 <br/>
 
-Lista de métodos de la clase `datetime.date`.
-
 ```{list-table}
 :header-rows: 1
 
@@ -559,11 +568,11 @@ Lista de métodos de la clase `datetime.date`.
   - Devuelve la fecha local actual.
 ```
 
-<br>
+<br/>
 
-### Métodos de instancia
+#### Métodos de instancia de _date_
 
-Son métodos que se aplican directamente en instancias (objetos) de la clase `datetime.datetime`. 
+Son métodos que se aplican directamente en instancias (objetos) de la clase `datetime.date`. 
 
 Ejemplo de cómo usar un método de instancia:
 
@@ -580,8 +589,6 @@ print(X.ctime())
 
 <br/>
 
-A continuación la lista de métodos de instancia de la clase `datetime.datetime`.
-
 ```{list-table}
 :header-rows: 1
 
@@ -590,11 +597,11 @@ A continuación la lista de métodos de instancia de la clase `datetime.datetime
 * - [ctime](https://docs.python.org/3/library/datetime.html#datetime.date.ctime)()
   - Devuelve una cadena que representa la fecha.
 * - [isocalendar](https://docs.python.org/3/library/datetime.html#datetime.date.isocalendar)()
-  - Devuelve un `namedtuple` con tres componentes: `year`, `week` y `day`.
+  - Devuelve un `namedtuple` con tres componentes: _year_, _week_ y _day_.
 * - [isoformat](https://docs.python.org/3/library/datetime.html#datetime.date.isoformat)()
   - Devuelve una fecha correspondiente a una cadena de representa una fecha en cualquier formato válido ISO 8601.
 * - [isoweekday](https://docs.python.org/3/library/datetime.html#datetime.date.isoweekday)()
-  - Devuelve el día de la semana como un número entero, donde el lunes es `1` y el domingo es `7`.
+  - Devuelve el día de la semana como un número entero, donde el lunes es _1_ y el domingo es _7_.
 * - [replace](https://docs.python.org/3/library/datetime.html#datetime.date.replace)(year=self.year, month=self.month, day=self.day)
   - Devuelve una fecha con el mismo valor, excepto para aquellos parámetros a los que se le dieron nuevos valores.
 * - [strftime](https://docs.python.org/3/library/datetime.html#datetime.date.strftime)(format)
@@ -604,14 +611,15 @@ A continuación la lista de métodos de instancia de la clase `datetime.datetime
 * - [toordinal](https://docs.python.org/3/library/datetime.html#datetime.date.toordinal)()
   - Devuelve el ordinal gregoriano proléptico de la fecha, donde 1 de enero del año 1 tiene ordinal 1.
 * - [weekday](https://docs.python.org/3/library/datetime.html#datetime.date.weekday)()
-  - Devuelve el día de la semana como un número entero, donde el lunes es `0` y el domingo es `6`.
+  - Devuelve el día de la semana como un número entero, donde el lunes es _0_ y el domingo es _6_.
 ```
 
-<br>
-<br>
+<br/>
+<br/>
 
 ---
-## Time
+(datetime-time)=
+### Time
 
 ```{warning}
 En este sitio no se documenta todas las características de la clase `time`, para un tratado completo visitar la [documentación](https://docs.python.org/3.11/library/datetime.html#time-objects) de Python.
@@ -630,12 +638,12 @@ En este sitio no se documenta todas las características de la clase `time`, par
   - Todos los argumentos son opcionales. `tzinfo` puede ser `None`, o una instancia de la subclase `tzinfo`. Los argumentos restantes deben ser números enteros.
 ```
 **Notas**:
-- **`tzinfo`** \- `str`, `timezone`: Es la zona horaria, se puede usar un objeto creado con `datetime.timezone()` o usar una cadena, para ver las zonas horarias disponibles ver [Zonas Horarias](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+- `tzinfo` \- `tzinfo`: Es la zona horaria. Para más información ver {ref}`datetime-zonas-horarias`.
 
-<br>
+<br/>
 
 ---
-### Crear un tiempo
+#### Crear un _time_
 
 Existen diversas formas para crear una instancia de `time`. A continuación se presentan algunas de las más comunes.
 
@@ -665,17 +673,25 @@ X = time.fromisoformat("12:30:30")
 print(X)
 ```
 
-<br>
+<br/>
 
 ---
-### Recuperar componentes de un tiempo
+#### Dar formato concreto a _time_
 
-Para recuperar los componentes de un tiempo utilizar los {ref}`time-atributos-instancia`.
+Para darle un formato concreto a un objeto `time` y retornarlo como cadena se puede usar el método de instancia `time.strftime()`, para ello se debe indicar una cadena con los {ref}`Códigos de fechas <date-codes>`.
+
+```{code-cell} python3
+# Crear una instancia
+X = time.fromisoformat("12:30:00")
+
+# Imprimir la instancia en un formato concreto
+print(X.strftime('at %H.%-M %p'))
+```
 
 <br/>
 
 ---
-### Atributos de clase
+#### Atributos de clase de _time_
 
 A continuación se presenta una lista de atributos de clase. Tener en cuenta que los atributos de clase son atributos asociados con la clase misma y no con las instancias.
 
@@ -691,8 +707,6 @@ print(time.max)
 
 <br/>
 
-Lista de atributos de clase de `datetime.time`.
-
 ```{list-table}
 :header-rows: 1
 
@@ -706,10 +720,10 @@ Lista de atributos de clase de `datetime.time`.
   - La diferencia más pequeña posible entre objetos `time` no iguales, `timedelta(microseconds=1)`.
 ```
 
-<br>
+<br/>
 
-(time-atributos-instancia)=
-### Atributos de instancia
+(datetime-time-atributos-instancia)=
+#### Atributos de instancia de _time_
 
 Los atributos de instancia se aplican directamente sobre un objeto `time`. 
 
@@ -727,9 +741,6 @@ print(X.hour)
 ```
 
 <br/>
-
-Lista de atributos de instancia de `datetime.time`.
-
 
 ```{list-table}
 :header-rows: 1
@@ -750,10 +761,9 @@ Lista de atributos de instancia de `datetime.time`.
   - El objeto pasado como argumento de `tzinfo` al constructor de `time`, o `None` si no se pasó ninguno.
 ```
  
-<br> 
+<br/> 
  
-### Métodos de clase
-
+#### Métodos de clase de _time_
 
 Son métodos que se aplican directamente sobre la clase `datetime.time`. 
 
@@ -772,20 +782,18 @@ print(X)
 
 <br/>
 
-Lista de métodos de la clase `datetime.time`.
-
 ```{list-table}
 :header-rows: 1
 
 * - Método
   - Descripción
 * - [fromisoformat](https://docs.python.org/3/library/datetime.html#datetime.time.fromisoformat)(time_string)
-  - Retorna una hora correspondiente a un `time_string` en cualquier formato válido ISO 8601.
+  - Retorna una hora correspondiente a un _time_string_ en cualquier formato válido ISO 8601.
 ```
 
-<br>
+<br/>
 
-### Métodos de instancia
+#### Métodos de instancia de _time_
 
 Son métodos que se aplican directamente en instancias (objetos) de la clase `datetime.time`. 
 
@@ -804,8 +812,6 @@ print(X.isoformat())
 
 <br/>
 
-A continuación la lista de métodos de instancia de la clase `datetime.datetime`.
-
 ```{list-table}
 :header-rows: 1
 
@@ -821,12 +827,12 @@ A continuación la lista de métodos de instancia de la clase `datetime.datetime
   - Si `tzinfo` es `None`, devuelve `None`, de lo contrario, devuelve `self.tzinfo.tzname(None)`.
 ```
 
-<br>
-<br>
+<br/>
+<br/>
 
 ---
-(builtin-datetime-timedelta)=
-## Timedelta
+(datetime-timedelta)=
+### Timedelta
 
 ```{warning}
 En este sitio no se documenta todas las características de la clase `timedelta`, para un tratado completo visitar la [documentación](https://docs.python.org/3.11/library/datetime.html#timedelta-objects) de Python.
@@ -844,10 +850,10 @@ En este sitio no se documenta todas las características de la clase `timedelta`
   - Todos los argumentos son opcionales y su valor predeterminado es `0`. Los argumentos pueden ser números `int` o `float`, y pueden ser positivos o negativos.
 ```
 
-<br>
+<br/>
 
 ---
-### Crear un timedelta
+#### Crear un _timedelta_
 
 Para crear una instancia de `timdelta` se puede usa el constructor `datetime.timedelta()` indicando los componentes y sus valores:
 
@@ -865,74 +871,18 @@ print(X)
 <br/>
 
 ---
-### Operaciones con objetos timedelta
+#### Operaciones con objetos _timedelta_
 
-Es posible realizar operaciones aritméticas con objetos `timedelta`. 
+Es posible realizar operaciones aritméticas con objetos `timedelta`. Para más información visitar la [documentación](https://docs.python.org/3/library/datetime.html#timedelta-objects) de Python.
 
-**Suma y resta de objetos `timedelta`**:
-
-Se pueden sumar o restar dos objetos `timedelta` con los operadores `+` y `-` respectivamente y retornar otro objeto `timedelta`. Ejemplo:
-
-```{code-cell} python3
-# Importar clase
-from datetime import timedelta
-
-# Definir dos objetos timedelta
-X = timedelta(days=1, minutes=30, seconds=30)
-Y = timedelta(days=1, minutes=30)
-
-# Suma y restar objetos timedelta
-print(f"Suma: {X+Y}")
-print(f"Resta: {X-Y}")
-```
-
-<br/>
-
-**Multiplicar un objeto timedelta por un número**:
-
-Se puede multiplicar un objeto `timedelta` por un número `int` o `float` con el operador `*` y retornar otro objeto `timedelta`. Cada componente se multiplicará por el factor indicado. Ejemplo:
-
-```{code-cell} python3
-# Importar clase
-from datetime import timedelta
-
-# Definir objeto
-X = timedelta(days=1, minutes=30, seconds=30)
-
-# Suma y restar objetos timedelta
-print(f"Multiplicar por entero: {X*2}")
-print(f"Multiplicar por flotante: {X*2.5}")
-```
-
-<br/>
-
-**Dividir un objeto timedelta**:
-
-Es posible dividir un objeto `timedelta` entre otro objeto `timedelta` o entre un número `int` o `float` con el operador `/` y retornar otro objeto `timedelta`. Ejemplo:
-
-```{code-cell} python3
-# Importar clase
-from datetime import timedelta
-
-# Definir dos objetos timedelta
-X = timedelta(days=1, minutes=30)
-Y = timedelta(minutes=30)
-
-# Divir 2 objetos timedelta
-print(f"Dividir X entre Y: {X/Y}", end="\n"*2)
-
-# Dividir un objeto timedelta entre un número
-print(f"Dividir Y entre 30: {Y/30}")
-```
-
-Es posible además calcular el módulo o la división parte entera con los operadores `%` y `//` respectivamente o con la función `divmode()`. 
-
-Para más información visitar la [documentación](https://docs.python.org/3/library/datetime.html#timedelta-objects) de Python.
+- **Suma y resta de objetos _timedelta_**: Se pueden sumar o restar dos objetos `timedelta` con los operadores `+` y `-` respectivamente y retornar otro objeto `timedelta`. <br/> `timedelta3 = timedelta1 + timedelta2` <br> `timedelta3 = timedelta1 + timedelta2`
+- **Multiplicar un objeto timedelta por un número**: Se puede multiplicar un objeto `timedelta` por un número `int` o `float` con el operador `*` y retornar otro objeto `timedelta`. Cada componente se multiplicará por el factor indicado. <br/> `timedelta2 = timedelta1 * int` <br> `timedelta2 = timedelta1 * float`
+- **Dividir un objeto timedelta**: Es posible dividir un objeto `timedelta` entre otro objeto `timedelta` o entre un número `int` o `float` con el operador `/` y retornar otro objeto `timedelta`. <br/> `timedelta3 = timedelta1 / timedelta2` <br/> `timedelta2 = timedelta1 / int` <br> `timedelta2 = timedelta1 / float` <br> Es posible además calcular el módulo o la división parte entera con los operadores `%` y `//` respectivamente o con la función `divmode()`. 
 
 <br/>
 
 ---
-### Atributos de clase
+#### Atributos de clase de _timedelta_
 
 A continuación se presenta una lista de atributos de clase. Tener en cuenta que los atributos de clase son atributos asociados con la clase misma y no con las instancias.
 
@@ -948,8 +898,6 @@ print(timedelta.max)
 
 <br/>
 
-Lista de atributos de clase de `datetime.timedelta`.
-
 ```{list-table}
 :header-rows: 1
 
@@ -963,9 +911,43 @@ Lista de atributos de clase de `datetime.timedelta`.
   - La diferencia más pequeña posible entre objetos `timedelta` no iguales, `timedelta(microseconds=1)`.
 ```
 
-<br>
+<br/>
 
-### Métodos de instancia
+#### Atributos de instancia de _timedelta_
+
+Los atributos de instancia se aplican directamente sobre un objeto `timedelta`. 
+
+Ejemplo de cómo usar un atributo de instancia:
+
+```{code-cell} python3
+# Importar clase
+from datetime import timedelta
+
+# Crear una instancia
+X = timedelta(days=1, minutes=30)
+
+# Usar un atributo de instancia
+print(X.seconds)
+```
+
+<br/>
+
+```{list-table}
+:header-rows: 1
+
+* - Atributo
+  - Descripción
+* - [days](https://docs.python.org/3/library/datetime.html#datetime.timedelta.days)
+  - Entre -999,999,999 y 999,999,999 inclusivos.
+* - [seconds](https://docs.python.org/3/library/datetime.html#datetime.timedelta.seconds)
+  - Entre 0 y 86,399 inclusivos.
+* - [microseconds](https://docs.python.org/3/library/datetime.html#datetime.timedelta.microseconds)
+  - Entre 0 y 999,999 inclusivos.
+```
+
+<br/>
+
+#### Métodos de instancia de _timedelta_
 
 Son métodos que se aplican directamente en instancias (objetos) de la clase `datetime.timedelta`. 
 
@@ -984,8 +966,6 @@ print(X.total_seconds())
 
 <br/>
 
-A continuación la lista de métodos de instancia de la clase `datetime.timedelta`.
-
 ```{list-table}
 :header-rows: 1
 
@@ -995,8 +975,103 @@ A continuación la lista de métodos de instancia de la clase `datetime.timedelt
   - Devuelve el número total de segundos contenidos en el `timedelta`.
 ```
 
-<br>
-<br>
+<br/>
+
+---
+(datetime-zonas-horarias)=
+## Zonas horarias
+
+### Crear objeto con zona horaria
+
+Para crear un objeto `datetime` o `time` con zona horaria existen dos alternativas:
+
+**1. Usando _timedelta_ y _timezone_**: Es posible usar un objeto `timedelta` para indicar el desplazamiento con respecto al timepo universal coordinado [UTC](https://es.wikipedia.org/wiki/Tiempo_universal_coordinado) y utilizar este desfase en la función `timezone()` asignándolo al parámetro `tzinfo` . Ejemplo:
+
+```python
+from datetime import datetime, timedelta, timezone
+
+# Definir desfase con respecto a UTC
+MX = timezone(timedelta(hours=-6))
+
+# Definir zona horaria
+dt = datetime(2017, 12, 30, 15, 9, 3, tzinfo = MX)
+```
+
+**2. Usar módulo _zoneinfo_**: Se puede usar el constructor de la clase [ZoneInfo](https://docs.python.org/3/library/zoneinfo.html#zoneinfo.ZoneInfo) del módulo _built-in_ [zoneinfo](https://docs.python.org/3/library/zoneinfo.html), junto con una cadena del tipo _’Continent/City’_ para indicar la zona horaria. Para ver las zonas horarias disponibles usar la función [zoneinfo.available_timezones()](https://docs.python.org/3/library/zoneinfo.html#zoneinfo.available_timezones). Alternativamente revisar [Zonas Horarias](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+
+```python
+from datetime import datetime
+from zoneinfo import ZoneInfo
+
+# Especificar zona horaria
+MX = ZoneInfo("America/Mexico_City ")
+
+# Definir zona horaria
+dt = datetime(2017, 12, 30, 15, 9, 3, tzinfo = MX)
+```
+
+**3. Usar módulo _dateutil_**: Se puede usar la función [gettz](https://dateutil.readthedocs.io/en/stable/tz.html#dateutil.tz.gettz) del módulo `tz` del paquete [dateutil](https://dateutil.readthedocs.io/en/stable/index.html) (es necesario instalarlo), junto con una cadena del tipo _’Continent/City’_ para indicar la zona horaria. Para ver las zonas horarias revisar [Zonas Horarias](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+
+```python
+from datetime import datetime
+from dateutil import tz
+
+# Especificar zona horaria
+MX = tz.gettz("America/Mexico_City ")
+
+# Definir zona horaria
+dt = datetime(2017, 12, 30, 15, 9, 3, tzinfo = MX)
+```
+
+<br/>
+
+### Cambiar zona horaria
+
+Para modficar la zona horaria de un objeto se puede hacer de dos maneras, una manteniendo la misma hora y otro modificando la hora para ajustarla a la nueva zona horaria:
+
+:::{tip}
+Para usar la zona horaria _UTC_ usar el atributo `.utc` de la clase `datetime.timezone`: <br/> `tz=timezone.utc`
+:::
+
+**1. Mantener misma hora**: Para modificar la zona horaria pero mantener la misma hora se puede usar el método `.replace()` y usar un argumento válido de nueva la zona horaria con `tzinfo`:
+
+```python
+# Reemplazar zona horaria
+dt.replace(tzinfo=ZoneInfo("America/Mexico_City"))
+```
+
+**2. Modifcar hora**: Para modificar la zona horaria y ajustarla a una nueva zona horaia se puede usar el método `.astimezone()`:
+
+:::{warning}
+Este método solo es válido con objetos `datetime.datetime`.
+:::
+
+```python
+# Reemplazar zona horaria
+dt.astimezone(tz=ZoneInfo("America/Mexico_City "))
+```
+
+
+
+<br/>
+
+---
+## Constantes
+
+A continuación se presenta una lista de las constantes disponibles en el módulo `datetime`. 
+
+```{list-table}
+:header-rows: 1
+
+* - Constante
+  - Descripción
+* - [MAXYEAR](https://docs.python.org/3/library/datetime.html#datetime.MAXYEAR)
+  - El mayor número de año permitido en un objeto de fecha o fecha y tiempo. `MAXYEAR` es 9999.
+* - [MINYEAR](https://docs.python.org/3/library/datetime.html#datetime.MINYEAR)
+  - El número de año más pequeño permitido en un objeto de fecha o fecha y tiempo. `MINYEAR` es 1.
+```
+
+<br/>
 
 ---
 (codigos-formatos-fechas)=

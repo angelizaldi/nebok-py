@@ -1,6 +1,18 @@
-# Entrada y salida de datos
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python
+---
 
-En esta sección se cubren las funciones para impimir valores en la consola o para solicitar el ingreso de datos desde la consola.
+# Impresión y solicitud de datos
+
+En esta sección se enlistan las funciones para impimir valores en la consola o para solicitar el ingreso de datos desde la consola.
 
 ```{list-table}
 :header-rows: 1
@@ -13,3 +25,14 @@ En esta sección se cubren las funciones para impimir valores en la consola o pa
   - Solicita ingresar datos al usuario mientras se ejecuta el programa.
 ```
 
+:::{note}
+En {doc}`../08-otros/IPython` también existe la función `display()` para imprimir objetos. 
+:::
+
+```{code-cell} ipython3
+# Imprimir hola mundo
+print("Hola Mundo!", end="\n"*2)
+
+# Imprimir el resultado de una expresión
+print(5+10)
+```

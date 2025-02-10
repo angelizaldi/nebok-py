@@ -23,19 +23,19 @@ Funciones que generan arreglos de índices que cumplen determinadas condiciones.
 * - [indices](https://numpy.org/doc/stable/reference/generated/numpy.indices.html)(dimensions[, dtype, sparse])
   - Devuelve un arreglo que representa los índices de una cuadrícula.
 * - [mask_indices](https://numpy.org/doc/stable/reference/generated/numpy.mask_indices.html)(n, mask_func[, k])
-  - Devuelve los índices para acceder a arreglos `(n, n)`, dada una función de enmascaramiento.
+  - Devuelve los índices para acceder a arreglos _(n, n)_, dada una función de enmascaramiento.
 * - [nonzero](https://numpy.org/doc/stable/reference/generated/numpy.nonzero.html)(a)
   - Devuelve los índices de los elementos que no son cero.
 * - [tril_indices](https://numpy.org/doc/stable/reference/generated/numpy.tril_indices.html)(n[, k, m])
-  - Devuelve los índices del triángulo inferior de un arreglo `(n, m)`.
+  - Devuelve los índices del triángulo inferior de un arreglo _(n, m)_.
 * - [tril_indices_from](https://numpy.org/doc/stable/reference/generated/numpy.tril_indices_from.html)(arr[, k])
-  - Devuelve los índices para el triángulo inferior de `arr`.
+  - Devuelve los índices para el triángulo inferior de _arr_.
 * - [triu_indices](https://numpy.org/doc/stable/reference/generated/numpy.triu_indices.html)(n[, k, m])
   - Devuelve los índices del triángulo superior de un arreglo `(n, m)`.
 * - [triu_indices_from](https://numpy.org/doc/stable/reference/generated/numpy.triu_indices_from.html)(arr[, k])
-  - Devuelve los índices del triángulo superior de `arr`.
+  - Devuelve los índices del triángulo superior de _arr_.
 * - [where](https://numpy.org/doc/stable/reference/generated/numpy.where.html)(condition, [x, y], /)
-  - Devuelve los elementos elegidos de `x` o `y` dependiendo de la condición.
+  - Devuelve los elementos elegidos de _x_ o _y_ dependiendo de la condición.
 ```
 
 <br>
@@ -56,7 +56,7 @@ Funciones para insertar datos en un arreglo.
 * - [put](https://numpy.org/doc/stable/reference/generated/numpy.put.html)(a, ind, v[, mode])
   - Reemplaza elementos especificados de un arreglo con valores dados.
 * - [put_along_axis](https://numpy.org/doc/stable/reference/generated/numpy.put_along_axis.html)(arr, indices, values, axis)
-  - Inserta valores en el arreglo de destino haciendo coincidir `indices` y _slices_ de datos.
+  - Inserta valores en el arreglo de destino haciendo coincidir _indices_ y _slices_ de datos.
 * - [putmask](https://numpy.org/doc/stable/reference/generated/numpy.putmask.html)(a, mask, values)
   - Cambia los elementos de un arreglo en función de los valores condicionales y de entrada.
 ```
@@ -104,11 +104,11 @@ Funciones que permiten seleccionar elementos de un arreglo.
 * - [diagonal](https://numpy.org/doc/stable/reference/generated/numpy.diagonal.html)(a[, offset, axis1, axis2])
   - Devuelve las diagonales especificadas.
 * - [select](https://numpy.org/doc/stable/reference/generated/numpy.select.html)(condlist, choicelist[, default])
-  - Devuelve un arreglo extraído de los elementos de `choicelist`, según las condiciones.
+  - Devuelve un arreglo extraído de los elementos de _choicelist_, según las condiciones.
 * - [take](https://numpy.org/doc/stable/reference/generated/numpy.take.html)(a, indices[, axis, out, mode])
   - Toma elementos de un arreglo a lo largo de un eje.
 * - [take_along_axis](https://numpy.org/doc/stable/reference/generated/numpy.take_along_axis.html)(arr, indices, axis)
-  - Toma valores del arreglo de entrada al hacer coincidir `indices` y _slices_ de datos.
+  - Toma valores del arreglo de entrada al hacer coincidir _indices_ y _slices_ de datos.
 ```
 
 <br>

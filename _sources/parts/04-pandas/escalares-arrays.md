@@ -25,7 +25,7 @@ En esta sección se revisan brevemente algunos escalares y _arrays_ de `pandas` 
 | Nullable Integer | (none) | [pd.arrays.IntegerArray](https://pandas.pydata.org/docs/reference/arrays.html##nullable-integer) | `'Int8'`, `'Int16'`, `'Int32'`, `'Int64'`, `'UInt8'`, `'UInt16'`, `'UInt32'`, `'UInt64'` |
 | Nullable Float  | (none) | [pd.arrays.FloatingArray](https://pandas.pydata.org/docs/reference/arrays.html#nullable-float) | `'Float32'`, `'Float64'` |
 | Nullable Boolean  | `bool` | [pd.arrays.BooleanArray](https://pandas.pydata.org/docs/reference/arrays.html#nullable-boolean) | `'boolean'` |
-| Sparse | (none) | [pd.arrays.SparseArray](https://pandas.pydata.org/docs/reference/arrays.html#sparse) | `'Sparse'`, `'Sparse[int`'`, `'Sparse[float`'` |
+| Sparse | (none) | [pd.arrays.SparseArray](https://pandas.pydata.org/docs/reference/arrays.html#sparse) | `'Sparse'`, `'Sparse[int]'`, `'Sparse[float]'` |
 
 :::{caution}
 En esta sección se revisarán solo los primeros cuatro (`Timestamp`, `Timedeltas`, `Period` e `Intervals`). Para más información sobre el resto de tipos digirse a los links de la tabla.
@@ -69,17 +69,18 @@ Para crear un escalar `Timestamp` o un _array_ `DatetimeArray` se pueden usar lo
 * - Constructor
   - Descripción
 * - [Timestamp](https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.html)([ts_input, year, month, day, ...])
-  - Reemplaza de `pandas` del objeto `datetime.datetime`.
+  - Es un escalar que es un reemplazo de `pandas` del objeto `datetime.datetime`.
 * - [arrays.DatetimeArray](https://pandas.pydata.org/docs/reference/api/pandas.arrays.DatetimeArray.html)(values[, dtype, freq, copy])
   - _Array_ de `pandas` para datos de fecha y hora compatibles con _tz_ o sin _tz_.
 * - [DatetimeTZDtype](https://pandas.pydata.org/docs/reference/api/pandas.DatetimeTZDtype.html)([unit, tz])
-  - Tipo de dato de fecha y hora que reconoce la zona horaria. Se puede usar como argumento del parámetro _dtype_.
+  - Tipo de dato de fecha y hora (escalar) similar a `np.datetime64` que reconoce la zona horaria. Se puede usar como argumento del parámetro _dtype_.
 ```
 - Existen diversas formas de específicar la fecha-tiempo en `Timestamp`, las principales son:
     -  `str`: Cadena que representa una fecha-tiempo, se puedo usar ISO 8601 u otros formatos.
     -  `year`, `month`, `day`, `hour`, `minute`, `second`, `microsecond`: Indicando los elementos individuales de la fecha y tiempo.
+    -  Una instancia de `datetime.datetime`
     -  Para más formas visitar el link en la tabla.
-- Para la zona horaria se puede usar cadena del tipo `'Continent/City'`, parar conocer las posibles opciones visitar [esta página](http://www.healthstream.com/hlchelp/Administrator/Classes/HLC_Time_Zone_Abbreviations.htm).
+- Para la zona horaria se puede usar cadena del tipo _'Continent/City'_, parar conocer las posibles opciones visitar [esta página](http://www.healthstream.com/hlchelp/Administrator/Classes/HLC_Time_Zone_Abbreviations.htm).
 
 **Ejemplo**
 ```{code-cell} ipython3
@@ -96,13 +97,39 @@ print(pd.Timestamp('15/01/2021 12:30:45'))
 print(pd.Timestamp(year=2021, month=12, day=15, hour=12, minute=30, second=45))
 ```
 
+<br>
+
+---
+### Dar formato concreto a `Timestamp`
+
+Para darle un formato concreto a un objeto `datetime` y retornarlo como cadena se puede usar el método de instancia `Timestamp.strftime()`, para ello se debe indicar una cadena con los {ref}`Códigos de fechas <date-codes>`.
+
+```{code-cell} python3
+# Crear una instancia
+X = pd.Timestamp('2021-01-15T12:30:45')
+
+# Imprimir la instancia en un formato concreto
+print(X.strftime('%B %d, %Y at %H %p'))
+```
+
+<br>
+
+---
+### Operaciones con objetos `Timestamp`
+
+Las operaciones válidas que se pueden hacer con objetos `Timestamp` son:
+- **Suma y resta de objetos _Timedelta_**: Se puede sumar o restar un objeto `Timedelta` o un array de `Timedelta` a un objeto `Timestamp` y retornar un objeto `Timestamp` o un _array_ de objetos `Timestamp` (también es posible que se retorne un `DatetimeIndex`). <br/> `Timestamp = Timestamp + Timedelta` <br/> `Timestamp = Timestamp - Timedelta`
+- **Suma y resta de objetos _int_**: A un objeto `Timestamp` se le puede sumar/restar un entero o un array de enteros y retornar un objeto `Timestamp` o un _array_ de objetos `Timestamp` (también es posible que se retorne un `DatetimeIndex`). Tener en cuenta que para determinar la unidad que se suma/resta se toma en cuenta la _freq_ de `Timestamp`. <br/> `Timestamp = Timestamp + int` <br/> `Timestamp = Timestamp - int`
+- **Diferencia de _Timestamp_**: Se pueden restar dos objetos `Timestamp` y retornar un objeto `Timedelta`. <br/> `Timedelta = Timestamp - Timestamp`
+- **Comparar dos _Timestamp_**: Usar operadores de {ref}`built-in-operadores-comparacion` con dos objetos `Timestamp` y retorna `bool`. <br/> `Timestamp < Timestamp`
+
 <br/>
 
 ---
 ### Atributos de `Timestamp`
 
 :::{caution}
-Algunos de estos atributos son atributos de clase y otros son atributos de instancia. Recordar que `pd.Timestamp` es una subclase de `datetime.datetime`, por lo que se puede consultar la sección de `ref`{builtin-datetime-datetime} para más información.
+Algunos de estos atributos son atributos de clase y otros son atributos de instancia. Recordar que `pd.Timestamp` es una subclase de `datetime.datetime`, por lo que se puede consultar la sección de `ref`{datetime-datetime} para más información.
 :::
 
 Atributos de la clase `Timestamp`:
@@ -147,7 +174,7 @@ Atributos de la clase `Timestamp`:
 ### Métodos de `Timestamp`
 
 :::{caution}
-Algunos de estos métodos son métodos de clase y otros son métodos de instancia. Recordar que `pd.Timestamp` es una subclase de `datetime.datetime`, por lo que se puede consultar la sección de `ref`{builtin-datetime-datetime} para más información.
+Algunos de estos métodos son métodos de clase y otros son métodos de instancia. Recordar que `pd.Timestamp` es una subclase de `datetime.datetime`, por lo que se puede consultar la sección de `ref`{datetime-datetime} para más información.
 :::
 
 A continuación se enlistan los métodos de la clase `Timestamp`. 
@@ -257,6 +284,45 @@ Para crear un escalar `Timedelta` o un _array_ `TimedeltaArray` se pueden usar l
 * - [arrays.TimedeltaArray](https://pandas.pydata.org/docs/reference/api/pandas.arrays.TimedeltaArray.html)(values[, dtype, freq, ...]): 
   - _Array_ de `pandas` para _timedeltas_.
 ```
+- Existen dos formas principales de específicar la duración `Timestamp`:
+    -  `int`: Valor que representa una duración, se debe indicar la unidad. <br/> `X = pd.Timedelta(5, 'day')`
+    -  `**kwargs`: Se pueden indicar valores de ciertas unidades como `days`, `hours`, `seconds`, etc. a modo de _kwargs_. <br/> `X = pd.Timedelta(days=1, hours=12, ...)`
+
+<br/>
+
+---
+### Operaciones con objetos `Timedelta`
+
+Es posible realizar operaciones aritméticas con objetos `pd.Timedelta`. 
+
+- **Suma y resta de objetos `Timedelta`**: Se pueden sumar o restar dos objetos `Timedelta` con los operadores `+` y `-` respectivamente y retornar otro objeto `Timedelta`. <br/> `Timedelta = Timedelta + Timedelta` <br/> `Timedelta = Timedelta - Timedelta`
+- **Multiplicar un objeto Timedelta por un número**: Se puede multiplicar un objeto `Timedelta` por un número `int` o `float` con el operador `*` y retornar otro objeto `Timedelta`. Cada componente se multiplicará por el factor indicado. <br/> `Timedelta = Timedelta * int`
+- **Dividir un objeto Timedelta**: Es posible dividir un objeto `Timedelta` entre otro objeto `Timedelta` o entre un número `int` o `float` con el operador `/` y retornar otro objeto `Timedelta`. <br/> `Timedelta = Timedelta / int` <br/> `Timedelta = Timedelta / Timedelta`
+- **Sumar o restar a un objeto Timestamp**: Se puede sumar o restar un objeto `Timedelta` a un objeto `Timestamp` y retornar un objeto `Timestamp`. <br/> `Timestamp = Timestamp + Timedelta` <br/> `Timestamp = Timestamp - Timedelta`
+
+:::{tip}
+Los arrays de `Timedelta` se pueden considerar como arrays numéricos porque lo que es posible aplicar métodos de agregación como `.mean()` o `.sum()`.
+:::
+
+**Ejemplos**
+
+```{code-cell} python3
+# Crear dos instancias
+X = pd.Timedelta(3, 'day')
+Y = pd.Timedelta(days=2, hours=5, minutes=30, seconds=45)
+
+# Sumar dos Timedelta
+print("Suma: ", X+Y, end='\n'*2)
+
+# Timedelta por un número
+print("Timedelta por entero: ", X*2, end='\n'*2)
+
+# Timedelta entre un número
+print("Timedelta entre entero: ", X/6, end='\n'*2)
+
+# Timestamp más un Timedelta
+print("Timestamp más Timedelta: ", pd.Timestamp('2020-03-20') + X, end='\n'*2)
+```
 
 <br/>
 
@@ -264,7 +330,7 @@ Para crear un escalar `Timedelta` o un _array_ `TimedeltaArray` se pueden usar l
 ### Atributos de `Timedelta`
 
 :::{caution}
-Algunos de estos atributos son atributos de clase y otros son atributos de instancia. Recordar que `pd.Timedelta` es una subclase de `datetime.timedelta`, por lo que se puede consultar la sección de `ref`{builtin-datetime-timedelta} para más información.
+Algunos de estos atributos son atributos de clase y otros son atributos de instancia. Recordar que `pd.Timedelta` es una subclase de `datetime.timedelta`, por lo que se puede consultar la sección de `ref`{datetime-timedelta} para más información.
 :::
 
 Atributos de la clase `Timedelta`. 
@@ -288,7 +354,7 @@ Atributos de la clase `Timedelta`.
 ### Métodos de `Timedelta`
 
 :::{caution}
-Algunos de estos métodos son métodos de clase y otros son métodos de instancia. Recordar que `pd.Timedelta` es una subclase de `datetime.timedelta`, por lo que se puede consultar la sección de `ref`{builtin-datetime-timedelta} para más información.
+Algunos de estos métodos son métodos de clase y otros son métodos de instancia. Recordar que `pd.Timedelta` es una subclase de `datetime.timedelta`, por lo que se puede consultar la sección de `ref`{datetime-timedelta} para más información.
 :::
 
 A continuación se enlistan los métodos de la clase `Timedelta`. 
@@ -339,12 +405,30 @@ Para crear un escalar `Period` o un _array_ `PeriodArray` se pueden usar los con
   - Tipo de dato de periodos de tiempo. Se puede usar como argumento del parámetro _dtype_.
 ```
 
+**Ejemplo**
+```python
+# Definir un periodo (default month-end)
+pd.Period('2017-01')
+
+# Definir periodo especificando freq
+pd.Period('2017-01', 'D')
+```
+
+<br>
+
+---
+### Operaciones con objetos `Period`
+
+Las operaciones válidas que se pueden hacer con objetos `Period` son:
+- **Suma y resta de objetos _int_**: A un objeto `Period` se le puede sumar/restar un entero o un array de enteros y retornar un objeto `Period` o un _array_ de objetos `Period`. Tener en cuenta que para determinar la unidad que se suma/resta se toma en cuenta la _freq_ de `Period`. <br/> `Period = Period + int` <br/> `Period = Period - int`
+
 <br/>
 
 ---
 ### Atributos de `Period`
 
-Atributos de la clase `Timedelta`:
+Atributos de la clase `Period`:
+
 - `.day`: Recupera el día del mes en el que cae un período.
 - `.day_of_week`: Día de la semana en el que se encuentra el período, siendo lunes=0 y domingo=6.
 - `.day_of_year`: Retorna el día del año.
@@ -374,7 +458,7 @@ Atributos de la clase `Timedelta`:
 ---
 ### Métodos de `Period`
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+Métodos de la clase `Period`.
 
 ```{list-table}
 :header-rows: 1

@@ -12,6 +12,15 @@ kernelspec:
 
 # GroupBy
 
+```{code-cell} ipython3
+:tags: ["remove-input"]
+
+import pandas as pd
+import seaborn as sns
+
+penguins = sns.load_dataset('penguins')
+```
+
 Los objetos `SeriesGroupBy` y `DataFrameGroupBy` son unos objetos retornados al usar el método `.groupby()` ya sea con `DataFrame` o `Series`,  si solo se llama el método sin especificar ninguna función de _aggregate_, como tal no se calculará nada, salvo los datos intermedios de la llave de agrupación, es decir se determinarán las llaves y los datos de cada grupo.
 
 El tipo retornado retornado por `.groupby()` dependerá de:
@@ -37,7 +46,7 @@ grouped_series = df.groupby('A')['B']
 
 print(type(grouped_df))
 
-print(type(grouped_series ))	
+print(type(grouped_series))	
 ```
 
 Conceptualmente los objetos de tipo _GroupBy_ se pueden entender como un `DataFrame-like` donde las columnas tiene como índice las columnas del objeto original, el índice de las filas (que potencialmente puede ser un multi-índice) tendrá como etiquetas los _keys_ de los grupos y los elementos son `array-like` de una dimensión que son particiones del objeto original dada la columna y el _key_. Tener en cuenta que los elementos de cada `array-like` conservan los índices de fila del objeto original.
@@ -53,11 +62,18 @@ Conceptualización de un objeto `DataFrameGroupBy`.
 Al aplicar una función al objeto _GroupBy_ se aplica la función a cada `array-like` interno.
 
 :::{warning}
-La explicación anterior solo es para conceptualizar un objeto _GroupBy_ y no significa que en la práctica dicha estructura existe.
+La explicación anterior solo es para conceptualizar un objeto _GroupBy_ y no significa que en la práctica dicha estructura existe. Es más correcto interpretar a un objeto _GroupBy_ como un diccionario en el que los _keys_ son los valores únicos del grupo y los values son objetos `DataFrame-like` filtrados únicamente para el grupo correspondiente, pero manteniendo la misma estructura (mismos índices, columnas y valores):
+
+```{figure} ../images/groupby2.png
+:name: DataFrameGroupBy-image2
+:width: 300px
+:align: center
+
+Conceptualización alternativa de un objeto `DataFrameGroupBy`.
+```
 :::
 
 Estos objetos tienen sus propios métodos, la mayoría son similares a los de `DataFrame` o `Series` pero algunos tienen un comportamiento ligeramente diferente.
-
 
 ```{note}
 Para más información consultar la [documentación](https://pandas.pydata.org/docs/reference/groupby.html) de `pandas`.
@@ -65,6 +81,114 @@ Para más información consultar la [documentación](https://pandas.pydata.org/d
 
 ```{tip}
 Todos los métodos de `Series` y `DataFrame` se pueden usar con el objeto _GroupBy_.
+```
+
+## Uso de _GroupBy_
+
+Agrupa por valores de una o más columnas para posteriorme aplicar algunos cálculos.
+```python
+df.groupby(by = None, axis = 0, level = None, as_index = True, group_keys = True) 
+```
+- **Parámetros:**
+    - **`by`** \- `label` o `list` de `labels`:
+        - _label_: Etiquetas de columnas/índices para determinar los grupos.
+        - `list` o `series`, del mismo tamaño que _df_, los grupos se determinarán con base a los valores de esa lista o `Series`, empatados por posición con los valores del _df_.
+      - `dict`: Puede ser un diccionario en el que los _keys_ sean los valores de _df_ sobre los cuales se basarán los grupos y los _values_ serán los nombres de los grupos resultantes. De esta manera más de un valor de _df_ se puede convertir en un solo grupo.
+        - `function`: Puede ser cualquier función de Python. La función será llamada una vez por cada valor del `Index` de _df_  y los valores retornados de ésta serán usados para hacer el agrupamiento (nombres del grupo).
+        - `list` de la combinación de cualquiera de las opciones anteriores, para retornar un objeto multi índice.
+    - **`axis`** \- {0 o 'index', 1 o 'columns'}: Eje sobre el cual realizar la operación.
+    - **`level`** \- `int`, `label` o `secuencia` de `int` o `label`: Para indicar que se agrupe por lo valores de un índice en específico en caso de multi-índices, el nivel no debe ser el más profundo, los niveles interiores se colapsarán en un solo grupo de acuerdo a los valores del nivel indicado. El nivel más bajo es cero.
+    - **`as_index`** \- `bool`: Cuando se utilizan _aggregates_, es para indicar que las etiquetas de cada grupo se usen como índice.
+    - **`group_keys`** \- `bool`: Solo aplica si se utiliza el método `.apply` después. Para indicar si agregar en el índice la etiqueta del grupo, para poder identificar cada grupo, Si es `False` los valores de _by_ se quedarán como columnas y el índice será el original.
+- **Retorna:**
+    -  `SeriesGroupBy` o `DataFrameGroupBy`.
+ 
+  
+Las agrupaciones están determinados por:
+1. Las columnas por las cuales se agrupa (_by_), tienen que ser columna categóricas.
+2. El subconjunto de columnas sobre los cuales se aplicarán los cálculos, suelen ser columnas numéricas, pero no necesariamente.
+3. La cantidad de cálculos que aplican.
+
+Considerando las 3 variables anterior se tiene como resultado 8 combinaciones posibles, las cuales se enlistan a continuación.
+
+:::{note}
+En todos los ejemplos siguientes se utiliza el _dataset_ _penguins_ de la librería `seaborn`.
+:::
+
+:::{warning}
+En los casos que se realizan múltiples cálculos, como con la función _aggregate_, existen diversas formas de definir el parámetro _func_.
+:::
+
+### 1 _label_, 1 columna y 1 cálculo
+
+Corresponde a agrupar por una variable categórica y aplicar un cálculo a una sola columna. Retorna un `Series`.
+
+```{code-cell} ipython3
+# Realizar el agrupamiento y aplicar función de agregación
+penguins.groupby('species')['bill_length_mm'].mean()
+```
+
+### 1 _label_, 1 columna y múltiples cálculos
+
+Corresponde a agrupar por una variable categórica y aplicar más de un cálculo a una sola columna. Retorna un `DataFrame`.
+
+```{code-cell} ipython3
+# Realizar el agrupamiento y aplicar funciones de agregación
+penguins.groupby('species')['bill_length_mm'].agg(['count', 'mean'])
+```
+
+### 1 _label_, múltiples columnas y 1 cálculo
+
+Corresponde a agrupar por una variable categórica y aplicar un cálculo a múltiples columnas. Retorna un `DataFrame`.
+
+```{code-cell} ipython3
+# Realizar el agrupamiento y aplicar función de agregación
+penguins.groupby('species')[['bill_length_mm', 'body_mass_g']].mean()
+```
+
+### 1 _label_, múltiples columnas y múltiples cálculos
+
+Corresponde a agrupar por una variable categórica y aplicar más de un cálculo a múltiples columnas. Retorna un `DataFrame` con `MultiIndex` es las columnas.
+
+```{code-cell} ipython3
+# Realizar el agrupamiento y aplicar funciones de agregación
+penguins.groupby('species')[['bill_length_mm', 'body_mass_g']].agg(['count', 'mean'])
+```
+
+### Múltiples _label_, 1 columna y 1 cálculo
+
+Corresponde a agrupar por más de una variable categórica y aplicar un cálculo a una sola columna. Retorna un `Series` con `MultiIndex`.
+
+```{code-cell} ipython3
+# Realizar el agrupamiento y aplicar función de agregación
+penguins.groupby(['island', 'sex'])['bill_length_mm'].mean()
+```
+
+### 1 _label_, 1 columna y múltiples cálculos
+
+Corresponde a agrupar por más de una variable categórica y aplicar más de un cálculo a una sola columna. Retorna un `DataFrame` con `MultiIndex` es las filas.
+
+```{code-cell} ipython3
+# Realizar el agrupamiento y aplicar funciones de agregación
+penguins.groupby(['island', 'sex'])['bill_length_mm'].agg(['count', 'mean'])
+```
+
+### 1 _label_, múltiples columnas y 1 cálculo
+
+Corresponde a agrupar por más de una variable categórica y aplicar un cálculo a múltiples columnas. Retorna un `DataFrame` con `MultiIndex` es las filas.
+
+```{code-cell} ipython3
+# Realizar el agrupamiento y aplicar función de agregación
+penguins.groupby(['island', 'sex'])[['bill_length_mm', 'body_mass_g']].mean()
+```
+
+### 1 _label_, múltiples columnas y múltiples cálculos
+
+Corresponde a agrupar por más de una variable categórica y aplicar más de un cálculo a múltiples columnas. Retorna un `DataFrame` con `MultiIndex` tanto en las filas como en las columnas.
+
+```{code-cell} ipython3
+# Realizar el agrupamiento y aplicar funciones de agregación
+penguins.groupby(['island', 'sex'])[['bill_length_mm', 'body_mass_g']].agg(['count', 'mean'])
 ```
 
 <br/>
@@ -93,7 +217,7 @@ for (k1, k2), group in X.groupby(['key1', 'key2']):
 <br/>
 
 ---
-## Convertir _GroupBy_ a `dict`
+## Convertir _GroupBy_ a dict
 
 Un objeto de tipo _GroupBy_ se puede convertir a lista o a un diccionario, los _keys_ serán los valores únicos de las llaves con las que se se agrupó el `DataFrame` y los values será el `DataFrame`/`Series` con los datos de cada grupo:
 ```python
@@ -118,35 +242,44 @@ Para seleccionar una fila concreta, que equivaldría a seleccionar un grupo para
 
 **Ejemplos**:
 ```python
+# Crear DataFrame
 df = pd.DataFrame({'A': ['x', 'x', 'y', 'z', 'y'], 'B': [1, 1, 2, 3, 2], 'C': [1, 2, 3, 4, 5]})
 
+# Crear objeto DataFrameGroupBy
 df_grouped = df.groupby('A')
 
+# Recuperar el grupo 'y' y calcular la media de la columna 'B'
 print(df_grouped['B'].get_group('y').mean())
 
+# Recuperar el grupo 'y' y calcular la media de las columnas 'B' y 'C'
 print(df_grouped.get_group('y')[['B', 'C']].mean())
 ```
-- No importa si primero se elige el grupo y después el conjunto de columnas o viceversa
+- Notar que no importa si primero se elige el grupo y después el conjunto de columnas o viceversa.
 
 
 Se pueden combinar ambas estrategias para seleccionar elementos específicos del objeto _GroupBy_ o subcojuntos del mismo.
 
+:::{tip}
+Si se tiene dudas de cómo funciona la sección de elementos revisar las dos posibles conceptualizaciones dadas al inicio de esta sección.
+:::
+
 <br/>
 
 ---
-## Métodos
-
-### `DataFrameGroupBy`
+## Métodos de _DataFrameGroupBy_
 
 Métodos del objeto `DataFrameGroupBy`.
 
+### Cálculos
 
-#### Cálculos
+Métodos para realizar cálculos con el `DataFrameGroupBy`. 
 
-##### Aggregates
+#### Aggregates
+
+Métodos para calcular _aggregates_, en esencia calculan un único número de resumen para algún eje del `DataFrameGroupBy`. En esta categoría se enlistan todos los métodos que cumplen esa descripción, pero los mismos métodos se podrán encontrar en otras categorías.
 
 :::{note}
-Estos métodos ignoran valores `NA`/`NaN`, a menos de que se indique lo contrario.
+Estos métodos ignoran valores `NA`.
 :::
 
 ```{list-table}
@@ -158,24 +291,74 @@ Estos métodos ignoran valores `NA`/`NaN`, a menos de que se indique lo contrari
   - Calcula _aggregates_ a los valores de cada grupo. Es posible específicar más una función de agregación e incluso se pueden aplicar diferentes _aggregates_ a diferentes columnas (con `dict`). Los _aggregates_ se pueden definir como `str` (`'min'`, `'mean'`, etc) o como `functions` (`max`, `np.mean`, etc.).
 * - [DataFrameGroupBy.aggregate](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.aggregate.html)([func, engine, ...])
   - Calcula _aggregates_ a los valores de cada grupo. Es posible específicar más una función de agregación e incluso se pueden aplicar diferentes _aggregates_ a diferentes grupos.
+* - [DataFrameGroupBy.all](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.all.html)([skipna])
+  - Retorna `True` si todos los valores del grupo son `True`, `False` en caso contrario, para cada grupo.
+* - [DataFrameGroupBy.any](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.any.html)([skipna])
+  - Retorna `True` si al menos un valor en el grupo es `True`, `False` en caso contrario, para cada grupo.
+* - [DataFrameGroupBy.corr](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.corr.html)([method, min_periods, ...])
+  - Calcula la correlación por pares de columnas de cada _key_.
+* - [DataFrameGroupBy.corrwith](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.corrwith.html)(other[, axis, ...])
+  - Calcula la correlación por pares de columnas conn otro objeto.
 * - [DataFrameGroupBy.count](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.count.html)()
   - Calcula el recuento de elementos en cada grupo.
+* - [DataFrameGroupBy.cov](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.cov.html)([min_periods, ddof, ...])
+  - Calcula la covarianza por pares de columnas de cada _key_.
+* - [DataFrameGroupBy.mean](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.mean.html)([numeric_only, ...])
+  - Calcula la media de los grupos.
+* - [DataFrameGroupBy.median](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.median.html)([numeric_only])
+  - Calcula la mediana de los grupos.
 * - [DataFrameGroupBy.prod](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.prod.html)([numeric_only, min_count])
   - Calcula el producto de los valores en cada grupo.
+* - [DataFrameGroupBy.sample](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.sample.html)([n, frac, replace, ...])
+  - Devuelva una muestra aleatoria de elementos de cada grupo.
+* - [DataFrameGroupBy.sem](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.sem.html)([ddof, numeric_only])
+  - Calcula el error estándar de la media de los grupos.
 * - [DataFrameGroupBy.size](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.size.html)()
   - Calcula el tamaño de los grupos. Incluye valores nulos.
+* - [DataFrameGroupBy.skew](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.skew.html)([axis, skipna, ...])
+  - Retorna el sesgo dentro de los grupos.
+* - [DataFrameGroupBy.std](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.std.html)([ddof, engine, ...])
+  - Calcula la desviación estándar de los grupos.
 * - [DataFrameGroupBy.sum](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.sum.html)([numeric_only, ...])
   - Calcula la suma de los valores en cada grupo.
+* - [DataFrameGroupBy.var](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.var.html)([ddof, engine, ...])
+  - Calcula la varianza de los grupos.
 ```
 
-:::{caution}
-Para funciones como `.mean()`, `.std()`, etc. consultar los métodos de {ref}`groupby-dataframe-metodos-estadisticas`.
-Para conteo de valores único revisar los métodos de {ref}`Valores únicos <groupby-dataframe-metodos-valores-unicos>`.
-:::
+##### Notas de _aggregate_
+
+Aplica cálculos a los valores de un `DataFrameGroupBy` sobre el eje indicado. Es lo mismo que `.agg()`.
+```python
+DataFrameGroupBy.agg(func = None, axis = 0)
+```
+**Parámetros:**
+- **`func`** \- `function`, `str`, `list`, `dict`: La función de agregación.
+    -  `function`: Una función.
+        -  Las funciones de `numpy` se pueden usar, por ejemplo `np.mean`.
+        - Se puede especificar una función personaliza o una _lambda function_, pero tener en cuenta que la función debe de recibir un `Series` y retornar un escalar.
+    -  `str`: El nombre de una función de agregación. Los nombres válidos son: _'sum', 'prod', 'mean', 'median', 'min', 'max', 'std', 'var', 'sem', 'count', 'nunique', 'size', 'first', 'last', 'quantile', 'mad', 'skew', 'kurt'_.
+    -  `list`: Si se quiere aplicar más de una función utilizar una lista de funciones o nombres de funciones.
+    -  `dict`: Se puede especificar una función específica a cada grupo con un diccionario, donde las _keys_ son las etiquetas de los grupos y los _value_ son las funciones de agregación, también se puede usar un `list` de funciones como _value_ si se desea aplicar más de una función.
+- **`axis`** \- {0 o 'index', 1 o 'columns'}: Eje sobre el cual realizar la operación.
+
+```python
+# Calcular mútiples aggregates en una columna
+dfgby['group_name'].agg([agg_func1, agg_func2, ...])
+
+# Calcular aggregate en mútiples columnas
+dfgby[['group1_name', 'group2_name', ...]].agg([agg_func1, agg_func2, ...])
+
+# Calcular aggregates diferentes por columna
+dfgby[['group1_name', 'group2_name', ...]].agg({'group1_name': agg_func1, 
+                                                'group2_name': agg_func2,
+                                                 ...})
+```
 
 <br/>
 
-##### Booleanos
+#### Booleanos
+
+Métodos para trabajar con `DataFrameGroupBy` que contienen valores `bool`.
 
 ```{list-table}
 :header-rows: 1
@@ -190,7 +373,9 @@ Para conteo de valores único revisar los métodos de {ref}`Valores únicos <gro
 
 <br/>
 
-##### Cálculos acumulados, diferencias, cambios porcentuales y rank
+#### Cálculos acumulados, diferencias, cambios porcentuales y rank
+
+Métodos para calcular productos o sumas acumuladas, también cálculo de diferencias y cambios porcentuales con desfases y rankings.
 
 :::{note}
 Estos métodos ignoran valores `NA`/`NaN`, a menos de que se indique lo contrario.
@@ -224,7 +409,7 @@ Estos métodos ignoran valores `NA`/`NaN`, a menos de que se indique lo contrari
 <br/>
 
 (groupby-dataframe-metodos-estadisticas)=
-##### Estadísticas
+#### Estadísticas
 
 Métodos para cálculos estadísticos y _OHLC_.
 
@@ -265,7 +450,9 @@ Estos métodos ignoran valores `NA`/`NaN`, a menos de que se indique lo contrari
 
 <br/>
 
-##### Estadísticos de orden
+#### Estadísticos de orden
+
+Métodos útiles para trabajar con los valores numéricos ordenados, y algunos estadísticos destacados como mínimos, máximos, medianas y cuantiles.
 
 :::{note}
 Estos métodos ignoran valores `NA`/`NaN`, a menos de que se indique lo contrario.
@@ -290,7 +477,9 @@ Estos métodos ignoran valores `NA`/`NaN`, a menos de que se indique lo contrari
 
 <br/>
 
-##### Series de tiempo
+#### Series de tiempo
+
+Métodos útiles para `DataFrameGroupBy` que tienen un `Index` que representa una serie de tiempo (no necesariamente).
 
 ```{list-table}
 :header-rows: 1
@@ -305,9 +494,9 @@ Estos métodos ignoran valores `NA`/`NaN`, a menos de que se indique lo contrari
 
 <br/>
 
-#### Funciones rolling, aplicar, pipe, mapeos y transformaciones
+### Funciones ventana, agrupar, aplicar y mapeos
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+Diversos métodos de operaciones como cálculo por ventanas, cálculo de agrupamientos, aplicar funciones a algún eje del `DataFrameGroupBy` y mapeos. 
 
 ```{list-table}
 :header-rows: 1
@@ -319,7 +508,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 * - [DataFrameGroupBy.pipe](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.pipe.html)(func, *args, **kwargs)
   - Encadena un conjunto de funciones que deben de recibir y retornar (excepto la última) objetos de tipo _GroupBy_.
 * - [DataFrameGroupBy.rolling](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.rolling.html)(*args, **kwargs)
-  - Provee calculos en ventanas moviles de datos por grupo. El objeto retornado es un `Series`/`DataFrame` con `MultiIndex` de los _keys_ de los grupos y los índices originales de los elementos aplicando la ventana a los elementos de cada grupo. 
+  - Provee calculos en ventanas móviles de datos por grupo. El objeto retornado es un `Series`/`DataFrame` con `MultiIndex` de los _keys_ de los grupos y los índices originales de los elementos aplicando la ventana a los elementos de cada grupo. 
 * - [DataFrameGroupBy.transform](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.transform.html)(func, *args[, ...])
   - Aplica la función `func` a cada grupo, pero manteniendo el _shape_ e índice del objeto original. Básicamente en el objeto original mapea a los valores el resultado de `func` de su respectivo grupo. La función debe de recibir un grupo y retornar el grupo transformado.
 ```
@@ -327,9 +516,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 <br>
 
 ---
-#### Gráficas
+### Gráficas
 
-Gráficas. 
+Métodos para gráficar.
 
 ```{list-table}
 :header-rows: 1
@@ -346,8 +535,7 @@ Gráficas.
 
 <br>
 
----
-#### Selección, filtrado e iteración de elementos
+### Selección, filtrado e iteración de elementos
 
 Métodos para seleccionar elementos/filas concretas, filtrar los grupos o iterar sobre ellos. 
 
@@ -359,7 +547,7 @@ Métodos para seleccionar elementos/filas concretas, filtrar los grupos o iterar
 * - [DataFrameGroupBy.\_\_iter__](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.__iter__.html)()
   - Iterador de grupo.
 * - [DataFrameGroupBy.filter](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.filter.html)(func[, dropna])
-  - Filtra grupos que no cumplan cierto criterio (los valores con lo que `func` retorna `False`), la función recibe cada grupo.
+  - Filtra grupos que no cumplan cierto criterio (los valores con lo que _func_ retorna `False`), la función recibe cada grupo.
 * - [DataFrameGroupBy.first](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.first.html)([numeric_only, ...])
   - Determina el primer valor de cada columna dentro de cada grupo.
 * - [DataFrameGroupBy.get_group](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.get_group.html)(name[, obj])
@@ -383,7 +571,9 @@ Métodos para seleccionar elementos/filas concretas, filtrar los grupos o iterar
 <br/>
 
 
-#### Valores nulos
+### Valores nulos
+
+Métodos útiles para el manejo de valores nulos. 
 
 ```{list-table}
 :header-rows: 1
@@ -398,7 +588,9 @@ Métodos para seleccionar elementos/filas concretas, filtrar los grupos o iterar
 
 <br/>
 
-#### Valores únicos
+### Valores únicos
+
+Métodos para obtener información sobre valores únicos en el `DataFrame`.
 
 ```{list-table}
 :header-rows: 1
@@ -416,14 +608,20 @@ Métodos para seleccionar elementos/filas concretas, filtrar los grupos o iterar
 
 ---
 (pandas-seriesgroupby)=
-### `SeriesGroupBy`
+## Métodos de _SeriesGroupBy_
 
-#### Cálculos
+Métodos del objeto `SeriesGroupBy`.
 
-##### Aggregates
+### Cálculos
+
+Métodos para realizar cálculos con el `SeriesGroupBy`. 
+
+#### Aggregates
+
+Métodos para calcular _aggregates_, en esencia calculan un único número de resumen para algún eje del `SeriesGroupBy`. En esta categoría se enlistan todos los métodos que cumplen esa descripción, pero los mismos métodos se podrán encontrar en otras categorías.
 
 :::{note}
-Estos métodos ignoran valores `NA`/`NaN`, a menos de que se indique lo contrario.
+Estos métodos ignoran valores `NA`.
 :::
 
 ```{list-table}
@@ -432,27 +630,46 @@ Estos métodos ignoran valores `NA`/`NaN`, a menos de que se indique lo contrari
 * - Método
   - Descripción
 * - [SeriesGroupBy.agg](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.agg.html)([func, engine, engine_kwargs])
-  - Calcula _aggregates_ a los valores de cada grupo. Es posibles específicar más una función de agregación e incluso se pueden aplicar diferentes _aggregates_ a diferentes grupos.**EJEMPLO**
+  - Calcula _aggregates_ a los valores de cada grupo. Es posibles específicar más una función de agregación e incluso se pueden aplicar diferentes _aggregates_ a diferentes grupos.
 * - [SeriesGroupBy.aggregate](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.aggregate.html)([func, engine, ...])
   - Calcula _aggregates_ a los valores de cada grupo. Es posibles específicar más una función de agregación e incluso se pueden aplicar diferentes _aggregates_ a diferentes grupos.
+* - [SeriesGroupBy.all](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.all.html)([skipna])
+  - Retorna `True` si todos los valores del grupo son `True`, `False` en caso contrario, para cada grupo.
+* - [SeriesGroupBy.any](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.any.html)([skipna])
+  - Retorna `True` si al menos un valor en el grupo es `True`, `False` en caso contrario, para cada grupo.
+* - [SeriesGroupBy.corr](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.corr.html)(other[, method, min_periods])
+  - Calcula la correlación con otro `Series`, por grupo.
 * - [SeriesGroupBy.count](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.count.html)()
   - Calcula el recuento de elementos en cada grupo.
+* - [SeriesGroupBy.cov](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.cov.html)(other[, min_periods, ddof])
+  - Calcula la covarianza con otro `Series`, por grupo.
 * - [SeriesGroupBy.prod](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.prod.html)([numeric_only, min_count])
   - Calcula el producto de los valores en cada grupo.
+* - [SeriesGroupBy.mean](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.mean.html)([numeric_only, engine, ...])
+  - Calcula la media de cada grupo..
+* - [SeriesGroupBy.median](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.median.html)([numeric_only])
+  - Calcula la mediana de cada grupo.
+* - [SeriesGroupBy.sample](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.sample.html)([n, frac, replace, ...])
+  - Devuelva una muestra aleatoria de elementos de cada grupo.
+* - [SeriesGroupBy.sem](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.sem.html)([ddof, numeric_only])
+  - Calcula el error estándar de la media de cada grupo.
 * - [SeriesGroupBy.size](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.size.html)()
   - Calcula el tamaño de los grupos. Incluye valores nulos.
+* - [SeriesGroupBy.skew](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.skew.html)([axis, skipna, numeric_only])
+  - Retorna el sesgo dentro de cada grupo.
+* - [SeriesGroupBy.std](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.std.html)([ddof, engine, ...])
+  - Calcula la desviación estándar de cada grupo.
 * - [SeriesGroupBy.sum](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.sum.html)([numeric_only, min_count, ...])
   - Calcula la suma de los valores en cada grupo.
+* - [SeriesGroupBy.var](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.var.html)([ddof, engine, ...])
+  - Calcula la varianza de cada grupo.
 ```
-
-:::{caution}
-- Para funciones como `.mean()`, `.std()`, etc. consultar los métodos de {ref}`Estadísticas <groupby-series-metodos-estadisticas>`.
-- Para conteo de valores únicos revisar los métodos de {ref}`Valores únicos <groupby-series-metodos-valores-unicos>`.
-:::
 
 <br/>
 
-##### Booleanos
+#### Booleanos
+
+Métodos para trabajar con `SeriesGroupBy` que contienen valores `bool`.
 
 ```{list-table}
 :header-rows: 1
@@ -467,7 +684,9 @@ Estos métodos ignoran valores `NA`/`NaN`, a menos de que se indique lo contrari
 
 <br/>
 
-##### Cálculos acumulados, diferencias, cambios porcentuales y rank
+#### Cálculos acumulados, diferencias, cambios porcentuales y rank
+
+Métodos para calcular productos o sumas acumuladas, también cálculo de diferencias y cambios porcentuales con desfases y rankings.
 
 :::{note}
 Estos métodos ignoran valores `NA`/`NaN`, a menos de que se indique lo contrario.
@@ -500,7 +719,13 @@ Estos métodos ignoran valores `NA`/`NaN`, a menos de que se indique lo contrari
 
 <br/>
 
-##### Estadísticas
+#### Estadísticas
+
+Métodos para el cálculo de estadísticas descriptivas, generar muestras aleatorias o calcular correlaciones y covarianzas entre dos variables.
+
+:::{note}
+Estos métodos ignoran valores `NA`.
+:::
 
 ```{list-table}
 :header-rows: 1
@@ -538,7 +763,9 @@ Estos métodos ignoran valores `NA`/`NaN`, a menos de que se indique lo contrari
 
 <br/>
 
-##### Estadísticos de orden
+#### Estadísticos de orden
+
+Métodos útiles para trabajar con los valores numéricos ordenados, y algunos estadísticos destacados como mínimos, máximos, medianas y cuantiles.
 
 :::{note}
 Estos métodos ignoran valores `NA`/`NaN`, a menos de que se indique lo contrario.
@@ -563,7 +790,9 @@ Estos métodos ignoran valores `NA`/`NaN`, a menos de que se indique lo contrari
 
 <br/>
 
-##### Series de tiempo
+#### Series de tiempo
+
+Métodos útiles para `SeriesGroupBy` que tienen un `Index` que representa una serie de tiempo (no necesariamente).
 
 ```{list-table}
 :header-rows: 1
@@ -578,7 +807,9 @@ Estos métodos ignoran valores `NA`/`NaN`, a menos de que se indique lo contrari
 
 <br/>
 
-#### Funciones rolling, aplicar, pipe y mapeos
+### Funciones ventana, agrupar, aplicar y mapeos
+
+Diversos métodos de operaciones como cálculo por ventanas, cálculo de agrupamientos, aplicar funciones a cada elementos del `SeriesGroupBy` y mapeos. 
 
 ```{list-table}
 :header-rows: 1
@@ -586,19 +817,20 @@ Estos métodos ignoran valores `NA`/`NaN`, a menos de que se indique lo contrari
 * - Método
   - Descripción
 * - [SeriesGroupBy.apply](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.apply.html)(func, *args, **kwargs)
-  - Aplica la función `func` a cada grupo y combina los resultados.
+  - Aplica la función _func_ a cada grupo y combina los resultados.
 * - [SeriesGroupBy.pipe](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.pipe.html)(func, *args, **kwargs)
   - Encadena un conjunto de funciones que deben de recibir y retornar (excepto la última) objetos de tipo _GroupBy_.
 * - [SeriesGroupBy.rolling](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.rolling.html)(*args, **kwargs)
-  - Provee calculos en ventanas moviles de datos por grupo. El objeto retornado es un `Series` con `MultiIndex` de los _keys_ de los grupos y los índices originales de los elementos aplicando la ventana a los elementos de cada grupo. 
+  - Provee calculos en ventanas móviles de datos por grupo. El objeto retornado es un `Series` con `MultiIndex` de los _keys_ de los grupos y los índices originales de los elementos aplicando la ventana a los elementos de cada grupo. 
 * - [SeriesGroupBy.transform](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.transform.html)(func, *args[, ...])
-  - Aplica la funcción `func` a cada grupo, pero manteniendo el _shape_ e índice del objeto orifinal. Básicamente en el objeto original mapea a los valores el resultado de `func` de su respectivo grupo.
+  - Aplica la funcción _func_ a cada grupo, pero manteniendo el _shape_ e índice del objeto orifinal. Básicamente en el objeto original mapea a los valores el resultado de _func_ de su respectivo grupo.
 ```
 
 <br/>
 
-#### Gráficas
+### Gráficas
 
+Métodos para gráficar. 
 
 ```{list-table}
 :header-rows: 1
@@ -611,12 +843,15 @@ Estos métodos ignoran valores `NA`/`NaN`, a menos de que se indique lo contrari
   - Crea gráficas a partir de los datos de `SeriesGroupBy`. Crea un _subplots_ por cada grupo.
 ```
 
-#### Información
+### Información
 
+Métodos que retornan información sobre los datos numéricos en un `SeriesGroupBy`.
 
 ```{list-table}
 :header-rows: 1
 
+* - Método
+  - Descripción
 * - [SeriesGroupBy.is_monotonic_decreasing](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.is_monotonic_decreasing.html)()
   - Indica si los valores de cada grupo están disminuyendo monótonamente.
 * - [SeriesGroupBy.is_monotonic_increasing](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.is_monotonic_increasing.html)()
@@ -625,7 +860,9 @@ Estos métodos ignoran valores `NA`/`NaN`, a menos de que se indique lo contrari
 
 <br/>
 
-#### Selección, filtrado e iteración de elementos
+### Selección, filtrado e iteración de elementos
+
+Métodos útiles para seleccionar elementos con base a etiquetas, índices o condiciones o para iterar en ellos. 
 
 ```{list-table}
 :header-rows: 1
@@ -635,7 +872,7 @@ Estos métodos ignoran valores `NA`/`NaN`, a menos de que se indique lo contrari
 * - [SeriesGroupBy.\_\_iter__](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.__iter__.html)()
   - Iterador de grupo.
 * - [SeriesGroupBy.filter](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.filter.html)(func[, dropna])
-  - Filtra grupos que no cumplan cierto criterio (los valores con lo que `func` retorna `False`), la función recibe cada grupo.
+  - Filtra grupos que no cumplan cierto criterio (los valores con lo que _func_ retorna `False`), la función recibe cada grupo.
 * - [SeriesGroupBy.first](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.first.html)([numeric_only, ...])
   - Determina el primer valor dentro de cada grupo.
 * - [SeriesGroupBy.get_group](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.SeriesGroupBy.get_group.html)(name[, obj])
@@ -658,7 +895,9 @@ Estos métodos ignoran valores `NA`/`NaN`, a menos de que se indique lo contrari
 
 <br/>
 
-#### Valores nulos
+### Valores nulos
+
+Métodos útiles para el manejo de valores perdidos. 
 
 ```{list-table}
 :header-rows: 1
@@ -673,7 +912,9 @@ Estos métodos ignoran valores `NA`/`NaN`, a menos de que se indique lo contrari
 
 <br/>
 
-#### Valores únicos
+### Valores únicos
+
+Métodos para obtener información sobre valores únicos en el `Series`.
 
 ```{list-table}
 :header-rows: 1
@@ -694,7 +935,7 @@ Estos métodos ignoran valores `NA`/`NaN`, a menos de que se indique lo contrari
 ---
 ## Funciones últiles
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+Funciones de `pandas` útiles para objetos de tipo `SeriesGroupBy` y `DataFrameGroupBy`.
 
 ```{list-table}
 :header-rows: 1

@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -181,26 +181,26 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    Manual de Python
+                    Manual de Python para Data Science
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Built-in</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../01-built-in/built-in-index.html">Python estándar</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01-built-in/built-in-index.html">Python Estándar</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../01-built-in/ayuda.html">Obtener ayuda</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../01-built-in/comentarios.html">Comentarios</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../01-built-in/tipos-datos.html">Tipos de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/tipos-datos.html">Tipos de Datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/variables-constantes.html">Variables y Constantes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../01-built-in/operadores-palabras.html">Operadores y palabras reservadas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../01-built-in/entrada-salida.html">Entrada y salida de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/entrada-salida.html">Impresión y solicitud de datos</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/tipos-index.html">Tipos Built-In</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../01-built-in/booleanos.html">Valores booleanos</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../01-built-in/numeros.html">Números</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../01-built-in/cadenas.html">Cadenas</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../01-built-in/listas.html">Listas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/none-bool-numericos.html"><em>None</em>, <em>bool</em> y Numéricos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/str.html">str</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/lists.html">list</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../01-built-in/tuples.html">Tuples</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../01-built-in/sets.html">Sets</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../01-built-in/diccionarios.html">Diccionarios</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/dicts.html">dict</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -209,10 +209,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l3"><a class="reference internal" href="../01-built-in/do-while.html">Do While</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../01-built-in/funciones.html">Funciones</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../01-built-in/try-except.html">Exceptions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../01-built-in/context.html">Context Managers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../01-built-in/io.html">Lectura y escritura de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/udf.html">Funciones (UDF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/exceptions.html">Excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/context-managers.html">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/io.html">Lectura y escritura de archivos (IO)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../01-built-in/modulos.html">Paquetes y Módulos</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/avanzado-index.html">Temas avanzados</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../01-built-in/decorators.html">Decorators</a></li>
@@ -231,12 +231,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/itertools.html">Itertools</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/json.html">JSON</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/math.html">Math</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os.html">os</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os-path.html">os.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os.html">Os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os-path.html">Os.path</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/pickle.html">Pickle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/random.html">Random</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02-modulos/regular-expression.html">Regular Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/regex.html">Regex</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/statistics.html">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/urllib-request.html">urllib.request</a></li>
 </ul>
 </li>
 </ul>
@@ -270,16 +271,32 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="escalares-arrays.html">Escalares y Arrays</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="otras-clases.html">Otras clases</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="groupby.html">GroupBy</a></li>
-<li class="toctree-l3"><a class="reference internal" href="expanding-rolling-window.html">Expanding, Rolling y Window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="expanding-rolling-window.html"><em>Expanding, Rolling</em> y <em>Window</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="resampler.html">Resampler</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="funciones.html">Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patrones-pandas.html">Patrones útiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05-matplotlib/matplotlib-index.html">Matplotlib</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/pyplot.html">Pyplot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/figure.html">Figure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/axes.html">Axes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/otros.html">Otras Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06-seaborn/seaborn-index.html">Seaborn</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06-seaborn/funciones-clases.html">Funciones y Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-seaborn/objects-interface.html">Interface por objetos</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Otros</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../08-otros/otros-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-otros/otros-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../08-otros/IPython.html">IPython</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../08-otros/beautifulsoup.html">Web Scraping</a></li>
 </ul>
@@ -432,16 +449,18 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creacion-de-series">Creación de <code class="docutils literal notranslate"><span class="pre">Series</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creacion-de-series">Creación de <em>Series</em></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccion-de-elementos">Selección de elementos</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notacion-con-corchetes">Notación con corchetes</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usando-metodo-loc">Usando método <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usando-metodo-iloc">Usando método <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usando-metodo-loc">Usando método <em>.loc[]</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usando-metodo-iloc">Usando método <em>.iloc[]</em></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploracion-basica">Exploración básica</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verificar-la-existencia-de-un-label">Verificar la existencia de un <em>label</em></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agregar-elementos">Agregar elementos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modificar-elementos">Modificar elementos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iteracion">Iteración</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uniones-y-apilaciones">Uniones y apilaciones</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos">Atributos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos">Métodos</a><ul class="nav section-nav flex-column">
@@ -451,11 +470,10 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregates">Aggregates</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#booleanos">Booleanos</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#calculos-acumulados-diferencias-cambios-porcentuales-y-rank">Cálculos acumulados, diferencias, cambios porcentuales y rank</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conteo">Conteo</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#estadisticas">Estadísticas</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#estadisticos-de-orden">Estadísticos de orden</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#miscelaneos">Misceláneos</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#operadores-aritmeticos-y-similares">Operadores aritméticos y similares.</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#operadores-aritmeticos-y-similares">Operadores aritméticos y similares</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#operadores-de-comparacion-y-membresia">Operadores de comparación y membresía.</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#series-de-tiempo">Series de tiempo</a></li>
 </ul>
@@ -472,7 +490,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ordenar">Ordenar</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccion-filtrado-e-iteracion-de-elementos">Selección, filtrado e iteración de elementos</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#valores-duplicados">Valores duplicados</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#valores-perdidos">Valores perdidos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#valores-nulos">Valores nulos</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#valores-unicos">Valores únicos</a></li>
 </ul>
 </li>
@@ -487,8 +505,8 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Métodos</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accesor-de-str">Accesor de <code class="docutils literal notranslate"><span class="pre">str</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#subsetting-y-slicing">Subsetting y Slicing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accesor-de-str">Accesor de <em>str</em></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing-y-slicing">Indexing y Slicing</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#buscar-subcadenas">Buscar subcadenas</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#concatenacion-y-separaciones">Concatenación y separaciones</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#formatos-y-modificaciones">Formatos y modificaciones</a></li>
@@ -496,18 +514,16 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#otros-y-dummies">Otros y dummies</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reemplazar-y-eliminar-subcadenas">Reemplazar y eliminar subcadenas</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#regular-expressions">Regular expressions</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccion">Selección</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccion">Selección</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#strips-y-pads">Strips y pads</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accesor-de-fechas-y-tiempo">Accesor de fechas y tiempo</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-datetime">Atributos de <code class="docutils literal notranslate"><span class="pre">datetime</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-datetime">Métodos de <code class="docutils literal notranslate"><span class="pre">datetime</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-period">Atributos de <code class="docutils literal notranslate"><span class="pre">period</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-timedelta">Atributos de <code class="docutils literal notranslate"><span class="pre">TimeDelta</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-timedelta">Métodos de <code class="docutils literal notranslate"><span class="pre">TimeDelta</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-datetime">Atributos de <em>datetime</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-datetime">Métodos de <em>datetime</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-period">Atributos de <em>period</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-timedelta">Atributos de <em>TimeDelta</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-timedelta">Métodos de <em>TimeDelta</em></a></li>
 </ul>
 </li>
 </ul>
@@ -525,15 +541,25 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="series">
 <h1>Series<a class="headerlink" href="#series" title="Link to this heading">#</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">Series</span></code> es una clase de <code class="docutils literal notranslate"><span class="pre">pandas</span></code> que representa un array unidimensional con etiquetas para identificar a cada elemento, todos los elementos del series deben de ser del mismo tipo. Los <code class="docutils literal notranslate"><span class="pre">Series</span></code> tiene dos tipos de índices:</p>
+<p><code class="docutils literal notranslate"><span class="pre">Series</span></code> es una clase de <code class="docutils literal notranslate"><span class="pre">pandas</span></code> que representa un array unidimensional con etiquetas para identificar a cada elemento. Los <code class="docutils literal notranslate"><span class="pre">Series</span></code> tiene dos tipos de índices:</p>
 <ul class="simple">
 <li><p><strong>índice implícito</strong>: Es un índice númerico, que comienza desde cero, similiar a los índices de las secuencias.</p></li>
-<li><p><strong>índice explícito</strong>: Es el objeto <code class="docutils literal notranslate"><span class="pre">Index</span></code> asociado, que puede tener etiquetas<code class="docutils literal notranslate"><span class="pre">int</span></code> o <code class="docutils literal notranslate"><span class="pre">str</span></code>.</p></li>
+<li><p><strong>índice explícito</strong>: Es el objeto <code class="docutils literal notranslate"><span class="pre">Index</span></code> asociado, que puede tener etiquetas <code class="docutils literal notranslate"><span class="pre">int</span></code> o <code class="docutils literal notranslate"><span class="pre">str</span></code>.</p></li>
+</ul>
+<p>Algunas características de los <code class="docutils literal notranslate"><span class="pre">Series</span></code> son:</p>
+<ul class="simple">
+<li><p>Los <code class="docutils literal notranslate"><span class="pre">Series</span></code> se podrían considerar como secuencias.</p></li>
+<li><p>Sirven para almacenar múltiples valores de diferentes tipos en un un solo objeto.</p></li>
+<li><p>Es mutable: Sus elementos se pueden modificar.</p></li>
+<li><p>Está indexado: Cada elemento está asociado con un índice y por lo tanto sus elementos están ordenados. Además sus elementos también se pueden identificar por medio de una etiqueta.</p></li>
+<li><p>Es un iterable: Se puede iterar por sus elementos y se puede usar la palabra reservada <code class="docutils literal notranslate"><span class="pre">in</span></code> para verificar memebresía, pero la verificación se hará sobre el índice y no sobre los valores.</p></li>
+<li><p>Un mismo valor puede existir múltiples veces en un <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p></li>
+<li><p>Se puede apilar con otros <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p></li>
 </ul>
 <br/>
 <hr class="docutils" />
 <section id="creacion-de-series">
-<span id="pandas-series-creacion"></span><h2>Creación de <code class="docutils literal notranslate"><span class="pre">Series</span></code><a class="headerlink" href="#creacion-de-series" title="Link to this heading">#</a></h2>
+<span id="pandas-series-creacion"></span><h2>Creación de <em>Series</em><a class="headerlink" href="#creacion-de-series" title="Link to this heading">#</a></h2>
 <p>La forma más sencilla de crear un objeto <code class="docutils literal notranslate"><span class="pre">Series</span></code> es con el constructor.</p>
 <table class="table">
 <thead>
@@ -553,21 +579,20 @@ document.write(`
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">array-like</span></code>, <code class="docutils literal notranslate"><span class="pre">iterable</span></code>: Un arreglo o una lista unidimensional con los datos.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">dict</span></code>: Un diccionario cuyos <em>keys</em> serán los índices de los elementos y cuyos <em>values</em> serán los elementos del <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">scalar</span></code>: Si se pasa un <code class="docutils literal notranslate"><span class="pre">scalar</span></code> y de define <em>index</em>, entonces todos los elementos serán el escalar con la misma longitud que <em>index</em>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scalar</span></code>: Si se pasa un <code class="docutils literal notranslate"><span class="pre">scalar</span></code> y se define <em>index</em>, entonces todos los elementos serán el escalar, y el <code class="docutils literal notranslate"><span class="pre">Series</span></code> tendrá la misma longitud que <em>index</em>.</p></li>
 </ul>
 </li>
 <li><p><em>index</em>: Es un <code class="docutils literal notranslate"><span class="pre">array-like</span></code> o un objeto <code class="docutils literal notranslate"><span class="pre">Index</span></code> con los índices del <code class="docutils literal notranslate"><span class="pre">Series</span></code>. Normalmente debe ser de la misma longitud que <em>data</em>. En caso de que <em>data</em> sea <code class="docutils literal notranslate"><span class="pre">dict</span></code>, <em>index</em> se puede usar para generar el <code class="docutils literal notranslate"><span class="pre">Series</span></code> con solo determinados índices-elementos, excluyendo los que no definan en este parámetro.</p></li>
 </ul>
-<p><strong>Ejemplo</strong>
-A continuación se crea un objeto <code class="docutils literal notranslate"><span class="pre">Series</span></code> cuyos valores son los cuadrados de los números del 1 al 5 y cuyo índice explícito son los nombres de los número del 0 al 4. Además el <code class="docutils literal notranslate"><span class="pre">Series</span></code> llevará por nombre <em>cuadrados</em>.</p>
+<p><strong>Ejemplo</strong>: A continuación se crea un objeto <code class="docutils literal notranslate"><span class="pre">Series</span></code> cuyos valores son los cuadrados de los números del 1 al 5 y cuyo índice explícito son los nombres de los número del 1 al 5. Además el <code class="docutils literal notranslate"><span class="pre">Series</span></code> llevará por nombre <em>cuadrados</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar librería</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <span class="c1"># Crear Series</span>
-<span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)],</span> 
-              <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;uno&#39;</span><span class="p">,</span> <span class="s1">&#39;dos&#39;</span><span class="p">,</span> <span class="s1">&#39;tres&#39;</span><span class="p">,</span> <span class="s1">&#39;cuatro&#39;</span><span class="p">,</span> <span class="s1">&#39;cinco&#39;</span><span class="p">],</span> 
+<span class="n">s</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)],</span> 
+              <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;uno&#39;</span><span class="p">,</span> <span class="s1">&#39;dos&#39;</span><span class="p">,</span> <span class="s1">&#39;tres&#39;</span><span class="p">,</span> <span class="s1">&#39;cuatro&#39;</span><span class="p">,</span> <span class="s1">&#39;cinco&#39;</span><span class="p">],</span> 
               <span class="n">name</span><span class="o">=</span><span class="s2">&quot;cuadrados&quot;</span><span class="p">)</span>
 
 <span class="c1"># Imprimir el objeto</span>
@@ -587,42 +612,46 @@ Name: cuadrados, dtype: int64
 </div>
 </div>
 <br/>
-</section>
 <hr class="docutils" />
+</section>
 <section id="seleccion-de-elementos">
-<h2>Selección de elementos<a class="headerlink" href="#seleccion-de-elementos" title="Link to this heading">#</a></h2>
-<p>Existen diversos métodos para seleccionar elementos en un Series. Aquí se explicarán los más comunes. Todos los ejemplos de esta sección utilizará el <code class="docutils literal notranslate"><span class="pre">Series</span></code> definido en <a class="reference internal" href="#pandas-series-creacion"><span class="std std-ref">la sección anterior</span></a>:</p>
+<span id="pandas-series-seleccion-elementos"></span><h2>Selección de elementos<a class="headerlink" href="#seleccion-de-elementos" title="Link to this heading">#</a></h2>
+<p>Existen diversos métodos para seleccionar elementos en un <code class="docutils literal notranslate"><span class="pre">Series</span></code>. Aquí se explicarán los más comunes. Todos los ejemplos de esta sección utilizará el <code class="docutils literal notranslate"><span class="pre">Series</span></code> definido en <a class="reference internal" href="#pandas-series-creacion"><span class="std std-ref">la sección anterior</span></a>.</p>
 <section id="notacion-con-corchetes">
 <h3>Notación con corchetes<a class="headerlink" href="#notacion-con-corchetes" title="Link to this heading">#</a></h3>
-<p>Todas las estrategias para seleccionar elementos que aplican para <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> de <code class="docutils literal notranslate"><span class="pre">numpy</span></code> funcionan también con <code class="docutils literal notranslate"><span class="pre">Series</span></code> la principal diferencia es que en el caso del <code class="docutils literal notranslate"><span class="pre">Series</span></code> se deben usar índices explícitos. <strong>Importante</strong>: El uso de los índices implícitos con esta notación está desaconsejado, para ello se recomienda usar el método <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code>.</p>
+<p>Todas las estrategias para <a class="reference internal" href="../03-numpy/arrays.html#numpy-arrays-seleccion"><span class="std std-ref">seleccionar elementos</span></a> que aplican para <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> de <code class="docutils literal notranslate"><span class="pre">numpy</span></code> funcionan también con <code class="docutils literal notranslate"><span class="pre">Series</span></code> la principal diferencia es que en el caso del <code class="docutils literal notranslate"><span class="pre">Series</span></code> se deben usar índices explícitos.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>El uso de los índices implícitos con esta notación está desaconsejado, para ello se recomienda usar el método <a class="reference internal" href="#pd-series-seleccion-iloc"><span class="std std-ref">iloc</span></a>.</p>
+</div>
 <ul class="simple">
-<li><p><strong>Indexing</strong>: Útil para seleccionar elementos específicos. Se utilizan corchetes <code class="docutils literal notranslate"><span class="pre">[]</span></code> para acceder a la fila, junto con el nombre del <code class="docutils literal notranslate"><span class="pre">Series</span></code> y el índice explícito del elemento</p>
+<li><p><strong>Indexing</strong>: Útil para seleccionar elementos específicos. Se utilizan corchetes <code class="docutils literal notranslate"><span class="pre">[]</span></code> para acceder al elemento, junto con el nombre del <code class="docutils literal notranslate"><span class="pre">Series</span></code> y el índice explícito del elemento</p>
 <ul>
-<li><p><strong>Una fila específica</strong> - <code class="docutils literal notranslate"><span class="pre">scalar</span></code>: Retorna el elemento en la etiqueta <em>‘label’</em>: <br/> <code class="docutils literal notranslate"><span class="pre">X['label']</span></code></p></li>
+<li><p><strong>Un elemento específico</strong> - <code class="docutils literal notranslate"><span class="pre">object</span></code>: Retorna el elemento en la etiqueta <em>‘label’</em>: <br/> <code class="docutils literal notranslate"><span class="pre">X['label']</span></code></p></li>
 </ul>
 </li>
 </ul>
 <br/>
 <ul class="simple">
-<li><p><strong>Slicing</strong>: Útil para seleccionar <em>slices</em> utilizando <code class="docutils literal notranslate"><span class="pre">start:stop:step</span></code>. Ambos extremos son inclusivos.</p>
+<li><p><strong>Slicing</strong>: Útil para seleccionar <em>slices</em> utilizando la notación <code class="docutils literal notranslate"><span class="pre">start:stop:step</span></code>. Ambos extremos son inclusivos.</p>
 <ul>
-<li><p><strong>Slices de filas</strong> - <code class="docutils literal notranslate"><span class="pre">Series</span></code>: Retorna <em>slices</em> de filas, entre las filas con etiquetas <em>‘indi’</em> y <em>‘indj’</em>: <br/> <code class="docutils literal notranslate"><span class="pre">X.['indi':'indj']</span></code> <br/> <code class="docutils literal notranslate"><span class="pre">X['indi':'indj':step]</span></code></p></li>
+<li><p><strong>Slices de filas</strong> - <code class="docutils literal notranslate"><span class="pre">Series</span></code>: Retorna <em>slices</em> de filas, entre las filas con etiquetas <em>‘labeli’</em> y <em>‘labelj’</em>: <br/> <code class="docutils literal notranslate"><span class="pre">X['labeli':'labelj']</span></code> <br/> <code class="docutils literal notranslate"><span class="pre">X['labeli':'labelj':step]</span></code></p></li>
 </ul>
 </li>
 </ul>
 <br/>
 <ul class="simple">
-<li><p><strong>Fancy indexing</strong>: Útil para seleccionar un conjunto de filas por medio de una secuencia los índices explícitos a seleccionar. Los índices se pueden poner en culquier orden e incluso se puedo poner más de una vez: <br/> <code class="docutils literal notranslate"><span class="pre">X[[labeli,</span> <span class="pre">labelj,</span> <span class="pre">...]]</span></code></p>
+<li><p><strong>Fancy indexing</strong>: Útil para seleccionar un conjunto de filas por medio de una secuencia con los índices explícitos a seleccionar. Los índices se pueden poner en cualquier orden e incluso se puedo poner más de una vez el mismo índice:</p>
 <ul>
-<li><p><strong>Conjunto de filas</strong> - <code class="docutils literal notranslate"><span class="pre">Series</span></code>: Retorna las filas en las etiquetas indicadas: <br/> <code class="docutils literal notranslate"><span class="pre">X.[['ind1',</span> <span class="pre">'ind2',</span> <span class="pre">...]]</span></code></p></li>
+<li><p><strong>Conjunto de filas</strong> - <code class="docutils literal notranslate"><span class="pre">Series</span></code>: Retorna las filas con las etiquetas indicadas: <br/> <code class="docutils literal notranslate"><span class="pre">X[['labeli',</span> <span class="pre">'labelj',</span> <span class="pre">...]]</span></code></p></li>
 </ul>
 </li>
 </ul>
 <br/>
 <ul class="simple">
-<li><p><strong>Boolean masking</strong>: Útil para seleccionar filas con base a <em>masks</em>. <strong>Importante</strong>: Asegurarse que el tamaño del <em>mask</em> coincide con el tamaño del eje donde se va a aplicar.</p>
+<li><p><strong>Boolean masking</strong>: Útil para seleccionar filas con base a <em>masks</em>. <strong>Importante</strong>: Asegurarse que el tamaño del <em>mask</em> coincide con el tamaño del <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p>
 <ul>
-<li><p><strong>Mask en filas</strong> - <code class="docutils literal notranslate"><span class="pre">Series</span></code>: Retorna los elementos que satisfacen el <em>mask</em>: <br/> <code class="docutils literal notranslate"><span class="pre">X.[row_mask,</span> <span class="pre">col_mask]</span></code></p></li>
+<li><p><strong>Mask en filas</strong> - <code class="docutils literal notranslate"><span class="pre">Series</span></code>: Retorna los elementos que satisfacen el <em>mask</em>: <br/> <code class="docutils literal notranslate"><span class="pre">X[row_mask]</span></code></p></li>
 </ul>
 </li>
 </ul>
@@ -638,7 +667,7 @@ Name: cuadrados, dtype: int64
 <p><strong>Ejemplos</strong>: A continuación se ejemplifica la selección de elementos con las diversas estategias en notación con conchetes en un <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Subsetting: Seleccionar 2 elemento -&gt;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Subsetting: Seleccionar 2 elemento -&gt; 4</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="s1">&#39;dos&#39;</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="c1"># Slicing: Seleccionar elementos del 2 al 4 -&gt; 4, 9, 16</span>
@@ -675,31 +704,38 @@ Name: cuadrados, dtype: int64
 </section>
 <hr class="docutils" />
 <section id="usando-metodo-loc">
-<h3>Usando método <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code><a class="headerlink" href="#usando-metodo-loc" title="Link to this heading">#</a></h3>
+<h3>Usando método <em>.loc[]</em><a class="headerlink" href="#usando-metodo-loc" title="Link to this heading">#</a></h3>
 <p>El método <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> es útil para seleccionar elementos con base al <strong>índice explícito</strong>.</p>
 <ul class="simple">
 <li><p><strong>Indexing</strong>: Útil para seleccionar elementos específicos.</p>
 <ul>
-<li><p><strong>Elemento específico</strong> - <code class="docutils literal notranslate"><span class="pre">scalar</span></code>: Retorna el elemento en la etiqueta <em>‘ind’</em>: <br/> <code class="docutils literal notranslate"><span class="pre">X.loc['ind']</span></code></p></li>
+<li><p><strong>Elemento específico</strong> - <code class="docutils literal notranslate"><span class="pre">object</span></code>: Retorna el elemento en la etiqueta <em>‘label’</em>: <br/> <code class="docutils literal notranslate"><span class="pre">X.loc['label']</span></code>
+<br/></p></li>
 </ul>
 </li>
 <li><p><strong>Slicing</strong>: Útil para seleccionar <em>slices</em> utilizando <code class="docutils literal notranslate"><span class="pre">start:stop:step</span></code>. Ambos extremos son inclusivos.</p>
 <ul>
-<li><p><strong>Slices de filas</strong> - <code class="docutils literal notranslate"><span class="pre">Series</span></code>: Retorna <em>slices</em> de filas, entre las filas con etiquetas <em>‘indi’</em> y <em>‘indj’</em>: <br/> <code class="docutils literal notranslate"><span class="pre">X.loc['indi':'indj']</span></code> <br/> <code class="docutils literal notranslate"><span class="pre">X.loc['indi':'indj':step]</span></code></p></li>
+<li><p><strong>Slices de filas</strong> - <code class="docutils literal notranslate"><span class="pre">Series</span></code>: Retorna <em>slices</em> de filas, entre las filas con etiquetas <em>‘labeli’</em> y <em>‘labelj’</em>: <br/> <code class="docutils literal notranslate"><span class="pre">X.loc['labeli':'labelj']</span></code> <br/> <code class="docutils literal notranslate"><span class="pre">X.loc['labeli':'labelj':step]</span></code>
+<br/></p></li>
 </ul>
 </li>
-<li><p><strong>Fancy indexing</strong>: Útil para seleccionar un conjunto de filas específicas. Las etiquetas de fila se pueden poner en culquier orden e incluso se puedo poner más de una vez.</p>
+<li><p><strong>Fancy indexing</strong>: Útil para seleccionar un conjunto de filas específicas. Las etiquetas de fila se pueden poner en cualquier orden e incluso se puedo poner más de una vez.</p>
 <ul>
-<li><p><strong>Conjunto de filas</strong> - <code class="docutils literal notranslate"><span class="pre">Series</span></code>: Retorna las filas en las etiquetas indicadas: <br/> <code class="docutils literal notranslate"><span class="pre">X.loc[['ind1',</span> <span class="pre">'ind2',</span> <span class="pre">...]]</span></code></p></li>
+<li><p><strong>Conjunto de filas</strong> - <code class="docutils literal notranslate"><span class="pre">Series</span></code>: Retorna las filas en las etiquetas indicadas: <br/> <code class="docutils literal notranslate"><span class="pre">X.loc[['label1',</span> <span class="pre">'label2',</span> <span class="pre">...]]</span></code>
+<br/></p></li>
 </ul>
 </li>
-<li><p><strong>Boolean masking</strong> - <code class="docutils literal notranslate"><span class="pre">Series</span></code>: Retorna las filas que satisfacen el <em>mask</em>. <strong>Importante</strong>: Asegurarse que el tamaño del <em>mask</em> coincide con el tamaño del <code class="docutils literal notranslate"><span class="pre">Series</span></code>: <br/> <code class="docutils literal notranslate"><span class="pre">X.loc[mask]</span></code></p></li>
+<li><p><strong>Boolean masking</strong> - <code class="docutils literal notranslate"><span class="pre">Series</span></code>: Retorna las filas que satisfacen el <em>mask</em>. <strong>Importante</strong>: Asegurarse que el tamaño del <em>mask</em> coincide con el tamaño del <code class="docutils literal notranslate"><span class="pre">Series</span></code>:</p>
+<ul>
+<li><p><strong>Mask en filas</strong> - <code class="docutils literal notranslate"><span class="pre">Series</span></code>: Retorna los elementos que satisfacen el <em>mask</em>: <br/> <code class="docutils literal notranslate"><span class="pre">X.loc[mask]</span></code></p></li>
+</ul>
+</li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Se pueden usar los operadores <a class="reference internal" href="../01-built-in/operadores-palabras.html#built-in-operadores-bitwise"><span class="std std-ref">Bitwise</span></a> para crear mask más complejos: <br/> <code class="docutils literal notranslate"><span class="pre">X[(mask1)</span> <span class="pre">&amp;</span> <span class="pre">(mask2)]</span> <span class="pre">#</span> <span class="pre">Ejemplo</span> <span class="pre">con</span> <span class="pre">'&amp;'</span></code></p>
+<p>Se pueden usar los operadores <a class="reference internal" href="../01-built-in/operadores-palabras.html#built-in-operadores-bitwise"><span class="std std-ref">Bitwise</span></a> para crear <em>masks</em> más complejos: <br/> <code class="docutils literal notranslate"><span class="pre">X.loc[(mask1)</span> <span class="pre">&amp;</span> <span class="pre">(mask2)]</span> <span class="pre">#</span> <span class="pre">Ejemplo</span> <span class="pre">con</span> <span class="pre">'&amp;'</span></code></p>
 <ul class="simple">
-<li><p>Notar que cada mask se pone entre paréntesis.</p></li>
+<li><p>Notar que cada <em>mask</em> se pone entre paréntesis.</p></li>
 <li><p><strong>No usar</strong> los operadores lógicos para conformar <em>masks</em> más complicados.</p></li>
 </ul>
 </div>
@@ -741,15 +777,15 @@ Name: cuadrados, dtype: int64
 </div>
 </div>
 <br/>
-</section>
 <hr class="docutils" />
+</section>
 <section id="usando-metodo-iloc">
-<h3>Usando método <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code><a class="headerlink" href="#usando-metodo-iloc" title="Link to this heading">#</a></h3>
-<p>El método <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code> es útil para seleccionar elementos con base al <strong>índice explícito</strong>.</p>
+<span id="pd-series-seleccion-iloc"></span><h3>Usando método <em>.iloc[]</em><a class="headerlink" href="#usando-metodo-iloc" title="Link to this heading">#</a></h3>
+<p>El método <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code> es útil para seleccionar elementos con base al <strong>índice implícito</strong>.</p>
 <ul class="simple">
 <li><p><strong>Indexing</strong>: Útil para seleccionar elementos específicos.</p>
 <ul>
-<li><p><strong>Elemento específico</strong> - <code class="docutils literal notranslate"><span class="pre">scalar</span></code>: Retorna el elemento en índice <em>i</em>: <br/> <code class="docutils literal notranslate"><span class="pre">X.loc[i]</span></code></p></li>
+<li><p><strong>Elemento específico</strong> - <code class="docutils literal notranslate"><span class="pre">object</span></code>: Retorna el elemento en el índice <em>i</em>: <br/> <code class="docutils literal notranslate"><span class="pre">X.iloc[i]</span></code></p></li>
 </ul>
 </li>
 </ul>
@@ -757,15 +793,15 @@ Name: cuadrados, dtype: int64
 <ul class="simple">
 <li><p><strong>Slicing</strong>: Útil para seleccionar <em>slices</em> utilizando <code class="docutils literal notranslate"><span class="pre">start:stop:step</span></code>. En este caso no se incluye al elemento en el índice <code class="docutils literal notranslate"><span class="pre">stop</span></code>, es decir, es exclusivo.</p>
 <ul>
-<li><p><strong>Slices de filas</strong> - <code class="docutils literal notranslate"><span class="pre">Series</span></code>: Retorna <em>slices</em> de filas, entre las filas con índices <em>start</em> y <em>stop</em>: <br/> <code class="docutils literal notranslate"><span class="pre">X.loc[start:stop]</span></code> <br/> <code class="docutils literal notranslate"><span class="pre">X.loc[start:stop:step]</span></code></p></li>
+<li><p><strong>Slices de filas</strong> - <code class="docutils literal notranslate"><span class="pre">Series</span></code>: Retorna <em>slices</em> de filas, entre las filas con índices <em>start</em> y <em>stop</em>: <br/> <code class="docutils literal notranslate"><span class="pre">X.iloc[start:stop]</span></code> <br/> <code class="docutils literal notranslate"><span class="pre">X.iloc[start:stop:step]</span></code></p></li>
 </ul>
 </li>
 </ul>
 <br/>
 <ul class="simple">
-<li><p><strong>Fancy indexing</strong>: Útil para seleccionar combinaciones de filas específicas. Los índices se pueden poner en culquier orden e incluso se puedo poner más de una vez.</p>
+<li><p><strong>Fancy indexing</strong>: Útil para seleccionar un conjunto de filas específicas. Los índices se pueden poner en culquier orden e incluso se puedo poner más de una vez.</p>
 <ul>
-<li><p><strong>Combinación de filas</strong> - <code class="docutils literal notranslate"><span class="pre">Series</span></code>: Retorna las filas en las etiquetas indicadas: <br/> <code class="docutils literal notranslate"><span class="pre">X.loc[[i,</span> <span class="pre">j,</span> <span class="pre">...]]</span></code></p></li>
+<li><p><strong>Combinación de filas</strong> - <code class="docutils literal notranslate"><span class="pre">Series</span></code>: Retorna las filas en los índices indicados: <br/> <code class="docutils literal notranslate"><span class="pre">X.iloc[[i,</span> <span class="pre">j,</span> <span class="pre">...]]</span></code></p></li>
 </ul>
 </li>
 </ul>
@@ -773,21 +809,70 @@ Name: cuadrados, dtype: int64
 <ul class="simple">
 <li><p><strong>Boolean masking</strong>: No se puede hacer <em>boolean masking</em> con este método.</p></li>
 </ul>
+<br/>
+<p><strong>Ejemplos</strong>: A continuación se ejemplifica la selección de elementos con las diversas estategias con el método <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code> en un <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Subsetting: Seleccionar 2do elemento -&gt; 4</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Slicing: Seleccionar elementos del 2 al 4 -&gt; 4, 9, 16</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Fancy indexing: Seleccionar elementos 4 y 2 -&gt; 16, 4</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]],</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+
+dos        4
+tres       9
+cuatro    16
+Name: cuadrados, dtype: int64
+
+cuatro    16
+dos        4
+Name: cuadrados, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
 <p><br/><br/></p>
 </section>
+</section>
+<hr class="docutils" />
+<section id="exploracion-basica">
+<h2>Exploración básica<a class="headerlink" href="#exploracion-basica" title="Link to this heading">#</a></h2>
+<p>Para explorar el contenido de un <code class="docutils literal notranslate"><span class="pre">Series</span></code> se puede hacer uso de varios métodos.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.describe()</span></code>: Genera estadísticas del contenido del <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.head(n=5)</span></code>: Imprime las primeras <em>n</em> filas del <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.tail(n=5)</span></code>: Imprime las útlimas <em>n</em> filas del <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Existen varios atributos que retornan información relevante, para más información visitar <a class="reference internal" href="#pd-series-atributtes"><span class="std std-ref">Atributos</span></a>.</p>
+</div>
+<p><br/><br/></p>
 </section>
 <hr class="docutils" />
 <section id="verificar-la-existencia-de-un-label">
 <h2>Verificar la existencia de un <em>label</em><a class="headerlink" href="#verificar-la-existencia-de-un-label" title="Link to this heading">#</a></h2>
 <p>Para verificar si una etiqueta existe en un <code class="docutils literal notranslate"><span class="pre">Series</span></code> usar el operador de membresía <code class="docutils literal notranslate"><span class="pre">in</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Si X es un Series</span>
-<span class="n">x</span> <span class="ow">in</span> <span class="n">X</span>
+<span class="s1">&#39;label&#39;</span> <span class="ow">in</span> <span class="n">X</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>La expresión anterior retornará un valor <code class="docutils literal notranslate"><span class="pre">bool</span></code>.</p></li>
 <li><p>Alternativamente se puede usar <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code>.</p></li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Para verificar que un valor existe en un <code class="docutils literal notranslate"><span class="pre">Series</span></code> se puede usar el método <code class="docutils literal notranslate"><span class="pre">.isin()</span></code> o se puede convertir el <code class="docutils literal notranslate"><span class="pre">Series</span></code> a otro tipo como unas lista o un <code class="docutils literal notranslate"><span class="pre">set</span></code> y utilizar el operador <code class="docutils literal notranslate"><span class="pre">in</span></code>.</p>
+</div>
 <br>
 </section>
 <hr class="docutils" />
@@ -795,40 +880,72 @@ Name: cuadrados, dtype: int64
 <h2>Agregar elementos<a class="headerlink" href="#agregar-elementos" title="Link to this heading">#</a></h2>
 <p>Para agregar un elemento a un <code class="docutils literal notranslate"><span class="pre">Series</span></code> se puede simplmente crear una nueva etiqueta y asignarle un valor:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Agregar elemento</span>
-<span class="n">X</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+<span class="n">X</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">val</span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Alternativamente se pueden aplicar <a class="reference internal" href="#pd-series-union-apilacion"><span class="std std-ref">Uniones y apilaciones</span></a> para añadir nuevos elementos a un <code class="docutils literal notranslate"><span class="pre">Series</span></code> utilizando otros objectos.</p>
 </div>
 <br>
 </section>
 <hr class="docutils" />
 <section id="modificar-elementos">
 <h2>Modificar elementos<a class="headerlink" href="#modificar-elementos" title="Link to this heading">#</a></h2>
-<p>Se pueden acceder a determinados elementos con cualquier método de selección de elementos y asignarle un nuevo valor.</p>
+<p>Se pueden acceder a determinados elementos con cualquier método de <a class="reference internal" href="#pandas-series-seleccion-elementos"><span class="std std-ref">Selección de elementos</span></a> y asignarle un nuevo valor.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Al asignar elementos asegurarse que los tipos coincidan con el tipo del <code class="docutils literal notranslate"><span class="pre">Series</span></code> o al menos que sea posible forzar la conversión.</p>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Modificar elementos específicos</span>
-<span class="n">s</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;ind&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>	
-<span class="n">s</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+<span class="n">s</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">val</span>	
+<span class="n">s</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">val</span>
 
 <span class="c1"># Múltiples valores con mismo valor (ejemplo con slicing)</span>
-<span class="n">s</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;indi&#39;</span><span class="p">:</span><span class="s1">&#39;indj&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+<span class="n">s</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;labeli&#39;</span><span class="p">:</span><span class="s1">&#39;labelj&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">val</span>
 
 <span class="c1"># Múltiples valores con diferentes valores (ejemplo con slicing)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;indi&#39;</span><span class="p">:</span><span class="s1">&#39;indj&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">vali</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">valj</span><span class="p">]</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;labeli&#39;</span><span class="p">:</span><span class="s1">&#39;labelj&#39;</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="n">vali</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">valj</span><span class="p">]</span>
 </pre></div>
 </div>
 <p><strong>Notas</strong>:</p>
 <ul class="simple">
 <li><p><strong>Un elemento específico</strong>: Seleccionar el elemento por cualquier estrategia de selección y asigarle un nuevo valor.</p></li>
-<li><p><strong>Múltiples elementos con un mismo valor</strong>: Seleccionar los elementos por cualquier estrategia de selección y asignarles un <code class="docutils literal notranslate"><span class="pre">scalar</span></code>.</p></li>
+<li><p><strong>Múltiples elementos con un mismo valor</strong>: Seleccionar los elementos por cualquier estrategia de selección y asignarles un <code class="docutils literal notranslate"><span class="pre">object</span></code>.</p></li>
 <li><p><strong>Múltiples elementos con valores diferentes</strong>: Seleccionar los elementos por cualquier estrategia de selección y asignarles un <code class="docutils literal notranslate"><span class="pre">array-like</span></code> del mismo <em>shape</em> que el objeto retornado por la selección.</p></li>
 </ul>
 <br/>
 </section>
+<hr class="docutils" />
+<section id="iteracion">
+<h2>Iteración<a class="headerlink" href="#iteracion" title="Link to this heading">#</a></h2>
+<p>Se puede iterar directamente por los valores de un <code class="docutils literal notranslate"><span class="pre">Series</span></code> con un <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">loop</span></code> o usar el método <code class="docutils literal notranslate"><span class="pre">.items</span></code> para iterar sobre las etiquetas del índice y los valores al mismo tiempo:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Iteración en el Series X</span>
+<span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">X</span><span class="p">:</span>
+    <span class="c1"># for body</span>
+
+<span class="c1"># Iteración de etqieutas y valores en el Series X</span>
+<span class="k">for</span> <span class="n">ind</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">X</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="c1"># for body</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><em>val</em> tendrá en cada iteración los valores del <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p></li>
+<li><p><em>ind</em> tendrá en cada iteración las etiquetas del índice del <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Para más opciones de iteración o más información revisar los métodos en la sección de <a class="reference internal" href="#pd-series-metodos-seleccion-filtrado-iteracion"><span class="std std-ref">Selección, filtrado e iteración de elementos</span></a>, particularmente los métodos:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.__iter__</span></code>: Retorna <code class="docutils literal notranslate"><span class="pre">iterator</span></code> de los valores del <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.items</span></code>: Retorna un <code class="docutils literal notranslate"><span class="pre">iterable</span></code> de tuplas <em>(index, value)</em>.</p></li>
+</ul>
+</div>
+<br/>
+<hr class="docutils" />
+</section>
 <section id="uniones-y-apilaciones">
-<h2>Uniones y apilaciones<a class="headerlink" href="#uniones-y-apilaciones" title="Link to this heading">#</a></h2>
+<span id="pd-series-union-apilacion"></span><h2>Uniones y apilaciones<a class="headerlink" href="#uniones-y-apilaciones" title="Link to this heading">#</a></h2>
 <p>Para unir objetos de pandas, ya sea apilando los objetos o en una operación similar a un <em>join</em> de SQL, revisar los siguientes funciones de <code class="docutils literal notranslate"><span class="pre">pandas</span></code>:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">pd.concat()</span></code>: Concatena objetos sobre un eje existe, resultando en un objeto con el mismo número de dimensiones que los objetos originales. Se puede indicar si el <em>index</em> se debe de reiniciar o indicar a que objeto pertenecía cada fila.</p></li>
@@ -839,10 +956,10 @@ Name: cuadrados, dtype: int64
 <p>Para más información vistar <a class="reference internal" href="funciones.html#pandas-func-joins"><span class="std std-ref">Funciones de uniones y apilaciones</span></a>.</p>
 </div>
 <br/>
-</section>
 <hr class="docutils" />
+</section>
 <section id="atributos">
-<h2>Atributos<a class="headerlink" href="#atributos" title="Link to this heading">#</a></h2>
+<span id="pd-series-atributtes"></span><h2>Atributos<a class="headerlink" href="#atributos" title="Link to this heading">#</a></h2>
 <p>Atributos del objeto <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p>
 <table class="table">
 <thead>
@@ -898,7 +1015,7 @@ Name: cuadrados, dtype: int64
 <h2>Métodos<a class="headerlink" href="#metodos" title="Link to this heading">#</a></h2>
 <section id="conversion-y-copias">
 <h3>Conversión y copias<a class="headerlink" href="#conversion-y-copias" title="Link to this heading">#</a></h3>
-<p>Métodos para convertir el objeto <code class="docutils literal notranslate"><span class="pre">Series</span></code> a algún otro tipo.</p>
+<p>Métodos para convertir el objeto <code class="docutils literal notranslate"><span class="pre">Series</span></code> a algún otro tipo o crear un copia del objeto.</p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Método</p></th>
@@ -948,57 +1065,72 @@ Name: cuadrados, dtype: int64
 <p>Métodos para exportar el <code class="docutils literal notranslate"><span class="pre">Series</span></code> en un formato específico o serializar el mismo.</p>
 <table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.to_clipboard.html">Series.to_clipboard</a>(*[, excel, sep])</p></th>
-<th class="head"><p>Copia el objeto al portapapeles del sistema.</p></th>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.to_csv.html">Series.to_csv</a>([path_or_buf, sep, na_rep, …])</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.to_clipboard.html">Series.to_clipboard</a>(*[, excel, sep])</p></td>
+<td><p>Copia el objeto al portapapeles del sistema.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.to_csv.html">Series.to_csv</a>([path_or_buf, sep, na_rep, …])</p></td>
 <td><p>Escribe el objeto en un archivo de valores separados por comas (csv).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.to_dict.html">Series.to_dict</a>(*[, into])</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.to_dict.html">Series.to_dict</a>(*[, into])</p></td>
 <td><p>Convierte <code class="docutils literal notranslate"><span class="pre">Series</span></code> a <code class="docutils literal notranslate"><span class="pre">dict</span></code> de forma similar a: <code class="docutils literal notranslate"><span class="pre">{label:</span> <span class="pre">value}</span></code>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.to_excel.html">Series.to_excel</a>(excel_writer, *[, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.to_excel.html">Series.to_excel</a>(excel_writer, *[, …])</p></td>
 <td><p>Escribe el objeto en una hoja de Excel.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.to_frame.html">Series.to_frame</a>([name])</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.to_frame.html">Series.to_frame</a>([name])</p></td>
 <td><p>Convierte <code class="docutils literal notranslate"><span class="pre">Series</span></code> a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.to_hdf.html">Series.to_hdf</a>(path_or_buf, *, key[, mode, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.to_hdf.html">Series.to_hdf</a>(path_or_buf, *, key[, mode, …])</p></td>
 <td><p>Escribe los datos contenidos en un archivo <em>HDF5</em> usando <em>HDFStore</em>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.to_json.html">Series.to_json</a>([path_or_buf, orient, …])</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.to_json.html">Series.to_json</a>([path_or_buf, orient, …])</p></td>
 <td><p>Escribe el objeto en una cadena <em>JSON</em>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.to_latex.html">Series.to_latex</a>([buf, columns, header, …])</p></td>
-<td><p>Escribe el objeto en una tabla tabular de LaTeX.</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.to_latex.html">Series.to_latex</a>([buf, columns, header, …])</p></td>
+<td><p>Escribe el objeto en una tabla tabular de <em>LaTeX</em>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.to_markdown.html">Series.to_markdown</a>([buf, mode, index, …])</p></td>
-<td><p>Escribe el <code class="docutils literal notranslate"><span class="pre">Series</span></code> en formato compatible con Markdown.</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.to_markdown.html">Series.to_markdown</a>([buf, mode, index, …])</p></td>
+<td><p>Escribe el <code class="docutils literal notranslate"><span class="pre">Series</span></code> en formato compatible con _Markdown.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.to_pickle.html">Series.to_pickle</a>(path, *[, compression, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.to_pickle.html">Series.to_pickle</a>(path, *[, compression, …])</p></td>
 <td><p>Serializa el objeto en un <em>pickle</em>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.to_sql.html">Series.to_sql</a>(name, con, *[, schema, …])</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.to_sql.html">Series.to_sql</a>(name, con, *[, schema, …])</p></td>
 <td><p>Escribe los registros almacenados en un <code class="docutils literal notranslate"><span class="pre">Series</span></code> a una base de datos <em>SQL</em>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.to_string.html">Series.to_string</a>([buf, na_rep, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.to_string.html">Series.to_string</a>([buf, na_rep, …])</p></td>
 <td><p>Escribe el objeto en una cadena.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.to_xarray.html">Series.to_xarray</a>()</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.to_xarray.html">Series.to_xarray</a>()</p></td>
 <td><p>Retorna un objeto <em>xarray</em> del objeto pandas.</p></td>
 </tr>
 </tbody>
 </table>
+<p>Patrones útiles:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Exportar a excel</span>
+<span class="n">s</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">excel_writer</span><span class="o">=</span><span class="s1">&#39;path/to/file.xls&#39;</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;sheet_name&#39;</span><span class="p">[,</span><span class="n">startrow</span><span class="p">,</span> <span class="n">startcol</span><span class="p">])</span>
+
+<span class="c1"># Exportar a múltiples hojas</span>
+
+</pre></div>
+</div>
 <br/>
 </section>
-<hr class="docutils" />
 <section id="calculos-y-operadores">
 <h3>Cálculos y operadores<a class="headerlink" href="#calculos-y-operadores" title="Link to this heading">#</a></h3>
 <p>Métodos para realizar cálculos con el <code class="docutils literal notranslate"><span class="pre">Series</span></code> o métodos equivalentes a operadores de Python.</p>
 <section id="aggregates">
 <h4>Aggregates<a class="headerlink" href="#aggregates" title="Link to this heading">#</a></h4>
+<p>Métodos para calcular <em>aggregates</em>, en esencia calculan un único número de resumen para todo el <code class="docutils literal notranslate"><span class="pre">Series</span></code>. En esta categoría se enlistan todos los métodos que cumplen esa descripción, pero los mismos métodos se podrán encontrar en otras categorías.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Estos métodos ignoran valores <code class="docutils literal notranslate"><span class="pre">NA</span></code>/<code class="docutils literal notranslate"><span class="pre">NaN</span></code>, a menos de que se indique lo contrario.</p>
+</div>
 <table class="table" id="pandas-series-methods-cumm">
 <thead>
 <tr class="row-odd"><th class="head"><p>Método</p></th>
@@ -1012,25 +1144,68 @@ Name: cuadrados, dtype: int64
 <tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.aggregate.html">Series.aggregate</a>([func, axis])</p></td>
 <td><p>Calcula <em>aggregates</em> usando una o más operaciones.</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.all.html">Series.all</a>([axis, bool_only, skipna])</p></td>
+<td><p>Retorna <code class="docutils literal notranslate"><span class="pre">True</span></code> si todos los valores son <code class="docutils literal notranslate"><span class="pre">True</span></code> en el  <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.any.html">Series.any</a>(*[, axis, bool_only, skipna])</p></td>
+<td><p>Retorna <code class="docutils literal notranslate"><span class="pre">True</span></code> si hay al menos un valor <code class="docutils literal notranslate"><span class="pre">True</span></code> en el  <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.corr.html">Series.corr</a>(other[, method, min_periods])</p></td>
+<td><p>Calcula la correlación con <em>other</em>, excluye los valores perdidos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.count.html">Series.count</a>()</p></td>
+<td><p>Retorna el número de observaciones no nulas en el <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.cov.html">Series.cov</a>(other[, min_periods, ddof])</p></td>
+<td><p>Calcula la covarianza con <em>other</em>, excluye los valores perdidos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.kurt.html">Series.kurt</a>([axis, skipna, numeric_only])</p></td>
+<td><p>Retorna la curtosis de los datos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.kurtosis.html">Series.kurtosis</a>([axis, skipna, numeric_only])</p></td>
+<td><p>Retorna la curtosis de los datos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.mean.html">Series.mean</a>([axis, skipna, numeric_only])</p></td>
+<td><p>Retorna la media aritmética de los valores.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.median.html">Series.median</a>([axis, skipna, numeric_only])</p></td>
+<td><p>Retorna la mediana de los valores.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.mode.html">Series.mode</a>([dropna])</p></td>
+<td><p>Retorna la moda de los valores.</p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.prod.html">Series.prod</a>([axis, skipna, numeric_only, …])</p></td>
 <td><p>Retorna el producto de los valores.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.product.html">Series.product</a>([axis, skipna, numeric_only, …])</p></td>
 <td><p>Retorna el producto de los valores.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.sum.html">Series.sum</a>([axis, skipna, numeric_only, …])</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.sem.html">Series.sem</a>([axis, skipna, ddof, numeric_only])</p></td>
+<td><p>Retorna el error estándar de la media de los valores.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.skew.html">Series.skew</a>([axis, skipna, numeric_only])</p></td>
+<td><p>Retorna el sesgo de los valores.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.std.html">Series.std</a>([axis, skipna, ddof, numeric_only])</p></td>
+<td><p>Retorna la desviación estándar de la muestra de los valores.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.sum.html">Series.sum</a>([axis, skipna, numeric_only, …])</p></td>
 <td><p>Retorna la suma de los valores.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.var.html">Series.var</a>([axis, skipna, ddof, numeric_only])</p></td>
+<td><p>Retorna la varianza de los valores.</p></td>
 </tr>
 </tbody>
 </table>
-<div class="admonition caution">
-<p class="admonition-title">Caution</p>
-<p>Para funciones como <code class="docutils literal notranslate"><span class="pre">.mean()</span></code>, <code class="docutils literal notranslate"><span class="pre">.std()</span></code>, etc. consultar los métodos <a class="reference internal" href="#series-metodos-estadisticas"><span class="std std-ref">Estadísticas</span></a>.</p>
-</div>
 <br/>
 </section>
 <section id="booleanos">
 <h4>Booleanos<a class="headerlink" href="#booleanos" title="Link to this heading">#</a></h4>
+<p>Métodos para trabajar con <code class="docutils literal notranslate"><span class="pre">Series</span></code> que contienen valores <code class="docutils literal notranslate"><span class="pre">bool</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Estos métodos ignoran valores <code class="docutils literal notranslate"><span class="pre">NA</span></code>/<code class="docutils literal notranslate"><span class="pre">NaN</span></code>, a menos de que se indique lo contrario.</p>
+</div>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Método</p></th>
@@ -1050,6 +1225,11 @@ Name: cuadrados, dtype: int64
 </section>
 <section id="calculos-acumulados-diferencias-cambios-porcentuales-y-rank">
 <h4>Cálculos acumulados, diferencias, cambios porcentuales y rank<a class="headerlink" href="#calculos-acumulados-diferencias-cambios-porcentuales-y-rank" title="Link to this heading">#</a></h4>
+<p>Métodos para calcular productos o sumas acumuladas, también cálculo de diferencias y cambios porcentuales con desfases y rankings.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Estos métodos ignoran valores <code class="docutils literal notranslate"><span class="pre">NA</span></code>/<code class="docutils literal notranslate"><span class="pre">NaN</span></code>, a menos de que se indique lo contrario.</p>
+</div>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Método</p></th>
@@ -1082,31 +1262,12 @@ Name: cuadrados, dtype: int64
 </table>
 <br/>
 </section>
-<section id="conteo">
-<h4>Conteo<a class="headerlink" href="#conteo" title="Link to this heading">#</a></h4>
-<table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Método</p></th>
-<th class="head"><p>Descripción</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.count.html">Series.count</a>()</p></td>
-<td><p>Retorna el número de observaciones no nulas en el <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.value_counts.html">Series.value_counts</a>([normalize, sort, …])</p></td>
-<td><p>Retorna un <code class="docutils literal notranslate"><span class="pre">Series</span></code> que contiene recuentos de los valores únicos.</p></td>
-</tr>
-</tbody>
-</table>
-<br/>
-</section>
 <section id="estadisticas">
 <h4>Estadísticas<a class="headerlink" href="#estadisticas" title="Link to this heading">#</a></h4>
 <p>Métodos para el cálculo de estadísticas descriptivas, generar muestras aleatorias o calcular correlaciones y covarianzas entre dos variables.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Estos métodos ignoran valores <code class="docutils literal notranslate"><span class="pre">NA</span></code>.</p>
+<p>Estos métodos ignoran valores <code class="docutils literal notranslate"><span class="pre">NA</span></code>/<code class="docutils literal notranslate"><span class="pre">NaN</span></code>, a menos de que se indique lo contrario.</p>
 </div>
 <table class="table" id="series-metodos-estadisticas">
 <thead>
@@ -1116,10 +1277,10 @@ Name: cuadrados, dtype: int64
 </thead>
 <tbody>
 <tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.corr.html">Series.corr</a>(other[, method, min_periods])</p></td>
-<td><p>Calcula la correlación con <code class="docutils literal notranslate"><span class="pre">other</span></code>, excluye los valores perdidos.</p></td>
+<td><p>Calcula la correlación con <em>other</em>, excluye los valores perdidos.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.cov.html">Series.cov</a>(other[, min_periods, ddof])</p></td>
-<td><p>Calcula la covarianza con <code class="docutils literal notranslate"><span class="pre">other</span></code>, excluye los valores perdidos.</p></td>
+<td><p>Calcula la covarianza con <em>other</em>, excluye los valores perdidos.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.describe.html">Series.describe</a>([percentiles, include, exclude])</p></td>
 <td><p>Genera estadísticas descriptivas de los datos.</p></td>
@@ -1160,6 +1321,11 @@ Name: cuadrados, dtype: int64
 </section>
 <section id="estadisticos-de-orden">
 <h4>Estadísticos de orden<a class="headerlink" href="#estadisticos-de-orden" title="Link to this heading">#</a></h4>
+<p>Métodos útiles para trabajar con los valores numéricos ordenados, y algunos estadísticos destacados como mínimos, máximos, medianas y cuantiles.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Estos métodos ignoran valores <code class="docutils literal notranslate"><span class="pre">NA</span></code>/<code class="docutils literal notranslate"><span class="pre">NaN</span></code>, a menos de que se indique lo contrario.</p>
+</div>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Método</p></th>
@@ -1176,17 +1342,20 @@ Name: cuadrados, dtype: int64
 <tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.max.html">Series.max</a>([axis, skipna, numeric_only])</p></td>
 <td><p>Retorna el máximo de los valores sobre el eje solicitado.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.min.html">Series.min</a>([axis, skipna, numeric_only])</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.median.html">Series.median</a>([axis, skipna, numeric_only])</p></td>
+<td><p>Retorna la mediana de los valores.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.min.html">Series.min</a>([axis, skipna, numeric_only])</p></td>
 <td><p>Retorna el mínimo de los valores.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.nlargest.html">Series.nlargest</a>([n, keep])</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.nlargest.html">Series.nlargest</a>([n, keep])</p></td>
 <td><p>Retorna los <em>n</em> elementos más grandes.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.nsmallest.html">Series.nsmallest</a>([n, keep])</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.nsmallest.html">Series.nsmallest</a>([n, keep])</p></td>
 <td><p>Retorna los <em>n</em> elementos más pequeños.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.quantile.html">Series.quantile</a>([q, interpolation])</p></td>
-<td><p>Retorna el cuantil dado de los valores. <code class="docutils literal notranslate"><span class="pre">q</span></code> es un valor entre cero y uno.</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.quantile.html">Series.quantile</a>([q, interpolation])</p></td>
+<td><p>Retorna el cuantil dado de los valores. <em>q</em> es un valor entre cero y uno.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1194,6 +1363,7 @@ Name: cuadrados, dtype: int64
 </section>
 <section id="miscelaneos">
 <h4>Misceláneos<a class="headerlink" href="#miscelaneos" title="Link to this heading">#</a></h4>
+<p>Otros métodos de naturaleza numérica.</p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Método</p></th>
@@ -1209,8 +1379,8 @@ Name: cuadrados, dtype: int64
 <br/>
 </section>
 <section id="operadores-aritmeticos-y-similares">
-<h4>Operadores aritméticos y similares.<a class="headerlink" href="#operadores-aritmeticos-y-similares" title="Link to this heading">#</a></h4>
-<p>Métodos para realizar operaciones binarias con operadores aritméticos y sus equivalentes que tienen por sufijo una <code class="docutils literal notranslate"><span class="pre">r</span></code>, que estos últimos son útiles para intercambiar las posiciones del <code class="docutils literal notranslate"><span class="pre">Series</span></code> y del argumento <code class="docutils literal notranslate"><span class="pre">other</span></code>.</p>
+<h4>Operadores aritméticos y similares<a class="headerlink" href="#operadores-aritmeticos-y-similares" title="Link to this heading">#</a></h4>
+<p>Métodos para realizar operaciones binarias con operadores aritméticos y sus equivalentes que tienen por sufijo una <code class="docutils literal notranslate"><span class="pre">r</span></code>, estos últimos son útiles para intercambiar las posiciones del <code class="docutils literal notranslate"><span class="pre">Series</span></code> y del argumento <em>other</em>.</p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Método</p></th>
@@ -1218,56 +1388,59 @@ Name: cuadrados, dtype: int64
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.add.html">Series.add</a>(other[, level, fill_value, axis])</p></td>
-<td><p>Retorna la suma del <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <code class="docutils literal notranslate"><span class="pre">other</span></code>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">+</span></code>.</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.abs.html">Series.abs</a>()</p></td>
+<td><p>Retorna el valor numérico absoluto de cada elemento.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.div.html">Series.div</a>(other[, level, fill_value, axis])</p></td>
-<td><p>Retornar la división flotante del <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <code class="docutils literal notranslate"><span class="pre">other</span></code>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">/</span></code>.</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.add.html">Series.add</a>(other[, level, fill_value, axis])</p></td>
+<td><p>Retorna la suma del <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <em>other</em>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">+</span></code>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.dot.html">Series.dot</a>(other)</p></td>
-<td><p>Calcula el producto escalar entre <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <code class="docutils literal notranslate"><span class="pre">other</span></code>.</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.div.html">Series.div</a>(other[, level, fill_value, axis])</p></td>
+<td><p>Retornar la división flotante del <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <em>other</em>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">/</span></code>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.floordiv.html">Series.floordiv</a>(other[, level, fill_value, axis])</p></td>
-<td><p>Retornar la división entera del <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <code class="docutils literal notranslate"><span class="pre">other</span></code>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">//</span></code>.</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.dot.html">Series.dot</a>(other)</p></td>
+<td><p>Calcula el producto escalar entre <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <em>other</em>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.mod.html">Series.mod</a>(other[, level, fill_value, axis])</p></td>
-<td><p>Retornar el módulo de la división del <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <code class="docutils literal notranslate"><span class="pre">other</span></code>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">%</span></code>.</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.floordiv.html">Series.floordiv</a>(other[, level, fill_value, axis])</p></td>
+<td><p>Retornar la división entera del <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <em>other</em>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">//</span></code>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.mul.html">Series.mul</a>(other[, level, fill_value, axis])</p></td>
-<td><p>Retornar la multiplicación del <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <code class="docutils literal notranslate"><span class="pre">other</span></code>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">*</span></code>.</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.mod.html">Series.mod</a>(other[, level, fill_value, axis])</p></td>
+<td><p>Retornar el módulo de la división del <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <em>other</em>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">%</span></code>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.pow.html">Series.pow</a>(other[, level, fill_value, axis])</p></td>
-<td><p>Retornar la potenciación del <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <code class="docutils literal notranslate"><span class="pre">other</span></code>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">^</span></code>.</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.mul.html">Series.mul</a>(other[, level, fill_value, axis])</p></td>
+<td><p>Retornar la multiplicación del <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <em>other</em>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">*</span></code>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.radd.html">Series.radd</a>(other[, level, fill_value, axis])</p></td>
-<td><p>Retorna la suma del <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <code class="docutils literal notranslate"><span class="pre">other</span></code>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">+</span></code>.</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.pow.html">Series.pow</a>(other[, level, fill_value, axis])</p></td>
+<td><p>Retornar la potenciación del <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <em>other</em>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">^</span></code>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.rdiv.html">Series.rdiv</a>(other[, level, fill_value, axis])</p></td>
-<td><p>Retornar la división flotante de <code class="docutils literal notranslate"><span class="pre">other</span></code> y <code class="docutils literal notranslate"><span class="pre">Series</span></code>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">/</span></code>, siendo <code class="docutils literal notranslate"><span class="pre">other</span></code> el numerador.</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.radd.html">Series.radd</a>(other[, level, fill_value, axis])</p></td>
+<td><p>Retorna la suma del <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <em>other</em>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">+</span></code>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.rfloordiv.html">Series.rfloordiv</a>(other[, level, fill_value, …])</p></td>
-<td><p>Retornar la división entera de <code class="docutils literal notranslate"><span class="pre">other</span></code> y <code class="docutils literal notranslate"><span class="pre">Series</span></code>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">//</span></code>, siendo <code class="docutils literal notranslate"><span class="pre">other</span></code> el numerador.</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.rdiv.html">Series.rdiv</a>(other[, level, fill_value, axis])</p></td>
+<td><p>Retornar la división flotante de <em>other</em> y <code class="docutils literal notranslate"><span class="pre">Series</span></code>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">/</span></code>, siendo <em>other</em> el numerador.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.rmod.html">Series.rmod</a>(other[, level, fill_value, axis])</p></td>
-<td><p>Retornar el módulo de la división de <code class="docutils literal notranslate"><span class="pre">other</span></code> y <code class="docutils literal notranslate"><span class="pre">Series</span></code>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">%</span></code>, siendo <code class="docutils literal notranslate"><span class="pre">other</span></code> el numerador.</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.rfloordiv.html">Series.rfloordiv</a>(other[, level, fill_value, …])</p></td>
+<td><p>Retornar la división entera de <em>other</em> y <code class="docutils literal notranslate"><span class="pre">Series</span></code>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">//</span></code>, siendo <em>other</em> el numerador.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.rmul.html">Series.rmul</a>(other[, level, fill_value, axis])</p></td>
-<td><p>Retornar la multiplicación del <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <code class="docutils literal notranslate"><span class="pre">other</span></code>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">*</span></code>.</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.rmod.html">Series.rmod</a>(other[, level, fill_value, axis])</p></td>
+<td><p>Retornar el módulo de la división de <em>other</em> y <code class="docutils literal notranslate"><span class="pre">Series</span></code>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">%</span></code>, siendo <em>other</em> el numerador.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.rpow.html">Series.rpow</a>(other[, level, fill_value, axis])</p></td>
-<td><p>Retornar la potenciación de <code class="docutils literal notranslate"><span class="pre">other</span></code> y <code class="docutils literal notranslate"><span class="pre">Series</span></code>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">^</span></code>, siendo <code class="docutils literal notranslate"><span class="pre">other</span></code> la base.</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.rmul.html">Series.rmul</a>(other[, level, fill_value, axis])</p></td>
+<td><p>Retornar la multiplicación del <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <em>other</em>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">*</span></code>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.rsub.html">Series.rsub</a>(other[, level, fill_value, axis])</p></td>
-<td><p>Retornar la resta de <code class="docutils literal notranslate"><span class="pre">other</span></code> y <code class="docutils literal notranslate"><span class="pre">Series</span></code>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">-</span></code>, siendo <code class="docutils literal notranslate"><span class="pre">other</span></code> el minuendo.</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.rpow.html">Series.rpow</a>(other[, level, fill_value, axis])</p></td>
+<td><p>Retornar la potenciación de <em>other</em> y <code class="docutils literal notranslate"><span class="pre">Series</span></code>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">^</span></code>, siendo <em>other</em> la base.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.rtruediv.html">Series.rtruediv</a>(other[, level, fill_value, axis])</p></td>
-<td><p>Retornar la división flotante del <code class="docutils literal notranslate"><span class="pre">other</span></code> y <code class="docutils literal notranslate"><span class="pre">Series</span></code>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">/</span></code>, siendo <code class="docutils literal notranslate"><span class="pre">other</span></code> el numerador. Permite reemplazar valores perdidos por algún valor en particular.</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.rsub.html">Series.rsub</a>(other[, level, fill_value, axis])</p></td>
+<td><p>Retornar la resta de <em>other</em> y <code class="docutils literal notranslate"><span class="pre">Series</span></code>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">-</span></code>, siendo <em>other</em> el minuendo.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.sub.html">Series.sub</a>(other[, level, fill_value, axis])</p></td>
-<td><p>Retornar la resta del <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <code class="docutils literal notranslate"><span class="pre">other</span></code>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">-</span></code>.</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.rtruediv.html">Series.rtruediv</a>(other[, level, fill_value, axis])</p></td>
+<td><p>Retornar la división flotante del <em>other</em> y <code class="docutils literal notranslate"><span class="pre">Series</span></code>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">/</span></code>, siendo <em>other</em> el numerador. Permite reemplazar valores perdidos por algún valor en particular.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.truediv.html">Series.truediv</a>(other[, level, fill_value, axis])</p></td>
-<td><p>Retornar la división flotante del <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <code class="docutils literal notranslate"><span class="pre">other</span></code>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">/</span></code>. Permite reemplazar valores perdidos por algún valor en particular.</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.sub.html">Series.sub</a>(other[, level, fill_value, axis])</p></td>
+<td><p>Retornar la resta del <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <em>other</em>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">-</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.truediv.html">Series.truediv</a>(other[, level, fill_value, axis])</p></td>
+<td><p>Retornar la división flotante del <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <em>other</em>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">/</span></code>. Permite reemplazar valores perdidos por algún valor en particular.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1284,31 +1457,31 @@ Name: cuadrados, dtype: int64
 </thead>
 <tbody>
 <tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.between.html">Series.between</a>(left, right[, inclusive])</p></td>
-<td><p>Retorna <code class="docutils literal notranslate"><span class="pre">Series</span></code> booleano que indica si <code class="docutils literal notranslate"><span class="pre">left</span></code> &lt;= <code class="docutils literal notranslate"><span class="pre">Series</span></code> &lt;= <code class="docutils literal notranslate"><span class="pre">right</span></code>, por elementos.</p></td>
+<td><p>Retorna <code class="docutils literal notranslate"><span class="pre">Series</span></code> booleano que indica si <em>left</em> &lt;= <code class="docutils literal notranslate"><span class="pre">Series</span></code> &lt;= <em>right</em>, por elementos.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.eq.html">Series.eq</a>(other[, level, fill_value, axis])</p></td>
-<td><p>Indica la igualdad del <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <code class="docutils literal notranslate"><span class="pre">other</span></code>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">==</span></code>.</p></td>
+<td><p>Indica la igualdad del <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <em>other</em>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">==</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.equals.html">Series.equals</a>(other)</p></td>
 <td><p>Verifica si dos objetos contienen los mismos elementos.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.ge.html">Series.ge</a>(other[, level, fill_value, axis])</p></td>
-<td><p>Indica si es mayor o igual el <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <code class="docutils literal notranslate"><span class="pre">other</span></code>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>.</p></td>
+<td><p>Indica si es mayor o igual el <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <em>other</em>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.gt.html">Series.gt</a>(other[, level, fill_value, axis])</p></td>
-<td><p>Indica si es mayor el <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <code class="docutils literal notranslate"><span class="pre">other</span></code>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>.</p></td>
+<td><p>Indica si es mayor el <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <em>other</em>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.isin.html">Series.isin</a>(values)</p></td>
-<td><p>Retorna <code class="docutils literal notranslate"><span class="pre">Series</span></code> booleano que indica si <code class="docutils literal notranslate"><span class="pre">Series</span> <span class="pre">in</span> <span class="pre">values</span></code>, por elementos.</p></td>
+<td><p>Retorna <code class="docutils literal notranslate"><span class="pre">Series</span></code> booleano que indica si cada elementos del <code class="docutils literal notranslate"><span class="pre">Series</span></code> está en <em>values</em>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.le.html">Series.le</a>(other[, level, fill_value, axis])</p></td>
-<td><p>Indica si es menor o igual el <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <code class="docutils literal notranslate"><span class="pre">other</span></code>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>.</p></td>
+<td><p>Indica si es menor o igual el <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <em>other</em>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.lt.html">Series.lt</a>(other[, level, fill_value, axis])</p></td>
-<td><p>Indica si es menor el <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <code class="docutils literal notranslate"><span class="pre">other</span></code>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>.</p></td>
+<td><p>Indica si es menor el <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <em>other</em>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.ne.html">Series.ne</a>(other[, level, fill_value, axis])</p></td>
-<td><p>Indica si no son iguales el <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <code class="docutils literal notranslate"><span class="pre">other</span></code>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">!=</span></code>.</p></td>
+<td><p>Indica si no son iguales el <code class="docutils literal notranslate"><span class="pre">Series</span></code> y <em>other</em>, por elementos. Equivale a usar el operador <code class="docutils literal notranslate"><span class="pre">!=</span></code>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1316,7 +1489,7 @@ Name: cuadrados, dtype: int64
 </section>
 <section id="series-de-tiempo">
 <h4>Series de tiempo<a class="headerlink" href="#series-de-tiempo" title="Link to this heading">#</a></h4>
-<p>Métodos útiles para <code class="docutils literal notranslate"><span class="pre">Series</span></code> que tienen un <code class="docutils literal notranslate"><span class="pre">Index</span></code> que representa una serie de tiempo.</p>
+<p>Métodos útiles para <code class="docutils literal notranslate"><span class="pre">Series</span></code> que tienen un <code class="docutils literal notranslate"><span class="pre">Index</span></code> que representa una serie de tiempo (no necesariamente).</p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Método</p></th>
@@ -1328,38 +1501,37 @@ Name: cuadrados, dtype: int64
 <td><p>Modifica la frecuencia de una serie de tiempo. El <code class="docutils literal notranslate"><span class="pre">Series</span></code> debe de tener un índice <code class="docutils literal notranslate"><span class="pre">datetime-like</span></code>. Si se va a realizar un <em>aggregate</em> con la nueva frecuencia se recomienda usar el método <code class="docutils literal notranslate"><span class="pre">Series.resample()</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.asof.html">Series.asof</a>(where[, subset])</p></td>
-<td><p>Retorna la/s última/s fila/s válida sin incluir <code class="docutils literal notranslate"><span class="pre">NaNs</span></code> antes o en <code class="docutils literal notranslate"><span class="pre">where</span></code>, donde <code class="docutils literal notranslate"><span class="pre">where</span></code> son etiquetas del índice.</p></td>
+<td><p>Retorna la/s última/s fila/s válida/s sin incluir <code class="docutils literal notranslate"><span class="pre">NaNs</span></code> antes o en <em>where</em> (<code class="docutils literal notranslate"><span class="pre">datetime-like</span></code>), donde <em>where</em> son etiquetas del índice.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.at_time.html">Series.at_time</a>(time[, asof, axis])</p></td>
 <td><p>Selecciona valores en un momento particular del día (por ejemplo, 9:30 a. m.).</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.autocorr.html">Series.autocorr</a>([lag])</p></td>
-<td><p>Calcula la autocorrelación de los datos con <code class="docutils literal notranslate"><span class="pre">lag</span></code> desfases.</p></td>
+<td><p>Calcula la autocorrelación de los datos con <em>lag</em> desfases.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.between_time.html">Series.between_time</a>(start_time, end_time[, …])</p></td>
 <td><p>Selecciona valores entre horas particulares del día (por ejemplo, de 9:00 a 9:30 a. m.).</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.resample.html">Series.resample</a>(rule[, axis, closed, label, …])</p></td>
-<td><p>Modifica la frecuencia de una serie de tiempo, útil si se realizará un <em>aggregate</em> con la nueva frecuencia. El objeto debe de tener un índice <code class="docutils literal notranslate"><span class="pre">datetime-like</span></code> o pasar valores <code class="docutils literal notranslate"><span class="pre">datetime-like</span></code> al argumento <code class="docutils literal notranslate"><span class="pre">on</span></code> o <code class="docutils literal notranslate"><span class="pre">level</span></code>. <strong>IMPORTANTE</strong>: Este método retorna un objeto <code class="docutils literal notranslate"><span class="pre">Resampler</span></code>, que tiene otros métodos como <code class="docutils literal notranslate"><span class="pre">Resampler.asfreq()</span></code> o <em>aggregates</em> como <code class="docutils literal notranslate"><span class="pre">Resampler.mean()</span></code>.</p></td>
+<td><p>Modifica la frecuencia de una serie de tiempo, útil si se realizará un <em>aggregate</em> con la nueva frecuencia. El objeto debe de tener un índice <code class="docutils literal notranslate"><span class="pre">datetime-like</span></code> o pasar valores <code class="docutils literal notranslate"><span class="pre">datetime-like</span></code> al argumento <em>on</em> o <em>level</em>. <strong>IMPORTANTE</strong>: Este método retorna un objeto <a class="reference internal" href="resampler.html"><span class="doc">Resampler</span></a>, que tiene otros métodos como <code class="docutils literal notranslate"><span class="pre">Resampler.asfreq()</span></code> o <em>aggregates</em> como <code class="docutils literal notranslate"><span class="pre">Resampler.mean()</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.shift.html">Series.shift</a>([periods, freq, axis, …])</p></td>
 <td><p>Desplaza el índice según el número deseado de períodos con una frecuencia de tiempo opcional.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.tz_convert.html">Series.tz_convert</a>(tz[, axis, level, copy])</p></td>
-<td><p>Convierte un <em>axis</em> compatible con <code class="docutils literal notranslate"><span class="pre">tz</span></code> en la zona horaria objetivo.</p></td>
+<td><p>Convierte un <em>axis</em> compatible con <em>tz</em> en la zona horaria objetivo.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.tz_localize.html">Series.tz_localize</a>(tz[, axis, level, copy, …])</p></td>
-<td><p>Localiza el índice <code class="docutils literal notranslate"><span class="pre">tz-naive</span></code> a la zona horaria de destino.</p></td>
+<td><p>Localiza el índice <em>tz-naive</em> a la zona horaria de destino.</p></td>
 </tr>
 </tbody>
 </table>
 <br/>
 </section>
 </section>
-<hr class="docutils" />
 <section id="funciones-ventana-agrupar-aplicar-y-mapeos">
 <h3>Funciones ventana, agrupar, aplicar y mapeos<a class="headerlink" href="#funciones-ventana-agrupar-aplicar-y-mapeos" title="Link to this heading">#</a></h3>
-<p>Diversos métodos de operaciones comúnes con <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p>
+<p>Diversos métodos de operaciones como cálculo por ventanas, cálculo de agrupamientos, aplicar funciones a cada elementos del <code class="docutils literal notranslate"><span class="pre">Series</span></code> y mapeos.</p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Método</p></th>
@@ -1389,16 +1561,33 @@ Name: cuadrados, dtype: int64
 <td><p>Provee calculos en ventanas moviles de datos. Posteriormente se puede aplicar un <a class="reference internal" href="expanding-rolling-window.html#pandas-rolling-methods"><span class="std std-ref">método</span></a> del objeto <code class="docutils literal notranslate"><span class="pre">Rolling</span></code> o <code class="docutils literal notranslate"><span class="pre">Window</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.transform.html">Series.transform</a>(func[, axis])</p></td>
-<td><p>Aplica una función <code class="docutils literal notranslate"><span class="pre">func</span></code> en sí mismo, retornando un objeto con las mismas dimensiones que <code class="docutils literal notranslate"><span class="pre">self</span></code>.</p></td>
+<td><p>Aplica una función <em>func</em> en sí mismo, retornando un objeto con las mismas dimensiones que <code class="docutils literal notranslate"><span class="pre">self</span></code>.</p></td>
 </tr>
 </tbody>
 </table>
+<p>Patrones útiles:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mapear valores de columna categórica por otra</span>
+ <span class="n">mapping</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;cat1&#39;</span><span class="p">:</span><span class="s1">&#39;new_cat1&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;cat2&#39;</span><span class="p">:</span><span class="s1">&#39;new_cat2&#39;</span><span class="p">,</span>
+            <span class="o">...</span><span class="p">}</span>
+ <span class="n">s2</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">mapping</span><span class="p">)</span>
+
+ <span class="c1"># Cálculos sobre ventana móvil</span>
+ <span class="n">s</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="p">)</span><span class="o">.</span><span class="n">method</span><span class="p">()</span>
+
+ <span class="c1"># Cálculos acumulados</span>
+<span class="n">s</span><span class="o">.</span><span class="n">expanding</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="c1"># Equivale a s.cumsum()</span>
+</pre></div>
+</div>
 <br/>
 </section>
-<hr class="docutils" />
 <section id="graficas">
 <h3>Gráficas<a class="headerlink" href="#graficas" title="Link to this heading">#</a></h3>
 <p>Métodos para gráficar.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Para usar estps métodos es necesario importar a la sesión el módulo <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span> <span class="pre">as</span> <span class="pre">plt</span></code>.</p>
+</div>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Método</p></th>
@@ -1441,9 +1630,25 @@ Name: cuadrados, dtype: int64
 </tr>
 </tbody>
 </table>
+<p>Patrones útiles:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Barras</span>
+<span class="n">s</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">)</span>
+
+<span class="c1"># Barras horizontales</span>
+<span class="n">s</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;barh&quot;</span><span class="p">)</span>
+
+<span class="c1"># Ordenadas</span>
+<span class="n">s</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+
+<span class="c1"># Barras apiladas</span>
+<span class="n">s</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">stacked</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Histograma</span>
+<span class="n">s</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span>
+</pre></div>
+</div>
 <br/>
 </section>
-<hr class="docutils" />
 <section id="indice">
 <h3>Índice<a class="headerlink" href="#indice" title="Link to this heading">#</a></h3>
 <p>Métodos para operaciones con el <code class="docutils literal notranslate"><span class="pre">Index</span></code>, los niveles y las etiquetas del mismo en un objeto <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p>
@@ -1475,38 +1680,43 @@ Name: cuadrados, dtype: int64
 <tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.idxmin.html">Series.idxmin</a>([axis, skipna])</p></td>
 <td><p>Retorna la etiqueta de fila del valor mínimo.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.last_valid_index.html">Series.last_valid_index</a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.keys.html">Series.keys</a>()</p></td>
+<td><p>Alias ​​para <code class="docutils literal notranslate"><span class="pre">Index</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.last_valid_index.html">Series.last_valid_index</a>()</p></td>
 <td><p>Retorna el último índice cuyo valor no sea <code class="docutils literal notranslate"><span class="pre">NA</span></code>, retorna <code class="docutils literal notranslate"><span class="pre">None</span></code> si no se encuentra ningún valor que no sea <code class="docutils literal notranslate"><span class="pre">NA</span></code>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.reindex.html">Series.reindex</a>([index, axis, method, copy, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.reindex.html">Series.reindex</a>([index, axis, method, copy, …])</p></td>
 <td><p>Modifica el índice de un <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.reindex_like.html">Series.reindex_like</a>(other[, method, copy, …])</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.reindex_like.html">Series.reindex_like</a>(other[, method, copy, …])</p></td>
 <td><p>Modifica el índice de un <code class="docutils literal notranslate"><span class="pre">Series</span></code> con base al índice de otro objeto.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.rename.html">Series.rename</a>([index, axis, copy, inplace, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.rename.html">Series.rename</a>([index, axis, copy, inplace, …])</p></td>
 <td><p>Modifica el nombre o las etiquetas del índice del objeto.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.rename_axis.html">Series.rename_axis</a>([mapper, index, axis, …])</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.rename_axis.html">Series.rename_axis</a>([mapper, index, axis, …])</p></td>
 <td><p>Renombra el índice del objeto.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.reorder_levels.html">Series.reorder_levels</a>(order)</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.reorder_levels.html">Series.reorder_levels</a>(order)</p></td>
 <td><p>Reorganiza los niveles del índice usando el orden de entrada.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.reset_index.html">Series.reset_index</a>([level, drop, name, …])</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.reset_index.html">Series.reset_index</a>([level, drop, name, …])</p></td>
 <td><p>Reestablece el <code class="docutils literal notranslate"><span class="pre">Index</span></code> del objeto, al índice numérico, empezando en cero.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.set_axis.html">Series.set_axis</a>(labels, *[, axis, copy])</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.set_axis.html">Series.set_axis</a>(labels, *[, axis, copy])</p></td>
 <td><p>Asigna el índice deseado al eje dado.</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.sort_index.html">Series.sort_index</a>(*[, axis, level, …])</p></td>
+<td><p>Ordena el <code class="docutils literal notranslate"><span class="pre">Series</span></code> con base a las etiquetas del índice.</p></td>
+</tr>
 <tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.swaplevel.html">Series.swaplevel</a>([i, j, copy])</p></td>
-<td><p>Intercambia los niveles <code class="docutils literal notranslate"><span class="pre">i</span></code> y <code class="docutils literal notranslate"><span class="pre">j</span></code> en un <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code>.</p></td>
+<td><p>Intercambia los niveles <em>i</em> y <em>j</em> en un <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code>.</p></td>
 </tr>
 </tbody>
 </table>
 <br/>
 </section>
-<hr class="docutils" />
 <section id="manipulacion">
 <h3>Manipulación<a class="headerlink" href="#manipulacion" title="Link to this heading">#</a></h3>
 <p>Métodos para manipulación de los elementos en el <code class="docutils literal notranslate"><span class="pre">Series</span></code> como eliminar valores, reemplazar valores, repetir elementos, manipulación del <em>shape</em>, etc.</p>
@@ -1524,41 +1734,45 @@ Name: cuadrados, dtype: int64
 <td><p>Realiza una comparación con otro <code class="docutils literal notranslate"><span class="pre">Series</span></code> y muestra las diferencias.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.combine.html">Series.combine</a>(other, func[, fill_value])</p></td>
-<td><p>Combina el <code class="docutils literal notranslate"><span class="pre">Series</span></code> con otro o un escalar según una función <code class="docutils literal notranslate"><span class="pre">func</span></code>.</p></td>
+<td><p>Combina el <code class="docutils literal notranslate"><span class="pre">Series</span></code> con otro o un escalar según una función <em>func</em>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.combine_first.html">Series.combine_first</a>(other)</p></td>
-<td><p>Actualiza los elementos nulos con valor en la misma ubicación en <code class="docutils literal notranslate"><span class="pre">other</span></code>.</p></td>
+<td><p>Actualiza los elementos nulos con valor en la misma ubicación en <em>other</em>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.drop.html">Series.drop</a>([labels, axis, index, columns, …])</p></td>
 <td><p>Retorna <code class="docutils literal notranslate"><span class="pre">Series</span></code> con las etiquetas de índice especificadas eliminadas.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.mask.html">Series.mask</a>(cond[, other, inplace, axis, level])</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.explode.html">Series.explode</a>([ignore_index])</p></td>
+<td><p>Transforma un <code class="docutils literal notranslate"><span class="pre">Series</span></code> cuyos elementos son <code class="docutils literal notranslate"><span class="pre">list-like</span></code>, en un <code class="docutils literal notranslate"><span class="pre">Series</span></code> donde cada elemento de los <code class="docutils literal notranslate"><span class="pre">list-like</span></code> se convierte en una fila en el <code class="docutils literal notranslate"><span class="pre">Series</span></code>, las nuevas filas mantendrán el mismo índice que la lista original.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.mask.html">Series.mask</a>(cond[, other, inplace, axis, level])</p></td>
 <td><p>Reemplaza valores donde la condición es <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.repeat.html">Series.repeat</a>(repeats[, axis])</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.repeat.html">Series.repeat</a>(repeats[, axis])</p></td>
 <td><p>Repite elementos de un <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.replace.html">Series.replace</a>([to_replace, value, inplace, …])</p></td>
-<td><p>Reemplaza los valores <code class="docutils literal notranslate"><span class="pre">to_replace</span></code> con <code class="docutils literal notranslate"><span class="pre">value</span></code>.</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.replace.html">Series.replace</a>([to_replace, value, inplace, …])</p></td>
+<td><p>Reemplaza los valores <em>to_replace</em> con <em>value</em>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.unstack.html">Series.unstack</a>([level, fill_value, sort])</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.unstack.html">Series.unstack</a>([level, fill_value, sort])</p></td>
 <td><p>Convierte un <code class="docutils literal notranslate"><span class="pre">Series</span></code> con <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code> en <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.update.html">Series.update</a>(other)</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.update.html">Series.update</a>(other)</p></td>
 <td><p>Modifica el <code class="docutils literal notranslate"><span class="pre">Series</span></code> “<em>in-place</em>” usando valores de otros <code class="docutils literal notranslate"><span class="pre">Series</span></code>. Se alinean con base al <code class="docutils literal notranslate"><span class="pre">Index</span></code>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.where.html">Series.where</a>(cond[, other, inplace, axis, level])</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.where.html">Series.where</a>(cond[, other, inplace, axis, level])</p></td>
 <td><p>Reemplaza valores donde la condición es <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></td>
 </tr>
 </tbody>
 </table>
 <br/>
 </section>
-<hr class="docutils" />
 <section id="numericas">
 <h3>Numéricas<a class="headerlink" href="#numericas" title="Link to this heading">#</a></h3>
+<p>Métodos útiles para <code class="docutils literal notranslate"><span class="pre">Series</span></code> con datos numéricos.</p>
 <section id="redondear-y-truncar">
 <h4>Redondear y truncar<a class="headerlink" href="#redondear-y-truncar" title="Link to this heading">#</a></h4>
+<p>Métodos para redondear o truncar valores numéricos.</p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Método</p></th>
@@ -1567,7 +1781,7 @@ Name: cuadrados, dtype: int64
 </thead>
 <tbody>
 <tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.clip.html">Series.clip</a>([lower, upper, axis, inplace])</p></td>
-<td><p>Ajusta los valores para que estén en el intervalo <code class="docutils literal notranslate"><span class="pre">[lower,</span> <span class="pre">upper]</span></code>.</p></td>
+<td><p>Ajusta los valores para que estén en el intervalo <em>[lower, upper]</em>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.round.html">Series.round</a>([decimals])</p></td>
 <td><p>Redondea cada valor en un <code class="docutils literal notranslate"><span class="pre">Series</span></code> al número de decimales dado.</p></td>
@@ -1578,6 +1792,7 @@ Name: cuadrados, dtype: int64
 </section>
 <section id="informacion">
 <h4>Información<a class="headerlink" href="#informacion" title="Link to this heading">#</a></h4>
+<p>Métodos que retornan información sobre los datos numéricos en un <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Método</p></th>
@@ -1586,17 +1801,16 @@ Name: cuadrados, dtype: int64
 </thead>
 <tbody>
 <tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.is_monotonic_decreasing.html">Series.is_monotonic_decreasing</a>()</p></td>
-<td><p>Retorna booleano si los valores del objeto disminuyen monótonamente.</p></td>
+<td><p>Indica si los valores del objeto disminuyen monótonamente.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.is_monotonic_increasing.html">Series.is_monotonic_increasing</a>()</p></td>
-<td><p>Retorna booleano si los valores del objeto aumentan monótonamente.</p></td>
+<td><p>Indica si los valores del objeto aumentan monótonamente.</p></td>
 </tr>
 </tbody>
 </table>
 <br/>
 </section>
 </section>
-<hr class="docutils" />
 <section id="ordenar">
 <h3>Ordenar<a class="headerlink" href="#ordenar" title="Link to this heading">#</a></h3>
 <p>Métodos útiles para ordenar un <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p>
@@ -1610,25 +1824,21 @@ Name: cuadrados, dtype: int64
 <tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.argsort.html">Series.argsort</a>([axis, kind, order, stable])</p></td>
 <td><p>Retorna los índices enteros que ordenarían el <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.explode.html">Series.explode</a>([ignore_index])</p></td>
-<td><p>Transforma un <code class="docutils literal notranslate"><span class="pre">Series</span></code> cuyos elementos son <code class="docutils literal notranslate"><span class="pre">list-like</span></code>, en un <code class="docutils literal notranslate"><span class="pre">Series</span></code> donde cada elemento de los <code class="docutils literal notranslate"><span class="pre">list-like</span></code> se convierte en una fila en el <code class="docutils literal notranslate"><span class="pre">Series</span></code>, las nuevas filas mantendrán el mismo índice que la lista original.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.searchsorted.html">Series.searchsorted</a>(value[, side, sorter])</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.searchsorted.html">Series.searchsorted</a>(value[, side, sorter])</p></td>
 <td><p>Determina los índices donde se deben insertar elementos para mantener el orden.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.sort_index.html">Series.sort_index</a>(*[, axis, level, …])</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.sort_index.html">Series.sort_index</a>(*[, axis, level, …])</p></td>
 <td><p>Ordena el <code class="docutils literal notranslate"><span class="pre">Series</span></code> con base a las etiquetas del índice.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.sort_values.html">Series.sort_values</a>(*[, axis, ascending, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.sort_values.html">Series.sort_values</a>(*[, axis, ascending, …])</p></td>
 <td><p>Ordena el <code class="docutils literal notranslate"><span class="pre">Series</span></code> por los valores del mismo.</p></td>
 </tr>
 </tbody>
 </table>
 <br/>
 </section>
-<hr class="docutils" />
 <section id="seleccion-filtrado-e-iteracion-de-elementos">
-<h3>Selección, filtrado e iteración de elementos<a class="headerlink" href="#seleccion-filtrado-e-iteracion-de-elementos" title="Link to this heading">#</a></h3>
+<span id="pd-series-metodos-seleccion-filtrado-iteracion"></span><h3>Selección, filtrado e iteración de elementos<a class="headerlink" href="#seleccion-filtrado-e-iteracion-de-elementos" title="Link to this heading">#</a></h3>
 <p>Métodos útiles para seleccionar elementos con base a etiquetas, índices o condiciones o para iterar en ellos.</p>
 <table class="table">
 <thead>
@@ -1655,41 +1865,37 @@ Name: cuadrados, dtype: int64
 <tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.iat.html">Series.iat</a>()</p></td>
 <td><p>Accede a un valor único dada una posición del índice. Similar a <code class="docutils literal notranslate"><span class="pre">Series.iloc[]</span></code>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.loc.html">Series.iloc</a>()</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.loc.html">Series.iloc</a>[]</p></td>
 <td><p>Accede a un valor o un conjunto de valores dadas las posiciones del índice o un <code class="docutils literal notranslate"><span class="pre">array-like</span></code> booleano.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.item.html">Series.item</a>()</p></td>
 <td><p>Retorna el primer elemento de los datos subyacentes como un escalar de Python.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.items.html">Series.items</a>()</p></td>
-<td><p>Retorna un <code class="docutils literal notranslate"><span class="pre">iterable</span></code> de tuplas <code class="docutils literal notranslate"><span class="pre">(index,</span> <span class="pre">value)</span></code>.</p></td>
+<td><p>Retorna un <code class="docutils literal notranslate"><span class="pre">iterable</span></code> de tuplas <em>(index, value)</em>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.keys.html">Series.keys</a>()</p></td>
-<td><p>Alias ​​para <code class="docutils literal notranslate"><span class="pre">Index</span></code>.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.loc.html">Series.loc</a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.loc.html">Series.loc</a>[]</p></td>
 <td><p>Accede a un valor o un conjunto de valores dadas las etiquetas del índice o un <code class="docutils literal notranslate"><span class="pre">array-like</span></code> booleano.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.pop.html">Series.pop</a>(item)</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.pop.html">Series.pop</a>(item)</p></td>
 <td><p>Elimina y retorna un elemento dada su etiqueta.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.tail.html">Series.tail</a>([n])</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.tail.html">Series.tail</a>([n])</p></td>
 <td><p>Retorna las últimas <em>n</em> filas.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.take.html">Series.take</a>(indices[, axis])</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.take.html">Series.take</a>(indices[, axis])</p></td>
 <td><p>Retorna los elementos en los índices posicionales dados a lo largo de un eje. Los índices se pueden repetir. Es similar a hacer <em>fancy indexing</em> con índices implícitos.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.truncate.html">Series.truncate</a>([before, after, axis, copy])</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.truncate.html">Series.truncate</a>([before, after, axis, copy])</p></td>
 <td><p>Trunca un <code class="docutils literal notranslate"><span class="pre">Series</span></code> antes y después de algún valor de índice.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.xs.html">Series.xs</a>(key[, axis, level, drop_level])</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.xs.html">Series.xs</a>(key[, axis, level, drop_level])</p></td>
 <td><p>Retorna la sección transversal del <code class="docutils literal notranslate"><span class="pre">Series</span></code>. Particurlamente útil cuando el <code class="docutils literal notranslate"><span class="pre">Series</span></code> tiene un <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code> y se quiere acceder a secciones enteras de un nivel o combinaciones de los niveles/subniveles.</p></td>
 </tr>
 </tbody>
 </table>
 <br/>
 </section>
-<hr class="docutils" />
 <section id="valores-duplicados">
 <h3>Valores duplicados<a class="headerlink" href="#valores-duplicados" title="Link to this heading">#</a></h3>
 <p>Métodos útiles para el manejo de valores duplicados.</p>
@@ -1704,15 +1910,14 @@ Name: cuadrados, dtype: int64
 <td><p>Retorna <code class="docutils literal notranslate"><span class="pre">Series</span></code> con valores duplicados eliminados.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.duplicated.html">Series.duplicated</a>([keep])</p></td>
-<td><p>Indica si los valores del <code class="docutils literal notranslate"><span class="pre">Series</span></code></p></td>
+<td><p>Indica los valores duplicados del <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p></td>
 </tr>
 </tbody>
 </table>
 <br/>
 </section>
-<hr class="docutils" />
-<section id="valores-perdidos">
-<h3>Valores perdidos<a class="headerlink" href="#valores-perdidos" title="Link to this heading">#</a></h3>
+<section id="valores-nulos">
+<h3>Valores nulos<a class="headerlink" href="#valores-nulos" title="Link to this heading">#</a></h3>
 <p>Métodos útiles para el manejo de valores perdidos.</p>
 <table class="table">
 <thead>
@@ -1762,16 +1967,19 @@ Name: cuadrados, dtype: int64
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.is_unique.html">Series.is_unique</a>()</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.value_counts.html">Series.value_counts</a>([normalize, sort, …])</p></td>
+<td><p>Retorna un <code class="docutils literal notranslate"><span class="pre">Series</span></code> que contiene recuentos de los valores únicos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.is_unique.html">Series.is_unique</a>()</p></td>
 <td><p>Indica si los valores del objeto son únicos.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.nunique.html">Series.nunique</a>([dropna])</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.nunique.html">Series.nunique</a>([dropna])</p></td>
 <td><p>Retorna el número de elementos únicos en el objeto.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.unique.html">Series.unique</a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.unique.html">Series.unique</a>()</p></td>
 <td><p>Retorna los valores únicos del <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.value_counts.html">Series.value_counts</a>([normalize, sort, …])</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.value_counts.html">Series.value_counts</a>([normalize, sort, …])</p></td>
 <td><p>Retorna un <code class="docutils literal notranslate"><span class="pre">Series</span></code> que contiene recuentos de los valores únicos.</p></td>
 </tr>
 </tbody>
@@ -1809,6 +2017,7 @@ Name: cuadrados, dtype: int64
 <p>Este <em>accesor</em> es para <code class="docutils literal notranslate"><span class="pre">Series</span></code> de tipo <code class="docutils literal notranslate"><span class="pre">categorical</span></code>.</p>
 <section id="id1">
 <h4>Atributos<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<p>Lista de atributos de <code class="docutils literal notranslate"><span class="pre">Series.cat</span></code>.</p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Atributo</p></th>
@@ -1830,6 +2039,7 @@ Name: cuadrados, dtype: int64
 </section>
 <section id="id2">
 <h4>Métodos<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
+<p>Lista de metodos de <code class="docutils literal notranslate"><span class="pre">Series.cat</span></code>.</p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Método</p></th>
@@ -1872,6 +2082,7 @@ Name: cuadrados, dtype: int64
 <p>Este <em>accesor</em> es para <code class="docutils literal notranslate"><span class="pre">Series</span></code> de tipo <code class="docutils literal notranslate"><span class="pre">sparse</span></code>.</p>
 <section id="id3">
 <h4>Atributos<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
+<p>Lista de atributos de <code class="docutils literal notranslate"><span class="pre">Series.sparse</span></code>.</p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Atributo</p></th>
@@ -1880,22 +2091,23 @@ Name: cuadrados, dtype: int64
 </thead>
 <tbody>
 <tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.sparse.density.html">Series.sparse.density</a>()</p></td>
-<td><p>El porcentaje de puntos no-<code class="docutils literal notranslate"><span class="pre">fill_value</span></code>, como decimal.</p></td>
+<td><p>El porcentaje de puntos no-<em>fill_value</em>, como decimal.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.sparse.fill_value.html">Series.sparse.fill_value</a>()</p></td>
-<td><p>Los elementos de los datos que son <code class="docutils literal notranslate"><span class="pre">fill_value</span></code> no se almacenan.</p></td>
+<td><p>Los elementos de los datos que son <em>fill_value</em> no se almacenan.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.sparse.npoints.html">Series.sparse.npoints</a>()</p></td>
-<td><p>El número de puntos no-<code class="docutils literal notranslate"><span class="pre">fill_value</span></code>.</p></td>
+<td><p>El número de puntos no-<em>fill_value</em>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.sparse.sp_values.html">Series.sparse.sp_values</a>()</p></td>
-<td><p>Un <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> que contiene los valores no-<code class="docutils literal notranslate"><span class="pre">fill_value</span></code>.</p></td>
+<td><p>Un <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> que contiene los valores no-<em>fill_value</em>.</p></td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="id4">
 <h4>Métodos<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
+<p>Lista de metodos de <code class="docutils literal notranslate"><span class="pre">Series.sparse</span></code>.</p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Método</p></th>
@@ -1904,7 +2116,7 @@ Name: cuadrados, dtype: int64
 </thead>
 <tbody>
 <tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.sparse.from_coo.html">Series.sparse.from_coo</a>(A[, dense_index])</p></td>
-<td><p>Crea un <code class="docutils literal notranslate"><span class="pre">Series</span></code> con valores <em>sparse</em> desde <code class="docutils literal notranslate"><span class="pre">scipy.sparse.coo_matrix()</span></code>.</p></td>
+<td><p>Crea un <code class="docutils literal notranslate"><span class="pre">Series</span></code> con valores <em>sparse</em> desde <code class="docutils literal notranslate"><span class="pre">scipy.sparse.coo_matrix()</span></code>. <strong>Importante</strong>: Este es un método de clase.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.sparse.to_coo.html">Series.sparse.to_coo</a>([row_levels, …])</p></td>
 <td><p>Crea un <code class="docutils literal notranslate"><span class="pre">scipy.sparse.coo_matrixU</span> <span class="pre">a</span> <span class="pre">partir</span> <span class="pre">de</span> <span class="pre">un</span> </code>Series<code class="docutils literal notranslate"><span class="pre">con</span></code>MultiIndex`.</p></td>
@@ -1916,7 +2128,7 @@ Name: cuadrados, dtype: int64
 </section>
 <hr class="docutils" />
 <section id="accesor-de-str">
-<h3>Accesor de <code class="docutils literal notranslate"><span class="pre">str</span></code><a class="headerlink" href="#accesor-de-str" title="Link to this heading">#</a></h3>
+<h3>Accesor de <em>str</em><a class="headerlink" href="#accesor-de-str" title="Link to this heading">#</a></h3>
 <p>Este <em>accesor</em> es para <code class="docutils literal notranslate"><span class="pre">Series</span></code> de tipo <code class="docutils literal notranslate"><span class="pre">str</span></code>.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -1926,18 +2138,18 @@ Name: cuadrados, dtype: int64
 <p class="admonition-title">Tip</p>
 <p>Algunos de estos métodos también funcionan incluso si los elementos del <code class="docutils literal notranslate"><span class="pre">Series</span></code> no son <code class="docutils literal notranslate"><span class="pre">str</span></code>, pero sí son de algún tipo <code class="docutils literal notranslate"><span class="pre">sequence</span></code>.</p>
 </div>
-<section id="subsetting-y-slicing">
-<h4>Subsetting y Slicing<a class="headerlink" href="#subsetting-y-slicing" title="Link to this heading">#</a></h4>
-<p>Es posible hacer <em>subsetting</em> y <em>slicing</em> de manera vectorizada (se aplicará el <em>subsetting</em> o <em>slicing</em> a cada valor del <code class="docutils literal notranslate"><span class="pre">Series</span></code>), para ello simplemente utilizar corchetes, junto con el nombre del objeto y <code class="docutils literal notranslate"><span class="pre">.str</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Subsetting.</span>
+<section id="indexing-y-slicing">
+<h4>Indexing y Slicing<a class="headerlink" href="#indexing-y-slicing" title="Link to this heading">#</a></h4>
+<p>Es posible hacer <em>indexing</em> y <em>slicing</em> de manera vectorizada (se aplicará el <em>indexing</em> o <em>slicing</em> a cada valor del <code class="docutils literal notranslate"><span class="pre">Series</span></code>), para ello simplemente utilizar corchetes, junto con el nombre del objeto y <code class="docutils literal notranslate"><span class="pre">.str</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Indexing</span>
 <span class="n">X</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 	
-<span class="c1"># Slicing.</span>
+<span class="c1"># Slicing</span>
 <span class="n">X</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">stop</span><span class="p">:</span><span class="n">step</span><span class="p">]</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">X</span></code> <code class="docutils literal notranslate"><span class="pre">Series</span></code> de <code class="docutils literal notranslate"><span class="pre">str</span></code> o <code class="docutils literal notranslate"><span class="pre">sequence</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">X</span></code> - <code class="docutils literal notranslate"><span class="pre">Series</span></code> de <code class="docutils literal notranslate"><span class="pre">str</span></code> o <code class="docutils literal notranslate"><span class="pre">sequence</span></code>.</p></li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -1951,6 +2163,7 @@ Name: cuadrados, dtype: int64
 </section>
 <section id="buscar-subcadenas">
 <h4>Buscar subcadenas<a class="headerlink" href="#buscar-subcadenas" title="Link to this heading">#</a></h4>
+<p>Métodos para buscar subcadenas en una cadena.</p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Método</p></th>
@@ -1959,13 +2172,13 @@ Name: cuadrados, dtype: int64
 </thead>
 <tbody>
 <tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.str.find.html">Series.str.find</a>(sub[, start, end])</p></td>
-<td><p>Devuelve la primer posición en cada cadena donde se encuentra una subcadena, si no encuentra la subcadena retorna <code class="docutils literal notranslate"><span class="pre">-1</span></code>.</p></td>
+<td><p>Devuelve la primer posición en cada cadena donde se encuentra una subcadena, si no encuentra la subcadena retorna <em>-1</em>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.str.index.html">Series.str.index</a>(sub[, start, end])</p></td>
 <td><p>Devuelve la primer posición en cada cadena donde se encuentra una subcadena. Si no encuentra la subcadena devuelve <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.str.rfind.html">Series.str.rfind</a>(sub[, start, end])</p></td>
-<td><p>Devuelve la última posición en cada cadena donde se encuentra una subcadena, si no encuentra la subcadena retorna <code class="docutils literal notranslate"><span class="pre">-1</span></code>.</p></td>
+<td><p>Devuelve la última posición en cada cadena donde se encuentra una subcadena, si no encuentra la subcadena retorna <em>-1</em>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.str.rindex.html">Series.str.rindex</a>(sub[, start, end])</p></td>
 <td><p>Devuelve la última posición en cada cadena donde se encuentra una subcadena. Si no encuentra la subcadena devuelve <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>.</p></td>
@@ -1976,6 +2189,7 @@ Name: cuadrados, dtype: int64
 </section>
 <section id="concatenacion-y-separaciones">
 <h4>Concatenación y separaciones<a class="headerlink" href="#concatenacion-y-separaciones" title="Link to this heading">#</a></h4>
+<p>Métodos para separar cadenas, concatenar con otras cadenas o para crear cadenas desde iterables.</p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Método</p></th>
@@ -1990,13 +2204,13 @@ Name: cuadrados, dtype: int64
 <td><p>Concatena <code class="docutils literal notranslate"><span class="pre">sequence</span></code> en el objeto con el delimitador indicado.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.str.partition.html">Series.str.partition</a>([sep, expand])</p></td>
-<td><p>Divide la cadena en tres partes en la primera aparición de <code class="docutils literal notranslate"><span class="pre">sep</span></code>.</p></td>
+<td><p>Divide la cadena en tres partes en la primera aparición de <em>sep</em>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.str.repeat.html">Series.str.repeat</a>(repeats)</p></td>
 <td><p>Duplica cada cadena en el objeto un número determinado de veces.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.str.rpartition.html">Series.str.rpartition</a>([sep, expand])</p></td>
-<td><p>Divida la cadena en tres partes en la última aparición de <code class="docutils literal notranslate"><span class="pre">sep</span></code>.</p></td>
+<td><p>Divida la cadena en tres partes en la última aparición de <em>sep</em>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.str.rsplit.html">Series.str.rsplit</a>([pat, n, expand])</p></td>
 <td><p>Retorna una lista de subcadenas de cada elemento del objeto de acuero al delimitador dado, patrón o expresión regular.</p></td>
@@ -2010,6 +2224,7 @@ Name: cuadrados, dtype: int64
 </section>
 <section id="formatos-y-modificaciones">
 <h4>Formatos y modificaciones<a class="headerlink" href="#formatos-y-modificaciones" title="Link to this heading">#</a></h4>
+<p>Métodos para modificar el formato de una cadena.</p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Método</p></th>
@@ -2044,6 +2259,7 @@ Name: cuadrados, dtype: int64
 </section>
 <section id="id5">
 <h4>Información<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
+<p>Métodos que retornan información sobre la cadena.</p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Método</p></th>
@@ -2052,7 +2268,7 @@ Name: cuadrados, dtype: int64
 </thead>
 <tbody>
 <tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.str.count.html">Series.str.count</a>(pat[, flags])</p></td>
-<td><p>Cuenta las apariciones de un patrón o expresión regular <code class="docutils literal notranslate"><span class="pre">pat</span></code> en cada cadena del objeto.</p></td>
+<td><p>Cuenta las apariciones de un patrón o expresión regular <em>pat</em> en cada cadena del objeto.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.str.endswith.html">Series.str.endswith</a>(pat[, na])</p></td>
 <td><p>Verifica si el final de cada elemento de cadena coincide con un patrón.</p></td>
@@ -2092,10 +2308,12 @@ Name: cuadrados, dtype: int64
 </tr>
 </tbody>
 </table>
-<br/>
+<p>xs
+<br/></p>
 </section>
 <section id="otros-y-dummies">
 <h4>Otros y dummies<a class="headerlink" href="#otros-y-dummies" title="Link to this heading">#</a></h4>
+<p>Métodos para calcular las <em>dummies variables</em> y otros métodos para cadenas.</p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Método</p></th>
@@ -2118,6 +2336,7 @@ Name: cuadrados, dtype: int64
 </section>
 <section id="reemplazar-y-eliminar-subcadenas">
 <h4>Reemplazar y eliminar subcadenas<a class="headerlink" href="#reemplazar-y-eliminar-subcadenas" title="Link to this heading">#</a></h4>
+<p>Métodos para reemplazar o remover subcadenas dentro de una cadena.</p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Método</p></th>
@@ -2132,7 +2351,7 @@ Name: cuadrados, dtype: int64
 <td><p>Elimina un sufijo en las cadenas del objeto.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.str.replace.html">Series.str.replace</a>(pat, repl[, n, case, …])</p></td>
-<td><p>Reemplaza cada aparición de <code class="docutils literal notranslate"><span class="pre">pat</span></code> en el objeto con otra subcadena.</p></td>
+<td><p>Reemplaza cada aparición de <em>pat</em> en el objeto con otra subcadena.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.str.slice_replace.html">Series.str.slice_replace</a>([start, stop, repl])</p></td>
 <td><p>Reemplaza un segmento posicional de una cadena con otro valor.</p></td>
@@ -2146,7 +2365,7 @@ Name: cuadrados, dtype: int64
 </section>
 <section id="regular-expressions">
 <h4>Regular expressions<a class="headerlink" href="#regular-expressions" title="Link to this heading">#</a></h4>
-<p>Métodos que pueden utilizar expresiones regulares con argumentos.</p>
+<p>Métodos que pueden utilizar expresiones regulares como argumentos.</p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Método</p></th>
@@ -2155,16 +2374,16 @@ Name: cuadrados, dtype: int64
 </thead>
 <tbody>
 <tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.str.contains.html">Series.str.contains</a>(pat[, case, flags, na, …])</p></td>
-<td><p>verifica si el patrón o la expresión regular están contenidos dentro de las cadenas del objeto.</p></td>
+<td><p>Verifica si el patrón o la expresión regular están contenidos dentro de las cadenas del objeto.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.str.count.html">Series.str.count</a>(pat[, flags])</p></td>
-<td><p>Cuenta las apariciones de un patrón o la expresión regular <code class="docutils literal notranslate"><span class="pre">pat</span></code> en cada cadena del objeto.</p></td>
+<td><p>Cuenta las apariciones de un patrón o la expresión regular <em>pat</em> en cada cadena del objeto.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.str.extract.html">Series.str.extract</a>(pat[, flags, expand])</p></td>
-<td><p>Extrae grupos de captura en la expresión regular <code class="docutils literal notranslate"><span class="pre">pat</span></code> como columnas en un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p></td>
+<td><p>Extrae grupos de captura en la expresión regular <em>pat</em> como columnas en un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.str.extractall.html">Series.str.extractall</a>(pat[, flags])</p></td>
-<td><p>Extrae los grupos de captura en la expresión regular <code class="docutils literal notranslate"><span class="pre">pat</span></code> como columnas en <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p></td>
+<td><p>Extrae los grupos de captura en la expresión regular <em>pat</em> como columnas en <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.Series.str.findall.html">Series.str.findall</a>(pat[, flags])</p></td>
 <td><p>Determina todas las apariciones de patrones o expresiones regulares en el objeto.</p></td>
@@ -2185,9 +2404,8 @@ Name: cuadrados, dtype: int64
 </table>
 <br/>
 </section>
-</section>
 <section id="seleccion">
-<h3>Selección<a class="headerlink" href="#seleccion" title="Link to this heading">#</a></h3>
+<h4>Selección<a class="headerlink" href="#seleccion" title="Link to this heading">#</a></h4>
 <p>Métodos para seleccionar elementos en índices específicos o <em>slices</em> de elementos en la secuencia.</p>
 <table class="table">
 <thead>
@@ -2205,8 +2423,10 @@ Name: cuadrados, dtype: int64
 </tbody>
 </table>
 <br/>
+</section>
 <section id="strips-y-pads">
 <h4>Strips y pads<a class="headerlink" href="#strips-y-pads" title="Link to this heading">#</a></h4>
+<p>Métodos para agregar o eliminar caracteres al inicio, final o ambos de una cadena.</p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Método</p></th>
@@ -2243,17 +2463,19 @@ Name: cuadrados, dtype: int64
 <br/>
 </section>
 </section>
+<hr class="docutils" />
 <section id="accesor-de-fechas-y-tiempo">
 <h3>Accesor de fechas y tiempo<a class="headerlink" href="#accesor-de-fechas-y-tiempo" title="Link to this heading">#</a></h3>
+<p>Este <em>accesor</em> es para <code class="docutils literal notranslate"><span class="pre">Series</span></code> de tipo <code class="docutils literal notranslate"><span class="pre">datetime</span></code>, <code class="docutils literal notranslate"><span class="pre">timedelta</span></code> o <code class="docutils literal notranslate"><span class="pre">period</span></code>.</p>
 <section id="atributos-de-datetime">
-<h4>Atributos de <code class="docutils literal notranslate"><span class="pre">datetime</span></code><a class="headerlink" href="#atributos-de-datetime" title="Link to this heading">#</a></h4>
+<h4>Atributos de <em>datetime</em><a class="headerlink" href="#atributos-de-datetime" title="Link to this heading">#</a></h4>
 <p>A continuación se enlistan algunas propiedades de <code class="docutils literal notranslate"><span class="pre">Series</span></code> de tipo <code class="docutils literal notranslate"><span class="pre">datetime64</span></code>. Para retornar partes específicas de las fechas, usar:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Recuperar un atributo</span>
 <span class="n">X</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">part</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>X <code class="docutils literal notranslate"><span class="pre">Series</span></code> de <code class="docutils literal notranslate"><span class="pre">datetime64</span></code>.</p></li>
+<li><p>X - <code class="docutils literal notranslate"><span class="pre">Series</span></code> de <code class="docutils literal notranslate"><span class="pre">datetime64</span></code>.</p></li>
 <li><p><em>part</em>: Es cualquiera de los siguientes:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">date</span></code>: Retorna la parte de la fecha, sin tiempo.</p></li>
@@ -2284,7 +2506,7 @@ Name: cuadrados, dtype: int64
 </section>
 <hr class="docutils" />
 <section id="metodos-de-datetime">
-<h4>Métodos de <code class="docutils literal notranslate"><span class="pre">datetime</span></code><a class="headerlink" href="#metodos-de-datetime" title="Link to this heading">#</a></h4>
+<h4>Métodos de <em>datetime</em><a class="headerlink" href="#metodos-de-datetime" title="Link to this heading">#</a></h4>
 <p>Métodos para <code class="docutils literal notranslate"><span class="pre">Series</span></code> de tipo <code class="docutils literal notranslate"><span class="pre">datetime64</span></code>.</p>
 <table class="table">
 <thead>
@@ -2331,7 +2553,7 @@ Name: cuadrados, dtype: int64
 <br/>
 </section>
 <section id="atributos-de-period">
-<h4>Atributos de <code class="docutils literal notranslate"><span class="pre">period</span></code><a class="headerlink" href="#atributos-de-period" title="Link to this heading">#</a></h4>
+<h4>Atributos de <em>period</em><a class="headerlink" href="#atributos-de-period" title="Link to this heading">#</a></h4>
 <p>Atributos para <code class="docutils literal notranslate"><span class="pre">Series</span></code> de tipo <code class="docutils literal notranslate"><span class="pre">period</span></code>.</p>
 <table class="table">
 <thead>
@@ -2351,8 +2573,8 @@ Name: cuadrados, dtype: int64
 <br/>
 </section>
 <section id="atributos-de-timedelta">
-<h4>Atributos de <code class="docutils literal notranslate"><span class="pre">TimeDelta</span></code><a class="headerlink" href="#atributos-de-timedelta" title="Link to this heading">#</a></h4>
-<p>Atributos para <code class="docutils literal notranslate"><span class="pre">Series</span></code> de tipo <code class="docutils literal notranslate"><span class="pre">period</span></code>.</p>
+<h4>Atributos de <em>TimeDelta</em><a class="headerlink" href="#atributos-de-timedelta" title="Link to this heading">#</a></h4>
+<p>Atributos para <code class="docutils literal notranslate"><span class="pre">Series</span></code> de tipo <code class="docutils literal notranslate"><span class="pre">TimeDelta</span></code>.</p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Atributo</p></th>
@@ -2380,8 +2602,8 @@ Name: cuadrados, dtype: int64
 <br/>
 </section>
 <section id="metodos-de-timedelta">
-<h4>Métodos de <code class="docutils literal notranslate"><span class="pre">TimeDelta</span></code><a class="headerlink" href="#metodos-de-timedelta" title="Link to this heading">#</a></h4>
-<p>Métodos para <code class="docutils literal notranslate"><span class="pre">Series</span></code> de tipo <code class="docutils literal notranslate"><span class="pre">period</span></code>.</p>
+<h4>Métodos de <em>TimeDelta</em><a class="headerlink" href="#metodos-de-timedelta" title="Link to this heading">#</a></h4>
+<p>Métodos para <code class="docutils literal notranslate"><span class="pre">Series</span></code> de tipo <code class="docutils literal notranslate"><span class="pre">TimeDelta</span></code>.</p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Método</p></th>
@@ -2466,16 +2688,18 @@ Name: cuadrados, dtype: int64
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creacion-de-series">Creación de <code class="docutils literal notranslate"><span class="pre">Series</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creacion-de-series">Creación de <em>Series</em></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccion-de-elementos">Selección de elementos</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notacion-con-corchetes">Notación con corchetes</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usando-metodo-loc">Usando método <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usando-metodo-iloc">Usando método <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usando-metodo-loc">Usando método <em>.loc[]</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usando-metodo-iloc">Usando método <em>.iloc[]</em></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploracion-basica">Exploración básica</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verificar-la-existencia-de-un-label">Verificar la existencia de un <em>label</em></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agregar-elementos">Agregar elementos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modificar-elementos">Modificar elementos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iteracion">Iteración</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uniones-y-apilaciones">Uniones y apilaciones</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos">Atributos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos">Métodos</a><ul class="nav section-nav flex-column">
@@ -2485,11 +2709,10 @@ Name: cuadrados, dtype: int64
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregates">Aggregates</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#booleanos">Booleanos</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#calculos-acumulados-diferencias-cambios-porcentuales-y-rank">Cálculos acumulados, diferencias, cambios porcentuales y rank</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conteo">Conteo</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#estadisticas">Estadísticas</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#estadisticos-de-orden">Estadísticos de orden</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#miscelaneos">Misceláneos</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#operadores-aritmeticos-y-similares">Operadores aritméticos y similares.</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#operadores-aritmeticos-y-similares">Operadores aritméticos y similares</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#operadores-de-comparacion-y-membresia">Operadores de comparación y membresía.</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#series-de-tiempo">Series de tiempo</a></li>
 </ul>
@@ -2506,7 +2729,7 @@ Name: cuadrados, dtype: int64
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ordenar">Ordenar</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccion-filtrado-e-iteracion-de-elementos">Selección, filtrado e iteración de elementos</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#valores-duplicados">Valores duplicados</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#valores-perdidos">Valores perdidos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#valores-nulos">Valores nulos</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#valores-unicos">Valores únicos</a></li>
 </ul>
 </li>
@@ -2521,8 +2744,8 @@ Name: cuadrados, dtype: int64
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Métodos</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accesor-de-str">Accesor de <code class="docutils literal notranslate"><span class="pre">str</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#subsetting-y-slicing">Subsetting y Slicing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accesor-de-str">Accesor de <em>str</em></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing-y-slicing">Indexing y Slicing</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#buscar-subcadenas">Buscar subcadenas</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#concatenacion-y-separaciones">Concatenación y separaciones</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#formatos-y-modificaciones">Formatos y modificaciones</a></li>
@@ -2530,18 +2753,16 @@ Name: cuadrados, dtype: int64
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#otros-y-dummies">Otros y dummies</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reemplazar-y-eliminar-subcadenas">Reemplazar y eliminar subcadenas</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#regular-expressions">Regular expressions</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccion">Selección</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccion">Selección</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#strips-y-pads">Strips y pads</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accesor-de-fechas-y-tiempo">Accesor de fechas y tiempo</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-datetime">Atributos de <code class="docutils literal notranslate"><span class="pre">datetime</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-datetime">Métodos de <code class="docutils literal notranslate"><span class="pre">datetime</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-period">Atributos de <code class="docutils literal notranslate"><span class="pre">period</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-timedelta">Atributos de <code class="docutils literal notranslate"><span class="pre">TimeDelta</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-timedelta">Métodos de <code class="docutils literal notranslate"><span class="pre">TimeDelta</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-datetime">Atributos de <em>datetime</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-datetime">Métodos de <em>datetime</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-period">Atributos de <em>period</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-timedelta">Atributos de <em>TimeDelta</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-timedelta">Métodos de <em>TimeDelta</em></a></li>
 </ul>
 </li>
 </ul>

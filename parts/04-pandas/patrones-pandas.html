@@ -1,0 +1,977 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Patrones útiles &#8212; Manual de Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'parts/04-pandas/patrones-pandas';</script>
+    <link rel="icon" href="../../_static/nebok-favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Anexos" href="anexos.html" />
+    <link rel="prev" title="Funciones" href="funciones.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/nebok-logo.png" class="logo__image only-light" alt="Manual de Python - Home"/>
+    <script>document.write(`<img src="../../_static/nebok-logo.png" class="logo__image only-dark" alt="Manual de Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Manual de Python para Data Science
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Built-in</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01-built-in/built-in-index.html">Python Estándar</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/ayuda.html">Obtener ayuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/comentarios.html">Comentarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/tipos-datos.html">Tipos de Datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/variables-constantes.html">Variables y Constantes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/operadores-palabras.html">Operadores y palabras reservadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/entrada-salida.html">Impresión y solicitud de datos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/tipos-index.html">Tipos Built-In</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/none-bool-numericos.html"><em>None</em>, <em>bool</em> y Numéricos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/str.html">str</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/lists.html">list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/tuples.html">Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/sets.html">Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/dicts.html">dict</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/if-else.html">If … Else</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/for-loop.html">For Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/do-while.html">Do While</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/udf.html">Funciones (UDF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/exceptions.html">Excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/context-managers.html">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/io.html">Lectura y escritura de archivos (IO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/modulos.html">Paquetes y Módulos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/avanzado-index.html">Temas avanzados</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/decorators.html">Decorators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/iterators.html">Iterators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/generators.html">Generators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/oop.html">Programación orientada a objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/func-built-in.html">Funciones built-in</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-modulos/modulos-index.html">Módulos built-in</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/csv.html">CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/datetime.html">Datetime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/itertools.html">Itertools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/json.html">JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/math.html">Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os.html">Os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os-path.html">Os.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/pickle.html">Pickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/random.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/regex.html">Regex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/statistics.html">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/urllib-request.html">urllib.request</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otras librerías</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-numpy/numpy-index.html">Numpy</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/arrays.html">Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../03-numpy/funciones-index.html">Funciones</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/ufuncs.html">Ufuncs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/buscar-contar-ordenar-unicos.html">Buscar, contar, ordenar y valores únicos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/creacion-arrays.html">Creación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/estadisticas.html">Estadísticas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/indices.html">Índices e iteración</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/informacion.html">Información</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/lectura-escritura.html">Lectura y escritura de datos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/manipulacion-arrays.html">Manipulación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/matematicas-numericas.html">Matemáticas y numéricas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/operadores.html">Operadores</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/algebra-lineal.html">Módulo linalg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/cadenas.html">Modulo char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/random.html">Módulo random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/patrones-numpy.html">Patrones útiles</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="pandas-index.html">Pandas</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html">Index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="series.html">Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dataframe.html">DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="escalares-arrays.html">Escalares y Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="otras-clases.html">Otras clases</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="groupby.html">GroupBy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="expanding-rolling-window.html"><em>Expanding, Rolling</em> y <em>Window</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="resampler.html">Resampler</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="funciones.html">Funciones</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Patrones útiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05-matplotlib/matplotlib-index.html">Matplotlib</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/pyplot.html">Pyplot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/figure.html">Figure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/axes.html">Axes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/otros.html">Otras Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06-seaborn/seaborn-index.html">Seaborn</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06-seaborn/funciones-clases.html">Funciones y Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-seaborn/objects-interface.html">Interface por objetos</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otros</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-otros/otros-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08-otros/IPython.html">IPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-otros/beautifulsoup.html">Web Scraping</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/parts/04-pandas/patrones-pandas.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Patrones útiles</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning">Data Cleaning</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#categorias-inconsistentes">Categorías inconsistentes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#categorizacion-de-una-variable">Categorización de una variable</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mapeo-de-categorias">Mapeo de categorias</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fechas-y-tiempos">Fechas y tiempos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#establecer-o-modificar-una-zona-horaria">Establecer o modificar una zona horaria:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#series-de-tiempo">Series de tiempo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cambiar-frecuencia-de-una-serie-de-tiempo-resampling">Cambiar frecuencia de una Serie de Tiempo (resampling)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#upsampling">Upsampling</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#downsampling">Downsampling</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shifting">Shifting</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="patrones-utiles">
+<h1>Patrones útiles<a class="headerlink" href="#patrones-utiles" title="Link to this heading">#</a></h1>
+<p>En esta sección se presentan y explican algunos patrones útiles al trabajar con objetos de <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p>
+<hr class="docutils" />
+<section id="data-cleaning">
+<h2>Data Cleaning<a class="headerlink" href="#data-cleaning" title="Link to this heading">#</a></h2>
+<section id="categorias-inconsistentes">
+<h3>Categorías inconsistentes<a class="headerlink" href="#categorias-inconsistentes" title="Link to this heading">#</a></h3>
+<p>Para encontrar las filas que contiene cagorías incorrectas en una columna categórica, con base a un conjunto de categorías correctas utilzar el siguiente patrón:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Determinar categorías inconsistentes</span>
+<span class="n">inconsistent_categories</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;cat_col&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">categories</span><span class="p">)</span>
+
+<span class="c1"># Imprimir filas con categorías inconsistentes</span>
+<span class="n">inconsistent_rows</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;cat_col&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">inconsistent_categories</span><span class="p">)</span> 
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">inconsistent_rows</span><span class="p">])</span>
+
+<span class="c1"># Opcionalmente, eliminar filas inconsistentes</span>
+<span class="n">df_consistent</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">inconsistent_rows</span><span class="p">]</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><em>categories</em> debe ser un <code class="docutils literal notranslate"><span class="pre">array-like</span></code> con las categorías correctas únicas.</p></li>
+</ul>
+<br/>
+</section>
+<section id="categorizacion-de-una-variable">
+<h3>Categorización de una variable<a class="headerlink" href="#categorizacion-de-una-variable" title="Link to this heading">#</a></h3>
+<p>Si se desea convertir una columna numérica en una variable categórica con base a rangos continuos de los valores. Existen dos opciones:</p>
+<p><code class="docutils literal notranslate"><span class="pre">pandas.qcut()</span></code> - <code class="docutils literal notranslate"><span class="pre">Categorical</span></code>, <code class="docutils literal notranslate"><span class="pre">series</span></code> o <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>: Divide una columna en <em>q</em> categorías, basado en cuantiles. Produce una variable categórica para indicar a cuál cuantil pertenece. Garantiza <em>bins</em> del mismo tamaño.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Opción 1: qcut()</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;cat_column&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;numeric_col&#39;</span><span class="p">],</span> <span class="n">q</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">retbins</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">q</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">int</span></code> o <code class="docutils literal notranslate"><span class="pre">list-like</span></code> de <code class="docutils literal notranslate"><span class="pre">float:</span> <span class="pre">[0,</span> <span class="pre">1]</span></code>:</p>
+<ul>
+<li><p>Si es entero es el número de cuantiles.</p></li>
+<li><p>Si es una lista, los los extremos de cada categoría. Por ejemplo para cuartiles sería <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">.25,</span> <span class="pre">.5,</span> <span class="pre">.75,</span> <span class="pre">1]</span></code>.</p></li>
+</ul>
+</li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">labels</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">array</span></code>, <code class="docutils literal notranslate"><span class="pre">False</span></code>, <code class="docutils literal notranslate"><span class="pre">None</span></code>: Los nombres de las categorías.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">array</span></code>: Tiene que tener la misma longitud que los bins/cuantiles resultantes (<em>q</em> o <code class="docutils literal notranslate"><span class="pre">len(q)</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">False</span></code>: Retorna valores enteros que indican el cuantil al que pertenecen.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">None</span></code>: Retorna los bins (rangos de cada cuantil).</p></li>
+</ul>
+</li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">retbins</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">bool</span></code>: Para retornar el bin (rango del cuantil) y la etiqueta juntos.</p></li>
+</ul>
+<br/>
+<p><code class="docutils literal notranslate"><span class="pre">pandas.cut()</span></code> - <code class="docutils literal notranslate"><span class="pre">Categorical</span></code>, <code class="docutils literal notranslate"><span class="pre">series</span></code> o <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>: Crea categorías de acuerdo a qué rango pertenece un valor. Las categorías estarán jerarquizadas. No garantiza que cada <em>bin</em> tenga el mismo número de <em>data points</em>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Opción 2: cut()</span>
+<span class="n">bins</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">200000</span><span class="p">,</span><span class="mi">500000</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;cat_column&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;numeric_col&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">retbins</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">include_lowest</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">precision</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">bins</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">sequence</span></code> de <code class="docutils literal notranslate"><span class="pre">scalar</span></code>: Criterio para crear las categorías.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span></code>: Define el número de categorías del mismo anchos, en <em>df</em>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sequence</span></code>: Definine los extremos de cada <em>bin</em>. Por ejemplo <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">10,</span> <span class="pre">20]</span></code>, crearía rangos de <em>(0,10)</em> y <em>(10, 20)</em>`.</p></li>
+</ul>
+</li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">right</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">bool</span></code>: Indica si el extremo superior sea incluído o no.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">labels</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code>, <code class="docutils literal notranslate"><span class="pre">False</span></code>, <code class="docutils literal notranslate"><span class="pre">None</span></code>: Los nombres de las categorías.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">array</span></code>: Tiene que tener la misma longitud que los bins resultantes (<em>bins</em> o <code class="docutils literal notranslate"><span class="pre">len(bins)-1</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">False</span></code>: Retorna valores enteros que indican el <em>bin</em> al que pertenecen.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">None</span></code>: Retorna los <em>bins</em> (rangos de cada cuantil).</p></li>
+<li><p>IMPORTANTE: Si <code class="docutils literal notranslate"><span class="pre">labels=None</span></code>, como quiera se puede acceder a los rangos de cada <em>bin</em> con <code class="docutils literal notranslate"><span class="pre">df.code</span></code> y la numeráción (como si <code class="docutils literal notranslate"><span class="pre">labels=False</span></code>) con <code class="docutils literal notranslate"><span class="pre">df.categories</span></code></p></li>
+</ul>
+</li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">retbins</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">bool</span></code>: Para indicar que se retorne el <em>bin</em> (rango del cuantil) y la etiqueta juntos.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">include_lowest</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">bool</span></code>: Para indicar si incluir el extremo inferior.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">precision</span></code></strong> - <code class="docutils literal notranslate"><span class="pre">int</span></code>: Número de décimales a usar en los rangos de los bines cuando <em>bins</em> es <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p></li>
+</ul>
+</section>
+<section id="mapeo-de-categorias">
+<h3>Mapeo de categorias<a class="headerlink" href="#mapeo-de-categorias" title="Link to this heading">#</a></h3>
+<p>Si se tiene una columna categórica y se quiere renombrarlas o colapsarlas a otras categorías se puede hacer uso de los métodos <code class="docutils literal notranslate"><span class="pre">.replace()</span></code> o <code class="docutils literal notranslate"><span class="pre">.map()</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear diccionario con el mapeo</span>
+<span class="n">mapping</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;cat1&#39;</span><span class="p">:</span><span class="s1">&#39;new_cat1&#39;</span><span class="p">,</span> <span class="s1">&#39;cat2&#39;</span><span class="p">:</span><span class="s1">&#39;new_cat2&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">}</span>
+
+<span class="c1"># Aplicar mapeo</span>
+<span class="n">devices</span><span class="p">[</span><span class="s1">&#39;new_cat_col&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;cat_col&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">mapping</span><span class="p">)</span>
+
+<span class="c1"># Lo anterior equivale a</span>
+<span class="n">devices</span><span class="p">[</span><span class="s1">&#39;new_cat_col&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;cat_col&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">mapping</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Ambos métodos funcionan igual solo cuando se proporciona un diccionario.</p></li>
+</ul>
+<br/>
+</section>
+</section>
+<hr class="docutils" />
+<section id="fechas-y-tiempos">
+<h2>Fechas y tiempos<a class="headerlink" href="#fechas-y-tiempos" title="Link to this heading">#</a></h2>
+</section>
+<section id="establecer-o-modificar-una-zona-horaria">
+<h2>Establecer o modificar una zona horaria:<a class="headerlink" href="#establecer-o-modificar-una-zona-horaria" title="Link to this heading">#</a></h2>
+<p>En un <code class="docutils literal notranslate"><span class="pre">Series</span></code> que sea de tipo <code class="docutils literal notranslate"><span class="pre">datetime64</span></code> es posible establecer o modifcar la zona horaria, ya que manteniendo la misma información o ajustándola a la nueva zona horaria:</p>
+<ul class="simple">
+<li><p>Para mantener usar el método <code class="docutils literal notranslate"><span class="pre">tz_localize()</span></code> del <em>accesor</em> <code class="docutils literal notranslate"><span class="pre">dt</span></code>.</p></li>
+<li><p>Para modificar usar el método <code class="docutils literal notranslate"><span class="pre">tz_convert()</span></code> del <em>accesor</em> <code class="docutils literal notranslate"><span class="pre">dt</span></code>.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Establecer una zona horaria sin modificar la hora</span>
+<span class="n">Series</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">tz_localize</span><span class="p">(</span><span class="n">tz</span><span class="p">)</span><span class="o">.</span>
+
+<span class="c1"># Establecer una zona horaria modificando la hora</span>
+<span class="n">Series</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">tz_convert</span><span class="p">(</span><span class="n">tz</span><span class="p">)</span><span class="o">.</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><em>tz</em> - <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">pytz.timezone</span></code>, <code class="docutils literal notranslate"><span class="pre">dateutil.tz.tzfile</span></code>, <code class="docutils literal notranslate"><span class="pre">datetime.tzinfo</span></code> or <code class="docutils literal notranslate"><span class="pre">None</span></code>: Zona horaria. Ver <a class="reference internal" href="../02-modulos/datetime.html#datetime-zonas-horarias"><span class="std std-ref">Zonas horarias</span></a>. Si se usa <code class="docutils literal notranslate"><span class="pre">None</span></code> se elimina la zona horaria que tenía.</p></li>
+<li><p>Estos métodos son similares a los métodos <code class="docutils literal notranslate"><span class="pre">datetime.replace</span></code> y <code class="docutils literal notranslate"><span class="pre">datetime.astimezone</span></code> del módulo <code class="docutils literal notranslate"><span class="pre">datetime</span></code>.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="series-de-tiempo">
+<h2>Series de tiempo<a class="headerlink" href="#series-de-tiempo" title="Link to this heading">#</a></h2>
+<section id="cambiar-frecuencia-de-una-serie-de-tiempo-resampling">
+<span id="cookbook-resampling"></span><h3>Cambiar frecuencia de una Serie de Tiempo (resampling)<a class="headerlink" href="#cambiar-frecuencia-de-una-serie-de-tiempo-resampling" title="Link to this heading">#</a></h3>
+<p>Una serie de tiempo normalmente tendrá un índice de tipo <code class="docutils literal notranslate"><span class="pre">datetime-like</span></code>. Existen dos opciones principales para cambiar la frecuencia.</p>
+<p><strong>Importante</strong>: Para los ejemplos de esta sección se utilizará el siguiente <code class="docutils literal notranslate"><span class="pre">Series</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar librerias</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">default_rng</span>
+
+<span class="c1"># Crear índice</span>
+<span class="n">ind</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;01/01/2024&#39;</span><span class="p">,</span> <span class="s1">&#39;31/01/2024&#39;</span><span class="p">,</span> <span class="n">freq</span> <span class="o">=</span> <span class="s1">&#39;2D&#39;</span><span class="p">)</span>
+
+<span class="c1"># Generar datos</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">default_rng</span><span class="p">()</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">ind</span><span class="p">))</span>
+
+<span class="c1"># Crear e imprimir el Series</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">ind</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-01-01    104.570902
+2024-01-03     90.224843
+2024-01-05    104.060027
+2024-01-07    113.533778
+2024-01-09    100.064687
+2024-01-11    104.758465
+2024-01-13     98.497633
+2024-01-15    103.342143
+2024-01-17    102.440546
+2024-01-19     99.312534
+2024-01-21    119.687758
+2024-01-23     90.455362
+2024-01-25     93.283939
+2024-01-27     85.610056
+2024-01-29    100.000383
+2024-01-31     91.949980
+Freq: 2D, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Notar que la serie tiene una frecuencia de 2 días.</p></li>
+</ul>
+<section id="upsampling">
+<h4>Upsampling<a class="headerlink" href="#upsampling" title="Link to this heading">#</a></h4>
+<p>Se refiere a pasar de una unidad más grande a unidades más pequeñas, como de meses a días. Implica que se generarán valores perdidos <em>NA</em>. Los cuales se pueden rellenar o interpolar, por default se dejan los valores vacíos. Existen tres estrategias para hacer <em>upsampling</em>:</p>
+<ol class="arabic simple">
+<li><p>Utilizar el método <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.asfreq.html">.asfreq()</a>.</p></li>
+<li><p>Utilizar el método <a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.DataFrame.resample.html#pandas.DataFrame.resample">.resample()</a>.</p></li>
+<li><p>También se puede usar <code class="docutils literal notranslate"><span class="pre">.reindex()</span></code> pasando un índice con la nueva frecuencia y para rellenar valores perdidos es se pueden usar los métodos para valores nulos de <code class="docutils literal notranslate"><span class="pre">Series</span></code> o <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p></li>
+</ol>
+<p>La plantilla básica para usar cualquiera de las primeras dos estrategias son:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Con .asfreq()</span>
+<span class="n">X</span><span class="o">.</span><span class="n">asfreq</span><span class="p">(</span><span class="n">freq</span><span class="p">)</span>
+<span class="c1"># Rellenar valores NA</span>
+<span class="n">X</span><span class="o">.</span><span class="n">asfreq</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">fill_value</span><span class="p">)</span> <span class="c1">#Solo se pone uno de los dos</span>
+
+<span class="c1"># Con .resample()</span>
+<span class="n">X</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">freq</span><span class="p">)</span><span class="o">.</span><span class="n">asfreq</span><span class="p">(</span><span class="n">fill_value</span><span class="p">)</span> <span class="c1"># si no se indica fillvalue se mantendrán los NA.</span>
+<span class="c1"># Rellenar valores NA</span>
+<span class="n">X</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">freq</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">()</span> <span class="c1">#Ejemplo con filla(), existen más métodos</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Para rellenar valores dependerá de la estrategia que se haya utilizado:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">asfreq()</span></code>: Se utiliza los argumentos <em>method</em> o <em>fill_value</em>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">resample()</span></code>: Utilizar los <a class="reference internal" href="resampler.html#pandas-resampler-methods-upsamplig"><span class="std std-ref">métodos</span></a>, como por ejemplo <code class="docutils literal notranslate"><span class="pre">asfreq()</span></code>, <code class="docutils literal notranslate"><span class="pre">fillna()</span></code>, <code class="docutils literal notranslate"><span class="pre">interpolate()</span></code>, etc.</p></li>
+</ol>
+</li>
+</ul>
+<br/>
+<p><strong>Ejemplo</strong>: A continuación veremos como aplicar <em>upsampling</em> pasando de una frecuencia de cada dos días a diario:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Upsampling con .asfreq</span>
+<span class="n">s_u1</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">asfreq</span><span class="p">(</span><span class="s1">&#39;1D&#39;</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;pad&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s_u1</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Upsampling con .resample().interpolate()</span>
+<span class="n">s_u2</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;1D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">interpolate</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s_u2</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-01-01    104.570902
+2024-01-02    104.570902
+2024-01-03     90.224843
+2024-01-04     90.224843
+2024-01-05    104.060027
+2024-01-06    104.060027
+2024-01-07    113.533778
+2024-01-08    113.533778
+2024-01-09    100.064687
+2024-01-10    100.064687
+2024-01-11    104.758465
+2024-01-12    104.758465
+2024-01-13     98.497633
+2024-01-14     98.497633
+2024-01-15    103.342143
+2024-01-16    103.342143
+2024-01-17    102.440546
+2024-01-18    102.440546
+2024-01-19     99.312534
+2024-01-20     99.312534
+2024-01-21    119.687758
+2024-01-22    119.687758
+2024-01-23     90.455362
+2024-01-24     90.455362
+2024-01-25     93.283939
+2024-01-26     93.283939
+2024-01-27     85.610056
+2024-01-28     85.610056
+2024-01-29    100.000383
+2024-01-30    100.000383
+2024-01-31     91.949980
+Freq: D, dtype: float64
+
+2024-01-01    104.570902
+2024-01-02     97.397873
+2024-01-03     90.224843
+2024-01-04     97.142435
+2024-01-05    104.060027
+2024-01-06    108.796903
+2024-01-07    113.533778
+2024-01-08    106.799233
+2024-01-09    100.064687
+2024-01-10    102.411576
+2024-01-11    104.758465
+2024-01-12    101.628049
+2024-01-13     98.497633
+2024-01-14    100.919888
+2024-01-15    103.342143
+2024-01-16    102.891345
+2024-01-17    102.440546
+2024-01-18    100.876540
+2024-01-19     99.312534
+2024-01-20    109.500146
+2024-01-21    119.687758
+2024-01-22    105.071560
+2024-01-23     90.455362
+2024-01-24     91.869651
+2024-01-25     93.283939
+2024-01-26     89.446997
+2024-01-27     85.610056
+2024-01-28     92.805219
+2024-01-29    100.000383
+2024-01-30     95.975182
+2024-01-31     91.949980
+Freq: D, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Recordar que si se usa <code class="docutils literal notranslate"><span class="pre">.resample</span></code> existen más <a class="reference internal" href="resampler.html#pandas-resampler-methods-upsamplig"><span class="std std-ref">métodos</span></a> para rellenar los valores perdidos, por ejemplo, también se pudo haber usado <code class="docutils literal notranslate"><span class="pre">X.resample('1D').asfreq(100)</span></code> para rellenar los <em>NaN</em> con 100.</p></li>
+</ul>
+</section>
+<section id="downsampling">
+<h4>Downsampling<a class="headerlink" href="#downsampling" title="Link to this heading">#</a></h4>
+<p>Se refiere a pasar de una unidad más pequeña  a una más grande, como de días a meses, en este caso será necesario hacer <em>aggregates</em>. Se utiliza el método <a class="reference external" href="http://pandas.pydata.org/docs/reference/api/pandas.DataFrame.resample.html#pandas.DataFrame.resample">.resample()</a>. Es similar a un <em>groupby</em>, posteriormente se debe usar un método de <em>aggregate</em> como <code class="docutils literal notranslate"><span class="pre">.first()</span></code>, <code class="docutils literal notranslate"><span class="pre">.last()</span></code>, etc. o <code class="docutils literal notranslate"><span class="pre">.agg()</span></code> para el caso de más de una función:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Downsampling con un aggregate</span>
+<span class="n">X</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">freq</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="c1"># Ejemplo con .mean().</span>
+
+<span class="c1"># Downsampling con múltiples aggregates</span>
+<span class="n">X</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">freq</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s1">&#39;func1&#39;</span><span class="p">,</span> <span class="s1">&#39;func2&#39;</span><span class="p">])</span>  <span class="c1">#Ejemplo de dos aggregates</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>También es posible usar el método <code class="docutils literal notranslate"><span class="pre">.asfreq(freq)</span></code> pero en este caso no se hará un <em>aggregate</em>, sino que se seleccionaran las observaciones de acuerdo a la frecuencia indicada.</p></li>
+</ul>
+<br/>
+<p><strong>Ejemplo</strong>: A continuación veremos como aplicar <em>downsampling</em> pasando de una frecuencia de cada dos días a cada 7 días (1 semana):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Upsampling con .resample().mean()</span>
+<span class="n">s</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;1W&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-01-07    103.097388
+2024-01-14    101.106928
+2024-01-21    106.195745
+2024-01-28     89.783119
+2024-02-04     95.975182
+Freq: W-SUN, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>El resultado hubiera sido el mismo si se hubiera usado como <em>offset</em> la cadena <code class="docutils literal notranslate"><span class="pre">'7D'</span></code>.</p></li>
+<li><p>Recordar que existen más <a class="reference internal" href="resampler.html#pandas-resampler-methods-aggregate"><span class="std std-ref">métodos</span></a> para calcular el <em>aggregate</em>, o que incluso se pueden calcular más de un <a class="reference internal" href="resampler.html#pandas-resampler-methods-apply"><span class="std std-ref">aggregate</span></a> al mismo tiempo.</p></li>
+</ul>
+<br/>
+</section>
+</section>
+<section id="shifting">
+<h3>Shifting<a class="headerlink" href="#shifting" title="Link to this heading">#</a></h3>
+<p>Se pueden desfasar los valores en una serie de tiempo con el método <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.shift.html">.shift()</a> el cual se debe indicar cuántos periodos desfasar, los cuales pueden ser positivos o negativos, y adicionalmente se pueden indicar una frecuencia en particular, en caso de que se indique una frecuencia, los datos originales se preservan y se desfasa la serie de tiempo. Ejemplos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># shift simple</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(),</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># shift indicando una frecuencia</span>
+<span class="n">s</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-01-01           NaN
+2024-01-03           NaN
+2024-01-05           NaN
+2024-01-07    104.570902
+2024-01-09     90.224843
+Freq: 2D, dtype: float64
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-01-04    104.570902
+2024-01-06     90.224843
+2024-01-08    104.060027
+2024-01-10    113.533778
+2024-01-12    100.064687
+Freq: 2D, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./parts/04-pandas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="funciones.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Funciones</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="anexos.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Anexos</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning">Data Cleaning</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#categorias-inconsistentes">Categorías inconsistentes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#categorizacion-de-una-variable">Categorización de una variable</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mapeo-de-categorias">Mapeo de categorias</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fechas-y-tiempos">Fechas y tiempos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#establecer-o-modificar-una-zona-horaria">Establecer o modificar una zona horaria:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#series-de-tiempo">Series de tiempo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cambiar-frecuencia-de-una-serie-de-tiempo-resampling">Cambiar frecuencia de una Serie de Tiempo (resampling)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#upsampling">Upsampling</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#downsampling">Downsampling</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shifting">Shifting</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nebok
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

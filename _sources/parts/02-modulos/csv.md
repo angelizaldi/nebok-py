@@ -3,6 +3,7 @@
 Este módulo implementa clases para leer archivos _.csv_ y escribir datos tabulares en archivos ._csv_. Es necesario importar el módulo.
 
 ```python
+# Importar el módulo
 import csv
 ```
 
@@ -64,8 +65,8 @@ with open(filename, 'r') as csvfile:
     for row in reader:
         ...
 ```
-- _filename_ \- `str`: Es la ruta al archivo, incluyendo nombre y la extensión `.csv` o la correspondiente al delimitador.
-- En la iteración `row` es `list`, cuyos elementos son los valores de una fila del archivo csv.
+- _filename_ \- `str`: Es la ruta al archivo, incluyendo nombre y la extensión _.csv_ o la correspondiente al delimitador.
+- En la iteración _row_ es `list`, cuyos elementos son los valores de una fila del archivo csv.
 
 <br><br>
 
@@ -95,9 +96,9 @@ A continuación se presenta una lista de métodos públicos del objeto `csvwrite
 * - Método
   - Descripción
 * - [writerow](https://docs.python.org/3/library/csv.html#csv.csvwriter.writerow)(row)
-  - Escribe el parámetro `row` en el objeto de archivo `writer`.
+  - Escribe el parámetro _row_ en el objeto de archivo `writer`.
 * - [writerows](https://docs.python.org/3/library/csv.html#csv.csvwriter.writerows)(rows)
-  - Escribe todos los elementos en `rows` (un `iterable`) en el objeto de archivo `writer`.
+  - Escribe todos los elementos en _rows_ (un `iterable`) en el objeto de archivo `writer`.
 ```
 
 <br>
@@ -105,15 +106,15 @@ A continuación se presenta una lista de métodos públicos del objeto `csvwrite
 ---
 ### Plantilla de uso
 
-A continuación se presenta una forma general de cómo trabajar con los objetos `csvwriter`
+A continuación se presenta una forma general de cómo trabajar con los objetos `csvwriter`:
 
 ```python
 # Importar el módulo
 import csv
 
-# Crear conexción con el archivo
+# Crear conexión con el archivo
 with open(filename, 'w') as csvfile:
-    # Crear objeto csvreader
+    # Crear objeto csvwriter
     writer = csv.writer(csvfile, delimiter=',')
     
     # Opcional - Escribir una línea
@@ -122,6 +123,6 @@ with open(filename, 'w') as csvfile:
     # Opcional - Escribir múltiples líneas
     writer.writerows(iterable_of_iterable)
 ```
-- _filename_ \- `str`: Es la ruta al archivo, incluyendo nombre y la extensión `.csv` o la correspondiente al delimitador.
+- _filename_ \- `str`: Es la ruta al archivo, incluyendo nombre y la extensión _.csv_ o la correspondiente al delimitador.
 - Si solo se escribirá una línea se debe pasar una `iterable`, por ejemplo, un objeto `list`, donde cada elemento se escribirá separado por comas.
 - Si se escribirán múltiples líneas al mismo tiempo se debe pasar un `iterable` de `iterable`, por ejemplo un objeto `list` anidado.

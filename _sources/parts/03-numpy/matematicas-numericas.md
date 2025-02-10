@@ -1,6 +1,6 @@
 # Matemáticas y numéricas
 
-En esta sección se enlistan las funciones para realizar cálculos matemáticos y para trabajar con arrays numéricos/booleanos.
+En esta sección se enlistan las funciones para realizar cálculos matemáticos y para trabajar con _arrays_ numéricos/booleanos.
 
 :::{warning}
 Para una lista completa visitar la [documentación](https://numpy.org/doc/stable/reference/routines.math.html#mathematical-functions) de `numpy`.
@@ -59,9 +59,9 @@ Funciones para calcular el máximo común divisor y el mínimo común múltiplo 
 * - Función
   - Descripción
 * - [gcd](https://numpy.org/doc/stable/reference/generated/numpy.gcd.html)(x1, x2, /[, out, where, casting, order, ...])
-  - Devuelve el máximo común divisor de `|x1|` y `|x2|`.
+  - Devuelve el máximo común divisor de _|x1|_ y _|x2|_.
 * - [lcm](https://numpy.org/doc/stable/reference/generated/numpy.lcm.html)(x1, x2, /[, out, where, casting, order, ...])
-  - Devuelve el mínimo común múltiplo de `|x1|` y `|x2|`.
+  - Devuelve el mínimo común múltiplo de _|x1|_ y _|x2|_.
 ```
 
 <br>
@@ -78,15 +78,15 @@ Funciones relacionadas con exponentes y logaritmos para cálculos vectorizados.
 * - [exp](https://numpy.org/doc/stable/reference/generated/numpy.exp.html)(x, /[, out, where, casting, order, ...])
   - Calcula la exponencial (`e**x`) de todos los elementos en el arreglo de entrada.
 * - [exp2](https://numpy.org/doc/stable/reference/generated/numpy.exp2.html)(x, /[, out, where, casting, order, ...])
-  - Calcula `2**p` para todo `p` en el arreglo de entrada.
+  - Calcula `2**p` para todo _p_ en el arreglo de entrada.
 * - [expm1](https://numpy.org/doc/stable/reference/generated/numpy.expm1.html)(x, /[, out, where, casting, order, ...])
-  - Calcula `exp(x) - 1` para todos los elementos del arreglo. Útil cuando `x` tiene valores muy pequeños.
+  - Calcula `exp(x) - 1` para todos los elementos del arreglo. Útil cuando _x_ tiene valores muy pequeños.
 * - [log](https://numpy.org/doc/stable/reference/generated/numpy.log.html)(x, /[, out, where, casting, order, ...])
   - Logaritmo natural, por elementos.
 * - [log10](https://numpy.org/doc/stable/reference/generated/numpy.log10.html)(x, /[, out, where, casting, order, ...])
   - Logaritmo base 10, por elementos.
 * - [log1p](https://numpy.org/doc/stable/reference/generated/numpy.log1p.html)(x, /[, out, where, casting, order, ...])
-  - Devuelve el `ln(1+x)` para el arreglo de entrada, por elementos. Útil cuando `x` tiene valores muy pequeños.
+  - Devuelve el `ln(1+x)` para el arreglo de entrada, por elementos. Útil cuando _x_ tiene valores muy pequeños.
 * - [log2](https://numpy.org/doc/stable/reference/generated/numpy.log2.html)(x, /[, out, where, casting, order, ...])
   - Logaritmo base 2, por elementos.
 * - [logaddexp](https://numpy.org/doc/stable/reference/generated/numpy.logaddexp.html)(x1, x2, /[, out, where, casting, ...])
@@ -124,7 +124,7 @@ Funciones relacionadas con funciones hiperbólicas para cálculos vectorizados.
 
 ## Lógicas
 
-Funciones útiles en arrays booleanos. 
+Funciones útiles en _arrays_ booleanos. 
 
 ```{list-table}
 :header-rows: 1
@@ -188,7 +188,7 @@ Funciones matemáticas generales como raíces cuadradas y cúbicas, valores abso
 * - [interp](https://numpy.org/doc/stable/reference/generated/numpy.interp.html)(x, xp, fp[, left, right, period])
   - Interpolación lineal unidimensional para puntos de muestra que aumentan monótonamente.
 * - [nan_to_num](https://numpy.org/doc/stable/reference/generated/numpy.nan_to_num.html)(x[, copy, nan, posinf, neginf])
-  - Reemplaza `NaN` con cero e `inf` con números finitos grandes (default) o con los números definidos por el usuario usando `nan`, `posinf` y/o `neginf`.
+  - Reemplaza `NaN` con cero e `inf` con números finitos grandes (default) o con los números definidos por el usuario usando _nan_, _posinf_ y/o _neginf_.
 * - [sign](https://numpy.org/doc/stable/reference/generated/numpy.sign.html)(x, /[, out, where, casting, order, ...])
   - Devuelve una indicación por elementos del signo de un número.
 * - [sqrt](https://numpy.org/doc/stable/reference/generated/numpy.sqrt.html)(x, /[, out, where, casting, order, ...])
@@ -222,9 +222,87 @@ Funciones relacionadas con números complejos para cálculos vectorizados.
 
 <br/>
 
+## Polinomios
+
+Funciones para trabajar con polinomios.
+
+### Ajustar
+
+Funciones ajustar un polinomio a un conjunto de datos. 
+
+```{list-table}
+:header-rows: 1
+
+* - Método
+  - Descripción
+* - [polyfit](https://numpy.org/doc/stable/reference/generated/numpy.polyfit.html)(x,  y,  deg[,  rcond,  full,  w,  cov])
+  - Ajuste polinomial de mínimos cuadrados.
+```
+
+<br/>
+
+### Aritméticas
+
+Funciones para realizar operaciones algebraicas con polinomios. 
+
+```{list-table}
+:header-rows: 1
+
+* - Método
+  - Descripción
+* - [polyadd](https://numpy.org/doc/stable/reference/generated/numpy.polyadd.html)(a1,  a2)
+  - Encuentra la suma de dos polinomios.
+* - [polydiv](https://numpy.org/doc/stable/reference/generated/numpy.polydiv.html)(u,  v)
+  - Retorna el cociente y el resto de la división polinomial.
+* - [polymul](https://numpy.org/doc/stable/reference/generated/numpy.polymul.html)(a1,  a2)
+  - Encuentra el producto de dos polinomios.
+* - [polysub](https://numpy.org/doc/stable/reference/generated/numpy.polysub.html)(a1,  a2)
+  - Diferencia (resta) de dos polinomios.
+```
+
+<br/>
+
+### Básicos
+
+Funciones básicas para trabajar con polinomios como definir, evaluar, encontrar raices y determinar coeficientes.
+
+```{list-table}
+:header-rows: 1
+
+* - Método
+  - Descripción
+* - [poly](https://numpy.org/doc/stable/reference/generated/numpy.poly.html)(seq_of_zeros)
+  - Encuentra los coeficientes de un polinomio con la secuencia de raíces dada.
+* - [poly1d](https://numpy.org/doc/stable/reference/generated/numpy.poly1d.html)(c_or_r[,  r,  variable])
+  - Una clase polinomial unidimensional.
+* - [polyval](https://numpy.org/doc/stable/reference/generated/numpy.polyval.html)(p,  x)
+  - Evaluar un polinomio en valores específicos.
+* - [roots](https://numpy.org/doc/stable/reference/generated/numpy.roots.html)(p)
+  - Retorna las raíces de un polinomio con coeficientes dados en _p_.
+```
+
+<br/>
+
+### Cálculo
+
+Funciones para realizar derivadas e integrales indefinidas sobre polinomios. 
+
+```{list-table}
+:header-rows: 1
+
+* - Método
+  - Descripción
+* - [polyder](https://numpy.org/doc/stable/reference/generated/numpy.polyder.html)(p[,  m])
+  - Retorna la derivada del orden especificado de un polinomio.
+* - [polyint](https://numpy.org/doc/stable/reference/generated/numpy.polyint.html)(p[,  m,  k])
+  - Retorna una antiderivada (integral indefinida) de un polinomio.
+```
+
+<br/>
+
 ## Redondeo y truncamiento
 
-Funciones relacionadas con redondear y truncar arrays numéricos.  
+Funciones relacionadas con redondear y truncar _arrays_ numéricos.  
 
 ```{list-table}
 :header-rows: 1
@@ -236,7 +314,7 @@ Funciones relacionadas con redondear y truncar arrays numéricos.
 * - [ceil](https://numpy.org/doc/stable/reference/generated/numpy.ceil.html)(x, /[, out, where, casting, order, ...])
   - Devuelve el techo de la entrada, por elementos.
 * - [clip](https://numpy.org/doc/stable/reference/generated/numpy.clip.html)(a, a_min, a_max[, out])
-  - Limita los valores en un arreglo a `a_min` y `a_max`.
+  - Limita los valores en un arreglo a _a_min_ y _a_max_.
 * - [fix](https://numpy.org/doc/stable/reference/generated/numpy.fix.html)(x[, out])
   - Redondea al entero más cercano hacia cero.
 * - [floor](https://numpy.org/doc/stable/reference/generated/numpy.floor.html)(x, /[, out, where, casting, order, ...])
@@ -251,7 +329,7 @@ Funciones relacionadas con redondear y truncar arrays numéricos.
 
 ## Sumas y productos
 
-Funciones para realizar sumas, productos y diferencias en arrays numéricos, así como cálculos acumulados.
+Funciones para realizar sumas, productos y diferencias en _arrays_ numéricos, así como cálculos acumulados.
 
 ```{list-table}
 :header-rows: 1

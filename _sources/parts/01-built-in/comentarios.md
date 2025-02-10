@@ -1,6 +1,6 @@
 # Comentarios
 
-Para insertar comentarios de una línea se utiliza el símbolo de gato `#`:
+Para insertar comentarios de una línea se utiliza el símbolo de numeral (almohadilla) `#`:
 ```python
 # Esto es un comentario
 ```

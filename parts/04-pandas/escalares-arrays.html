@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -181,26 +181,26 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    Manual de Python
+                    Manual de Python para Data Science
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Built-in</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../01-built-in/built-in-index.html">Python estándar</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01-built-in/built-in-index.html">Python Estándar</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../01-built-in/ayuda.html">Obtener ayuda</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../01-built-in/comentarios.html">Comentarios</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../01-built-in/tipos-datos.html">Tipos de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/tipos-datos.html">Tipos de Datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/variables-constantes.html">Variables y Constantes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../01-built-in/operadores-palabras.html">Operadores y palabras reservadas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../01-built-in/entrada-salida.html">Entrada y salida de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/entrada-salida.html">Impresión y solicitud de datos</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/tipos-index.html">Tipos Built-In</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../01-built-in/booleanos.html">Valores booleanos</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../01-built-in/numeros.html">Números</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../01-built-in/cadenas.html">Cadenas</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../01-built-in/listas.html">Listas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/none-bool-numericos.html"><em>None</em>, <em>bool</em> y Numéricos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/str.html">str</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/lists.html">list</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../01-built-in/tuples.html">Tuples</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../01-built-in/sets.html">Sets</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../01-built-in/diccionarios.html">Diccionarios</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/dicts.html">dict</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -209,10 +209,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l3"><a class="reference internal" href="../01-built-in/do-while.html">Do While</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../01-built-in/funciones.html">Funciones</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../01-built-in/try-except.html">Exceptions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../01-built-in/context.html">Context Managers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../01-built-in/io.html">Lectura y escritura de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/udf.html">Funciones (UDF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/exceptions.html">Excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/context-managers.html">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/io.html">Lectura y escritura de archivos (IO)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../01-built-in/modulos.html">Paquetes y Módulos</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/avanzado-index.html">Temas avanzados</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../01-built-in/decorators.html">Decorators</a></li>
@@ -231,12 +231,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/itertools.html">Itertools</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/json.html">JSON</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/math.html">Math</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os.html">os</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os-path.html">os.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os.html">Os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os-path.html">Os.path</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/pickle.html">Pickle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/random.html">Random</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02-modulos/regular-expression.html">Regular Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/regex.html">Regex</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../02-modulos/statistics.html">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/urllib-request.html">urllib.request</a></li>
 </ul>
 </li>
 </ul>
@@ -270,16 +271,32 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Escalares y Arrays</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="otras-clases.html">Otras clases</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="groupby.html">GroupBy</a></li>
-<li class="toctree-l3"><a class="reference internal" href="expanding-rolling-window.html">Expanding, Rolling y Window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="expanding-rolling-window.html"><em>Expanding, Rolling</em> y <em>Window</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="resampler.html">Resampler</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="funciones.html">Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patrones-pandas.html">Patrones útiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05-matplotlib/matplotlib-index.html">Matplotlib</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/pyplot.html">Pyplot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/figure.html">Figure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/axes.html">Axes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/otros.html">Otras Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06-seaborn/seaborn-index.html">Seaborn</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06-seaborn/funciones-clases.html">Funciones y Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-seaborn/objects-interface.html">Interface por objetos</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Otros</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../08-otros/otros-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-otros/otros-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../08-otros/IPython.html">IPython</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../08-otros/beautifulsoup.html">Web Scraping</a></li>
 </ul>
@@ -434,16 +451,20 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creacion-de-arrays">Creación de <em>arrays</em></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#timestamp">Timestamp</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dar-formato-concreto-a-timestamp">Dar formato concreto a <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operaciones-con-objetos-timestamp">Operaciones con objetos <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-timestamp">Atributos de <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-timestamp">Métodos de <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#timedelta">Timedelta</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operaciones-con-objetos-timedelta">Operaciones con objetos <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-timedelta">Atributos de <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-timedelta">Métodos de <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#period">Period</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operaciones-con-objetos-period">Operaciones con objetos <code class="docutils literal notranslate"><span class="pre">Period</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-period">Atributos de <code class="docutils literal notranslate"><span class="pre">Period</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-period">Métodos de <code class="docutils literal notranslate"><span class="pre">Period</span></code></a></li>
 </ul>
@@ -523,7 +544,7 @@ document.write(`
 <tr class="row-odd"><td><p>Sparse</p></td>
 <td><p>(none)</p></td>
 <td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/arrays.html#sparse">pd.arrays.SparseArray</a></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">'Sparse'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Sparse[int</span></code>’<code class="docutils literal notranslate"><span class="pre">,</span> </code>‘Sparse[float<code class="docutils literal notranslate"><span class="pre">'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">'Sparse'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Sparse[int]'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Sparse[float]'</span></code></p></td>
 </tr>
 </tbody>
 </table>
@@ -567,13 +588,13 @@ document.write(`
 </thead>
 <tbody>
 <tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.html">Timestamp</a>([ts_input, year, month, day, …])</p></td>
-<td><p>Reemplaza de <code class="docutils literal notranslate"><span class="pre">pandas</span></code> del objeto <code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code>.</p></td>
+<td><p>Es un escalar que es un reemplazo de <code class="docutils literal notranslate"><span class="pre">pandas</span></code> del objeto <code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.arrays.DatetimeArray.html">arrays.DatetimeArray</a>(values[, dtype, freq, copy])</p></td>
 <td><p><em>Array</em> de <code class="docutils literal notranslate"><span class="pre">pandas</span></code> para datos de fecha y hora compatibles con <em>tz</em> o sin <em>tz</em>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DatetimeTZDtype.html">DatetimeTZDtype</a>([unit, tz])</p></td>
-<td><p>Tipo de dato de fecha y hora que reconoce la zona horaria. Se puede usar como argumento del parámetro <em>dtype</em>.</p></td>
+<td><p>Tipo de dato de fecha y hora (escalar) similar a <code class="docutils literal notranslate"><span class="pre">np.datetime64</span></code> que reconoce la zona horaria. Se puede usar como argumento del parámetro <em>dtype</em>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -582,10 +603,11 @@ document.write(`
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">str</span></code>: Cadena que representa una fecha-tiempo, se puedo usar ISO 8601 u otros formatos.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">year</span></code>, <code class="docutils literal notranslate"><span class="pre">month</span></code>, <code class="docutils literal notranslate"><span class="pre">day</span></code>, <code class="docutils literal notranslate"><span class="pre">hour</span></code>, <code class="docutils literal notranslate"><span class="pre">minute</span></code>, <code class="docutils literal notranslate"><span class="pre">second</span></code>, <code class="docutils literal notranslate"><span class="pre">microsecond</span></code>: Indicando los elementos individuales de la fecha y tiempo.</p></li>
+<li><p>Una instancia de <code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code></p></li>
 <li><p>Para más formas visitar el link en la tabla.</p></li>
 </ul>
 </li>
-<li><p>Para la zona horaria se puede usar cadena del tipo <code class="docutils literal notranslate"><span class="pre">'Continent/City'</span></code>, parar conocer las posibles opciones visitar <a class="reference external" href="http://www.healthstream.com/hlchelp/Administrator/Classes/HLC_Time_Zone_Abbreviations.htm">esta página</a>.</p></li>
+<li><p>Para la zona horaria se puede usar cadena del tipo <em>‘Continent/City’</em>, parar conocer las posibles opciones visitar <a class="reference external" href="http://www.healthstream.com/hlchelp/Administrator/Classes/HLC_Time_Zone_Abbreviations.htm">esta página</a>.</p></li>
 </ul>
 <p><strong>Ejemplo</strong></p>
 <div class="cell docutils container">
@@ -612,13 +634,47 @@ document.write(`
 </div>
 </div>
 </div>
+<br>
+<hr class="docutils" />
+<section id="dar-formato-concreto-a-timestamp">
+<h3>Dar formato concreto a <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code><a class="headerlink" href="#dar-formato-concreto-a-timestamp" title="Link to this heading">#</a></h3>
+<p>Para darle un formato concreto a un objeto <code class="docutils literal notranslate"><span class="pre">datetime</span></code> y retornarlo como cadena se puede usar el método de instancia <code class="docutils literal notranslate"><span class="pre">Timestamp.strftime()</span></code>, para ello se debe indicar una cadena con los <a class="reference internal" href="../02-modulos/datetime.html#date-codes"><span class="std std-ref">Códigos de fechas</span></a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear una instancia</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;2021-01-15T12:30:45&#39;</span><span class="p">)</span>
+
+<span class="c1"># Imprimir la instancia en un formato concreto</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%B </span><span class="si">%d</span><span class="s1">, %Y at %H %p&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>January 15, 2021 at 12 PM
+</pre></div>
+</div>
+</div>
+</div>
+<br>
+</section>
+<hr class="docutils" />
+<section id="operaciones-con-objetos-timestamp">
+<h3>Operaciones con objetos <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code><a class="headerlink" href="#operaciones-con-objetos-timestamp" title="Link to this heading">#</a></h3>
+<p>Las operaciones válidas que se pueden hacer con objetos <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code> son:</p>
+<ul class="simple">
+<li><p><strong>Suma y resta de objetos <em>Timedelta</em></strong>: Se puede sumar o restar un objeto <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code> o un array de <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code> a un objeto <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code> y retornar un objeto <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code> o un <em>array</em> de objetos <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code> (también es posible que se retorne un <code class="docutils literal notranslate"><span class="pre">DatetimeIndex</span></code>). <br/> <code class="docutils literal notranslate"><span class="pre">Timestamp</span> <span class="pre">=</span> <span class="pre">Timestamp</span> <span class="pre">+</span> <span class="pre">Timedelta</span></code> <br/> <code class="docutils literal notranslate"><span class="pre">Timestamp</span> <span class="pre">=</span> <span class="pre">Timestamp</span> <span class="pre">-</span> <span class="pre">Timedelta</span></code></p></li>
+<li><p><strong>Suma y resta de objetos <em>int</em></strong>: A un objeto <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code> se le puede sumar/restar un entero o un array de enteros y retornar un objeto <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code> o un <em>array</em> de objetos <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code> (también es posible que se retorne un <code class="docutils literal notranslate"><span class="pre">DatetimeIndex</span></code>). Tener en cuenta que para determinar la unidad que se suma/resta se toma en cuenta la <em>freq</em> de <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code>. <br/> <code class="docutils literal notranslate"><span class="pre">Timestamp</span> <span class="pre">=</span> <span class="pre">Timestamp</span> <span class="pre">+</span> <span class="pre">int</span></code> <br/> <code class="docutils literal notranslate"><span class="pre">Timestamp</span> <span class="pre">=</span> <span class="pre">Timestamp</span> <span class="pre">-</span> <span class="pre">int</span></code></p></li>
+<li><p><strong>Diferencia de <em>Timestamp</em></strong>: Se pueden restar dos objetos <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code> y retornar un objeto <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code>. <br/> <code class="docutils literal notranslate"><span class="pre">Timedelta</span> <span class="pre">=</span> <span class="pre">Timestamp</span> <span class="pre">-</span> <span class="pre">Timestamp</span></code></p></li>
+<li><p><strong>Comparar dos <em>Timestamp</em></strong>: Usar operadores de <a class="reference internal" href="../01-built-in/operadores-palabras.html#built-in-operadores-comparacion"><span class="std std-ref">Comparación</span></a> con dos objetos <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code> y retorna <code class="docutils literal notranslate"><span class="pre">bool</span></code>. <br/> <code class="docutils literal notranslate"><span class="pre">Timestamp</span> <span class="pre">&lt;</span> <span class="pre">Timestamp</span></code></p></li>
+</ul>
 <br/>
+</section>
 <hr class="docutils" />
 <section id="atributos-de-timestamp">
 <h3>Atributos de <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code><a class="headerlink" href="#atributos-de-timestamp" title="Link to this heading">#</a></h3>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
-<p>Algunos de estos atributos son atributos de clase y otros son atributos de instancia. Recordar que <code class="docutils literal notranslate"><span class="pre">pd.Timestamp</span></code> es una subclase de <code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code>, por lo que se puede consultar la sección de <code class="docutils literal notranslate"><span class="pre">ref</span></code>{builtin-datetime-datetime} para más información.</p>
+<p>Algunos de estos atributos son atributos de clase y otros son atributos de instancia. Recordar que <code class="docutils literal notranslate"><span class="pre">pd.Timestamp</span></code> es una subclase de <code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code>, por lo que se puede consultar la sección de <code class="docutils literal notranslate"><span class="pre">ref</span></code>{datetime-datetime} para más información.</p>
 </div>
 <p>Atributos de la clase <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code>:</p>
 <ul class="simple">
@@ -664,7 +720,7 @@ document.write(`
 <h3>Métodos de <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code><a class="headerlink" href="#metodos-de-timestamp" title="Link to this heading">#</a></h3>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
-<p>Algunos de estos métodos son métodos de clase y otros son métodos de instancia. Recordar que <code class="docutils literal notranslate"><span class="pre">pd.Timestamp</span></code> es una subclase de <code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code>, por lo que se puede consultar la sección de <code class="docutils literal notranslate"><span class="pre">ref</span></code>{builtin-datetime-datetime} para más información.</p>
+<p>Algunos de estos métodos son métodos de clase y otros son métodos de instancia. Recordar que <code class="docutils literal notranslate"><span class="pre">pd.Timestamp</span></code> es una subclase de <code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code>, por lo que se puede consultar la sección de <code class="docutils literal notranslate"><span class="pre">ref</span></code>{datetime-datetime} para más información.</p>
 </div>
 <p>A continuación se enlistan los métodos de la clase <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code>.</p>
 <table class="table">
@@ -816,13 +872,70 @@ document.write(`
 </tr>
 </tbody>
 </table>
+<ul class="simple">
+<li><p>Existen dos formas principales de específicar la duración <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span></code>: Valor que representa una duración, se debe indicar la unidad. <br/> <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">=</span> <span class="pre">pd.Timedelta(5,</span> <span class="pre">'day')</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">**kwargs</span></code>: Se pueden indicar valores de ciertas unidades como <code class="docutils literal notranslate"><span class="pre">days</span></code>, <code class="docutils literal notranslate"><span class="pre">hours</span></code>, <code class="docutils literal notranslate"><span class="pre">seconds</span></code>, etc. a modo de <em>kwargs</em>. <br/> <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">=</span> <span class="pre">pd.Timedelta(days=1,</span> <span class="pre">hours=12,</span> <span class="pre">...)</span></code></p></li>
+</ul>
+</li>
+</ul>
 <br/>
+<hr class="docutils" />
+<section id="operaciones-con-objetos-timedelta">
+<h3>Operaciones con objetos <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code><a class="headerlink" href="#operaciones-con-objetos-timedelta" title="Link to this heading">#</a></h3>
+<p>Es posible realizar operaciones aritméticas con objetos <code class="docutils literal notranslate"><span class="pre">pd.Timedelta</span></code>.</p>
+<ul class="simple">
+<li><p><strong>Suma y resta de objetos <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code></strong>: Se pueden sumar o restar dos objetos <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code> con los operadores <code class="docutils literal notranslate"><span class="pre">+</span></code> y <code class="docutils literal notranslate"><span class="pre">-</span></code> respectivamente y retornar otro objeto <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code>. <br/> <code class="docutils literal notranslate"><span class="pre">Timedelta</span> <span class="pre">=</span> <span class="pre">Timedelta</span> <span class="pre">+</span> <span class="pre">Timedelta</span></code> <br/> <code class="docutils literal notranslate"><span class="pre">Timedelta</span> <span class="pre">=</span> <span class="pre">Timedelta</span> <span class="pre">-</span> <span class="pre">Timedelta</span></code></p></li>
+<li><p><strong>Multiplicar un objeto Timedelta por un número</strong>: Se puede multiplicar un objeto <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code> por un número <code class="docutils literal notranslate"><span class="pre">int</span></code> o <code class="docutils literal notranslate"><span class="pre">float</span></code> con el operador <code class="docutils literal notranslate"><span class="pre">*</span></code> y retornar otro objeto <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code>. Cada componente se multiplicará por el factor indicado. <br/> <code class="docutils literal notranslate"><span class="pre">Timedelta</span> <span class="pre">=</span> <span class="pre">Timedelta</span> <span class="pre">*</span> <span class="pre">int</span></code></p></li>
+<li><p><strong>Dividir un objeto Timedelta</strong>: Es posible dividir un objeto <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code> entre otro objeto <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code> o entre un número <code class="docutils literal notranslate"><span class="pre">int</span></code> o <code class="docutils literal notranslate"><span class="pre">float</span></code> con el operador <code class="docutils literal notranslate"><span class="pre">/</span></code> y retornar otro objeto <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code>. <br/> <code class="docutils literal notranslate"><span class="pre">Timedelta</span> <span class="pre">=</span> <span class="pre">Timedelta</span> <span class="pre">/</span> <span class="pre">int</span></code> <br/> <code class="docutils literal notranslate"><span class="pre">Timedelta</span> <span class="pre">=</span> <span class="pre">Timedelta</span> <span class="pre">/</span> <span class="pre">Timedelta</span></code></p></li>
+<li><p><strong>Sumar o restar a un objeto Timestamp</strong>: Se puede sumar o restar un objeto <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code> a un objeto <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code> y retornar un objeto <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code>. <br/> <code class="docutils literal notranslate"><span class="pre">Timestamp</span> <span class="pre">=</span> <span class="pre">Timestamp</span> <span class="pre">+</span> <span class="pre">Timedelta</span></code> <br/> <code class="docutils literal notranslate"><span class="pre">Timestamp</span> <span class="pre">=</span> <span class="pre">Timestamp</span> <span class="pre">-</span> <span class="pre">Timedelta</span></code></p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Los arrays de <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code> se pueden considerar como arrays numéricos porque lo que es posible aplicar métodos de agregación como <code class="docutils literal notranslate"><span class="pre">.mean()</span></code> o <code class="docutils literal notranslate"><span class="pre">.sum()</span></code>.</p>
+</div>
+<p><strong>Ejemplos</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear dos instancias</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;day&#39;</span><span class="p">)</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">hours</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">minutes</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">seconds</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+
+<span class="c1"># Sumar dos Timedelta</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Suma: &quot;</span><span class="p">,</span> <span class="n">X</span><span class="o">+</span><span class="n">Y</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Timedelta por un número</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Timedelta por entero: &quot;</span><span class="p">,</span> <span class="n">X</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Timedelta entre un número</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Timedelta entre entero: &quot;</span><span class="p">,</span> <span class="n">X</span><span class="o">/</span><span class="mi">6</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Timestamp más un Timedelta</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Timestamp más Timedelta: &quot;</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;2020-03-20&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">X</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Suma:  5 days 05:30:45
+
+Timedelta por entero:  6 days 00:00:00
+
+Timedelta entre entero:  0 days 12:00:00
+
+Timestamp más Timedelta:  2020-03-23 00:00:00
+</pre></div>
+</div>
+</div>
+</div>
+<br/>
+</section>
 <hr class="docutils" />
 <section id="atributos-de-timedelta">
 <h3>Atributos de <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code><a class="headerlink" href="#atributos-de-timedelta" title="Link to this heading">#</a></h3>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
-<p>Algunos de estos atributos son atributos de clase y otros son atributos de instancia. Recordar que <code class="docutils literal notranslate"><span class="pre">pd.Timedelta</span></code> es una subclase de <code class="docutils literal notranslate"><span class="pre">datetime.timedelta</span></code>, por lo que se puede consultar la sección de <code class="docutils literal notranslate"><span class="pre">ref</span></code>{builtin-datetime-timedelta} para más información.</p>
+<p>Algunos de estos atributos son atributos de clase y otros son atributos de instancia. Recordar que <code class="docutils literal notranslate"><span class="pre">pd.Timedelta</span></code> es una subclase de <code class="docutils literal notranslate"><span class="pre">datetime.timedelta</span></code>, por lo que se puede consultar la sección de <code class="docutils literal notranslate"><span class="pre">ref</span></code>{datetime-timedelta} para más información.</p>
 </div>
 <p>Atributos de la clase <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code>.</p>
 <ul class="simple">
@@ -847,7 +960,7 @@ document.write(`
 <h3>Métodos de <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code><a class="headerlink" href="#metodos-de-timedelta" title="Link to this heading">#</a></h3>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
-<p>Algunos de estos métodos son métodos de clase y otros son métodos de instancia. Recordar que <code class="docutils literal notranslate"><span class="pre">pd.Timedelta</span></code> es una subclase de <code class="docutils literal notranslate"><span class="pre">datetime.timedelta</span></code>, por lo que se puede consultar la sección de <code class="docutils literal notranslate"><span class="pre">ref</span></code>{builtin-datetime-timedelta} para más información.</p>
+<p>Algunos de estos métodos son métodos de clase y otros son métodos de instancia. Recordar que <code class="docutils literal notranslate"><span class="pre">pd.Timedelta</span></code> es una subclase de <code class="docutils literal notranslate"><span class="pre">datetime.timedelta</span></code>, por lo que se puede consultar la sección de <code class="docutils literal notranslate"><span class="pre">ref</span></code>{datetime-timedelta} para más información.</p>
 </div>
 <p>A continuación se enlistan los métodos de la clase <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code>.</p>
 <table class="table">
@@ -911,11 +1024,28 @@ document.write(`
 </tr>
 </tbody>
 </table>
+<p><strong>Ejemplo</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definir un periodo (default month-end)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">Period</span><span class="p">(</span><span class="s1">&#39;2017-01&#39;</span><span class="p">)</span>
+
+<span class="c1"># Definir periodo especificando freq</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">Period</span><span class="p">(</span><span class="s1">&#39;2017-01&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<br>
+<hr class="docutils" />
+<section id="operaciones-con-objetos-period">
+<h3>Operaciones con objetos <code class="docutils literal notranslate"><span class="pre">Period</span></code><a class="headerlink" href="#operaciones-con-objetos-period" title="Link to this heading">#</a></h3>
+<p>Las operaciones válidas que se pueden hacer con objetos <code class="docutils literal notranslate"><span class="pre">Period</span></code> son:</p>
+<ul class="simple">
+<li><p><strong>Suma y resta de objetos <em>int</em></strong>: A un objeto <code class="docutils literal notranslate"><span class="pre">Period</span></code> se le puede sumar/restar un entero o un array de enteros y retornar un objeto <code class="docutils literal notranslate"><span class="pre">Period</span></code> o un <em>array</em> de objetos <code class="docutils literal notranslate"><span class="pre">Period</span></code>. Tener en cuenta que para determinar la unidad que se suma/resta se toma en cuenta la <em>freq</em> de <code class="docutils literal notranslate"><span class="pre">Period</span></code>. <br/> <code class="docutils literal notranslate"><span class="pre">Period</span> <span class="pre">=</span> <span class="pre">Period</span> <span class="pre">+</span> <span class="pre">int</span></code> <br/> <code class="docutils literal notranslate"><span class="pre">Period</span> <span class="pre">=</span> <span class="pre">Period</span> <span class="pre">-</span> <span class="pre">int</span></code></p></li>
+</ul>
 <br/>
+</section>
 <hr class="docutils" />
 <section id="atributos-de-period">
 <h3>Atributos de <code class="docutils literal notranslate"><span class="pre">Period</span></code><a class="headerlink" href="#atributos-de-period" title="Link to this heading">#</a></h3>
-<p>Atributos de la clase <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code>:</p>
+<p>Atributos de la clase <code class="docutils literal notranslate"><span class="pre">Period</span></code>:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">.day</span></code>: Recupera el día del mes en el que cae un período.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">.day_of_week</span></code>: Día de la semana en el que se encuentra el período, siendo lunes=0 y domingo=6.</p></li>
@@ -946,7 +1076,7 @@ document.write(`
 <hr class="docutils" />
 <section id="metodos-de-period">
 <h3>Métodos de <code class="docutils literal notranslate"><span class="pre">Period</span></code><a class="headerlink" href="#metodos-de-period" title="Link to this heading">#</a></h3>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+<p>Métodos de la clase <code class="docutils literal notranslate"><span class="pre">Period</span></code>.</p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Método</p></th>
@@ -1082,16 +1212,20 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creacion-de-arrays">Creación de <em>arrays</em></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#timestamp">Timestamp</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dar-formato-concreto-a-timestamp">Dar formato concreto a <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operaciones-con-objetos-timestamp">Operaciones con objetos <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-timestamp">Atributos de <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-timestamp">Métodos de <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#timedelta">Timedelta</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operaciones-con-objetos-timedelta">Operaciones con objetos <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-timedelta">Atributos de <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-timedelta">Métodos de <code class="docutils literal notranslate"><span class="pre">Timedelta</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#period">Period</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operaciones-con-objetos-period">Operaciones con objetos <code class="docutils literal notranslate"><span class="pre">Period</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-period">Atributos de <code class="docutils literal notranslate"><span class="pre">Period</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-period">Métodos de <code class="docutils literal notranslate"><span class="pre">Period</span></code></a></li>
 </ul>

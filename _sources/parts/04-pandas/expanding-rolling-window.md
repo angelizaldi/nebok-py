@@ -11,26 +11,28 @@ kernelspec:
 ---
 
 
-# Expanding, Rolling y Window
+# _Expanding, Rolling_ y _Window_
 
-Los objetos `Rolling`, `Expanding`, `ExponentialMovingWindow` son retornados por llamadas a métodos concretos de `Series` y `DataFrame`, a continuación se resume que métodos retornan qué objetos.
+Los objetos `Rolling`, `Expanding`, `Window` y `ExponentialMovingWindow` son retornados por llamadas a métodos concretos de `Series` y `DataFrame`, a continuación se resumen los objetos y los métodos que los retornan.
 - `Rolling`:
-    - `pandas.DataFrame.rolling()`.
-    - `pandas.Series.rolling()`.
+    - Provee de una ventana móvil de tamaño fijo para cálculo de estadísticas móviles.
+    - Retornado por: `pandas.DataFrame.rolling()` y `pandas.Series.rolling()`.
 - `Expanding`:
-    - `pandas.DataFrame.expanding()`.
-    - `pandas.Series.expanding()`.
+    - Provee de una ventana expansiva, partiendo de un primer dato, útil para cálculos acumulados.
+    - Retornado por:`pandas.DataFrame.expanding()` y `pandas.Series.expanding()`.
 - `ExponentialMovingWindow`:
-    - `pandas.DataFrame.ewm()`.
-    - `pandas.Series.ewm()`.
+    - Calcula estadísticas móviles ponderadas exponencialmente utilizando factores de decaímento.
+    - Retornado por: `pandas.DataFrame.ewm()` y `pandas.Series.ewm()`.
 - `Window`:
-    - Para retornar una instancia de `Window` as necesario definir el argumento `type_win` en el método `.rolling()`.
+    - Objeto generalizado de ventana, que comibina ventanas móviles y expansivas, útil para operaciones personalizadas.
+    - Para retornar una instancia de `Window` as necesario definir el argumento `type_win` en el método `.rolling()` de `Series` o `DataFrame`.
 
+En esta sección únicamente se enlistaran los métodos de estos objetos.
 
 ---
-## Métodos de `Expanding`
+## Métodos de _Expanding_
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+Métodos del objeto `Expanding`.
 
 ```{list-table}
 :header-rows: 1
@@ -76,9 +78,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
 <br>
 
-## Métodos de `ExponentialMovingWindow`
+## Métodos de _ExponentialMovingWindow_
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+Métodos del objeto `ExponentialMovingWindow`.
 
 ```{list-table}
 :header-rows: 1
@@ -102,9 +104,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 <br>
 
 ---
-## Métodos de `Rolling`
+## Métodos de _Rolling_
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+Métodos del objeto `Rolling`.
 
 ```{list-table}
 :header-rows: 1
@@ -151,9 +153,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 <br>
 
 ---
-## Métodos de `Window`
+## Métodos de _Window_
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+Métodos del objeto `Window`.
 
 ```{list-table}
 :header-rows: 1
