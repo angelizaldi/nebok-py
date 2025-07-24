@@ -1,0 +1,2503 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Layout &#8212; Manual de Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'parts/12-plotly/go/layout';</script>
+    <link rel="icon" href="../../../_static/nebok-favicon.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Traces" href="traces.html" />
+    <link rel="prev" title="Figure" href="figure.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/nebok-logo.png" class="logo__image only-light" alt="Manual de Python - Home"/>
+    <script>document.write(`<img src="../../../_static/nebok-logo.png" class="logo__image only-dark" alt="Manual de Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Manual de Python para Data Science
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Built-in</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../01-built-in/built-in-index.html">Python Estándar</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/cli.html"><em>Command Line Interface</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/ayuda.html">Obtener ayuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/comentarios.html">Comentarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/tipos-datos.html">Tipos de Datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/variables-constantes.html">Variables y Constantes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/operadores-palabras.html">Operadores y palabras reservadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/entrada-salida.html">Impresión y solicitud de datos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../01-built-in/tipos-index.html">Tipos Built-In</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/none-bool-numericos.html"><em>None</em>, <em>bool</em> y Numéricos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/str.html">str</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/lists.html">list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/tuples.html">Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/sets.html">Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/dicts.html">dict</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../01-built-in/estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/if-else.html">If … Else</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/for-loop.html">For Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/do-while.html">Do While</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/udf.html">Funciones (UDF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/exceptions.html">Excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/context-managers.html">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/io.html">Lectura y escritura de archivos (IO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/modulos.html">Paquetes y Módulos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../01-built-in/avanzado-index.html">Temas avanzados</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/decorators.html">Decorators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/iterators.html">Iterators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/generators.html">Generators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/oop.html">Programación orientada a objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/func-built-in.html">Funciones built-in</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../02-modulos/modulos-index.html">Módulos built-in</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/csv.html">CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/datetime.html">Datetime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/itertools.html">Itertools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/json.html">JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/math.html">Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/os.html">Os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/os-path.html">Os.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/pickle.html">Pickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/random.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/regex.html">Regex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/statistics.html">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/urllib-request.html">urllib.request</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otras librerías</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../03-numpy/numpy-index.html">Numpy</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../03-numpy/arrays.html">Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../03-numpy/funciones-index.html">Funciones</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/ufuncs.html">Ufuncs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/buscar-contar-ordenar-unicos.html">Buscar, contar, ordenar y valores únicos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/creacion-arrays.html">Creación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/estadisticas.html">Estadísticas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/indices.html">Índices e iteración</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/informacion.html">Información</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/lectura-escritura.html">Lectura y escritura de datos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/manipulacion-arrays.html">Manipulación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/matematicas-numericas.html">Matemáticas y numéricas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/operadores.html">Operadores</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../03-numpy/algebra-lineal.html">Módulo linalg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../03-numpy/cadenas.html">Modulo char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../03-numpy/random.html">Módulo random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../03-numpy/patrones-numpy.html">Patrones útiles</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../04-pandas/pandas-index.html">Pandas</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../04-pandas/index.html">Index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-pandas/series.html">Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-pandas/dataframe.html">DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-pandas/escalares-arrays.html">Escalares y Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../04-pandas/otras-clases.html">Otras clases</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../04-pandas/groupby.html">GroupBy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../04-pandas/expanding-rolling-window.html"><em>Expanding, Rolling</em> y <em>Window</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../04-pandas/resampler.html">Resampler</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-pandas/funciones.html">Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-pandas/patrones-pandas.html">Patrones útiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-pandas/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../05-matplotlib/matplotlib-index.html">Matplotlib</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../05-matplotlib/pyplot.html">Pyplot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../05-matplotlib/figure.html">Figure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../05-matplotlib/axes.html">Axes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../05-matplotlib/otros.html">Otras Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../05-matplotlib/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../06-seaborn/seaborn-index.html">Seaborn</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../06-seaborn/funciones-clases.html">Funciones y Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../06-seaborn/objects-interface.html">Interface por objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../07-sklearn/sklearn-index.html">Scikit Learn</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../07-sklearn/supervised/supervised-index.html">Aprendizaje supervisado</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/supervised/ensamble.html">Ensamble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/supervised/linear_model.html">Linear model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/supervised/naive_bayes.html">Naive bayes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/supervised/neighbors.html">Neighbors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/supervised/svm.html">SVM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/supervised/tree.html">Tree</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../07-sklearn/unsupervised/unsupervised-index.html">Aprendizaje no supervisado</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/unsupervised/cluster.html">Cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/unsupervised/decomposition.html">Decomposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/unsupervised/mixture.html">Mixture</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../07-sklearn/transformations/tranformations-index.html">Transformaciones</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/transformations/feature_extraction.html">Feature Extraction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/transformations/impute.html">Impute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/transformations/manifold.html">Manifold</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/transformations/preprocessing.html">Preprocessing</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../07-sklearn/evaluation/evaluation-index.html">Evaluación y selección del modelo</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/evaluation/dummy.html">Dummy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/evaluation/feature_selection.html">Feature Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/evaluation/metrics.html">Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/evaluation/model_selection.html">Model Selection</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../07-sklearn/pipelines-and-compose/pipeline-compose-index.html">Pipelines y Modelos Compuestos</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/pipelines-and-compose/compose.html">Compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/pipelines-and-compose/pipeline.html">Pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../07-sklearn/datasets.html">Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../07-sklearn/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../08-xgboost/xgboost-index.html">XGBoost</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../08-xgboost/core-data-structure.html">Core Data Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../08-xgboost/learning-api.html">Learning API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../08-xgboost/scikit-learn-api.html">Scikit-Learn API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../08-xgboost/plotting-api.html">Plotting API</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../09-scipy/scipy-index.html">Scipy</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../09-scipy/clusters.html">Clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../09-scipy/derivacion-integracion.html">Derivación e Integración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../09-scipy/linalg.html">Linear Algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../09-scipy/sparse.html"><em>Sparse</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../09-scipy/stats.html">Stats</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../10-statsmodels/statsmodels-index.html">Statsmodels</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../10-statsmodels/statsmodels-api.html">API Principal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../10-statsmodels/statsmodels-tsa-api.html">API de Series de Tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../10-statsmodels/statsmodels-formula-api.html">API de Fórmulas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../10-statsmodels/graphics.html">Gráficos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../10-statsmodels/otras-clases.html">Otras clases</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../11-bokeh/bokeh-index.html">Bokeh</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../11-bokeh/io.html">IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../11-bokeh/layouts.html"><em>Layouts</em></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../11-bokeh/models/models-index.html"><em>Models</em></a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../11-bokeh/models/annotations.html">Anotaciones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../11-bokeh/models/axes.html">Ejes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../11-bokeh/models/callbacks.html">Callbacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../11-bokeh/models/formatters.html"><em>Formatters</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../11-bokeh/models/glyphs.html"><em>Glyphs</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../11-bokeh/models/sources.html"><em>Sources</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../11-bokeh/models/tools.html"><em>Tools</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../11-bokeh/models/widgets.html"><em>Widgets</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../11-bokeh/plotting.html">Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../11-bokeh/transform.html">transform</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../plotly-index.html">Plotly</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../express.html"><em>Express</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../figure-factory.html"><em>Figure Factory</em></a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="go-index.html"><em>Graph Objects</em></a><input checked="" class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="figure.html"><em>Figure</em></a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#"><em>Layout</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traces.html">Traces</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../io.html">IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subplots.html">Subplots</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/beautifulsoup.html">BeautifulSoup</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Complementarios</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../appendix/appendix-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../appendix/IPython.html">IPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../appendix/jupyter.html">Jupyter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../appendix/pip.html">pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../appendix/conda.html"><em>conda</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../appendix/git.html">git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../appendix/shell.html">Shell</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/parts/12-plotly/go/layout.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Layout</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Layout</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clases">Clases</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#annotation">Annotation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-annotation">Atributos de <em>Annotation</em></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coloraxis">Coloraxis</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-coloraxis">Atributos de Coloraxis</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#colorscale">Colorscale</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-colorscale">Atributos de Colorscale</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#font">Font</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-font">Atributos de Font</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grid">Grid</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-grid">Atributos de Grid</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#legend">Legend</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-legend">Atributos de Legend</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selection">Selection</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-selection">Atributos de Selection</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slider">Slider</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-slider">Atributos de Slider</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#title">Title</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-title">Atributos de Title</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updatemenu">Updatemenu</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-updatemenu">Atributos de Updatemenu</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#xaxis">XAxis</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-xaxis">Atributos de XAxis</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yaxis">YAxis</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-yaxis">Atributos de YAxis</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="layout">
+<h1><em>Layout</em><a class="headerlink" href="#layout" title="Link to this heading">#</a></h1>
+<p>Define la apariencia y estructura del gráfico, como títulos, ejes, leyendas y márgenes. En esta sección se revisan tanto la clase <code class="docutils literal notranslate"><span class="pre">Layout</span></code> como el módulo <em>layout</em>. Ambos se relacionan ya que una instancia de <code class="docutils literal notranslate"><span class="pre">Layout</span></code> se define con las clases implementadas en el módulo <em>layout</em>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>El módulo <em>layout</em> tiene múltiples submódulos que se pueden revisar en la <a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.layout.html#subpackages">documentación</a>. Notar que el módulo se divide en múltiples submódulos, y estos a su vez estos pueden tener otros submódulos.</p>
+<p>En las clases documentadas en este sitio que tienen submódulos se enlistarán sus submódulos.</p>
+</div>
+<section id="id1">
+<h2>Layout<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>Objeto que establece el estilo de una figura.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Constructor</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.Layout">go.Layout</a>(arg=None, …)</p></td>
+<td><p>Construye un nuevo objeto de diseño.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<p><code class="docutils literal notranslate"><span class="pre">plotly.graph_object.Layout()</span></code>: Objeto que establece el estilo de una figura.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+<span class="n">go</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong>legend</strong> - <code class="docutils literal notranslate"><span class="pre">layout.Legend</span></code> o <code class="docutils literal notranslate"><span class="pre">dict</span></code>: Propiedades de la leyenda de la gráfica.</p></li>
+<li><p><strong>xaxis</strong>, <strong>yaxis</strong> - <code class="docutils literal notranslate"><span class="pre">layout.XAxis</span></code>, <code class="docutils literal notranslate"><span class="pre">layout.Yaxis</span></code> o <code class="docutils literal notranslate"><span class="pre">dict</span></code>: Propiedades de los ejes <em>x</em> y <em>y</em> respectivamente.</p></li>
+<li><p><strong>title</strong> - <code class="docutils literal notranslate"><span class="pre">layout.Title</span></code> o <code class="docutils literal notranslate"><span class="pre">dict</span></code>: Propiedades del título de la gráfica.</p></li>
+<li><p><strong>annotations</strong> - <code class="docutils literal notranslate"><span class="pre">tuple</span></code> de <code class="docutils literal notranslate"><span class="pre">layout.Annotation</span></code> o <code class="docutils literal notranslate"><span class="pre">dict</span></code>: Instancias o <code class="docutils literal notranslate"><span class="pre">dict</span></code> con propiedades compatibles.</p></li>
+</ul>
+<br/>
+</section>
+<section id="clases">
+<h2>Clases<a class="headerlink" href="#clases" title="Link to this heading">#</a></h2>
+<p>Clases implementadas en el submódulo <em>graph_objects.layout</em>. Las instancias de estas clases se utilizan como argumentos del constructor de <code class="docutils literal notranslate"><span class="pre">Layout</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Constructor</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Anotaciones, etiquetas, leyendas y títulos</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Annotation">go.layout.Annotation</a>(arg=None, align=None, …)</p></td>
+<td><p>Agrega texto y marcas en una ubicación específica del gráfico.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Font">go.layout.Font</a>(arg=None, color=None, …)</p></td>
+<td><p>Define el tipo de fuente, tamaño y color para los textos en el gráfico.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Legend">go.layout.Legend</a>(arg=None, bgcolor=None, …)</p></td>
+<td><p>Configura la apariencia y posición de la leyenda del gráfico.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Title">go.layout.Title</a>(arg=None, automargin=None, …)</p></td>
+<td><p>Especifica las propiedades del título del gráfico.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Uniformtext">go.layout.Uniformtext</a>(arg=None, minsize=None, …)</p></td>
+<td><p>Controla la apariencia uniforme del texto en las etiquetas de la gráfica.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Colores y escalas</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Coloraxis">go.layout.Coloraxis</a>(arg=None, autocolorscale=None, …)</p></td>
+<td><p>Maneja el mapeo de valores a colores en gráficos que usan escala de colores.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Colorscale">go.layout.Colorscale</a>(arg=None, diverging=None, …)</p></td>
+<td><p>Define una escala de colores específica para representar datos en el gráfico.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Diseño y estructura del gráfico</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Grid">go.layout.Grid</a>(arg=None, columns=None, …)</p></td>
+<td><p>Define la disposición de una cuadrícula en el diseño de subgráficos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Margin">go.layout.Margin</a>(arg=None, autoexpand=None, …)</p></td>
+<td><p>Controla los márgenes alrededor de la gráfica.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Coordenadas y sistemas de referencia</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Polar">go.layout.Polar</a>(arg=None, angularaxis=None, …)</p></td>
+<td><p>Configura gráficos en coordenadas polares.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Scene">go.layout.Scene</a>(arg=None, annotations=None, …)</p></td>
+<td><p>Controla la configuración de gráficos en 3D, como <code class="docutils literal notranslate"><span class="pre">scatter_3d</span></code> o <code class="docutils literal notranslate"><span class="pre">surface</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Smith">go.layout.Smith</a>(arg=None, bgcolor=None, …)</p></td>
+<td><p>Define gráficos de tipo Smith (usados en ingeniería eléctrica para impedancias).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Ternary">go.layout.Ternary</a>(arg=None, aaxis=None, …)</p></td>
+<td><p>Define gráficos en un sistema de coordenadas ternarias.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Ejes</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis">go.layout.XAxis</a>(arg=None, anchor=None, …)</p></td>
+<td><p>Configura el eje <em>x</em> del gráfico (etiquetas, rango, escala, etc.).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis">go.layout.YAxis</a>(arg=None, anchor=None, …)</p></td>
+<td><p>Configura el eje Y del gráfico.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Interactividad y controles</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Hoverlabel">go.layout.Hoverlabel</a>(arg=None, align=None, …)</p></td>
+<td><p>Personaliza la apariencia de las etiquetas emergentes (tooltip) al pasar el mouse.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Modebar">go.layout.Modebar</a>(arg=None, activecolor=None, …)</p></td>
+<td><p>Controla la barra de herramientas flotante de la figura interactiva.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Slider">go.layout.Slider</a>(arg=None, active=None, …)</p></td>
+<td><p>Configura barras deslizantes para explorar diferentes estados del gráfico.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Transition">go.layout.Transition</a>(arg=None, duration=None, …)</p></td>
+<td><p>Especifica efectos de transición entre estados del gráfico.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Updatemenu">go.layout.Updatemenu</a>(arg=None, active=None, …)</p></td>
+<td><p>Agrega menús interactivos para actualizar la visualización de datos.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Mapas</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Geo">go.layout.Geo</a>(arg=None, bgcolor=None, …)</p></td>
+<td><p>Configura mapas geoespaciales (sin <em>Mapbox</em>), como choropleth y scatter geográfico.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Map">go.layout.Map</a>(arg=None, bearing=None, …)</p></td>
+<td><p>Define configuraciones para gráficos de mapas. (No ampliamente documentado en <em>Plotly</em>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Mapbox">go.layout.Mapbox</a>(arg=None, accesstoken=None, …)</p></td>
+<td><p>Especifica la configuración de mapas interactivos basados en <em>Mapbox</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Otras clases</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Image">go.layout.Image</a>(arg=None, layer=None, …)</p></td>
+<td><p>Permite agregar imágenes dentro de la gráfica.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Shape">go.layout.Shape</a>(arg=None, editable=None, …)</p></td>
+<td><p>Define formas geométricas dentro del gráfico, como líneas, rectángulos y círculos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Template">go.layout.Template</a>(arg=None, data=None, …)</p></td>
+<td><p>Permite definir un estilo de gráfico reutilizable.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Selección y formas</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Activeselection">go.layout.Activeselection</a>(arg=None, fillcolor=None, …)</p></td>
+<td><p>Representa la selección actualmente activa en una figura interactiva.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Activeshape">go.layout.Activeshape</a>(arg=None, fillcolor=None, …)</p></td>
+<td><p>Define la forma actualmente activa en una figura cuando se está editando interactivamente.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Newselection">go.layout.Newselection</a>(arg=None, line=None, mode=None, …)</p></td>
+<td><p>Configura el comportamiento de una nueva selección en la gráfica.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Newshape">go.layout.Newshape</a>(arg=None, drawdirection=None, …)</p></td>
+<td><p>Configura el comportamiento de una nueva forma creada en la figura.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Selection">go.layout.Selection</a>(arg=None, line=None, name=None, …)</p></td>
+<td><p>Define una selección específica dentro del gráfico.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<section id="annotation">
+<h3>Annotation<a class="headerlink" href="#annotation" title="Link to this heading">#</a></h3>
+<p>Clase <code class="docutils literal notranslate"><span class="pre">Annotation</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Constructor</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Annotation">go.layout.Annotation</a>(arg=None, align=None, …)</p></td>
+<td><p>Agrega texto y marcas en una ubicación específica del gráfico.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>El módulo asociado a esta clase es <a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.layout.annotation.html">layout.annotation</a> y sus submódulos son los siguientes:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.layout.annotation.hoverlabel.html">annotation.hoverlabel</a></p></li>
+</ul>
+</div>
+<br/>
+<section id="atributos-de-annotation">
+<h4>Atributos de <em>Annotation</em><a class="headerlink" href="#atributos-de-annotation" title="Link to this heading">#</a></h4>
+<p>Atributos de la clase <code class="docutils literal notranslate"><span class="pre">Annotation</span></code>.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Las descripciones de los atributos de esta clase están en inglés.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Atributo</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Annotation.align">align</a></p></td>
+<td><p>Sets the horizontal alignment of the text within the box.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Annotation.arrowcolor">arrowcolor</a></p></td>
+<td><p>Sets the color of the annotation arrow.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Annotation.arrowhead">arrowhead</a></p></td>
+<td><p>Sets the end annotation arrow head style.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Annotation.arrowside">arrowside</a></p></td>
+<td><p>Sets the annotation arrow head position.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Annotation.arrowsize">arrowsize</a></p></td>
+<td><p>Sets the size of the end annotation arrow head, relative to arrow width.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Annotation.arrowwidth">arrowwidth</a></p></td>
+<td><p>Sets the width (in px) of annotation arrow line.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Annotation.axref">axref</a></p></td>
+<td><p>Indicates in what coordinates the tail of the annotation (ax,ay) is specified.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Annotation.ax">ax</a></p></td>
+<td><p>Sets the <em>x</em> component of the arrow tail about the arrow head.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Annotation.ayref">ayref</a></p></td>
+<td><p>Indicates in what coordinates the tail of the annotation (ax,ay) is specified.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Annotation.ay">ay</a></p></td>
+<td><p>Sets the <em>y</em> component of the arrow tail about the arrow head.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Annotation.bgcolor">bgcolor</a></p></td>
+<td><p>Sets the background color of the annotation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Annotation.bordercolor">bordercolor</a></p></td>
+<td><p>Sets the color of the border enclosing the annotation text.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Annotation.borderpad">borderpad</a></p></td>
+<td><p>Sets the padding (in px) between the text and the enclosing border.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Annotation.borderwidth">borderwidth</a></p></td>
+<td><p>Sets the width (in px) of the border enclosing the annotation text.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Annotation.captureevents">captureevents</a></p></td>
+<td><p>Determines whether the annotation text box captures mouse move and click events, or allows those events to pass through to data points in the plot that may be behind the annotation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Annotation.clicktoshow">clicktoshow</a></p></td>
+<td><p>Makes this annotation respond to clicks on the plot.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Annotation.font">font</a></p></td>
+<td><p>Sets the annotation text font.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Annotation.height">height</a></p></td>
+<td><p>Sets an explicit height for the text box.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Annotation.hoverlabel">hoverlabel</a></p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">hoverlabel</span></code> property is an instance of <a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.layout.annotation.hoverlabel.html">HoverLabel</a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Annotation.hovertext">hovertext</a></p></td>
+<td><p>Sets text to appear when hovering over this annotation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Annotation.name">name</a></p></td>
+<td><p>When used in a template, named items are created in the output figure in addition to any items the figure already has in this array.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Annotation.opacity">opacity</a></p></td>
+<td><p>Sets the opacity of the annotation (text + arrow).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Annotation.showarrow">showarrow</a></p></td>
+<td><p>Determines whether or not the annotation is drawn with an arrow.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Annotation.standoff">standoff</a></p></td>
+<td><p>Sets a distance, in pixels, to move the end arrowhead away from the position it is pointing at, for example to point at the edge of a marker independent of zoom.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Annotation.startarrowhead">startarrowhead</a></p></td>
+<td><p>Sets the start annotation arrow head style.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Annotation.startarrowsize">startarrowsize</a></p></td>
+<td><p>Sets the size of the start annotation arrow head, relative to arrow width.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Annotation.startstandoff">startstandoff</a></p></td>
+<td><p>Sets a distance, in pixels, to move the start arrow head away from the position it is pointing at, for example to point at the edge of a marker independent of zoom.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Annotation.templateitemname">templateitemname</a></p></td>
+<td><p>Used to refer to a named item in this array in the template.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Annotation.textangle">textangle</a></p></td>
+<td><p>Sets the angle at which the text is drawn with respect to the horizontal.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Annotation.text">text</a></p></td>
+<td><p>Sets the text associated with this annotation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Annotation.valign">valign</a></p></td>
+<td><p>Sets the vertical alignment of the text within the box.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Annotation.visible">visible</a></p></td>
+<td><p>Determines whether or not this annotation is visible.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Annotation.width">width</a></p></td>
+<td><p>Sets an explicit width for the text box.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Annotation.xanchor">xanchor</a></p></td>
+<td><p>Sets the text box’s horizontal position anchor. This anchor binds thexposition to the “left”, “center” or “right” of the annotation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Annotation.xclick">xclick</a></p></td>
+<td><p>Toggle this annotation when clicking a data point whosexvalue isxclickrather than the annotation’sxvalue.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Annotation.xref">xref</a></p></td>
+<td><p>Sets the annotation’s <em>x</em> coordinate axis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Annotation.xshift">xshift</a></p></td>
+<td><p>Shifts the position of the whole annotation and arrow to the right (positive) or left (negative) by this many pixels.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Annotation.x">x</a></p></td>
+<td><p>Sets the annotation’s <em>x</em> position.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Annotation.yanchor">yanchor</a></p></td>
+<td><p>Sets the text box’s vertical position anchor. This anchor binds the y position to the “top”, “middle” or “bottom” of the annotation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Annotation.yclick">yclick</a></p></td>
+<td><p>Toggle this annotation when clicking a data point whose y value is yclick rather than the annotation’s yvalue.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Annotation.yref">yref</a></p></td>
+<td><p>Sets the annotation’s <em>y</em> coordinate axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Annotation.yshift">yshift</a></p></td>
+<td><p>Shifts the position of the whole annotation and arrow up (positive) or down (negative) by this many pixels.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Annotation.y">y</a></p></td>
+<td><p>Sets the annotation’s <em>y</em> position.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+<section id="coloraxis">
+<h3>Coloraxis<a class="headerlink" href="#coloraxis" title="Link to this heading">#</a></h3>
+<p>Clase <code class="docutils literal notranslate"><span class="pre">Coloraxis</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Constructor</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Coloraxis">go.layout.Coloraxis</a>(arg=None, autocolorscale=None, …)</p></td>
+<td><p>Maneja el mapeo de valores a colores en gráficos que usan escala de colores.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>El módulo asociado a esta clase es <a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.layout.coloraxis.html">layout.coloraxis</a> y sus submódulos son los siguientes:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.layout.coloraxis.colorbar.html">coloraxis.colorbar</a>.</p>
+<ul>
+<li><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.layout.coloraxis.colorbar.title.html">colorbar.title</a>.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<br/>
+<section id="atributos-de-coloraxis">
+<h4>Atributos de Coloraxis<a class="headerlink" href="#atributos-de-coloraxis" title="Link to this heading">#</a></h4>
+<p>Atributos de la clase <code class="docutils literal notranslate"><span class="pre">Coloraxis</span></code>.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Las descripciones de los atributos de esta clase están en inglés.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Atributo</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Coloraxis.autocolorscale">autocolorscale</a></p></td>
+<td><p>Determines whether the colorscale is a default palette (autocolorscale:true) or the palette determined by color scale.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Coloraxis.cauto">cauto</a></p></td>
+<td><p>Determines whether or not the color domain is computed with respect to the input data (here corresponding trace color array(s)) or the bounds set in cmin and cmax Defaults to false when cmin and cmax are set by the user.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Coloraxis.cmax">cmax</a></p></td>
+<td><p>Sets the upper bound of the color domain.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Coloraxis.cmid">cmid</a></p></td>
+<td><p>Sets the mid-point of the color domain by scaling cmin and/or cmax to be equidistant to this point.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Coloraxis.cmin">cmin</a></p></td>
+<td><p>Sets the lower bound of the color domain.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Coloraxis.colorbar">colorbar</a></p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">colorbar</span></code> property is an instance of <a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.layout.coloraxis.colorbar.html">ColorBar</a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Coloraxis.colorscale">colorscale</a></p></td>
+<td><p>Sets the colorscale.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Coloraxis.reversescale">reversescale</a></p></td>
+<td><p>Reverses the color mapping if true.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Coloraxis.showscale">showscale</a></p></td>
+<td><p>Determines whether or not a colorbar is displayed for this trace.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+<section id="colorscale">
+<h3>Colorscale<a class="headerlink" href="#colorscale" title="Link to this heading">#</a></h3>
+<p>Clase <code class="docutils literal notranslate"><span class="pre">Colorscale</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Constructor</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Colorscale">go.layout.Colorscale</a>(arg=None, diverging=None, …)</p></td>
+<td><p>Define una escala de colores específica para representar datos en el gráfico.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<section id="atributos-de-colorscale">
+<h4>Atributos de Colorscale<a class="headerlink" href="#atributos-de-colorscale" title="Link to this heading">#</a></h4>
+<p>Atributos de la clase <code class="docutils literal notranslate"><span class="pre">Colorscale</span></code>.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Las descripciones de los atributos de esta clase están en inglés.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Atributo</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Colorscale.diverging">diverging</a></p></td>
+<td><p>Sets the default diverging colorscale.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Colorscale.sequentialminus">sequentialminus</a></p></td>
+<td><p>Sets the default sequential colorscale for negative values.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Colorscale.sequential">sequential</a></p></td>
+<td><p>Sets the default sequential colorscale for positive values.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+<section id="font">
+<h3>Font<a class="headerlink" href="#font" title="Link to this heading">#</a></h3>
+<p>Clase <code class="docutils literal notranslate"><span class="pre">Font</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Constructor</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Font">go.layout.Font</a>(arg=None, color=None, …)</p></td>
+<td><p>Define el tipo de fuente, tamaño y color para los textos en el gráfico.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<section id="atributos-de-font">
+<h4>Atributos de Font<a class="headerlink" href="#atributos-de-font" title="Link to this heading">#</a></h4>
+<p>Atributos de la clase <code class="docutils literal notranslate"><span class="pre">Font</span></code>.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Las descripciones de los atributos de esta clase están en inglés.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Atributo</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Font.color">color</a></p></td>
+<td><p>A hex string (e.g. ‘#ff0000’).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Font.family">family</a></p></td>
+<td><p>HTML font family - the typeface that will be applied by the web browser.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Font.lineposition">lineposition</a></p></td>
+<td><p>Sets the kind of decoration line(s) with text, such as an “under”, “over” or “through” as well as combinations e.g. “under+over”, etc.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Font.shadow">shadow</a></p></td>
+<td><p>Sets the shape and color of the shadow behind text.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Font.size">size</a></p></td>
+<td><p>An <code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code> in the interval <em>[1, inf]</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Font.style">style</a></p></td>
+<td><p>Sets whether a font should be styled with a normal or italic face from its family.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Font.textcase">textcase</a></p></td>
+<td><p>Sets capitalization of text.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Font.variant">variant</a></p></td>
+<td><p>Sets the variant of the font.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Font.weight">weight</a></p></td>
+<td><p>Sets the weight (or boldness) of the font.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+<section id="grid">
+<h3>Grid<a class="headerlink" href="#grid" title="Link to this heading">#</a></h3>
+<p>Clase <code class="docutils literal notranslate"><span class="pre">Grid</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Constructor</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Grid">go.layout.Grid</a>(arg=None, columns=None, …)</p></td>
+<td><p>Define la disposición de una cuadrícula en el diseño de subgráficos.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>El módulo asociado a esta clase es <a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.layout.grid.html">layout.grid</a>.</p>
+</div>
+<br/>
+<section id="atributos-de-grid">
+<h4>Atributos de Grid<a class="headerlink" href="#atributos-de-grid" title="Link to this heading">#</a></h4>
+<p>Atributos de la clase <code class="docutils literal notranslate"><span class="pre">Grid</span></code>.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Las descripciones de los atributos de esta clase están en inglés.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Atributo</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Grid.columns">columns</a></p></td>
+<td><p>The number of columns in the grid.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Grid.domain">domain</a></p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">domain</span></code> property is an instance of <code class="docutils literal notranslate"><span class="pre">Domain</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Grid.pattern">pattern</a></p></td>
+<td><p>If no subplots, xaxes, or <em>y</em> axes are given but we do have rows and columns, we can generate defaults using consecutive axis IDs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Grid.roworder">roworder</a></p></td>
+<td><p>Is the first row the top or the bottom? Note that columns are always enumerated from left to right.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Grid.rows">rows</a></p></td>
+<td><p>The number of rows in the grid.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Grid.subplots">subplots</a></p></td>
+<td><p>Used for freeform grids, where some axes may be shared across subplots but others are not.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Grid.xaxes">xaxes</a></p></td>
+<td><p>Used with <em>y</em> axes when the <em>x</em> and <em>y</em> axes are shared across columns and rows.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Grid.xgap">xgap</a></p></td>
+<td><p>Horizontal space between grid cells, expressed as a fraction of the total width available to one cell.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Grid.xside">xside</a></p></td>
+<td><p>Sets where the <em>x</em> axis labels and titles go.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Grid.yaxes">yaxes</a></p></td>
+<td><p>Used with yaxes when the <em>x</em> and <em>y</em> axes are shared across columns and rows.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Grid.ygap">ygap</a></p></td>
+<td><p>Vertical space between grid cells, expressed as a fraction of the total height available to one cell.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Grid.yside">yside</a></p></td>
+<td><p>Sets where the <em>y</em> axis labels and titles go.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+<section id="legend">
+<h3>Legend<a class="headerlink" href="#legend" title="Link to this heading">#</a></h3>
+<p>Clase <code class="docutils literal notranslate"><span class="pre">Legend</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Constructor</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Legend">go.layout.Legend</a>(arg=None, bgcolor=None, …)</p></td>
+<td><p>Configura la apariencia y posición de la leyenda del gráfico.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>El módulo asociado a esta clase es <a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.layout.legend.html">layout.legend</a> y sus submódulos son los siguientes:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.layout.legend.title.html">legend.title</a></p></li>
+</ul>
+</div>
+<br/>
+<section id="atributos-de-legend">
+<h4>Atributos de Legend<a class="headerlink" href="#atributos-de-legend" title="Link to this heading">#</a></h4>
+<p>Atributos de la clase <code class="docutils literal notranslate"><span class="pre">Legend</span></code>.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Las descripciones de los atributos de esta clase están en inglés.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Atributo</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Legend.bgcolor">bgcolor</a></p></td>
+<td><p>Sets the legend background color.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Legend.bordercolor">bordercolor</a></p></td>
+<td><p>Sets the color of the border enclosing the legend.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Legend.borderwidth">borderwidth</a></p></td>
+<td><p>Sets the width (in px) of the border enclosing the legend.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Legend.entrywidthmode">entrywidthmode</a></p></td>
+<td><p>Determines what entrywidth means.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Legend.entrywidth">entrywidth</a></p></td>
+<td><p>Sets the width (in px or fraction) of the legend.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Legend.font">font</a></p></td>
+<td><p>Sets the font used to text the legend items.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Legend.groupclick">groupclick</a></p></td>
+<td><p>Determines the behavior on legend group item click.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Legend.grouptitlefont">grouptitlefont</a></p></td>
+<td><p>Sets the font for group titles in legend.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Legend.indentation">indentation</a></p></td>
+<td><p>Sets the indentation (in px) of the legend entries.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Legend.itemclick">itemclick</a></p></td>
+<td><p>Determines the behavior on legend item click.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Legend.itemdoubleclick">itemdoubleclick</a></p></td>
+<td><p>Determines the behavior on legend item double-click.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Legend.itemsizing">itemsizing</a></p></td>
+<td><p>Determines if the legend items symbols scale with their corresponding “trace” attributes or remain “constant” independent of the symbol size on the graph.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Legend.itemwidth">itemwidth</a></p></td>
+<td><p>Sets the width (in px) of the legend item symbols (the part other than the title.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Legend.orientation">orientation</a></p></td>
+<td><p>Sets the orientation of the legend.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Legend.title">title</a></p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">title</span></code> property is an instance of <a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.layout.legend.title.html">Title</a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Legend.tracegroupgap">tracegroupgap</a></p></td>
+<td><p>Sets the amount of vertical space (in px) between legend groups.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Legend.traceorder">traceorder</a></p></td>
+<td><p>Determines the order at which the legend items are displayed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Legend.uirevision">uirevision</a></p></td>
+<td><p>Controls persistence of legend-driven changes in trace and pie label visibility.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Legend.valign">valign</a></p></td>
+<td><p>Sets the vertical alignment of the symbols with respect to their associated text.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Legend.visible">visible</a></p></td>
+<td><p>Determines whether or not this legend is visible.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Legend.xanchor">xanchor</a></p></td>
+<td><p>Sets the legend’s horizontal position anchor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Legend.xref">xref</a></p></td>
+<td><p>Sets the container x refers to.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Legend.x">x</a></p></td>
+<td><p>Sets the <em>x</em> position with respect to xref (in normalized coordinates) of the legend.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Legend.yanchor">yanchor</a></p></td>
+<td><p>Sets the legend’s vertical position anchor. This anchor binds theyposition to the “top”, “middle” or “bottom” of the legend.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Legend.yref">yref</a></p></td>
+<td><p>Sets the container y refers to.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Legend.y">y</a></p></td>
+<td><p>Sets the <em>y</em> position with respect to yref (in normalized coordinates) of the legend.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+<section id="selection">
+<h3>Selection<a class="headerlink" href="#selection" title="Link to this heading">#</a></h3>
+<p>Clase <code class="docutils literal notranslate"><span class="pre">Selection</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Constructor</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Selection">go.layout.Selection</a>(arg=None, line=None, name=None, …)</p></td>
+<td><p>Define una selección específica dentro del gráfico.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>El módulo asociado a esta clase es <a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.layout.selection.html">layout.selection</a>.</p>
+</div>
+<br/>
+<section id="atributos-de-selection">
+<h4>Atributos de Selection<a class="headerlink" href="#atributos-de-selection" title="Link to this heading">#</a></h4>
+<p>Atributos de la clase <code class="docutils literal notranslate"><span class="pre">Selection</span></code>.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Las descripciones de los atributos de esta clase están en inglés.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Atributo</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Selection.line">line</a></p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">line</span></code> property is an instance of <code class="docutils literal notranslate"><span class="pre">Line</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Selection.name">name</a></p></td>
+<td><p>When used in a template, named items are created in the output figure in addition to any items the figure already has in this array.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Selection.opacity">opacity</a></p></td>
+<td><p>Sets the opacity of the selection.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Selection.path">path</a></p></td>
+<td><p>For type “path” - a valid SVG path similar to shapes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Selection.templateitemname">templateitemname</a></p></td>
+<td><p>Used to refer to a named item in this array in the template.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Selection.type">type</a></p></td>
+<td><p>Specifies the selection type to be drawn.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Selection.x0">x0</a></p></td>
+<td><p>Sets the selection’s starting <em>x</em> position.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Selection.x1">x1</a></p></td>
+<td><p>Sets the selection’s end <em>x</em> position.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Selection.xref">xref</a></p></td>
+<td><p>Sets the selection’s <em>x</em> coordinate axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Selection.y0">y0</a></p></td>
+<td><p>Sets the selection’s starting <em>y</em> position.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Selection.y1">y1</a></p></td>
+<td><p>Sets the selection’s end <em>y</em> position.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Selection.yref">yref</a></p></td>
+<td><p>Sets the selection’s <em>y</em> coordinate axis.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+<section id="slider">
+<h3>Slider<a class="headerlink" href="#slider" title="Link to this heading">#</a></h3>
+<p>Clase <code class="docutils literal notranslate"><span class="pre">Slider</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Constructor</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Slider">go.layout.Slider</a>(arg=None, active=None, …)</p></td>
+<td><p>Configura barras deslizantes para explorar diferentes estados del gráfico.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>El módulo asociado a esta clase es <a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.layout.slider.html">layout.slider</a> y su submódulo es el siguiente:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.layout.slider.currentvalue.html">slider.currentvalue</a>.</p></li>
+</ul>
+</div>
+<br/>
+<section id="atributos-de-slider">
+<h4>Atributos de Slider<a class="headerlink" href="#atributos-de-slider" title="Link to this heading">#</a></h4>
+<p>Atributos de la clase <code class="docutils literal notranslate"><span class="pre">Slider</span></code>.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Las descripciones de los atributos de esta clase están en inglés.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Atributo</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Slider.activebgcolor">activebgcolor</a></p></td>
+<td><p>Sets the background color of the slider grip while dragging.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Slider.active">active</a></p></td>
+<td><p>Determines which button (by index starting from 0) is considered active.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Slider.bgcolor">bgcolor</a></p></td>
+<td><p>Sets the background color of the slider.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Slider.bordercolor">bordercolor</a></p></td>
+<td><p>Sets the color of the border enclosing the slider.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Slider.borderwidth">borderwidth</a></p></td>
+<td><p>Sets the width (in px) of the border enclosing the slider.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Slider.currentvalue">currentvalue</a></p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">currentvalue</span></code> property is an instance of <a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.layout.slider.currentvalue.html">Currentvalue</a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Slider.font">font</a></p></td>
+<td><p>Sets the font of the slider step labels.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Slider.lenmode">lenmode</a></p></td>
+<td><p>Determines whether this slider length is set in units of plot “fraction” or in *pixels.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Slider.len">len</a></p></td>
+<td><p>Sets the length of the slider. This measure excludes the padding of both ends.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Slider.minorticklen">minorticklen</a></p></td>
+<td><p>Sets the length in pixels of minor step tick marks.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Slider.name">name</a></p></td>
+<td><p>When used in a template, named items are created in the output figure in addition to any items the figure already has in this array.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Slider.pad">pad</a></p></td>
+<td><p>Set the padding of the slider component along each side.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Slider.stepdefaults">stepdefaults</a></p></td>
+<td><p>When used in a template (as layout.template.layout.slider.stepdefaults) sets the default property values to use for elements of layout.slider.steps.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Slider.steps">steps</a></p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">steps</span></code> property is a <code class="docutils literal notranslate"><span class="pre">tuple</span></code> of instances of <code class="docutils literal notranslate"><span class="pre">Step</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Slider.templateitemname">templateitemname</a></p></td>
+<td><p>Used to refer to a named item in this array in the template.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Slider.tickcolor">tickcolor</a></p></td>
+<td><p>Sets the color of the border enclosing the slider.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Slider.ticklen">ticklen</a></p></td>
+<td><p>Sets the length in pixels of step tick marks.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Slider.tickwidth">tickwidth</a></p></td>
+<td><p>Sets the tick width (in px).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Slider.transition">transition</a></p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">transition</span></code> property is an instance of <code class="docutils literal notranslate"><span class="pre">Transition</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Slider.visible">visible</a></p></td>
+<td><p>Determines whether or not the slider is visible.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Slider.xanchor">xanchor</a></p></td>
+<td><p>Sets the slider’s horizontal position anchor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Slider.x">x</a></p></td>
+<td><p>Sets the <em>x</em> position (in normalized coordinates) of the slider.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Slider.yanchor">yanchor</a></p></td>
+<td><p>Sets the slider’s vertical position anchor. This anchor binds theyposition to the “top”, “middle” or “bottom” of the range selector.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Slider.y">y</a></p></td>
+<td><p>Sets the <em>y</em> position (in normalized coordinates) of the slider.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+<section id="title">
+<h3>Title<a class="headerlink" href="#title" title="Link to this heading">#</a></h3>
+<p>Clase <code class="docutils literal notranslate"><span class="pre">Title</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Constructor</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Title">go.layout.Title</a>(arg=None, automargin=None, …)</p></td>
+<td><p>Especifica las propiedades del título del gráfico.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>El módulo asociado a esta clase es <a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.layout.title.html">layout.title</a> y sus submódulos son los siguientes:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.layout.title.subtitle.html">title.subtitle</a></p></li>
+</ul>
+</div>
+<br/>
+<section id="atributos-de-title">
+<h4>Atributos de Title<a class="headerlink" href="#atributos-de-title" title="Link to this heading">#</a></h4>
+<p>Atributos de la clase <code class="docutils literal notranslate"><span class="pre">Title</span></code>.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Las descripciones de los atributos de esta clase están en inglés.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Atributo</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Title.automargin">automargin</a></p></td>
+<td><p>Determines whether the title can automatically push the figure margins.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Title.font">font</a></p></td>
+<td><p>Sets the title font.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Title.pad">pad</a></p></td>
+<td><p>Sets the padding of the title.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Title.subtitle">subtitle</a></p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">subtitle</span></code> property is an instance of <a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.layout.title.subtitle.html">Subtitle</a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Title.text">text</a></p></td>
+<td><p>Sets the plot’s title.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Title.xanchor">xanchor</a></p></td>
+<td><p>Sets the title’s horizontal alignment with respect to its <em>x</em> position.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Title.xref">xref</a></p></td>
+<td><p>Sets the container <em>x</em> refers to.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Title.x">x</a></p></td>
+<td><p>Sets the <em>x</em> position with respect to <em>xref</em> in normalized coordinates from 0 (left) to 1 (right).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Title.yanchor">yanchor</a></p></td>
+<td><p>Sets the title’s vertical alignment with respect to its <em>y</em> position.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Title.yref">yref</a></p></td>
+<td><p>Sets the container <em>y</em> refers to.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Title.y">y</a></p></td>
+<td><p>Sets the <em>y</em> position with respect to <em>yref</em> in normalized coordinates from 0 (bottom) to 1 (top).</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+<section id="updatemenu">
+<h3>Updatemenu<a class="headerlink" href="#updatemenu" title="Link to this heading">#</a></h3>
+<p>Clase <code class="docutils literal notranslate"><span class="pre">Updatemenu</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Constructor</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Updatemenu">go.layout.Updatemenu</a>(arg=None, active=None, …)</p></td>
+<td><p>Agrega menús interactivos para actualizar la visualización de datos.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>El módulo asociado a esta clase es <a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.layout.updatemenu.html">layout.updatemenu</a>.</p>
+</div>
+<br/>
+<section id="atributos-de-updatemenu">
+<h4>Atributos de Updatemenu<a class="headerlink" href="#atributos-de-updatemenu" title="Link to this heading">#</a></h4>
+<p>Atributos de la clase <code class="docutils literal notranslate"><span class="pre">Updatemenu</span></code>.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Las descripciones de los atributos de esta clase están en inglés.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Atributo</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Updatemenu.active">active</a></p></td>
+<td><p>Determines which button (by index starting from 0) is considered active.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Updatemenu.bgcolor">bgcolor</a></p></td>
+<td><p>Sets the background color of the update menu buttons.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Updatemenu.bordercolor">bordercolor</a></p></td>
+<td><p>Sets the color of the border enclosing the update menu.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Updatemenu.borderwidth">borderwidth</a></p></td>
+<td><p>Sets the width (in px) of the border enclosing the update menu.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Updatemenu.buttondefaults">buttondefaults</a></p></td>
+<td><p>When used in a template (as <em>layout.template.layout.updatemenu.buttondefaults</em>), sets the default property values to use for elements of <em>layout.updatemenu.buttons</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Updatemenu.buttons">buttons</a></p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">buttons</span></code> property is a <code class="docutils literal notranslate"><span class="pre">tuple</span></code> of instances of <code class="docutils literal notranslate"><span class="pre">Button</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Updatemenu.direction">direction</a></p></td>
+<td><p>Determines the direction in which the buttons are laid out, whether in a dropdown menu or a row/column of buttons.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Updatemenu.font">font</a></p></td>
+<td><p>Sets the font of the update menu button text.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Updatemenu.name">name</a></p></td>
+<td><p>When used in a template, named items are created in the output figure in addition to any items the figure already has in this array.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Updatemenu.pad">pad</a></p></td>
+<td><p>Sets the padding around the buttons or dropdown menu.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Updatemenu.showactive">showactive</a></p></td>
+<td><p>Highlights active dropdown item or active button if true.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Updatemenu.templateitemname">templateitemname</a></p></td>
+<td><p>Used to refer to a named item in this array in the template.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Updatemenu.type">type</a></p></td>
+<td><p>Determines whether the buttons are accessible via a dropdown menu or whether the buttons are stacked horizontally or vertically.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Updatemenu.visible">visible</a></p></td>
+<td><p>Determines whether or not the update menu is visible.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Updatemenu.xanchor">xanchor</a></p></td>
+<td><p>Sets the update menu’s horizontal position anchor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Updatemenu.x">x</a></p></td>
+<td><p>Sets the <em>x</em> position (in normalized coordinates) of the update menu.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Updatemenu.yanchor">yanchor</a></p></td>
+<td><p>Sets the update menu’s vertical position anchor. This anchor binds theyposition to the “top”, “middle” or “bottom” of the range selector.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.Updatemenu.y">y</a></p></td>
+<td><p>Sets the <em>y</em> position (in normalized coordinates) of the update menu.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+<section id="xaxis">
+<h3>XAxis<a class="headerlink" href="#xaxis" title="Link to this heading">#</a></h3>
+<p>Clase <code class="docutils literal notranslate"><span class="pre">XAxis</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Constructor</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis">go.layout.XAxis</a>(arg=None, anchor=None, …)</p></td>
+<td><p>Configura el eje <em>x</em> del gráfico (etiquetas, rango, escala, etc.).</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>El módulo asociado a esta clase es <a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.layout.xaxis.html">layout.xaxis</a> y sus submódulos son los siguientes:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.layout.xaxis.rangeselector.html">xaxis.rangeselector</a>.</p></li>
+<li><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.layout.xaxis.rangeslider.html">xaxis.rangeslider</a>.</p></li>
+<li><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.layout.xaxis.title.html">xaxis.title</a></p></li>
+</ul>
+</div>
+<br/>
+<section id="atributos-de-xaxis">
+<h4>Atributos de XAxis<a class="headerlink" href="#atributos-de-xaxis" title="Link to this heading">#</a></h4>
+<p>Atributos de la clase <code class="docutils literal notranslate"><span class="pre">XAxis</span></code>.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Las descripciones de los atributos de esta clase están en inglés.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Atributo</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.anchor">anchor</a></p></td>
+<td><p>If set to an opposite-letter axis id (e.g. <em>x2</em>, <em>y</em>), this axis is bound to the corresponding opposite-letter axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.automargin">automargin</a></p></td>
+<td><p>Determines whether long tick labels automatically grow the figure margins.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.autorangeoptions">autorangeoptions</a></p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">autorangeoptions</span></code> property is an instance of <code class="docutils literal notranslate"><span class="pre">Autorangeoptions</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.autorange">autorange</a></p></td>
+<td><p>Determines whether or not the range of this axis is computed in relation to the input data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.autotickangles">autotickangles</a></p></td>
+<td><p>When <em>tickangle</em> is set to “auto”, it will be set to the first angle in this array that is large enough to prevent label overlap.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.autotypenumbers">autotypenumbers</a></p></td>
+<td><p>Using “strict” a numeric string in trace data is not converted to a number.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.calendar">calendar</a></p></td>
+<td><p>Sets the calendar system to use for <em>range</em> and <em>tick0</em> if this is a date axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.categoryarraysrc">categoryarraysrc</a></p></td>
+<td><p>Sets the source reference on Chart Studio Cloud for <em>categoryarray</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.categoryarray">categoryarray</a></p></td>
+<td><p>Sets the order in which categories on this axis appear.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.categoryorder">categoryorder</a></p></td>
+<td><p>Specifies the ordering logic for the case of categorical variables.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.color">color</a></p></td>
+<td><p>Sets default for all colors associated with this axis all at once: line, font, tick, and grid colors.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.constraintoward">constraintoward</a></p></td>
+<td><p>If this axis needs to be compressed (either due to its own <em>scaleanchor</em> and <em>scaleratio</em> or those of the other axis), determines which direction we push the originally specified plot area.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.constrain">constrain</a></p></td>
+<td><p>If this axis needs to be compressed (either due to its own <em>scaleanchor</em> and <em>scaleratio</em> or those of the other axis), determines how that happens: by increasing the “range”, or by decreasing the “domain”.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.dividercolor">dividercolor</a></p></td>
+<td><p>Sets the color of the dividers. Only has an effect on “multicategory” axes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.dividerwidth">dividerwidth</a></p></td>
+<td><p>Sets the width (in px) of the dividers. Only has an effect on “multicategory” axes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.domain">domain</a></p></td>
+<td><p>Sets the domain of this axis (in plot fraction).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.dtick">dtick</a></p></td>
+<td><p>Sets the step in-between ticks on this axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.exponentformat">exponentformat</a></p></td>
+<td><p>Determines a formatting rule for the tick exponents.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.fixedrange">fixedrange</a></p></td>
+<td><p>Determines whether or not this axis is zoom-able.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.gridcolor">gridcolor</a></p></td>
+<td><p>Sets the color of the grid lines.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.griddash">griddash</a></p></td>
+<td><p>Sets the dash style of lines.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.gridwidth">gridwidth</a></p></td>
+<td><p>Sets the width (in px) of the grid lines.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.hoverformat">hoverformat</a></p></td>
+<td><p>Sets the hover text formatting rule using d3 formatting mini-languages which are very similar to those in Python.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.insiderange">insiderange</a></p></td>
+<td><p>Could be used to set the desired inside range of this axis</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.labelalias">labelalias</a></p></td>
+<td><p>Replacement text for specific tick or hover labels.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.layer">layer</a></p></td>
+<td><p>Sets the layer on which this axis is displayed.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.linecolor">linecolor</a></p></td>
+<td><p>Sets the axis line color.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.linewidth">linewidth</a></p></td>
+<td><p>Sets the width (in px) of the axis line.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.matches">matches</a></p></td>
+<td><p>If set to another axis id (e.g. <em>x2</em>, <em>y</em>), the range of this axis will match the range of the corresponding axis in data-coordinates space.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.maxallowed">maxallowed</a></p></td>
+<td><p>Determines the maximum range of this axis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.minallowed">minallowed</a></p></td>
+<td><p>Determines the minimum range of this axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.minexponent">minexponent</a></p></td>
+<td><p>Hide SI prefix for 10^n if|n|is below this number.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.minor">minor</a></p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">minor</span></code> property is an instance of <code class="docutils literal notranslate"><span class="pre">Minor</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.mirror">mirror</a></p></td>
+<td><p>Determines if the axis lines or/and ticks are mirrored to the opposite side of the plotting area.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.nticks">nticks</a></p></td>
+<td><p>Specifies the maximum number of ticks for the particular axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.overlaying">overlaying</a></p></td>
+<td><p>If set a same-letter axis id, this axis is overlaid on top of the corresponding same-letter axis, with traces and axes visible for both axes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.position">position</a></p></td>
+<td><p>Sets the position of this axis in the plotting space (in normalized coordinates).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.rangebreakdefaults">rangebreakdefaults</a></p></td>
+<td><p>When used in a template (as <em>layout.template.layout.xaxis.rangebreakdefaults</em>), sets the default property values to use for elements of <em>layout.xaxis.rangebreaks</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.rangebreaks">rangebreaks</a></p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">rangebreaks</span></code> property is a <code class="docutils literal notranslate"><span class="pre">tuple</span></code> of instances of <code class="docutils literal notranslate"><span class="pre">Rangebreak</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.rangemode">rangemode</a></p></td>
+<td><p>If “normal”, the range is computed in relation to the extrema of the input data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.rangeselector">rangeselector</a></p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">rangeselector</span></code> property is an instance of <a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.layout.xaxis.rangeselector.html">Rangeselector</a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.rangeslider">rangeslider</a></p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">rangeslider</span></code> property is an instance of <a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.layout.xaxis.rangeslider.html">Rangeslider</a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.range">range</a></p></td>
+<td><p>Sets the range of this axis</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.scaleanchor">scaleanchor</a></p></td>
+<td><p>If set to another axis id (e.g. <em>x2</em>, <em>y</em>), the range of this axis changes together with the range of the corresponding axis such that the scale of pixels per unit is in a constant ratio.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.scaleratio">scaleratio</a></p></td>
+<td><p>If this axis is linked to another by <em>scaleanchor</em>, this determines the pixel to unit scale ratio.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.separatethousands">separatethousands</a></p></td>
+<td><p>If “true”, even 4-digit integers are separated.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.showdividers">showdividers</a></p></td>
+<td><p>Determines whether or not a dividers are drawn between the category levels of this axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.showexponent">showexponent</a></p></td>
+<td><p>If “all”, all exponents are shown besides their significands.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.showgrid">showgrid</a></p></td>
+<td><p>Determines whether or not grid lines are drawn.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.showline">showline</a></p></td>
+<td><p>Determines whether or not a line bounding this axis is drawn.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.showspikes">showspikes</a></p></td>
+<td><p>Determines whether or not spikes (aka droplines) are drawn for this axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.showticklabels">showticklabels</a></p></td>
+<td><p>Determines whether or not the tick labels are drawn.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.showtickprefix">showtickprefix</a></p></td>
+<td><p>If “all”, all tick labels are displayed with a prefix.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.showticksuffix">showticksuffix</a></p></td>
+<td><p>Same as <em>showtickprefix</em> but for tick suffixes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.side">side</a></p></td>
+<td><p>Determines whether a <em>x</em> (y) axis is positioned at the “bottom” (“left”) or “top” (“right”) of the plotting area.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.spikecolor">spikecolor</a></p></td>
+<td><p>Sets the spike color.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.spikedash">spikedash</a></p></td>
+<td><p>Sets the dash style of lines.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.spikemode">spikemode</a></p></td>
+<td><p>Determines the drawing mode for the spike line. If “toaxis”, the line is drawn from the data point to the axis the series is plotted on.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.spikesnap">spikesnap</a></p></td>
+<td><p>Determines whether <em>spikelines</em> are stuck to the cursor or to the closest datapoints.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.spikethickness">spikethickness</a></p></td>
+<td><p>Sets the width (in px) of the zero line.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.tick0">tick0</a></p></td>
+<td><p>Sets the placement of the first tick on this axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.tickangle">tickangle</a></p></td>
+<td><p>Sets the angle of the tick labels with respect to the horizontal.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.tickcolor">tickcolor</a></p></td>
+<td><p>Sets the tick color.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.tickfont">tickfont</a></p></td>
+<td><p>Sets the tick font.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.tickformatstopdefaults">tickformatstopdefaults</a></p></td>
+<td><p>When used in a template (as <em>layout.template.layout.xaxis.tickformatstopdefaults</em>), sets the default property values to use for elements of <em>layout.xaxis.tickformatstops</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.tickformatstops">tickformatstops</a></p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">tickformatstops</span></code> property is a <code class="docutils literal notranslate"><span class="pre">tuple</span></code> of instances of <code class="docutils literal notranslate"><span class="pre">Tickformatstop</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.tickformat">tickformat</a></p></td>
+<td><p>Sets the tick label formatting rule using d3 formatting mini- languages which are very similar to those in Python.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.ticklabelindexsrc">ticklabelindexsrc</a></p></td>
+<td><p>Sets the source reference on Chart Studio Cloud for <em>ticklabelindex</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.ticklabelindex">ticklabelindex</a></p></td>
+<td><p>Only for axes with type “date” or “linear”.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.ticklabelmode">ticklabelmode</a></p></td>
+<td><p>Determines where tick labels are drawn with respect to their corresponding ticks and grid lines.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.ticklabeloverflow">ticklabeloverflow</a></p></td>
+<td><p>Determines how we handle tick labels that would overflow either the graph div or the domain of the axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.ticklabelposition">ticklabelposition</a></p></td>
+<td><p>Determines where tick labels are drawn with respect to the axis. Please note that top or bottom has no effect on <em>x</em> axes or when <em>ticklabelmode</em> is set to “period”.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.ticklabelshift">ticklabelshift</a></p></td>
+<td><p>Shifts the tick labels by the specified number of pixels in parallel to the axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.ticklabelstandoff">ticklabelstandoff</a></p></td>
+<td><p>Sets the standoff distance (in px) between the axis tick labels and their default position.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.ticklabelstep">ticklabelstep</a></p></td>
+<td><p>Sets the spacing between tick labels as compared to the spacing between ticks.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.ticklen">ticklen</a></p></td>
+<td><p>Sets the tick length (in px).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.tickmode">tickmode</a></p></td>
+<td><p>Sets the tick mode for this axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.tickprefix">tickprefix</a></p></td>
+<td><p>Sets a tick label prefix.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.tickson">tickson</a></p></td>
+<td><p>Determines where ticks and grid lines are drawn with respect to their corresponding tick labels.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.ticksuffix">ticksuffix</a></p></td>
+<td><p>Sets a tick label suffix.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.ticks">ticks</a></p></td>
+<td><p>Determines whether ticks are drawn or not.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.ticktextsrc">ticktextsrc</a></p></td>
+<td><p>Sets the source reference on Chart Studio Cloud for <em>ticktext</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.ticktext">ticktext</a></p></td>
+<td><p>Sets the text displayed at the ticks position via <em>tickvals</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.tickvalssrc">tickvalssrc</a></p></td>
+<td><p>Sets the source reference on Chart Studio Cloud for <em>tickvals</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.tickvals">tickvals</a></p></td>
+<td><p>Sets the values at which ticks on this axis appear.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.tickwidth">tickwidth</a></p></td>
+<td><p>Sets the tick width (in px).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.title">title</a></p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">title</span></code> property is an instance of <a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.layout.xaxis.title.html">Title</a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.type">type</a></p></td>
+<td><p>Sets the axis type.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.uirevision">uirevision</a></p></td>
+<td><p>Controls persistence of user-driven changes in axis <em>range</em>, <em>autorange</em>, and <em>title</em> if <code class="docutils literal notranslate"><span class="pre">ineditable:trueconfiguration</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.visible">visible</a></p></td>
+<td><p>A single toggle to hide the axis while preserving interaction like dragging.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.zerolinecolor">zerolinecolor</a></p></td>
+<td><p>Sets the line color of the zero line.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.zerolinewidth">zerolinewidth</a></p></td>
+<td><p>Sets the width (in px) of the zero line.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.XAxis.zeroline">zeroline</a></p></td>
+<td><p>Determines whether or not a line is drawn at along the 0 value of this axis.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+<section id="yaxis">
+<h3>YAxis<a class="headerlink" href="#yaxis" title="Link to this heading">#</a></h3>
+<p>Clase <code class="docutils literal notranslate"><span class="pre">YAxis</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Constructor</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis">go.layout.YAxis</a>(arg=None, anchor=None, …)</p></td>
+<td><p>Configura el eje Y del gráfico.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>El módulo asociado a esta clase es <a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.layout.yaxis.html">layout.yaxis</a> y sus submódulos son los siguientes:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.layout.yaxis.title.html">yaxis.title</a></p></li>
+</ul>
+</div>
+<br/>
+<section id="atributos-de-yaxis">
+<h4>Atributos de YAxis<a class="headerlink" href="#atributos-de-yaxis" title="Link to this heading">#</a></h4>
+<p>Atributos de la clase ``.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Las descripciones de los atributos de esta clase están en inglés.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Atributo</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.anchor">anchor</a></p></td>
+<td><p>If set to an opposite-letter axis id (e.g. <em>x2</em>, <em>y</em>), this axis is bound to the corresponding opposite-letter axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.automargin">automargin</a></p></td>
+<td><p>Determines whether long tick labels automatically grow the figure margins.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.autorangeoptions">autorangeoptions</a></p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">autorangeoptions</span></code> property is an instance of <code class="docutils literal notranslate"><span class="pre">Autorangeoptions</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.autorange">autorange</a></p></td>
+<td><p>Determines whether or not the range of this axis is computed in relation to the input data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.autoshift">autoshift</a></p></td>
+<td><p>Automatically reposition the axis to avoid overlap with other axes with the same <em>overlaying</em> value.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.autotickangles">autotickangles</a></p></td>
+<td><p>When <em>tickangle</em> is set to “auto”, it will be set to the first angle in this array that is large enough to prevent label overlap.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.autotypenumbers">autotypenumbers</a></p></td>
+<td><p>Using “strict” a numeric string in trace data is not converted to a number.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.calendar">calendar</a></p></td>
+<td><p>Sets the calendar system to use forrangeandtick0if this is a date axis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.categoryarraysrc">categoryarraysrc</a></p></td>
+<td><p>Sets the source reference on Chart Studio Cloud for <em>categoryarray</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.categoryarray">categoryarray</a></p></td>
+<td><p>Sets the order in which categories on this axis appear.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.categoryorder">categoryorder</a></p></td>
+<td><p>Specifies the ordering logic for the case of categorical variables.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.color">color</a></p></td>
+<td><p>Sets default for all colors associated with this axis all at once: line, font, tick, and grid colors.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.constraintoward">constraintoward</a></p></td>
+<td><p>If this axis needs to be compressed (either due to its own <em>scaleanchor</em> and <em>scaleratio</em> or those of the other axis), determines which direction we push the originally specified plot area.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.constrain">constrain</a></p></td>
+<td><p>If this axis needs to be compressed (either due to its own <em>scaleanchor</em> and <em>scaleratio</em> or those of the other axis), determines how that happens: by increasing the “range”, or by decreasing the “domain”.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.dividercolor">dividercolor</a></p></td>
+<td><p>Sets the color of the dividers Only has an effect on “multicategory” axes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.dividerwidth">dividerwidth</a></p></td>
+<td><p>Sets the width (in px) of the dividers Only has an effect on “multicategory” axes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.domain">domain</a></p></td>
+<td><p>Sets the domain of this axis (in plot fraction).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.dtick">dtick</a></p></td>
+<td><p>Sets the step in-between ticks on this axis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.exponentformat">exponentformat</a></p></td>
+<td><p>Determines a formatting rule for the tick exponents.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.fixedrange">fixedrange</a></p></td>
+<td><p>Determines whether or not this axis is zoom-able.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.gridcolor">gridcolor</a></p></td>
+<td><p>Sets the color of the grid lines.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.griddash">griddash</a></p></td>
+<td><p>Sets the dash style of lines.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.gridwidth">gridwidth</a></p></td>
+<td><p>Sets the width (in px) of the grid lines.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.hoverformat">hoverformat</a></p></td>
+<td><p>Sets the hover text formatting rule using d3 formatting mini-languages which are very similar to those in Python.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.insiderange">insiderange</a></p></td>
+<td><p>Could be used to set the desired inside range of this axis</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.labelalias">labelalias</a></p></td>
+<td><p>Replacement text for specific tick or hover labels.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.layer">layer</a></p></td>
+<td><p>Sets the layer on which this axis is displayed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.linecolor">linecolor</a></p></td>
+<td><p>Sets the axis line color.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.linewidth">linewidth</a></p></td>
+<td><p>Sets the width (in px) of the axis line.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.matches">matches</a></p></td>
+<td><p>If set to another axis id (e.g. <em>x2</em>, <em>y</em>), the range of this axis will match the range of the corresponding axis in data-coordinates space.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.maxallowed">maxallowed</a></p></td>
+<td><p>Determines the maximum range of this axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.minallowed">minallowed</a></p></td>
+<td><p>Determines the minimum range of this axis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.minexponent">minexponent</a></p></td>
+<td><p>Hide SI prefix for 10^n if|n|is below this number.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.minor">minor</a></p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">minor</span></code> property is an instance of <code class="docutils literal notranslate"><span class="pre">Minor</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.mirror">mirror</a></p></td>
+<td><p>Determines if the axis lines or/and ticks are mirrored to the opposite side of the plotting area.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.nticks">nticks</a></p></td>
+<td><p>Specifies the maximum number of ticks for the particular axis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.overlaying">overlaying</a></p></td>
+<td><p>If set a same-letter axis id, this axis is overlaid on top of the corresponding same-letter axis, with traces and axes visible for both axes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.position">position</a></p></td>
+<td><p>Sets the position of this axis in the plotting space (in normalized coordinates).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.rangebreakdefaults">rangebreakdefaults</a></p></td>
+<td><p>When used in a template (as <em>layout.template.layout.yaxis.rangebreakdefaults</em>), sets the default property values to use for elements of <em>layout.yaxis.rangebreaks</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.rangebreaks">rangebreaks</a></p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">rangebreaks</span></code> property is a <code class="docutils literal notranslate"><span class="pre">tuple</span></code> of instances of <code class="docutils literal notranslate"><span class="pre">Rangebreak</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.rangemode">rangemode</a></p></td>
+<td><p>If “normal”, the range is computed in relation to the extrema of the input data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.range">range</a></p></td>
+<td><p>Sets the range of this axis</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.scaleanchor">scaleanchor</a></p></td>
+<td><p>If set to another axis id (e.g. <em>x2</em>, <em>y</em>), the range of this axis changes together with the range of the corresponding axis such that the scale of pixels per unit is in a constant ratio.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.scaleratio">scaleratio</a></p></td>
+<td><p>If this axis is linked to another by <em>scaleanchor</em>, this determines the pixel to unit scale ratio.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.separatethousands">separatethousands</a></p></td>
+<td><p>If “true”, even 4-digit integers are separated.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.shift">shift</a></p></td>
+<td><p>Moves the axis a given number of pixels from where it would have been otherwise.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.showdividers">showdividers</a></p></td>
+<td><p>Determines whether or not a dividers are drawn between the category levels of this axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.showexponent">showexponent</a></p></td>
+<td><p>If “all”, all exponents are shown besides their significands.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.showgrid">showgrid</a></p></td>
+<td><p>Determines whether or not grid lines are drawn.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.showline">showline</a></p></td>
+<td><p>Determines whether or not a line bounding this axis is drawn.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.showspikes">showspikes</a></p></td>
+<td><p>Determines whether or not spikes (aka droplines) are drawn for this axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.showticklabels">showticklabels</a></p></td>
+<td><p>Determines whether or not the tick labels are drawn.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.showtickprefix">showtickprefix</a></p></td>
+<td><p>If “all”, all tick labels are displayed with a prefix.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.showticksuffix">showticksuffix</a></p></td>
+<td><p>Same as <em>showtickprefix</em> but for tick suffixes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.side">side</a></p></td>
+<td><p>Determines whether a <em>x</em> (y) axis is positioned at the “bottom” (“left”) or “top” (“right”) of the plotting area.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.spikecolor">spikecolor</a></p></td>
+<td><p>Sets the spike color.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.spikedash">spikedash</a></p></td>
+<td><p>Sets the dash style of lines.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.spikemode">spikemode</a></p></td>
+<td><p>Determines the drawing mode for the spike line. If “toaxis”, the line is drawn from the data point to the axis the series is plotted on.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.spikesnap">spikesnap</a></p></td>
+<td><p>Determines whether <em>spikelines</em> are stuck to the cursor or to the closest datapoints.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.spikethickness">spikethickness</a></p></td>
+<td><p>Sets the width (in px) of the zero line.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.tick0">tick0</a></p></td>
+<td><p>Sets the placement of the first tick on this axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.tickangle">tickangle</a></p></td>
+<td><p>Sets the angle of the tick labels with respect to the horizontal.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.tickcolor">tickcolor</a></p></td>
+<td><p>Sets the tick color.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.tickfont">tickfont</a></p></td>
+<td><p>Sets the tick font.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.tickformatstopdefaults">tickformatstopdefaults</a></p></td>
+<td><p>When used in a template (as <em>layout.template.layout.yaxis.tickformatstopdefaults</em>), sets the default property values to use for elements of <em>layout.yaxis.tickformatstops</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.tickformatstops">tickformatstops</a></p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">tickformatstops</span></code> property is a <code class="docutils literal notranslate"><span class="pre">tuple</span></code> of instances of <code class="docutils literal notranslate"><span class="pre">Tickformatstop</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.tickformat">tickformat</a></p></td>
+<td><p>Sets the tick label formatting rule using d3 formatting mini-languages which are very similar to those in Python.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.ticklabelindexsrc">ticklabelindexsrc</a></p></td>
+<td><p>Sets the source reference on Chart Studio Cloud <em>ticklabelindex</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.ticklabelindex">ticklabelindex</a></p></td>
+<td><p>Only for axes with type “date” or “linear”.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.ticklabelmode">ticklabelmode</a></p></td>
+<td><p>Determines where tick labels are drawn with respect to their corresponding ticks and grid lines.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.ticklabeloverflow">ticklabeloverflow</a></p></td>
+<td><p>Determines how we handle tick labels that would overflow either the graph div or the domain of the axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.ticklabelposition">ticklabelposition</a></p></td>
+<td><p>Determines where tick labels are drawn with respect to the axis. Please note that top or bottom has no effect on <em>x</em> axes or when <em>ticklabelmode</em> is set to “period”.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.ticklabelshift">ticklabelshift</a></p></td>
+<td><p>Shifts the tick labels by the specified number of pixels in parallel to the axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.ticklabelstandoff">ticklabelstandoff</a></p></td>
+<td><p>Sets the standoff distance (in px) between the axis tick labels and their default position.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.ticklabelstep">ticklabelstep</a></p></td>
+<td><p>Sets the spacing between tick labels as compared to the spacing between ticks.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.ticklen">ticklen</a></p></td>
+<td><p>Sets the tick length (in px).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.tickmode">tickmode</a></p></td>
+<td><p>Sets the tick mode for this axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.tickprefix">tickprefix</a></p></td>
+<td><p>Sets a tick label prefix.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.tickson">tickson</a></p></td>
+<td><p>Determines where ticks and grid lines are drawn with respect to their corresponding tick labels.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.ticksuffix">ticksuffix</a></p></td>
+<td><p>Sets a tick label suffix.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.ticks">ticks</a></p></td>
+<td><p>Determines whether ticks are drawn or not.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.ticktextsrc">ticktextsrc</a></p></td>
+<td><p>Sets the source reference on Chart Studio Cloud <em>ticktext</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.ticktext">ticktext</a></p></td>
+<td><p>Sets the text displayed at the ticks position via <em>tickvals</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.tickvalssrc">tickvalssrc</a></p></td>
+<td><p>Sets the source reference on Chart Studio Cloud for <em>tickvals</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.tickvals">tickvals</a></p></td>
+<td><p>Sets the values at which ticks on this axis appear.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.tickwidth">tickwidth</a></p></td>
+<td><p>Sets the tick width (in px).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.title">title</a></p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">title</span></code> property is an instance of <a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.layout.yaxis.title.html">Title</a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.type">type</a></p></td>
+<td><p>Sets the axis type.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.uirevision">uirevision</a></p></td>
+<td><p>Controls persistence of user-driven changes in axis <em>range</em>, <em>autorange</em>, and <em>title</em> if <code class="docutils literal notranslate"><span class="pre">ineditable:trueconfiguration</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.visible">visible</a></p></td>
+<td><p>A single toggle to hide the axis while preserving interaction like dragging.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.zerolinecolor">zerolinecolor</a></p></td>
+<td><p>Sets the line color of the zero line.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.zerolinewidth">zerolinewidth</a></p></td>
+<td><p>Sets the width (in px) of the zero line.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html#plotly.graph_objects.layout.YAxis.zeroline">zeroline</a></p></td>
+<td><p>Determines whether or not a line is drawn at along the 0 value of this axis.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./parts/12-plotly/go"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="figure.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><em>Figure</em></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="traces.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Traces</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Layout</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clases">Clases</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#annotation">Annotation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-annotation">Atributos de <em>Annotation</em></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coloraxis">Coloraxis</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-coloraxis">Atributos de Coloraxis</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#colorscale">Colorscale</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-colorscale">Atributos de Colorscale</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#font">Font</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-font">Atributos de Font</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grid">Grid</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-grid">Atributos de Grid</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#legend">Legend</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-legend">Atributos de Legend</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selection">Selection</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-selection">Atributos de Selection</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slider">Slider</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-slider">Atributos de Slider</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#title">Title</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-title">Atributos de Title</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updatemenu">Updatemenu</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-updatemenu">Atributos de Updatemenu</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#xaxis">XAxis</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-xaxis">Atributos de XAxis</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yaxis">YAxis</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-yaxis">Atributos de YAxis</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nebok
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

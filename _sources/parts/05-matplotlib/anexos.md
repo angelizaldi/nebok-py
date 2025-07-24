@@ -8,6 +8,11 @@ En esta sección se presentan algunos temas para la personalización de las grá
 ## Estilos
 
 Para cambiar el estilo de una gráfica, como la gama de colores, las fuentes, entre otros elementos se puede usar la función `use()` del módulo `style`.
+
+:::{tip}
+Para restaurar al estilo por default usar: `plt.style.use('default')`
+:::
+
 ```python
 # Modificar estilo de las gráficas
 plt.style.use(style_name = 'default')
@@ -26,8 +31,8 @@ sns.set()
     - _default_: Es el default con lo que `matplotlib` grafica.
     - _seaborn-colorblind_: Usa colores amigables con personas daltónicas.
     - _grayscale_: Gráfica en escala de grises.
-- Para enlistar todos los estilos disponibles usar: <br> `plt.style.available`
-- Para utilizar el estilo de `seaborn` usar `sns.set()`, utilizar antes de definir cualquier gráfica.
+    - Para enlistar todos los estilos disponibles usar: <br> `plt.style.available`
+- Para utilizar el estilo de `seaborn` usar `sns.set()`, el cual se debe de indicar antes de definir cualquier gráfica.
 - Para ver todos los estilos disponibles y visualizar cómo se ven, visitar la [documentación](https://matplotlib.org/stable/gallery/style_sheets/style_sheets_reference.html).
 - Para cambiar el estilo de manera temporal en una gráfica en específico y no afectar toda la sesión utilizar la función `plt.style.context` y un administrador de contextos.
 

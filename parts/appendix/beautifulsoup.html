@@ -1,0 +1,1408 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>BeautifulSoup &#8212; Manual de Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'parts/appendix/beautifulsoup';</script>
+    <link rel="icon" href="../../_static/nebok-favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Otros" href="appendix-index.html" />
+    <link rel="prev" title="Subplots" href="../12-plotly/subplots.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/nebok-logo.png" class="logo__image only-light" alt="Manual de Python - Home"/>
+    <script>document.write(`<img src="../../_static/nebok-logo.png" class="logo__image only-dark" alt="Manual de Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Manual de C
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Built-in</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01-built-in/built-in-index.html">Python Estándar</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/cli.html"><em>Command Line Interface</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/ayuda.html">Obtener ayuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/comentarios.html">Comentarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/tipos-datos.html">Tipos de Datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/variables-constantes.html">Variables y Constantes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/operadores-palabras.html">Operadores y palabras reservadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/entrada-salida.html">Impresión y solicitud de datos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/tipos-index.html">Tipos Built-In</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/none-bool-numericos.html"><em>None</em>, <em>bool</em> y Numéricos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/str.html">str</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/lists.html">list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/tuples.html">Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/sets.html">Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/dicts.html">dict</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/if-else.html">If … Else</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/for-loop.html">For Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/do-while.html">Do While</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/udf.html">Funciones (UDF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/exceptions.html">Excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/context-managers.html">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/io.html">Lectura y escritura de archivos (IO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/modulos.html">Paquetes y Módulos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/avanzado-index.html">Temas avanzados</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/decorators.html">Decorators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/iterators.html">Iterators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/generators.html">Generators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/oop.html">Programación orientada a objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/func-built-in.html">Funciones built-in</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-modulos/modulos-index.html">Módulos built-in</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/csv.html">CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/datetime.html">Datetime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/itertools.html">Itertools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/json.html">JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/math.html">Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os.html">Os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os-path.html">Os.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/pickle.html">Pickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/random.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/regex.html">Regex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/statistics.html">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/urllib-request.html">urllib.request</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otras librerías</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-numpy/numpy-index.html">Numpy</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/arrays.html">Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../03-numpy/funciones-index.html">Funciones</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/ufuncs.html">Ufuncs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/buscar-contar-ordenar-unicos.html">Buscar, contar, ordenar y valores únicos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/creacion-arrays.html">Creación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/estadisticas.html">Estadísticas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/indices.html">Índices e iteración</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/informacion.html">Información</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/lectura-escritura.html">Lectura y escritura de datos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/manipulacion-arrays.html">Manipulación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/matematicas-numericas.html">Matemáticas y numéricas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/operadores.html">Operadores</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/algebra-lineal.html">Módulo linalg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/cadenas.html">Modulo char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/random.html">Módulo random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/patrones-numpy.html">Patrones útiles</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04-pandas/pandas-index.html">Pandas</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/index.html">Index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/series.html">Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/dataframe.html">DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/escalares-arrays.html">Escalares y Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../04-pandas/otras-clases.html">Otras clases</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/groupby.html">GroupBy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/expanding-rolling-window.html"><em>Expanding, Rolling</em> y <em>Window</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/resampler.html">Resampler</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/funciones.html">Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/patrones-pandas.html">Patrones útiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05-matplotlib/matplotlib-index.html">Matplotlib</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/pyplot.html">Pyplot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/figure.html">Figure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/axes.html">Axes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/otros.html">Otras Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06-seaborn/seaborn-index.html">Seaborn</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06-seaborn/funciones-clases.html">Funciones y Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-seaborn/objects-interface.html">Interface por objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../07-sklearn/sklearn-index.html">Scikit Learn</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/supervised/supervised-index.html">Aprendizaje supervisado</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/ensamble.html">Ensamble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/linear_model.html">Linear model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/naive_bayes.html">Naive bayes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/neighbors.html">Neighbors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/svm.html">SVM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/tree.html">Tree</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/unsupervised/unsupervised-index.html">Aprendizaje no supervisado</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/unsupervised/cluster.html">Cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/unsupervised/decomposition.html">Decomposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/unsupervised/mixture.html">Mixture</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/transformations/tranformations-index.html">Transformaciones</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/feature_extraction.html">Feature Extraction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/impute.html">Impute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/manifold.html">Manifold</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/preprocessing.html">Preprocessing</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/evaluation/evaluation-index.html">Evaluación y selección del modelo</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/dummy.html">Dummy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/feature_selection.html">Feature Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/metrics.html">Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/model_selection.html">Model Selection</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/pipelines-and-compose/pipeline-compose-index.html">Pipelines y Modelos Compuestos</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/pipelines-and-compose/compose.html">Compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/pipelines-and-compose/pipeline.html">Pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../07-sklearn/datasets.html">Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-sklearn/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-xgboost/xgboost-index.html">XGBoost</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08-xgboost/core-data-structure.html">Core Data Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-xgboost/learning-api.html">Learning API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-xgboost/scikit-learn-api.html">Scikit-Learn API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-xgboost/plotting-api.html">Plotting API</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../09-scipy/scipy-index.html">Scipy</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/clusters.html">Clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/derivacion-integracion.html">Derivación e Integración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/linalg.html">Linear Algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/sparse.html"><em>Sparse</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/stats.html">Stats</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../10-statsmodels/statsmodels-index.html">Statsmodels</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/statsmodels-api.html">API Principal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/statsmodels-tsa-api.html">API de Series de Tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/statsmodels-formula-api.html">API de Fórmulas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/graphics.html">Gráficos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/otras-clases.html">Otras clases</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../11-bokeh/bokeh-index.html">Bokeh</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/io.html">IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/layouts.html"><em>Layouts</em></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../11-bokeh/models/models-index.html"><em>Models</em></a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/annotations.html">Anotaciones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/axes.html">Ejes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/callbacks.html">Callbacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/formatters.html"><em>Formatters</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/glyphs.html"><em>Glyphs</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/sources.html"><em>Sources</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/tools.html"><em>Tools</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/widgets.html"><em>Widgets</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/plotting.html">Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/transform.html">transform</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../12-plotly/plotly-index.html">Plotly</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/express.html"><em>Express</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/figure-factory.html"><em>Figure Factory</em></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../12-plotly/go/go-index.html"><em>Graph Objects</em></a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../12-plotly/go/figure.html"><em>Figure</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../12-plotly/go/layout.html"><em>Layout</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../12-plotly/go/traces.html">Traces</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/io.html">IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/subplots.html">Subplots</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">BeautifulSoup</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Complementarios</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="appendix-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="IPython.html">IPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jupyter.html">Jupyter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pip.html">pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conda.html"><em>conda</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="git.html">git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shell.html">Shell</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/parts/appendix/beautifulsoup.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>BeautifulSoup</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principales-clases-de-beautifulsoup">Principales clases de <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conexion-y-lectura-de-una-pagina-web">Conexión y lectura de una página web</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creacion-de-objeto-beautifulsoup">Creación de objeto <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imprimir-el-contenido-del-documento-html">Imprimir el contenido del documento HTML</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navegacion-por-un-documento-html">Navegación por un documento HTML</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#acceder-a-un-unico-tag-por-su-nombre">Acceder a un único <em>tag</em> por su nombre</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#acceder-a-todos-los-elementos-de-un-tag-especifico">Acceder a todos los elementos de un <em>tag</em> específico</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#acceder-a-tags-por-nombre-y-atributos-especificos">Acceder a <em>tags</em> por nombre y atributos específicos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#acceder-a-valores-de-atributos-de-tags">Acceder a valores de atributos de <em>tags</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selectores-css">Selectores CSS</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objeto-tag">Objeto <code class="docutils literal notranslate"><span class="pre">Tag</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos">Atributos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos">Métodos</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#parametros-comunes">Parámetros comunes</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-filtros">Tipos de filtros</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#buscar-elementos">Buscar elementos</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#niveles-abajo">Niveles abajo</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#niveles-arriba">Niveles arriba</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#mismo-nivel">Mismo nivel</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#niveles-por-orden-de-aparicion">Niveles por orden de aparición</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#acceder-a-contenido">Acceder a contenido</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="beautifulsoup">
+<h1>BeautifulSoup<a class="headerlink" href="#beautifulsoup" title="Link to this heading">#</a></h1>
+<p>En esta sección se cubre lo esencial para hacer <em>web scraping</em> en Python usando la librería <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code>, en conjunto con otros módulos como <code class="docutils literal notranslate"><span class="pre">requests</span></code> y <code class="docutils literal notranslate"><span class="pre">urllib.request</span></code>.</p>
+<p>Para utilizar <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code> es necesario instalarlo. Desde la terminal usar:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Con pip</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">beautifulsoup4</span>
+
+<span class="c1"># Con conda</span>
+<span class="n">conda</span> <span class="n">install</span> <span class="n">beautifulsoup4</span>
+</pre></div>
+</div>
+<p>Una vez instalado se debe de importar</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar BeautifulSoup</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<ul class="simple">
+<li><p>En este sitio no se explica ningún concepto relacionado con documentos HTML o XML.</p></li>
+<li><p>En este sitio únicamente se explorarán documentos HTML.</p></li>
+<li><p>En este sitio únicamente se explorará métodos para navegar, buscar y acceder a partes de documentos HTML, pero no a modificaciones de los documentos.</p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<section id="principales-clases-de-beautifulsoup">
+<span id="bs4-jerarquia-clases"></span><h2>Principales clases de <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code><a class="headerlink" href="#principales-clases-de-beautifulsoup" title="Link to this heading">#</a></h2>
+<p>A continuación se muestra la jerarquía de las principales clases en <code class="docutils literal notranslate"><span class="pre">bs4</span></code>. Tener en cuenta que las clases están ordenadas de acuerdo a las clases padres y las clases hijas.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">bs4.element.PageElement</span></code>: Representa la posición actual de una parte de un documento HTML o XML y en la que se puede seguir explorando.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">bs4.element.Tag</span></code>: Representa un elemento de un documento HTML o XML, junto con sus atributos y contenido.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">bs4.BeautifulSoup</span></code>: Es una estructura de datos que representa un documento HTML o XML completo.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bs4.element.NavigableString</span></code>: Representa una cadena unicode que es el contenido de un elemento HTML o XML. Esta clase también es una subclase de <code class="docutils literal notranslate"><span class="pre">str</span></code>.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">bs4.Stylesheet</span></code>: Representa cadenas dentro de la etiqueta <code class="docutils literal notranslate"><span class="pre">&lt;style&gt;</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bs4.Script</span></code>: Representa cadenas dentro de la etiqueta <code class="docutils literal notranslate"><span class="pre">&lt;script&gt;</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Tener en cuenta lo siguiente:</p>
+<ul class="simple">
+<li><p>La clase <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code> es una clase hija de la clase <code class="docutils literal notranslate"><span class="pre">Tag</span></code>. Para fines prácticos se puede considerar a los objetos de tipo <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code> como objetos de tipo <code class="docutils literal notranslate"><span class="pre">Tag</span></code></p></li>
+<li><p>La clase <code class="docutils literal notranslate"><span class="pre">Tag</span></code> es una clase hija de la clase <code class="docutils literal notranslate"><span class="pre">PageElement</span></code>. Para fines prácticos esto no es relevante, ya que no se trabajarán con instancias de <code class="docutils literal notranslate"><span class="pre">PageElement</span></code>. Basta con saber que la mayoría de métodos de <code class="docutils literal notranslate"><span class="pre">Tag</span></code> son heredados de <code class="docutils literal notranslate"><span class="pre">PageElement</span></code>.</p></li>
+</ul>
+</div>
+<p>La clase <code class="docutils literal notranslate"><span class="pre">PageElement</span></code> contiene los siguientes métodos y atirbutos que la mayoría se pueden encontrar en sus clases hijas. <strong>Importante</strong>, esto no es una lista completa de los atributos y métodos de <code class="docutils literal notranslate"><span class="pre">PageElement</span></code>:</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>El uso de métodos cuyos nombres están en <em>CamelCase</em> está desaconsejado, se recomienda utilizar sus versiones más recientes que se pueden identificar porque las palabras de sus nombres están separados por guiones bajos (<em>method_name</em>).</p>
+</div>
+<ul class="simple">
+<li><p>findAllNext</p></li>
+<li><p>findAllPrevious</p></li>
+<li><p>findNext</p></li>
+<li><p>findNextSibling</p></li>
+<li><p>findNextSiblings</p></li>
+<li><p>findParent</p></li>
+<li><p>findParents</p></li>
+<li><p>findPrevious</p></li>
+<li><p>findPreviousSibling</p></li>
+<li><p>findPreviousSiblings</p></li>
+<li><p>find_all_next</p></li>
+<li><p>find_all_previous</p></li>
+<li><p>find_next</p></li>
+<li><p>find_next_sibling</p></li>
+<li><p>find_next_siblings</p></li>
+<li><p>find_parent</p></li>
+<li><p>find_parents</p></li>
+<li><p>find_previous</p></li>
+<li><p>find_previous_sibling</p></li>
+<li><p>find_previous_siblings</p></li>
+<li><p>getText</p></li>
+<li><p>get_text</p></li>
+<li><p>next</p></li>
+<li><p>nextSibling</p></li>
+<li><p>next_elements</p></li>
+<li><p>next_siblings</p></li>
+<li><p>parents</p></li>
+<li><p>previous</p></li>
+<li><p>previousSibling</p></li>
+<li><p>previous_elements</p></li>
+<li><p>previous_siblings</p></li>
+<li><p>text</p></li>
+</ul>
+<p>Por su parte, la clase <code class="docutils literal notranslate"><span class="pre">Tag</span></code> incorpora los siguientes métodos y atributos. <strong>Importante</strong>, esto no es una lista completa de los atributos y métodos propios de <code class="docutils literal notranslate"><span class="pre">Tag</span></code>:</p>
+<ul class="simple">
+<li><p>name</p></li>
+<li><p>attrs</p></li>
+<li><p>find_all</p></li>
+<li><p>find</p></li>
+<li><p>prettify</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="conexion-y-lectura-de-una-pagina-web">
+<h2>Conexión y lectura de una página web<a class="headerlink" href="#conexion-y-lectura-de-una-pagina-web" title="Link to this heading">#</a></h2>
+<p>Para leer el contenido de una página web primero es necesario conectarse con ella. Para ello se puede utilizar las siguientes opciones:</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Es necesario instalar e importar la librería <code class="docutils literal notranslate"><span class="pre">requests</span></code>. En cambio <code class="docutils literal notranslate"><span class="pre">urllib.request</span></code> es un módulo <em>built-in</em> de Python y por lo tanto no es necesario instalarlo, únicamente importarlo.</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Usando la librería urllib.request</span>
+<span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
+<span class="n">page</span> <span class="o">=</span> <span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">html</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="c1"># Usando la librería request</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">page</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">html</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="n">content</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><em>url</em> es una cadena con el url de la página web.</p></li>
+<li><p>El objeto <em>html</em> es el que se podrá pasar al constructor <code class="docutils literal notranslate"><span class="pre">BeautifulSoup()</span></code> para  inicializar el objeto <em>soup</em> y poder navegar por el documento.</p></li>
+</ul>
+<br/>
+</section>
+<hr class="docutils" />
+<section id="creacion-de-objeto-beautifulsoup">
+<h2>Creación de objeto <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code><a class="headerlink" href="#creacion-de-objeto-beautifulsoup" title="Link to this heading">#</a></h2>
+<p>El objeto <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code> representa una documento HTML o XML completo que permite explorar el contenido del mismo de manera simple. Para crear un objeto <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code> se utiliza el constructor, es posible pasarle una cadena que represente un documento HTML o XML, o pasar un objeto <code class="docutils literal notranslate"><span class="pre">file-like</span></code> que represente el documento.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>La clase <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code> es una clase hija de la clase <code class="docutils literal notranslate"><span class="pre">Tag</span></code>, por lo que a grandes rasgos se puede entender a un objeto <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code> como un objeto <code class="docutils literal notranslate"><span class="pre">Tag</span></code>.</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">markup</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">features</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>markup - <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">file-like</span></code>: Cadena o archivo que represente un documento HTML o XML.</p></li>
+<li><p>features - <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">{&quot;html.parser&quot;,</span> <span class="pre">&quot;lxml&quot;,</span> <span class="pre">&quot;lxml-xml&quot;,</span> <span class="pre">&quot;xml&quot;,</span> <span class="pre">&quot;html5lib&quot;}</span></code> o <code class="docutils literal notranslate"><span class="pre">{&quot;html&quot;,</span> <span class="pre">&quot;html5&quot;,</span> <span class="pre">&quot;xml&quot;}</span></code>: Indica el tipo de <em>parser</em> o el tipo del <em>markup</em>. Es recomendado indicar el <em>parser</em>. Algunos <em>parsers</em> requieren instalar otras librerías externas. Para más información consultar la <a class="reference external" href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/#installing-a-parser">documentación</a> de <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code>. Por default se trata de usar el mejor <em>parser</em> instalado.</p></li>
+<li><p><strong>Importante</strong>: Existen más parámetros, para más información utilizar <code class="docutils literal notranslate"><span class="pre">help(BeautifulSoup)</span></code> o <code class="docutils literal notranslate"><span class="pre">help(bs4.BeautifulSoup)</span></code>, dependiendo de cómo se haya importado.</p></li>
+</ul>
+<br/>
+<p><strong>Ejemplo</strong>:
+Ejemplo básico de creación de un objeto <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code> desde una <em>url</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar librerías</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="c1"># Definir URL</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://docs.python.org/3/library/stdtypes.html&quot;</span>
+
+<span class="c1"># Conexión y lectura de la url</span>
+<span class="n">page</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">page</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+
+<span class="c1"># Imprimir el tipo del objeto soup</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">soup</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;bs4.BeautifulSoup&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Alternativamente se podría usar <code class="docutils literal notranslate"><span class="pre">page.text</span></code> en lugar de <code class="docutils literal notranslate"><span class="pre">page.content</span></code>.</p></li>
+</ul>
+<p>Para evitar errores en caso de que no sea posible conectarse con la página se puede usar un manejador de errores:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar librerías</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="c1"># Definir URL</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://docs.python.org/3/library/stdtypes.html&quot;</span>
+
+<span class="c1"># Conexión y lectura de la url</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">page</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">HTTPError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="c1"># except body</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">page</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+</pre></div>
+</div>
+<br/>
+</section>
+<hr class="docutils" />
+<section id="imprimir-el-contenido-del-documento-html">
+<h2>Imprimir el contenido del documento HTML<a class="headerlink" href="#imprimir-el-contenido-del-documento-html" title="Link to this heading">#</a></h2>
+<p>Por default si se imprime un objeto <code class="docutils literal notranslate"><span class="pre">Tag</span></code>/<code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code> se retornará una representación en cadena de la etiqueta/documento HTML. Es posible imprimir el contenido del documento HTML desde un objeto <code class="docutils literal notranslate"><span class="pre">Tag</span></code>/<code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code> con un formato organizado y jerarquizado con el método <code class="docutils literal notranslate"><span class="pre">.prettify()</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imprimir contenido del documento HTML</span>
+<span class="n">tag</span><span class="o">.</span><span class="n">prettify</span><span class="p">()</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>tag – <code class="docutils literal notranslate"><span class="pre">Tag</span></code>, <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code>: Una instancia de la clase <code class="docutils literal notranslate"><span class="pre">Tag</span></code> o <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code>.</p></li>
+</ul>
+<p><strong>Ejemplo</strong>:</p>
+<p>En este ejemplo se imprimirá el contenido de un elemento <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code> con un <em>id</em> específico.
+.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imprimir contenido de un tag</span>
+<span class="n">paragraph</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="s1">&#39;index-1&#39;</span><span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">paragraph</span><span class="o">.</span><span class="n">prettify</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;p id=&quot;index-1&quot;&gt;
+ Any object can be tested for truth value, for use in an
+ &lt;a class=&quot;reference internal&quot; href=&quot;../reference/compound_stmts.html#if&quot;&gt;
+  &lt;code class=&quot;xref std std-keyword docutils literal notranslate&quot;&gt;
+   &lt;span class=&quot;pre&quot;&gt;
+    if
+   &lt;/span&gt;
+  &lt;/code&gt;
+ &lt;/a&gt;
+ or
+ &lt;a class=&quot;reference internal&quot; href=&quot;../reference/compound_stmts.html#while&quot;&gt;
+  &lt;code class=&quot;xref std std-keyword docutils literal notranslate&quot;&gt;
+   &lt;span class=&quot;pre&quot;&gt;
+    while
+   &lt;/span&gt;
+  &lt;/code&gt;
+ &lt;/a&gt;
+ condition or as operand of the Boolean operations below.
+&lt;/p&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<br/>
+</section>
+<hr class="docutils" />
+<section id="navegacion-por-un-documento-html">
+<h2>Navegación por un documento HTML<a class="headerlink" href="#navegacion-por-un-documento-html" title="Link to this heading">#</a></h2>
+<p>En un objeto <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code> o <code class="docutils literal notranslate"><span class="pre">Tag</span></code> se puede navegar a través del documento de diversas maneras. Para entender la navegación en un documento HTML, conceptualizar a un documento HTML como una estructura jerarquizada, como se muestra en la siguiente imagen.</p>
+<p><img alt="" src="https://www.bu.edu/lernet/artemis/years/2020/projects/FinalPresentations/HTML/hierarchy.jpg" /></p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>La posición en el documento donde se realizará la navegación/búsqueda depende del tipo de objeto:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">BeautiufulSoup</span></code>: La posición es al inicio del documento.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Tag</span></code>: La posición será la posición de la etiqueta en cuestión.</p></li>
+</ul>
+</div>
+<ul class="simple">
+<li><p><strong>Navegar a niveles inferiores</strong>.</p>
+<ul>
+<li><p><strong>Navegar usando nombres de etiquetas</strong>: Es posible navegar <em>hacia abajo</em> usando nombres de etiquetas con métodos como <code class="docutils literal notranslate"><span class="pre">.find()</span></code> y <code class="docutils literal notranslate"><span class="pre">.find_all()</span></code>. Ver métodos de búsqueda <a class="reference internal" href="#bs4-tag-metodo-busqueda-abajo"><span class="std std-ref">Niveles abajo</span></a>.</p></li>
+<li><p><strong>Hijos de etiquetas</strong>: Para acceder a los hijos de elementos usar atributos como:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">.contents</span></code>: Retorna una lista de los hijos directos de un elemento.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.children</span></code>: Retorna un <code class="docutils literal notranslate"><span class="pre">generator</span></code> de los hijos directos de un elemento.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.descendants</span></code>: Retorna un <code class="docutils literal notranslate"><span class="pre">generator</span></code> de todos los hijos de un elemento.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.string</span></code>: Retorna un <code class="docutils literal notranslate"><span class="pre">NavigableString</span></code> del hijo un elemento.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.strings</span></code>: Retorna un <code class="docutils literal notranslate"><span class="pre">generator</span></code> de los <code class="docutils literal notranslate"><span class="pre">NavigableString</span></code> de los hijos de un elemento.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.strippedstrings</span></code>: Retorna un <code class="docutils literal notranslate"><span class="pre">generator</span></code> de los <code class="docutils literal notranslate"><span class="pre">NavigableString</span></code> removiendo espacios en blanco extras o saltos de línea de los hijos de un elemento.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Navegar a niveles superiores</strong>:</p>
+<ul>
+<li><p><strong>Navegar usando nombres de etiquetas</strong>: Es posible navegar <em>hacia arriba</em> usando nombres de etiquetas con métodos como <code class="docutils literal notranslate"><span class="pre">.find_parent()</span></code> y <code class="docutils literal notranslate"><span class="pre">.find_parents()</span></code>. Ver métodos de búsqueda <a class="reference internal" href="#bs4-tag-metodo-busqueda-arriba"><span class="std std-ref">Niveles arriba</span></a>.</p></li>
+<li><p><strong>Padres de etiquetas</strong>: Para acceder a los padres de elementos usar atributos como:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">.parent</span></code>: Retorna el elemento padre de un elemento.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.parents</span></code>: Retorna un <code class="docutils literal notranslate"><span class="pre">generator</span></code> de todos los elementos padres de un elemento.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Navegar en el mismo nivel</strong>:</p>
+<ul>
+<li><p><strong>Navegar usando nombres de etiquetas</strong>: Es posible navegar <em>en el mismo nivel</em> usando nombres de etiquetas con métodos como <code class="docutils literal notranslate"><span class="pre">.next_sibling()</span></code> y <code class="docutils literal notranslate"><span class="pre">.previous_sibling()</span></code> o  sus equivalentes en plural. Ver métodos de búsqueda <a class="reference internal" href="#bs4-tag-metodo-busqueda-mismo"><span class="std std-ref">Mismo nivel</span></a>.</p></li>
+<li><p><strong>Hermanos de etiquetas</strong>: Para acceder a los hermanos de elementos usar atributos como:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">.next_sibling</span></code>: Retorna el próximo elemento en el mismo nivel de un elemento.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.next_siblings</span></code>: Retorna un <code class="docutils literal notranslate"><span class="pre">generator</span></code> de todos los próximos elementos en el mismo nivel de un elemento.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.previous_sibling</span></code>: Retorna el elemento anterior en el mismo nivel de un elemento.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.previous_siblings</span></code>: Retorna un <code class="docutils literal notranslate"><span class="pre">generator</span></code> de todos los elementos anteriores en el mismo nivel de un elemento.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Navegación lineal</strong>:</p>
+<ul>
+<li><p><strong>Navegar usando nombres de etiquetas</strong>: Es posible navegar <em>independiente del nivel</em> usando nombres de etiquetas con métodos como <code class="docutils literal notranslate"><span class="pre">.next_sibling()</span></code> y <code class="docutils literal notranslate"><span class="pre">.previous_sibling()</span></code> o  sus equivalentes en plural. Ver métodos de búsqueda <a class="reference internal" href="#bs4-tag-metodo-busqueda-lineal"><span class="std std-ref">Niveles por orden de aparición</span></a>.</p></li>
+<li><p><strong>Ascendientes y descendientes</strong>: Se puede navegar <em>linealmente</em> por orden de aparición, independiente del nivel, con atributos como:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">.next_element</span></code>: Retorna el próximo elemento independiente del nivel de un elemento.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.next_elements</span></code>: Retorna un <code class="docutils literal notranslate"><span class="pre">generator</span></code> de todos los próximos elementos independiente del nivel de un elemento.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.previous_element</span></code>: Retorna el elemento anterior independiente del nivel de un elemento.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.previous_elements</span></code>: Retorna un <code class="docutils literal notranslate"><span class="pre">generator</span></code> de todos los elementos anteriores independiente del nivel de un elemento.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>En las siguientes secciones se profundiza más en algunos de estos métodos para navegar en un documento HTML o buscar contenido específico.</p>
+<br/>
+<section id="acceder-a-un-unico-tag-por-su-nombre">
+<h3>Acceder a un único <em>tag</em> por su nombre<a class="headerlink" href="#acceder-a-un-unico-tag-por-su-nombre" title="Link to this heading">#</a></h3>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>En esta sección se explica la búsqueda hacia niveles inferiores, pero los mismos procedimientos aplican para cualquier dirección con los métodos apropiados. Consultar métodos de <a class="reference internal" href="#bs4-tag-metodo-busqueda"><span class="std std-ref">Buscar elementos</span></a>.</p>
+</div>
+<p>Se puede acceder a <em>tags</em> únicos específicos, esto es particulamente útil si sabe que solo hay una etiqueta en el documento o si solo se quiere recuperar la primer coincidencia. Para acceder a <em>tags</em> de HTML concretos por su nombre se puede hacer principal de dos formas, tener en cuenta que <code class="docutils literal notranslate"><span class="pre">soup</span></code> es una instancia de <code class="docutils literal notranslate"><span class="pre">Tag</span></code> o <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code> y <code class="docutils literal notranslate"><span class="pre">tag_name</span></code> es el nombre de una etiqueta HTML válida:</p>
+<ol class="arabic simple">
+<li><p>Utilizando el método <code class="docutils literal notranslate"><span class="pre">.find()</span></code>: <br/> <code class="docutils literal notranslate"><span class="pre">soup.find('tag_name')</span></code>.</p></li>
+<li><p>Utilizando la notación punto: <br/> <code class="docutils literal notranslate"><span class="pre">soup.tag_name</span></code></p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Las dos formas explicadas anteriormente en esencia son la misma, ya que internamente al utilizar la <em>notación punto</em> se llama al método <code class="docutils literal notranslate"><span class="pre">.__getattr__(tag_name)</span></code> y este método retorna <code class="docutils literal notranslate"><span class="pre">self.find('tag_name')</span></code>.</p>
+</div>
+<p>Al acceder a elementos únicos por su nombre tener en cuenta lo siguiente:</p>
+<ul class="simple">
+<li><p>Se accede únicamente a la primer coincidencia encontrada.</p></li>
+<li><p>Es posible omitir algunas etiquetas padres como <code class="docutils literal notranslate"><span class="pre">.html</span></code> correspondientes a <code class="docutils literal notranslate"><span class="pre">&lt;html&gt;</span> <span class="pre">...</span> <span class="pre">&lt;/html&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">.head</span></code> correspondiente <code class="docutils literal notranslate"><span class="pre">&lt;head&gt;</span> <span class="pre">...</span> <span class="pre">&lt;/head&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">.body</span></code> correspondiente <code class="docutils literal notranslate"><span class="pre">&lt;body&gt;</span> <span class="pre">...</span> <span class="pre">&lt;/body&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">.div</span></code> correspondiente <code class="docutils literal notranslate"><span class="pre">&lt;div&gt;</span> <span class="pre">...</span> <span class="pre">&lt;/div&gt;</span></code>, etc. Recordar que se accede a la primer etiqueta encontrada, independientemente de las etiquetas padres.</p></li>
+<li><p>El objeto retornado generalmente será una instancia de <code class="docutils literal notranslate"><span class="pre">bs4.element.Tag</span></code>, de ahí que se pueda encadenar el acceso a etiquetas más internas.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Acceder a la etiqueta &#39;tag_name&#39; con el método .find()</span>
+<span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;tag_name&#39;</span><span class="p">)</span>
+
+<span class="c1"># Acceder a etiquetas más internas con el método .find()</span>
+<span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;parent_tag&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;child_tag&#39;</span><span class="p">)</span>
+
+<span class="c1"># Acceder a la etiqueta &#39;tag_name&#39; con notación punto</span>
+<span class="n">soup</span><span class="o">.</span><span class="n">tag_name</span>
+
+<span class="c1"># Acceder a etiquetas más internas con notación punto</span>
+<span class="n">soup</span><span class="o">.</span><span class="n">parent_tag</span><span class="o">.</span><span class="n">child_tag</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><em>soup</em> – <code class="docutils literal notranslate"><span class="pre">Tag</span></code>, <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code>: Una instancia de la clase <code class="docutils literal notranslate"><span class="pre">Tag</span></code> o <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code>.</p></li>
+<li><p><em>tag_name</em> es una etiqueta válida de HTML.</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Un comportamiento similar se puede conseguir con el método <code class="docutils literal notranslate"><span class="pre">.findall()</span></code> usando: <br/> <code class="docutils literal notranslate"><span class="pre">soup.find('tag_name',</span> <span class="pre">limit=1)</span></code></p>
+</div>
+<br/>
+<p><strong>Ejemplo</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Acceder a primer etiqueta &lt;h1&gt; con método find</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;h1&quot;</span><span class="p">))</span>
+
+<span class="c1"># Acceder a primer etiqueta &lt;h1&gt; con notación punto</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">h1</span><span class="p">)</span> <span class="c1"># equivale a soup.html.body.h1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;h1&gt;Built-in Types&lt;a class=&quot;headerlink&quot; href=&quot;#built-in-types&quot; title=&quot;Link to this heading&quot;&gt;¶&lt;/a&gt;&lt;/h1&gt;
+&lt;h1&gt;Built-in Types&lt;a class=&quot;headerlink&quot; href=&quot;#built-in-types&quot; title=&quot;Link to this heading&quot;&gt;¶&lt;/a&gt;&lt;/h1&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<br/>
+</section>
+<section id="acceder-a-todos-los-elementos-de-un-tag-especifico">
+<h3>Acceder a todos los elementos de un <em>tag</em> específico<a class="headerlink" href="#acceder-a-todos-los-elementos-de-un-tag-especifico" title="Link to this heading">#</a></h3>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>En esta sección se explica la búsqueda hacia niveles inferiores, pero los mismos procedimientos aplican para cualquier dirección con los métodos apropiados. Consultar métodos de <a class="reference internal" href="#bs4-tag-metodo-busqueda"><span class="std std-ref">Buscar elementos</span></a>.</p>
+</div>
+<p>Se puede acceder a todos los elementos de algún <em>tag</em> específico, retornando una lista, para ello se utiliza el método <code class="docutils literal notranslate"><span class="pre">.find_all()</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Acceder a todas los elementos de una etiqueta específica</span>
+<span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;tag_name&#39;</span><span class="p">)</span>
+
+<span class="c1"># Lo anterior equivale a:</span>
+<span class="n">soup</span><span class="p">(</span><span class="s1">&#39;tag_name&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><em>soup</em> – <code class="docutils literal notranslate"><span class="pre">Tag</span></code>, <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code>: Una instancia de la clase <code class="docutils literal notranslate"><span class="pre">Tag</span></code> o <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code>.</p></li>
+<li><p><em>tag_name</em> es una etiqueta válida de HTML. También es posible poner un <code class="docutils literal notranslate"><span class="pre">iterable</span></code> de <code class="docutils literal notranslate"><span class="pre">str</span></code> para buscar múltiples elementos de HTML al mismo tiempo: <br><code class="docutils literal notranslate"><span class="pre">soup.find_all(['tag_name_1',</span> <span class="pre">'tag_name_2',</span> <span class="pre">...])</span></code></p></li>
+<li><p>Notar que hacer una llamada directamente en un objeto equivale a utilizar el método <code class="docutils literal notranslate"><span class="pre">.find_all()</span></code></p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Alternativamente se puede usar el método <code class="docutils literal notranslate"><span class="pre">tag.findAll()</span></code></p>
+</div>
+<br/>
+</section>
+<section id="acceder-a-tags-por-nombre-y-atributos-especificos">
+<h3>Acceder a <em>tags</em> por nombre y atributos específicos<a class="headerlink" href="#acceder-a-tags-por-nombre-y-atributos-especificos" title="Link to this heading">#</a></h3>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>En esta sección se explica la búsqueda hacia niveles inferiores, pero los mismos procedimientos aplican para cualquier dirección con los métodos apropiados. Consultar métodos de <a class="reference internal" href="#bs4-tag-metodo-busqueda"><span class="std std-ref">Buscar elementos</span></a>.</p>
+</div>
+<p>En los métodos <code class="docutils literal notranslate"><span class="pre">.find()</span></code> y <code class="docutils literal notranslate"><span class="pre">.findall()</span></code> existe el parámetro <code class="docutils literal notranslate"><span class="pre">attrs</span></code> que permite especificar valores de atributos concretos que el elemento HTML debe de tener. Este parámetro se debe especificar como un diccionario donde los <em>keys</em> son el nombre del atributo y los <em>values</em> son el valor que debe de tener el atributo:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Especificar atributos al buscar etiquetas</span>
+<span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;tag_name&#39;</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;attr_name&#39;</span><span class="p">:</span> <span class="s1">&#39;val&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">})</span>
+
+<span class="c1"># Alternativamente se pueden especificar por key=value</span>
+<span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;tag_name&#39;</span><span class="p">,</span> <span class="n">attr_name</span><span class="o">=</span><span class="s1">&#39;val&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><em>soup</em> – <code class="docutils literal notranslate"><span class="pre">Tag</span></code>, <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code>: Una instancia de la clase <code class="docutils literal notranslate"><span class="pre">Tag</span></code> o <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code>.</p></li>
+<li><p><em>tag_name</em> es una etiqueta válida de HTML.</p></li>
+<li><p><strong>Importante</strong>: Un mismo atributo se puede repetir múltiples veces con diferentes valores para especificar múltiples posibles valores que puede tomar ese atributo.</p></li>
+<li><p><strong>Importante</strong>: Si los atributos se definen como <em>keywords</em> en lugar de un diccionario se debe verificar que el nombre de atributo no entre en conflicto con otros nombres de Python. Por ejemplo, no es posible utilizar el <em>keyword</em> <code class="docutils literal notranslate"><span class="pre">class</span></code>, para ello utilizar <code class="docutils literal notranslate"><span class="pre">class_</span></code>.</p></li>
+</ul>
+<p>Entre los atributos más importantes que se pueden especificar están:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">class</span></code>: Clase del elemento.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: Id del elemento.</p></li>
+</ul>
+<br/>
+</section>
+<section id="acceder-a-valores-de-atributos-de-tags">
+<h3>Acceder a valores de atributos de <em>tags</em><a class="headerlink" href="#acceder-a-valores-de-atributos-de-tags" title="Link to this heading">#</a></h3>
+<p>Se puede acceder a los valores de los atributos de un objeto <code class="docutils literal notranslate"><span class="pre">Tag</span></code> utilizando el atributo <code class="docutils literal notranslate"><span class="pre">.attrs</span></code>, este atributo retorna un <code class="docutils literal notranslate"><span class="pre">dict</span></code> con los pares de atributos y valor, por lo que posteriormente se pueden seleccionar atributos específicos:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Acceder a todos los atributos</span>
+<span class="n">tag</span><span class="o">.</span><span class="n">attrs</span>
+
+<span class="c1"># Acceder a un atributo en concreto, ejemplo con class</span>
+<span class="n">tag</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<br/>
+<p><strong>Ejemplo</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Acceder al url del primer link </span>
+<span class="nb">print</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;section&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="s1">&#39;comparisons&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#comparisons
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="selectores-css">
+<h3>Selectores CSS<a class="headerlink" href="#selectores-css" title="Link to this heading">#</a></h3>
+<p>Es posible acceder a selectores de CSS con la propiedad <code class="docutils literal notranslate"><span class="pre">.css</span></code> junto con los método <code class="docutils literal notranslate"><span class="pre">.select()</span></code> y <code class="docutils literal notranslate"><span class="pre">.select_one()</span></code> que retornan todas y una, respectivamente, las etiquetas que satisfacen los selectores de <em>CSS</em> especificados.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>El acceso a elementos de un documento HTML por medio de los selectores CSS es manejado por la librería <a class="reference external" href="https://facelessuser.github.io/soupsieve/">Soup Sieve</a> e implementada a través de <em>BeautifulSoup</em>. Para ver más métodos de está librería consultar la <a class="reference external" href="https://facelessuser.github.io/soupsieve/api/">documentación</a> de <code class="docutils literal notranslate"><span class="pre">Soup</span> <span class="pre">Sieve</span></code>.</p>
+</div>
+<p>Los selectores se pueden especificar por:</p>
+<ul class="simple">
+<li><p>Nombre: <code class="docutils literal notranslate"><span class="pre">soup.css.selec('tagname')</span></code></p></li>
+<li><p>Id: <code class="docutils literal notranslate"><span class="pre">soup.css.selec('#id')</span></code> <br/> <code class="docutils literal notranslate"><span class="pre">soup.css.selec('tagname#id')</span></code></p></li>
+<li><p>Etiquetas anidadas (ejemplo de 2, pero pueden ser más): <code class="docutils literal notranslate"><span class="pre">soup.css.selec('ParentTagname</span> <span class="pre">ChildTagname')</span></code></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Para más información consultar la <a class="reference external" href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.html#css-selectors-through-the-css-property">documentación</a> de <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code>.</p>
+</div>
+<br/>
+</section>
+</section>
+<hr class="docutils" />
+<section id="objeto-tag">
+<h2>Objeto <code class="docutils literal notranslate"><span class="pre">Tag</span></code><a class="headerlink" href="#objeto-tag" title="Link to this heading">#</a></h2>
+<p>El objeto <code class="docutils literal notranslate"><span class="pre">Tag</span></code> es un objeto que representa una etiqueta de HTML o XML que forma parte de un documento HTML o XML, según sea el caso, junto a sus atributos y contenido. Este objeto es retornado cuando se accede a un <em>tag</em> específico de un objeto <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code> o cuando se acceden a etiquetas más internas de otros objetos <code class="docutils literal notranslate"><span class="pre">Tag</span></code>. Algunos métodos y atributos que retornan instancias de <code class="docutils literal notranslate"><span class="pre">Tag</span></code> son:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Tag.find()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Tag.find_all()</span></code> (retorna una lista de instancias de <code class="docutils literal notranslate"><span class="pre">Tag</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Tag.select()</span></code> (retorna una lista de instancias de <code class="docutils literal notranslate"><span class="pre">Tag</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Tag.children</span></code> (retorna un iterator de instancias de <code class="docutils literal notranslate"><span class="pre">Tag</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Tag.parent</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Tag.descendants</span></code>.</p></li>
+</ul>
+<section id="atributos">
+<h3>Atributos<a class="headerlink" href="#atributos" title="Link to this heading">#</a></h3>
+<p>Atributos de la clase <code class="docutils literal notranslate"><span class="pre">Tag</span></code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Esta no es una lista completa de los atributos de <code class="docutils literal notranslate"><span class="pre">Tag</span></code>.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Atributo</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">attrs</span></code></p></td>
+<td><p>Retorna los atributos del <em>tag</em> como <code class="docutils literal notranslate"><span class="pre">dict</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">get_text</span></code></p></td>
+<td><p>Retorna el texto del <em>tag</em> como <code class="docutils literal notranslate"><span class="pre">str</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
+<td><p>Retorna el nombre del <em>tag</em> como <code class="docutils literal notranslate"><span class="pre">str</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="metodos">
+<h3>Métodos<a class="headerlink" href="#metodos" title="Link to this heading">#</a></h3>
+<p>Métodos de instancia de la clase <code class="docutils literal notranslate"><span class="pre">Tag</span></code>.</p>
+<section id="parametros-comunes">
+<h4>Parámetros comunes<a class="headerlink" href="#parametros-comunes" title="Link to this heading">#</a></h4>
+<p>A continuación se enlistan parámetros comúnes en los métodos de <code class="docutils literal notranslate"><span class="pre">Tag</span></code> y se explica su funcionalidad. También se indica cómo se debe de especificar los argumentos de estos parámetros, tener en cuenta que <em>name</em> y <em>string</em> tienen múltiples formas de definirlos que se explican más detalladamente en <a class="reference internal" href="#bs4-metodos-parametros-tipos-filtros"><span class="std std-ref">Tipos de filtros</span></a>.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.html#the-name-argument">name</a> - ver <a class="reference internal" href="#bs4-metodos-parametros-tipos-filtros"><span class="std std-ref">Tipos de filtros</span></a>: El parámetro <code class="docutils literal notranslate"><span class="pre">name</span></code> se utiliza para especificar la o las etiquetas por las cuales se quiere filtrar.</p></li>
+<li><p><em>attrs</em> - <code class="docutils literal notranslate"><span class="pre">dict</span></code>: Un diccionario cuyos <em>keys</em> son atributos del elemento HTML y cuyos <em>values</em> son los valores concretos que deben tener esos atributos. Un mismo atributo se puede repetir múltiples veces en el diccionario con diferentes valores.</p>
+<ul>
+<li><p><a class="reference external" href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.html#the-keyword-arguments">keyword</a>: En lugar de definir un diccionario para definir valores de atributos, se puede pasar directamente pares <code class="docutils literal notranslate"><span class="pre">key=value</span></code> como argumento a modo de <code class="docutils literal notranslate"><span class="pre">keyword</span></code>. En caso de que el atributo sea <code class="docutils literal notranslate"><span class="pre">&quot;class&quot;</span></code>, se debe de pasar como <code class="docutils literal notranslate"><span class="pre">class_=value</span></code>.</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.html#the-string-argument">string</a> - ver <a class="reference internal" href="#bs4-metodos-parametros-tipos-filtros"><span class="std std-ref">Tipos de filtros</span></a>: El parámetro <code class="docutils literal notranslate"><span class="pre">string</span></code> se utiliza en lugar de <em>name</em> para que la búsqueda se realice con base al contenido en cadena de las etiquetas en lugar del nombre de las etiquetas. Algunas etiquetas de HTML pueden tener contenido en cadena que se encuentra entre las etiquetas de apertura y cierre (<code class="docutils literal notranslate"><span class="pre">&lt;tagname&gt;</span> <span class="pre">content</span> <span class="pre">&lt;/tagname&gt;</span></code>). Algunos ejemplos de etiquetas con este tipo de contenido son: <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;span&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;h1&gt;</span></code>, …, <code class="docutils literal notranslate"><span class="pre">&lt;h6&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;dt&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;dl&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;li&gt;</span></code>, entre muchos otros. En versiones anteriores a ‘4.4.0’ este parámetro se denomina <code class="docutils literal notranslate"><span class="pre">text</span></code>.</p></li>
+<li><p><a class="reference external" href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.html#the-limit-argument">limit</a> - <code class="docutils literal notranslate"><span class="pre">int</span></code>: Limita el número de elementos en la búsuqueda.</p></li>
+<li><p><a class="reference external" href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.html#the-recursive-argument">recursive</a> - <code class="docutils literal notranslate"><span class="pre">bool</span></code>: Indica si se debe de realizar la búsqueda en todos los hijos del elementos (<code class="docutils literal notranslate"><span class="pre">True</span></code>) o solo en los hijos directos (<code class="docutils literal notranslate"><span class="pre">False</span></code>).</p></li>
+</ul>
+</section>
+<section id="tipos-de-filtros">
+<span id="bs4-metodos-parametros-tipos-filtros"></span><h4>Tipos de filtros<a class="headerlink" href="#tipos-de-filtros" title="Link to this heading">#</a></h4>
+<p>Los parámetros <em>name</em> y <em>string</em> se pueden especificar de diversas formas que incluyen:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.html#a-string">str</a>: Una cadena con el nombre de la etiqueta o el contenido de cadena del elemento.</p></li>
+<li><p><a class="reference external" href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.html#a-regular-expression">regular expression</a>: Una cadena que represente una expresión regular para filtrar los <em>match</em> usando el método <code class="docutils literal notranslate"><span class="pre">.search()</span></code>. La expresión regular se tiene que pasar como argumento de la función <code class="docutils literal notranslate"><span class="pre">compile()</span></code>: <br/> <code class="docutils literal notranslate"><span class="pre">re.compile(r'pattern')</span></code></p></li>
+<li><p><a class="reference external" href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.html#a-function">function</a>: Una función que reciba un único elemento (de tipo <code class="docutils literal notranslate"><span class="pre">Tag</span></code>) y retorne valores <code class="docutils literal notranslate"><span class="pre">True</span></code> o <code class="docutils literal notranslate"><span class="pre">False</span></code> dependiendo de si el elemento en cuestión satisface las condiciones por las que se quiera filtrar.</p></li>
+<li><p><a class="reference external" href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.html#a-list">list</a> de <code class="docutils literal notranslate"><span class="pre">str</span></code> o <code class="docutils literal notranslate"><span class="pre">function</span></code>: Una lista de cadenas, expresiones regulares o funciones para verificar múltiples opciones al mismo tiempo.</p></li>
+<li><p><a class="reference external" href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.html#true">True</a>: El valor <code class="docutils literal notranslate"><span class="pre">True</span></code> equivale a no filtrar los resultados, y acceder a todas los elementos en el objeto.</p></li>
+</ul>
+</section>
+<section id="buscar-elementos">
+<span id="bs4-tag-metodo-busqueda"></span><h4>Buscar elementos<a class="headerlink" href="#buscar-elementos" title="Link to this heading">#</a></h4>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Esta no es una lista completa de los atributos de instancia de <code class="docutils literal notranslate"><span class="pre">Tag</span></code>.</p>
+</div>
+<section id="niveles-abajo">
+<span id="bs4-tag-metodo-busqueda-abajo"></span><h5>Niveles abajo<a class="headerlink" href="#niveles-abajo" title="Link to this heading">#</a></h5>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.html#find">find</a>(name, attrs, recursive, string, **kwargs)</p></td>
+<td><p>Busca en los hijos de este elemento y retorna la primer coincidencia que satisfaga los criterios. Retorna <code class="docutils literal notranslate"><span class="pre">bs4.element.Tag</span></code> o <code class="docutils literal notranslate"><span class="pre">bs4.element.NavigableString</span></code>, si no se encuentra ningún hijo que satisfaga los criterios retorna <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.html#find-all">find_all</a>(name, attrs, recursive, string, limit, **kwargs)</p></td>
+<td><p>Busca en los hijos de este elemento y retorna todas las coincidencias que satisfagan los criterios. Retorna <code class="docutils literal notranslate"><span class="pre">list</span></code> de <code class="docutils literal notranslate"><span class="pre">bs4.element.Tag</span></code> o <code class="docutils literal notranslate"><span class="pre">bs4.element.NavigableString</span></code>, si no se encuentra ningún hijo que satisfaga los criterios retorna una lista vacía. Es un alias del método <code class="docutils literal notranslate"><span class="pre">findAll()</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="niveles-arriba">
+<span id="bs4-tag-metodo-busqueda-arriba"></span><h5>Niveles arriba<a class="headerlink" href="#niveles-arriba" title="Link to this heading">#</a></h5>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.html#find-parents-and-find-parent">find_parent</a>(name, attrs, string, **kwargs)</p></td>
+<td><p>Busca en los padres de este elemento y retorna la primer coincidencia que satisfaga los criterios. Retorna <code class="docutils literal notranslate"><span class="pre">bs4.element.Tag</span></code> o <code class="docutils literal notranslate"><span class="pre">bs4.element.NavigableString</span></code>, si no se encuentra ningún padre que satisfaga los criterios retorna <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.html#find-parents-and-find-parent">find_parents</a>(name, attrs, string, limit, **kwargs)</p></td>
+<td><p>Busca en los padres de este elemento y retorna todas las coincidencias que satisfagan los criterios. Retorna <code class="docutils literal notranslate"><span class="pre">list</span></code> de <code class="docutils literal notranslate"><span class="pre">bs4.element.Tag</span></code> o <code class="docutils literal notranslate"><span class="pre">bs4.element.NavigableString</span></code>, si no se encuentra ningún padre que satisfaga los criterios retorna una lista vacía.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="mismo-nivel">
+<span id="bs4-tag-metodo-busqueda-mismo"></span><h5>Mismo nivel<a class="headerlink" href="#mismo-nivel" title="Link to this heading">#</a></h5>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.html#find-next-siblings-and-find-next-sibling">find_next_sibling</a>(name, attrs, string, **kwargs)</p></td>
+<td><p>Busca en los hermanos (elementos en el mismo nivel) posteriores de este elemento y retorna la primer coincidencia que satisfaga los criterios. Retorna <code class="docutils literal notranslate"><span class="pre">bs4.element.Tag</span></code> o <code class="docutils literal notranslate"><span class="pre">bs4.element.NavigableString</span></code>, si no se encuentra ningún hermano posterior que satisfaga los criterios retorna <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.html#find-next-siblings-and-find-next-sibling">find_next_siblings</a>(name, attrs, string, limit, **kwargs)</p></td>
+<td><p>Busca en los hermanos (elementos en el mismo nivel) posteriores de este elemento y retorna todas las coincidencias que satisfagan los criterios. Retorna <code class="docutils literal notranslate"><span class="pre">list</span></code> de <code class="docutils literal notranslate"><span class="pre">bs4.element.Tag</span></code> o <code class="docutils literal notranslate"><span class="pre">bs4.element.NavigableString</span></code>, si no se encuentra ningún hermano posterior que satisfaga los criterios retorna una lista vacía.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.html#find-previous-siblings-and-find-previous-sibling">find_previous_sibling</a>(name, attrs, string, **kwargs)</p></td>
+<td><p>Busca en los hermanos (elementos en el mismo nivel) anteriores de este elemento y retorna la primer coincidencia que satisfaga los criterios. Retorna <code class="docutils literal notranslate"><span class="pre">bs4.element.Tag</span></code> o <code class="docutils literal notranslate"><span class="pre">bs4.element.NavigableString</span></code>, si no se encuentra ningún hermano anterior que satisfaga los criterios retorna <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.html#find-previous-siblings-and-find-previous-sibling">find_previous_siblings</a>(name, attrs, string, limit, **kwargs)</p></td>
+<td><p>Busca en los hermanos (elementos en el mismo nivel) anteriores de este elemento y retorna todas las coincidencias que satisfagan los criterios. Retorna <code class="docutils literal notranslate"><span class="pre">list</span></code> de <code class="docutils literal notranslate"><span class="pre">bs4.element.Tag</span></code> o <code class="docutils literal notranslate"><span class="pre">bs4.element.NavigableString</span></code>, si no se encuentra ningún hermano anterior que satisfaga los criterios retorna una lista vacía.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="niveles-por-orden-de-aparicion">
+<span id="bs4-tag-metodo-busqueda-lineal"></span><h5>Niveles por orden de aparición<a class="headerlink" href="#niveles-por-orden-de-aparicion" title="Link to this heading">#</a></h5>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.html#find-all-next-and-find-next">find_next</a>(name, attrs, string, **kwargs)</p></td>
+<td><p>Busca en los elementos posteriores de este elemento, independientemente del nivel y retorna la primer coincidencia que satisfaga los criterios. Retorna <code class="docutils literal notranslate"><span class="pre">bs4.element.Tag</span></code> o <code class="docutils literal notranslate"><span class="pre">bs4.element.NavigableString</span></code>, si no se encuentra ningún hermano elemento que satisfaga los criterios retorna <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.html#find-all-next-and-find-next">find_all_next</a>(name, attrs, string, limit, **kwargs)</p></td>
+<td><p>Busca en los elementos posteriores de este elemento, independientemente del nivel y retorna todas las coincidencias que satisfagan los criterios. Retorna <code class="docutils literal notranslate"><span class="pre">list</span></code> de <code class="docutils literal notranslate"><span class="pre">bs4.element.Tag</span></code> o <code class="docutils literal notranslate"><span class="pre">bs4.element.NavigableString</span></code>, si no se encuentra ningún elemento posterior que satisfaga los criterios retorna una lista vacía.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.html#find-all-previous-and-find-previous">find_previous</a>(name, attrs, string, **kwargs)</p></td>
+<td><p>Busca en los elementos anteriores de este elemento, independientemente del nivel y retorna la primer coincidencia que satisfaga los criterios. Retorna <code class="docutils literal notranslate"><span class="pre">bs4.element.Tag</span></code> o <code class="docutils literal notranslate"><span class="pre">bs4.element.NavigableString</span></code>, si no se encuentra ningún elemento anterior que satisfaga los criterios retorna <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.html#find-all-previous-and-find-previous">find_all_previous</a>(name, attrs, string, limit, **kwargs)</p></td>
+<td><p>Busca en los elementos anteriores de este elemento, independientemente del nivel y retorna todas las coincidencias que satisfagan los criterios. Retorna <code class="docutils literal notranslate"><span class="pre">list</span></code> de <code class="docutils literal notranslate"><span class="pre">bs4.element.Tag</span></code> o <code class="docutils literal notranslate"><span class="pre">bs4.element.NavigableString</span></code>, si no se encuentra ningún elemento anterior que satisfaga los criterios retorna una lista vacía.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="acceder-a-contenido">
+<h4>Acceder a contenido<a class="headerlink" href="#acceder-a-contenido" title="Link to this heading">#</a></h4>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">get</span></code>(key, default=None)</p></td>
+<td><p>Retorna el valor de ‘<em>key</em>’ de la etiqueta, o el valor dado por default si la etiqueta no existe.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.html#get-text">get_text</a>(separator=””, strip=False)</p></td>
+<td><p>Retorna una cadena <code class="docutils literal notranslate"><span class="pre">str</span></code> que resulta de la concatenación de todas las cadenas hijas de este elemento. Las cadenas hijas son el contenido de los elementos internos eliminando las etiquetas de apertura y cierre. Se puede indicar el delimitador para la concatenación e indicar que se eliminen los espacios en blanco en los extremos de cada cadena interna.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ejemplo</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definir el markup</span>
+<span class="n">markup</span> <span class="o">=</span> <span class="s1">&#39;&lt;a href=&quot;http://example.com/&quot;&gt;</span><span class="se">\n</span><span class="s1">I linked to &lt;i&gt;example.com&lt;/i&gt;</span><span class="se">\n</span><span class="s1">&lt;/a&gt;&#39;</span>
+
+<span class="c1"># Crear objeto soup</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">markup</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+
+<span class="c1"># Imprimer el texto</span>
+<span class="n">soup</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;\nI linked to example.com\n&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./parts/appendix"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../12-plotly/subplots.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Subplots</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="appendix-index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Otros</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principales-clases-de-beautifulsoup">Principales clases de <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conexion-y-lectura-de-una-pagina-web">Conexión y lectura de una página web</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creacion-de-objeto-beautifulsoup">Creación de objeto <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imprimir-el-contenido-del-documento-html">Imprimir el contenido del documento HTML</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navegacion-por-un-documento-html">Navegación por un documento HTML</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#acceder-a-un-unico-tag-por-su-nombre">Acceder a un único <em>tag</em> por su nombre</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#acceder-a-todos-los-elementos-de-un-tag-especifico">Acceder a todos los elementos de un <em>tag</em> específico</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#acceder-a-tags-por-nombre-y-atributos-especificos">Acceder a <em>tags</em> por nombre y atributos específicos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#acceder-a-valores-de-atributos-de-tags">Acceder a valores de atributos de <em>tags</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selectores-css">Selectores CSS</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objeto-tag">Objeto <code class="docutils literal notranslate"><span class="pre">Tag</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos">Atributos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos">Métodos</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#parametros-comunes">Parámetros comunes</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-filtros">Tipos de filtros</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#buscar-elementos">Buscar elementos</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#niveles-abajo">Niveles abajo</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#niveles-arriba">Niveles arriba</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#mismo-nivel">Mismo nivel</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#niveles-por-orden-de-aparicion">Niveles por orden de aparición</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#acceder-a-contenido">Acceder a contenido</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nebok
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

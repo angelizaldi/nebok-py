@@ -1,0 +1,1555 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Preprocessing &#8212; Manual de Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'parts/07-sklearn/transformations/preprocessing';</script>
+    <link rel="icon" href="../../../_static/nebok-favicon.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Evaluación y selección del modelo" href="../evaluation/evaluation-index.html" />
+    <link rel="prev" title="Manifold" href="manifold.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/nebok-logo.png" class="logo__image only-light" alt="Manual de Python - Home"/>
+    <script>document.write(`<img src="../../../_static/nebok-logo.png" class="logo__image only-dark" alt="Manual de Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Manual de Python para Data Science
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Built-in</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../01-built-in/built-in-index.html">Python Estándar</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/cli.html"><em>Command Line Interface</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/ayuda.html">Obtener ayuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/comentarios.html">Comentarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/tipos-datos.html">Tipos de Datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/variables-constantes.html">Variables y Constantes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/operadores-palabras.html">Operadores y palabras reservadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/entrada-salida.html">Impresión y solicitud de datos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../01-built-in/tipos-index.html">Tipos Built-In</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/none-bool-numericos.html"><em>None</em>, <em>bool</em> y Numéricos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/str.html">str</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/lists.html">list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/tuples.html">Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/sets.html">Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/dicts.html">dict</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../01-built-in/estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/if-else.html">If … Else</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/for-loop.html">For Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/do-while.html">Do While</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/udf.html">Funciones (UDF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/exceptions.html">Excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/context-managers.html">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/io.html">Lectura y escritura de archivos (IO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/modulos.html">Paquetes y Módulos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../01-built-in/avanzado-index.html">Temas avanzados</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/decorators.html">Decorators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/iterators.html">Iterators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/generators.html">Generators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/oop.html">Programación orientada a objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/func-built-in.html">Funciones built-in</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../02-modulos/modulos-index.html">Módulos built-in</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/csv.html">CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/datetime.html">Datetime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/itertools.html">Itertools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/json.html">JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/math.html">Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/os.html">Os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/os-path.html">Os.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/pickle.html">Pickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/random.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/regex.html">Regex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/statistics.html">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/urllib-request.html">urllib.request</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otras librerías</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../03-numpy/numpy-index.html">Numpy</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../03-numpy/arrays.html">Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../03-numpy/funciones-index.html">Funciones</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/ufuncs.html">Ufuncs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/buscar-contar-ordenar-unicos.html">Buscar, contar, ordenar y valores únicos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/creacion-arrays.html">Creación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/estadisticas.html">Estadísticas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/indices.html">Índices e iteración</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/informacion.html">Información</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/lectura-escritura.html">Lectura y escritura de datos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/manipulacion-arrays.html">Manipulación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/matematicas-numericas.html">Matemáticas y numéricas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/operadores.html">Operadores</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../03-numpy/algebra-lineal.html">Módulo linalg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../03-numpy/cadenas.html">Modulo char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../03-numpy/random.html">Módulo random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../03-numpy/patrones-numpy.html">Patrones útiles</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../04-pandas/pandas-index.html">Pandas</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../04-pandas/index.html">Index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-pandas/series.html">Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-pandas/dataframe.html">DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-pandas/escalares-arrays.html">Escalares y Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../04-pandas/otras-clases.html">Otras clases</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../04-pandas/groupby.html">GroupBy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../04-pandas/expanding-rolling-window.html"><em>Expanding, Rolling</em> y <em>Window</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../04-pandas/resampler.html">Resampler</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-pandas/funciones.html">Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-pandas/patrones-pandas.html">Patrones útiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-pandas/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../05-matplotlib/matplotlib-index.html">Matplotlib</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../05-matplotlib/pyplot.html">Pyplot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../05-matplotlib/figure.html">Figure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../05-matplotlib/axes.html">Axes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../05-matplotlib/otros.html">Otras Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../05-matplotlib/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../06-seaborn/seaborn-index.html">Seaborn</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../06-seaborn/funciones-clases.html">Funciones y Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../06-seaborn/objects-interface.html">Interface por objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../sklearn-index.html">Scikit Learn</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../supervised/supervised-index.html">Aprendizaje supervisado</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../supervised/ensamble.html">Ensamble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../supervised/linear_model.html">Linear model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../supervised/naive_bayes.html">Naive bayes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../supervised/neighbors.html">Neighbors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../supervised/svm.html">SVM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../supervised/tree.html">Tree</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../unsupervised/unsupervised-index.html">Aprendizaje no supervisado</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../unsupervised/cluster.html">Cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../unsupervised/decomposition.html">Decomposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../unsupervised/mixture.html">Mixture</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="tranformations-index.html">Transformaciones</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="feature_extraction.html">Feature Extraction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="impute.html">Impute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manifold.html">Manifold</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Preprocessing</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../evaluation/evaluation-index.html">Evaluación y selección del modelo</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../evaluation/dummy.html">Dummy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../evaluation/feature_selection.html">Feature Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../evaluation/metrics.html">Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../evaluation/model_selection.html">Model Selection</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../pipelines-and-compose/pipeline-compose-index.html">Pipelines y Modelos Compuestos</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../pipelines-and-compose/compose.html">Compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pipelines-and-compose/pipeline.html">Pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../datasets.html">Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../08-xgboost/xgboost-index.html">XGBoost</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../08-xgboost/core-data-structure.html">Core Data Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../08-xgboost/learning-api.html">Learning API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../08-xgboost/scikit-learn-api.html">Scikit-Learn API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../08-xgboost/plotting-api.html">Plotting API</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../09-scipy/scipy-index.html">Scipy</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../09-scipy/clusters.html">Clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../09-scipy/derivacion-integracion.html">Derivación e Integración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../09-scipy/linalg.html">Linear Algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../09-scipy/sparse.html"><em>Sparse</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../09-scipy/stats.html">Stats</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../10-statsmodels/statsmodels-index.html">Statsmodels</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../10-statsmodels/statsmodels-api.html">API Principal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../10-statsmodels/statsmodels-tsa-api.html">API de Series de Tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../10-statsmodels/statsmodels-formula-api.html">API de Fórmulas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../10-statsmodels/graphics.html">Gráficos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../10-statsmodels/otras-clases.html">Otras clases</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../11-bokeh/bokeh-index.html">Bokeh</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../11-bokeh/io.html">IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../11-bokeh/layouts.html"><em>Layouts</em></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../11-bokeh/models/models-index.html"><em>Models</em></a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../11-bokeh/models/annotations.html">Anotaciones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../11-bokeh/models/axes.html">Ejes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../11-bokeh/models/callbacks.html">Callbacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../11-bokeh/models/formatters.html"><em>Formatters</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../11-bokeh/models/glyphs.html"><em>Glyphs</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../11-bokeh/models/sources.html"><em>Sources</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../11-bokeh/models/tools.html"><em>Tools</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../11-bokeh/models/widgets.html"><em>Widgets</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../11-bokeh/plotting.html">Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../11-bokeh/transform.html">transform</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../12-plotly/plotly-index.html">Plotly</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../12-plotly/express.html"><em>Express</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../12-plotly/figure-factory.html"><em>Figure Factory</em></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../12-plotly/go/go-index.html"><em>Graph Objects</em></a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../12-plotly/go/figure.html"><em>Figure</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../12-plotly/go/layout.html"><em>Layout</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../12-plotly/go/traces.html">Traces</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../12-plotly/io.html">IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../12-plotly/subplots.html">Subplots</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/beautifulsoup.html">BeautifulSoup</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Complementarios</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../appendix/appendix-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../appendix/IPython.html">IPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../appendix/jupyter.html">Jupyter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../appendix/pip.html">pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../appendix/conda.html"><em>conda</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../appendix/git.html">git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../appendix/shell.html">Shell</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/parts/07-sklearn/transformations/preprocessing.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Preprocessing</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clases">Clases</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functiontransformer">FunctionTransformer</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#uso">Uso</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos">Atributos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos">Métodos</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#labelencoder">LabelEncoder</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Atributos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Métodos</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#minmaxscaler">MinMaxScaler</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Atributos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Métodos</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalizer">Normalizer</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Atributos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Métodos</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onehotencoder">OneHotEncoder</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Atributos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Métodos</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ordinalencoder">OrdinalEncoder</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Atributos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Métodos</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#polynomialfeatures">PolynomialFeatures</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Atributos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Métodos</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standardscaler">StandardScaler</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Uso</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Atributos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Métodos</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones">Funciones</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-normalize">Notas de <em>normalize</em></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="preprocessing">
+<h1>Preprocessing<a class="headerlink" href="#preprocessing" title="Link to this heading">#</a></h1>
+<p>Proporciona herramientas para preprocesar datos, como escalado, normalización, codificación de variables categóricas y manejo de valores faltantes.</p>
+<ul class="simple">
+<li><p><strong>Escalado</strong>: Consiste en ajustar los valores numéricos de las variables a un rango específico, como <em>[0,1]</em> o una distribución con media 0 y desviación estándar 1. Se usa para evitar que <em>features</em> con valores grandes dominen a otras más pequeñas en modelos sensibles a la magnitud (como regresión logística o redes neuronales).</p></li>
+<li><p><strong>Normalización</strong>: Se refiere a transformar los datos para que tengan una distribución específica (por ejemplo, una distribución normal). A veces se usa como sinónimo de escalado, pero puede incluir técnicas como transformación logarítmica o <em>Box-Cox</em> para hacer que los datos se ajusten mejor a una distribución normal.</p></li>
+<li><p><strong>Codificación de variables categóricas</strong>: Convierte variables categóricas en valores numéricos para que puedan ser utilizadas en modelos de machine learning. Métodos comunes incluyen:</p>
+<ul>
+<li><p><em>One-Hot Encoding</em>: Crea una columna binaria para cada categoría.</p></li>
+<li><p><em>Label Encoding</em>: Asigna un número entero a cada categoría.</p></li>
+<li><p><em>Target Encoding</em>: Sustituye cada categoría por la media del target en esa categoría.</p></li>
+</ul>
+</li>
+<li><p><strong>Manejo de valores faltantes</strong>: Se refiere a tratar datos ausentes en un dataset. Algunas estrategias incluyen:</p>
+<ul>
+<li><p>Eliminación de filas o columnas (si hay muchos valores faltantes).</p></li>
+<li><p>Imputación con media, mediana o moda (para datos numéricos o categóricos).</p></li>
+<li><p>Modelado de imputación (como <em>KNN Imputer</em> o regresión). Ver <a class="reference internal" href="impute.html"><span class="doc">Impute</span></a>.</p></li>
+</ul>
+</li>
+</ul>
+<p>Para importar este módulo o una clase o función específica usar:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar módulo</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">preprocessing</span>
+
+<span class="c1"># Importar clase específica</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">ClassName</span>
+
+<span class="c1"># Importar función específica</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">func_name</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><em>ClassName</em> o <em>func_name</em> es el nombre de la clase o función respectivamente.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Para más información de esta librería visitar la <a class="reference external" href="https://scikit-learn.org/stable/api/sklearn.preprocessing.html">documentación</a> de <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>.</p>
+</div>
+<br/>
+<section id="clases">
+<h2>Clases<a class="headerlink" href="#clases" title="Link to this heading">#</a></h2>
+<p>Clases implementadas en el módulo <code class="docutils literal notranslate"><span class="pre">preprocessing</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Clase</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Escalado y Normalización</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.KernelCenterer.html">KernelCenterer</a>()</p></td>
+<td><p>Centra una matriz de núcleo arbitraria <em>K</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MaxAbsScaler.html">MaxAbsScaler</a>(…)</p></td>
+<td><p>Escala cada <em>feature</em> por su valor absoluto máximo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html">MinMaxScaler</a>(feature_range=(0, 1), …)</p></td>
+<td><p>Transforma las <em>features</em> escalando cada una de ellas a un rango determinado.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.Normalizer.html">Normalizer</a>(norm=’l2’, …)</p></td>
+<td><p>Normaliza las muestras individualmente a la norma unitaria.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.PowerTransformer.html">PowerTransformer</a>(method=’yeo-johnson’, …)</p></td>
+<td><p>Aplica una transformada de potencia en función de las <em>features</em> para que los datos sean más gaussianos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.RobustScaler.html">RobustScaler</a>(…)</p></td>
+<td><p>Escala las <em>features</em> utilizando estadísticas robustas a los valores atípicos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html">StandardScaler</a>(…)</p></td>
+<td><p>Estandariza las <em>features</em> eliminando la media y escalando a la varianza unitaria.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Codificación de Variables Categóricas</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.Binarizer.html">Binarizer</a>(…)</p></td>
+<td><p>Binariza los datos (establecer los valores de las <em>features</em> en 0 o 1) según un umbral.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelBinarizer.html">LabelBinarizer</a>(…)</p></td>
+<td><p>Binariza las etiquetas de forma <em>one-vs-all</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html">LabelEncoder</a>()</p></td>
+<td><p>Codifica etiquetas del <em>target</em> con valor entre 0 y <em>n_classes-1</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MultiLabelBinarizer.html">MultiLabelBinarizer</a>(…)</p></td>
+<td><p>Transformación entre iterable de iterables y un formato multietiqueta.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html">OneHotEncoder</a>(…)</p></td>
+<td><p>Codifica las <em>features</em> categóricas como una matriz numérica <em>one-hot</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OrdinalEncoder.html">OrdinalEncoder</a>(…)</p></td>
+<td><p>Codifica las <em>features</em> categóricas como una matriz de enteros.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.TargetEncoder.html">TargetEncoder</a>(categories=’auto’, target_type=’auto’, …)</p></td>
+<td><p>Codificador de <em>targets</em> para <em>targets</em> de regresión y clasificación.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Transformaciones de <em>Features</em></strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.FunctionTransformer.html">FunctionTransformer</a>(func=None, inverse_func=None, …)</p></td>
+<td><p>Construye un transformador a partir de un <code class="docutils literal notranslate"><span class="pre">callable</span></code> arbitrario.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.KBinsDiscretizer.html">KBinsDiscretizer</a>(n_bins=5, …)</p></td>
+<td><p>Divide los datos continuos en intervalos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.PolynomialFeatures.html">PolynomialFeatures</a>(degree=2, …)</p></td>
+<td><p>Genera <em>features</em> polinómicas y de interacción.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.QuantileTransformer.html">QuantileTransformer</a>(…)</p></td>
+<td><p>Transforma <em>features</em> utilizando información de cuantiles.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.SplineTransformer.html">SplineTransformer</a>(n_knots=5, degree=3, …)</p></td>
+<td><p>Genera bases <em>B-spline</em> univariantes para las <em>features</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<section id="functiontransformer">
+<h3>FunctionTransformer<a class="headerlink" href="#functiontransformer" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.FunctionTransformer.html">FunctionTransformer</a>: Aplica una función personalizada a los datos durante el preprocesamiento. Útil para transformaciones específicas que no están cubiertas por otras clases. Cualquier función que se use tendrá los métodos <code class="docutils literal notranslate"><span class="pre">.fit()</span></code> y <code class="docutils literal notranslate"><span class="pre">.transform()</span></code> disponibles. Es útil para transformaciones personalizadas, como logaritmos, exponenciales o funciones definidas por el usuario y para permitir que cualquier función se convierta en un objeto de un <code class="docutils literal notranslate"><span class="pre">Pipeline</span></code> pueda procesar.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+<span class="n">FunctionTransformer</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">inverse_func</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">accept_sparse</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+                    <span class="n">check_inverse</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">feature_names_out</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kw_args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+                    <span class="n">inv_kw_args</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong>func</strong> - <code class="docutils literal notranslate"><span class="pre">callable</span></code>: Función a usar para la transformación. La función debe recibir una matriz de <em>(n_samples, n_features)</em> y retornar una matriz que mantenga el número de <em>samples</em>, pero potencialmente cambiando los <em>features</em>.</p></li>
+<li><p><strong>inverse_func</strong> - <code class="docutils literal notranslate"><span class="pre">callable</span></code>: Función a usar para la inversa de la transformación.</p></li>
+<li><p><strong>validate</strong> - <code class="docutils literal notranslate"><span class="pre">bool</span></code>: Indica si se debe verificar la matriz de entrada <em>X</em> antes de llamar a <em>func</em>.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">False</span></code>: No hay validación de entrada.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">True</span></code>: <em>X</em> se convertirá en una matriz dispersa o matriz de <em>numpy</em> bidimensional. Si la conversión no es posible, se genera una excepción.</p></li>
+</ul>
+</li>
+</ul>
+<section id="uso">
+<h4>Uso<a class="headerlink" href="#uso" title="Link to this heading">#</a></h4>
+<p>Uso básico de esta clase:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar clase</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">FunctionTransformer</span>
+
+<span class="c1"># Crear estimator personalizado con lambda</span>
+<span class="n">my_transformer</span> <span class="o">=</span> <span class="n">FunctionTransformer</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="o">...</span><span class="p">)</span>
+
+<span class="c1"># Crear estimator personalizado con función</span>
+<span class="k">def</span> <span class="nf">my_function</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span>
+    <span class="c1"># data body</span>
+    <span class="k">return</span> <span class="n">X</span> <span class="c1"># X debe ser una matriz con n_samples</span>
+<span class="n">my_transformer</span> <span class="o">=</span> <span class="n">FunctionTransformer</span><span class="p">(</span><span class="n">my_function</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="atributos">
+<h4>Atributos<a class="headerlink" href="#atributos" title="Link to this heading">#</a></h4>
+<p>Atributos de la clase <code class="docutils literal notranslate"><span class="pre">FunctionTransformer</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Atributo</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>feature_names_in_</strong></p></td>
+<td><p>Nombres de los <em>features</em> observados durante el ajuste. Definido sólo cuando <em>X</em> tiene nombres que son todos cadenas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>n_features_in_</strong></p></td>
+<td><p>Número de <em>features</em> vistos durante el ajuste.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="metodos">
+<h4>Métodos<a class="headerlink" href="#metodos" title="Link to this heading">#</a></h4>
+<p>Métodos de la clase <code class="docutils literal notranslate"><span class="pre">FunctionTransformer</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.FunctionTransformer.html#sklearn.preprocessing.FunctionTransformer.fit">fit</a>(X,  y=None)</p></td>
+<td><p>Ajusta el transformador comprobando <em>X</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.FunctionTransformer.html#sklearn.preprocessing.FunctionTransformer.fit_transform">fit_transform</a>(X,  y=None,  **fit_params)</p></td>
+<td><p>Ajusta a los datos, luego los transformar.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.FunctionTransformer.html#sklearn.preprocessing.FunctionTransformer.inverse_transform">inverse_transform</a>(X)</p></td>
+<td><p>Transforma <em>X</em> utilizando la función inversa.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.FunctionTransformer.html#sklearn.preprocessing.FunctionTransformer.transform">transform</a>(X)</p></td>
+<td><p>Transforma <em>X</em> utilizando la función <em>forward</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+<section id="labelencoder">
+<h3>LabelEncoder<a class="headerlink" href="#labelencoder" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html">LabelEncoder</a>: Convierte valores categóricos en valores entre 0 y <em>n_classes - 1</em>. En esta transformación se debe de usar en el <em>target</em> y no en los <em>feature</em>. Es útil par codificación de etiquetas para problemas de clasificación, como en árboles de decisión o SVM.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+<span class="n">LabelEnconder</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p>No tiene argumentos.</p></li>
+</ul>
+<section id="id1">
+<h4>Atributos<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<p>Atributos de la clase <code class="docutils literal notranslate"><span class="pre">LabelEncoder</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Atributo</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>classes_</strong></p></td>
+<td><p>Las etiquetas de las clases.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id2">
+<h4>Métodos<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
+<p>Métodos de la clase <code class="docutils literal notranslate"><span class="pre">LabelEncoder</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html#sklearn.preprocessing.LabelEncoder.fit">fit</a>(y)</p></td>
+<td><p>Ajusta codificador de etiquetas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html#sklearn.preprocessing.LabelEncoder.fit_transform">fit_transform</a>(y)</p></td>
+<td><p>Ajusta el codificador de etiquetas y devuelve las etiquetas codificadas.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html#sklearn.preprocessing.LabelEncoder.inverse_transform">inverse_transform</a>(y)</p></td>
+<td><p>Retorna las etiquetas a la codificación original.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html#sklearn.preprocessing.LabelEncoder.transform">transform</a>(y)</p></td>
+<td><p>Transforma etiquetas a codificación normalizada.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+<section id="minmaxscaler">
+<h3>MinMaxScaler<a class="headerlink" href="#minmaxscaler" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html">MinMaxScaler</a>: Escala <em>features</em> a un rango específico (por defecto, <em>[0, 1]</em>) restando el mínimo y dividiendo por el rango. Es útil para preparación de datos para modelos sensibles a la escala, como redes neuronales o algoritmos basados en distancias.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+<span class="n">MinMaxScaler</span><span class="p">(</span><span class="n">feature_range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="o">*</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">clip</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong>feature_range</strong> - <code class="docutils literal notranslate"><span class="pre">2-tuple</span></code>: Valores mínimo y máximo del rango de los datos transformados.</p></li>
+<li><p><strong>copy</strong> - <code class="docutils literal notranslate"><span class="pre">bool</span></code>: Realiza la transformación <em>in-place</em>, en lugar de retornar un nuevo objeto.</p></li>
+</ul>
+<section id="id3">
+<h4>Atributos<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
+<p>Atributos de la clase <code class="docutils literal notranslate"><span class="pre">MinMaxScaler</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Atributo</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>data_max_</strong></p></td>
+<td><p>Valor máximo visto en los datos por cada <em>feature</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>data_min_</strong></p></td>
+<td><p>Valor mínimo visto en los datos por cada <em>feature</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>data_range_</strong></p></td>
+<td><p>Rango (<em>data_max_</em> - <em>data_min_</em>) visto en los datos por cada <em>feature</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>feature_names_in_</strong></p></td>
+<td><p>Nombres de los <em>features</em> observados durante el ajuste. Definido sólo cuando <em>X</em> tiene nombres que son todos cadenas.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>min_</strong></p></td>
+<td><p>Ajusta para el mínimo por cada <em>feature</em>.. Equivale a <code class="docutils literal notranslate"><span class="pre">min</span> <span class="pre">-</span> <span class="pre">X.min(axis=0)</span> <span class="pre">*</span> <span class="pre">self.scale_</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>n_features_in_</strong></p></td>
+<td><p>Número de <em>features</em> vistos durante el ajuste.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>n_samples_seen_</strong></p></td>
+<td><p>El número de muestras procesadas por el estimador. Se restablecerá en las nuevas llamadas al ajuste, pero se incrementa en las llamadas a <em>partial_fit</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>scale_</strong></p></td>
+<td><p>Escala relativa de los datos por cada <em>feature</em>. Equivalente a <code class="docutils literal notranslate"><span class="pre">(max</span> <span class="pre">-</span> <span class="pre">min)</span> <span class="pre">/</span> <span class="pre">(X.max(axis=0)</span> <span class="pre">-</span> <span class="pre">X.min(axis=0))</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id4">
+<h4>Métodos<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
+<p>Métodos de la clase <code class="docutils literal notranslate"><span class="pre">MinMaxScaler</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html#sklearn.preprocessing.MinMaxScaler.fit">fit</a>(X,  y=None)</p></td>
+<td><p>Calcula el mínimo y el máximo que se utilizarán para el escalado posterior.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html#sklearn.preprocessing.MinMaxScaler.fit_transform">fit_transform</a>(X,  y=None,  **fit_params)</p></td>
+<td><p>Ajusta a los datos, luego los transforma.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html#sklearn.preprocessing.MinMaxScaler.inverse_transform">inverse_transform</a>(X)</p></td>
+<td><p>Deshace la escala de <em>X</em> según <em>feature_range</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html#sklearn.preprocessing.MinMaxScaler.partial_fit">partial_fit</a>(X,  y=None)</p></td>
+<td><p>Cálculo de mínimos y máximos en <em>X</em> para su posterior escalado.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html#sklearn.preprocessing.MinMaxScaler.transform">transform</a>(X)</p></td>
+<td><p>Escala los <em>features</em> de <em>X</em> según <em>feature_range</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+<section id="normalizer">
+<h3>Normalizer<a class="headerlink" href="#normalizer" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.Normalizer.html">Normalizer</a>: Normaliza muestras individuales (filas) para que tengan una norma unitaria (por ejemplo, norma L1 o L2). Es útil para preprocesamiento de datos para algoritmos sensibles a la magnitud, como KNN o <em>clustering</em>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+<span class="n">Normalizer</span><span class="p">(</span><span class="n">norm</span><span class="o">=</span><span class="s1">&#39;l2&#39;</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong>norm</strong> - {‘l1’, ‘l2’, ‘max’}: Norma a utilizar para normalizar cada muestra diferente de cero.</p></li>
+</ul>
+<section id="id5">
+<h4>Atributos<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
+<p>Atributos de la clase <code class="docutils literal notranslate"><span class="pre">Normalizer</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Atributo</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>feature_names_in_</strong></p></td>
+<td><p>Nombres de los <em>features</em> observados durante el ajuste. Definido sólo cuando <em>X</em> tiene nombres que son todos cadenas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>n_features_in_</strong></p></td>
+<td><p>Número de <em>features</em> vistos durante el ajuste.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id6">
+<h4>Métodos<a class="headerlink" href="#id6" title="Link to this heading">#</a></h4>
+<p>Métodos de la clase <code class="docutils literal notranslate"><span class="pre">Normalizer</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.Normalizer.html#sklearn.preprocessing.Normalizer.fit">fit</a>(X,  y=None)</p></td>
+<td><p>Sólo valida los parámetros del estimador.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.Normalizer.html#sklearn.preprocessing.Normalizer.fit_transform">fit_transform</a>(X,  y=None,  **fit_params)</p></td>
+<td><p>Ajusta a los datos, luego los transformar.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.Normalizer.html#sklearn.preprocessing.Normalizer.transform">transform</a>(X,  copy=None)</p></td>
+<td><p>Escala cada fila no nula de <em>X</em> a norma unitaria.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+<section id="onehotencoder">
+<h3>OneHotEncoder<a class="headerlink" href="#onehotencoder" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html">OneHotEncoder</a>: Convierte variables categóricas en una matriz binaria (<em>one-hot encoding</em>), donde cada categoría se representa como un vector binario. Crea columnas nuevas por cada categoría, donde cada columna indica con valores <code class="docutils literal notranslate"><span class="pre">bool</span></code> si la fila contenía esa categoría. Útil cuando las categorías no están jerarquizadas. No se recomineda usar si una columna tiene más de 15 categorías distintas. <strong>IMPORTANTE</strong>: por default retornará un arreglo <code class="docutils literal notranslate"><span class="pre">sparse</span></code>. Es útil para codificación de categorías nominales para modelos como regresión logística o redes neuronales.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Alternativamente se podría usar la función <code class="docutils literal notranslate"><span class="pre">.get_dummies()</span></code> de <em>pandas</em>. Revisar <a class="reference internal" href="../../04-pandas/funciones.html#pd-function-data-manipulation"><span class="std std-ref">Manipulación De Datos</span></a>.</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+<span class="n">OneHotEncoder</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">categories</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sparse_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;numpy.float64&#39;</span><span class="p">,</span> 
+              <span class="n">handle_unknown</span><span class="o">=</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="n">min_frequency</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_categories</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+              <span class="n">feature_name_combiner</span><span class="o">=</span><span class="s1">&#39;concat&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p>**categories - {‘auto’} o <code class="docutils literal notranslate"><span class="pre">list</span></code> de <code class="docutils literal notranslate"><span class="pre">array-like</span></code>: Categorías por <em>feature</em>.</p>
+<ul>
+<li><p>‘auto’: Se determinan las categorías automáticamente.</p></li>
+<li><p>list: Para indicar manualmente las categoriás de cada <em>feature</em> (empatadas por posición).</p></li>
+</ul>
+</li>
+<li><p><strong>drop</strong> - {‘first’, ‘if_binary’} o <code class="docutils literal notranslate"><span class="pre">array-like</span></code>: Para especificar cómo eliminar una categoría por cada <em>feature</em>.</p>
+<ul>
+<li><p>‘first’: Elimina la primer categoría.</p></li>
+<li><p>‘if_binary’: Elimina la primer categoría en <em>features</em> que solo tienen dos categorías.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">array-like</span></code>: Para indicar cada categoría a eliminar de cada <em>feature</em>.</p></li>
+</ul>
+</li>
+<li><p><strong>sparse</strong> - <code class="docutils literal notranslate"><span class="pre">bool</span></code>: Para indicar que se retorne una matriz <code class="docutils literal notranslate"><span class="pre">sparse</span></code> (<code class="docutils literal notranslate"><span class="pre">True</span></code>) o un <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> (<code class="docutils literal notranslate"><span class="pre">False</span></code>).</p></li>
+<li><p><strong>dtype</strong> - <code class="docutils literal notranslate"><span class="pre">bool</span></code>: El tipo de dato deseado del <em>output</em>.</p></li>
+<li><p><strong>handle_unknown</strong> - {‘error’, ‘ignore’}: Para indicar si arrojar un error o si ignorar cuando hay un <em>feature</em> categórico desconocido durante la transformación (que no estaba cuando se ajustó con el método <code class="docutils literal notranslate"><span class="pre">.fit()</span></code>).</p></li>
+</ul>
+<section id="id7">
+<h4>Atributos<a class="headerlink" href="#id7" title="Link to this heading">#</a></h4>
+<p>Atributos de la clase <code class="docutils literal notranslate"><span class="pre">OneHotEncoder</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Atributo</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>categories_</strong></p></td>
+<td><p>Las categorías de cada <em>feature</em> determinados durante el ajuste (en orden de los <em>features</em> en <em>X</em> y correspondientes con la salida de la transformación). Esto incluye la categoría especificada en <em>drop</em> (si existe).</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>drop_idx_</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">drop_idx_[i]</span></code> es el índice en <code class="docutils literal notranslate"><span class="pre">categories_[i]</span></code> de la categoría que debe eliminarse para cada <em>feature</em>. <code class="docutils literal notranslate"><span class="pre">drop_idx_[i]</span> <span class="pre">=</span> <span class="pre">None</span></code> si no debe eliminarse ninguna categoría del <em>feature</em> con índice <em>i</em>, por ejemplo cuando <code class="docutils literal notranslate"><span class="pre">drop='if_binary'</span></code> y el <em>feature</em> no es binario. <code class="docutils literal notranslate"><span class="pre">drop_idx_</span> <span class="pre">=</span> <span class="pre">None</span></code> si se conservarán todas los <em>features</em> transformados.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>feature_name_combiner</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">callable</span></code> con el <em>signature</em> <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">callable(input_feature,</span> <span class="pre">category)</span></code> que devuelve una cadena. Se utiliza para crear nombres de <em>features</em> que serán devueltos por <code class="docutils literal notranslate"><span class="pre">get_feature_names_out()</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>feature_names_in_</strong></p></td>
+<td><p>Nombres de los <em>features</em> observados durante el ajuste. Definido sólo cuando <em>X</em> tiene nombres que son todos cadenas.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>infrequent_categories_</strong></p></td>
+<td><p>Categorías poco frecuentes para cada <em>feature</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>n_features_in_</strong></p></td>
+<td><p>Número de <em>features</em> vistos durante el ajuste.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id8">
+<h4>Métodos<a class="headerlink" href="#id8" title="Link to this heading">#</a></h4>
+<p>Métodos de la clase <code class="docutils literal notranslate"><span class="pre">OneHotEncoder</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder.fit">fit</a>(X,  y=None)</p></td>
+<td><p>Ajusta <code class="docutils literal notranslate"><span class="pre">OneHotEncoder</span></code> a <em>X</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder.fit_transform">fit_transform</a>(X,  y=None,  **fit_params)</p></td>
+<td><p>Ajusta a los datos, luego los transforma.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder.inverse_transform">inverse_transform</a>(X)</p></td>
+<td><p>Convierte los datos de nuevo a la representación original.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder.transform">transform</a>(X)</p></td>
+<td><p>Transforma <em>X</em> utilizando la codificación <em>one-hot</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+<section id="ordinalencoder">
+<h3>OrdinalEncoder<a class="headerlink" href="#ordinalencoder" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OrdinalEncoder.html">OrdinalEncoder</a>: Convierte variables categóricas en valores enteros ordinales (por ejemplo, “bajo”, “medio”, “alto” a 0, 1, 2). Útil cuando los valores de las categorías pueden ser jerarquizados. Por default esta función no puede determinar la jerarquía de las categorías, para ello utiliza el parámetro <em>categories</em>. Es útil para codificación de categorías ordinales para modelos que requieren entradas numéricas, como árboles de decisión.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+<span class="n">OrdinalEncoder</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">categories</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;numpy.float64&#39;</span><span class="p">,</span> <span class="n">handle_unknown</span><span class="o">=</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> 
+               <span class="n">unknown_value</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">encoded_missing_value</span><span class="o">=</span><span class="n">nan</span><span class="p">,</span> <span class="n">min_frequency</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+               <span class="n">max_categories</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong>categories</strong> - {‘auto’} o <code class="docutils literal notranslate"><span class="pre">list</span></code> de <code class="docutils literal notranslate"><span class="pre">array-like</span></code>: Categorías por <em>feature</em>.</p>
+<ul>
+<li><p>‘auto’: Se determinan las categorías automáticamente.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">array-like</span></code>: Para indicar manualmente las categoriás de cada <em>feature</em> (empatadas por posición). Las categorías numéricas deben de estar ordenadas.</p></li>
+</ul>
+</li>
+<li><p><strong>dtype</strong> - <code class="docutils literal notranslate"><span class="pre">dtype</span></code>: El tipo de dato deseado del output.</p></li>
+<li><p><strong>handle_unknown</strong> - {‘error’, ‘use_encoded_value}: Para indicar si arrojar un error o si asignar el valor contenido en <em>unknown_value</em> cuando hay un <em>feature</em> categórico desconocido durante la transformación (que no estaba cuando se ajustó con el método <code class="docutils literal notranslate"><span class="pre">.fit()</span></code>).</p></li>
+<li><p><strong>unknown_value</strong> - <code class="docutils literal notranslate"><span class="pre">int</span></code> o <code class="docutils literal notranslate"><span class="pre">np.nan</span></code>: Valor a usar cuando <code class="docutils literal notranslate"><span class="pre">handle_unknown='used_encoded_value'</span></code>. Debe de ser un valor distinto a cualquier usado para las otras categorías. Se puede usar -1.</p></li>
+</ul>
+<section id="id9">
+<h4>Atributos<a class="headerlink" href="#id9" title="Link to this heading">#</a></h4>
+<p>Atributos de la clase <code class="docutils literal notranslate"><span class="pre">OrdinalEncoder</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Atributo</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>categories_</strong></p></td>
+<td><p>Las categorías de cada <em>feature</em> determinados durante el ajuste (en orden de los <em>features</em> en <em>X</em> y correspondientes con la salida de la transformación). Esto incluye la categoría especificada en <em>drop</em> (si existe).</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>feature_names_in_</strong></p></td>
+<td><p>Nombres de los <em>features</em> observados durante el ajuste. Definido sólo cuando <em>X</em> tiene nombres que son todos cadenas.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>infrequent_categories_</strong></p></td>
+<td><p>Categorías poco frecuentes por cada <em>feature</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>n_features_in_</strong></p></td>
+<td><p>Número de <em>features</em> vistos durante el ajuste.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id10">
+<h4>Métodos<a class="headerlink" href="#id10" title="Link to this heading">#</a></h4>
+<p>Métodos de la clase <code class="docutils literal notranslate"><span class="pre">OrdinalEncoder</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OrdinalEncoder.html#sklearn.preprocessing.OrdinalEncoder.fit">fit</a>(X,  y=None)</p></td>
+<td><p>Ajusta el <code class="docutils literal notranslate"><span class="pre">OrdinalEncoder</span></code> a <em>X</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OrdinalEncoder.html#sklearn.preprocessing.OrdinalEncoder.fit_transform">fit_transform</a>(X,  y=None,  **fit_params)</p></td>
+<td><p>Ajusta a los datos, luego los transformar.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OrdinalEncoder.html#sklearn.preprocessing.OrdinalEncoder.inverse_transform">inverse_transform</a>(X)</p></td>
+<td><p>Convierte los datos de nuevo a la representación original.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OrdinalEncoder.html#sklearn.preprocessing.OrdinalEncoder.transform">transform</a>(X)</p></td>
+<td><p>Transforma <em>X</em> en códigos ordinales.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+<section id="polynomialfeatures">
+<h3>PolynomialFeatures<a class="headerlink" href="#polynomialfeatures" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.PolynomialFeatures.html">PolynomialFeatures</a>: Genera una nueva matriz de los <em>feature</em>, que consiste en todas las combinaciones polinomiales de los <em>features</em> con un grado menor o igual al grado especificado, es decir, para cada valor de cada <em>feature</em> cálcula <span class="math notranslate nohighlight">\(x^2\)</span>, <span class="math notranslate nohighlight">\(x^3\)</span>, etc, hasta el grado que se indique, también puede generar <em>features</em> que son interacciones entre otros <em>features</em> por ejemplo <span class="math notranslate nohighlight">\(x_1*x_2\)</span>. Es útil para ajustar regresiones de un grado mayor a uno con <code class="docutils literal notranslate"><span class="pre">LinearRegression()</span></code>. Es útil para mejorar modelos lineales al incluir interacciones y términos no lineales, como en regresión polinómica. <strong>IMPORTANTE</strong>: Puede provocar <em>overfitting</em>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+<span class="n">PolynomialFeatures</span><span class="p">(</span><span class="n">degree</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">interaction_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">include_bias</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;C&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong>degree</strong> - <code class="docutils literal notranslate"><span class="pre">int</span></code>: El grado de los <em>features</em> polinomiales.</p></li>
+<li><p><strong>interaction_only</strong> - <code class="docutils literal notranslate"><span class="pre">bool</span></code>: Si es <code class="docutils literal notranslate"><span class="pre">True</span></code>, solo se producen funciones de interacción que no incluyen al grado mayor de cada <em>feature</em>.</p></li>
+<li><p><strong>include_bias</strong> - <code class="docutils literal notranslate"><span class="pre">bool</span></code>: Para indicar si incluir una columnas <em>‘bias’</em>, un <em>feature</em> en el que todas las potencias polinomiales son cero (una columna de unos). Si se quiere usar <code class="docutils literal notranslate"><span class="pre">LinearRegression()</span></code> para ajustar un modelo a unos datos no lineales utilizar <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+</ul>
+<section id="id11">
+<h4>Atributos<a class="headerlink" href="#id11" title="Link to this heading">#</a></h4>
+<p>Atributos de la clase <code class="docutils literal notranslate"><span class="pre">PolynomialFeatures</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Atributo</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>feature_names_in_</strong></p></td>
+<td><p>Nombres de los <em>features</em> observados durante el ajuste. Definido sólo cuando <em>X</em> tiene nombres que son todos cadenas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>n_features_in_</strong></p></td>
+<td><p>Número de <em>features</em> vistos durante el ajuste.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>n_output_features_</strong></p></td>
+<td><p>El número total de <em>features</em> polinómicos de salida. El número de <em>features</em> de salida se calcula iterando sobre todas las combinaciones de <em>features</em> de entrada de tamaño adecuado.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>powers_</strong></p></td>
+<td><p>Exponente para cada una de las entradas en la salida.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id12">
+<h4>Métodos<a class="headerlink" href="#id12" title="Link to this heading">#</a></h4>
+<p>Métodos de la clase <code class="docutils literal notranslate"><span class="pre">PolynomialFeatures</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.PolynomialFeatures.html#sklearn.preprocessing.PolynomialFeatures.fit">fit</a>(X,  y=None)</p></td>
+<td><p>Calcula el número de <em>features</em> de salida.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.PolynomialFeatures.html#sklearn.preprocessing.PolynomialFeatures.fit_transform">fit_transform</a>(X,  y=None,  **fit_params)</p></td>
+<td><p>Ajusta a los datos, luego los transforma.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.PolynomialFeatures.html#sklearn.preprocessing.PolynomialFeatures.transform">transform</a>(X)</p></td>
+<td><p>Transforma datos en <em>features</em> polinómicos.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+<section id="standardscaler">
+<h3>StandardScaler<a class="headerlink" href="#standardscaler" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html">StandardScaler</a>: Estandariza <em>features</em> al restar la media y escalar a la varianza unitaria (media = 0, desviación estándar = 1). Es útil para preparación de datos para modelos sensibles a la escala, como SVM, regresión lineal o KNN.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+<span class="n">StandardScaler</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">with_mean</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">with_std</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong>copy</strong> - <code class="docutils literal notranslate"><span class="pre">bool</span></code>: Realiza la estandarización <em>in-place</em>, en lugar de retornar un nuevo objeto.</p></li>
+<li><p><strong>with_mean</strong> - <code class="docutils literal notranslate"><span class="pre">bool</span></code>: Si es <code class="docutils literal notranslate"><span class="pre">True</span></code> entonces para la estandarización se utiliza la media de cada <em>feature</em>. Si es <code class="docutils literal notranslate"><span class="pre">False</span></code> se utiliza la media como 0.</p></li>
+<li><p><strong>with_std</strong> - <code class="docutils literal notranslate"><span class="pre">bool</span></code>: Si es <code class="docutils literal notranslate"><span class="pre">True</span></code> entonces para la estandarización se utiliza la desviación estándar de cada <em>feature</em>. Si es <code class="docutils literal notranslate"><span class="pre">False</span></code> se utiliza la <em>std</em> como 1.</p></li>
+</ul>
+<section id="id13">
+<h4>Uso<a class="headerlink" href="#id13" title="Link to this heading">#</a></h4>
+<p>Uso básico de esta clase:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar clase</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+
+<span class="c1"># Inicializar clase</span>
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+
+<span class="c1"># Ajustar</span>
+<span class="n">scaler</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Transformar</span>
+<span class="n">samples_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Se puede ajustar y transformar al mismo tiempo</span>
+<span class="n">samples_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="id14">
+<h4>Atributos<a class="headerlink" href="#id14" title="Link to this heading">#</a></h4>
+<p>Atributos de la clase <code class="docutils literal notranslate"><span class="pre">StandardScaler</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Atributo</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>feature_names_in_</strong></p></td>
+<td><p>Nombres de los <em>features</em> observados durante el ajuste. Definido sólo cuando <em>X</em> tiene nombres dque son todos cadenas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>mean_</strong></p></td>
+<td><p>El valor medio de cada <em>feature</em> en el conjunto de entrenamiento. Igual a <code class="docutils literal notranslate"><span class="pre">None</span></code> cuando <code class="docutils literal notranslate"><span class="pre">with_mean=False</span></code> y <code class="docutils literal notranslate"><span class="pre">with_std=False</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>n_features_in_</strong></p></td>
+<td><p>Número de <em>features</em> vistos durante el ajuste.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>n_samples_seen_</strong></p></td>
+<td><p>El número de muestras procesadas por el estimador para cada <em>feature</em>. Si no faltan muestras, <em>n_samples_seen</em> será un entero; en caso contrario, será una matriz de tipo <code class="docutils literal notranslate"><span class="pre">int</span></code> . Si se utiliza <em>sample_weights</em> será un <code class="docutils literal notranslate"><span class="pre">float</span></code> (si no faltan datos) o una matriz de tipo <code class="docutils literal notranslate"><span class="pre">float</span></code> que suma los pesos vistos hasta ahora. Se restablecerá en las nuevas llamadas al ajuste, pero se incrementa en las llamadas a <em>partial_fit</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>scale_</strong></p></td>
+<td><p>Escala relativa por <em>feature</em> de los datos para lograr una media cero y una varianza unitaria. Generalmente esto se calcula usando <code class="docutils literal notranslate"><span class="pre">np.sqrt(var_)</span></code>. Si una varianza es cero, no se podrá lograr la varianza unitaria, y los datos se dejan como están, dando un factor de escala de 1. <em>scale_</em> es igual a <code class="docutils literal notranslate"><span class="pre">None</span></code> cuando <code class="docutils literal notranslate"><span class="pre">with_std=False</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>var_</strong></p></td>
+<td><p>La varianza de cada <em>feature</em> en el conjunto de entrenamiento. Se utiliza para calcular <em>scale_</em>. Igual a <code class="docutils literal notranslate"><span class="pre">None</span></code> cuando <code class="docutils literal notranslate"><span class="pre">with_mean=False</span></code> y <code class="docutils literal notranslate"><span class="pre">with_std=False</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id15">
+<h4>Métodos<a class="headerlink" href="#id15" title="Link to this heading">#</a></h4>
+<p>Métodos de la clase <code class="docutils literal notranslate"><span class="pre">StandardScaler</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html#sklearn.preprocessing.StandardScaler.fit">fit</a>(X,  y=None,  sample_weight=None)</p></td>
+<td><p>Calcula la media y la <em>std</em> que se utilizarán para el escalado posterior.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html#sklearn.preprocessing.StandardScaler.fit_transform">fit_transform</a>(X,  y=None,  **fit_params)</p></td>
+<td><p>Ajusta a los datos, luego los transformar.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html#sklearn.preprocessing.StandardScaler.inverse_transform">inverse_transform</a>(X,  copy=None)</p></td>
+<td><p>Escala los datos a la representación original.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html#sklearn.preprocessing.StandardScaler.partial_fit">partial_fit</a>(X,  y=None,  sample_weight=None)</p></td>
+<td><p>Calcula en línea de la media y la <em>std</em> en <em>X</em> para su posterior escalado.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html#sklearn.preprocessing.StandardScaler.transform">transform</a>(X,  copy=None)</p></td>
+<td><p>Realiza la normalización centrando y escalando.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="funciones">
+<h2>Funciones<a class="headerlink" href="#funciones" title="Link to this heading">#</a></h2>
+<p>Funciones implementadas en el módulo <code class="docutils literal notranslate"><span class="pre">preprocessing</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.add_dummy_feature.html">add_dummy_feature</a>(X, value=1.0)</p></td>
+<td><p>Aumenta el conjunto de datos con una <em>feature</em> ficticia adicional.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.binarize.html">binarize</a>(X, …)</p></td>
+<td><p>Umbral booleano de matriz tipo <em>array</em> o <em>scipy.sparse</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.label_binarize.html">label_binarize</a>(y, …)</p></td>
+<td><p>Binariza las etiquetas como <em>one-vs-all</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.maxabs_scale.html">maxabs_scale</a>(X, …)</p></td>
+<td><p>Escala cada <em>feature</em> al rango [-1, 1] sin romper la dispersión.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.minmax_scale.html">minmax_scale</a>(X, feature_range=(0, 1), …)</p></td>
+<td><p>Transforma las <em>features</em> escalando cada una de ellas a un rango determinado.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.normalize.html">normalize</a>(X, norm=’l2’, …)</p></td>
+<td><p>Escala los vectores de entrada individualmente a norma unitaria (longitud del vector).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.power_transform.html">power_transform</a>(X, method=’yeo-johnson’, …)</p></td>
+<td><p>Transformación paramétrica monotónica para que los datos sean más gaussianos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.quantile_transform.html">quantile_transform</a>(X, …)</p></td>
+<td><p>Transforma <em>features</em> utilizando información de cuantiles.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.robust_scale.html">robust_scale</a>(X, …)</p></td>
+<td><p>Normalizar un conjunto de datos a lo largo de cualquier eje.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.scale.html">scale</a>(X, …)</p></td>
+<td><p>Normalizar un conjunto de datos a lo largo de cualquier eje.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<section id="notas-de-normalize">
+<h3>Notas de <em>normalize</em><a class="headerlink" href="#notas-de-normalize" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.normalize.html">normalize</a>: Escala los vectores de entrada individualmente a norma unitaria. Retorna dos objetos, X y norms.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+<span class="n">normalize</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="s1">&#39;l2&#39;</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_norm</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong>X</strong> - {array-like, sparse-matrix}: Datos a normalizer.</p></li>
+<li><p><strong>norm</strong> - {‘l1’, ‘l2’, ‘max’}: Norma a utilizar para normalizar cada muestra diferente de cero.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><em>X</em>: <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> o <code class="docutils literal notranslate"><span class="pre">sparse</span> <span class="pre">matrix</span></code> de <em>shape (n_samples, n_features)</em>.</p></li>
+<li><p><em>norms</em>: <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> de <em>shape (n_samples,)</em> si <code class="docutils literal notranslate"><span class="pre">axis=1</span></code> sino <em>(n_features,)</em></p></li>
+</ul>
+<br/>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./parts/07-sklearn/transformations"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="manifold.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Manifold</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../evaluation/evaluation-index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Evaluación y selección del modelo</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clases">Clases</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functiontransformer">FunctionTransformer</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#uso">Uso</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos">Atributos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos">Métodos</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#labelencoder">LabelEncoder</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Atributos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Métodos</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#minmaxscaler">MinMaxScaler</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Atributos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Métodos</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalizer">Normalizer</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Atributos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Métodos</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onehotencoder">OneHotEncoder</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Atributos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Métodos</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ordinalencoder">OrdinalEncoder</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Atributos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Métodos</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#polynomialfeatures">PolynomialFeatures</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Atributos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Métodos</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standardscaler">StandardScaler</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Uso</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Atributos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Métodos</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones">Funciones</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-normalize">Notas de <em>normalize</em></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nebok
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

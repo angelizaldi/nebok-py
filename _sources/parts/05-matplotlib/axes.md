@@ -376,18 +376,21 @@ Métodos útiles para gráficas que involucran líneas y marcadores, como gráfi
 ax.plot([x], y, [fmt], *, data=None, **kwargs)
 ax.plot([x], y, [fmt], [x2], y2, [fmt2], ..., **kwargs)
 ```
+- **Parámetros:**
+    - **x**, **y** - `array-like` o `scalar`: Coordenadas de los puntos horizontales y verticales, respectivamente. Si no se especifica _x_ será un rango de _0_ a `len(y) - 1`.
+    - **data** - `indexable object`: Objeto que se pueda aplicar `obj['label']` y retorne un 1D `array-like`, lo más común que sea un `DataFrame`.
+    - **fmt** - `str`: Es una cadena de formato, para indicar cierto formato que debe de tener la gráfica especificamente, el tipo de linea, tipo de marker y el color de los mismos. Ver {ref}`matplotlib-fmt`.
+    - **\*\*kwargs**: Propiedades de {ref}`matplotlib-line2d`.
+    - Parámetros en la segunda forma de llamar la función:
+        - **xi**, **yi** - `array-like` o `scalar`: Cordenadas de los puntos horizontales y verticales, respectivamente.
+        - **fmti** - `str`: Es una cadena de formato, para indicar cierto formato que debe de tener la gráfica.
+- **Retorna:**
+    - `list` de [Line2D](https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D).
 
-**Parámetros:**
-- **x**, **y** - `array-like` o `scalar`: Coordenadas de los puntos horizontales y verticales, respectivamente. Si no se especifica _x_ será un rango de _0_ a `len(y) - 1`.
-- **data** - `indexable object`: Objeto que se pueda aplicar `obj['label']` y retorne un 1D `array-like`, lo más común que sea un `DataFrame`.
-- **fmt** - `str`: Es una cadena de formato, para indicar cierto formato que debe de tener la gráfica especificamente, el tipo de linea, tipo de marker y el color de los mismos. Ver {ref}`matplotlib-fmt`.
-- **\*\*kwargs**: Propiedades de {ref}`matplotlib-line2d`.
-- Parámetros en la segunda forma de llamar la función:
-    - **xi**, **yi** - `array-like` o `scalar`: Cordenadas de los puntos horizontales y verticales, respectivamente.
-    - **fmti** - `str`: Es una cadena de formato, para indicar cierto formato que debe de tener la gráfica.
+:::{note}
+Notar que también se pueden usar como argumentos propiedades de la clase [PathCollection](https://matplotlib.org/stable/api/collections_api.html#matplotlib.collections.PatchCollection.set).
+:::
 
-**Retorna:**
-- `list` de [Line2D](https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D).
 
 **Ejemplo**:
 En este ejemplo se utiliza directamente la función `plt.plot()` para crear una figura con un _axes_, además se hacen llamadas a las funciones `plt.xlabel()`, `plt.ylabel()`, `plt.title()` y `plt.legend()` para añadir elementos a la gráfica.
@@ -400,6 +403,11 @@ ax.plot(yearly_data['year'],
         yearly_data['passengers'], 
         marker='o', 
         color=azul)
+
+# Agregar etiquetas y título
+ax.set_title("Passengers per year", fontsize=14)
+ax.set_xlabel("Year", fontsize=11)
+ax.set_ylabel("Passengers", fontsize=11)
 
 # Imprimir la figura
 plt.show()
@@ -417,29 +425,35 @@ Axes.scatter(x, y, s=None, c=None, *, marker=None, cmap=None, norm=None, vmin=No
              plotnonfinite=False, data=None, **kwargs)
 ```
 **Parámetros:**
-- **x**, **y** - `array-like` o `float`: Cordenadas de los puntos horizontales y verticales, respectivamente.
-- **s** - `float` o `array-like`: Tamaño de los markers en puntos, al cuadrado.
-- **c** - `array-like`, `list` de `color` o `color`: Color de los markers.
-    - `scalar` o `secuencia` de números: Esos números serán mapeados con _cmap_, dependiendo del valor se le asignará un color del mapa de color, los número se emparejarán por posición con los valores de _x_ y _y_, para determinar qué color usar en cada coordenada. Por lo tanto la longitud de la secuencia debe de ser igual que la de _x_ y _y_.
-    - `secuencia` de `color`: Colores a usar para cada valor de _x_ y _y_, se empatan por posición y debe de tener la misma longitud que _x_ y _y_. Ver {ref}`matplotlib-color`.
-    - `color`: Un solo color para usar en todos lo puntos. Ver {ref}`matplotlib-color`.
-    - Se puede usar los valores de una variable categórica para que cada uno tenga un valor diferente. Ver {ref}`matplotlib-colormap`.
-- **marker** - `MarkeyStyle`: Revisar {ref}`matplotlib-markers`.
-- **cmap** - `str` o `ColorMap`: Mapa de color. Solo se usa si c es un `array-like` de `float`. Ver {ref}`matplotlib-colormap`.
-- **alpha** - `float`: Para indicar la opacidad de la gráfica. Es un valor entre 0 y 1, donde 0 es completamente transparente y 1 es completamente opaco.
-- **linewidths** - `float` o `array-like`: Grueso del borde de los markers.
-- **edgecolors** - {'face', 'none', None}, `color` o `secuencia` de `color`: Color del borde de los markers. Si es 'face' será el mismo que el fondo del marker, si es 'none' no tendrá color o se puede especificar el color. Ver Color.
-- **\*\*kwargs**: Propiedades de los objetos [PathCollection](https://matplotlib.org/stable/api/collections_api.html#matplotlib.collections.PathCollection).
-
+    - **x**, **y** - `array-like` o `float`: Cordenadas de los puntos horizontales y verticales, respectivamente.
+    - **s** - `float` o `array-like`: Tamaño de los markers en puntos, al cuadrado.
+    - **c** - `array-like`, `list` de `color` o `color`: Color de los markers.
+        - `scalar` o `secuencia` de números: Esos números serán mapeados con _cmap_, dependiendo del valor se le asignará un color del mapa de color, los número se emparejarán por posición con los valores de _x_ y _y_, para determinar qué color usar en cada coordenada. Por lo tanto la longitud de la secuencia debe de ser igual que la de _x_ y _y_.
+        - `secuencia` de `color`: Colores a usar para cada valor de _x_ y _y_, se empatan por posición y debe de tener la misma longitud que _x_ y _y_. Ver {ref}`matplotlib-color`.
+        - `color`: Un solo color para usar en todos lo puntos. Ver {ref}`matplotlib-color`.
+        - Se puede usar los valores de una variable categórica para que cada uno tenga un valor diferente. Ver {ref}`matplotlib-colormap`.
+    - **marker** - `MarkeyStyle`: Revisar {ref}`matplotlib-markers`.
+    - **cmap** - `str` o `ColorMap`: Mapa de color. Solo se usa si c es un `array-like` de `float`. Ver {ref}`matplotlib-colormap`.
+    - **alpha** - `float`: Para indicar la opacidad de la gráfica. Es un valor entre 0 y 1, donde 0 es completamente transparente y 1 es completamente opaco.
+    - **linewidths** - `float` o `array-like`: Grueso del borde de los markers.
+    - **edgecolors** - {'face', 'none', None}, `color` o `secuencia` de `color`: Color del borde de los markers. Si es 'face' será el mismo que el fondo del marker, si es 'none' no tendrá color o se puede especificar el color. Ver Color.
+    - **\*\*kwargs**: Propiedades de los objetos [PathCollection](https://matplotlib.org/stable/api/collections_api.html#matplotlib.collections.PatchCollection.set).
 **Retorna:**
-- [PathCollection](https://matplotlib.org/stable/api/collections_api.html#matplotlib.collections.PathCollection).
+    - [PathCollection](https://matplotlib.org/stable/api/collections_api.html#matplotlib.collections.PatchCollection).
+
+:::{note}
+Notar que también se pueden usar como argumentos propiedades de la clase [PathCollection](https://matplotlib.org/stable/api/collections_api.html#matplotlib.collections.PatchCollection.set).
+:::
+
+
+**Ejemplo**:
 
 ```{code-cell} ipython3
 # Importar el dataset iris
 data=sns.load_dataset("iris")
 
 # Crear figura y axes
-fig, ax=plt.subplots(figsize=(8, 6))
+fig, ax=plt.subplots(figsize=(5, 4))
 
 # Crear scatterplot: petal length vs petal width
 scatter=ax.scatter(
@@ -447,7 +461,7 @@ scatter=ax.scatter(
     data["petal_width"], 
     c=data["species"].astype('category').cat.codes,  # Color por species
     s=data["sepal_length"] * 10,  # Tamaño proporcional a sepal length
-    cmap="viridis", 
+    cmap="Dark2", 
     alpha=0.7
 )
 
@@ -562,6 +576,10 @@ Métodos útiles para crear rectas en intervalos y áreas.
 Considerar lo siguiente:
 - Las rectas aquí presentadas son múltiples rectas en un intervalo. Para graficar una única recta revisar funciones en {ref}`pyplot-funciones-spans`.
 - Las áreas aquí presentadas son para rellenar áreas entre curvas o gráficas de áreas. Para generar _spans_ (rectángulos para resaltar zonas en gráficas) ver funciones en {ref}`axes-metodos-spans`.
+:::
+
+:::{note}
+Los valores usados en estos métodos deben de coincidir con los valores del índice o de la columna que se use en el eje correspondiente. Por ejemplo, si uno de los ejes es de tipo fecha se debe de usar un valor que represente una fecha, por ejemplo `'2020-06-21'`.
 :::
 
 ```{list-table}
@@ -767,7 +785,12 @@ Métodos útiles para graficar información estadística como _boxplots_ y distr
 
 [Axes.boxplot](https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.boxplot.html): Crea un boxplot por cada columna que se le pase.
 ```python
-Axes.boxplot(x, *, notch=None, sym=None, vert=None, orientation='vertical', whis=None, positions=None, widths=None, patch_artist=None, bootstrap=None, usermedians=None, conf_intervals=None, meanline=None, showmeans=None, showcaps=None, showbox=None, showfliers=None, boxprops=None, tick_labels=None, flierprops=None, medianprops=None, meanprops=None, capprops=None, whiskerprops=None, manage_ticks=True, autorange=False, zorder=None, capwidths=None, label=None, data=None)
+Axes.boxplot(x, *, notch=None, sym=None, vert=None, orientation='vertical', whis=None, positions=None, 
+             widths=None, patch_artist=None, bootstrap=None, usermedians=None, conf_intervals=None, 
+             meanline=None, showmeans=None, showcaps=None, showbox=None, showfliers=None, boxprops=None, 
+             tick_labels=None, flierprops=None, medianprops=None, meanprops=None, capprops=None, 
+             whiskerprops=None, manage_ticks=True, autorange=False, zorder=None, capwidths=None, 
+             label=None, data=None)
 ```
 **Parámetros:**
 - **x** - `array` o `secuencia` de `2D array`: Los datos.
@@ -775,7 +798,20 @@ Axes.boxplot(x, *, notch=None, sym=None, vert=None, orientation='vertical', whis
 - **vert** - `bool`: Para indicar si los boxes deben ser verticales (True) u horizontales (False).
 
 **Retorna:**
-- `dict`: Diccionario que contiene las siguientes keys: _boxes_, _medians_, _whiskers_, _caps_, _fliers_, _means_.
+- `dict`: Diccionario que contiene las siguientes keys: _boxes_ (`list` de `PathPatch`), _medians_ (`list` de `Line2D`), _whiskers_ (`2-list` de `Line2D`), _caps_ (`2-list` de `Line2D`), _fliers_ (`list` de `Line2D`), _means_ (opcional, `list` de `Line2D`).
+
+Patrones útles
+```python
+# Cambiar colores
+_ = ax.boxplot(df['col'], patch_artist=True)
+for box in _['boxes']:
+    box.set(facecolor, edgecolor)
+for median in _['medians']:
+    median.set(color)
+```
+- Colores:
+    - Asegurarse de usar `patch_artist=True` en `plt.boxplot()`.
+    - También se puede cambiar el color de cualquier otro elemento, simplemente usar los parámetros correctos para el tipo de dato del elemento.
 
 **Ejemplo:**
 En este ejemplo se gráfica el histograma de la columna _total_bill_ del dataset _tips_.
@@ -785,7 +821,15 @@ En este ejemplo se gráfica el histograma de la columna _total_bill_ del dataset
 fig, ax=plt.subplots(1, 1, figsize=(8, 6))
 
 # Graficar el histograma
-ax.boxplot(tips['total_bill'])
+_ = ax.boxplot(tips['total_bill'], patch_artist=True)
+
+# Cambiar colores
+for box in _['boxes']:
+    box.set(facecolor=azul, edgecolor='black', linewidth=1)
+for median in _['medians']:
+    median.set(color=cafe, linewidth=2)
+
+# Añadir título
 ax.set_title('Boxplot of Total Bill', fontsize=14)
 
 # Imprimir la figura
@@ -826,6 +870,14 @@ Métodos para añadir rectas y áreas rectángulares a gráficas.
 
 :::{caution}
 Para añadir _n_ rectas en un intervalo o agregar áreas entre curvas o áreas con formas más complejas (polígonos) revisar métodos de {ref}`axes-rectas-areas`.
+:::
+
+:::{note}
+Los valores usados en estos métodos deben de coincidir con los valores del índice o de la columna que se use en el eje correspondiente. Por ejemplo, si uno de los ejes es de tipo fecha se debe de usar un valor que represente una fecha, por ejemplo `'2020-06-21'`.
+:::
+
+:::{note}
+Los métodos de abajo también pueden recibir como argumentos propiedades de los objetos retornados, ya sean `Line2D`, `Rectangle` (ver {doc}`./otros`) o [AxLine](https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.AxLine.html#matplotlib.lines.AxLine.set).
 :::
 
 ```{list-table}

@@ -239,6 +239,39 @@ Funciones ajustar un polinomio a un conjunto de datos.
   - Ajuste polinomial de mínimos cuadrados.
 ```
 
+**Uso**
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Ajustar polinomio de determinado grado a un conjunto de datos
+coeffs = np.polyfit(x, y, grado)
+
+# Imprimir los coeficientes encontrados
+print(f"Los coeficientes del polinomio de grado {grado} son: {coeffs}")
+
+# Crear un polinomio a partir de los coeficientes
+polinomio = np.poly1d(coeffs)
+
+# Generar puntos 'x' para graficar la curva ajustada
+x_fit = np.linspace(min(x), max(x), 100)
+
+# Evalúar el polinomio en los puntos 'x_fit'
+y_fit = polinomio(x_fit)
+
+# Graficar los datos originales y la curva ajustada
+plt.figure(figsize=(8, 6))
+plt.scatter(x, y, label='Datos originales')  # Grafica los puntos originales
+plt.plot(x_fit, y_fit, color='red', label=f'Ajuste polinómico de grado {grado}') # Grafica la curva ajustada
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('Ajuste Polinómico con NumPy polyfit')
+plt.legend()
+plt.grid(True)
+plt.show()
+```
+
 <br/>
 
 ### Aritméticas

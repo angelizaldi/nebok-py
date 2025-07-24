@@ -1,0 +1,1287 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Figure &#8212; Manual de Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'parts/12-plotly/go/figure';</script>
+    <link rel="icon" href="../../../_static/nebok-favicon.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Layout" href="layout.html" />
+    <link rel="prev" title="Graph Objects" href="go-index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/nebok-logo.png" class="logo__image only-light" alt="Manual de Python - Home"/>
+    <script>document.write(`<img src="../../../_static/nebok-logo.png" class="logo__image only-dark" alt="Manual de Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Manual de Python para Data Science
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Built-in</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../01-built-in/built-in-index.html">Python Estándar</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/cli.html"><em>Command Line Interface</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/ayuda.html">Obtener ayuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/comentarios.html">Comentarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/tipos-datos.html">Tipos de Datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/variables-constantes.html">Variables y Constantes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/operadores-palabras.html">Operadores y palabras reservadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/entrada-salida.html">Impresión y solicitud de datos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../01-built-in/tipos-index.html">Tipos Built-In</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/none-bool-numericos.html"><em>None</em>, <em>bool</em> y Numéricos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/str.html">str</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/lists.html">list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/tuples.html">Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/sets.html">Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/dicts.html">dict</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../01-built-in/estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/if-else.html">If … Else</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/for-loop.html">For Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/do-while.html">Do While</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/udf.html">Funciones (UDF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/exceptions.html">Excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/context-managers.html">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/io.html">Lectura y escritura de archivos (IO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/modulos.html">Paquetes y Módulos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../01-built-in/avanzado-index.html">Temas avanzados</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/decorators.html">Decorators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/iterators.html">Iterators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/generators.html">Generators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/oop.html">Programación orientada a objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/func-built-in.html">Funciones built-in</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../02-modulos/modulos-index.html">Módulos built-in</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/csv.html">CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/datetime.html">Datetime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/itertools.html">Itertools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/json.html">JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/math.html">Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/os.html">Os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/os-path.html">Os.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/pickle.html">Pickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/random.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/regex.html">Regex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/statistics.html">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/urllib-request.html">urllib.request</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otras librerías</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../03-numpy/numpy-index.html">Numpy</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../03-numpy/arrays.html">Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../03-numpy/funciones-index.html">Funciones</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/ufuncs.html">Ufuncs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/buscar-contar-ordenar-unicos.html">Buscar, contar, ordenar y valores únicos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/creacion-arrays.html">Creación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/estadisticas.html">Estadísticas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/indices.html">Índices e iteración</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/informacion.html">Información</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/lectura-escritura.html">Lectura y escritura de datos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/manipulacion-arrays.html">Manipulación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/matematicas-numericas.html">Matemáticas y numéricas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/operadores.html">Operadores</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../03-numpy/algebra-lineal.html">Módulo linalg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../03-numpy/cadenas.html">Modulo char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../03-numpy/random.html">Módulo random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../03-numpy/patrones-numpy.html">Patrones útiles</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../04-pandas/pandas-index.html">Pandas</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../04-pandas/index.html">Index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-pandas/series.html">Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-pandas/dataframe.html">DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-pandas/escalares-arrays.html">Escalares y Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../04-pandas/otras-clases.html">Otras clases</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../04-pandas/groupby.html">GroupBy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../04-pandas/expanding-rolling-window.html"><em>Expanding, Rolling</em> y <em>Window</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../04-pandas/resampler.html">Resampler</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-pandas/funciones.html">Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-pandas/patrones-pandas.html">Patrones útiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-pandas/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../05-matplotlib/matplotlib-index.html">Matplotlib</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../05-matplotlib/pyplot.html">Pyplot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../05-matplotlib/figure.html">Figure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../05-matplotlib/axes.html">Axes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../05-matplotlib/otros.html">Otras Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../05-matplotlib/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../06-seaborn/seaborn-index.html">Seaborn</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../06-seaborn/funciones-clases.html">Funciones y Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../06-seaborn/objects-interface.html">Interface por objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../07-sklearn/sklearn-index.html">Scikit Learn</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../07-sklearn/supervised/supervised-index.html">Aprendizaje supervisado</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/supervised/ensamble.html">Ensamble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/supervised/linear_model.html">Linear model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/supervised/naive_bayes.html">Naive bayes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/supervised/neighbors.html">Neighbors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/supervised/svm.html">SVM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/supervised/tree.html">Tree</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../07-sklearn/unsupervised/unsupervised-index.html">Aprendizaje no supervisado</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/unsupervised/cluster.html">Cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/unsupervised/decomposition.html">Decomposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/unsupervised/mixture.html">Mixture</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../07-sklearn/transformations/tranformations-index.html">Transformaciones</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/transformations/feature_extraction.html">Feature Extraction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/transformations/impute.html">Impute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/transformations/manifold.html">Manifold</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/transformations/preprocessing.html">Preprocessing</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../07-sklearn/evaluation/evaluation-index.html">Evaluación y selección del modelo</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/evaluation/dummy.html">Dummy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/evaluation/feature_selection.html">Feature Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/evaluation/metrics.html">Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/evaluation/model_selection.html">Model Selection</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../07-sklearn/pipelines-and-compose/pipeline-compose-index.html">Pipelines y Modelos Compuestos</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/pipelines-and-compose/compose.html">Compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/pipelines-and-compose/pipeline.html">Pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../07-sklearn/datasets.html">Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../07-sklearn/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../08-xgboost/xgboost-index.html">XGBoost</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../08-xgboost/core-data-structure.html">Core Data Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../08-xgboost/learning-api.html">Learning API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../08-xgboost/scikit-learn-api.html">Scikit-Learn API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../08-xgboost/plotting-api.html">Plotting API</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../09-scipy/scipy-index.html">Scipy</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../09-scipy/clusters.html">Clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../09-scipy/derivacion-integracion.html">Derivación e Integración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../09-scipy/linalg.html">Linear Algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../09-scipy/sparse.html"><em>Sparse</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../09-scipy/stats.html">Stats</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../10-statsmodels/statsmodels-index.html">Statsmodels</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../10-statsmodels/statsmodels-api.html">API Principal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../10-statsmodels/statsmodels-tsa-api.html">API de Series de Tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../10-statsmodels/statsmodels-formula-api.html">API de Fórmulas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../10-statsmodels/graphics.html">Gráficos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../10-statsmodels/otras-clases.html">Otras clases</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../11-bokeh/bokeh-index.html">Bokeh</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../11-bokeh/io.html">IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../11-bokeh/layouts.html"><em>Layouts</em></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../11-bokeh/models/models-index.html"><em>Models</em></a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../11-bokeh/models/annotations.html">Anotaciones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../11-bokeh/models/axes.html">Ejes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../11-bokeh/models/callbacks.html">Callbacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../11-bokeh/models/formatters.html"><em>Formatters</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../11-bokeh/models/glyphs.html"><em>Glyphs</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../11-bokeh/models/sources.html"><em>Sources</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../11-bokeh/models/tools.html"><em>Tools</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../11-bokeh/models/widgets.html"><em>Widgets</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../11-bokeh/plotting.html">Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../11-bokeh/transform.html">transform</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../plotly-index.html">Plotly</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../express.html"><em>Express</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../figure-factory.html"><em>Figure Factory</em></a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="go-index.html"><em>Graph Objects</em></a><input checked="" class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3 current active"><a class="current reference internal" href="#"><em>Figure</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="layout.html"><em>Layout</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="traces.html">Traces</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../io.html">IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subplots.html">Subplots</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/beautifulsoup.html">BeautifulSoup</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Complementarios</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../appendix/appendix-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../appendix/IPython.html">IPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../appendix/jupyter.html">Jupyter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../appendix/pip.html">pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../appendix/conda.html"><em>conda</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../appendix/git.html">git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../appendix/shell.html">Shell</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/parts/12-plotly/go/figure.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Figure</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-principales">Métodos principales</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos">Métodos</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#generales">Generales</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#actualizar-elementos">Actualizar elementos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#anadir-elementos">Añadir elementos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conversion">Conversión</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exportar">Exportar</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#iterar-por-elementos">Iterar por elementos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccionar-elementos">Seleccionar elementos</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="figure">
+<h1><em>Figure</em><a class="headerlink" href="#figure" title="Link to this heading">#</a></h1>
+<p>Es el objeto que representa la figura completa, que incluye el <em>layout</em> (<em>layout</em>) y los datos (<em>traces</em>). Es el contenedor principal para crear gráficos.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Constructor</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure">plotly.graph_objects.Figure</a>(data=None, layout=None, …)</p></td>
+<td><p>Crea una nueva instancia <code class="docutils literal notranslate"><span class="pre">Figure</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+<span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">frames</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">skip_invalid</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong> (Importante: En lugar de pasar cada argumento, se puede pasar un diccionario cuyas llaves sean los parámetros y los valores sus valores particulares.)</p>
+<ul class="simple">
+<li><p><strong>data</strong> - <code class="docutils literal notranslate"><span class="pre">trace</span></code>, <code class="docutils literal notranslate"><span class="pre">list-like</span></code>, <code class="docutils literal notranslate"><span class="pre">list-like</span></code> de <code class="docutils literal notranslate"><span class="pre">dict</span></code>: Establece el tipo de gráfico y los datos (<em>traces</em>).</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">trace</span></code>: Una única instancia de <em>trace</em>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list-like</span></code>: Instancias de <em>trace</em>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list-like</span></code> de <code class="docutils literal notranslate"><span class="pre">dict</span></code>: Indican propiedades de la figura y su valor. Las llaves (<code class="docutils literal notranslate"><span class="pre">str</span></code>) son:</p>
+<ul>
+<li><p><em>‘type’</em> - <code class="docutils literal notranslate"><span class="pre">str</span></code>: Indica el tipo de gráfica. Los posibles valores son: <em>‘bar’, ‘barpolar’, ‘box’, ‘candlestick’, ‘carpet’, ‘choropleth’, ‘choroplethmapbox’, ‘cone’, ‘contour’, ‘contourcarpet’, ‘densitymapbox’, ‘funnel’, ‘funnelarea’, ‘heatmap’, ‘heatmapgl’, ‘histogram’, ‘histogram2d’, ‘histogram2dcontour’, ‘icicle’, ‘image’, ‘indicator’, ‘isosurface’, ‘mesh3d’, ‘ohlc’, ‘parcats’, ‘parcoords’, ‘pie’, ‘pointcloud’, ‘sankey’, ‘scatter’, ‘scatter3d’, ‘scattercarpet’, ‘scattergeo’, ‘scattergl’, ‘scattermapbox’, ‘scatterpolar’, ‘scatterpolargl’, ‘scattersmith’, ‘scatterternary’, ‘splom’, ‘streamtube’, ‘sunburst’, ‘surface’, ‘table’, ‘treemap’, ‘violin’, ‘volume’, ‘waterfall’</em>.</p></li>
+<li><p>Argumentos de los constructores de cada <em>trace</em>. Ver <a class="reference internal" href="traces.html"><span class="doc">Traces</span></a>.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>layout</strong> - <code class="docutils literal notranslate"><span class="pre">Layout</span></code> o <code class="docutils literal notranslate"><span class="pre">dict</span></code>: Controla el estilo de la figura.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Layout</span></code>: Instancia. Ver <a class="reference internal" href="layout.html"><span class="doc">Layout</span></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dict</span></code>: Parámetros y valores que serán pasados al constructor.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">frames</span></code>: Para gráficos animados.</p></li>
+</ul>
+</li>
+</ul>
+<br/>
+<section id="metodos-principales">
+<h2>Métodos principales<a class="headerlink" href="#metodos-principales" title="Link to this heading">#</a></h2>
+<p>A continuación se presenta una breve lista de los principales métodos.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>plotly.graph_objects</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_traces">Figure.add_traces</a></p></td>
+<td><p>Agrega <em>traces</em> a la figura.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.show">Figure.show</a></p></td>
+<td><p>Muestra una figura utilizando el renderizador predeterminado o el renderizador especificado por el argumento del renderizador.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.update_layout">Figure.update_layout</a></p></td>
+<td><p>Actualiza las propiedades del <em>layout</em> de la figura con un <code class="docutils literal notranslate"><span class="pre">dict</span></code> y/o con palabras clave de argumentos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.update_traces">Figure.update_traces</a></p></td>
+<td><p>Realiza una operación de actualización de propiedad en todas los <em>traces</em> que satisfacen los criterios de selección especificados.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<section id="metodos">
+<h3>Métodos<a class="headerlink" href="#metodos" title="Link to this heading">#</a></h3>
+<p>Métodos de la clase <code class="docutils literal notranslate"><span class="pre">Figure</span></code>.</p>
+<section id="generales">
+<h4>Generales<a class="headerlink" href="#generales" title="Link to this heading">#</a></h4>
+<p>Métodos generales de la clase <code class="docutils literal notranslate"><span class="pre">Figure</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.__init__">__init__</a>(data=None, layout=None, …)</p></td>
+<td><p>Crea una nueva instancia de la clase: <code class="docutils literal notranslate"><span class="pre">Figure</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.append_trace">append_trace</a>(trace, row, col)</p></td>
+<td><p>Agrega un <em>trace</em> a la figura atada a los ejes en los índices de fila y columna especificados.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.batch_animate">batch_animate</a>(duration=500, …)</p></td>
+<td><p>Administrador de contextos para animar actualizaciones en <em>traces</em>/<em>layout</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.batch_update">batch_update</a>()</p></td>
+<td><p>Un administrador de contextos que combina las operaciones de asignación de <em>traces</em> y <em>layout</em> en un mensaje _plotly_update _ que se ejecuta cuando se sale del contexto.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.full_figure_for_development">full_figure_for_development</a>(warn=True, as_dict=False)</p></td>
+<td><p>Calcula los valores predeterminados para todos los atributos no especificados en la figura de entrada y devuelve la salida como una figura <em>“full”</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.get_subplot">get_subplot</a>(row, col, secondary_y=False)</p></td>
+<td><p>Retorna un objeto que represente el <em>subplot</em> en la fila y columna especificadas. Solo se puede usar en figuras creadas usando <code class="docutils literal notranslate"><span class="pre">plotly.tools.make_subplots</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.plotly_relayout">plotly_relayout</a>(relayout_data, **kwargs)</p></td>
+<td><p>Realiza una operación de <em>relayout</em> en el <em>layout</em> de la figura.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.plotly_restyle">plotly_restyle</a>(restyle_data, …)</p></td>
+<td><p>Realiza una operación de <em>restyle</em> en los <em>traces</em> de la figura.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.plotly_update">plotly_update</a>(restyle_data=None, …)</p></td>
+<td><p>Realiza una operación de actualización en la figura.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.pop">pop</a>(key, *args)</p></td>
+<td><p>Elimina el valor asociado con la llave especificada y la retorna.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.print_grid">print_grid</a>()</p></td>
+<td><p>Imprime un <em>layout</em> visual de la disposición de los ejes de la figura. Esto solo es válido para figuras creadas usando <code class="docutils literal notranslate"><span class="pre">plotly.tools.make_subplots</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.data">propertydata</a>()</p></td>
+<td><p><em>Thedataproperty</em> es un <code class="docutils literal notranslate"><span class="pre">tuple</span></code> de los objetos <em>trace</em> de la figura.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.frames">propertyframes</a>()</p></td>
+<td><p><em>Theframesproperty</em> es un <code class="docutils literal notranslate"><span class="pre">tuple</span></code> de los objetos de <em>frame</em> de la figura.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.layout">propertylayout</a>()</p></td>
+<td><p><em>Thelayoutproperty</em> es un <code class="docutils literal notranslate"><span class="pre">tuple</span></code> de los objetos de <em>layout</em> de la figura.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.set_subplots">set_subplots</a>(rows=None, cols=None, …)</p></td>
+<td><p>Agrega <em>subplots</em> a esta figura. Si la figura ya contiene <em>subplots</em>, esto arroja un error. Acepta cualquier argumento de palabras clave que <code class="docutils literal notranslate"><span class="pre">plotly.subplots.make_subplots</span></code> acepta.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.show">show</a>(*args, **kwargs)</p></td>
+<td><p>Muestra una figura utilizando el renderizador predeterminado o el renderizador especificado por el argumento de <em>renderer</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="actualizar-elementos">
+<h4>Actualizar elementos<a class="headerlink" href="#actualizar-elementos" title="Link to this heading">#</a></h4>
+<p>Estos métodos permiten actualizar propiedades de la figura o sus componentes.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Principales métodos</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.update">update</a>(dict1=None, overwrite=False, …)</p></td>
+<td><p>Actualiza las propiedades de la figura con un <code class="docutils literal notranslate"><span class="pre">dict</span></code> y/o con palabras clave de argumentos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.update_annotations">update_annotations</a>(patch=None, selector=None, …)</p></td>
+<td><p>Realiza una operación de actualización de propiedad en todas las anotaciones que satisfagan los criterios de selección especificados.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.update_layout">update_layout</a>(dict1=None, overwrite=False, …)</p></td>
+<td><p>Actualiza las propiedades del <em>layout</em> de la figura con un <code class="docutils literal notranslate"><span class="pre">dict</span></code> y/o con palabras clave de argumentos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.update_traces">update_traces</a>(patch=None, selector=None, …)</p></td>
+<td><p>Realiza una operación de actualización de propiedad en todas los <em>traces</em> que satisfacen los criterios de selección especificados.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.update_xaxes">update_xaxes</a>(patch=None, selector=None, …)</p></td>
+<td><p>Realiza una operación de actualización de propiedad en todos los objetos <em>xaxis</em> que satisfacen los criterios de selección especificados.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.update_yaxes">update_yaxes</a>(patch=None, selector=None, …)</p></td>
+<td><p>Realiza una operación de actualización de propiedad en todos los objetos <em>yaxis</em> que satisfacen los criterios de selección especificados.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Otros métodos</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.update_coloraxes">update_coloraxes</a>(patch=None, selector=None, …)</p></td>
+<td><p>Realiza una operación de actualización de propiedad en todos los objetos <em>coloraxis</em> que satisfagan los criterios de selección especificados.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.update_geos">update_geos</a>(patch=None, selector=None, …)</p></td>
+<td><p>Realiza una operación de actualización de propiedad en todos los objetos <em>geo</em> que satisfagan los criterios de selección especificados.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.update_layout_images">update_layout_images</a>(patch=None, selector=None, …)</p></td>
+<td><p>Realiza una operación de actualización de propiedad en todas las imágenes que satisfagan los criterios de selección especificados.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.update_legends">update_legends</a>(patch=None, selector=None, …)</p></td>
+<td><p>Realiza una operación de actualización de propiedad en todos los objetos <em>legend</em> que satisfagan los criterios de selección especificados.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.update_mapboxes">update_mapboxes</a>(patch=None, selector=None, …)</p></td>
+<td><p>Realiza una operación de actualización de propiedad en todos los objetos <em>mapbox</em> que satisfagan los criterios de selección especificados.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.update_maps">update_maps</a>(patch=None, selector=None, …)</p></td>
+<td><p>Realiza una operación de actualización de propiedad en todos los objetos <em>map</em> que satisfagan los criterios de selección especificados.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.update_polars">update_polars</a>(patch=None, selector=None, …)</p></td>
+<td><p>Realiza una operación de actualización de propiedad en todos los objetos <em>polar</em> que satisfagan los criterios de selección especificados.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.update_scenes">update_scenes</a>(patch=None, selector=None, …)</p></td>
+<td><p>Realiza una operación de actualización de propiedad en todos los objetos <em>scene</em> que satisfagan los criterios de selección especificados.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.update_selections">update_selections</a>(patch=None, selector=None, …)</p></td>
+<td><p>Realiza una operación de actualización de propiedad en todas las selecciones que satisfagan los criterios de selección especificados.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.update_shapes">update_shapes</a>(patch=None, selector=None, …)</p></td>
+<td><p>Realiza una operación de actualización de propiedad en todas las formas (<em>shapes</em>) que satisfagan los criterios de selección especificados.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.update_smiths">update_smiths</a>(patch=None, selector=None, …)</p></td>
+<td><p>Realiza una operación de actualización de propiedad en todos los objetos <em>smith</em> que satisfacen los criterios de selección especificados.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.update_ternaries">update_ternaries</a>(patch=None, selector=None, …)</p></td>
+<td><p>Realiza una operación de actualización de propiedad en todos los objetos <em>ternary</em> que satisfagan los criterios de selección especificados.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="anadir-elementos">
+<h4>Añadir elementos<a class="headerlink" href="#anadir-elementos" title="Link to this heading">#</a></h4>
+<p>Estos métodos permiten añadir elementos (<em>traces</em>) o anotaciones a la figura.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Otros elementos</strong></p></td>
+<td><p><em>Anotaciones, rectas y áreas, etc.</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_annotation">add_annotation</a>(arg=None, align=None, …)</p></td>
+<td><p>Crea y agrega una nueva anotación al <em>layout</em> de la figura.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_hline">add_hline</a>(y, row=’all’, col=’all’, …)</p></td>
+<td><p>Agrega una línea horizontal a una gráfica o <em>subplot</em> que se extiende infinitamente en la dimensión <em>x</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_hrect">add_hrect</a>(y0, y1, row=’all’, col=’all’, …)</p></td>
+<td><p>Agrega un rectángulo a una gráfica o <em>subplot</em> que se extiende infinitamente en la dimensión <em>x</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_layout_image">add_layout_image</a>(arg=None, layer=None, …)</p></td>
+<td><p>Crea y agrega una nueva imagen al <em>layout</em> de la figura.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_selection">add_selection</a>(arg=None, line=None, name=None, …)</p></td>
+<td><p>Crea y agrega una nueva <em>selection</em> al <em>layout</em> de la figura.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_shape">add_shape</a>(arg=None, editable=None, …)</p></td>
+<td><p>Crea y agrega una nueva forma (<em>shape</em>) al <em>layout</em> de la figura.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_trace">add_trace</a>(trace, row=None, col=None, …)</p></td>
+<td><p>Agrega un <em>trace</em> a la figura.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_traces">add_traces</a>(data, rows=None, cols=None, …)</p></td>
+<td><p>Agrega <em>traces</em> a la figura.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_vline">add_vline</a>(x, row=’all’, col=’all’, …)</p></td>
+<td><p>Agrega una línea vertical a una gráfica o <em>subplot</em> que se extiende infinitamente en la dimensión <em>y</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_vrect">add_vrect</a>(x0, x1, row=’all’, col=’all’, …)</p></td>
+<td><p>Agrega un rectángulo a una gráfica o <em>subplot</em> que se extiende infinitamente en la dimensión <em>y</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong><em>Traces</em></strong></p></td>
+<td><p>Ver <a class="reference internal" href="traces.html"><span class="doc">Traces</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_bar">add_bar</a>(alignmentgroup=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> de <em>Bar</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_barpolar">add_barpolar</a>(base=None, basesrc=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> de <em>Barpolar</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_box">add_box</a>(alignmentgroup=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> de <em>Box</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_candlestick">add_candlestick</a>(close=None, closesrc=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> de <em>Candlestick</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_carpet">add_carpet</a>(a=None, a0=None, aaxis=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> de <em>Carpet</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_choropleth">add_choropleth</a>(autocolorscale=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> de <em>Choropleth</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_choroplethmap">add_choroplethmap</a>(autocolorscale=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> de <em>Choroplethmap</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_cone">add_cone</a>(anchor=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> de <em>Cone</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_contour">add_contour</a>(autocolorscale=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> de <em>Contour</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_contourcarpet">add_contourcarpet</a>(a=None, a0=None, asrc=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> de <em>Contourcarpet</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_densitymap">add_densitymap</a>(autocolorscale=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> de <em>Densitymap</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_funnel">add_funnel</a>(alignmentgroup=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> de <em>Funnel</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_funnelarea">add_funnelarea</a>(aspectratio=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> de <em>Funnelarea</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_heatmap">add_heatmap</a>(autocolorscale=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> de mapa de calor_Heatmap_.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_histogram">add_histogram</a>(alignmentgroup=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> de <em>Histogram</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_histogram2d">add_histogram2d</a>(autobinx=None, autobiny=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> de <em>Histogram2d</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_histogram2dcontour">add_histogram2dcontour</a>(autobinx=None, autobiny=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> de <em>Histogram2dContour</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_icicle">add_icicle</a>(branchvalues=None, count=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> de <em>Icicle</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_image">add_image</a>(colormodel=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> de <em>Image</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_indicator">add_indicator</a>(align=None, customdata=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> de <em>Indicator</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_isosurface">add_isosurface</a>(autocolorscale=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> de <em>Isosurface</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_mesh3d">add_mesh3d</a>(alphahull=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> de <em>Mesh3d</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_ohlc">add_ohlc</a>(close=None, closesrc=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> de <em>Ohlc</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_parcats">add_parcats</a>(arrangement=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> de <em>Parcats</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_parcoords">add_parcoords</a>(customdata=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> de <em>Parcoords</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_pie">add_pie</a>(automargin=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> de <em>Pie</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_sankey">add_sankey</a>(arrangement=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> de <em>Sankey</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_scatter">add_scatter</a>(alignmentgroup=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> de <em>Scatter</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_scatter3d">add_scatter3d</a>(connectgaps=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> de <em>Scatter3d</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_scattercarpet">add_scattercarpet</a>(a=None, asrc=None, b=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> de <em>Scattercarpet</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_scattergeo">add_scattergeo</a>(connectgaps=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> de <em>Scattergeo</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_scattergl">add_scattergl</a>(connectgaps=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> de <em>Scattergl</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_scattermap">add_scattermap</a>(below=None, cluster=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> de <em>Scattermap</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_scattermapbox">add_scattermapbox</a>(below=None, cluster=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> de <em>Scattermapbox</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_scatterpolar">add_scatterpolar</a>(cliponaxis=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> de <em>Scatterpolar</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_scatterpolargl">add_scatterpolargl</a>(connectgaps=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> de <em>Scatterpolargl</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_scattersmith">add_scattersmith</a>(cliponaxis=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> de <em>Scattersmith</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_scatterternary">add_scatterternary</a>(a=None, asrc=None, b=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> <em>Scatterternary</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_splom">add_splom</a>(customdata=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> de <em>Splom</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_streamtube">add_streamtube</a>(autocolorscale=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> de <em>Streamtube</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_sunburst">add_sunburst</a>(branchvalues=None, count=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> de <em>Sunburst</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_surface">add_surface</a>(autocolorscale=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> de <em>Surface</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_table">add_table</a>(cells=None, columnorder=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> de <em>Table</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_treemap">add_treemap</a>(branchvalues=None, count=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> de <em>Treemap</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_violin">add_violin</a>(alignmentgroup=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> de <em>Violin</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_volume">add_volume</a>(autocolorscale=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> de <em>Volume</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.add_waterfall">add_waterfall</a>(alignmentgroup=None, …)</p></td>
+<td><p>Agrega un nuevo <em>trace</em> de <em>Waterfall</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="conversion">
+<h4>Conversión<a class="headerlink" href="#conversion" title="Link to this heading">#</a></h4>
+<p>Estos métodos convierten la figura a otros formatos o representaciones.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.to_dict">to_dict</a>()</p></td>
+<td><p>Convierte la figura a un diccionario.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.to_html">to_html</a>(*args, **kwargs)</p></td>
+<td><p>Convierte una figura en una representación de cadena HTML.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.to_image">to_image</a>(*args, **kwargs)</p></td>
+<td><p>Convierte una figura en una cadena de bytes de imagen estática.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.to_json">to_json</a>(*args, **kwargs)</p></td>
+<td><p>Convierte una figura en una representación de cadena JSON.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.to_plotly_json">to_plotly_json</a>()</p></td>
+<td><p>Convierte la figura a una representación JSON como <code class="docutils literal notranslate"><span class="pre">dict</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="exportar">
+<h4>Exportar<a class="headerlink" href="#exportar" title="Link to this heading">#</a></h4>
+<p>Estos métodos permiten guardar la figura en diferentes formatos.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción{list-table}
+:header-rows: 1</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Método</p></td>
+<td><p>Descripción</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.write_html">write_html</a>(*args, **kwargs)</p></td>
+<td><p>Escribe una figura en una representación de archivo HTML.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.write_image">write_image</a>(*args, **kwargs)</p></td>
+<td><p>Convierte una figura en una imagen estática y lo escribe en un archivo o objeto escritable.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.write_json">write_json</a>(*args, **kwargs)</p></td>
+<td><p>Convierte una figura a JSON y lo escribe en un archivo o objeto escritable.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="iterar-por-elementos">
+<h4>Iterar por elementos<a class="headerlink" href="#iterar-por-elementos" title="Link to this heading">#</a></h4>
+<p>Estos métodos permiten iterar sobre elementos de la figura, como <em>traces</em> o anotaciones</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.for_each_annotation">for_each_annotation</a>(fn, selector=None, row=None, …)</p></td>
+<td><p>Aplica una función a todas las anotaciones que satisfagan los criterios de selección especificados.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.for_each_coloraxis">for_each_coloraxis</a>(fn, selector=None, row=None, …)</p></td>
+<td><p>Aplica una función a todos los objetos <em>coloraxis</em> que satisfagan los criterios de selección especificados.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.for_each_geo">for_each_geo</a>(fn, selector=None, row=None, …)</p></td>
+<td><p>Aplica una función a todos los objetos <em>geo</em> que satisfagan los criterios de selección especificados.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.for_each_layout_image">for_each_layout_image</a>(fn, selector=None, row=None, …)</p></td>
+<td><p>Aplica una función a todas las imágenes (<em>images</em>) que satisfagan los criterios de selección especificados.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.for_each_legend">for_each_legend</a>(fn, selector=None, row=None, …)</p></td>
+<td><p>Aplica una función a todos los objetos de leyenda (<em>legend</em>) que satisfagan los criterios de selección especificados.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.for_each_map">for_each_map</a>(fn, selector=None, row=None, …)</p></td>
+<td><p>Aplica una función a todos los objetos de <em>map</em> que satisfagan los criterios de selección especificados.. Apply a function to all map objects that satisfy the specified selection criteria.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.for_each_mapbox">for_each_mapbox</a>(fn, selector=None, row=None, …)</p></td>
+<td><p>Aplica una función a todos los objetos <em>mapbox</em> que satisfagan los criterios de selección especificados.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.for_each_polar">for_each_polar</a>(fn, selector=None, row=None, …)</p></td>
+<td><p>Aplica una función a todos los objetos <em>polar</em> que satisfagan los criterios de selección especificados.. Apply a function to all polar objects that satisfy the specified selection criteria.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.for_each_scene">for_each_scene</a>(fn, selector=None, row=None, …)</p></td>
+<td><p>Aplica una función a todos los objetos de <em>scene</em> que satisfagan los criterios de selección especificados.. Apply a function to all scene objects that satisfy the specified selection criteria.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.for_each_selection">for_each_selection</a>(fn, selector=None, row=None, …)</p></td>
+<td><p>Aplica una función a todas las selecciones (<em>selections</em>) que satisfagan los criterios de selección especificados.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.for_each_shape">for_each_shape</a>(fn, selector=None, row=None, …)</p></td>
+<td><p>Aplica una función a todas las formas (<em>shapes</em>) que satisfagan los criterios de selección especificados.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.for_each_smith">for_each_smith</a>(fn, selector=None, row=None, …)</p></td>
+<td><p>Aplica una función a todos los objetos <em>smith</em> que satisfagan los criterios de selección especificados.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.for_each_ternary">for_each_ternary</a>(fn, selector=None, row=None, …)</p></td>
+<td><p>Aplica una función a todos los objetos <em>ternary</em> que satisfagan los criterios de selección especificados.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.for_each_trace">for_each_trace</a>(fn, selector=None, row=None, …)</p></td>
+<td><p>Aplica una función a todas los <em>traces</em> que satisfagan los criterios de selección especificados.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.for_each_xaxis">for_each_xaxis</a>(fn, selector=None, row=None, …)</p></td>
+<td><p>Aplica una función a todos los objetos de <em>xaxis</em> que satisfagan los criterios de selección especificados.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.for_each_yaxis">for_each_yaxis</a>(fn, selector=None, row=None, …)</p></td>
+<td><p>Aplica una función a todos los objetos de <em>yaxis</em> que satisfagan los criterios de selección especificados.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="seleccionar-elementos">
+<h4>Seleccionar elementos<a class="headerlink" href="#seleccionar-elementos" title="Link to this heading">#</a></h4>
+<p>Estos métodos permiten seleccionar elementos específicos de la figura.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.select_annotations">select_annotations</a>(selector=None, row=None, …)</p></td>
+<td><p>Selecciona anotaciones de un <em>subplot</em> particular y/o anotaciones que satisfagan los criterios de selección personalizados.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.select_coloraxes">select_coloraxes</a>(selector=None, row=None, …)</p></td>
+<td><p>Selecciona objetos <em>coloraxis</em> de una celda de un <em>subplot</em> particular y/o objetos que satisfagan los criterios de selección personalizados.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.select_geos">select_geos</a>(selector=None, row=None, …)</p></td>
+<td><p>Selecciona objetos <em>geo</em> de una celda de un <em>subplot</em> particular y/o objetos que satisfagan los criterios de selección personalizados.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.select_layout_images">select_layout_images</a>(selector=None, row=None, …)</p></td>
+<td><p>Selecciona imágenes de una celda de un <em>subplot</em> particular y/o imágenes que satisfagan los criterios de selección personalizados.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.select_legends">select_legends</a>(selector=None, row=None, …)</p></td>
+<td><p>Selecciona objetos <em>legend</em> de una celda de un <em>subplot</em> particular y/o objetos que satisfagan los criterios de selección personalizados.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.select_mapboxes">select_mapboxes</a>(selector=None, row=None, …)</p></td>
+<td><p>Selecciona objetos <em>mapbox</em> de una celda de un <em>subplot</em> particular y/o objetos que satisfagan los criterios de selección personalizados.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.select_maps">select_maps</a>(selector=None, row=None, …)</p></td>
+<td><p>Selecciona objetos <em>map</em> de una celda de un <em>subplot</em> particular y/o objetos que satisfagan los criterios de selección personalizados.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.select_polars">select_polars</a>(selector=None, row=None, …)</p></td>
+<td><p>Selecciona objetos <em>polar</em> de una celda de un <em>subplot</em> particular y/o objetos que satisfagan los criterios de selección personalizados.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.select_scenes">select_scenes</a>(selector=None, row=None, …)</p></td>
+<td><p>Selecciona objetos <em>scene</em> de una celda de un <em>subplot</em> particular y/o objetos que satisfagan los criterios de selección personalizados.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.select_selections">select_selections</a>(selector=None, row=None, …)</p></td>
+<td><p>Selecciona <em>selections</em> de una celda de un <em>subplot</em> particular y/o <em>selections</em> que satisfagan los criterios de selección personalizados.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.select_shapes">select_shapes</a>(selector=None, row=None, …)</p></td>
+<td><p>Selecciona <em>shapes</em> de una celda de un <em>subplot</em> particular y/o <em>shapes</em> que satisfagan los criterios de selección personalizados.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.select_smiths">select_smiths</a>(selector=None, row=None, …)</p></td>
+<td><p>Selecciona objetos <em>smith</em> de una celda de un <em>subplot</em> particular y/o objetos que satisfagan los criterios de selección personalizados.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.select_ternaries">select_ternaries</a>(selector=None, row=None, …)</p></td>
+<td><p>Selecciona objetos <em>ternary</em> de una celda de un <em>subplot</em> particular y/o objetos que satisfagan los criterios de selección personalizados.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.select_traces">select_traces</a>(selector=None, row=None, …)</p></td>
+<td><p>Selecciona <em>traces</em> de una celda de un <em>subplot</em> particular y/o <em>traces</em> que satisfagan los criterios de selección personalizados.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.select_xaxes">select_xaxes</a>(selector=None, row=None, …)</p></td>
+<td><p>Selecciona objetos <em>xaxis</em> de una celda de un <em>subplot</em> particular y/o objetos que satisfagan los criterios de selección personalizados.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.select_yaxes">select_yaxes</a>(selector=None, row=None, …)</p></td>
+<td><p>Selecciona objetos <em>yaxis</em> de una celda de un <em>subplot</em> particular y/o objetos que satisfagan los criterios de selección personalizados.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./parts/12-plotly/go"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="go-index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><em>Graph Objects</em></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="layout.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><em>Layout</em></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-principales">Métodos principales</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos">Métodos</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#generales">Generales</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#actualizar-elementos">Actualizar elementos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#anadir-elementos">Añadir elementos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conversion">Conversión</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exportar">Exportar</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#iterar-por-elementos">Iterar por elementos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccionar-elementos">Seleccionar elementos</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nebok
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

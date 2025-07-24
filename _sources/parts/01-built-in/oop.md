@@ -417,9 +417,9 @@ Es posible restringir el acceso a atributos y métodos para prevenir modificaci�
 Las convenciones no convierten a los atributos como privados, únicamente es para indicar que no se debe de interactuar con esos atributos.
 :::
 
-Existen ciertas convenciones para trabajar con atributos/métodos privados (todos los atributos/métodos de todas las clases en Python son públicas por default.
-- Atributos/métodos internos: Se utiliza un guión bajo al principio del nombre, para indicar que es un atributo/método el cual no se debe de utilizar ni modificar (aunque sí se puede hacer), no deben de formar parte de la _API_ pública: <br/> `_attr_name` <br/> `_method_name`
-- Atributos/métodos pseudo-privados: Se utilizan dos guión bajos la principio del nombre para indicar que no se deben heredar a las clases hijas: <br/> `__attr_name` <br/> `__method_name`
+Existen ciertas convenciones para trabajar con atributos/métodos privados (todos los atributos/métodos de todas las clases en Python son públicas por default).
+- **Atributos/métodos internos**: Se utiliza un guión bajo al principio del nombre, para indicar que es un atributo/método el cual no se debe de utilizar ni modificar (aunque sí se puede hacer), no deben de formar parte de la _API_ pública: <br/> `_attr_name` <br/> `_method_name`
+- **Atributos/métodos pseudo-privados**: Se utilizan dos guión bajos la principio del nombre para indicar que no se deben heredar a las clases hijas: <br/> `__attr_name` <br/> `__method_name`
 
 ### Atributos restringidos y de solo lectura
 
@@ -452,7 +452,7 @@ def attr(self, new_value):
 ---
 ## Métodos especiales
 
-Al utilizar instancias de clases y {doc}{./operadores-palabras} por default se ejecutan ciertos métodos, a continuación se enlistan los principales métodos de este tipo para definir como se debe de operar con las instancias de las clases, así como otros métodos especiales:
+Al utilizar instancias de clases y {doc}`./operadores-palabras` por default se ejecutan ciertos métodos, a continuación se enlistan los principales métodos de este tipo para definir como se debe de operar con las instancias de las clases, así como otros métodos especiales:
 
 :::{note}
 Para más información y una lista completa de métodos especiales visitar la [documentación](https://docs.python.org/3/reference/datamodel.html#special-method-names) de Python.
@@ -522,7 +522,7 @@ Para más información de estos métodos especiales visitar la [documentación](
 | Método                | Operador |
 |-----------------------|----------|
 | `__and__(self, other)`    | `&`  |
-| `__or__(self, other)`     | `|`  |
+| `__or__(self, other)`     | `\|`  |
 | `__xor__(self, other)`    | `^`  |
 | `__lshift__(self, other)` | `<<` |
 | `__rshift__(self, other)` | `>>` |
@@ -639,7 +639,7 @@ Ambos métodos deben de retornar `str`.
 :::
 
 |Método|Descripción|
-|:----------|:----------:|
+|:----------|:----------|
 |[\_\_str__(self)](https://docs.python.org/3/reference/datamodel.html#object.__str__)|Debe imprimir el objeto de una manera que sea amigable con el usuario. Debe ser una representación en cadena del objeto. Para invocarlo usar la función `str()` o `print()`.|
 |[\_\_repr__(self)](https://docs.python.org/3/reference/datamodel.html#object.__repr__)|Debe de imprimir la manera tal cual de construir el objeto en cuestión (evaluando la expresión retornada debe retornar el mismo objeto). Está más orientada a desarrolladores. Para invocarlo usar la función `repr()`.|
 

@@ -1,0 +1,1066 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Core Data Structure &#8212; Manual de Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'parts/08-xgboost/core-data-structure';</script>
+    <link rel="icon" href="../../_static/nebok-favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Learning API" href="learning-api.html" />
+    <link rel="prev" title="XGBoost" href="xgboost-index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/nebok-logo.png" class="logo__image only-light" alt="Manual de Python - Home"/>
+    <script>document.write(`<img src="../../_static/nebok-logo.png" class="logo__image only-dark" alt="Manual de Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Manual de Python para Data Science
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Built-in</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01-built-in/built-in-index.html">Python Estándar</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/cli.html"><em>Command Line Interface</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/ayuda.html">Obtener ayuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/comentarios.html">Comentarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/tipos-datos.html">Tipos de Datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/variables-constantes.html">Variables y Constantes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/operadores-palabras.html">Operadores y palabras reservadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/entrada-salida.html">Impresión y solicitud de datos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/tipos-index.html">Tipos Built-In</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/none-bool-numericos.html"><em>None</em>, <em>bool</em> y Numéricos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/str.html">str</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/lists.html">list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/tuples.html">Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/sets.html">Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/dicts.html">dict</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/if-else.html">If … Else</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/for-loop.html">For Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/do-while.html">Do While</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/udf.html">Funciones (UDF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/exceptions.html">Excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/context-managers.html">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/io.html">Lectura y escritura de archivos (IO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/modulos.html">Paquetes y Módulos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/avanzado-index.html">Temas avanzados</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/decorators.html">Decorators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/iterators.html">Iterators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/generators.html">Generators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/oop.html">Programación orientada a objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/func-built-in.html">Funciones built-in</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-modulos/modulos-index.html">Módulos built-in</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/csv.html">CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/datetime.html">Datetime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/itertools.html">Itertools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/json.html">JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/math.html">Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os.html">Os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os-path.html">Os.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/pickle.html">Pickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/random.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/regex.html">Regex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/statistics.html">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/urllib-request.html">urllib.request</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otras librerías</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-numpy/numpy-index.html">Numpy</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/arrays.html">Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../03-numpy/funciones-index.html">Funciones</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/ufuncs.html">Ufuncs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/buscar-contar-ordenar-unicos.html">Buscar, contar, ordenar y valores únicos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/creacion-arrays.html">Creación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/estadisticas.html">Estadísticas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/indices.html">Índices e iteración</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/informacion.html">Información</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/lectura-escritura.html">Lectura y escritura de datos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/manipulacion-arrays.html">Manipulación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/matematicas-numericas.html">Matemáticas y numéricas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/operadores.html">Operadores</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/algebra-lineal.html">Módulo linalg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/cadenas.html">Modulo char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/random.html">Módulo random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/patrones-numpy.html">Patrones útiles</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04-pandas/pandas-index.html">Pandas</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/index.html">Index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/series.html">Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/dataframe.html">DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/escalares-arrays.html">Escalares y Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../04-pandas/otras-clases.html">Otras clases</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/groupby.html">GroupBy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/expanding-rolling-window.html"><em>Expanding, Rolling</em> y <em>Window</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/resampler.html">Resampler</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/funciones.html">Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/patrones-pandas.html">Patrones útiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05-matplotlib/matplotlib-index.html">Matplotlib</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/pyplot.html">Pyplot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/figure.html">Figure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/axes.html">Axes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/otros.html">Otras Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06-seaborn/seaborn-index.html">Seaborn</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06-seaborn/funciones-clases.html">Funciones y Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-seaborn/objects-interface.html">Interface por objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../07-sklearn/sklearn-index.html">Scikit Learn</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/supervised/supervised-index.html">Aprendizaje supervisado</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/ensamble.html">Ensamble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/linear_model.html">Linear model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/naive_bayes.html">Naive bayes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/neighbors.html">Neighbors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/svm.html">SVM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/tree.html">Tree</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/unsupervised/unsupervised-index.html">Aprendizaje no supervisado</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/unsupervised/cluster.html">Cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/unsupervised/decomposition.html">Decomposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/unsupervised/mixture.html">Mixture</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/transformations/tranformations-index.html">Transformaciones</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/feature_extraction.html">Feature Extraction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/impute.html">Impute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/manifold.html">Manifold</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/preprocessing.html">Preprocessing</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/evaluation/evaluation-index.html">Evaluación y selección del modelo</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/dummy.html">Dummy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/feature_selection.html">Feature Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/metrics.html">Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/model_selection.html">Model Selection</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/pipelines-and-compose/pipeline-compose-index.html">Pipelines y Modelos Compuestos</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/pipelines-and-compose/compose.html">Compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/pipelines-and-compose/pipeline.html">Pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../07-sklearn/datasets.html">Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-sklearn/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="xgboost-index.html">XGBoost</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Core Data Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learning-api.html">Learning API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scikit-learn-api.html">Scikit-Learn API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotting-api.html">Plotting API</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../09-scipy/scipy-index.html">Scipy</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/clusters.html">Clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/derivacion-integracion.html">Derivación e Integración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/linalg.html">Linear Algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/sparse.html"><em>Sparse</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/stats.html">Stats</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../10-statsmodels/statsmodels-index.html">Statsmodels</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/statsmodels-api.html">API Principal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/statsmodels-tsa-api.html">API de Series de Tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/statsmodels-formula-api.html">API de Fórmulas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/graphics.html">Gráficos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/otras-clases.html">Otras clases</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../11-bokeh/bokeh-index.html">Bokeh</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/io.html">IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/layouts.html"><em>Layouts</em></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../11-bokeh/models/models-index.html"><em>Models</em></a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/annotations.html">Anotaciones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/axes.html">Ejes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/callbacks.html">Callbacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/formatters.html"><em>Formatters</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/glyphs.html"><em>Glyphs</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/sources.html"><em>Sources</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/tools.html"><em>Tools</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/widgets.html"><em>Widgets</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/plotting.html">Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/transform.html">transform</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../12-plotly/plotly-index.html">Plotly</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/express.html"><em>Express</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/figure-factory.html"><em>Figure Factory</em></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../12-plotly/go/go-index.html"><em>Graph Objects</em></a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../12-plotly/go/figure.html"><em>Figure</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../12-plotly/go/layout.html"><em>Layout</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../12-plotly/go/traces.html">Traces</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/io.html">IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/subplots.html">Subplots</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/beautifulsoup.html">BeautifulSoup</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Complementarios</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../appendix/appendix-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/IPython.html">IPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/jupyter.html">Jupyter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/pip.html">pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/conda.html"><em>conda</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/git.html">git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/shell.html">Shell</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/parts/08-xgboost/core-data-structure.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Core Data Structure</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#booster">Booster</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-booster">Atributos de <em>Booster</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-booster">Métodos de <em>Booster</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dmatrix">DMatrix</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-dmatrix">Atributos de <em>DMatrix</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-dmatrix">Métodos de <em>DMatrix</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataiter">DataIter</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-dataiter">Atributos de <em>DataIter</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-dataiter">Métodos de <em>DataIter</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantiledmatrix">QuantileDMatrix</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="core-data-structure">
+<h1>Core Data Structure<a class="headerlink" href="#core-data-structure" title="Link to this heading">#</a></h1>
+<p>En esta sección se presentan las estructuras de datos principales que <em>XGBoost</em> utiliza para almacenar y manipular datos durante el entrenamiento y la predicción.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>En general solo se trabajará con la clase <code class="docutils literal notranslate"><span class="pre">Booster</span></code> y <code class="docutils literal notranslate"><span class="pre">DMatrix</span></code>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Para más información visitar la <a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#module-xgboost.core">documentación</a> de <em>XGBoost</em>.</p>
+</div>
+<section id="booster">
+<h2>Booster<a class="headerlink" href="#booster" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Booster</span></code> es la clase que representa el modelo entrenado en <em>XGBoost</em>. Contiene los árboles de decisión y otros parámetros del modelo.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Constructor</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.Booster">xgboost.Booster</a>(params=None,  cache=None,  model_file=None)</p></td>
+<td><p>Un <code class="docutils literal notranslate"><span class="pre">Booster</span></code> de XGBoost. Es el modelo que contiene rutinas de bajo nivel para entrenamiento, predicción y evaluación.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<section id="atributos-de-booster">
+<h3>Atributos de <em>Booster</em><a class="headerlink" href="#atributos-de-booster" title="Link to this heading">#</a></h3>
+<p>Atributos de la clase <code class="docutils literal notranslate"><span class="pre">Booster</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Atributo</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>best_iteration</strong></p></td>
+<td><p>La mejor iteración durante el entrenamiento.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>best_score</strong></p></td>
+<td><p>La mejor puntuación de evaluación durante el entrenamiento.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>feature_names</strong></p></td>
+<td><p>Nombres de los <em>features</em> de este <em>booster</em>. Pueden establecerse directamente mediante datos de entrada o por asignación.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>feature_types</strong></p></td>
+<td><p>Tipos de <em>features</em> para este <em>booster</em>. Puede establecerse directamente por datos de entrada o por asignación. Véase <code class="docutils literal notranslate"><span class="pre">DMatrix</span></code> para más detalles.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="metodos-de-booster">
+<span id="booster-methods"></span><h3>Métodos de <em>Booster</em><a class="headerlink" href="#metodos-de-booster" title="Link to this heading">#</a></h3>
+<p>Métodos de la clase <code class="docutils literal notranslate"><span class="pre">Booster</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>method</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.Booster.attr">attr</a>(key)</p></td>
+<td><p>Retorna atributos del <em><code class="docutils literal notranslate"><span class="pre">Booster</span></code></em> como cadenas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.Booster.attributes">attributes</a>()</p></td>
+<td><p>Retorna los atributos almacenados en el <em><code class="docutils literal notranslate"><span class="pre">Booster</span></code></em> como diccionario.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.Booster.boost">boost</a>(dtrain,  iteration,  grad,  hess)</p></td>
+<td><p>Aumenta el <em>booster</em> durante una iteración con estadísticas de gradiente personalizadas. Esta función no debe ser llamada directamente por los usuarios.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.Booster.copy">copy</a>()</p></td>
+<td><p>Copia el objeto <em>booster</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.Booster.dump_model">dump_model</a>(fout,  fmap=’’,  with_stats=False,  …)</p></td>
+<td><p>Exporta el modelo en un archivo de texto o <em>JSON</em>. A diferencia de <code class="docutils literal notranslate"><span class="pre">save_model()</span></code>, el formato de salida se utiliza principalmente para la visualización o la interpretación, por lo que es más legible, pero no se puede cargar de nuevo a <em>XGBoost</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.Booster.eval">eval</a>(data,  name=’eval’,  iteration=0)</p></td>
+<td><p>Evalúa el modelo <em>on mat</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.Booster.eval_set">eval_set</a>(evals,  iteration=0,  feval=None,  …)</p></td>
+<td><p>Evalúa un conjunto de datos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.Booster.inplace_predict">inplace_predict(data, iteration_range=</a>(data,  iteration_range=(0,  0),  predict_type=’value’, …)</p></td>
+<td><p>A diferencia del método <code class="docutils literal notranslate"><span class="pre">predict()</span></code>, no almacena en caché el resultado de la predicción.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.Booster.load_config">load_config</a>(config)</p></td>
+<td><p>Carga la configuración devuelta por <em>save_config</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.Booster.load_model">load_model</a>(fname)</p></td>
+<td><p>Carga el modelo desde un archivo o <em>bytearray</em>.. Load the model from a file or a bytearray</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.Booster.num_boosted_rounds">num_boosted_rounds</a>()</p></td>
+<td><p>Retorna el número de <em>boosted rounds</em>. Para <em>gblinear</em> esto se restablece a 0 después de serializar el modelo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.Booster.num_features">num_features</a>()</p></td>
+<td><p>Número de <em>features</em> en el <em>booster</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.Booster.predict">predict</a>(data,  output_margin=False,  pred_leaf=False,  …)</p></td>
+<td><p>Predice con <em>data</em>. Se utilizará el modelo completo a menos que se especifique <em>iteration_range</em>, lo que significa que el usuario tendrá que trocear el modelo o utilizar el atributo <em>best_iteration</em> para obtener la predicción del mejor modelo obtenido tras un <em>early stopping</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.Booster.save_config">save_config</a>()</p></td>
+<td><p>Muestra la configuración de los parámetros internos del <em><code class="docutils literal notranslate"><span class="pre">Booster</span></code></em> como una cadena JSON.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.Booster.save_model">save_model</a>(fname)</p></td>
+<td><p>Guarda el modelo en un archivo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.Booster.save_raw">save_raw</a>(raw_format=’ubj’)</p></td>
+<td><p>Guarda el modelo en una representación en memoria intermedia en lugar de en un archivo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.Booster.trees_to_dataframe">trees_to_dataframe</a>(fmap=’’)</p></td>
+<td><p>Convierte un modelo de árbol <em>boosted</em> en un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.Booster.update">update</a>(dtrain,  iteration,  fobj=None)</p></td>
+<td><p>Actualización para una iteración, con la función objetivo calculada internamente. Esta función no debe ser llamada directamente por los usuarios.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Establecer y Recuperar</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.Booster.get_dump">get_dump</a>(fmap=’’,  with_stats=False,  dump_format=’text’)</p></td>
+<td><p>Exporta el modelo como <code class="docutils literal notranslate"><span class="pre">list</span></code> de cadenas. A diferencia de <code class="docutils literal notranslate"><span class="pre">save_model()</span></code>, el formato de salida se utiliza principalmente para la visualización o la interpretación, por lo que es más legible, pero no se puede cargar de nuevo a <em>XGBoost</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.Booster.get_fscore">get_fscore</a>(fmap=’’)</p></td>
+<td><p>Recupera la importancia de cada <em>feature</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.Booster.get_score">get_score</a>(fmap=’’,  importance_type=’weight’)</p></td>
+<td><p>Retorna la importancia de cada <em>feature</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.Booster.get_split_value_histogram">get_split_value_histogram</a>(feature,  fmap=’’,  bins=None,  …)</p></td>
+<td><p>Retorna el histograma de valores divididos de un <em>feature</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.Booster.set_attr">set_attr</a>(**kwargs)</p></td>
+<td><p>Establece atributos del <em><code class="docutils literal notranslate"><span class="pre">Booster</span></code></em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.Booster.set_param">set_param</a>(params,  value=None)</p></td>
+<td><p>Establece los parámetros en el <em><code class="docutils literal notranslate"><span class="pre">Booster</span></code></em>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+<section id="dmatrix">
+<span id="id1"></span><h2>DMatrix<a class="headerlink" href="#dmatrix" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">DMatrix</span></code> es la estructura de datos principal en <em>XGBoost</em>. Es una matriz optimizada para almacenar datos de entrada (<em>features</em> y etiquetas) en un formato eficiente que <em>XGBoost</em> puede procesar rápidamente. Puede soportar <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> de <em>numpy</em>, <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> de <em>pandas</em>, <code class="docutils literal notranslate"><span class="pre">sparse</span></code> de <em>scipy</em>, entre otros.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Constructor</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.DMatrix">xgboost.DMatrix</a>(data,  label=None, …)</p></td>
+<td><p>Matriz de datos utilizada en <em>XGBoost</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong>data</strong> - <code class="docutils literal notranslate"><span class="pre">array</span></code>, <code class="docutils literal notranslate"><span class="pre">sparse</span></code>, <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>: Datos para la <code class="docutils literal notranslate"><span class="pre">Dmatrix</span></code> (<em>feature matrix</em>).</p></li>
+<li><p><strong>label</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code>: Vector del <em>target</em> del <em>training</em> (<em>y</em>).</p></li>
+</ul>
+<br/>
+<section id="atributos-de-dmatrix">
+<h3>Atributos de <em>DMatrix</em><a class="headerlink" href="#atributos-de-dmatrix" title="Link to this heading">#</a></h3>
+<p>Atributos de la clase <code class="docutils literal notranslate"><span class="pre">DMatrix</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Atributo</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>feature_names</strong></p></td>
+<td><p>Etiquetas para los <em>features</em> (etiquetas de las columnas).</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>feature_types</strong></p></td>
+<td><p>Tipo de los <em>features</em> (tipos de las columnas).</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="metodos-de-dmatrix">
+<h3>Métodos de <em>DMatrix</em><a class="headerlink" href="#metodos-de-dmatrix" title="Link to this heading">#</a></h3>
+<p>Métodos de la clase <code class="docutils literal notranslate"><span class="pre">DMatrix</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Métodos</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.DMatrix.data_split_mode">data_split_mode</a>()</p></td>
+<td><p>Retorna el modo de división de datos de la <code class="docutils literal notranslate"><span class="pre">DMatrix</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.DMatrix.num_col">num_col</a>()</p></td>
+<td><p>Retorna el número de columnas (<em>features</em>) en la <code class="docutils literal notranslate"><span class="pre">DMatrix</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.DMatrix.num_nonmissing">num_nonmissing</a>()</p></td>
+<td><p>Retorna el número de valores no nulos en la <code class="docutils literal notranslate"><span class="pre">DMatrix</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.DMatrix.num_row">num_row</a>()</p></td>
+<td><p>Retorna el número de filas de la <code class="docutils literal notranslate"><span class="pre">DMatrix</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.DMatrix.save_binary">save_binary</a>(fname,  silent=True)</p></td>
+<td><p>Guarda <code class="docutils literal notranslate"><span class="pre">DMatrix</span></code> en un búfer <em>XGBoost</em>. El binario guardado se puede cargar posteriormente proporcionando la ruta a <code class="docutils literal notranslate"><span class="pre">xgboost.DMatrix()</span></code> como entrada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.DMatrix.slice">slice</a>(rindex,  allow_groups=False)</p></td>
+<td><p>Corta la <code class="docutils literal notranslate"><span class="pre">DMatrix</span></code> y devuelve una nueva <code class="docutils literal notranslate"><span class="pre">DMatrix</span></code> que sólo contiene <em>rindex</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Recuperar</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.DMatrix.get_base_margin">get_base_margin</a>()</p></td>
+<td><p>Retorna el margen base de la <code class="docutils literal notranslate"><span class="pre">DMatrix</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.DMatrix.get_data">get_data</a>()</p></td>
+<td><p>Retorna los predictores de <code class="docutils literal notranslate"><span class="pre">DMatrix</span></code> como una matriz <em>CSR</em>. Este <em>getter</em> es principalmente para propósitos de prueba. Si se trata de una <code class="docutils literal notranslate"><span class="pre">DMatrix</span></code> cuantificada, se devuelven los valores cuantificados en lugar de los valores de entrada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.DMatrix.get_float_info">get_float_info</a>(field)</p></td>
+<td><p>Retorna la propiedad <code class="docutils literal notranslate"><span class="pre">float</span></code> de la <code class="docutils literal notranslate"><span class="pre">DMatrix</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.DMatrix.get_group">get_group</a>()</p></td>
+<td><p>Retorna el grupo de la <code class="docutils literal notranslate"><span class="pre">DMatrix</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.DMatrix.get_label">get_label</a>()</p></td>
+<td><p>Retorna la etiqueta de la <code class="docutils literal notranslate"><span class="pre">DMatrix</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.DMatrix.get_quantile_cut">get_quantile_cut</a>()</p></td>
+<td><p>Retorna cortes cuantílicos para la cuantificación.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.DMatrix.get_uint_info">get_uint_info</a>(field)</p></td>
+<td><p>Retorna la propiedad <em>integer</em> sin signo de la <code class="docutils literal notranslate"><span class="pre">DMatrix</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.DMatrix.get_weight">get_weight</a>()</p></td>
+<td><p>Retorna la ponderación de la <code class="docutils literal notranslate"><span class="pre">DMatrix</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Establecer</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.DMatrix.set_base_margin">set_base_margin</a>(margin)</p></td>
+<td><p>Establece el margen base del <em>booster</em> para empezar.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.DMatrix.set_float_info">set_float_info</a>(field,  data)</p></td>
+<td><p>Establece la propiedad <code class="docutils literal notranslate"><span class="pre">float</span></code> en la <code class="docutils literal notranslate"><span class="pre">DMatrix</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.DMatrix.set_float_info_npy2d">set_float_info_npy2d</a>(field,  data)</p></td>
+<td><p>Para la entrada de <code class="docutils literal notranslate"><span class="pre">ndarrays</span></code> 2D.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.DMatrix.set_group">set_group</a>(group)</p></td>
+<td><p>Establece el tamaño del grupo de <code class="docutils literal notranslate"><span class="pre">DMatrix</span></code> (utilizado para <em>ranking</em>).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.DMatrix.set_info">set_info</a>(, …)</p></td>
+<td><p>Establecer la meta-información para <code class="docutils literal notranslate"><span class="pre">DMatrix</span></code>. Ver <em>doc string</em> para <code class="docutils literal notranslate"><span class="pre">xgboost.DMatrix</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.DMatrix.set_label">set_label</a>(label)</p></td>
+<td><p>Establece la etiqueta de <code class="docutils literal notranslate"><span class="pre">DMatrix</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.DMatrix.set_uint_info">set_uint_info</a>(field,  data)</p></td>
+<td><p>Establece la propiedad de tipo <em>uint</em> en la <code class="docutils literal notranslate"><span class="pre">DMatrix</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.DMatrix.set_weight">set_weight</a>(weight)</p></td>
+<td><p>Establece la ponderación de cada instancia.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+<section id="dataiter">
+<h2>DataIter<a class="headerlink" href="#dataiter" title="Link to this heading">#</a></h2>
+<p>Interfaz usada para <code class="docutils literal notranslate"><span class="pre">iterators</span></code> de los datos definidos por el usuario. La mayoría de las veces, los usuarios no necesitan interactuar con esta clase directamente.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Constructor</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.DataIter">xgboost.DataIter</a>(cache_prefix=None,  release_data=True)</p></td>
+<td><p>La interfaz para el iterador de datos definido por el usuario.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<section id="atributos-de-dataiter">
+<h3>Atributos de <em>DataIter</em><a class="headerlink" href="#atributos-de-dataiter" title="Link to this heading">#</a></h3>
+<p>Atributos de la clase .</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Atributo</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>proxy</strong></p></td>
+<td><p>Manejador del proxy <code class="docutils literal notranslate"><span class="pre">DMatrix</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="metodos-de-dataiter">
+<h3>Métodos de <em>DataIter</em><a class="headerlink" href="#metodos-de-dataiter" title="Link to this heading">#</a></h3>
+<p>Métodos de la clase .</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.DataIter.next">abstract next</a>(input_data)</p></td>
+<td><p>Establece el siguiente lote de datos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.DataIter.reset">abstract reset</a>()</p></td>
+<td><p>Reinicia el iterador de datos. Prototipo de función definida por el usuario.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.DataIter.get_callbacks">get_callbacks</a>(enable_categorical)</p></td>
+<td><p>Retorna funciones de <em>callback</em> para iterar en C. Esta es una función interna.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.DataIter.reraise">reraise</a>()</p></td>
+<td><p>Anula la excepción lanzada durante la iteración.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+<section id="quantiledmatrix">
+<h2>QuantileDMatrix<a class="headerlink" href="#quantiledmatrix" title="Link to this heading">#</a></h2>
+<p>Una versión optimizada de <code class="docutils literal notranslate"><span class="pre">DMatrix</span></code> que utiliza cuantiles para mejorar la eficiencia en el entrenamiento con <em>datasets</em> grandes.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Constructor</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.QuantileDMatrix">xgboost.QuantileDMatrix</a>(data,  label=None,  , …)</p></td>
+<td><p>Una variante de <code class="docutils literal notranslate"><span class="pre">DMatrix</span></code> que genera datos cuantificados directamente a partir de los datos de entrada para el método del árbol hist. Esta <code class="docutils literal notranslate"><span class="pre">DMatrix</span></code> está diseñada principalmente para ahorrar memoria en el entrenamiento evitando el almacenamiento intermedio.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Todos los atributos y métodos de <a class="reference internal" href="#dmatrix"><span class="std std-ref">DMatrix</span></a> también están disponibles para <code class="docutils literal notranslate"><span class="pre">QuantileDMatrix</span></code>.</p>
+</div>
+<br/>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./parts/08-xgboost"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="xgboost-index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">XGBoost</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="learning-api.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Learning API</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#booster">Booster</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-booster">Atributos de <em>Booster</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-booster">Métodos de <em>Booster</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dmatrix">DMatrix</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-dmatrix">Atributos de <em>DMatrix</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-dmatrix">Métodos de <em>DMatrix</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataiter">DataIter</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-dataiter">Atributos de <em>DataIter</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-dataiter">Métodos de <em>DataIter</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantiledmatrix">QuantileDMatrix</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nebok
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

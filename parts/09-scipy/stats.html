@@ -1,0 +1,2128 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Stats &#8212; Manual de Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'parts/09-scipy/stats';</script>
+    <link rel="icon" href="../../_static/nebok-favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Statsmodels" href="../10-statsmodels/statsmodels-index.html" />
+    <link rel="prev" title="Sparse" href="sparse.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/nebok-logo.png" class="logo__image only-light" alt="Manual de Python - Home"/>
+    <script>document.write(`<img src="../../_static/nebok-logo.png" class="logo__image only-dark" alt="Manual de Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Manual de C
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Built-in</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01-built-in/built-in-index.html">Python Estándar</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/cli.html"><em>Command Line Interface</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/ayuda.html">Obtener ayuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/comentarios.html">Comentarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/tipos-datos.html">Tipos de Datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/variables-constantes.html">Variables y Constantes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/operadores-palabras.html">Operadores y palabras reservadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/entrada-salida.html">Impresión y solicitud de datos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/tipos-index.html">Tipos Built-In</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/none-bool-numericos.html"><em>None</em>, <em>bool</em> y Numéricos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/str.html">str</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/lists.html">list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/tuples.html">Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/sets.html">Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/dicts.html">dict</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/if-else.html">If … Else</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/for-loop.html">For Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/do-while.html">Do While</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/udf.html">Funciones (UDF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/exceptions.html">Excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/context-managers.html">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/io.html">Lectura y escritura de archivos (IO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/modulos.html">Paquetes y Módulos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/avanzado-index.html">Temas avanzados</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/decorators.html">Decorators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/iterators.html">Iterators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/generators.html">Generators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/oop.html">Programación orientada a objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/func-built-in.html">Funciones built-in</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-modulos/modulos-index.html">Módulos built-in</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/csv.html">CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/datetime.html">Datetime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/itertools.html">Itertools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/json.html">JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/math.html">Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os.html">Os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os-path.html">Os.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/pickle.html">Pickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/random.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/regex.html">Regex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/statistics.html">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/urllib-request.html">urllib.request</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otras librerías</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-numpy/numpy-index.html">Numpy</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/arrays.html">Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../03-numpy/funciones-index.html">Funciones</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/ufuncs.html">Ufuncs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/buscar-contar-ordenar-unicos.html">Buscar, contar, ordenar y valores únicos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/creacion-arrays.html">Creación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/estadisticas.html">Estadísticas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/indices.html">Índices e iteración</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/informacion.html">Información</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/lectura-escritura.html">Lectura y escritura de datos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/manipulacion-arrays.html">Manipulación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/matematicas-numericas.html">Matemáticas y numéricas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/operadores.html">Operadores</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/algebra-lineal.html">Módulo linalg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/cadenas.html">Modulo char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/random.html">Módulo random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/patrones-numpy.html">Patrones útiles</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04-pandas/pandas-index.html">Pandas</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/index.html">Index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/series.html">Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/dataframe.html">DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/escalares-arrays.html">Escalares y Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../04-pandas/otras-clases.html">Otras clases</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/groupby.html">GroupBy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/expanding-rolling-window.html"><em>Expanding, Rolling</em> y <em>Window</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/resampler.html">Resampler</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/funciones.html">Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/patrones-pandas.html">Patrones útiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05-matplotlib/matplotlib-index.html">Matplotlib</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/pyplot.html">Pyplot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/figure.html">Figure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/axes.html">Axes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/otros.html">Otras Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06-seaborn/seaborn-index.html">Seaborn</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06-seaborn/funciones-clases.html">Funciones y Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-seaborn/objects-interface.html">Interface por objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../07-sklearn/sklearn-index.html">Scikit Learn</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/supervised/supervised-index.html">Aprendizaje supervisado</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/ensamble.html">Ensamble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/linear_model.html">Linear model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/naive_bayes.html">Naive bayes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/neighbors.html">Neighbors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/svm.html">SVM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/tree.html">Tree</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/unsupervised/unsupervised-index.html">Aprendizaje no supervisado</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/unsupervised/cluster.html">Cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/unsupervised/decomposition.html">Decomposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/unsupervised/mixture.html">Mixture</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/transformations/tranformations-index.html">Transformaciones</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/feature_extraction.html">Feature Extraction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/impute.html">Impute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/manifold.html">Manifold</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/preprocessing.html">Preprocessing</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/evaluation/evaluation-index.html">Evaluación y selección del modelo</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/dummy.html">Dummy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/feature_selection.html">Feature Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/metrics.html">Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/model_selection.html">Model Selection</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/pipelines-and-compose/pipeline-compose-index.html">Pipelines y Modelos Compuestos</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/pipelines-and-compose/compose.html">Compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/pipelines-and-compose/pipeline.html">Pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../07-sklearn/datasets.html">Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-sklearn/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-xgboost/xgboost-index.html">XGBoost</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08-xgboost/core-data-structure.html">Core Data Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-xgboost/learning-api.html">Learning API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-xgboost/scikit-learn-api.html">Scikit-Learn API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-xgboost/plotting-api.html">Plotting API</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="scipy-index.html">Scipy</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="clusters.html">Clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="derivacion-integracion.html">Derivación e Integración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linalg.html">Linear Algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sparse.html"><em>Sparse</em></a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Stats</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../10-statsmodels/statsmodels-index.html">Statsmodels</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/statsmodels-api.html">API Principal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/statsmodels-tsa-api.html">API de Series de Tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/statsmodels-formula-api.html">API de Fórmulas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/graphics.html">Gráficos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/otras-clases.html">Otras clases</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../11-bokeh/bokeh-index.html">Bokeh</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/io.html">IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/layouts.html"><em>Layouts</em></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../11-bokeh/models/models-index.html"><em>Models</em></a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/annotations.html">Anotaciones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/axes.html">Ejes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/callbacks.html">Callbacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/formatters.html"><em>Formatters</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/glyphs.html"><em>Glyphs</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/sources.html"><em>Sources</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/tools.html"><em>Tools</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/widgets.html"><em>Widgets</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/plotting.html">Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/transform.html">transform</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../12-plotly/plotly-index.html">Plotly</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/express.html"><em>Express</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/figure-factory.html"><em>Figure Factory</em></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../12-plotly/go/go-index.html"><em>Graph Objects</em></a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../12-plotly/go/figure.html"><em>Figure</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../12-plotly/go/layout.html"><em>Layout</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../12-plotly/go/traces.html">Traces</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/io.html">IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/subplots.html">Subplots</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/beautifulsoup.html">BeautifulSoup</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Complementarios</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../appendix/appendix-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/IPython.html">IPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/jupyter.html">Jupyter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/pip.html">pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/conda.html"><em>conda</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/git.html">git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/shell.html">Shell</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/parts/09-scipy/stats.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Stats</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuciones-de-probabilidad">Distribuciones de probabilidad</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clase-rv-continuous">Clase <em>rv_continuous</em></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos">Métodos</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clase-rv-discrete">Clase <em>rv_discrete</em></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rv-discrete-methods">Métodos</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuciones-continuas">Distribuciones continuas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuciones-discretas">Distribuciones discretas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuciones-multivariadas">Distribuciones multivariadas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estadisticas-descriptivas">Estadísticas descriptivas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estadisticas-de-frecuencia">Estadísticas de frecuencia</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-remuestreo-y-monte-carlo">Métodos de remuestreo y Monte Carlo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pruebas-de-asociacion-correlacion-y-regresion">Pruebas de asociación, correlación y regresión</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-linregress">Notas de <em>linregress</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pruebas-de-muestras-independientes">Pruebas de muestras independientes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pruebas-de-multiples-hipotesis-y-meta-analisis">Pruebas de múltiples hipótesis y meta-análisis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pruebas-de-una-muestra-y-en-pares">Pruebas de una muestra y en pares</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-aleatorias">Variables aleatorias</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clases">Clases</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#normal">Normal</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos">Atributos</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Métodos</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones">Funciones</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="stats">
+<h1>Stats<a class="headerlink" href="#stats" title="Link to this heading">#</a></h1>
+<p>Es un módulo de con distribuciones de probabilidad, pruebas de hipótesis, estimaciones de densidades de kernel, funciones de correlación, medidas de tendencia central y desviación, estaísticas descriptivas, entre otras. Para usar este submódulo es necesario importarlo:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar linalg</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+
+<span class="c1"># Importar función específica</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">function_name</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><em>function_name</em> es el nombre de la función que se desea importar.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Para más información visitar la <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/stats.html">documentación</a> de <em>scipy</em>.</p>
+</div>
+<p>A continuación se presenta un resumen de cada sección:</p>
+<ul class="simple">
+<li><p><strong>Distribuciones de probabilidad</strong>: Funciones generales para trabajar con distribuciones de probabilidad, tanto continuas como discretas.</p></li>
+<li><p><strong>Distribuciones continuas</strong>: Funciones para trabajar con distribuciones de probabilidad continuas, como la normal, exponencial y t de Student.</p></li>
+<li><p><strong>Distribuciones discretas</strong>: Funciones para trabajar con distribuciones de probabilidad discretas, como la binomial, Poisson y geométrica.</p></li>
+<li><p><strong>Distribuciones multivariadas</strong>: Funciones para trabajar con distribuciones de probabilidad multivariadas, como la normal multivariada.</p></li>
+<li><p><strong>Estadísticas descriptivas</strong>: Funciones para calcular medidas resumidas, como media, mediana, varianza y percentiles.</p></li>
+<li><p><strong>Estadísticas de frecuencia</strong>: Métodos para analizar frecuencias y tablas de contingencia, como pruebas de chi-cuadrado.</p></li>
+<li><p><strong>Métodos de remuestreo y Monte Carlo</strong>: Técnicas para estimar distribuciones y estadísticas mediante remuestreo y simulación.</p></li>
+<li><p><strong>Pruebas de asociación y correlación</strong>: Métodos para evaluar la relación entre variables, como coeficientes de correlación y pruebas de independencia.</p></li>
+<li><p><strong>Pruebas de muestras independientes</strong>: Las pruebas de muestras independientes se utilizan normalmente para evaluar si se extrajeron varias muestras de forma independiente de la misma distribución o de distribuciones diferentes con una propiedad compartida.</p></li>
+<li><p><strong>Pruebas de múltiples hipótesis y meta-análisis</strong>: Técnicas para ajustar y combinar resultados de múltiples pruebas.</p></li>
+<li><p><strong>Pruebas de una muestra y en pares</strong>: Las pruebas de una muestra se utilizan normalmente para evaluar si una sola muestra se extrajo de una distribución específica o de una distribución con propiedades específicas.</p></li>
+<li><p><strong>Variables aleatorias</strong>: Herramientas para crear y manipular variables aleatorias a partir de distribuciones.</p></li>
+</ul>
+<section id="distribuciones-de-probabilidad">
+<h2>Distribuciones de probabilidad<a class="headerlink" href="#distribuciones-de-probabilidad" title="Link to this heading">#</a></h2>
+<p>Funciones generales para trabajar con distribuciones de probabilidad, tanto continuas como discretas.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_continuous.html">rv_continuous</a>([momtype, a, b, xtol, …])</p></td>
+<td><p>Una clase de variable aleatoria continua genérica destinada a subclasificar.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_discrete.html">rv_discrete</a>([a, b, name, badvalue, …])</p></td>
+<td><p>Una clase variable aleatoria discreta genérica destinada a subclasificar.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_histogram.html">rv_histogram</a>(histogram, *args, …)</p></td>
+<td><p>Genera una distribución dada por un histograma.</p></td>
+</tr>
+</tbody>
+</table>
+<section id="clase-rv-continuous">
+<h3>Clase <em>rv_continuous</em><a class="headerlink" href="#clase-rv-continuous" title="Link to this heading">#</a></h3>
+<p>Una clase de variable aleatoria continua genérica destinada a subclasificar.</p>
+<section id="metodos">
+<span id="rv-continuous-methods"></span><h4>Métodos<a class="headerlink" href="#metodos" title="Link to this heading">#</a></h4>
+<p>Métodos de la clase <code class="docutils literal notranslate"><span class="pre">rv_continuous</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Principales métodos</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_continuous.cdf.html">cdf</a>(x, *args, **kwds)</p></td>
+<td><p>Función de distribución acumulativa.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_continuous.isf.html">isf</a>(q, *args, **kwds)</p></td>
+<td><p>Función de supervivencia inversa (inversa de <code class="docutils literal notranslate"><span class="pre">sf</span></code>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_continuous.mean.html">mean</a>(*args, **kwds)</p></td>
+<td><p>Media de la distribución.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_continuous.median.html">median</a>(*args, **kwds)</p></td>
+<td><p>Mediana de la distribución.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_continuous.moment.html">moment</a>(order, *args, **kwds)</p></td>
+<td><p>Momento no central de distribución del orden especificado.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_continuous.pdf.html">pdf</a>(x, *args, **kwds)</p></td>
+<td><p>Función de densidad de probabilidad.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_continuous.ppf.html">ppf</a>(q, *args, **kwds)</p></td>
+<td><p>Inversa de <code class="docutils literal notranslate"><span class="pre">cdf</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_continuous.rvs.html">rvs</a>(*args, **kwds)</p></td>
+<td><p>Valores aleatorios de la variable aleatoria.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_continuous.sf.html">sf</a>(x, *args, **kwds)</p></td>
+<td><p>Función de supervivencia (1 - <code class="docutils literal notranslate"><span class="pre">cdf</span></code> ).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_continuous.stats.html">stats</a>(*args, **kwds)</p></td>
+<td><p>Estadísticas descriptivas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_continuous.std.html">std</a>(*args, **kwds)</p></td>
+<td><p>Desviación estándar de la distribución.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_continuous.support.html">support</a>(*args, **kwargs)</p></td>
+<td><p>Soporte de la distribución.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_continuous.var.html">var</a>(*args, **kwds)</p></td>
+<td><p>Varianza de la distribución.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Otros métodos</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_continuous.__call__.html">__call__</a>(*args, **kwds)</p></td>
+<td><p>Congela la distribución para los argumentos dados.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_continuous.entropy.html">entropy</a>(*args, **kwds)</p></td>
+<td><p>Entropía diferencial.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_continuous.expect.html">expect</a>([func, args, loc, scale, lb, ub, …])</p></td>
+<td><p>Calcula el valor esperado de una función con respecto a la distribución por integración numérica.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_continuous.fit.html">fit</a>(data, *args, **kwds)</p></td>
+<td><p>Retorna las estimaciones de los parámetros de forma (si corresponde), la ubicación y los parámetros de escala de los datos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_continuous.fit_loc_scale.html">fit_loc_scale</a>(data, *args)</p></td>
+<td><p>Estima los parámetros <em>loc</em> y <em>scale</em> de los datos utilizando los momentos 1 y 2.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_continuous.interval.html">interval</a>(confidence, *args, **kwds)</p></td>
+<td><p>Intervalo de confianza con áreas iguales alrededor de la mediana.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_continuous.logcdf.html">logcdf</a>(x, *args, **kwds)</p></td>
+<td><p>Logaritmo de la función de distribución acumulada.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_continuous.logpdf.html">logpdf</a>(x, *args, **kwds)</p></td>
+<td><p>Logaritmo de la función de densidad de probabilidad.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_continuous.logsf.html">logsf</a>(x, *args, **kwds)</p></td>
+<td><p>Logaritmo de la función de supervivencia.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_continuous.nnlf.html">nnlf</a>(theta, x)</p></td>
+<td><p>Función negativa <em>loglikelihood</em>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="clase-rv-discrete">
+<h3>Clase <em>rv_discrete</em><a class="headerlink" href="#clase-rv-discrete" title="Link to this heading">#</a></h3>
+<p>Una clase variable aleatoria discreta genérica destinada a subclasificar.</p>
+<section id="rv-discrete-methods">
+<span id="id1"></span><h4>Métodos<a class="headerlink" href="#rv-discrete-methods" title="Link to this heading">#</a></h4>
+<p>Métodos de la clase <code class="docutils literal notranslate"><span class="pre">rv_discrete</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Principales métodos</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_discrete.cdf.html">cdf</a>(k, *args, **kwds)</p></td>
+<td><p>Función de distribución acumulativa.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_discrete.isf.html">isf</a>(q, *args, **kwds)</p></td>
+<td><p>Función de supervivencia inversa (inversa de <code class="docutils literal notranslate"><span class="pre">sf</span></code>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_discrete.mean.html">mean</a>(*args, **kwds)</p></td>
+<td><p>Media de la distribución.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_discrete.median.html">median</a>(*args, **kwds)</p></td>
+<td><p>Mediana de la distribución.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_discrete.moment.html">moment</a>(order, *args, **kwds)</p></td>
+<td><p>Momento no central de distribución del orden especificado.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_discrete.pmf.html">pmf</a>(k, *args, **kwds)</p></td>
+<td><p>Función de masa de probabilidad.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_discrete.ppf.html">ppf</a>(q, *args, **kwds)</p></td>
+<td><p>Inversa de <code class="docutils literal notranslate"><span class="pre">cdf</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_discrete.rvs.html">rvs</a>(*args, **kwargs)</p></td>
+<td><p>Valores aleatorios de la variable aleatoria.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_discrete.sf.html">sf</a>(k, *args, **kwds)</p></td>
+<td><p>Función de supervivencia (1 - <code class="docutils literal notranslate"><span class="pre">cdf</span></code>).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_discrete.stats.html">stats</a>(*args, **kwds)</p></td>
+<td><p>Estadísticas descriptivas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_discrete.std.html">std</a>(*args, **kwds)</p></td>
+<td><p>Desviación estándar de la distribución.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_discrete.support.html">support</a>(*args, **kwargs)</p></td>
+<td><p>Soporte de la distribución.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_discrete.var.html">var</a>(*args, **kwds)</p></td>
+<td><p>Varianza de la distribución.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Otros métodos</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_discrete.__call__.html">__call__</a>(*args, **kwds)</p></td>
+<td><p>Congela la distribución para los argumentos dados.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_discrete.entropy.html">entropy</a>(*args, **kwds)</p></td>
+<td><p>Entropía diferencial.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_discrete.expect.html">expect</a>([func, args, loc, lb, ub, …])</p></td>
+<td><p>Calcula el valor esperado de una función con respecto a la distribución por suma numérica.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_discrete.interval.html">interval</a>(confidence, *args, **kwds)</p></td>
+<td><p>Intervalo de confianza con áreas iguales alrededor de la mediana.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_discrete.logcdf.html">logcdf</a>(k, *args, **kwds)</p></td>
+<td><p>Logaritmo de la función de distribución acumulada.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_discrete.logpmf.html">logpmf</a>(k, *args, **kwds)</p></td>
+<td><p>Logaritmo de la función de masa de probabilidad.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_discrete.logsf.html">logsf</a>(k, *args, **kwds)</p></td>
+<td><p>Logaritmo de la función de supervivencia.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+</section>
+<section id="distribuciones-continuas">
+<h2>Distribuciones continuas<a class="headerlink" href="#distribuciones-continuas" title="Link to this heading">#</a></h2>
+<p>Distribuciones de probabilidad continuas, como la normal, exponencial y t de Student. Son instancias de <code class="docutils literal notranslate"><span class="pre">rv_continuous</span></code>.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Revisar los <a class="reference internal" href="#rv-continuous-methods"><span class="std std-ref">Métodos</span></a> de <code class="docutils literal notranslate"><span class="pre">rv_continuous</span></code> o dirigirse a la documentación de cada distribución.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Principales distribuciones</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.beta.html">beta</a></p></td>
+<td><p>Una variable aleatoria continua <em>beta</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.cauchy.html">cauchy</a></p></td>
+<td><p>Una variable aleatoria continua de <em>Cauchy</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.chi.html">chi</a></p></td>
+<td><p>Una variable aleatoria continua <em>chi</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.chi2.html">chi2</a></p></td>
+<td><p>Una variable aleatoria continua <em>chi cuadrado</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.erlang.html">erlang</a></p></td>
+<td><p>Una variable aleatoria continua de <em>Erlang</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.expon.html">expon</a></p></td>
+<td><p>Una variable aleatoria continua exponencial.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.f.html">f</a></p></td>
+<td><p>Una variable aleatoria continua F.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.gamma.html">gamma</a></p></td>
+<td><p>Una variable aleatoria continua <em>gamma</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.logistic.html">logistic</a></p></td>
+<td><p>Una variable aleatoria continua <em>logística</em> (o SECH-cuadrado).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.lognorm.html">lognorm</a></p></td>
+<td><p>Una variable aleatoria continua lognormal.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html">norm</a></p></td>
+<td><p>Una variable aleatoria continua <em>normal</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norminvgauss.html">norminvgauss</a></p></td>
+<td><p>Una variable aleatoria continua <em>gaussiana inversa normal</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pareto.html">pareto</a></p></td>
+<td><p>Una variable aleatoria continua de <em>Pareto</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rayleigh.html">rayleigh</a></p></td>
+<td><p>Una variable aleatoria continua de Rayleigh.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.t.html">t</a></p></td>
+<td><p>La variable aleatoria continua de <em>Student’s t</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.uniform.html">uniform</a></p></td>
+<td><p>Una variable aleatoria continua uniforme.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Otras distribuciones</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.alpha.html">alpha</a></p></td>
+<td><p>Una variable aleatoria continua <em>alpha</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.anglit.html">anglit</a></p></td>
+<td><p>Una variable aleatoria continua <em>anglit</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.arcsine.html">arcsine</a></p></td>
+<td><p>Una variable aleatoria continua <em>arcsine</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.argus.html">argus</a></p></td>
+<td><p>Distribución <em>argus</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.betaprime.html">betaprime</a></p></td>
+<td><p>Una variable aleatoria continua <em>beta prime</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.bradford.html">bradford</a></p></td>
+<td><p>Una variable aleatoria continua de <em>Bradford</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.burr.html">burr</a></p></td>
+<td><p>Una variable aleatoria continua de <em>Burr</em> (tipo III).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.burr12.html">burr12</a></p></td>
+<td><p>Una variable aleatoria continua de <em>Burr</em> (tipo XII).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.cosine.html">cosine</a></p></td>
+<td><p>Una variable aleatoria continua de <em>coseno</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.crystalball.html">crystalball</a></p></td>
+<td><p>Distribución de <em>cristalball</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.dgamma.html">dgamma</a></p></td>
+<td><p>Una variable aleatoria continua <em>gamma doble</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.dpareto_lognorm.html">dpareto_lognorm</a></p></td>
+<td><p>Una variable aleatoria continua doble de <em>Pareto</em> lognormal.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.dweibull.html">dweibull</a></p></td>
+<td><p>Una variable aleatoria continua doble de <em>Weibull</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.exponnorm.html">exponnorm</a></p></td>
+<td><p>Una variable aleatoria continua exponencialmente modificada normal.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.exponpow.html">exponpow</a></p></td>
+<td><p>Una variable aleatoria continua de potencia exponencial.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.exponweib.html">exponweib</a></p></td>
+<td><p>Una variable aleatoria continua de Weibull exponenciada.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.fatiguelife.html">fatiguelife</a></p></td>
+<td><p>Una variable aleatoria continua de <em>fatigue-life</em> (Birnbaum-Saunders).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.fisk.html">fisk</a></p></td>
+<td><p>Una variable aleatoria continua <em>Fisk</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.foldcauchy.html">foldcauchy</a></p></td>
+<td><p>Una variable aleatoria continua de Cauchy plegada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.foldnorm.html">foldnorm</a></p></td>
+<td><p>Una variable aleatoria continua normal plegada.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.gausshyper.html">gausshyper</a></p></td>
+<td><p>Una variable aleatoria continua <em>hipergeométrica Gauss</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.genexpon.html">genexpon</a></p></td>
+<td><p>Una variable aleatoria continua exponencial generalizada.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.genextreme.html">genextreme</a></p></td>
+<td><p>Una variable aleatoria continua de valor extremo generalizado.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.gengamma.html">gengamma</a></p></td>
+<td><p>Una variable aleatoria continua gamma generalizada.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.genhalflogistic.html">genhalflogistic</a></p></td>
+<td><p>Una variable aleatoria continua <em>half-logistic</em> generalizada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.genhyperbolic.html">genhyperbolic</a></p></td>
+<td><p>Una variable aleatoria continua hiperbólica generalizada.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.geninvgauss.html">geninvgauss</a></p></td>
+<td><p>Una variable aleatoria continua gaussiana inversa generalizada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.genlogistic.html">genlogistic</a></p></td>
+<td><p>Una variable aleatoria continua de logística generalizada.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.gennorm.html">gennorm</a></p></td>
+<td><p>Una variable aleatoria continua normal generalizada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.genpareto.html">genpareto</a></p></td>
+<td><p>Una variable aleatoria continua de Pareto generalizada.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.gibrat.html">gibrat</a></p></td>
+<td><p>Una variable aleatoria continua <em>gibrat</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.gompertz.html">gompertz</a></p></td>
+<td><p>Una variable aleatoria continua de <em>Gompertz</em> (o <em>Gumbel truncado</em>).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.gumbel_l.html">gumbel_l</a></p></td>
+<td><p>Una variable aleatoria continua de <em>Gumbel</em> sesgada a la izquierda.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.gumbel_r.html">gumbel_r</a></p></td>
+<td><p>Una variable aleatoria continua de <em>Gumbel</em> sesgada a la derecha.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.halfcauchy.html">halfcauchy</a></p></td>
+<td><p>Una variable aleatoria continua de <em>Half-Cauchy</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.halfgennorm.html">halfgennorm</a></p></td>
+<td><p>La mitad superior de una variable aleatoria continua normal generalizada.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.halflogistic.html">halflogistic</a></p></td>
+<td><p>Una variable aleatoria continua <em>half-logistic</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.halfnorm.html">halfnorm</a></p></td>
+<td><p>Una variable aleatoria continua <em>half-normal</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.hypsecant.html">hypsecant</a></p></td>
+<td><p>Una variable aleatoria continua secante hiperbólica.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.invgamma.html">invgamma</a></p></td>
+<td><p>Una variable aleatoria continua <em>gamma</em> invertida.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.invgauss.html">invgauss</a></p></td>
+<td><p>Una variable aleatoria continua <em>gaussiana</em> invertida.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.invweibull.html">invweibull</a></p></td>
+<td><p>Una variable aleatoria continua de <em>Weibull</em> invertida.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.irwinhall.html">irwinhall</a></p></td>
+<td><p>Una variable aleatoria continua <em>Irwin-Hall</em> (suma uniforme).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.jf_skew_t.html">jf_skew_t</a></p></td>
+<td><p>Distribución <em>Jones y Faddy skew-t</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.johnsonsb.html">johnsonsb</a></p></td>
+<td><p>Una variable aleatoria continua de <em>Johnson SB</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.johnsonsu.html">johnsonsu</a></p></td>
+<td><p>Una variable aleatoria continua <em>Johnson Su</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.kappa3.html">kappa3</a></p></td>
+<td><p>Distribución <em>Kappa</em> de 3 parámetros.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.kappa4.html">kappa4</a></p></td>
+<td><p>Distribución <em>Kappa</em> de 4 parámetros.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ksone.html">ksone</a></p></td>
+<td><p>Distribución estadística de prueba unilateral de <em>Kolmogorov-Smirnov</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.kstwo.html">kstwo</a></p></td>
+<td><p>Distribución estadística de prueba de dos lados de <em>Kolmogorov-Smirnov</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.kstwobign.html">kstwobign</a></p></td>
+<td><p>Distribución limitante de la estadística de prueba de dos lados de <em>Kolmogorov-Smirnov</em> escalado.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.landau.html">landau</a></p></td>
+<td><p>Una variable aleatoria continua de <em>Landau</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.laplace.html">laplace</a></p></td>
+<td><p>Una variable aleatoria continua de <em>Laplace</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.laplace_asymmetric.html">laplace_asymmetric</a></p></td>
+<td><p>Una variable aleatoria continua asimétrica de <em>Laplace</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.levy.html">levy</a></p></td>
+<td><p>Una variable aleatoria continua de <em>Levy</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.levy_l.html">levy_l</a></p></td>
+<td><p>Una variable aleatoria continua de <em>Levy</em> sesgada a la izquierda.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.levy_stable.html">levy_stable</a></p></td>
+<td><p>Una variable aleatoria continua estable de <em>Levy</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.loggamma.html">loggamma</a></p></td>
+<td><p>Una variable aleatoria continua <em>gamma log</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.loglaplace.html">loglaplace</a></p></td>
+<td><p>Una variable aleatoria continua <em>log-Laplace</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.loguniform.html">loguniform</a></p></td>
+<td><p>Una variable aleatoria continua <em>loguniform</em> o recíproca.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.lomax.html">lomax</a></p></td>
+<td><p>Una variable aleatoria continua <em>Lomax</em> (Pareto del segundo tipo).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.maxwell.html">maxwell</a></p></td>
+<td><p>Una variable aleatoria continua de <em>Maxwell</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.mielke.html">mielke</a></p></td>
+<td><p>Una variable aleatoria continua de <em>Mielke Beta-Kappa/Dagum</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.moyal.html">moyal</a></p></td>
+<td><p>Una variable aleatoria continua <em>Moyal</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.nakagami.html">nakagami</a></p></td>
+<td><p>Una variable aleatoria continua de <em>Nakagami</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ncf.html">ncf</a></p></td>
+<td><p>Una variable aleatoria continua no central de distribución F.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.nct.html">nct</a></p></td>
+<td><p>Una variable aleatoria continua <em>Student’s t</em> no central.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ncx2.html">ncx2</a></p></td>
+<td><p>Una variable aleatoria continua de <em>chi cuadrado</em> no central.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearson3.html">pearson3</a></p></td>
+<td><p>Una variable aleatoria continua de <em>Pearson</em> tipo III.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.powerlaw.html">powerlaw</a></p></td>
+<td><p>Una variable aleatoria continua de la función de potencia.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.powerlognorm.html">powerlognorm</a></p></td>
+<td><p>Una variable aleatoria continua normal de potencia <em>log-normal</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.powernorm.html">powernorm</a></p></td>
+<td><p>Una variable aleatoria continua de potencia <em>normal</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rdist.html">rdist</a></p></td>
+<td><p>Una variable aleatoria continua distribuida-R (beta simétrica).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.recipinvgauss.html">recipinvgauss</a></p></td>
+<td><p>Una variable aleatoria continua <em>gaussiana</em> inversa recíproca.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rel_breitwigner.html">rel_breitwigner</a></p></td>
+<td><p>Una variable aleatoria relativista de <em>Breit-Wigner</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rice.html">rice</a></p></td>
+<td><p>Una variable aleatoria continua de Rice.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.semicircular.html">semicircular</a></p></td>
+<td><p>Una variable aleatoria continua <em>semicircular</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.skewcauchy.html">skewcauchy</a></p></td>
+<td><p>Una variable aleatoria de Cauchy sesgada.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.skewnorm.html">skewnorm</a></p></td>
+<td><p>Una variable aleatoria <em>normal</em> sesgada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.studentized_range.html">studentized_range</a></p></td>
+<td><p>Una variable aleatoria continua de rango <em>studentized</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.trapezoid.html">trapezoid</a></p></td>
+<td><p>Una variable aleatoria continua <em>trapezoidal</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.triang.html">triang</a></p></td>
+<td><p>Una variable aleatoria continua <em>triangular</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.truncexpon.html">truncexpon</a></p></td>
+<td><p>Una variable aleatoria continua <em>exponencial</em> truncada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.truncnorm.html">truncnorm</a></p></td>
+<td><p>Una variable aleatoria continua <em>normal</em> truncada.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.truncpareto.html">truncpareto</a></p></td>
+<td><p>Una variable aleatoria continua de <em>Pareto</em> truncada superior.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.truncweibull_min.html">truncweibull_min</a></p></td>
+<td><p>Una variable aleatoria mínima continua de <em>Weibull</em> doblemente truncada.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.tukeylambda.html">tukeylambda</a></p></td>
+<td><p>Una variable aleatoria continua de <em>Tukey-Lamdba</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.vonmises.html">vonmises</a></p></td>
+<td><p>Una variable aleatoria continua de <em>Von Mises</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.vonmises_line.html">vonmises_line</a></p></td>
+<td><p>Una variable aleatoria continua de <em>Von Mises</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.wald.html">wald</a></p></td>
+<td><p>Una variable aleatoria continua <em>Wald</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.weibull_max.html">weibull_max</a></p></td>
+<td><p>Una variable aleatoria continua de <em>Weibull maximum</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.weibull_min.html">weibull_min</a></p></td>
+<td><p>Una variable aleatoria continua de _Weibull minimum.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.wrapcauchy.html">wrapcauchy</a></p></td>
+<td><p>Una variable aleatoria continua de <em>Cauchy</em> envuelta.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="distribuciones-discretas">
+<h2>Distribuciones discretas<a class="headerlink" href="#distribuciones-discretas" title="Link to this heading">#</a></h2>
+<p>Funciones para trabajar con distribuciones de probabilidad discretas, como la binomial, Poisson y geométrica. Son instancias de <code class="docutils literal notranslate"><span class="pre">rv_discrete</span></code>.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Revisar los <a class="reference internal" href="#rv-discrete-methods"><span class="std std-ref">Métodos</span></a> de <code class="docutils literal notranslate"><span class="pre">rv_discrete</span></code> o dirigirse a la documentación de cada distribución.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Principales distribuciones</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.bernoulli.html">bernoulli</a></p></td>
+<td><p>Una variable aleatoria discreta de <em>Bernoulli</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.binom.html">binom</a></p></td>
+<td><p>Una variable aleatoria discreta <em>binomial</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.geom.html">geom</a></p></td>
+<td><p>Una variable aleatoria discreta <em>geométrica</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.hypergeom.html">hypergeom</a></p></td>
+<td><p>Una variable aleatoria discreta <em>hipergeométrica</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.nbinom.html">nbinom</a></p></td>
+<td><p>Una variable aleatoria discreta <em>binomial negativa</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.poisson.html">poisson</a></p></td>
+<td><p>Una variable aleatoria discreta de <em>Poisson</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.randint.html">randint</a></p></td>
+<td><p>Una variable aleatoria discreta <em>uniforme</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Otras distribuciones</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.betabinom.html">betabinom</a></p></td>
+<td><p>Una variable aleatoria discreta <em>beta-binomial</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.betanbinom.html">betanbinom</a></p></td>
+<td><p>Una variable aleatoria discreta <em>binomial beta-negativa</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.boltzmann.html">boltzmann</a></p></td>
+<td><p>Una variable aleatoria <em>Boltzmann</em> (exponencial discreta truncada).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.dlaplace.html">dlaplace</a></p></td>
+<td><p>Una variable aleatoria discreta <em>Laplaciana</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.logser.html">logser</a></p></td>
+<td><p>Una variable aleatoria discreta <em>logarítmica</em> (<em>Log-Series, Series</em>).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.nchypergeom_fisher.html">nchypergeom_fisher</a></p></td>
+<td><p>La variable aleatoria discreta hipergeométrica no central de <em>Fisher</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.nchypergeom_wallenius.html">nchypergeom_wallenius</a></p></td>
+<td><p>Una variable aleatoria discreta hipergeométrica no central de <em>Wallenius</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.nhypergeom.html">nhypergeom</a></p></td>
+<td><p>Una variable aleatoria discreta <em>hipergeométrica</em> negativa.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.planck.html">planck</a></p></td>
+<td><p>Una variable aleatoria exponencial discreta de <em>Planck</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.poisson_binom.html">poisson_binom</a></p></td>
+<td><p>Una variable aleatoria discreta binomial de <em>Poisson</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.skellam.html">skellam</a></p></td>
+<td><p>Una variable aleatoria discreta <em>skellam</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.yulesimon.html">yulesimon</a></p></td>
+<td><p>Una variable aleatoria discreta <em>Yule-Simon</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.zipf.html">zipf</a></p></td>
+<td><p>Una variable aleatoria discreta <em>Zipf</em> (Zeta).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.zipfian.html">zipfian</a></p></td>
+<td><p>Una variable aleatoria discreta Zipfian.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="distribuciones-multivariadas">
+<h2>Distribuciones multivariadas<a class="headerlink" href="#distribuciones-multivariadas" title="Link to this heading">#</a></h2>
+<p>Funciones para trabajar con distribuciones de probabilidad multivariadas, como la normal multivariada.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Para ver los métodos de cada distribución dirigirse a la documentación de cada distribución.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Principales distribuciones</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.multinomial.html">multinomial</a></p></td>
+<td><p>Una variable aleatoria <em>multinomial</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.multivariate_hypergeom.html">multivariate_hypergeom</a></p></td>
+<td><p>Una variable aleatoria <em>hipergeométrica</em> multivariada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.multivariate_normal.html">multivariate_normal</a></p></td>
+<td><p>Una variable aleatoria <em>normal</em> multivariada.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.multivariate_t.html">multivariate_t</a></p></td>
+<td><p>Una variable aleatoria distribuida <em>T</em> multivariada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Otras distribuciones</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.dirichlet.html">dirichlet</a></p></td>
+<td><p>Una variable aleatoria de <em>Dirichlet</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.dirichlet_multinomial.html">dirichlet_multinomial</a></p></td>
+<td><p>Una variable aleatoria multinomial de <em>Dirichlet</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.invwishart.html">invwishart</a></p></td>
+<td><p>Una variable aleatoria inversa de <em>Wishart</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.matrix_normal.html">matrix_normal</a></p></td>
+<td><p>Una variable aleatoria de matriz <em>normal</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.normal_inverse_gamma.html">normal_inverse_gamma</a></p></td>
+<td><p>Distribución <em>normal-inversa-gamma</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ortho_group.html">ortho_group</a></p></td>
+<td><p>Una variable aleatoria de matriz ortogonal <em>(O(N))</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.random_correlation.html">random_correlation</a></p></td>
+<td><p>Una matriz de correlación aleatoria.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.random_table.html">random_table</a></p></td>
+<td><p>Tablas de contingencia de muestras independientes con sumas marginales fijas.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.special_ortho_group.html">special_ortho_group</a></p></td>
+<td><p>Una variable aleatoria de matriz ortogonal especial <em>(SO(n))</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.uniform_direction.html">uniform_direction</a></p></td>
+<td><p>Una dirección uniforme con valor vectorial.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.unitary_group.html">unitary_group</a></p></td>
+<td><p>Una variable aleatoria de matriz <em>U(N)</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.vonmises_fisher.html">vonmises_fisher</a></p></td>
+<td><p>Una variable <em>von Mises-Fisher</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.wishart.html">wishart</a></p></td>
+<td><p>Una variable aleatoria de <em>Wishart</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="estadisticas-descriptivas">
+<h2>Estadísticas descriptivas<a class="headerlink" href="#estadisticas-descriptivas" title="Link to this heading">#</a></h2>
+<p>Funciones para calcular medidas resumidas, como media, mediana, varianza y percentiles.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.bayes_mvs.html">bayes_mvs</a>(data, …)</p></td>
+<td><p>Intervalos de confianza bayesianos para la media, varianza y desviación estándar.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.describe.html">describe</a>(a, …)</p></td>
+<td><p>Calcula varias estadísticas descriptivas.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.differential_entropy.html">differential_entropy</a>(values, …)</p></td>
+<td><p>Dada una muestra de una distribución, estime la entropía diferencial.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.entropy.html">entropy</a>(pk, …)</p></td>
+<td><p>Calcula la entropía de Shannon de la distribución.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.expectile.html">expectile</a>(a, …)</p></td>
+<td><p>Calcula el <em>expectile</em> en el nivel especificado.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.find_repeats.html">find_repeats</a>(arr)</p></td>
+<td><p>Encuentra repeticiones y recuentos de repeticiones.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.gmean.html">gmean</a>(a, …)</p></td>
+<td><p>Calcula la media geométrica ponderada a lo largo del eje especificado.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.gstd.html">gstd</a>(a, …)</p></td>
+<td><p>Calcula la desviación estándar geométrica de una matriz.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.hmean.html">hmean</a>(a, …)</p></td>
+<td><p>Calcula la media armónica ponderada a lo largo del eje especificado.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.iqr.html">iqr</a>(x, …)</p></td>
+<td><p>Calcula el rango intercuartil de los datos a lo largo del eje especificado.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.kstat.html">kstat</a>(data, …)</p></td>
+<td><p>Retorna el i-ésimo k-estadístico (<code class="docutils literal notranslate"><span class="pre">1&lt;=n&lt;=4</span></code>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.kstatvar.html">kstatvar</a>(data, …)</p></td>
+<td><p>Retorna un estimador no sesgado de la varianza del k-estadístico.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.kurtosis.html">kurtosis</a>(a, …)</p></td>
+<td><p>Calcula la curtosis (Fisher o Pearson) de un conjunto de datos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.lmoment.html">lmoment</a>(sample, …)</p></td>
+<td><p>Calcula los momentos <em>L</em> de una muestra a partir de una distribución continua.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.median_abs_deviation.html">median_abs_deviation</a>(x, …)</p></td>
+<td><p>Calcula la desviación absoluta mediana de los datos a lo largo del eje dado.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.mode.html">mode</a>(a, …)</p></td>
+<td><p>Retorna una matriz del valor modal (más común) en el arreglo dado.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.moment.html">moment</a>(a, …)</p></td>
+<td><p>Calcula el enésimo momento alrededor de la media para una muestra.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.mvsdist.html">mvsdist</a>(data)</p></td>
+<td><p>Distribuciones ‘congeladas’ para media, varianza y desviación estándar de datos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pmean.html">pmean</a>(a, p, …)</p></td>
+<td><p>Calcula la media de potencia ponderada a lo largo del eje especificado.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rankdata.html">rankdata</a>(a, …)</p></td>
+<td><p>Asigna ranks a los datos, tratando con empates adecuadamente.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.sem.html">sem</a>(a, …)</p></td>
+<td><p>Calcula el error estándar de la media.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.skew.html">skew</a>(a, …)</p></td>
+<td><p>Calcula la asimetría de la muestra de un conjunto de datos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.tiecorrect.html">tiecorrect</a>(rankvals)</p></td>
+<td><p>Factor de corrección de empate para las pruebas de <em>Mann-Whitney U</em> y <em>Kruskal-Wallis H</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.tmax.html">tmax</a>(a, …)</p></td>
+<td><p>Calcula el máximo recortado.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.tmean.html">tmean</a>(a, …)</p></td>
+<td><p>Calcula la media recortada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.tmin.html">tmin</a>(a, …)</p></td>
+<td><p>Calcula el mínimo recortado.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.trim_mean.html">trim_mean</a>(a, proportiontocut, …)</p></td>
+<td><p>Media de la matriz después de recortar una fracción especificada de valores extremos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.tsem.html">tsem</a>(a, …)</p></td>
+<td><p>Calcula el error estándar recortado de la media.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.tstd.html">tstd</a>(a, …)</p></td>
+<td><p>Calcula la desviación estándar de la muestra recortada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.tvar.html">tvar</a>(a, …)</p></td>
+<td><p>Calcula la varianza recortada.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.variation.html">variation</a>(a, …)</p></td>
+<td><p>Calcula el coeficiente de variación.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="estadisticas-de-frecuencia">
+<h2>Estadísticas de frecuencia<a class="headerlink" href="#estadisticas-de-frecuencia" title="Link to this heading">#</a></h2>
+<p>Métodos para analizar frecuencias y tablas de contingencia.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.cumfreq.html">cumfreq</a>(a, …)</p></td>
+<td><p>Retorna un histograma de frecuencia acumulada, utilizando la función de histograma.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.percentileofscore.html">percentileofscore</a>(a, score, …)</p></td>
+<td><p>Calcula el rank de percentil de una puntuación en relación con un <code class="docutils literal notranslate"><span class="pre">list</span></code> de puntajes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.relfreq.html">relfreq</a>(a, …)</p></td>
+<td><p>Retorna un histograma de frecuencia relativa, utilizando la función de histograma.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.scoreatpercentile.html">scoreatpercentile</a>(a, per, …)</p></td>
+<td><p>Calcula la puntuación en un percentil dado de la secuencia de entrada.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="metodos-de-remuestreo-y-monte-carlo">
+<h2>Métodos de remuestreo y Monte Carlo<a class="headerlink" href="#metodos-de-remuestreo-y-monte-carlo" title="Link to this heading">#</a></h2>
+<p>Técnicas para estimar distribuciones y estadísticas mediante remuestreo y simulación.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.bootstrap.html">bootstrap</a>(data, statistic, …)</p></td>
+<td><p>Calcula un intervalo de confianza de <em>bootstrap</em> bilateral de una estadística.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.monte_carlo_test.html">monte_carlo_test</a>(data, rvs, statistic, …)</p></td>
+<td><p>Realiza una prueba de hipótesis de <em>Monte Carlo</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.permutation_test.html">permutation_test</a>(data, statistic, …)</p></td>
+<td><p>Realiza una prueba de permutación de una estadística dada sobre datos proporcionados.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.power.html">power</a>(test, rvs, n_observations, …)</p></td>
+<td><p>Simula la potencia de una prueba de hipótesis bajo una hipótesis alternativa.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="pruebas-de-asociacion-correlacion-y-regresion">
+<h2>Pruebas de asociación, correlación y regresión<a class="headerlink" href="#pruebas-de-asociacion-correlacion-y-regresion" title="Link to this heading">#</a></h2>
+<p>Métodos para evaluar la relación entre variables, como coeficientes de correlación y pruebas de independencia. Algunas de estas funciones trabajan con muestras en forma de tablas de contingencia.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.barnard_exact.html">barnard_exact</a>(table, …)</p></td>
+<td><p>Prueba exacta de <em>Barnard</em> en una tabla de contingencia 2x2.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.boschloo_exact.html">boschloo_exact</a>(table, …)</p></td>
+<td><p>Prueba exacta de <em>Boschloo</em> en una tabla de contingencia 2x2.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.chatterjeexi.html">chatterjeexi</a>(x, y, …)</p></td>
+<td><p>Calcula la correlación <em>xi</em> y realiza una prueba de independencia.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.chi2_contingency.html">chi2_contingency</a>(observed, …)</p></td>
+<td><p>Prueba de independencia de variable <em>Chi-square</em> en una tabla de contingencia.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.fisher_exact.html">fisher_exact</a>(table, …)</p></td>
+<td><p>Prueba exacta de <em>Fisher</em> en una tabla de contingencia.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.kendalltau.html">kendalltau</a>(x, y, …)</p></td>
+<td><p>Calcula la tau de Kendall, una medida de correlación para datos ordinales.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.linregress.html">linregress</a>(x, …)</p></td>
+<td><p>Calcula una regresión lineal de mínimos cuadrados para dos conjuntos de mediciones.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.multiscale_graphcorr.html">multiscale_graphcorr</a>(x, y, …)</p></td>
+<td><p>Calcula la estadística de prueba de correlación de gráficos multiescala (MGC).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.page_trend_test.html">page_trend_test</a>(data, …)</p></td>
+<td><p>Realiza la prueba de Page, una medida de tendencia en las observaciones entre tratamientos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html">pearsonr</a>(x, y, …)</p></td>
+<td><p>El coeficiente de correlación de Pearson y el p-valor para probar la no correlación.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pointbiserialr.html">pointbiserialr</a>(x, y)</p></td>
+<td><p>Calcula un coeficiente de correlación biserial puntual y su p-valor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.siegelslopes.html">siegelslopes</a>(y, …)</p></td>
+<td><p>Calcula el estimador Siegel para un conjunto de puntos (x, y).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.somersd.html">somersd</a>(x, …)</p></td>
+<td><p>Calcula la <em>D</em> de Somers, una medida asimétrica de la asociación ordinal.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.spearmanr.html">spearmanr</a>(a, …)</p></td>
+<td><p>Calcula un coeficiente de correlación de Spearman con el p-valor asociado.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.theilslopes.html">theilslopes</a>(y, …)</p></td>
+<td><p>Calcula el estimador de Theil-Sen para un conjunto de puntos <em>(x, y)</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.weightedtau.html">weightedtau</a>(x, y, …)</p></td>
+<td><p>Calcula una versión ponderada del <em>tau</em> de Kendall.</p></td>
+</tr>
+</tbody>
+</table>
+<section id="notas-de-linregress">
+<h3>Notas de <em>linregress</em><a class="headerlink" href="#notas-de-linregress" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.linregress.html">linregress</a>: Calcula una regresión lineal de mínimos cuadrados para dos conjuntos de mediciones.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+<span class="n">stats</span><span class="o">.</span><span class="n">linregress</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;two-sided&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Parámetros:</strong></p>
+<ul>
+<li><p><strong>x</strong>, <strong>y</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code>: Vectores donde está almacenado la información en sus respectivas coordenadas, deben de tener la misma longitud. Si <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">None</span></code>, entonces <em>x</em> debe de tener dos dimensiones.</p></li>
+<li><p><strong>alternative</strong> - {‘two-sided’, ‘less’, ‘greater’}: Define la hipótesis alternativa.</p></li>
+<li><p>‘two-sided’: La pendiente de la recta de regresión no es cero.</p></li>
+<li><p>‘less’: La pendiente de la recta de regresión es menor a cero.</p></li>
+<li><p>‘greater: La pendiente de la recta de regresión es mayor a cero.</p></li>
+<li></li>
+</ul>
+</li>
+<li><p><strong>Retorna:</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">LinRegressResult</span></code>. El objeto retornado tiene los siguientes atributos:</p></li>
+<li><p><em>slope</em> - <code class="docutils literal notranslate"><span class="pre">float</span></code>: Pendiente de la recta.</p></li>
+<li><p><em>intercept</em> - <code class="docutils literal notranslate"><span class="pre">float</span></code>: Intersección de la recta con el eje y.</p></li>
+<li><p><em>rvalue</em> - <code class="docutils literal notranslate"><span class="pre">float</span></code>: Coeficiente de correlación de Pearson.</p></li>
+<li><p><em>pvaue</em> - <code class="docutils literal notranslate"><span class="pre">float</span></code>: p-valor para la prueba de hipótesis.</p></li>
+<li><p><em>stderr</em> - <code class="docutils literal notranslate"><span class="pre">float</span></code>: Error estándar de la pendiente estimada.</p></li>
+<li><p><em>intercept_stderr</em> - <code class="docutils literal notranslate"><span class="pre">float</span></code>: Error estándar de la intercepción estimada.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Uso</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Usar linregress para regresión lineal</span>
+<span class="n">slope</span><span class="p">,</span> <span class="n">intercept</span><span class="p">,</span> <span class="n">r_value</span><span class="p">,</span> <span class="n">p_value</span><span class="p">,</span> <span class="n">std_err</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">linregress</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># Imprimir resultados</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Pendiente: </span><span class="si">{</span><span class="n">slope</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Intercepto: </span><span class="si">{</span><span class="n">intercept</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Valor r: </span><span class="si">{</span><span class="n">r_value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Valor p: </span><span class="si">{</span><span class="n">p_value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error estándar: </span><span class="si">{</span><span class="n">std_err</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Crear línea de regresión</span>
+<span class="n">line</span> <span class="o">=</span> <span class="n">slope</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">intercept</span>
+
+<span class="c1"># Graficar datos y regresión</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Datos&#39;</span><span class="p">)</span> <span class="c1"># Graficar datos</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">line</span><span class="p">,</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Regresión lineal&#39;</span><span class="p">)</span> <span class="c1"># Graficar regresión</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Regresión Lineal con linregress&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<br/>
+</section>
+</section>
+<section id="pruebas-de-muestras-independientes">
+<h2>Pruebas de muestras independientes<a class="headerlink" href="#pruebas-de-muestras-independientes" title="Link to this heading">#</a></h2>
+<p>Las pruebas de muestras independientes se utilizan normalmente para evaluar si se extrajeron varias muestras de forma independiente de la misma distribución o de distribuciones diferentes con una propiedad compartida. Se dividen en pruebas para dos y múltiples muestras.</p>
+<p><strong>Pruebas para dos muestras</strong></p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ansari.html">ansari</a>(x, y, …)</p></td>
+<td><p>Realiza la prueba <em>Ansari-Bradley</em> para igualdad de parámetros de escala.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.brunnermunzel.html">brunnermunzel</a>(x, y, …)</p></td>
+<td><p>Calcula la prueba <em>Brunner-Munzel</em> en las muestras <em>x</em> e <em>y</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.bws_test.html">bws_test</a>(x, y, …)</p></td>
+<td><p>Realiza la prueba <em>Baumgartner-Weiss-Schindler</em> en dos muestras independientes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.cramervonmises_2samp.html">cramervonmises_2samp</a>(x, y, …)</p></td>
+<td><p>Realiza la prueba de <em>Cramér-Von Misses</em> de dos muestras para la bondad de ajuste.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.epps_singleton_2samp.html">epps_singleton_2samp</a>(x, y, …)</p></td>
+<td><p>Calcula la estadística de prueba <em>EPPS-Singleton</em> (ES).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ks_2samp.html">ks_2samp</a>(data1, data2, …)</p></td>
+<td><p>Realiza la prueba de <em>Kolmogorov-Smirnov</em> de dos muestras para la bondad de ajuste.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.kstest.html">kstest</a>(rvs, cdf, …)</p></td>
+<td><p>Realiza la prueba de <em>Kolmogorov-Smirnov</em> (de una muestra o dos muestras) para la bondad de ajuste.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.mannwhitneyu.html">mannwhitneyu</a>(x, y, …)</p></td>
+<td><p>Realiza la prueba de rango <em>Mann-Whitney U</em> en dos muestras independientes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.mood.html">mood</a>(x, y, …)</p></td>
+<td><p>Realiza la prueba de <em>Mood</em> para igualdad de parámetros de escala.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.poisson_means_test.html">poisson_means_test</a>(k1, n1, k2, n2, …)</p></td>
+<td><p>Realiza la prueba de <em>Poisson</em> para la media, también conocido como la “E-test”.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ranksums.html">ranksums</a>(x, y, …)</p></td>
+<td><p>Calcula la estadística de suma de rango <em>Wilcoxon</em> para dos muestras.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html">ttest_ind</a>(a, b, …)</p></td>
+<td><p>Calcula la prueba t para obtener para la media de dos muestras independientes de puntajes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind_from_stats.html">ttest_ind_from_stats</a>(mean1, std1, nobs1, …)</p></td>
+<td><p>Prueba t para la media de dos muestras independientes de estadísticas descriptivas.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Pruebas para múltiples muestras</strong></p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.alexandergovern.html">alexandergovern</a>(*samples[,  nan_policy,  …])</p></td>
+<td><p>Realiza la prueba de <em>Alexander Govern</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.anderson_ksamp.html">anderson_ksamp</a>(samples[,  midrank,  method])</p></td>
+<td><p>La prueba de <em>Anderson-Darling</em> para <em>K</em> muestras.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.bartlett.html">bartlett</a>(*samples[,  axis,  nan_policy,  keepdims])</p></td>
+<td><p>Realiza la prueba de <em>Bartlett</em> para varianzas iguales.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.dunnett.html">dunnett</a>(*samples,  control[,  alternative,  rng])</p></td>
+<td><p>Prueba de <em>Dunnett</em>: comparaciones múltiples de medias contra un grupo de control.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.f_oneway.html">f_oneway</a>(*samples[,  axis,  nan_policy,  keepdims])</p></td>
+<td><p>Realiza ANOVA unidireccional.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.fligner.html">fligner</a>(*samples[,  center,  proportiontocut,  …])</p></td>
+<td><p>Realiza la prueba <em>Fligner-Killeen</em> para la igualdad de varianza.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.friedmanchisquare.html">friedmanchisquare</a>(*samples[,  axis,  …])</p></td>
+<td><p>Calcula la prueba de <em>Friedman</em> para muestras repetidas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.kruskal.html">kruskal</a>(*samples[,  nan_policy,  axis,  keepdims])</p></td>
+<td><p>Calcula la prueba <em>H</em> de <em>Kruskal-Wallis</em> para muestras independientes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.levene.html">levene</a>(*samples[,  center,  proportiontocut,  …])</p></td>
+<td><p>Realiza la prueba de <em>Levene</em> para varianzas iguales.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.median_test.html">median_test</a>(*samples[,  ties,  correction,  …])</p></td>
+<td><p>Realizar una prueba <em>Mood</em> de medias.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.tukey_hsd.html">tukey_hsd</a>(*args)</p></td>
+<td><p>Realiza la prueba de <em>HSD</em> de <em>Tukey</em> para la igualdad de medias durante múltiples tratamientos.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="pruebas-de-multiples-hipotesis-y-meta-analisis">
+<h2>Pruebas de múltiples hipótesis y meta-análisis<a class="headerlink" href="#pruebas-de-multiples-hipotesis-y-meta-analisis" title="Link to this heading">#</a></h2>
+<p>Técnicas para ajustar y combinar resultados de múltiples pruebas.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.combine_pvalues.html">combine_pvalues</a>(pvalues, …)</p></td>
+<td><p>Combine los valores <em>p</em> de las pruebas independientes que tienen la misma hipótesis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.false_discovery_control.html">false_discovery_control</a>(ps, …)</p></td>
+<td><p>Ajusta los valores <em>p</em> para controlar la tasa de descubrimiento falso.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="pruebas-de-una-muestra-y-en-pares">
+<h2>Pruebas de una muestra y en pares<a class="headerlink" href="#pruebas-de-una-muestra-y-en-pares" title="Link to this heading">#</a></h2>
+<p>Las pruebas de una muestra se utilizan normalmente para evaluar si una sola muestra se extrajo de una distribución específica o de una distribución con propiedades específicas. Las pruebas de muestras pareadas (<code class="docutils literal notranslate"><span class="pre">ttest_rel</span></code> y <code class="docutils literal notranslate"><span class="pre">wilcoxon</span></code>) se utilizan a menudo para evaluar si dos muestras se extrajeron de la misma distribución; Se diferencian de las pruebas de muestras independientes que aparecen a continuación en que cada observación de una muestra se trata como si estuviera emparejada con una observación estrechamente relacionada de la otra muestra.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.anderson.html">anderson</a>(x, …)</p></td>
+<td><p>Prueba <em>Anderson-Darling</em> para probar los datos provenientes tienen distribución particular.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.binomtest.html">binomtest</a>(k, n, …)</p></td>
+<td><p>Realiza una prueba que la probabilidad de éxito es <em>p</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.chisquare.html">chisquare</a>(f_obs, …)</p></td>
+<td><p>Realiza la prueba de <em>chi cuadrado de Pearson</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.cramervonmises.html">cramervonmises</a>(rvs, cdf, …)</p></td>
+<td><p>Realiza la prueba de una muestra de <em>Cramér-Von Mises</em> para la bondad de ajuste.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.goodness_of_fit.html">goodness_of_fit</a>(dist, data, …)</p></td>
+<td><p>Realiza una prueba de bondad de ajuste comparando datos con una familia de distribución.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.jarque_bera.html">jarque_bera</a>(x, …)</p></td>
+<td><p>Realiza la prueba de bondad de ajuste <em>Jarque-Bera</em> en datos de muestra.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ks_1samp.html">ks_1samp</a>(x, cdf, …)</p></td>
+<td><p>Realiza la prueba de <em>Kolmogorov-Smirnov</em> de una muestra para la bondad de ajuste.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.kurtosistest.html">kurtosistest</a>(a, …)</p></td>
+<td><p>Prueba si un conjunto de datos tiene curtosis de una normal.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.normaltest.html">normaltest</a>(a, …)</p></td>
+<td><p>Prueba si una muestra difiere de una distribución normal.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.power_divergence.html">power_divergence</a>(f_obs, …)</p></td>
+<td><p>Estadística de divergencia de potencia de <em>Cressie-Read</em> y prueba de bondad de ajuste.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.quantile_test.html">quantile_test</a>(x, …)</p></td>
+<td><p>Realiza una prueba de cuantil y calcula un intervalo de confianza del cuantil.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.shapiro.html">shapiro</a>(x, …)</p></td>
+<td><p>Realiza la prueba de <em>Shapiro-Wilk</em> para la normalidad.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.skewtest.html">skewtest</a>(a, …)</p></td>
+<td><p>Prueba si el sesgo es diferente de la distribución normal.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_1samp.html">ttest_1samp</a>(a, popmean, …)</p></td>
+<td><p>Calcula la prueba t para la media de un grupo de puntajes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_rel.html">ttest_rel</a>(a, b, …)</p></td>
+<td><p>Calcula la prueba y en dos muestras relacionadas de puntajes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.wilcoxon.html">wilcoxon</a>(x, …)</p></td>
+<td><p>Realiza una prueba <em>Wilcoxon</em> de <em>signed-rank</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="variables-aleatorias">
+<h2>Variables aleatorias<a class="headerlink" href="#variables-aleatorias" title="Link to this heading">#</a></h2>
+<p>Herramientas para crear y manipular variables aleatorias a partir de distribuciones.</p>
+<section id="clases">
+<h3>Clases<a class="headerlink" href="#clases" title="Link to this heading">#</a></h3>
+<p>Herramientas para crear variables aleatorias.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.Mixture.html">Mixture</a>(components, …)</p></td>
+<td><p>Representación de una distribución de mezcla.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.Normal.html">Normal</a>([mu, sigma])</p></td>
+<td><p>Distribución normal con media y desviación estándar prescrita.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.Uniform.html">Uniform</a>(…)</p></td>
+<td><p>Distribución uniforme.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<section id="normal">
+<h4>Normal<a class="headerlink" href="#normal" title="Link to this heading">#</a></h4>
+<p>Distribución normal con media y desviación estándar prescrita.</p>
+<section id="atributos">
+<h5>Atributos<a class="headerlink" href="#atributos" title="Link to this heading">#</a></h5>
+<p>Atributos de la clase <code class="docutils literal notranslate"><span class="pre">Normal</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>mu</strong></p></td>
+<td><p>Media de la distribución.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>sigma</strong></p></td>
+<td><p>Varianza de la distribución.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id2">
+<h5>Métodos<a class="headerlink" href="#id2" title="Link to this heading">#</a></h5>
+<p>Métodos de la clase <code class="docutils literal notranslate"><span class="pre">Normal</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Principales métodos</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.Normal.ccdf.html">ccdf</a>(x, …)</p></td>
+<td><p>Función de distribución acumulativa complementaria (1-cdf).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.Normal.cdf.html">cdf</a>(x, …)</p></td>
+<td><p>Función de distribución acumulativa.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.Normal.iccdf.html">iccdf</a>(p, /, …)</p></td>
+<td><p>Función de distribución acumulativa complementaria inversa.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.Normal.icdf.html">icdf</a>(p, /, …)</p></td>
+<td><p>Inversa de la función de distribución acumulada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.Normal.kurtosis.html">kurtosis</a>(…)</p></td>
+<td><p>Curtosis (cuarto momento estandarizado).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.Normal.mean.html">mean</a>(…)</p></td>
+<td><p>Media (primer momento sobre el origen).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.Normal.median.html">median</a>(…)</p></td>
+<td><p>Mediana (percentil 50).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.Normal.mode.html">mode</a>(…)</p></td>
+<td><p>Moda (valor más probable).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.Normal.moment.html">moment</a>([order, kind, method])</p></td>
+<td><p>Momento crudo, central o estándar de orden entero positivo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.Normal.pdf.html">pdf</a>(x, /, …)</p></td>
+<td><p>Función de densidad de probabilidad.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.Normal.plot.html">plot</a>([x, y, t, ax])</p></td>
+<td><p>Grafica una función de la distribución.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.Normal.sample.html">sample</a>([shape, method, rng])</p></td>
+<td><p>Muestra aleatoria de la distribución.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.Normal.skewness.html">skewness</a>(…)</p></td>
+<td><p>Asimetría (tercer momento estandarizado).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.Normal.standard_deviation.html">standard_deviation</a>(…)</p></td>
+<td><p>Desviación estándar (raíz cuadrada del segundo momento central).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.Normal.support.html">support</a>()</p></td>
+<td><p>Soporte de la variable aleatoria.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.Normal.variance.html">variance</a>(…)</p></td>
+<td><p>Varianza (segundo momento central).</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Otros métodos</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.Normal.entropy.html">entropy</a>(…)</p></td>
+<td><p>Entropía diferencial.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.Normal.ilogccdf.html">ilogccdf</a>(logp, /, …)</p></td>
+<td><p>Inversa del logaritmo de la función de distribución acumulativa complementaria.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.Normal.ilogcdf.html">ilogcdf</a>(logp, /, …)</p></td>
+<td><p>Inversa del logaritmo de la función de distribución acumulada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.Normal.logccdf.html">logccdf</a>(x, …)</p></td>
+<td><p>Logaritmo de la función de distribución acumulativa complementaria.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.Normal.logcdf.html">logcdf</a>(x, …)</p></td>
+<td><p>Logaritmo de la función de distribución acumulada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.Normal.logentropy.html">logentropy</a>(…)</p></td>
+<td><p>Logaritmo de la entropía diferencial.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.Normal.logpdf.html">logpdf</a>(x, /, …)</p></td>
+<td><p>Logatirmo de la función de densidad de probabilidad.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+</section>
+<section id="funciones">
+<h3>Funciones<a class="headerlink" href="#funciones" title="Link to this heading">#</a></h3>
+<p>Herramientas para manipular variables aleatorias a partir de distribuciones.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.abs.html">abs</a>(X, /)</p></td>
+<td><p>Valor absoluto de una variable aleatoria.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.exp.html">exp</a>(X, /)</p></td>
+<td><p>Exponencial natural de una variable aleatoria.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.log.html">log</a>(X, /)</p></td>
+<td><p>Logaritmo natural de una variable aleatoria no negativa.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.make_distribution.html">make_distribution</a>(dist)</p></td>
+<td><p>Genera una distribución continua a partir de una instancia de <code class="docutils literal notranslate"><span class="pre">rv_continuous</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.order_statistic.html">order_statistic</a>(X, /, , …)</p></td>
+<td><p>Distribución de probabilidad de una estadística de orden.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.truncate.html">truncate</a>(X, …)</p></td>
+<td><p>Truncar el soporte de una variable aleatoria.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./parts/09-scipy"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="sparse.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><em>Sparse</em></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../10-statsmodels/statsmodels-index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Statsmodels</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuciones-de-probabilidad">Distribuciones de probabilidad</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clase-rv-continuous">Clase <em>rv_continuous</em></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos">Métodos</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clase-rv-discrete">Clase <em>rv_discrete</em></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rv-discrete-methods">Métodos</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuciones-continuas">Distribuciones continuas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuciones-discretas">Distribuciones discretas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuciones-multivariadas">Distribuciones multivariadas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estadisticas-descriptivas">Estadísticas descriptivas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estadisticas-de-frecuencia">Estadísticas de frecuencia</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-remuestreo-y-monte-carlo">Métodos de remuestreo y Monte Carlo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pruebas-de-asociacion-correlacion-y-regresion">Pruebas de asociación, correlación y regresión</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-linregress">Notas de <em>linregress</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pruebas-de-muestras-independientes">Pruebas de muestras independientes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pruebas-de-multiples-hipotesis-y-meta-analisis">Pruebas de múltiples hipótesis y meta-análisis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pruebas-de-una-muestra-y-en-pares">Pruebas de una muestra y en pares</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-aleatorias">Variables aleatorias</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clases">Clases</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#normal">Normal</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos">Atributos</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Métodos</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones">Funciones</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nebok
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

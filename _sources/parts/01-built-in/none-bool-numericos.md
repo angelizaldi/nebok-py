@@ -30,7 +30,7 @@ Para más información visitar la documentación de Python:
 x is None
 
 # Verificar que variable no sea un valor nulo
-x not is None
+x is not None
 ```
 
 <br>

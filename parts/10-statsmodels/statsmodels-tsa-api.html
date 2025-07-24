@@ -1,0 +1,2027 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>API de Series de Tiempo &#8212; Manual de Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'parts/10-statsmodels/statsmodels-tsa-api';</script>
+    <link rel="icon" href="../../_static/nebok-favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="API de Fórmulas" href="statsmodels-formula-api.html" />
+    <link rel="prev" title="API Principal" href="statsmodels-api.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/nebok-logo.png" class="logo__image only-light" alt="Manual de Python - Home"/>
+    <script>document.write(`<img src="../../_static/nebok-logo.png" class="logo__image only-dark" alt="Manual de Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Manual de C
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Built-in</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01-built-in/built-in-index.html">Python Estándar</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/cli.html"><em>Command Line Interface</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/ayuda.html">Obtener ayuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/comentarios.html">Comentarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/tipos-datos.html">Tipos de Datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/variables-constantes.html">Variables y Constantes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/operadores-palabras.html">Operadores y palabras reservadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/entrada-salida.html">Impresión y solicitud de datos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/tipos-index.html">Tipos Built-In</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/none-bool-numericos.html"><em>None</em>, <em>bool</em> y Numéricos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/str.html">str</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/lists.html">list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/tuples.html">Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/sets.html">Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/dicts.html">dict</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/if-else.html">If … Else</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/for-loop.html">For Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/do-while.html">Do While</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/udf.html">Funciones (UDF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/exceptions.html">Excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/context-managers.html">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/io.html">Lectura y escritura de archivos (IO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/modulos.html">Paquetes y Módulos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/avanzado-index.html">Temas avanzados</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/decorators.html">Decorators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/iterators.html">Iterators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/generators.html">Generators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/oop.html">Programación orientada a objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/func-built-in.html">Funciones built-in</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-modulos/modulos-index.html">Módulos built-in</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/csv.html">CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/datetime.html">Datetime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/itertools.html">Itertools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/json.html">JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/math.html">Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os.html">Os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os-path.html">Os.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/pickle.html">Pickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/random.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/regex.html">Regex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/statistics.html">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/urllib-request.html">urllib.request</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otras librerías</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-numpy/numpy-index.html">Numpy</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/arrays.html">Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../03-numpy/funciones-index.html">Funciones</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/ufuncs.html">Ufuncs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/buscar-contar-ordenar-unicos.html">Buscar, contar, ordenar y valores únicos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/creacion-arrays.html">Creación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/estadisticas.html">Estadísticas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/indices.html">Índices e iteración</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/informacion.html">Información</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/lectura-escritura.html">Lectura y escritura de datos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/manipulacion-arrays.html">Manipulación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/matematicas-numericas.html">Matemáticas y numéricas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/operadores.html">Operadores</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/algebra-lineal.html">Módulo linalg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/cadenas.html">Modulo char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/random.html">Módulo random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/patrones-numpy.html">Patrones útiles</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04-pandas/pandas-index.html">Pandas</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/index.html">Index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/series.html">Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/dataframe.html">DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/escalares-arrays.html">Escalares y Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../04-pandas/otras-clases.html">Otras clases</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/groupby.html">GroupBy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/expanding-rolling-window.html"><em>Expanding, Rolling</em> y <em>Window</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/resampler.html">Resampler</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/funciones.html">Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/patrones-pandas.html">Patrones útiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05-matplotlib/matplotlib-index.html">Matplotlib</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/pyplot.html">Pyplot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/figure.html">Figure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/axes.html">Axes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/otros.html">Otras Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06-seaborn/seaborn-index.html">Seaborn</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06-seaborn/funciones-clases.html">Funciones y Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-seaborn/objects-interface.html">Interface por objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../07-sklearn/sklearn-index.html">Scikit Learn</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/supervised/supervised-index.html">Aprendizaje supervisado</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/ensamble.html">Ensamble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/linear_model.html">Linear model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/naive_bayes.html">Naive bayes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/neighbors.html">Neighbors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/svm.html">SVM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/tree.html">Tree</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/unsupervised/unsupervised-index.html">Aprendizaje no supervisado</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/unsupervised/cluster.html">Cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/unsupervised/decomposition.html">Decomposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/unsupervised/mixture.html">Mixture</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/transformations/tranformations-index.html">Transformaciones</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/feature_extraction.html">Feature Extraction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/impute.html">Impute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/manifold.html">Manifold</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/preprocessing.html">Preprocessing</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/evaluation/evaluation-index.html">Evaluación y selección del modelo</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/dummy.html">Dummy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/feature_selection.html">Feature Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/metrics.html">Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/model_selection.html">Model Selection</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/pipelines-and-compose/pipeline-compose-index.html">Pipelines y Modelos Compuestos</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/pipelines-and-compose/compose.html">Compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/pipelines-and-compose/pipeline.html">Pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../07-sklearn/datasets.html">Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-sklearn/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-xgboost/xgboost-index.html">XGBoost</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08-xgboost/core-data-structure.html">Core Data Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-xgboost/learning-api.html">Learning API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-xgboost/scikit-learn-api.html">Scikit-Learn API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-xgboost/plotting-api.html">Plotting API</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../09-scipy/scipy-index.html">Scipy</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/clusters.html">Clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/derivacion-integracion.html">Derivación e Integración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/linalg.html">Linear Algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/sparse.html"><em>Sparse</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/stats.html">Stats</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="statsmodels-index.html">Statsmodels</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="statsmodels-api.html">API Principal</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">API de Series de Tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="statsmodels-formula-api.html">API de Fórmulas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphics.html">Gráficos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otras-clases.html">Otras clases</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../11-bokeh/bokeh-index.html">Bokeh</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/io.html">IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/layouts.html"><em>Layouts</em></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../11-bokeh/models/models-index.html"><em>Models</em></a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/annotations.html">Anotaciones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/axes.html">Ejes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/callbacks.html">Callbacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/formatters.html"><em>Formatters</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/glyphs.html"><em>Glyphs</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/sources.html"><em>Sources</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/tools.html"><em>Tools</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/widgets.html"><em>Widgets</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/plotting.html">Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/transform.html">transform</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../12-plotly/plotly-index.html">Plotly</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/express.html"><em>Express</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/figure-factory.html"><em>Figure Factory</em></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../12-plotly/go/go-index.html"><em>Graph Objects</em></a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../12-plotly/go/figure.html"><em>Figure</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../12-plotly/go/layout.html"><em>Layout</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../12-plotly/go/traces.html">Traces</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/io.html">IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/subplots.html">Subplots</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/beautifulsoup.html">BeautifulSoup</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Complementarios</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../appendix/appendix-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/IPython.html">IPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/jupyter.html">Jupyter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/pip.html">pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/conda.html"><em>conda</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/git.html">git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/shell.html">Shell</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/parts/10-statsmodels/statsmodels-tsa-api.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>API de Series de Tiempo</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#suavizado-exponencial">Suavizado Exponencial</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtros-y-descomposiciones">Filtros y Descomposiciones</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-seasonal-decompose">Notas de <em>seasonal_decompose</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forecasting">Forecasting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-de-cambio-de-regimen-de-markov">Modelos de Cambio de Régimen de Markov</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-de-series-temporales-multivariadas">Modelos de Series Temporales Multivariadas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estadisticas-y-pruebas">Estadísticas y Pruebas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-acf">Notas de <em>acf</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-adfuller">Notas de <em>adfuller</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#herramientas-de-series-temporales">Herramientas de Series Temporales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-series-temporales-univariadas">Análisis de Series Temporales Univariadas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clases">Clases</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#arima">ARIMA</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#uso">Uso</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos">Atributos</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos">Métodos</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#armaprocess">ArmaProcess</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Uso</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades">Propiedades</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Métodos</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sarimax">SARIMAX</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Uso</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Propiedades</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Métodos</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones">Funciones</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-arma-generate-sample">Notas de <em>arma_generate_sample</em></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interfaz-x12-x13">Interfaz X12/X13</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="api-de-series-de-tiempo">
+<h1>API de Series de Tiempo<a class="headerlink" href="#api-de-series-de-tiempo" title="Link to this heading">#</a></h1>
+<p>Especializada en modelos y análisis de series temporales. Entre las funcionalidades principales están:</p>
+<ul class="simple">
+<li><p>Modelos <em>ARIMA</em> y SARIMAX.</p></li>
+<li><p>Descomposición de series temporales (tendencia, estacionalidad, residuos).</p></li>
+<li><p>Pruebas de estacionariedad (ADF, KPSS).</p></li>
+<li><p>Modelos de volatilidad (GARCH, ARCH).</p></li>
+</ul>
+<p>Es necesario importar el módulo:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar api</span>
+<span class="kn">import</span> <span class="nn">statsmodels.tsa.api</span> <span class="k">as</span> <span class="nn">sm</span>
+
+<span class="c1"># Importar clase específica</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa.api</span> <span class="kn">import</span> <span class="n">ClassName</span>
+
+<span class="c1"># Importar función específica</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa.api</span> <span class="kn">import</span> <span class="n">func_name</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><em>sm</em> es el nombre por convención.</p></li>
+<li><p><em>ClassName</em> o <em>func_name</em> es el nombre de la clase o función respectivamente.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Para más información visitar la <a class="reference external" href="https://www.statsmodels.org/stable/api.html#statsmodels-tsa-api">documentación</a> de <em>statsmodels</em>.</p>
+</div>
+<p>A continuación se presenta un resumen de cada una de las secciones:</p>
+<ul class="simple">
+<li><p><strong>Suavizado Exponencial</strong>: Técnicas para suavizar series temporales, como el modelo de Holt-Winters, útiles para pronósticos a corto plazo.</p></li>
+<li><p><strong>Filtros y Descomposiciones</strong>: Métodos para descomponer series temporales en tendencia, estacionalidad y residuos, como el filtro Hodrick-Prescott.</p></li>
+<li><p><strong>Pronósticos (Forecasting)</strong>: Herramientas para predecir valores futuros en series temporales.</p></li>
+<li><p><strong>Modelos de Cambio de Régimen de Markov</strong>: Modelos que capturan cambios en el comportamiento de una serie temporal a lo largo del tiempo, como cambios en la media o varianza.</p></li>
+<li><p><strong>Modelos de Series Temporales Multivariadas</strong>: Técnicas para analizar múltiples series temporales relacionadas, como modelos VAR (Vector Autoregression).</p></li>
+<li><p><strong>Estadísticas y Pruebas (Statistics and Tests)</strong>: Pruebas para evaluar propiedades de series temporales, como estacionariedad (ADF, KPSS) o autocorrelación.</p></li>
+<li><p><strong>Herramientas de Series Temporales (Time-Series Tools)</strong>: Funciones auxiliares para manipulación y análisis de series temporales.</p></li>
+<li><p><strong>Análisis de Series Temporales Univariadas (Univariate Time-Series Analysis)</strong>: Métodos para modelar y analizar series temporales individuales, como <em>AR</em>, <em>MA</em> y <em>ARIMA</em>.</p></li>
+<li><p><strong>Interfaz X12/X13 (X12/X13 Interface)</strong>: Integración con el software <em>X-12-ARIMA</em> y <em>X-13ARIMA-SEATS</em> para descomposición avanzada de series temporales.</p></li>
+</ul>
+<br/>
+<section id="suavizado-exponencial">
+<h2>Suavizado Exponencial<a class="headerlink" href="#suavizado-exponencial" title="Link to this heading">#</a></h2>
+<p>Técnicas para suavizar series temporales, como el modelo de Holt-Winters, útiles para pronósticos a corto plazo.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Notar que todas son clases.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Constructor</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.exponential_smoothing.ets.ETSModel.html">ETSModel</a>(endog, …)</p></td>
+<td><p>Modelos ETS.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.exponential_smoothing.ExponentialSmoothing.html">ExponentialSmoothing</a>(endog, …)</p></td>
+<td><p>Modelos de suavizado exponencial lineal.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.holtwinters.ExponentialSmoothing.html">ExponentialSmoothing</a>(endog, …)</p></td>
+<td><p>Alisado exponencial de <em>Holt Winter</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.holtwinters.Holt.html">Holt</a>(endog, …)</p></td>
+<td><p>El suavizado exponencial de <em>Holt</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.holtwinters.SimpleExpSmoothing.html">SimpleExpSmoothing</a>(endog, …)</p></td>
+<td><p>Suavizado exponencial simple.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="filtros-y-descomposiciones">
+<h2>Filtros y Descomposiciones<a class="headerlink" href="#filtros-y-descomposiciones" title="Link to this heading">#</a></h2>
+<p>Métodos para descomponer series temporales en tendencia, estacionalidad y residuos, como el filtro <em>Hodrick-Prescott</em>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Constructor/Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.seasonal.MSTL.html">MSTL</a>(endog, …)</p></td>
+<td><p>Descomposición de tendencia de la estacionalidad usando <em>LOESS</em> para múltiples estacionalidades.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.seasonal.STL.html">STL</a>(endog, …)</p></td>
+<td><p>Descomposición de tendencia de la estacionalidad usando <em>LOESS</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.filters.bk_filter.bkfilter.html">bkfilter</a>(x, …)</p></td>
+<td><p>Filtra una serie temporal utilizando el filtro <em>bandpass</em> <em>Baxter-King</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.filters.cf_filter.cffilter.html">cffilter</a>(x, …)</p></td>
+<td><p>Filtro asimétrico de caminata aleatoria de <em>Christiano Fitzgerald</em> Asimétrico.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.filters.hp_filter.hpfilter.html">hpfilter</a>(x, …)</p></td>
+<td><p>Filtro <em>Hodrick-Prescott</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.seasonal.seasonal_decompose.html">seasonal_decompose</a>(x, …)</p></td>
+<td><p>Descomposición estacional utilizando promedios móviles.</p></td>
+</tr>
+</tbody>
+</table>
+<section id="notas-de-seasonal-decompose">
+<h3>Notas de <em>seasonal_decompose</em><a class="headerlink" href="#notas-de-seasonal-decompose" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.seasonal.seasonal_decompose.html">seasonal_decompose</a>: Descomposición estacional utilizando promedios móviles.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+<span class="n">seasonal_decompose</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">&#39;additive&#39;</span><span class="p">,</span> <span class="n">filt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">two_sided</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">extrapolate_trend</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Parámetros:</strong></p>
+<ul>
+<li><p><strong>x</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code>: La serie de tiempo, debe de contener dos cíclos completos. Si es 2D entonces cada serie debe estar en las columnas.</p></li>
+<li><p><strong>period</strong> - <code class="docutils literal notranslate"><span class="pre">int</span></code>: Se debe de utilizar si <em>x</em> no es un objeto de <code class="docutils literal notranslate"><span class="pre">pandas</span></code> o si el índice de <em>x</em> no tiene una frecuencia. Si <em>x</em> tiene un <code class="docutils literal notranslate"><span class="pre">Index</span></code> de tiempo, entonces se sobreescribe la periocidad por default.</p></li>
+</ul>
+</li>
+<li><p><strong>Retorna:</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">DecomposeResult</span></code>. Ver {ref}``</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Uso</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importaciones de funciones</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa.seasonal</span> <span class="kn">import</span> <span class="n">seasonal_decompose</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Aplicar descomposición estacional (modelo aditivo por defecto)</span>
+<span class="n">decomposition</span> <span class="o">=</span> <span class="n">seasonal_decompose</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span> <span class="c1"># Periodo estacional = 12 (mensual)</span>
+
+<span class="c1"># Obtener componentes</span>
+<span class="n">trend</span> <span class="o">=</span> <span class="n">decomposition</span><span class="o">.</span><span class="n">trend</span>
+<span class="n">seasonal</span> <span class="o">=</span> <span class="n">decomposition</span><span class="o">.</span><span class="n">seasonal</span>
+<span class="n">residual</span> <span class="o">=</span> <span class="n">decomposition</span><span class="o">.</span><span class="n">resid</span>
+
+<span class="c1"># Graficar todos los componentes</span>
+<span class="n">decomposition</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">decomposition</span><span class="p">)</span>
+
+<span class="c1"># Graficar serie original</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">411</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Original&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+
+<span class="c1"># Graficar componente de tendencia</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">412</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">trend</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Tendencia&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+
+<span class="c1"># Graficar componente estacional</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">413</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">seasonal</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Estacionalidad&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+
+<span class="c1"># Graficar componente residual</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">414</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">residual</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Residuo&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<br/>
+</section>
+</section>
+<section id="forecasting">
+<h2>Forecasting<a class="headerlink" href="#forecasting" title="Link to this heading">#</a></h2>
+<p>Herramientas para predecir valores futuros en series temporales.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Notar que todas son clases.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Constructor</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.forecasting.stl.STLForecast.html">STLForecast</a>(endog, model, …)</p></td>
+<td><p>Pronóstico basado en modelos utilizando <em>STL</em> para eliminar la estacionalidad.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.forecasting.theta.ThetaModel.html">ThetaModel</a>(endog, …)</p></td>
+<td><p>El modelo de pronóstico <em>Theta</em> de <em>Assimakopoulos y Nikolopoulos (2000)</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="modelos-de-cambio-de-regimen-de-markov">
+<h2>Modelos de Cambio de Régimen de Markov<a class="headerlink" href="#modelos-de-cambio-de-regimen-de-markov" title="Link to this heading">#</a></h2>
+<p>Modelos que capturan cambios en el comportamiento de una serie temporal a lo largo del tiempo, como cambios en la media o varianza.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Notar que todas son clases.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Constructor</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.regime_switching.markov_autoregression.MarkovAutoregression.html">MarkovAutoregression</a>(endog, k_regimes, order)</p></td>
+<td><p>Modelo de regresión de conmutación de Markov.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.regime_switching.markov_regression.MarkovRegression.html">MarkovRegression</a>(endog, k_regimes, …)</p></td>
+<td><p>Modelo de regresión de conmutación Markov K-Regime de primer orden.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="modelos-de-series-temporales-multivariadas">
+<h2>Modelos de Series Temporales Multivariadas<a class="headerlink" href="#modelos-de-series-temporales-multivariadas" title="Link to this heading">#</a></h2>
+<p>Técnicas para analizar múltiples series temporales relacionadas, como modelos VAR (Vector Autoregression).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Notar que todas son clases.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Constructor</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.dynamic_factor.DynamicFactor.html">DynamicFactor</a>(endog, k_factors, factor_order)</p></td>
+<td><p>Modelo de factor dinámico.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.dynamic_factor_mq.DynamicFactorMQ.html">DynamicFactorMQ</a>(endog, …)</p></td>
+<td><p>Modelo de factor dinámico con algoritmo EM; Opción para datos mensuales/trimestrales.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.vector_ar.svar_model.SVAR.html">SVAR</a>(endog, svar_type, …)</p></td>
+<td><p>Ajusta de VAR y luego estimA los componentes estructurales de A y B.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.structural.UnobservedComponents.html">UnobservedComponents</a>(endog, …)</p></td>
+<td><p>Modelo de series de tiempo de componentes no observados univariados.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.vector_ar.var_model.VAR.html">VAR</a>(endog, …)</p></td>
+<td><p>Ajusta <em>Var(P)</em> y realiza la selección de orden de desfases.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.varmax.VARMAX.html">VARMAX</a>(endog, …)</p></td>
+<td><p>Promedio móvil vectorial autorregresivo con modelo de regresores exógenos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.vector_ar.vecm.VECM.html">VECM</a>(endog, …)</p></td>
+<td><p>Clase que representa un modelo de corrección de errores vectoriales (VECM).</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="estadisticas-y-pruebas">
+<h2>Estadísticas y Pruebas<a class="headerlink" href="#estadisticas-y-pruebas" title="Link to this heading">#</a></h2>
+<p>Pruebas para evaluar propiedades de series temporales, como estacionariedad (ADF, KPSS) o autocorrelación.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.stattools.acf.html">acf</a>(x, …)</p></td>
+<td><p>Calcula la función de autocorrelación.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.stattools.acovf.html">acovf</a>(x, …)</p></td>
+<td><p>Estima las autocovariaciones.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.stattools.adfuller.html">adfuller</a>(x, …)</p></td>
+<td><p>Prueba de raíz de la unidad <em>Dickey-Fuller</em> aumentada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.stattools.bds.html">bds</a>(x, …)</p></td>
+<td><p>Estadística de prueba de <em>BDS</em> para la independencia de una serie de tiempo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.stattools.ccf.html">ccf</a>(x, y, …)</p></td>
+<td><p>La función de correlación cruzada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.stattools.ccovf.html">ccovf</a>(x, y, …)</p></td>
+<td><p>Calcula la covarianza cruzada entre dos series.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.stattools.coint.html">coint</a>(y0, y1, …)</p></td>
+<td><p>Prueba para la no cointegración de una ecuación univariada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.stattools.kpss.html">kpss</a>(x, …)</p></td>
+<td><p>Prueba <em>Kwiatkowski-Phillips-Schmidt-Shin</em> para estacionariedad.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.stattools.pacf.html">pacf</a>(x, …)</p></td>
+<td><p>Estimación parcial de autocorrelación.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.stattools.pacf_ols.html">pacf_ols</a>(x, …)</p></td>
+<td><p>Calcula las autocorrelaciones parciales a través de <em>OLS</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.stattools.pacf_yw.html">pacf_yw</a>(x, …)</p></td>
+<td><p>Autocorrelación parcial estimada con <em>Yule_walker</em> no recursivo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.stattools.q_stat.html">q_stat</a>(x, nobs)</p></td>
+<td><p>Calcula la estadística de <em>Ljung-Box Q</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.stattools.range_unit_root_test.html">range_unit_root_test</a>(x, …)</p></td>
+<td><p>Prueba de raíz unitaria de rango para estacionariedad.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.stattools.zivot_andrews.html">zivot_andrews</a>()</p></td>
+<td><p>Prueba de raíz de ruptura estructural de <em>Zivot-Andrews</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<br>
+<section id="notas-de-acf">
+<h3>Notas de <em>acf</em><a class="headerlink" href="#notas-de-acf" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.stattools.acf.html">acf</a>: Calcula los valores de la función de autocorrelación (las correlaciones en cada desfase).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+<span class="n">acf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">adjusted</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">nlags</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">qstat</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">fft</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bartlett_confint</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">missing</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Parámetros:</strong></p>
+<ul>
+<li><p><strong>x</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code>: Array de valores de la serie de tiempo.</p></li>
+</ul>
+</li>
+<li><p><strong>Retorna:</strong></p>
+<ul>
+<li><p><em>acf</em> - <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>.</p></li>
+<li><p><em>confint</em> - <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> si <code class="docutils literal notranslate"><span class="pre">alpha</span> <span class="pre">=</span> <span class="pre">None</span></code>.</p></li>
+<li><p>qstat - <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> si <code class="docutils literal notranslate"><span class="pre">qstat</span> <span class="pre">=</span> <span class="pre">True</span></code>.</p></li>
+<li><p>pvalues - <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> si <code class="docutils literal notranslate"><span class="pre">qstat</span> <span class="pre">=</span> <span class="pre">True</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+<br>
+</section>
+<section id="notas-de-adfuller">
+<h3>Notas de <em>adfuller</em><a class="headerlink" href="#notas-de-adfuller" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.stattools.adfuller.html">adfuller</a>: Realiza una prueba de Dickey-Fuller aumentada (ADF) que es una prueba de raíz unitaria para una muestra de una serie de tiempo. La hipótesis nula es que la serie es una camina aleatoria (no estacionaria). También se puede usar para probar que una serie sea estacionaria, siendo la hipótesis nula que la serie de tiempo no es estacionaria, aunque en este caso la prueba no verifica la que la varianza ni que la autocorrelacioón sean constantes.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+<span class="n">adfuller</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">maxlag</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">regression</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="n">autolag</span><span class="o">=</span><span class="s1">&#39;AIC&#39;</span><span class="p">,</span> <span class="n">store</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">regresults</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Parámetros:</strong></p>
+<ul>
+<li><p><strong>x</strong> - <code class="docutils literal notranslate"><span class="pre">1D</span> <span class="pre">array-like</span></code>: Los datos de la serie.</p></li>
+<li><p><strong>Tip</strong>: Para imprimir todos los resultados imprimir todo el objeto donde se almacenó los resultados de esta función.</p></li>
+</ul>
+</li>
+<li><p><strong>Retorna:</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">tuple</span></code>:</p>
+<ul>
+<li><p><em>adf</em> - <code class="docutils literal notranslate"><span class="pre">float</span></code>: Estadístico de prueba, entre más negativo más probable que no sea una caminata aleatoria (sea estacionaria).</p></li>
+<li><p><em>pvalue</em> - <code class="docutils literal notranslate"><span class="pre">float</span></code>: Si el valor <em>p</em> es 0.05 o menor entonces se puede rechazar la hipótesis nula (el valor <em>p</em> es el segundo elemento de la tupla retornada).</p></li>
+<li><p><em>usedlag</em> - <code class="docutils literal notranslate"><span class="pre">int</span></code></p></li>
+<li><p><em>nobs</em> - <code class="docutils literal notranslate"><span class="pre">int</span></code></p></li>
+<li><p><em>critical_values</em> - <code class="docutils literal notranslate"><span class="pre">dict</span></code></p></li>
+<li><p><em>icbest</em> - <code class="docutils literal notranslate"><span class="pre">float</span></code></p></li>
+<li><p><em>resstore</em> - <code class="docutils literal notranslate"><span class="pre">ResultStore</span></code></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<br/>
+</section>
+</section>
+<section id="herramientas-de-series-temporales">
+<h2>Herramientas de Series Temporales<a class="headerlink" href="#herramientas-de-series-temporales" title="Link to this heading">#</a></h2>
+<p>Funciones auxiliares para manipulación y análisis de series temporales.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Constructor/Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.deterministic.DeterministicProcess.html">DeterministicProcess</a>(index, …)</p></td>
+<td><p>Clase de contenedor para términos deterministas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.tsatools.add_lag.html">add_lag</a>(x, …)</p></td>
+<td><p>Retorna un arreglo con los desfases incluidos dados.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.tsatools.add_trend.html">add_trend</a>(x, …)</p></td>
+<td><p>Agrega una tendencia y/o constante a un arreglo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.tsatools.detrend.html">detrend</a>(x, …)</p></td>
+<td><p>Elima la tendencia de un arreglo con una tendencia de orden dado a lo largo del eje 0 o 1.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.tsatools.lagmat.html">lagmat</a>(x, maxlag, …)</p></td>
+<td><p>Crea matriz de desfases.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.tsatools.lagmat2ds.html">lagmat2ds</a>(x, maxlag0, …)</p></td>
+<td><p>Genera <em>lagmatrix</em> para la matriz 2D, columnas dispuestas como variables.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="analisis-de-series-temporales-univariadas">
+<h2>Análisis de Series Temporales Univariadas<a class="headerlink" href="#analisis-de-series-temporales-univariadas" title="Link to this heading">#</a></h2>
+<p>Métodos para modelar y analizar series temporales individuales, como AR, MA y <em>ARIMA</em>.</p>
+<section id="clases">
+<h3>Clases<a class="headerlink" href="#clases" title="Link to this heading">#</a></h3>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.ardl.ARDL.html">ARDL</a>(endog, lags, …)</p></td>
+<td><p>Ajusta un modelo de desfase distribuido autorregresivo (ARDL).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.html">ARIMA</a>(endog, …)</p></td>
+<td><p>Ajusta un modelo de promedio móvil integrado autorregresivo (ARIMA) y extensiones.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima_process.ArmaProcess.html">ArmaProcess</a>(…)</p></td>
+<td><p>Propiedades teóricas de un proceso <em>ARMA</em> para polinomios de desfase especificados.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.ar_model.AutoReg.html">AutoReg</a>(endog, lags, …)</p></td>
+<td><p>Ajusta un modelo AR-X(P) autorregresivo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.html">SARIMAX</a>(endog, …)</p></td>
+<td><p>Promedio móvil integrado autorregresivo estacional con modelo de regresores exógenos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.ardl.UECM.html">UECM</a>(endog, lags, …)</p></td>
+<td><p>Ajusta un modelo de correlación de error sin restricciones (UECM).</p></td>
+</tr>
+</tbody>
+</table>
+<section id="arima">
+<h4>ARIMA<a class="headerlink" href="#arima" title="Link to this heading">#</a></h4>
+<p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.html">ARIMA</a>: Ajusta un modelo autoregresivo integrado de media móvil (por sus siglas en inglés ). Es la interface básica para los modelos de tipo <em>ARIMA</em>. La forma más general del modelo es <em>SARIMAX(p, d, q)x(P, D, Q, s)</em>. Permite todos las casos especiales:</p>
+<ul class="simple">
+<li><p>autoregressive models: <em>AR(p)</em></p></li>
+<li><p>moving average models: <em>MA(q)</em></p></li>
+<li><p>mixed autoregressive moving average models: <em>ARMA(p, q)</em></p></li>
+<li><p>integration models: <em>ARIMA(p, d, q)</em></p></li>
+<li><p>seasonal models: <em>SARIMA(P, D, Q, s)</em></p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+<span class="n">ARIMA</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">seasonal_order</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">trend</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+      <span class="n">enforce_stationarity</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">enforce_invertibility</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">concentrate_scale</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+      <span class="n">trend_offset</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">dates</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">validate_specification</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong>
+- <strong>endog</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code>: El proceso de series de tiempo <em>y</em> observado.
+- <strong>exog</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code>: Variable de regresión exógena. Las variables exógenas son variables independientes de las endógenas pero que guardan cierta relación con ellas, es decir, pueden influir en ellas. Por ejemplo, se tiene una serie de tiempo de productividad, y se tiene una variable exógena de horas de sueño. Idóneameante solo se deben de considerar las variables exógenas relevantes, en caso de que haya, cuidando la multicolinealidad y se deben de tener los valores futuros de esa variable para poder hacer pronósticos.
+- <strong>order</strong> - <code class="docutils literal notranslate"><span class="pre">tuple</span></code> de <code class="docutils literal notranslate"><span class="pre">int:</span> <span class="pre">[0,</span> <span class="pre">∞)</span></code>: El orden <em>(p, d, q)</em> del modelo para los componentes de autogresión (<em>AR</em>), desfases y y media móvil (<em>MA</em>). <em>d</em> siempre es <code class="docutils literal notranslate"><span class="pre">int</span></code> positivo o cero, mientras que <em>p</em> y <em>q</em> pueden ser <code class="docutils literal notranslate"><span class="pre">int</span></code> o <code class="docutils literal notranslate"><span class="pre">list</span></code> de <code class="docutils literal notranslate"><span class="pre">int</span></code> (positivos o cero). Notar que esto establece el orden del modelo, y no tiene nada que ver con los coeficientes <span class="math notranslate nohighlight">\(\phi\)</span> o <span class="math notranslate nohighlight">\(\theta\)</span>. Para omitir un componente simplemente utilizar un cero como valor.
+- <strong>seasonal_order</strong> - <code class="docutils literal notranslate"><span class="pre">tuple</span></code>: El orden <em>(P, D, Q, S)</em> del modelo para los componentes estacionales. <em>D</em> es <code class="docutils literal notranslate"><span class="pre">int</span></code> indica la orden del proceso integrado. <em>P</em> y <em>Q</em> pueden ser <code class="docutils literal notranslate"><span class="pre">int</span></code> que indican la órden de los modelos <em>MA</em> y <em>AR</em> o <code class="docutils literal notranslate"><span class="pre">iterable</span></code> que indican desfases específicos a incluir, <em>S</em> es <code class="docutils literal notranslate"><span class="pre">int</span></code> e indica la periocidad, por ejemplo 12 para cada mes, 4 para cada trimestres, etc.
+- <strong>trend</strong> - {‘n’,’c’,’t’,’ct’} o <code class="docutils literal notranslate"><span class="pre">list-like</span></code>: Parámetros que controla la tendencia determnística polinomial.
+- <em>n</em>: No incluir un componete de tendencia.
+- <em>c</em>: Constante (componente de grado cero del polinomio). Importante cuando la serie no está alrededor del cero.
+- <em>t</em>: Tendencia lineal con el tiempo.
+- <em>ct</em>: Los dos anteriores.
+- Se puede indicar las constante de los polinomios, en orden ascendente <code class="docutils literal notranslate"><span class="pre">a,</span> <span class="pre">bt,</span> <span class="pre">ct2,</span> <span class="pre">...</span></code> (no agegar la variable, solo la constante).
+<strong>Retorna:</strong>
+- <code class="docutils literal notranslate"><span class="pre">ARIMAResults</span></code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>El objeto retornado por el método <code class="docutils literal notranslate"><span class="pre">.fit</span></code> tiene varios atributos y métodos útiles. Ver <a class="reference internal" href="otras-clases.html#others-arimaresults"><span class="std std-ref">ArimaResults/SARIMAXResults</span></a>. Entre los más importantes están:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMAResults.summary.html">.summary()</a>: Resumen el modelo.</p></li>
+<li><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMAResults.get_forecast.html">.get_forecast</a>: Pronósticos fuera de la muestra e intervalos de predicción.</p></li>
+<li><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMAResults.get_prediction.html">.get_prediction</a>: Predicción en la muestra y pronóstico fuera de la muestra.</p></li>
+<li><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMAResults.plot_diagnostics.html">.plot_diagnostics</a>: Gráficos de diagnóstico para residuos estandarizados de una variable endógena.</p></li>
+<li><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMAResults.aic.html">.params</a>: Parámetros del modelo.</p></li>
+<li><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMAResults.aic.html">.aic</a>: Criterio de información de Akaike.</p></li>
+<li><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMAResults.bic.html">.bic</a>: Criterio de información de Bayes.</p></li>
+</ul>
+</div>
+<section id="uso">
+<h5>Uso<a class="headerlink" href="#uso" title="Link to this heading">#</a></h5>
+<p>Uso básico de la clase <code class="docutils literal notranslate"><span class="pre">ARIMA</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar clase ARIMA  </span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa.arima.model</span> <span class="kn">import</span> <span class="n">ARIMA</span>  
+
+<span class="c1"># ==============================================  </span>
+<span class="c1"># 1. Modelo ARMA(p, q) (sin diferenciación, d=0)  </span>
+
+<span class="c1"># Crear y ajustar modelo ARMA(1,1)  </span>
+<span class="n">modelo_arma</span> <span class="o">=</span> <span class="n">ARIMA</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>  <span class="c1"># AR(1) + MA(1)  </span>
+<span class="n">resultados_arma</span> <span class="o">=</span> <span class="n">modelo_arma</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>  
+
+<span class="c1"># Resumen del modelo ARMA  </span>
+<span class="nb">print</span><span class="p">(</span><span class="n">resultados_arma</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>  
+
+<span class="c1"># Predecir siguientes 3 valores  </span>
+<span class="n">pred_arma</span> <span class="o">=</span> <span class="n">resultados_arma</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>  
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Predicción ARMA(1,1):&quot;</span><span class="p">,</span> <span class="n">pred_arma</span><span class="o">.</span><span class="n">predicted_mean</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Intervalos de confianza ARMA(1,1):&quot;</span><span class="p">,</span> <span class="n">pred_arma</span><span class="o">.</span><span class="n">conf_int</span><span class="p">())</span>
+
+<span class="c1"># Predecir las ultima 5 observaciones</span>
+<span class="n">pred_in_arma</span> <span class="o">=</span> <span class="n">resultados_arma</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span><span class="n">start</span><span class="o">=-</span><span class="mi">5</span><span class="p">)</span>  
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Predicción ARMA(1,1):&quot;</span><span class="p">,</span> <span class="n">pred_in_arma</span><span class="o">.</span><span class="n">predicted_mean</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Intervalos de confianza ARMA(1,1):&quot;</span><span class="p">,</span> <span class="n">pred_in_arma</span><span class="o">.</span><span class="n">conf_int</span><span class="p">())</span>
+
+<span class="c1"># ==============================================  </span>
+<span class="c1"># 2. Modelo ARIMA(p, d, q) (con diferenciación)  </span>
+
+<span class="c1"># Crear y ajustar modelo ARIMA(1,1,1)  </span>
+<span class="n">modelo_arima</span> <span class="o">=</span> <span class="n">ARIMA</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>  <span class="c1"># AR(1) + I(1) + MA(1)  </span>
+<span class="n">resultados_arima</span> <span class="o">=</span> <span class="n">modelo_arima</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>  
+
+<span class="c1"># Resumen del modelo ARIMA  </span>
+<span class="nb">print</span><span class="p">(</span><span class="n">resultados_arima</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>  
+
+<span class="c1"># Predecir siguientes 3 valores  </span>
+<span class="n">pred_arima</span> <span class="o">=</span> <span class="n">resultados_arima</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>  
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Predicción ARIMA(1,1,1):&quot;</span><span class="p">,</span> <span class="n">pred_arima</span><span class="p">)</span>  
+
+<span class="c1"># Graficar predicciones vs datos reales  </span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>  
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Datos reales&#39;</span><span class="p">)</span>  
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pred_arima</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Predicción ARIMA&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>  
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>  
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  
+</pre></div>
+</div>
+<br/>
+</section>
+<section id="atributos">
+<h5>Atributos<a class="headerlink" href="#atributos" title="Link to this heading">#</a></h5>
+<p>Propiedades de la clase <code class="docutils literal notranslate"><span class="pre">ARIMA</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Atributo</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.endog_names.html">endog_names</a></p></td>
+<td><p>Nombres de variables endógenas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.exog_names.html">exog_names</a></p></td>
+<td><p>Los nombres de las variables exógenas.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.initial_design.html">initial_design</a></p></td>
+<td><p>Matriz de diseño inicial.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.initial_selection.html">initial_selection</a></p></td>
+<td><p>Matriz de selección inicial.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.initial_state_intercept.html">initial_state_intercept</a></p></td>
+<td><p>Vector de intercepción de estado inicial.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.initial_transition.html">initial_transition</a></p></td>
+<td><p>Matriz de transición inicial.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.initial_variance.html">initial_variance</a></p></td>
+<td><p>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.initialization.html">initialization</a></p></td>
+<td><p>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.loglikelihood_burn.html">loglikelihood_burn</a></p></td>
+<td><p>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.model_latex_names.html">model_latex_names</a></p></td>
+<td><p>Los nombres como látex de todos los parámetros del modelo posibles.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.model_names.html">model_names</a></p></td>
+<td><p>Los nombres de texto sin formato de todos los parámetros del modelo posibles.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.model_orders.html">model_orders</a></p></td>
+<td><p>Las órdenes de cada uno de los polinomios en el modelo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.param_names.html">param_names</a></p></td>
+<td><p>Lista de nombres de parámetros legibles por humanos (para parámetros realmente incluidos en el modelo).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.param_terms.html">param_terms</a></p></td>
+<td><p>Lista de parámetros realmente incluidos en el modelo, ordenados.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.params_complete.html">params_complete</a></p></td>
+<td><p>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.start_params.html">start_params</a></p></td>
+<td><p>Parámetros iniciales para una estimación de máxima probabilidad.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.state_names.html">state_names</a></p></td>
+<td><p>Lista de nombres legibles por humanos para estados no observados.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.tolerance.html">tolerance</a></p></td>
+<td><p>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="metodos">
+<h5>Métodos<a class="headerlink" href="#metodos" title="Link to this heading">#</a></h5>
+<p>Métodos de la clase <code class="docutils literal notranslate"><span class="pre">ARIMA</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Principales métodos</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.fit.html">fit</a>(…)</p></td>
+<td><p>Ajusta (estima) los parámetros del modelo. Ver <a class="reference internal" href="otras-clases.html#others-arimaresults"><span class="std std-ref">ArimaResults/SARIMAXResults</span></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.predict.html">predict</a>(params, …)</p></td>
+<td><p>Después de que un modelo se haya ajustado, devuelve los valores ajustados.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.score.html">score</a>(params, *args, **kwargs)</p></td>
+<td><p>Calcula la función de puntuación en <em>params</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.simulate.html">simulate</a>(params, nsimulations, …)</p></td>
+<td><p>Simula una nueva serie de tiempo siguiendo el modelo de espacio estatal.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Inicializar</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.initialize.html">initialize</a>()</p></td>
+<td><p>Inicializa el modelo Sarimax.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.initialize_approximate_diffuse.html">initialize_approximate_diffuse</a>(…)</p></td>
+<td><p>Inicialización difusa aproximada.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.initialize_default.html">initialize_default</a>(…)</p></td>
+<td><p>Inicializa el valor predeterminado.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.initialize_known.html">initialize_known</a>(initial_state, …)</p></td>
+<td><p>Inicialización conocida.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.initialize_statespace.html">initialize_statespace</a>(**kwargs)</p></td>
+<td><p>Inicializa la representación del espacio de estado.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.initialize_stationary.html">initialize_stationary</a>()</p></td>
+<td><p>Inicialización estacionaria.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Otros</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.clone.html">clone</a>(endog, …)</p></td>
+<td><p>Clona el modelo con nuevos datos y opcionalmente nueva especificación.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.filter.html">filter</a>(params, …)</p></td>
+<td><p>Filtrado de <em>Kalman</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.fit_constrained.html">fit_constrained</a>(constraints, …)</p></td>
+<td><p>Ajusta el modelo con algunos parámetros sujetos a restricciones de igualdad.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.fix_params.html">fix_params</a>(params)</p></td>
+<td><p>Corrige los parámetros a valores específicos (Administrador de contexto).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.handle_params.html">handle_params</a>(params, …)</p></td>
+<td><p>Se asegura de que los parámetros del modelo satisfagan la forma y otros requisitos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.hessian.html">hessian</a>(params, *args, **kwargs)</p></td>
+<td><p>Matriz Hessiana de la función de probabilidad, evaluada en los parámetros dados.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.impulse_responses.html">impulse_responses</a>(params, …)</p></td>
+<td><p>Función de respuesta de impulso.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.information.html">information</a>(params)</p></td>
+<td><p>Matriz de información de <em>Fisher</em> del modelo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.loglike.html">loglike</a>(params, *args, **kwargs)</p></td>
+<td><p>Evaluación de <em>loglikelihood</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.loglikeobs.html">loglikeobs</a>(params, …)</p></td>
+<td><p>Evaluación de <em>loglikelihood</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.observed_information_matrix.html">observed_information_matrix</a>(params, …)</p></td>
+<td><p>Matriz de información observada.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.opg_information_matrix.html">opg_information_matrix</a>(params, …)</p></td>
+<td><p>Producto externo de los gradiantes de la matriz de información.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.prepare_data.html">prepare_data</a>()</p></td>
+<td><p>Prepara datos para su uso en la representación del espacio de estado.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.score_obs.html">score_obs</a>(params, …)</p></td>
+<td><p>Calcula la puntuación por observación, evaluada en <em>params</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.simulation_smoother.html">simulation_smoother</a>(…)</p></td>
+<td><p>Recupera una simulación más suave para el modelo de espacio de estado.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.smooth.html">smooth</a>(params, …)</p></td>
+<td><p>Suavizando <em>Kalman</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.transform_jacobian.html">transform_jacobian</a>(unconstrained, …)</p></td>
+<td><p>Matriz jacobiana para la función de transformación de parámetros.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.transform_params.html">transform_params</a>(unconstrained)</p></td>
+<td><p>Transforma los parámetros sin restricciones utilizados por el optimizador a parámetros restringidos utilizados en la evaluación de probabilidad.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.untransform_params.html">untransform_params</a>(constrained)</p></td>
+<td><p>Transforma los parámetros restringidos utilizados en la evaluación de probabilidad a los parámetros no restringidos utilizados por el optimizador.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.update.html">update</a>(params, …)</p></td>
+<td><p>Actualiza los parámetros del modelo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Establecer</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.set_conserve_memory.html">set_conserve_memory</a>(…)</p></td>
+<td><p>Establece el método de conservación de memoria.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.set_filter_method.html">set_filter_method</a>(…)</p></td>
+<td><p>Establece el método de filtrado.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.set_inversion_method.html">set_inversion_method</a>(…)</p></td>
+<td><p>Establece el método de inversión.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.set_smoother_output.html">set_smoother_output</a>(…)</p></td>
+<td><p>Establece la salida más suave.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMA.set_stability_method.html">set_stability_method</a>(…)</p></td>
+<td><p>Establece el método de estabilidad numérica.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+<section id="armaprocess">
+<h4>ArmaProcess<a class="headerlink" href="#armaprocess" title="Link to this heading">#</a></h4>
+<p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima_process.ArmaProcess.html">ArmaProcess</a>: Propiedades teóricas de un proceso <em>ARMA</em> para polinomios de desfase especificados.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+<span class="n">ArmaProcess</span><span class="p">(</span><span class="n">ar</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ma</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nobs</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong>ar</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code>: Coeficientes de los polinomios desfasados autoregresivos, incluyendo el desface cero (sieple incluir un uno al inicio). En otras palabras, son los valores de los parámetros <span class="math notranslate nohighlight">\(\phi_i\)</span> del modelo <em>AR(p)</em>. El número de parámetros es proporcional (1:1) al orden del modelo (<em>n</em>), es decir si el modelo es de orden 2 entonces tiene dos parámetros <span class="math notranslate nohighlight">\(\phi_1\)</span> y<span class="math notranslate nohighlight">\(\phi_2\)</span>. <strong>Importante</strong>: El parámetro se debe pasar con el signo contrario al que se desea que tenga.</p></li>
+<li><p><strong>ma</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code>: Coeficientes de los polinomios desfadados de media móvil, incluyendo el desfase cero (siempre incluir un uno al inicio). En otras palabras, son los valores de los parámetros <span class="math notranslate nohighlight">\(\theta_i\)</span> del modelo MA(q). El número de parámetros es proporcional (1:1) al orden del modelo (<em>n</em>), es decir si el modelo es de orden 2 entonces tiene dos parámetros <span class="math notranslate nohighlight">\(\theta_1\)</span> y <span class="math notranslate nohighlight">\(\theta_2\)</span>.</p></li>
+<li><p><strong>nobs</strong> - <code class="docutils literal notranslate"><span class="pre">1D</span> <span class="pre">array-like</span></code>: Longitud de la serie de tiempo simulada.</p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Tener en cuenta las siguientes características al definir los parámetros <em>ar</em> y <em>ma</em>:</p>
+<ul class="simple">
+<li><p>El primer elemento en ambos caso debe de ser un uno: <code class="docutils literal notranslate"><span class="pre">ar</span> <span class="pre">=</span> <span class="pre">[1,</span> <span class="pre">...]</span></code> o <code class="docutils literal notranslate"><span class="pre">ma</span> <span class="pre">=</span> <span class="pre">[1,</span> <span class="pre">...]</span></code>.</p></li>
+<li><p>Si se desea omitir <em>ar</em> o <em>ma</em> se debe de asignar un <code class="docutils literal notranslate"><span class="pre">array-like</span></code> cuyo único elemento sea un uno: <code class="docutils literal notranslate"><span class="pre">ar=[1]</span></code> o <code class="docutils literal notranslate"><span class="pre">ma=[1]</span></code>.</p></li>
+<li><p>Los coeficientes del parámetro <em>ar</em> se deben de pasar con el signo contrario al que se desea, por ejemplo, si se desea un <span class="math notranslate nohighlight">\(\phi=0.5\)</span>, entonces se debe de pasar <code class="docutils literal notranslate"><span class="pre">ar</span> <span class="pre">=</span> <span class="pre">[1,</span> <span class="pre">-0.5]</span></code>.</p></li>
+</ul>
+</div>
+<section id="id1">
+<h5>Uso<a class="headerlink" href="#id1" title="Link to this heading">#</a></h5>
+<p>Uso básico de la clase <code class="docutils literal notranslate"><span class="pre">ArmaProcess</span></code></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Alternativamente se puede usar la función <code class="docutils literal notranslate"><span class="pre">arma_generate_sample()</span></code> para simular procesos <em>ARMA</em>.</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar la clase necesaria  </span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa.arima_process</span> <span class="kn">import</span> <span class="n">ArmaProcess</span>  
+
+<span class="c1"># Definir coeficientes AR y MA (ejemplo: AR(1) y MA(1))  </span>
+<span class="n">ar_coefs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.7</span><span class="p">])</span>  <span class="c1"># Coeficientes AR (incluye 1 para el lag 0)  </span>
+<span class="n">ma_coefs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">])</span>   <span class="c1"># Coeficientes MA (incluye 1 para el lag 0)  </span>
+
+<span class="c1"># Crear proceso ARMA  </span>
+<span class="n">arma_proceso</span> <span class="o">=</span> <span class="n">ArmaProcess</span><span class="p">(</span><span class="n">ar</span><span class="o">=</span><span class="n">ar_coefs</span><span class="p">,</span> <span class="n">ma</span><span class="o">=</span><span class="n">ma_coefs</span><span class="p">)</span>  
+
+<span class="c1"># Simular datos del proceso ARMA  </span>
+<span class="n">muestras</span> <span class="o">=</span> <span class="mi">1000</span>  
+<span class="n">serie_simulada</span> <span class="o">=</span> <span class="n">arma_proceso</span><span class="o">.</span><span class="n">generate_sample</span><span class="p">(</span><span class="n">nsample</span><span class="o">=</span><span class="n">muestras</span><span class="p">)</span>  
+
+<span class="c1"># Graficar la serie simulada  </span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>  
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">serie_simulada</span><span class="p">)</span>  
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Serie temporal simulada ARMA&quot;</span><span class="p">)</span>  
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  
+
+<span class="c1"># Calcular función de autocorrelación (ACF)  </span>
+<span class="n">acf</span> <span class="o">=</span> <span class="n">arma_proceso</span><span class="o">.</span><span class="n">acf</span><span class="p">(</span><span class="n">lags</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>  
+
+<span class="c1"># Calcular función de autocorrelación parcial (PACF)  </span>
+<span class="n">pacf</span> <span class="o">=</span> <span class="n">arma_proceso</span><span class="o">.</span><span class="n">pacf</span><span class="p">(</span><span class="n">lags</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>  
+
+<span class="c1"># Verificar estacionariedad e invertibilidad  </span>
+<span class="n">es_estacionario</span> <span class="o">=</span> <span class="n">arma_proceso</span><span class="o">.</span><span class="n">isstationary</span>  
+<span class="n">es_invertible</span> <span class="o">=</span> <span class="n">arma_proceso</span><span class="o">.</span><span class="n">isinvertible</span>  
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;¿Es estacionario? </span><span class="si">{</span><span class="n">es_estacionario</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;¿Es invertible? </span><span class="si">{</span><span class="n">es_invertible</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Si se desea simular solo un modelo <em>AR</em> o <em>MA</em>, usar <code class="docutils literal notranslate"><span class="pre">[1]</span></code> o <code class="docutils literal notranslate"><span class="pre">None</span></code> como coeficientes de <em>AR</em> o <em>MA</em>, según se desee omitir.</p></li>
+</ul>
+<br/>
+</section>
+<section id="propiedades">
+<h5>Propiedades<a class="headerlink" href="#propiedades" title="Link to this heading">#</a></h5>
+<p>Atributos de la clase <code class="docutils literal notranslate"><span class="pre">ArmaProcess</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima_process.ArmaProcess.arroots.html">arroots</a></p></td>
+<td><p>Raíces del polinomio desfasado autorregresivo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima_process.ArmaProcess.isinvertible.html">isinvertible</a></p></td>
+<td><p>El proceso <em>ARMA</em> es invertible si las raíces de <em>MA</em> están afuera de un círculo unitario.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima_process.ArmaProcess.isstationary.html">isstationary</a></p></td>
+<td><p>El proceso <em>ARMA</em> es estacionario si las raíces de <em>AR</em> están afuera de un círculo unitario.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima_process.ArmaProcess.maroots.html">maroots</a></p></td>
+<td><p>Raíces de promedio móvil del polinomio desfasado.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="id2">
+<h5>Métodos<a class="headerlink" href="#id2" title="Link to this heading">#</a></h5>
+<p>Métodos de la clase <code class="docutils literal notranslate"><span class="pre">ArmaProcess</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima_process.ArmaProcess.acf.html">acf</a>(…)</p></td>
+<td><p>Función teórica de autocorrelación de un proceso <em>ARMA</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima_process.ArmaProcess.acovf.html">acovf</a>(…)</p></td>
+<td><p>Autocovarianzas teóricas de procesos <em>ARMA</em> estacionarios..</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima_process.ArmaProcess.arma2ar.html">arma2ar</a>(…)</p></td>
+<td><p>Una representación AR aproximada de desfases finitos de un proceso <em>ARMA</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima_process.ArmaProcess.arma2ma.html">arma2ma</a>(…)</p></td>
+<td><p>Una representación MA aproximada de desfases finitos de un proceso <em>ARMA</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima_process.ArmaProcess.from_coeffs.html">from_coeffs</a>(…)</p></td>
+<td><p>Crea un <code class="docutils literal notranslate"><span class="pre">ArmaProcess</span></code> a partir de una representación <em>ARMA</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima_process.ArmaProcess.from_estimation.html">from_estimation</a>(model_results, …)</p></td>
+<td><p>Crea un <code class="docutils literal notranslate"><span class="pre">ArmaProcess</span></code> a partir de los resultados de una estimación <em>ARIMA</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima_process.ArmaProcess.from_roots.html">from_roots</a>(…)</p></td>
+<td><p>Crea UN <code class="docutils literal notranslate"><span class="pre">ArmaProcess</span></code> a partir de raíces polinomiales <em>AR</em> y <em>MA</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima_process.ArmaProcess.generate_sample.html">generate_sample</a>(…)</p></td>
+<td><p>Simula datos de un <em>ARMA</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima_process.ArmaProcess.impulse_response.html">impulse_response</a>(…)</p></td>
+<td><p>Calcula la función de respuesta de impulso (representación de _M_A) para el proceso <em>ARMA</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima_process.ArmaProcess.invertroots.html">invertroots</a>(…)</p></td>
+<td><p>Hace un polinomial MA invertible, la invertir sus raíces dentro del círculo unitario.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima_process.ArmaProcess.pacf.html">pacf</a>(…)</p></td>
+<td><p>Función teórica de autocorrelación parcial de un proceso <em>ARMA</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima_process.ArmaProcess.periodogram.html">periodogram</a>(…)</p></td>
+<td><p>Periodograma para el proceso <em>ARMA</em> dado por polinomios desfasados <em>AR</em> y <em>MA</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+<section id="sarimax">
+<h4>SARIMAX<a class="headerlink" href="#sarimax" title="Link to this heading">#</a></h4>
+<p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.html">SARIMAX</a>: Modelo autoregresivo integrado de media móvil estacional con regresores exógenos.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+<span class="n">SARIMAX</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">seasonal_order</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">trend</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+        <span class="n">measurement_error</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">time_varying_regression</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">mle_regression</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+        <span class="n">simple_differencing</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">enforce_stationarity</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">enforce_invertibility</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+        <span class="n">hamilton_representation</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">concentrate_scale</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">trend_offset</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> 
+        <span class="n">use_exact_diffuse</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dates</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> 
+        <span class="n">validate_specification</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong>endog</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code>: El proceso de series de timepo y observado.</p></li>
+<li><p><strong>exog</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code>: Variables de regresión exógenas.</p></li>
+<li><p><strong>order</strong> - <code class="docutils literal notranslate"><span class="pre">tuple</span></code>: El orden (p, d, q) del modelo para los componentes de autogresión (AR), desfases y y media móvil (MA). d siempre es <code class="docutils literal notranslate"><span class="pre">int</span></code>, mientras que p y q pueden ser <code class="docutils literal notranslate"><span class="pre">int</span></code> o <code class="docutils literal notranslate"><span class="pre">list</span></code> de <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p></li>
+<li><p><strong>seasonal_order</strong> - <code class="docutils literal notranslate"><span class="pre">tuple</span></code>: El orden <em>(P, D, Q, S)</em> del modelo para los componentes estacionales. <em>D</em> es <code class="docutils literal notranslate"><span class="pre">int</span></code> indica la orden del proceso integrado. <em>P</em> y <em>Q</em> pueden ser <code class="docutils literal notranslate"><span class="pre">int</span></code> que indican la órden de los modelos <em>MA</em> y <em>AR</em> o <code class="docutils literal notranslate"><span class="pre">iterable</span></code> que indican desfases específicos a incluir, <em>S</em> es <code class="docutils literal notranslate"><span class="pre">int</span></code> e indica la periocidad, por ejemplo 12 para cada mes, 4 para cada trimestres, etc.</p></li>
+<li><p><strong>trend</strong> - {‘n’,’c’,’t’,’ct’} o <code class="docutils literal notranslate"><span class="pre">list-like</span></code>: Parámetros que controla la tendencia determnística polinomial.</p>
+<ul>
+<li><p><em>n</em>: No incluir un componete de tendencia.</p></li>
+<li><p><em>c</em>: Constante (componente de grado cero del polinomio). Importante cuando la serie no está alrededor del cero.</p></li>
+<li><p><em>t</em>: Tendencia lineal con el tiempo.</p></li>
+<li><p><em>ct</em>: Los dos anteriores.</p></li>
+<li><p>Se puede indicar las constante de los polinomios, en orden ascendente <code class="docutils literal notranslate"><span class="pre">a,</span> <span class="pre">bt,</span> <span class="pre">ct2,</span> <span class="pre">...</span></code> (no agegar la variable, solo la constante).</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>El objeto retornado por el método <code class="docutils literal notranslate"><span class="pre">.fit</span></code> tiene varios atributos y métodos útiles. Ver <a class="reference internal" href="otras-clases.html#others-arimaresults"><span class="std std-ref">ArimaResults/SARIMAXResults</span></a>. Entre los más importantes están:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMAResults.summary.html">.summary()</a>: Resumen el modelo.</p></li>
+<li><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMAResults.get_forecast.html">.get_forecast</a>: Pronósticos fuera de la muestra e intervalos de predicción.</p></li>
+<li><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMAResults.get_prediction.html">.get_prediction</a>: Predicción en la muestra y pronóstico fuera de la muestra.</p></li>
+<li><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMAResults.plot_diagnostics.html">.plot_diagnostics</a>: Gráficos de diagnóstico para residuos estandarizados de una variable endógena.</p></li>
+<li><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMAResults.aic.html">.params</a>: Parámetros del modelo.</p></li>
+<li><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMAResults.aic.html">.aic</a>: Criterio de información de Akaike.</p></li>
+<li><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima.model.ARIMAResults.bic.html">.bic</a>: Criterio de información de Bayes.</p></li>
+</ul>
+</div>
+<section id="id3">
+<h5>Uso<a class="headerlink" href="#id3" title="Link to this heading">#</a></h5>
+<p>Uso básico de la clase <code class="docutils literal notranslate"><span class="pre">SARIMAX</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar la clase SARIMAX  </span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa.statespace.sarimax</span> <span class="kn">import</span> <span class="n">SARIMAX</span>  
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>  
+ 
+
+<span class="c1"># ==============================================  </span>
+<span class="c1"># 1. Modelo SARIMA (sin variables exógenas)  </span>
+<span class="c1"># ==============================================  </span>
+<span class="c1"># Crear y ajustar modelo </span>
+<span class="n">modelo_sarima</span> <span class="o">=</span> <span class="n">SARIMAX</span><span class="p">(</span>  
+    <span class="n">datos</span><span class="p">,</span>  
+    <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">q</span><span class="p">),</span>            
+    <span class="n">seasonal_order</span><span class="o">=</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="n">s</span><span class="p">),</span> 
+    <span class="n">trend</span><span class="o">=</span><span class="s1">&#39;c&#39;</span>                    
+<span class="p">)</span>  
+<span class="n">resultados_sarima</span> <span class="o">=</span> <span class="n">modelo_sarima</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  
+
+<span class="c1"># Resumen del modelo  </span>
+<span class="nb">print</span><span class="p">(</span><span class="n">resultados_sarima</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>  
+
+<span class="c1"># Predecir siguientes 3 valores  </span>
+<span class="n">pred_sarima</span> <span class="o">=</span> <span class="n">resultados_sarima</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>  
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Predicción SARIMA:&quot;</span><span class="p">,</span> <span class="n">pred_sarima</span><span class="p">)</span>  
+
+<span class="c1"># ==============================================  </span>
+<span class="c1"># 2. Modelo SARIMAX (con variables exógenas)  </span>
+<span class="c1"># ==============================================  </span>
+
+<span class="c1"># Crear y ajustar modelo SARIMAX  </span>
+<span class="n">modelo_sarimax</span> <span class="o">=</span> <span class="n">SARIMAX</span><span class="p">(</span>  
+    <span class="n">datos</span><span class="p">,</span>  
+    <span class="n">exog</span><span class="o">=</span><span class="n">exog</span><span class="p">,</span>                   <span class="c1"># Variables exógenas  </span>
+    <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">q</span><span class="p">),</span>            
+    <span class="n">seasonal_order</span><span class="o">=</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="n">s</span><span class="p">),</span>
+    <span class="n">trend</span><span class="o">=</span><span class="s1">&#39;c&#39;</span>  
+<span class="p">)</span>  
+<span class="n">resultados_sarimax</span> <span class="o">=</span> <span class="n">modelo_sarimax</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  
+
+<span class="c1"># Resumen del modelo  </span>
+<span class="nb">print</span><span class="p">(</span><span class="n">resultados_sarimax</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>  
+
+<span class="c1"># Predecir con nuevos datos exógenos  </span>
+<span class="n">nuevo_exog</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>  
+<span class="n">pred_sarimax</span> <span class="o">=</span> <span class="n">resultados_sarimax</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">exog</span><span class="o">=</span><span class="n">nuevo_exog</span><span class="p">)</span>  
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Predicción SARIMAX:&quot;</span><span class="p">,</span> <span class="n">pred_sarimax</span><span class="p">)</span>  
+
+<span class="c1"># Graficar ajuste del modelo  </span>
+<span class="n">resultados_sarima</span><span class="o">.</span><span class="n">plot_diagnostics</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>  
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  
+</pre></div>
+</div>
+<br/>
+</section>
+<section id="id4">
+<h5>Propiedades<a class="headerlink" href="#id4" title="Link to this heading">#</a></h5>
+<p>Métodos de la clase <code class="docutils literal notranslate"><span class="pre">SARIMAX</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.endog_names.html">endog_names</a></p></td>
+<td><p>Nombres de variables endógenas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.exog_names.html">exog_names</a></p></td>
+<td><p>Los nombres de las variables exógenas.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.initial_design.html">initial_design</a></p></td>
+<td><p>Matriz de diseño inicial.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.initial_selection.html">initial_selection</a></p></td>
+<td><p>Matriz de selección inicial.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.initial_state_intercept.html">initial_state_intercept</a></p></td>
+<td><p>Vector de intercepción de estado inicial.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.initial_transition.html">initial_transition</a></p></td>
+<td><p>Matriz de transición inicial.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.initial_variance.html">initial_variance</a></p></td>
+<td><p>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.initialization.html">initialization</a></p></td>
+<td><p>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.loglikelihood_burn.html">loglikelihood_burn</a></p></td>
+<td><p>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.model_latex_names.html">model_latex_names</a></p></td>
+<td><p>Los nombres de látex de todos los parámetros del modelo posibles.. The latex names of all possible model parameters.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.model_names.html">model_names</a></p></td>
+<td><p>Los nombres como látex de todos los parámetros del modelo posibles.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.model_orders.html">model_orders</a></p></td>
+<td><p>Las órdenes de cada uno de los polinomios en el modelo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.param_names.html">param_names</a></p></td>
+<td><p>Lista de nombres de parámetros legibles por humanos (para parámetros realmente incluidos en el modelo).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.param_terms.html">param_terms</a></p></td>
+<td><p>Lista de parámetros realmente incluidos en el modelo, ordenados.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.params_complete.html">params_complete</a></p></td>
+<td><p>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.start_params.html">start_params</a></p></td>
+<td><p>Parámetros iniciales para una estimación de máxima probabilidad.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.state_names.html">state_names</a></p></td>
+<td><p>Lista de nombres legibles por humanos para estados no observados.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.tolerance.html">tolerance</a></p></td>
+<td><p>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="id5">
+<h5>Métodos<a class="headerlink" href="#id5" title="Link to this heading">#</a></h5>
+<p>Métodos de la clase <code class="docutils literal notranslate"><span class="pre">SARIMAX</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Principales métodos</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.fit.html">fit</a>(…)</p></td>
+<td><p>Ajusta el modelo por máxima verosimilitud a través del filtro Kalman.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.predict.html">predict</a>(params, …)</p></td>
+<td><p>Después de que un modelo se haya ajustado, devuelve los valores ajustados.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.score.html">score</a>(params, *args, **kwargs)</p></td>
+<td><p>Calcula la función de puntuación en <em>params</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.simulate.html">simulate</a>(params, nsimulations, …)</p></td>
+<td><p>Simula una nueva serie de tiempo siguiendo el modelo de espacio estatal.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Inicializar</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.initialize.html">initialize</a>()</p></td>
+<td><p>Inicializa el modelo Sarimax.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.initialize_approximate_diffuse.html">initialize_approximate_diffuse</a>(…)</p></td>
+<td><p>Inicialización difusa aproximada.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.initialize_default.html">initialize_default</a>(…)</p></td>
+<td><p>Inicializa el valor predeterminado.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.initialize_known.html">initialize_known</a>(initial_state, …)</p></td>
+<td><p>Inicialización conocida.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.initialize_statespace.html">initialize_statespace</a>(**kwargs)</p></td>
+<td><p>Inicializa la representación del espacio de estado.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.initialize_stationary.html">initialize_stationary</a>()</p></td>
+<td><p>Inicialización estacionaria.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Otros</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.clone.html">clone</a>(endog, …)</p></td>
+<td><p>Clona el modelo con nuevos datos y opcionalmente nueva especificación.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.filter.html">filter</a>(params, …)</p></td>
+<td><p>Filtrado de <em>Kalman</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.fit_constrained.html">fit_constrained</a>(constraints, …)</p></td>
+<td><p>Filtrado de <em>Kalman</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.fix_params.html">fix_params</a>(params)</p></td>
+<td><p>Corrige los parámetros a valores específicos (Administrador de contexto).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.handle_params.html">handle_params</a>(params, …)</p></td>
+<td><p>Se asegura de que los parámetros del modelo satisfagan la forma y otros requisitos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.hessian.html">hessian</a>(params, *args, **kwargs)</p></td>
+<td><p>Matriz Hessiana de la función de probabilidad, evaluada en los parámetros dados.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.impulse_responses.html">impulse_responses</a>(params, …)</p></td>
+<td><p>Función de respuesta de impulso.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.information.html">information</a>(params)</p></td>
+<td><p>Matriz de información de <em>Fisher</em> del modelo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.loglike.html">loglike</a>(params, *args, **kwargs)</p></td>
+<td><p>Evaluación de <em>loglikelihood</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.loglikeobs.html">loglikeobs</a>(params, …)</p></td>
+<td><p>Evaluación de <em>loglikelihood</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.observed_information_matrix.html">observed_information_matrix</a>(params, …)</p></td>
+<td><p>Matriz de información observada.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.opg_information_matrix.html">opg_information_matrix</a>(params, …)</p></td>
+<td><p>Producto externo de los gradiantes de la matriz de información.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.prepare_data.html">prepare_data</a>()</p></td>
+<td><p>Prepara datos para su uso en la representación del espacio de estado.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.score_obs.html">score_obs</a>(params, …)</p></td>
+<td><p>Calcula la puntuación por observación, evaluada en <em>params</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.simulation_smoother.html">simulation_smoother</a>(…)</p></td>
+<td><p>Recupera una simulación más suave para el modelo de espacio de estado.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.smooth.html">smooth</a>(params, …)</p></td>
+<td><p>Suavizando <em>Kalman</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.transform_jacobian.html">transform_jacobian</a>(unconstrained, …)</p></td>
+<td><p>Matriz jacobiana para la función de transformación de parámetros.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.transform_params.html">transform_params</a>(unconstrained)</p></td>
+<td><p>Transforma los parámetros sin restricciones utilizados por el optimizador a parámetros restringidos utilizados en la evaluación de probabilidad.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.untransform_params.html">untransform_params</a>(constrained)</p></td>
+<td><p>Transforma los parámetros restringidos utilizados en la evaluación de probabilidad a los parámetros no restringidos utilizados por el optimizador.</p></td>
+</tr>
+<tr class="row-even"><td><p>[update](<a class="reference external" href="https://www.statsmodels.org/stable/generated/">https://www.statsmodels.org/stable/generated/</a>  - Actualiza los parámetros del modelo.</p></td>
+<td><p>Actualiza los parámetros del modelo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Establecer</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.set_conserve_memory.html">set_conserve_memory</a>(…)</p></td>
+<td><p>Establece el método de conservación de memoria.. Set the memory conservation method.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.set_filter_method.html">set_filter_method</a>(…)</p></td>
+<td><p>Establece el método de filtrado.. Set the filtering method.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.set_inversion_method.html">set_inversion_method</a>(…)</p></td>
+<td><p>Establece el método de inversión.. Set the inversion method.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.set_smoother_output.html">set_smoother_output</a>(…)</p></td>
+<td><p>Establece la salida más suave.. Set the smoother output.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.set_stability_method.html">set_stability_method</a>(…)</p></td>
+<td><p>Establece el método de estabilidad numérica.. Set the numerical stability method.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+</section>
+<section id="funciones">
+<h3>Funciones<a class="headerlink" href="#funciones" title="Link to this heading">#</a></h3>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.ardl.ardl_select_order.html">ardl_select_order</a>(endog, maxlag, exog, maxorder)</p></td>
+<td><p>Selección de orden ARDL.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima_process.arma_generate_sample.html">arma_generate_sample</a>(ar, ma, nsample, …)</p></td>
+<td><p>Simular datos de un <em>ARMA</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.stattools.arma_order_select_ic.html">arma_order_select_ic</a>(y, …)</p></td>
+<td><p>Calcula los criterios de información para muchos modelos <em>ARMA</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<section id="notas-de-arma-generate-sample">
+<h4>Notas de <em>arma_generate_sample</em><a class="headerlink" href="#notas-de-arma-generate-sample" title="Link to this heading">#</a></h4>
+<p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima_process.arma_generate_sample.html">arma_generate_sample</a>: Simular datos de un modelo <em>ARMA</em>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+<span class="n">arma_generate_sample</span><span class="p">(</span><span class="n">ar</span><span class="p">,</span> <span class="n">ma</span><span class="p">,</span> <span class="n">nsample</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">distrvs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">burnin</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Parámetros:</strong></p>
+<ul>
+<li><p><strong>ar</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code>: Coeficientes de los polinomios desfasados autoregresivos, incluyendo el desface cero (siempre incluir un uno al inicio). En otras palabras, son los valores de los parámetros <span class="math notranslate nohighlight">\(\phi_i\)</span> del modelo <em>AR(p)</em>. El número de parámetros es proporcional (1:1) al orden del modelo (n), es decir si el modelo es de orden 2 entonces tiene dos parámetros <span class="math notranslate nohighlight">\(\phi_1\)</span> y <span class="math notranslate nohighlight">\(\phi_2\)</span>. El array sería sentonces <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">-ϕ1,</span> <span class="pre">-ϕ2]</span></code>. Notar que los coeficientes <span class="math notranslate nohighlight">\(\phi\)</span> se ponen con el signo contrario al que se desea.</p></li>
+<li><p><strong>ma</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code>: Coeficientes de los polinomios desfadados de media móvil, incluyendo el desfase cero (siempre incluir un uno al inicio). En otras palabras, son los valores de los parámetros <span class="math notranslate nohighlight">\(\theta_i\)</span> del modelo MA(q). El número de parámetros es proporcional (1:1) al orden del modelo (n), es decir si el modelo es de orden 2 entonces tiene dos parámetros <span class="math notranslate nohighlight">\(\theta_1\)</span> y <span class="math notranslate nohighlight">\(\theta_2\)</span>. El array sería entonces <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">θ1,</span> <span class="pre">θ2.]</span></code>.</p></li>
+<li><p><strong>nsample</strong> - <code class="docutils literal notranslate"><span class="pre">int</span></code> o <code class="docutils literal notranslate"><span class="pre">tuple</span> <span class="pre">de</span> <span class="pre">int</span></code>: Número de muestras a generar, si es entero genera una array de 1D si es <code class="docutils literal notranslate"><span class="pre">tuple</span></code> genera un array de 2D+.</p></li>
+<li><p><strong>scale</strong> - <code class="docutils literal notranslate"><span class="pre">float</span></code>: Desviación estándar del ruido.</p></li>
+</ul>
+</li>
+<li><p><strong>Retorna:</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">ndarray</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Uso</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importación de funciones</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa.arima_process</span> <span class="kn">import</span> <span class="n">arma_generate_sample</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Definir parámetros AR</span>
+<span class="n">ar_params</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.75</span><span class="p">])</span> <span class="c1"># Coeficientes AR, signo opuesto</span>
+
+<span class="c1"># Definir parámetros MA</span>
+<span class="n">ma_params</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>  <span class="c1"># Coeficientes MA</span>
+
+<span class="c1"># Definir número de muestras</span>
+<span class="n">num_samples</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="c1"># Generar muestra ARMA</span>
+<span class="n">arma_sample</span> <span class="o">=</span> <span class="n">arma_generate_sample</span><span class="p">(</span><span class="n">ar_params</span><span class="p">,</span> <span class="n">ma_params</span><span class="p">,</span> <span class="n">num_samples</span><span class="p">)</span>
+
+<span class="c1"># Graficar muestra generada</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">arma_sample</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Muestra generada por ARMA&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Tiempo&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Valor&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<br/>
+</section>
+</section>
+</section>
+<section id="interfaz-x12-x13">
+<h2>Interfaz X12/X13<a class="headerlink" href="#interfaz-x12-x13" title="Link to this heading">#</a></h2>
+<p>Integración con el software X-12-ARIMA y X-13ARIMA-SEATS para descomposición avanzada de series temporales.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.x13.x13_arima_analysis.html">x13_arima_analysis</a>(endog, …)</p></td>
+<td><p>Realiza el análisis X13-ARIMA para datos mensuales o trimestrales.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tsa.x13.x13_arima_select_order.html">x13_arima_select_order</a>(endog, …)</p></td>
+<td><p>Realiza la identificación automática de orden de <em>ARIMA</em> de estacional utilizando <em>ARIMA X12/X13</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./parts/10-statsmodels"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="statsmodels-api.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">API Principal</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="statsmodels-formula-api.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">API de Fórmulas</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#suavizado-exponencial">Suavizado Exponencial</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtros-y-descomposiciones">Filtros y Descomposiciones</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-seasonal-decompose">Notas de <em>seasonal_decompose</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forecasting">Forecasting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-de-cambio-de-regimen-de-markov">Modelos de Cambio de Régimen de Markov</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-de-series-temporales-multivariadas">Modelos de Series Temporales Multivariadas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estadisticas-y-pruebas">Estadísticas y Pruebas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-acf">Notas de <em>acf</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-adfuller">Notas de <em>adfuller</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#herramientas-de-series-temporales">Herramientas de Series Temporales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-series-temporales-univariadas">Análisis de Series Temporales Univariadas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clases">Clases</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#arima">ARIMA</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#uso">Uso</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos">Atributos</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos">Métodos</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#armaprocess">ArmaProcess</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Uso</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades">Propiedades</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Métodos</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sarimax">SARIMAX</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Uso</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Propiedades</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Métodos</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones">Funciones</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-arma-generate-sample">Notas de <em>arma_generate_sample</em></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interfaz-x12-x13">Interfaz X12/X13</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nebok
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

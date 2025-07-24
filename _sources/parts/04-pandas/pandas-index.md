@@ -31,6 +31,10 @@ import pandas as pd
 - `pd` es el alias por convención.
 - En el sitio se utilizará `pd` para hacer referencia a `pandas`.
 
+:::{note}
+Para más información de esta librería visitar la [documentación](https://pandas.pydata.org/docs/reference/index.html) y [guía de usuario](https://pandas.pydata.org/docs/user_guide/index.html) de `pandas`.
+:::
+
 Para conocer la versión de `pandas` instalada usar:
 ```python
 # Verificar la versión de pandas

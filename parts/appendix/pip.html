@@ -1,0 +1,1045 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>pip &#8212; Manual de Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'parts/appendix/pip';</script>
+    <link rel="icon" href="../../_static/nebok-favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="conda" href="conda.html" />
+    <link rel="prev" title="Jupyter" href="jupyter.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/nebok-logo.png" class="logo__image only-light" alt="Manual de Python - Home"/>
+    <script>document.write(`<img src="../../_static/nebok-logo.png" class="logo__image only-dark" alt="Manual de Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Manual de Python para Data Science
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Built-in</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01-built-in/built-in-index.html">Python Estándar</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/cli.html"><em>Command Line Interface</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/ayuda.html">Obtener ayuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/comentarios.html">Comentarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/tipos-datos.html">Tipos de Datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/variables-constantes.html">Variables y Constantes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/operadores-palabras.html">Operadores y palabras reservadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/entrada-salida.html">Impresión y solicitud de datos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/tipos-index.html">Tipos Built-In</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/none-bool-numericos.html"><em>None</em>, <em>bool</em> y Numéricos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/str.html">str</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/lists.html">list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/tuples.html">Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/sets.html">Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/dicts.html">dict</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/if-else.html">If … Else</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/for-loop.html">For Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/do-while.html">Do While</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/udf.html">Funciones (UDF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/exceptions.html">Excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/context-managers.html">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/io.html">Lectura y escritura de archivos (IO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/modulos.html">Paquetes y Módulos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/avanzado-index.html">Temas avanzados</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/decorators.html">Decorators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/iterators.html">Iterators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/generators.html">Generators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/oop.html">Programación orientada a objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/func-built-in.html">Funciones built-in</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-modulos/modulos-index.html">Módulos built-in</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/csv.html">CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/datetime.html">Datetime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/itertools.html">Itertools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/json.html">JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/math.html">Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os.html">Os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os-path.html">Os.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/pickle.html">Pickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/random.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/regex.html">Regex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/statistics.html">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/urllib-request.html">urllib.request</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otras librerías</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-numpy/numpy-index.html">Numpy</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/arrays.html">Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../03-numpy/funciones-index.html">Funciones</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/ufuncs.html">Ufuncs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/buscar-contar-ordenar-unicos.html">Buscar, contar, ordenar y valores únicos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/creacion-arrays.html">Creación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/estadisticas.html">Estadísticas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/indices.html">Índices e iteración</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/informacion.html">Información</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/lectura-escritura.html">Lectura y escritura de datos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/manipulacion-arrays.html">Manipulación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/matematicas-numericas.html">Matemáticas y numéricas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/operadores.html">Operadores</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/algebra-lineal.html">Módulo linalg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/cadenas.html">Modulo char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/random.html">Módulo random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/patrones-numpy.html">Patrones útiles</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04-pandas/pandas-index.html">Pandas</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/index.html">Index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/series.html">Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/dataframe.html">DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/escalares-arrays.html">Escalares y Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../04-pandas/otras-clases.html">Otras clases</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/groupby.html">GroupBy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/expanding-rolling-window.html"><em>Expanding, Rolling</em> y <em>Window</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/resampler.html">Resampler</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/funciones.html">Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/patrones-pandas.html">Patrones útiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05-matplotlib/matplotlib-index.html">Matplotlib</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/pyplot.html">Pyplot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/figure.html">Figure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/axes.html">Axes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/otros.html">Otras Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06-seaborn/seaborn-index.html">Seaborn</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06-seaborn/funciones-clases.html">Funciones y Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-seaborn/objects-interface.html">Interface por objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../07-sklearn/sklearn-index.html">Scikit Learn</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/supervised/supervised-index.html">Aprendizaje supervisado</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/ensamble.html">Ensamble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/linear_model.html">Linear model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/naive_bayes.html">Naive bayes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/neighbors.html">Neighbors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/svm.html">SVM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/tree.html">Tree</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/unsupervised/unsupervised-index.html">Aprendizaje no supervisado</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/unsupervised/cluster.html">Cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/unsupervised/decomposition.html">Decomposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/unsupervised/mixture.html">Mixture</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/transformations/tranformations-index.html">Transformaciones</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/feature_extraction.html">Feature Extraction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/impute.html">Impute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/manifold.html">Manifold</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/preprocessing.html">Preprocessing</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/evaluation/evaluation-index.html">Evaluación y selección del modelo</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/dummy.html">Dummy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/feature_selection.html">Feature Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/metrics.html">Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/model_selection.html">Model Selection</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/pipelines-and-compose/pipeline-compose-index.html">Pipelines y Modelos Compuestos</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/pipelines-and-compose/compose.html">Compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/pipelines-and-compose/pipeline.html">Pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../07-sklearn/datasets.html">Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-sklearn/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-xgboost/xgboost-index.html">XGBoost</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08-xgboost/core-data-structure.html">Core Data Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-xgboost/learning-api.html">Learning API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-xgboost/scikit-learn-api.html">Scikit-Learn API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-xgboost/plotting-api.html">Plotting API</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../09-scipy/scipy-index.html">Scipy</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/clusters.html">Clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/derivacion-integracion.html">Derivación e Integración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/linalg.html">Linear Algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/sparse.html"><em>Sparse</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/stats.html">Stats</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../10-statsmodels/statsmodels-index.html">Statsmodels</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/statsmodels-api.html">API Principal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/statsmodels-tsa-api.html">API de Series de Tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/statsmodels-formula-api.html">API de Fórmulas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/graphics.html">Gráficos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/otras-clases.html">Otras clases</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../11-bokeh/bokeh-index.html">Bokeh</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/io.html">IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/layouts.html"><em>Layouts</em></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../11-bokeh/models/models-index.html"><em>Models</em></a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/annotations.html">Anotaciones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/axes.html">Ejes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/callbacks.html">Callbacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/formatters.html"><em>Formatters</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/glyphs.html"><em>Glyphs</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/sources.html"><em>Sources</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/tools.html"><em>Tools</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/widgets.html"><em>Widgets</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/plotting.html">Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/transform.html">transform</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../12-plotly/plotly-index.html">Plotly</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/express.html"><em>Express</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/figure-factory.html"><em>Figure Factory</em></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../12-plotly/go/go-index.html"><em>Graph Objects</em></a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../12-plotly/go/figure.html"><em>Figure</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../12-plotly/go/layout.html"><em>Layout</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../12-plotly/go/traces.html">Traces</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/io.html">IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/subplots.html">Subplots</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="beautifulsoup.html">BeautifulSoup</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Complementarios</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="appendix-index.html">Otros</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="IPython.html">IPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jupyter.html">Jupyter</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conda.html"><em>conda</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="git.html">git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shell.html">Shell</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/parts/appendix/pip.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>pip</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#freeze"><em>freeze</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#help"><em>help</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install"><em>install</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list"><em>list</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uninstall"><em>uninstall</em></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="pip">
+<h1>pip<a class="headerlink" href="#pip" title="Link to this heading">#</a></h1>
+<p>Pip es el gestor de paquetes de Python que permite instalar, actualizar y administrar bibliotecas y dependencias desde el <em>Python Package Index</em> (PyPI). Para poder utilizar <em>pip</em>, Python debe estar instalado. Usualmente pip ya viene instalado si se descargó Python desde <em><a class="reference external" href="http://python.org">python.org</a></em> o se está trabajando en un ambiente virtual.</p>
+<p>Para verificar que se tiene <em>pip</em> instalado utilizar el siguiente comando.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Para más información consultar la <a class="reference external" href="https://pip.pypa.io/en/stable/">documentación</a> de <em>pip</em>.</p>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verificar que se tenga Python instalado</span>
+python<span class="w"> </span>--version
+
+<span class="c1"># Verificar que se tenga pip instalado</span>
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>--version
+</pre></div>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>En caso de que no se tenga <em>pip</em> instalado consultar <a class="reference external" href="https://pip.pypa.io/en/stable/installation/">esta guía</a> de <em>pip</em>.</p>
+</div>
+<p>A continuación se presenta la sintaxis de llamada del comando <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Para más información consultar la <a class="reference external" href="https://pip.pypa.io/en/stable/cli/pip/">documentación</a> de <em>pip</em>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Es posible que sea necesario usar el comando <code class="docutils literal notranslate"><span class="pre">python3</span></code> para ejecutar <em>pip</em>. Incluso se podría indicar una versión específica o un entorno virtual. Esto aplica para todos los comandos presentados en esta sección.</p>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+pip<span class="w"> </span>&lt;command&gt;<span class="w"> </span><span class="o">[</span>options<span class="o">]</span>
+
+<span class="c1"># Sintaxis de llamada con Python</span>
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>&lt;command&gt;<span class="w"> </span><span class="o">[</span>options<span class="o">]</span><span class="w"> </span><span class="c1"># o solo python o versión concreta</span>
+
+<span class="c1"># Sintaxis de llamada con entorno virtual</span>
+env_name/bin/python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>&lt;command&gt;<span class="w"> </span><span class="o">[</span>options<span class="o">]</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Comandos</strong>:</p>
+<ul>
+<li><p>Ver tabla más abajo.</p></li>
+</ul>
+</li>
+<li><p><strong>Opciones</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">-h,</span> <span class="pre">--help</span></code>: Mostrar ayuda.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">--debug</span></code>: Deja que las excepciones no controladas se propagen fuera de la subrutina principal, en lugar de registrarlas en <em>stderr.</em>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--isolated</span></code>: Ejecuta <em>pip</em> en modo aislado, ignorando las variables de entorno y la configuración del usuario.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--require-virtualenv</span></code>: Permite que <em>pip</em> solo se ejecute en un entorno virtual; Sale con un error de lo contrario.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--python</span> <span class="pre">&lt;python&gt;</span></code>: Ejecuta <em>pip</em> con el intérprete Python especificado.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-v,</span> <span class="pre">--verbose</span></code>: Da más salida. La opción es aditiva y se puede usar hasta 3 veces.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-V,</span> <span class="pre">--version</span></code>: Muestra la versión.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-q,</span> <span class="pre">--quiet</span></code>: Dar menos salida. La opción es aditiva y se puede usar hasta 3 veces (correspondiente a la advertencia, error y niveles de registro críticos).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--log</span> <span class="pre">&lt;path&gt;</span></code>: Ruta hacia un <em>log</em> de agregado detallado (<em>verbose</em>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--no-input</span></code>: Desactivar la solicitud de entrada.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--keyring-provider</span> <span class="pre">&lt;keyring_provider&gt;</span></code>: Habilita la búsqueda de credenciales a través del <em>keyring</em> si se permite la entrada del usuario. Es necesario especificar el mecanismo a usar: {<em>auto, disabled, import, subprocess</em>}. (predeterminado: <em>auto</em>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--proxy</span> <span class="pre">&lt;proxy&gt;</span></code>: Especifica un proxy en el formulario del esquema: <code class="docutils literal notranslate"><span class="pre">scheme://[user:passwd&#64;]proxy.server:port</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--retries</span> <span class="pre">&lt;retries&gt;</span></code>: Número máximo de reintentos que cada conexión debe intentar (predeterminada 5 veces).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--timeout</span> <span class="pre">&lt;sec&gt;</span></code>: Establece el tiempo de espera del <em>socket</em> (predeterminado 15 segundos).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--exists-action</span> <span class="pre">&lt;action&gt;</span></code>: Acción predeterminada cuando ya existe una ruta: {<em>(s)witch, (i)gnore, (w)ipe, (b)ackup, (a)bort</em>}.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--trusted-host</span> <span class="pre">&lt;hostname&gt;</span></code>: Marca este <em>host</em> o <em>host:part</em> como confiable, a pesar de que no tenga <em>https</em> válido o ningún <em>https</em>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--cert</span> <span class="pre">&lt;path&gt;</span></code>: Ruta al paquete de certificado CA codificado por PEM. Si se proporciona, anula el valor predeterminado.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--client-cert</span> <span class="pre">&lt;path&gt;</span></code>: Ruta al certificado de cliente SSL, un solo archivo que contiene la clave privada y el certificado en formato PEM.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--cache-dir</span> <span class="pre">&lt;dir&gt;</span></code>: Almacena los datos de caché en <em>&lt;dir&gt;</em>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--no-cache-dir</span></code>: Deshabilita el caché.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--disable-pip-version-check</span></code>: No verifica periódicamente <em>PyPI</em> para determinar si hay una nueva versión de PIP disponible para descargar. Implícito con <code class="docutils literal notranslate"><span class="pre">--no-index</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--no-color</span></code>: Suprimir la salida con color.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--no-python-version-warning</span></code>: Sinlenciar advertencias de deprecación para las próximas Pythons no compatibles.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--use-feature</span> <span class="pre">&lt;feature&gt;</span></code>: Habilita una nueva funcionalidad, que puede ser incompatible hacia atrás.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--use-deprecated</span> <span class="pre">&lt;feature&gt;</span></code>: Habilita una funcionalidad obsoleta, que se eliminará en el futuro.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>La tabla de comandos disponibles es la siguiente:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Comando</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pip.pypa.io/en/stable/cli/pip_cache/">cache</a></p></td>
+<td><p>Inspecciona y administra el caché del <em>wheel</em> de <em>pip</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pip.pypa.io/en/stable/cli/pip_check/">check</a></p></td>
+<td><p>Verifica si los paquetes instalados tienen dependencias compatibles.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">completion</span></code></p></td>
+<td><p>Un comando de ayuda utilizado para la finalización del comando.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pip.pypa.io/en/stable/cli/pip_config/">config</a></p></td>
+<td><p>Administra la configuración local y global.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pip.pypa.io/en/stable/cli/pip_debug/">debug</a></p></td>
+<td><p>Muestra información útil para la depuración.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pip.pypa.io/en/stable/cli/pip_download/">download</a></p></td>
+<td><p>Descarga paquetes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pip.pypa.io/en/stable/cli/pip_freeze/">freeze</a></p></td>
+<td><p>Imprime los paquetes instalados en formato de requisitos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pip.pypa.io/en/stable/cli/pip_hash/">hash</a></p></td>
+<td><p>Calcula los <em>hash</em> de los archivos de los paquetes.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">help</span></code></p></td>
+<td><p>Muestra ayuda para los comandos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">index</span></code></p></td>
+<td><p>Inspecciona la información disponible de los índices de paquetes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pip.pypa.io/en/stable/cli/pip_inspect/">inspect</a></p></td>
+<td><p>Inspecciona el entorno de Python.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pip.pypa.io/en/stable/cli/pip_install/">install</a></p></td>
+<td><p>Instala y actualiza paquetes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pip.pypa.io/en/stable/cli/pip_list/">list</a></p></td>
+<td><p>Lista los paquetes instalados.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pip.pypa.io/en/stable/cli/pip_show/">show</a></p></td>
+<td><p>Muestra información sobre los paquetes instalados.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://pip.pypa.io/en/stable/cli/pip_uninstall/">uninstall</a></p></td>
+<td><p>Desinstala paquetes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pip.pypa.io/en/stable/cli/pip_wheel/">wheel</a></p></td>
+<td><p>Construye <em>wheels</em> a partir de sus requisitos.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>En las secciones siguientes se revisarán algunos comandos, pero no todos. Para más información de cada comando seguir el link de cada comando para revisar su documentación.</p>
+</div>
+<br/>
+<section id="freeze">
+<h2><em>freeze</em><a class="headerlink" href="#freeze" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://pip.pypa.io/en/stable/cli/pip_freeze/">freeze</a>: Imprime los paquetes instalados en formato de archivo de requisitos.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Este comando se usa para generar el archivo de requisitos que posteriormente se puede usar para instalar paquetes en otro entorno.</p>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamanda</span>
+pip<span class="w"> </span>freeze<span class="w"> </span><span class="o">[</span>options<span class="o">]</span>
+</pre></div>
+</div>
+<p><strong>Opciones</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-r,</span> <span class="pre">--requirement</span> <span class="pre">&lt;file&gt;</span></code>: Usa el orden en el archivo de requisitos dados y sus comentarios al generar salida. Esta opción se puede usar varias veces.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-l,</span> <span class="pre">--local</span></code>: Si en un <em>virtualenv</em> que tiene acceso global, no imprime los paquetes instalados a nivel global.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--user</span></code>: Solo imprimr paquetes instalados en el sitio del usuario (<em>user-site</em>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--path</span> <span class="pre">&lt;path&gt;</span></code>: Restringe a la ruta de instalación especificada para el listados de paquetes (se puede usar varias veces).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--all</span></code>: No omite estos paquetes en la salida: <em>pip, wheel, distribute, setuptools</em>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--exclude-editable</span></code>: Excluye el paquete <em>editable</em> de la salida.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--exclude</span> <span class="pre">&lt;package&gt;</span></code>: Excluye el paquete especificado de la salida.</p></li>
+</ul>
+<p><strong>Patrones útiles</strong>:</p>
+<p>A continuación se presentan algunos casos de uso comunes.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generar archivo de requisitos</span>
+pip<span class="w"> </span>freeze<span class="w"> </span>&gt;<span class="w"> </span>requirements.txt
+</pre></div>
+</div>
+<br/>
+</section>
+<section id="help">
+<h2><em>help</em><a class="headerlink" href="#help" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">help</span></code>: Muestra ayuda para los comandos.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamanda</span>
+pip<span class="w"> </span><span class="nb">help</span><span class="w"> </span>&lt;command&gt;
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><em>&lt;command&gt;</em>: Es el nombre del comando del cual se desea retornar ayuda.</p></li>
+</ul>
+<br/>
+</section>
+<section id="install">
+<h2><em>install</em><a class="headerlink" href="#install" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://pip.pypa.io/en/stable/cli/pip_install/">install</a>: Instala y actualiza paquetes de:</p>
+<ul class="simple">
+<li><p><em>PyPi</em> (y otros <em>indexes</em>) usando especificadores de requisitos.</p></li>
+<li><p>URLs de proyectos <em>VCS</em></p></li>
+<li><p>Directorios de proyectos locales.</p></li>
+<li><p>Archivos <em>source</em> locales o remotos.</p></li>
+</ul>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Para más información consultar la documentación de <em>pip</em> o usar <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-h</span></code> o <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">help</span> <span class="pre">install</span></code>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Es posible instalar paquetes desde un archivo de requisitos que contiene un listado de paquetes con sus respectivas versiones mínimas.</p>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamadas</span>
+pip<span class="w"> </span>install<span class="w"> </span><span class="o">[</span>options<span class="o">]</span><span class="w"> </span>&lt;requirement<span class="w"> </span>specifier&gt;<span class="w"> </span><span class="o">[</span>package-index-options<span class="o">]</span><span class="w"> </span>...
+pip<span class="w"> </span>install<span class="w"> </span><span class="o">[</span>options<span class="o">]</span><span class="w"> </span>-r<span class="w"> </span>&lt;requirements<span class="w"> </span>file&gt;<span class="w"> </span><span class="o">[</span>package-index-options<span class="o">]</span><span class="w"> </span>...
+pip<span class="w"> </span>install<span class="w"> </span><span class="o">[</span>options<span class="o">]</span><span class="w"> </span><span class="o">[</span>-e<span class="o">]</span><span class="w"> </span>&lt;vcs<span class="w"> </span>project<span class="w"> </span>url&gt;<span class="w"> </span>...
+pip<span class="w"> </span>install<span class="w"> </span><span class="o">[</span>options<span class="o">]</span><span class="w"> </span><span class="o">[</span>-e<span class="o">]</span><span class="w"> </span>&lt;<span class="nb">local</span><span class="w"> </span>project<span class="w"> </span>path&gt;<span class="w"> </span>...
+pip<span class="w"> </span>install<span class="w"> </span><span class="o">[</span>options<span class="o">]</span><span class="w"> </span>&lt;archive<span class="w"> </span>url/path&gt;<span class="w"> </span>...
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Opciones del índice de Paquetes</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">-i,</span> <span class="pre">--index-url</span> <span class="pre">&lt;url&gt;</span></code>: URL base del índice de paquetes de Python (default: <a class="reference external" href="https://pypi.org/simple">https://pypi.org/simple</a>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--extra-index-url</span> <span class="pre">&lt;url&gt;</span></code>: URL adicionales de índices de paquetes para usar además de <code class="docutils literal notranslate"><span class="pre">--index-url</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--no-index</span></code>: Ignora el índice de paquetes (solo mira las URL de <code class="docutils literal notranslate"><span class="pre">--find-links</span></code> en su lugar).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-f,</span> <span class="pre">--find-links</span> <span class="pre">&lt;url&gt;</span></code>: Si es una URL o ruta a un archivo HTML, analiza los enlaces a archivos como los archivos <em>sdist</em> (<em>.tar.gz</em>) o <em>wheel</em> (<em>.whl</em>).</p></li>
+</ul>
+</li>
+<li><p><strong>Opciones</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">-r,</span> <span class="pre">--requirement</span> <span class="pre">&lt;file&gt;</span></code>: Instalar desde el archivo de requisitos especificado.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-c,</span> <span class="pre">--constraint</span> <span class="pre">&lt;file&gt;</span></code>: Restringir versiones usando el archivo de restricciones especificado.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--no-deps</span></code>: No instalar dependencias del paquete.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--pre</span></code>: Incluir versiones preliminares y de desarrollo. Por defecto, pip solo encuentra versiones estables.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-e,</span> <span class="pre">--editable</span> <span class="pre">&lt;path/url&gt;</span></code>: Instalar un proyecto en modo editable (modo “develop” de setuptools) desde una ruta de proyecto local o una URL de VCS.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--dry-run</span></code>: No instalar nada, solo imprimir lo que se haría. Puede usarse junto con <code class="docutils literal notranslate"><span class="pre">--ignore-installed</span></code> para “resolver” los requisitos.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-t,</span> <span class="pre">--target</span> <span class="pre">&lt;dir&gt;</span></code>: Instalar paquetes en <code class="docutils literal notranslate"><span class="pre">&lt;dir&gt;</span></code>. No reemplaza archivos/carpetas existentes a menos que se use <code class="docutils literal notranslate"><span class="pre">--upgrade</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--platform</span> <span class="pre">&lt;platform&gt;</span></code>: Usar solo <em>wheels</em> compatibles con <code class="docutils literal notranslate"><span class="pre">&lt;platform&gt;</span></code>. Por defecto, usa la plataforma del sistema en ejecución.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--python-version</span> <span class="pre">&lt;python_version&gt;</span></code>: Versión de Python a usar para comprobaciones de compatibilidad con <em>wheels</em> y <em>Requires-Python</em>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--implementation</span> <span class="pre">&lt;implementation&gt;</span></code>: Usar solo <em>wheels</em> compatibles con la implementación de Python <code class="docutils literal notranslate"><span class="pre">&lt;implementation&gt;</span></code> (ej. ‘pp’, ‘jy’, ‘cp’, ‘ip’).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--abi</span> <span class="pre">&lt;abi&gt;</span></code>: Usar solo <em>wheels</em> compatibles con el ABI de Python <code class="docutils literal notranslate"><span class="pre">&lt;abi&gt;</span></code> (ej. ‘pypy_41’). Si no se especifica, se usa el ABI del intérprete actual.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--user</span></code>: Instalar en el directorio de usuario de Python en lugar del sistema.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--root</span> <span class="pre">&lt;dir&gt;</span></code>: Instalar todo en un directorio raíz alternativo.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--prefix</span> <span class="pre">&lt;dir&gt;</span></code>: Prefijo de instalación donde se colocan <code class="docutils literal notranslate"><span class="pre">lib</span></code>, <code class="docutils literal notranslate"><span class="pre">bin</span></code> y otras carpetas de nivel superior.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--src</span> <span class="pre">&lt;dir&gt;</span></code>: Directorio donde se almacenan proyectos editables.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-U,</span> <span class="pre">--upgrade</span></code>: Actualizar todos los paquetes especificados a la versión más reciente disponible.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--upgrade-strategy</span> <span class="pre">&lt;upgrade_strategy&gt;</span></code>: Determina cómo se maneja la actualización de dependencias (por defecto: <code class="docutils literal notranslate"><span class="pre">only-if-needed</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--force-reinstall</span></code>: Reinstalar todos los paquetes, incluso si ya están actualizados.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-I,</span> <span class="pre">--ignore-installed</span></code>: Ignorar paquetes instalados y sobrescribirlos.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--ignore-requires-python</span></code>: Ignorar la información de <em>Requires-Python</em>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--no-build-isolation</span></code>: Deshabilitar la construcción en un entorno aislado para distribuciones modernas.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--use-pep517</span></code>: Usar PEP 517 para construir distribuciones desde código fuente (usar <code class="docutils literal notranslate"><span class="pre">--no-use-pep517</span></code> para forzar el comportamiento heredado).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--check-build-dependencies</span></code>: Verificar dependencias de compilación cuando se usa PEP 517.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--break-system-packages</span></code>: Permitir que pip modifique una instalación de Python marcada como <code class="docutils literal notranslate"><span class="pre">EXTERNALLY-MANAGED</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-C,</span> <span class="pre">--config-settings</span> <span class="pre">&lt;settings&gt;</span></code>: Configuraciones a pasar al <em>backend</em> de compilación PEP 517.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--global-option</span> <span class="pre">&lt;options&gt;</span></code>: Opciones globales adicionales para <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> antes de ejecutar <code class="docutils literal notranslate"><span class="pre">install</span></code> o <code class="docutils literal notranslate"><span class="pre">bdist_wheel</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--compile</span></code>: Compilar archivos de código fuente de Python a bytecode.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--no-compile</span></code>: No compilar archivos de código fuente de Python a bytecode.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--no-warn-script-location</span></code>: No advertir cuando se instalan scripts fuera del <code class="docutils literal notranslate"><span class="pre">PATH</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--no-warn-conflicts</span></code>: No advertir sobre dependencias en conflicto.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--no-binary</span> <span class="pre">&lt;format_control&gt;</span></code>: No usar paquetes binarios (<em>wheels</em>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--only-binary</span> <span class="pre">&lt;format_control&gt;</span></code>: No usar paquetes fuente (<em>source distributions</em>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--prefer-binary</span></code>: Preferir paquetes binarios sobre paquetes fuente, incluso si los paquetes fuente son más recientes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--require-hashes</span></code>: Requerir un <em>hash</em> para verificar cada requisito, asegurando instalaciones repetibles.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--progress-bar</span> <span class="pre">&lt;progress_bar&gt;</span></code>: Especifica si se debe usar la barra de progreso [<code class="docutils literal notranslate"><span class="pre">on</span></code>, <code class="docutils literal notranslate"><span class="pre">off</span></code>, <code class="docutils literal notranslate"><span class="pre">raw</span></code>] (por defecto: <code class="docutils literal notranslate"><span class="pre">on</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--root-user-action</span> <span class="pre">&lt;root_user_action&gt;</span></code>: Acción si pip se ejecuta como usuario root [<code class="docutils literal notranslate"><span class="pre">warn</span></code>, <code class="docutils literal notranslate"><span class="pre">ignore</span></code>] (por defecto: <code class="docutils literal notranslate"><span class="pre">warn</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--report</span> <span class="pre">&lt;file&gt;</span></code>: Generar un archivo JSON que describa lo que pip hizo para instalar los requisitos.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--no-clean</span></code>: No limpiar los directorios de compilación.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Patrones útiles</strong>:</p>
+<p>A continuación se presentan algunos casos de uso comunes.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Instalar paquete por su nombre</span>
+pip<span class="w"> </span>install<span class="w"> </span>pkg_name
+
+<span class="c1"># Instalar más de un paquete por su nombre</span>
+pip<span class="w"> </span>install<span class="w"> </span>pkg_name1,<span class="w"> </span>pkg_name2,<span class="w"> </span>...
+
+<span class="c1"># Instalar paquete con versión específica</span>
+pip<span class="w"> </span>instal<span class="w"> </span><span class="nv">pkg_name</span><span class="o">==</span><span class="s1">&#39;MAJOR.MINOR.PATCH&#39;</span>
+
+<span class="c1"># Instalar paquete con versión mínima</span>
+pip<span class="w"> </span>instal<span class="w"> </span>pkg_name&gt;<span class="o">=</span><span class="s1">&#39;MAJOR.MINOR.PATCH&#39;</span>
+
+<span class="c1"># Instalar paquete con un archivo de requisitos</span>
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+
+<span class="c1"># Actualizar un paquete</span>
+pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pkg_name
+
+<span class="c1"># Actualizar pip</span>
+pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
+
+<span class="c1"># Instalar paquete de GitHub</span>
+pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/pypa/sampleproject.git@main
+
+<span class="c1"># Instalar paquete de un archivo de distribución</span>
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>sampleproject-1.0.tar.gz
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>sampleproject-1.0-py3-none-any.whl
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><em>pkg_name</em> es el nombre del paquete como <em>numpy</em>, <em>pandas</em>, <em>scipy</em>, etc.</p></li>
+<li><p>Para más ejemplos consultar la <a class="reference external" href="https://pip.pypa.io/en/stable/cli/pip_install/#examples">documentación</a> de <em>pip</em>.</p></li>
+</ul>
+<br/>
+</section>
+<section id="list">
+<h2><em>list</em><a class="headerlink" href="#list" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://pip.pypa.io/en/stable/cli/pip_list/">list</a>: Lista los paquetes instalados. Los paquete se enlistan en orden alfabético.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamadas</span>
+pip<span class="w"> </span>list<span class="w"> </span><span class="o">[</span>options<span class="o">]</span>
+</pre></div>
+</div>
+<p><strong>Opciones</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-o,</span> <span class="pre">--outdated</span></code>: Lista de paquetes obsoletos.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-u,</span> <span class="pre">--uptodate</span></code>: Lista de paquetes actualizados.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-e,</span> <span class="pre">--editable</span></code>: Lista de proyectos editables.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-l,</span> <span class="pre">--local</span></code>: Si en un <em>virtualenv</em> que tiene acceso global, indica que no se enlisten paquetes de instalación global.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--user</span></code>: Solo imprime paquetes instalados en el sitio del usuario (<em>user-site</em>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--path</span> <span class="pre">&lt;path&gt;</span></code>: Restringe a la ruta de instalación especificada para el listado de los paquetes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--pre</span></code>: Incluye versiones <em>pre-release</em> y desarrollo. Por default, <em>pip</em> solo encuentra versiones estables.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--format</span> <span class="pre">&lt;list_format&gt;</span></code>: Selecciona el formato de salida entre: <em>columns</em> (default), <em>freeze</em> o <em>json</em>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--not-required</span></code>: Lista de paquetes que no son dependencias de los paquetes instalados.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--exclude-editable</span></code>: Excluye el paquete editable de la salida.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--include-editable</span></code>: Incluye un paquete editable en la salida.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--exclude</span> <span class="pre">&lt;package&gt;</span></code>: Excluye el paquete especificado de la salida.</p></li>
+</ul>
+<p><strong>Patrones útiles</strong>:</p>
+<p>A continuación se presentan algunos casos de uso comunes.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Enlistar paquetes instalados</span>
+pip<span class="w"> </span>list
+
+<span class="c1"># Enlistar paquetes obsoletos como columnas</span>
+pip<span class="w"> </span>list<span class="w"> </span>--outdated<span class="w"> </span>--format<span class="w"> </span>columns
+</pre></div>
+</div>
+<br/>
+</section>
+<section id="uninstall">
+<h2><em>uninstall</em><a class="headerlink" href="#uninstall" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://pip.pypa.io/en/stable/cli/pip_uninstall/">uninstall</a>: Desinstala paquetes.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+pip<span class="w"> </span>uninstall<span class="w"> </span><span class="o">[</span>options<span class="o">]</span><span class="w"> </span>&lt;package&gt;<span class="w"> </span>...
+pip<span class="w"> </span>uninstall<span class="w"> </span><span class="o">[</span>options<span class="o">]</span><span class="w"> </span>-r<span class="w"> </span>&lt;requirements<span class="w"> </span>file&gt;<span class="w"> </span>...
+</pre></div>
+</div>
+<p><strong>Opciones</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-r,</span> <span class="pre">--requirement</span> <span class="pre">&lt;file&gt;</span></code>: Desinstala todos los paquetes enlistados en el archivo de requisitos dado.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-y,</span> <span class="pre">--yes</span></code>: No solicita la confirmación de las eliminaciones de desinstalación.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--root-user-action</span> <span class="pre">&lt;root_user_action&gt;</span></code>: Acción si <em>pip</em> se ejecuta como un <em>root user</em> [<em>warn, ignore</em>] (default: <em>warn</em>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--break-system-packages</span></code>: Permite que <em>pip</em> modifique una instalación de Python administrada externamente.</p></li>
+</ul>
+<p><strong>Patrones útiles</strong>:</p>
+<p>A continuación se presentan algunos casos de uso comunes.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Desinstalar un paquete</span>
+pip<span class="w"> </span>uninstall<span class="w"> </span>pkg_name
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><em>pkg_name</em> es el nombre del paquete como <em>numpy</em>, <em>pandas</em>, <em>scipy</em>, etc.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./parts/appendix"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="jupyter.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Jupyter</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="conda.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><em>conda</em></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#freeze"><em>freeze</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#help"><em>help</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install"><em>install</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list"><em>list</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uninstall"><em>uninstall</em></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nebok
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1530 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Linear model &#8212; Manual de Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'parts/07-sklearn/supervised/linear_model';</script>
+    <link rel="icon" href="../../../_static/nebok-favicon.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Naive bayes" href="naive_bayes.html" />
+    <link rel="prev" title="Ensamble" href="ensamble.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/nebok-logo.png" class="logo__image only-light" alt="Manual de Python - Home"/>
+    <script>document.write(`<img src="../../../_static/nebok-logo.png" class="logo__image only-dark" alt="Manual de Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Manual de Python para Data Science
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Built-in</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../01-built-in/built-in-index.html">Python Estándar</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/cli.html"><em>Command Line Interface</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/ayuda.html">Obtener ayuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/comentarios.html">Comentarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/tipos-datos.html">Tipos de Datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/variables-constantes.html">Variables y Constantes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/operadores-palabras.html">Operadores y palabras reservadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/entrada-salida.html">Impresión y solicitud de datos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../01-built-in/tipos-index.html">Tipos Built-In</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/none-bool-numericos.html"><em>None</em>, <em>bool</em> y Numéricos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/str.html">str</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/lists.html">list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/tuples.html">Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/sets.html">Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/dicts.html">dict</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../01-built-in/estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/if-else.html">If … Else</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/for-loop.html">For Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/do-while.html">Do While</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/udf.html">Funciones (UDF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/exceptions.html">Excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/context-managers.html">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/io.html">Lectura y escritura de archivos (IO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/modulos.html">Paquetes y Módulos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../01-built-in/avanzado-index.html">Temas avanzados</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/decorators.html">Decorators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/iterators.html">Iterators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/generators.html">Generators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/oop.html">Programación orientada a objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/func-built-in.html">Funciones built-in</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../02-modulos/modulos-index.html">Módulos built-in</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/csv.html">CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/datetime.html">Datetime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/itertools.html">Itertools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/json.html">JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/math.html">Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/os.html">Os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/os-path.html">Os.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/pickle.html">Pickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/random.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/regex.html">Regex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/statistics.html">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/urllib-request.html">urllib.request</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otras librerías</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../03-numpy/numpy-index.html">Numpy</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../03-numpy/arrays.html">Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../03-numpy/funciones-index.html">Funciones</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/ufuncs.html">Ufuncs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/buscar-contar-ordenar-unicos.html">Buscar, contar, ordenar y valores únicos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/creacion-arrays.html">Creación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/estadisticas.html">Estadísticas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/indices.html">Índices e iteración</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/informacion.html">Información</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/lectura-escritura.html">Lectura y escritura de datos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/manipulacion-arrays.html">Manipulación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/matematicas-numericas.html">Matemáticas y numéricas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/operadores.html">Operadores</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../03-numpy/algebra-lineal.html">Módulo linalg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../03-numpy/cadenas.html">Modulo char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../03-numpy/random.html">Módulo random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../03-numpy/patrones-numpy.html">Patrones útiles</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../04-pandas/pandas-index.html">Pandas</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../04-pandas/index.html">Index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-pandas/series.html">Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-pandas/dataframe.html">DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-pandas/escalares-arrays.html">Escalares y Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../04-pandas/otras-clases.html">Otras clases</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../04-pandas/groupby.html">GroupBy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../04-pandas/expanding-rolling-window.html"><em>Expanding, Rolling</em> y <em>Window</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../04-pandas/resampler.html">Resampler</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-pandas/funciones.html">Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-pandas/patrones-pandas.html">Patrones útiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-pandas/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../05-matplotlib/matplotlib-index.html">Matplotlib</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../05-matplotlib/pyplot.html">Pyplot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../05-matplotlib/figure.html">Figure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../05-matplotlib/axes.html">Axes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../05-matplotlib/otros.html">Otras Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../05-matplotlib/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../06-seaborn/seaborn-index.html">Seaborn</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../06-seaborn/funciones-clases.html">Funciones y Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../06-seaborn/objects-interface.html">Interface por objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../sklearn-index.html">Scikit Learn</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="supervised-index.html">Aprendizaje supervisado</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="ensamble.html">Ensamble</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Linear model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="naive_bayes.html">Naive bayes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="neighbors.html">Neighbors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="svm.html">SVM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tree.html">Tree</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../unsupervised/unsupervised-index.html">Aprendizaje no supervisado</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../unsupervised/cluster.html">Cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../unsupervised/decomposition.html">Decomposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../unsupervised/mixture.html">Mixture</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../transformations/tranformations-index.html">Transformaciones</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../transformations/feature_extraction.html">Feature Extraction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transformations/impute.html">Impute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transformations/manifold.html">Manifold</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transformations/preprocessing.html">Preprocessing</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../evaluation/evaluation-index.html">Evaluación y selección del modelo</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../evaluation/dummy.html">Dummy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../evaluation/feature_selection.html">Feature Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../evaluation/metrics.html">Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../evaluation/model_selection.html">Model Selection</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../pipelines-and-compose/pipeline-compose-index.html">Pipelines y Modelos Compuestos</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../pipelines-and-compose/compose.html">Compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pipelines-and-compose/pipeline.html">Pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../datasets.html">Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../08-xgboost/xgboost-index.html">XGBoost</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../08-xgboost/core-data-structure.html">Core Data Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../08-xgboost/learning-api.html">Learning API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../08-xgboost/scikit-learn-api.html">Scikit-Learn API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../08-xgboost/plotting-api.html">Plotting API</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../09-scipy/scipy-index.html">Scipy</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../09-scipy/clusters.html">Clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../09-scipy/derivacion-integracion.html">Derivación e Integración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../09-scipy/linalg.html">Linear Algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../09-scipy/sparse.html"><em>Sparse</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../09-scipy/stats.html">Stats</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../10-statsmodels/statsmodels-index.html">Statsmodels</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../10-statsmodels/statsmodels-api.html">API Principal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../10-statsmodels/statsmodels-tsa-api.html">API de Series de Tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../10-statsmodels/statsmodels-formula-api.html">API de Fórmulas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../10-statsmodels/graphics.html">Gráficos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../10-statsmodels/otras-clases.html">Otras clases</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../11-bokeh/bokeh-index.html">Bokeh</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../11-bokeh/io.html">IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../11-bokeh/layouts.html"><em>Layouts</em></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../11-bokeh/models/models-index.html"><em>Models</em></a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../11-bokeh/models/annotations.html">Anotaciones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../11-bokeh/models/axes.html">Ejes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../11-bokeh/models/callbacks.html">Callbacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../11-bokeh/models/formatters.html"><em>Formatters</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../11-bokeh/models/glyphs.html"><em>Glyphs</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../11-bokeh/models/sources.html"><em>Sources</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../11-bokeh/models/tools.html"><em>Tools</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../11-bokeh/models/widgets.html"><em>Widgets</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../11-bokeh/plotting.html">Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../11-bokeh/transform.html">transform</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../12-plotly/plotly-index.html">Plotly</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../12-plotly/express.html"><em>Express</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../12-plotly/figure-factory.html"><em>Figure Factory</em></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../12-plotly/go/go-index.html"><em>Graph Objects</em></a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../12-plotly/go/figure.html"><em>Figure</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../12-plotly/go/layout.html"><em>Layout</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../12-plotly/go/traces.html">Traces</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../12-plotly/io.html">IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../12-plotly/subplots.html">Subplots</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/beautifulsoup.html">BeautifulSoup</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Complementarios</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../appendix/appendix-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../appendix/IPython.html">IPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../appendix/jupyter.html">Jupyter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../appendix/pip.html">pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../appendix/conda.html"><em>conda</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../appendix/git.html">git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../appendix/shell.html">Shell</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/parts/07-sklearn/supervised/linear_model.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Linear model</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clases">Clases</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clasificadores-lineales">Clasificadores lineales</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#logisticregression">LogisticRegression</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#uso">Uso</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos">Atributos</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos">Métodos</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#glm-para-regresion">GLM para regresión</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regresores-bayesianos">Regresores bayesianos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regresiones-con-seleccion-de-variables">Regresiones con selección de variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lasso">Lasso</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Uso</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Atributos</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Métodos</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regresores-lineales">Regresores lineales</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#linearregression">LinearRegression</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Uso</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Atributos</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Métodos</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ridge">Ridge</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Uso</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Atributos</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Métodos</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ridgecv">RidgeCV</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Atributos</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Métodos</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regresores-multi-task">Regresores <em>multi-task</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regresores-robustos-a-outliers">Regresores robustos a <em>outliers</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones">Funciones</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="linear-model">
+<h1>Linear model<a class="headerlink" href="#linear-model" title="Link to this heading">#</a></h1>
+<p>Implementa modelos lineales, como regresión lineal, regresión logística y Ridge/Lasso, útiles para problemas de regresión y clasificación. Para importar este módulo o una clase o función específica usar:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar módulo</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">linear_model</span>
+
+<span class="c1"># Importar clase específica</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">ClassName</span>
+
+<span class="c1"># Importar función específica</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">func_name</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><em>ClassName</em> o <em>func_name</em> es el nombre de la clase o función respectivamente.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Para más información de este módulo visitar la <a class="reference external" href="https://scikit-learn.org/stable/api/sklearn.linear_model.html">documentación</a> de <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>.</p>
+</div>
+<br/>
+<section id="clases">
+<h2>Clases<a class="headerlink" href="#clases" title="Link to this heading">#</a></h2>
+<p>Clases implementadas en el módulo _linear_model`. A continuación se presenta un pequeño resumen de cada sección.</p>
+<ul class="simple">
+<li><p><strong>Clasificadores lineales</strong>: Esta sección se enfoca en modelos lineales utilizados para clasificación, como la regresión logística y el clasificador lineal SVM (<em>Support Vector Machine</em>). Estos modelos son ideales para problemas donde la relación entre las <em>features</em> y las etiquetas es lineal o puede aproximarse linealmente.</p></li>
+<li><p><strong>GLM para regresión</strong>: Esta sección cubre modelos lineales generalizados (GLM), que extienden la regresión lineal para manejar distribuciones no normales de la variable objetivo. Son útiles para problemas donde la relación entre las <em>features</em> y la variable objetivo no es estrictamente lineal.</p></li>
+<li><p><strong>Regresores bayesianos</strong>: Contiene modelos de regresión basados en enfoques bayesianos, como <em>Bayesian Ridge</em> y ARD (<em>Automatic Relevance Determination</em>). Estos modelos incorporan prioridades probabilísticas sobre los parámetros, lo que permite estimaciones más robustas en presencia de incertidumbre.</p></li>
+<li><p><strong>Regresores con selección de variable</strong>: Esta sección incluye modelos de regresión que incorporan selección de variables para mejorar la generalización y reducir el sobreajuste. Ejemplos son <em>Lasso</em> (regularización L1) y <em>Elastic Net</em>, que combinan regularizaciones L1 y L2.</p></li>
+<li><p><strong>Regresores lineales</strong>: Aquí se encuentran los modelos de regresión lineal clásicos, como la regresión lineal ordinaria (OLS) y <em>Ridge</em> (regularización L2). Estos modelos predicen una variable continua asumiendo una relación lineal entre las <em>features</em> y la variable objetivo.</p></li>
+<li><p><strong>Regresores <em>multi-task</em></strong>: Esta sección trata sobre modelos de regresión lineal que pueden manejar múltiples tareas simultáneamente (<em>multi-task learning</em>), que son útiles cuando varias variables objetivo están relacionadas.</p></li>
+<li><p><strong>Regresores robustos a <em>outliers</em></strong>: Aquí se encuentran modelos de regresión diseñados para ser robustos frente a valores atípicos (<em>outliers</em>). Ejemplos incluyen RANSAC (<em>RANdom SAmple Consensus</em>) y Theil-Sen, que son menos sensibles a datos corruptos o anómalos.</p></li>
+</ul>
+<br/>
+<section id="clasificadores-lineales">
+<h3>Clasificadores lineales<a class="headerlink" href="#clasificadores-lineales" title="Link to this heading">#</a></h3>
+<p>Esta sección se enfoca en modelos lineales utilizados para clasificación, como la regresión logística y el clasificador lineal SVM (<em>Support Vector Machine</em>). Estos modelos son ideales para problemas donde la relación entre las <em>features</em> y las etiquetas es lineal o puede aproximarse linealmente.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Clase</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html">LogisticRegression</a>(penalty=’l2’, …)</p></td>
+<td><p>Clasificador de regresión logística (también conocido como <em>Logit, Maxent</em>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegressionCV.html">LogisticRegressionCV</a>(…)</p></td>
+<td><p>Clasificador de regresión logística CV (también conocido como <em>Logit, Maxent</em>).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.PassiveAggressiveClassifier.html">PassiveAggressiveClassifier</a>(…)</p></td>
+<td><p>Clasificador pasivo agresivo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Perceptron.html">Perceptron</a>(…)</p></td>
+<td><p>Clasificador de perceptrón lineal.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.RidgeClassifier.html">RidgeClassifier</a>(alpha=1.0, …)</p></td>
+<td><p>Clasificador usando regresión <em>Ridge</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.RidgeClassifierCV.html">RidgeClassifierCV</a>(alphas=(0.1, 1.0, 10.0), …)</p></td>
+<td><p>Clasificador de <em>Ridge</em> con validación cruzada incorporada.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.SGDClassifier.html">SGDClassifier</a>(loss=’hinge’, …)</p></td>
+<td><p>Clasificadores lineales (SVM, regresión logística, etc.) con entrenamiento SGD.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.SGDOneClassSVM.html">SGDOneClassSVM</a>(nu=0.5, …)</p></td>
+<td><p>Resuelve SVM lineal de una clase usando descenso de gradiente estocástico.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<section id="logisticregression">
+<h4>LogisticRegression<a class="headerlink" href="#logisticregression" title="Link to this heading">#</a></h4>
+<p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html">LogisticRegression</a>: Implementa la regresión logística, un modelo lineal utilizado para problemas de clasificación binaria o multiclase. Ajusta los coeficientes de las <em>features</em> para predecir probabilidades utilizando una función logística.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+<span class="n">LogisticRegression</span><span class="p">(</span><span class="n">penalty</span><span class="o">=</span><span class="s1">&#39;l2&#39;</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">dual</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">fit_intercept</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+                   <span class="n">intercept_scaling</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">class_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s1">&#39;lbfgs&#39;</span><span class="p">,</span> 
+                   <span class="n">max_iter</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">multi_class</span><span class="o">=</span><span class="s1">&#39;deprecated&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">warm_start</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+                   <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">l1_ratio</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong>penalty</strong> - {‘l1’, ‘l2’, ‘elasticnet’, ‘none’}: Especifica la normal de penalización:</p>
+<ul>
+<li><p><em>l1</em>: Agrega una penalización L1.</p></li>
+<li><p><em>l2</em>: Agrega una penalización L2.</p></li>
+<li><p><em>elasticnet</em>: Se agregan penalizaciones L1 y L2.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">None</span></code>: No se agrega ninguna penalización. Equivale a establecer <em>C</em> como infinito con <code class="docutils literal notranslate"><span class="pre">penalty='l2'</span></code>.</p></li>
+</ul>
+</li>
+<li><p><strong>C</strong> - <code class="docutils literal notranslate"><span class="pre">float</span></code>: Indica la inversa de la fuerza de regularización. Valores más pequeños significan regularización más fuerte y viceversa.</p></li>
+<li><p><strong>solver</strong> - {‘newton-cg’, ‘lbfgs’, ‘liblinear’, ‘sag’, ‘saga’}: Algoritmo a usar en el problema de optimización.</p></li>
+</ul>
+<section id="uso">
+<h5>Uso<a class="headerlink" href="#uso" title="Link to this heading">#</a></h5>
+<p>La forma básica de usar este clase es la siguiente:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar clase</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+
+<span class="c1"># Inicializar modelo</span>
+<span class="n">logreg</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+
+<span class="c1"># Ajustar modelo</span>
+<span class="n">logreg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Predecir en nuevas muestras</span>
+<span class="n">prediction</span> <span class="o">=</span> <span class="n">logreg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># Evaluar el modelo</span>
+<span class="n">score</span> <span class="o">=</span> <span class="n">logreg</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="atributos">
+<h5>Atributos<a class="headerlink" href="#atributos" title="Link to this heading">#</a></h5>
+<p>Atributos de la clase <code class="docutils literal notranslate"><span class="pre">LogisticRegression</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Atributo</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>classes_</strong></p></td>
+<td><p>Un <code class="docutils literal notranslate"><span class="pre">list</span></code> de etiquetas de clase conocidas por el clasificador.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>coef_</strong></p></td>
+<td><p>Coeficiente de los <em>features</em> en la función de decisión.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>feature_names_in_</strong></p></td>
+<td><p>Nombres de los <em>features</em> observadas durante el ajuste. Definido sólo cuando <em>X</em> tiene nombres de rasgos que son todos cadenas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>intercept_</strong></p></td>
+<td><p>Intercepción (también conocido como sesgo) añadido a la función de decisión.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>n_features_in_</strong></p></td>
+<td><p>Número de <em>features</em> vistas durante el ajuste.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>n_iter_</strong></p></td>
+<td><p>Número real de iteraciones para todas las clases.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="metodos">
+<h5>Métodos<a class="headerlink" href="#metodos" title="Link to this heading">#</a></h5>
+<p>Métodos de la clase <code class="docutils literal notranslate"><span class="pre">LogisticRegression</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#sklearn.linear_model.LogisticRegression.decision_function">decision_function</a>(X)</p></td>
+<td><p>Predice las puntuaciones de confianza de las muestras.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#sklearn.linear_model.LogisticRegression.densify">densify</a>()</p></td>
+<td><p>Convierte la matriz de coeficientes al formato de matriz densa.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#sklearn.linear_model.LogisticRegression.fit">fit</a>(X,  y,  sample_weight=None)</p></td>
+<td><p>Ajusta el modelo según los datos de entrenamiento dados.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#sklearn.linear_model.LogisticRegression.predict">predict</a>(X)</p></td>
+<td><p>Predice etiquetas de clase para muestras en <em>X</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#sklearn.linear_model.LogisticRegression.predict_log_proba">predict_log_proba</a>(X)</p></td>
+<td><p>Predice el logaritmo de las estimaciones de probabilidad.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#sklearn.linear_model.LogisticRegression.predict_proba">predict_proba</a>(X)</p></td>
+<td><p>Estimaciones de probabilidad.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#sklearn.linear_model.LogisticRegression.score">score</a>(X,  y,  sample_weight=None)</p></td>
+<td><p>Retorna la precisión media en los datos de prueba y etiquetas dados.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#sklearn.linear_model.LogisticRegression.sparsify">sparsify</a>()</p></td>
+<td><p>Convierte la matriz de coeficientes a formato disperso.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+</section>
+<section id="glm-para-regresion">
+<h3>GLM para regresión<a class="headerlink" href="#glm-para-regresion" title="Link to this heading">#</a></h3>
+<p>Esta sección cubre modelos lineales generalizados (GLM), que extienden la regresión lineal para manejar distribuciones no normales de la variable objetivo. Son útiles para problemas donde la relación entre los <em>features</em> y la variable objetivo no es estrictamente lineal.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Clase</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.GammaRegressor.html">GammaRegressor</a>(…)</p></td>
+<td><p>Modelo lineal generalizado con una distribución gamma.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.PoissonRegressor.html">PoissonRegressor</a>(…)</p></td>
+<td><p>Modelo lineal generalizado con una distribución de Poisson.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.TweedieRegressor.html">TweedieRegressor</a>(…)</p></td>
+<td><p>Modelo lineal generalizado con una distribución de Tweedie.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="regresores-bayesianos">
+<h3>Regresores bayesianos<a class="headerlink" href="#regresores-bayesianos" title="Link to this heading">#</a></h3>
+<p>Contiene modelos de regresión basados en enfoques bayesianos, como <em>Bayesian Ridge</em> y ARD (<em>Automatic Relevance Determination</em>). Estos modelos incorporan prioridades probabilísticas sobre los parámetros, lo que permite estimaciones más robustas en presencia de incertidumbre.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Clase</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.ARDRegression.html">ARDRegression</a>(…)</p></td>
+<td><p>Regresión bayesiana ARD.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.BayesianRidge.html">BayesianRidge</a>(…)</p></td>
+<td><p>Regresión de <em>Ridge</em> bayesiana.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="regresiones-con-seleccion-de-variables">
+<h3>Regresiones con selección de variables<a class="headerlink" href="#regresiones-con-seleccion-de-variables" title="Link to this heading">#</a></h3>
+<p>Esta sección incluye modelos de regresión que incorporan selección de variables para mejorar la generalización y reducir el sobreajuste. Ejemplos son <em>Lasso</em> (regularización L1) y <em>Elastic Net</em>, que combinan regularizaciones L1 y L2.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Clase</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.ElasticNet.html">ElasticNet</a>(alpha=1.0, …)</p></td>
+<td><p>Regresión lineal con antecedentes L1 y L2 combinados como regularizador.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.ElasticNetCV.html">ElasticNetCV</a>(…)</p></td>
+<td><p>Modelo de red elástica con ajuste iterativo a lo largo de una ruta de regularización.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lars.html">Lars</a>(…)</p></td>
+<td><p>Modelo de regresión de ángulo mínimo (A.K.A).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LarsCV.html">LarsCV</a>(…)</p></td>
+<td><p>Modelo de regresión de ángulo de mínimo validado cruzado.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html">Lasso</a>(alpha=1.0, …)</p></td>
+<td><p>Modelo lineal entrenado con L1 Prior como regularizador (también conocido como <em>Lasso</em>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LassoCV.html">LassoCV</a>(…)</p></td>
+<td><p>Modelo lineal de <em>Lasso</em> con ajuste iterativo a lo largo de una ruta de regularización.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LassoLars.html">LassoLars</a>(alpha=1.0, …)</p></td>
+<td><p>Modelo de <em>Lasso</em> con la regresión de ángulo menor A.K.A.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LassoLarsCV.html">LassoLarsCV</a>(…)</p></td>
+<td><p>Lasso validados cruzados, utilizando el algoritmo Lars.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LassoLarsIC.html">LassoLarsIC</a>(criterion=’aic’, …)</p></td>
+<td><p>Modelo de <em>Lasso</em> ajustado con LARS usando BIC o AIC para la selección del modelo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.OrthogonalMatchingPursuit.html">OrthogonalMatchingPursuit</a>(…)</p></td>
+<td><p>Modelo de búsqueda de correspondencia ortogonal (OMP).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.OrthogonalMatchingPursuitCV.html">OrthogonalMatchingPursuitCV</a>(…)</p></td>
+<td><p>Modelo de persecución ortogonal de coincidencia ortogonal (OMP).</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<section id="lasso">
+<h4>Lasso<a class="headerlink" href="#lasso" title="Link to this heading">#</a></h4>
+<p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html">Lasso</a>: Es una variante de la regresión lineal que incluye regularización L1 (norma L1). Esta regularización tiende a producir coeficientes exactamente cero, lo que ayuda en la selección de <em>features</em> y previene el sobreajuste.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+<span class="n">Lasso</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">fit_intercept</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">precompute</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">copy_X</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> 
+      <span class="n">tol</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">,</span> <span class="n">warm_start</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">selection</span><span class="o">=</span><span class="s1">&#39;cyclic&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong>alpha</strong> - <code class="docutils literal notranslate"><span class="pre">float</span></code> o <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>: Fuerza de la regularización, debe ser mayor que cero.</p>
+<ul>
+<li><p>Si es cero es una regresión lineal estándar.</p></li>
+<li><p>Si se define este valor por debajo del default (1.0) es muy probable que se tenga que incrementar <em>max_iter</em>.</p></li>
+</ul>
+</li>
+<li><p><strong>fit_intercept</strong> - <code class="docutils literal notranslate"><span class="pre">bool</span></code>: Para indicar si se debe calcular la intercepción para este modelo. Si es <code class="docutils literal notranslate"><span class="pre">False</span></code>, se espera que los datos estén “centrados al origen”.</p></li>
+</ul>
+<section id="id1">
+<h5>Uso<a class="headerlink" href="#id1" title="Link to this heading">#</a></h5>
+<p>La forma básica de usar este clase es la siguiente:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar clase</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">Lasso</span>
+
+<span class="c1"># Inicializar modelo</span>
+<span class="n">lasso</span> <span class="o">=</span> <span class="n">Lasso</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
+
+<span class="c1"># Ajustar modelo</span>
+<span class="n">lasso</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Predecir en nuevas muestras</span>
+<span class="n">prediction</span> <span class="o">=</span> <span class="n">lasso</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># Evaluar el modelo</span>
+<span class="n">score</span> <span class="o">=</span> <span class="n">lasso</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h5>Atributos<a class="headerlink" href="#id2" title="Link to this heading">#</a></h5>
+<p>Atributos de la clase <code class="docutils literal notranslate"><span class="pre">Lasso</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Atributo</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>coef_</strong></p></td>
+<td><p>Vector de parámetros (<em>w</em> en la fórmula de la función de costes).</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>dual_gap_</strong></p></td>
+<td><p>Dado parámetro <em>alpha</em>, los huecos duales al final de la optimización, mismo <em>shape</em> que cada observación de <em>y</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>feature_names_in_</strong></p></td>
+<td><p>Nombres de los <em>features</em> observadas durante el ajuste. Definido sólo cuando <em>X</em> tiene nombres de rasgos que son todos cadenas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>intercept_</strong></p></td>
+<td><p>Término independiente en la función de decisión.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>n_features_in_</strong></p></td>
+<td><p>Número de <em>features</em> vistas durante el ajuste.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>n_iter_</strong></p></td>
+<td><p>Número de iteraciones ejecutadas por el solucionador de descenso de coordenadas para alcanzar la tolerancia especificada.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>sparse_coef_</strong></p></td>
+<td><p>Representación dispersa del <em>coef_</em> ajustado.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id3">
+<h5>Métodos<a class="headerlink" href="#id3" title="Link to this heading">#</a></h5>
+<p>Métodos de la clase <code class="docutils literal notranslate"><span class="pre">Lasso</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html#sklearn.linear_model.Lasso.fit">fit</a>(X,  y,  sample_weight=None,  check_input=True)</p></td>
+<td><p>Ajusta del modelo con descenso de coordenadas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html#sklearn.linear_model.Lasso.predict">predict</a>(X)</p></td>
+<td><p>Predice utilizando el modelo lineal.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html#sklearn.linear_model.Lasso.score">score</a>(X,  y,  sample_weight=None)</p></td>
+<td><p>Retorna el coeficiente de determinación de la predicción.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html#sklearn.linear_model.Lasso.path">static path</a>(X,  y, …)</p></td>
+<td><p>Calcula la trayectoria de la red elástica con descenso por coordenadas.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+</section>
+<section id="regresores-lineales">
+<h3>Regresores lineales<a class="headerlink" href="#regresores-lineales" title="Link to this heading">#</a></h3>
+<p>Aquí se encuentran los modelos de regresión lineal clásicos, como la regresión lineal ordinaria (OLS). Estos modelos predicen una variable continua asumiendo una relación lineal entre los <em>features</em> y la variable objetivo.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Clase</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html">LinearRegression</a>(…)</p></td>
+<td><p>Regresión lineal de mínimos cuadrados ordinarios.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html">Ridge</a>(alpha=1.0, …)</p></td>
+<td><p>Mínimos cuadrados lineales con regularización L2.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.RidgeCV.html">RidgeCV</a>(alphas=(0.1, 1.0, 10.0), …)</p></td>
+<td><p>Regresión de <em>Ridge</em> con validación cruzada incorporada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.SGDRegressor.html">SGDRegressor</a>(loss=’squared_error’, …)</p></td>
+<td><p>Modelo lineal instalado minimizando una pérdida empírica regularizada con SGD.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<section id="linearregression">
+<h4>LinearRegression<a class="headerlink" href="#linearregression" title="Link to this heading">#</a></h4>
+<p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html">LinearRegression</a>: Implementa la regresión lineal ordinaria, un modelo que ajusta una línea (o hiperplano) a los datos para predecir valores continuos. Minimiza la suma de los errores al cuadrado entre las predicciones y los valores reales. Puede ajustar líneas, planos e hiperplanos.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+<span class="n">LinearRegression</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">fit_intercept</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">copy_X</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong>fit_intercept</strong> - <code class="docutils literal notranslate"><span class="pre">bool</span></code>: Para indicar si se debe calcular la intercepción para este modelo. Si es <code class="docutils literal notranslate"><span class="pre">False</span></code>, se espera que los datos estén “centrados al origen”.</p></li>
+</ul>
+<section id="id4">
+<h5>Uso<a class="headerlink" href="#id4" title="Link to this heading">#</a></h5>
+<p>La forma básica de usar este clase es la siguiente:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar clase</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+
+<span class="c1"># Inicializar modelo</span>
+<span class="n">reg</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+
+<span class="c1"># Ajustar modelo</span>
+<span class="n">reg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Predecir en nuevas muestras</span>
+<span class="n">prediction</span> <span class="o">=</span> <span class="n">knn</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># Evaluar el modelo</span>
+<span class="n">score</span> <span class="o">=</span> <span class="n">knn</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><em>X_test</em> debe ser un <code class="docutils literal notranslate"><span class="pre">2D</span> <span class="pre">array-like</span></code>, con el mismo número de columnas que <em>X_train</em>. En lugar de ser el <em>test</em> set simplemente podrían ser muestras nuevas.</p></li>
+</ul>
+</section>
+<section id="id5">
+<h5>Atributos<a class="headerlink" href="#id5" title="Link to this heading">#</a></h5>
+<p>Atributos de la clase <code class="docutils literal notranslate"><span class="pre">LinearRegression</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Atributo</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>coef_</strong></p></td>
+<td><p>Coeficientes estimados para el problema de regresión lineal. Si se pasan multiples <em>targets</em> durante el ajuste (<em>y</em> es 2D), se retorna una matriz 2D de forma
+<em>(n_targets, n_features)</em>, mientras que si sólo se pasa un objetivo, se trata de una matriz 1D de longitud <em>n_features</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>feature_names_in_</strong></p></td>
+<td><p>Nombres de los <em>features</em> observadas durante el ajuste. Definido sólo cuando <em>X</em> tiene nombres de rasgos que son todos cadenas.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>intercept_</strong></p></td>
+<td><p>Término independiente en el modelo lineal. Se establece en <em>0.0</em> si <code class="docutils literal notranslate"><span class="pre">fit_intercept=</span> <span class="pre">False</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>n_features_in_</strong></p></td>
+<td><p>Número de <em>features</em> vistas durante el ajuste.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>rank_</strong></p></td>
+<td><p>Rango de la matriz <em>X</em>. Sólo disponible cuando <em>X</em> es denso.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>singular_</strong></p></td>
+<td><p>Valores singulares de <em>X</em>. Sólo disponible cuando <em>X</em> es denso.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id6">
+<h5>Métodos<a class="headerlink" href="#id6" title="Link to this heading">#</a></h5>
+<p>Métodos de la clase <code class="docutils literal notranslate"><span class="pre">LinearRegression</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html#sklearn.linear_model.LinearRegression.fit">fit</a>(X,  y,  sample_weight=None)</p></td>
+<td><p>Ajusta del modelo lineal.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html#sklearn.linear_model.LinearRegression.predict">predict</a>(X)</p></td>
+<td><p>Predice utilizando el modelo lineal.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html#sklearn.linear_model.LinearRegression.score">score</a>(X,  y,  sample_weight=None)</p></td>
+<td><p>Retorna el coeficiente de determinación de la predicción.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+<section id="ridge">
+<h4>Ridge<a class="headerlink" href="#ridge" title="Link to this heading">#</a></h4>
+<p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html">Ridge</a>: Es una variante de la regresión lineal que incluye regularización L2 (norma L2). Esta regularización reduce la magnitud de los coeficientes sin eliminarlos por completo, lo que ayuda a manejar la multicolinealidad y el sobreajuste.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+<span class="n">Ridge</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">fit_intercept</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">copy_X</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">,</span> 
+      <span class="n">solver</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong>alpha</strong> - <code class="docutils literal notranslate"><span class="pre">float</span></code> o <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>: Fuerza de la regularización, debe ser mayor que cero.</p>
+<ul>
+<li><p>Si fuera cero sería equivalente a una regresión lineal simple.</p></li>
+<li><p>Entre más bajo menor será la regularización y podría producir <em>ovefitting</em>.</p></li>
+<li><p>Entre más alto mayor será la regularización y podría producir <em>underfitting</em>.</p></li>
+</ul>
+</li>
+<li><p><strong>fit_intercept</strong> - <code class="docutils literal notranslate"><span class="pre">bool</span></code>: Para indicar si se debe calcular la intercepción para este modelo. Si es <code class="docutils literal notranslate"><span class="pre">False</span></code>, se espera que los datos estén “centrados al origen”.</p></li>
+</ul>
+<section id="id7">
+<h5>Uso<a class="headerlink" href="#id7" title="Link to this heading">#</a></h5>
+<p>La forma básica de usar este clase es la siguiente:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar clase</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">Ridge</span>
+
+<span class="c1"># Inicializar modelo</span>
+<span class="n">ridge</span> <span class="o">=</span> <span class="n">Ridge</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
+
+<span class="c1"># Ajustar modelo</span>
+<span class="n">ridge</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Predecir en nuevas muestras</span>
+<span class="n">prediction</span> <span class="o">=</span> <span class="n">ridge</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># Evaluar el modelo</span>
+<span class="n">score</span> <span class="o">=</span> <span class="n">ridge</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><em>X_test</em> debe ser un <code class="docutils literal notranslate"><span class="pre">2D</span> <span class="pre">array-like</span></code>, con el mismo número de columnas que <em>X_train</em>. En lugar de ser el <em>test</em> set simplemente podrían ser muestras nuevas.</p></li>
+</ul>
+</section>
+<section id="id8">
+<h5>Atributos<a class="headerlink" href="#id8" title="Link to this heading">#</a></h5>
+<p>Atributos de la clase <code class="docutils literal notranslate"><span class="pre">Ridge</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Atributo</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>coef_</strong></p></td>
+<td><p>Vector(es) de peso.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>feature_names_in_</strong></p></td>
+<td><p>Nombres de los <em>features</em> observadas durante el ajuste. Definido sólo cuando <em>X</em> tiene nombres de rasgos que son todos cadenas.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>intercept_</strong></p></td>
+<td><p>Término independiente en la función de decisión. Se establece en <em>0.0</em> si <code class="docutils literal notranslate"><span class="pre">fit_intercept=</span> <span class="pre">False</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>n_features_in_</strong></p></td>
+<td><p>Número de <em>features</em> vistas durante el ajuste.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>n_iter_</strong></p></td>
+<td><p>Número real de iteraciones para cada objetivo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>solver_</strong></p></td>
+<td><p>El solucionador utilizado en el momento del ajuste por las rutinas de cálculo.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id9">
+<h5>Métodos<a class="headerlink" href="#id9" title="Link to this heading">#</a></h5>
+<p>Métodos de la clase <code class="docutils literal notranslate"><span class="pre">Ridge</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html#sklearn.linear_model.Ridge.fit">fit</a>(X,  y,  sample_weight=None)</p></td>
+<td><p>Ajusta del modelo de regresión de <em>Ridge</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html#sklearn.linear_model.Ridge.predict">predict</a>(X)</p></td>
+<td><p>Predice utilizando el modelo lineal.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html#sklearn.linear_model.Ridge.score">score</a>(X,  y,  sample_weight=None)</p></td>
+<td><p>Retorna el coeficiente de determinación de la predicción.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+<section id="ridgecv">
+<h4>RidgeCV<a class="headerlink" href="#ridgecv" title="Link to this heading">#</a></h4>
+<p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.RidgeCV.html">RidgeCV</a>: Similar a <code class="docutils literal notranslate"><span class="pre">Ridge</span></code>, pero incluye validación cruzada integrada para seleccionar automáticamente el mejor valor del parámetro de regularización (<em>alpha</em>). Es útil para optimizar el modelo sin necesidad de ajustar manualmente este parámetro.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+<span class="n">RidgeCV</span><span class="p">(</span><span class="n">alphas</span><span class="o">=</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">),</span> <span class="o">*</span><span class="p">,</span> <span class="n">fit_intercept</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gcv_mode</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+        <span class="n">store_cv_results</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">alpha_per_target</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">store_cv_values</span><span class="o">=</span><span class="s1">&#39;deprecated&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong>alphas</strong> - <code class="docutils literal notranslate"><span class="pre">ndarray</span> <span class="pre">(nalphas,)</span></code>: Array de alphas a probar. Entre más alto el alfa, mayor será la regularización.</p></li>
+<li><p><strong>fit_intercept</strong> - <code class="docutils literal notranslate"><span class="pre">bool</span></code>: Para indicar si se debe calcular la intercepción para este modelo. Si es <code class="docutils literal notranslate"><span class="pre">False</span></code>, se espera que los datos estén “centrados al origen”.</p></li>
+<li><p><strong>cv</strong> - <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">cross-validation</span> <span class="pre">generator</span></code> o <code class="docutils literal notranslate"><span class="pre">iterator</span></code>: Determina la estrategia de división.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">None</span></code>: Utiliza el valor por default de 5.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span></code>: Especifica el número de <em>folds</em> en (Stratified) <code class="docutils literal notranslate"><span class="pre">Kfold()</span></code>.</p></li>
+<li><p>Hay clases que generan estrategias de división como <code class="docutils literal notranslate"><span class="pre">LeaveOneOut()</span></code>, <code class="docutils literal notranslate"><span class="pre">StratifiedKFold()</span></code>, etc. ver <a class="reference internal" href="../evaluation/model_selection.html"><span class="doc">Model Selection</span></a>.</p></li>
+</ul>
+</li>
+</ul>
+<section id="id10">
+<h5>Atributos<a class="headerlink" href="#id10" title="Link to this heading">#</a></h5>
+<p>Atributos de la clase <code class="docutils literal notranslate"><span class="pre">RidgeCV</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Atributo</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>alpha_</strong></p></td>
+<td><p>Parámetro de regularización estimado o, si <code class="docutils literal notranslate"><span class="pre">alpha_per_target=True</span></code>, el parámetro de regularización estimado para cada objetivo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>best_score_</strong></p></td>
+<td><p>Puntuación del estimador base con mejor alfa, o, si <code class="docutils literal notranslate"><span class="pre">alpha_per_target=True</span></code>, una puntuación para cada objetivo.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>coef_</strong></p></td>
+<td><p>Vector(es) de peso.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>cv_results_</strong></p></td>
+<td><p>Valores de validación cruzada para cada alfa (sólo disponible si <code class="docutils literal notranslate"><span class="pre">store_cv_results=True</span></code> y <code class="docutils literal notranslate"><span class="pre">cv=None</span></code>). Después de llamar a <code class="docutils literal notranslate"><span class="pre">.fit()</span></code>, este atributo contendrá los errores medios al cuadrado si la puntuación es <code class="docutils literal notranslate"><span class="pre">None</span></code> en caso contrario contendrá valores de predicción estandarizados por punto.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>feature_names_in_</strong></p></td>
+<td><p>Nombres de los <em>features</em> observadas durante el ajuste. Definido sólo cuando <em>X</em> tiene nombres de rasgos que son todos cadenas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>intercept_</strong></p></td>
+<td><p>Término independiente en la función de decisión. Se establece en <em>0.0</em> si <code class="docutils literal notranslate"><span class="pre">fit_intercept=</span> <span class="pre">False</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>n_features_in_</strong></p></td>
+<td><p>Número de <em>features</em> vistas durante el ajuste.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id11">
+<h5>Métodos<a class="headerlink" href="#id11" title="Link to this heading">#</a></h5>
+<p>Métodos de la clase <code class="docutils literal notranslate"><span class="pre">RidgeCV</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.RidgeCV.html#sklearn.linear_model.RidgeCV.fit">fit</a>(X,  y,  sample_weight=None,  **params)</p></td>
+<td><p>Ajusta del modelo de regresión <em>Ridge</em> con cv.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.RidgeCV.html#sklearn.linear_model.RidgeCV.predict">predict</a>(X)</p></td>
+<td><p>Predice utilizando el modelo lineal.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.RidgeCV.html#sklearn.linear_model.RidgeCV.score">score</a>(X,  y,  sample_weight=None)</p></td>
+<td><p>Retorna el coeficiente de determinación de la predicción.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+</section>
+<section id="regresores-multi-task">
+<h3>Regresores <em>multi-task</em><a class="headerlink" href="#regresores-multi-task" title="Link to this heading">#</a></h3>
+<p>Esta sección trata sobre modelos de regresión lineal que pueden manejar múltiples tareas simultáneamente (<em>multi-task learning</em>), que son útiles cuando varias variables objetivo están relacionadas.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Clase</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.MultiTaskElasticNet.html">MultiTaskElasticNet</a>(alpha=1.0, …)</p></td>
+<td><p>Modelo ElasticNet de múltiples tareas entrenado con la norma mixta L1/L2 como regularizador.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.MultiTaskElasticNetCV.html">MultiTaskElasticNetCV</a>(…)</p></td>
+<td><p>Modelo ElasticNet de múltiples L1/L2 con validación cruzada incorporada.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.MultiTaskLasso.html">MultiTaskLasso</a>(alpha=1.0, …)</p></td>
+<td><p>Modelo <em>Lasso</em> de múltiples tareas entrenado con norma mixta L1/L2 como regularizador.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.MultiTaskLassoCV.html">MultiTaskLassoCV</a>(…)</p></td>
+<td><p>Modelo <em>Lasso</em> de múltiples tareas L1/L2 con validación cruzada incorporada.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="regresores-robustos-a-outliers">
+<h3>Regresores robustos a <em>outliers</em><a class="headerlink" href="#regresores-robustos-a-outliers" title="Link to this heading">#</a></h3>
+<p>Aquí se encuentran modelos de regresión diseñados para ser robustos frente a valores atípicos (<em>outliers</em>). Ejemplos incluyen RANSAC (<em>RANdom SAmple Consensus</em>) y Theil-Sen, que son menos sensibles a datos corruptos o anómalos.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Clase</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.HuberRegressor.html">HuberRegressor</a>(…)</p></td>
+<td><p>Modelo de regresión lineal regularizado de L2 que es robusto para los valores atípicos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.QuantileRegressor.html">QuantileRegressor</a>(…)</p></td>
+<td><p>Modelo de regresión lineal que predice cuantiles condicionales.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.RANSACRegressor.html">RANSACRegressor</a>(estimator=None, …)</p></td>
+<td><p>Algoritmo RANSAC (RANdom SAmple Consensus).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.TheilSenRegressor.html">TheilSenRegressor</a>(…)</p></td>
+<td><p>Estimador de Theil-Sen: modelo robusto de regresión multivariante.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+<section id="funciones">
+<h2>Funciones<a class="headerlink" href="#funciones" title="Link to this heading">#</a></h2>
+<p>Funciones implementadas en el módulo <code class="docutils literal notranslate"><span class="pre">linear_model</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.PassiveAggressiveRegressor.html">PassiveAggressiveRegressor</a>(…)</p></td>
+<td><p>Regresor pasivo agresivo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.enet_path.html">enet_path</a>(X, y, …)</p></td>
+<td><p>Calcula la ruta neta elástica con descenso de coordenadas.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.lars_path.html">lars_path</a>(X, y, Xy=None, …)</p></td>
+<td><p>Calcula la regresión de ángulo mínimo o la ruta <em>Lasso</em> utilizando el algoritmo LARS.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.lars_path_gram.html">lars_path_gram</a>(Xy, Gram, …)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">lars_path()</span></code> en el modo de estadísticas suficientes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.lasso_path.html">lasso_path</a>(X, y, …)</p></td>
+<td><p>Calcula la ruta <em>Lasso</em> con descenso de coordenadas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.orthogonal_mp.html">orthogonal_mp</a>(X, y, …)</p></td>
+<td><p><em>Orthogonal Matching Pursuit</em> (OMP).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.orthogonal_mp_gram.html">orthogonal_mp_gram</a>(Gram, Xy, …)</p></td>
+<td><p><em>Gram Orthogonal Matching Pursuit</em> (OMP).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.ridge_regression.html">ridge_regression</a>(X, y, alpha, …)</p></td>
+<td><p>Resuelve la ecuación Ridge por el método de ecuaciones normales.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./parts/07-sklearn/supervised"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ensamble.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Ensamble</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="naive_bayes.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Naive bayes</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clases">Clases</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clasificadores-lineales">Clasificadores lineales</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#logisticregression">LogisticRegression</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#uso">Uso</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos">Atributos</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos">Métodos</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#glm-para-regresion">GLM para regresión</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regresores-bayesianos">Regresores bayesianos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regresiones-con-seleccion-de-variables">Regresiones con selección de variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lasso">Lasso</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Uso</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Atributos</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Métodos</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regresores-lineales">Regresores lineales</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#linearregression">LinearRegression</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Uso</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Atributos</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Métodos</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ridge">Ridge</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Uso</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Atributos</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Métodos</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ridgecv">RidgeCV</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Atributos</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Métodos</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regresores-multi-task">Regresores <em>multi-task</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regresores-robustos-a-outliers">Regresores robustos a <em>outliers</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones">Funciones</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nebok
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

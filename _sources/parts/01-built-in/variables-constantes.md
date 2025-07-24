@@ -23,7 +23,8 @@ De manera nativa Python no proporciona ningún método para definir constantes i
 - [NotImplemented](https://docs.python.org/3/library/constants.html#NotImplemented).
 
 A pesar de que Python no fuerza la inmutabilidad de las constantes, existe la siguiente convención para declarar constantes:
-- Poner los nombres en mayúsculas separando cada palabra con guiones bajos.
+
+> Poner los nombres en mayúsculas separando cada palabra con guiones bajos.
 
 ```python
 # Ejemplos de cómo declarar una constante
@@ -31,20 +32,25 @@ PI = 3.141516
 MI_CONSTANTE = 100
 ```
 
-Algunas opciones para poder crear constantes insmutables en Python son las siguientes:
+Algunas opciones para poder crear constantes inmutables en Python son las siguientes:
 
 **Con DataClasses**:
 Se puede definir una clase de constantes con el _decorator_ `dataclass` y el parámetro `frozen=True`, de esta manera no se podrán modificar las constantes:
 
 ```python
+# importar datclass
 from dataclasses import dataclass
 
+# Crear clase con constantes
 @dataclass(frozen=True)
 class Constants:
     PI: float = 3.14159
     GRAVITY: float = 9.8
+
+# Acceder a una constante
+print(Constants.PI)
 ```
-- Para usar las constantes se tendría que crear una instancia de la clase y acceder a sus atributos.
+- Para usar las constantes se tendría que crear una instancia de la clase y acceder a sus atributos o directamente acceder a los atributos de la clase.
 
 <br>
 
@@ -113,7 +119,9 @@ Para entender lo anterior supongamos que se tiene un array 4D con _shape_ _(bloc
 No es posible usar _ellipsis_ múltiples veces, por ejemplo `X[..., i, ...]` no está permitido.
 :::
 
-**Ejemplo**
+**Ejemplo**:
+
+En este ejemplo se hará _slicing_ utilizado _ellipsis_ en un arreglo de 4 dimensiones.
 
 ```{code-cell} ipython3
 # Definir un array 4D
@@ -131,8 +139,8 @@ print('Slicing intermedio: ', array_4d[0, ..., -1], end='\n'*2, sep='\n')
 print('Slicing al final: ', array_4d[0, ...], sep='\n')
 ```
 **Notas**:
-- `array_4d[..., -1]`: Equivale a seleccionar la última "columna" para todas las filas, rebanadas y "bloques" (segunda, tercera y cuarta dimensión repectivamente).
-- `array_4d[0, ..., -1]`: Equivale a seleccionar la última "columna" para todas las filas, rebanadas y del primer "bloque" (segunda, tercera y cuarta dimensión repectivamente).
+- `array_4d[..., -1]`: Equivale a seleccionar la última "columna" para todas las filas, rebanadas y "bloques" (segunda, tercera y cuarta dimensión respectivamente).
+- `array_4d[0, ..., -1]`: Equivale a seleccionar la última "columna" para todas las filas, rebanadas y del primer "bloque" (segunda, tercera y cuarta dimensión respectivamente).
 - `array_4d[0, ...]`: Equivale a seleccionar todo el primer "bloque" (cuarta dimensión).
 
 
@@ -176,7 +184,7 @@ def func_with_args(*args: int) -> Callable[..., int]:
 ---
 ## Variables
 
-Las variables permiten almacenar objetos de los diferentes tipos de datos por medio de un nombre. Las variables en Python tienen las siguientes características:
+Las variables son contenedores que permiten almacenar objetos de los diferentes tipos de datos por medio de un nombre único. Las variables en Python tienen las siguientes características:
 - No necesitan declararse con algun tipo de dato en específico, son dinámicas.
 - No necesitan declararse, basta con asignarles un valor.
 - Las variables pueden almacenar cualquier tipo de objeto, incluyendo funciones y clases.

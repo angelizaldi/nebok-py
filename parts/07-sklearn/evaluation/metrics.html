@@ -1,0 +1,1347 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Metrics &#8212; Manual de Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'parts/07-sklearn/evaluation/metrics';</script>
+    <link rel="icon" href="../../../_static/nebok-favicon.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Model Selection" href="model_selection.html" />
+    <link rel="prev" title="Feature Selection" href="feature_selection.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/nebok-logo.png" class="logo__image only-light" alt="Manual de Python - Home"/>
+    <script>document.write(`<img src="../../../_static/nebok-logo.png" class="logo__image only-dark" alt="Manual de Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Manual de Python para Data Science
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Built-in</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../01-built-in/built-in-index.html">Python Estándar</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/cli.html"><em>Command Line Interface</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/ayuda.html">Obtener ayuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/comentarios.html">Comentarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/tipos-datos.html">Tipos de Datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/variables-constantes.html">Variables y Constantes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/operadores-palabras.html">Operadores y palabras reservadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/entrada-salida.html">Impresión y solicitud de datos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../01-built-in/tipos-index.html">Tipos Built-In</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/none-bool-numericos.html"><em>None</em>, <em>bool</em> y Numéricos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/str.html">str</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/lists.html">list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/tuples.html">Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/sets.html">Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/dicts.html">dict</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../01-built-in/estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/if-else.html">If … Else</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/for-loop.html">For Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/do-while.html">Do While</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/udf.html">Funciones (UDF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/exceptions.html">Excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/context-managers.html">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/io.html">Lectura y escritura de archivos (IO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/modulos.html">Paquetes y Módulos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../01-built-in/avanzado-index.html">Temas avanzados</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/decorators.html">Decorators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/iterators.html">Iterators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/generators.html">Generators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/oop.html">Programación orientada a objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/func-built-in.html">Funciones built-in</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../02-modulos/modulos-index.html">Módulos built-in</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/csv.html">CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/datetime.html">Datetime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/itertools.html">Itertools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/json.html">JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/math.html">Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/os.html">Os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/os-path.html">Os.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/pickle.html">Pickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/random.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/regex.html">Regex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/statistics.html">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/urllib-request.html">urllib.request</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otras librerías</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../03-numpy/numpy-index.html">Numpy</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../03-numpy/arrays.html">Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../03-numpy/funciones-index.html">Funciones</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/ufuncs.html">Ufuncs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/buscar-contar-ordenar-unicos.html">Buscar, contar, ordenar y valores únicos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/creacion-arrays.html">Creación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/estadisticas.html">Estadísticas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/indices.html">Índices e iteración</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/informacion.html">Información</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/lectura-escritura.html">Lectura y escritura de datos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/manipulacion-arrays.html">Manipulación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/matematicas-numericas.html">Matemáticas y numéricas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/operadores.html">Operadores</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../03-numpy/algebra-lineal.html">Módulo linalg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../03-numpy/cadenas.html">Modulo char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../03-numpy/random.html">Módulo random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../03-numpy/patrones-numpy.html">Patrones útiles</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../04-pandas/pandas-index.html">Pandas</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../04-pandas/index.html">Index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-pandas/series.html">Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-pandas/dataframe.html">DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-pandas/escalares-arrays.html">Escalares y Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../04-pandas/otras-clases.html">Otras clases</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../04-pandas/groupby.html">GroupBy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../04-pandas/expanding-rolling-window.html"><em>Expanding, Rolling</em> y <em>Window</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../04-pandas/resampler.html">Resampler</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-pandas/funciones.html">Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-pandas/patrones-pandas.html">Patrones útiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-pandas/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../05-matplotlib/matplotlib-index.html">Matplotlib</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../05-matplotlib/pyplot.html">Pyplot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../05-matplotlib/figure.html">Figure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../05-matplotlib/axes.html">Axes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../05-matplotlib/otros.html">Otras Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../05-matplotlib/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../06-seaborn/seaborn-index.html">Seaborn</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../06-seaborn/funciones-clases.html">Funciones y Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../06-seaborn/objects-interface.html">Interface por objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../sklearn-index.html">Scikit Learn</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../supervised/supervised-index.html">Aprendizaje supervisado</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../supervised/ensamble.html">Ensamble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../supervised/linear_model.html">Linear model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../supervised/naive_bayes.html">Naive bayes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../supervised/neighbors.html">Neighbors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../supervised/svm.html">SVM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../supervised/tree.html">Tree</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../unsupervised/unsupervised-index.html">Aprendizaje no supervisado</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../unsupervised/cluster.html">Cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../unsupervised/decomposition.html">Decomposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../unsupervised/mixture.html">Mixture</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../transformations/tranformations-index.html">Transformaciones</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../transformations/feature_extraction.html">Feature Extraction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transformations/impute.html">Impute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transformations/manifold.html">Manifold</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transformations/preprocessing.html">Preprocessing</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="evaluation-index.html">Evaluación y selección del modelo</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="dummy.html">Dummy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="feature_selection.html">Feature Selection</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="model_selection.html">Model Selection</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../pipelines-and-compose/pipeline-compose-index.html">Pipelines y Modelos Compuestos</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../pipelines-and-compose/compose.html">Compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pipelines-and-compose/pipeline.html">Pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../datasets.html">Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../08-xgboost/xgboost-index.html">XGBoost</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../08-xgboost/core-data-structure.html">Core Data Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../08-xgboost/learning-api.html">Learning API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../08-xgboost/scikit-learn-api.html">Scikit-Learn API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../08-xgboost/plotting-api.html">Plotting API</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../09-scipy/scipy-index.html">Scipy</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../09-scipy/clusters.html">Clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../09-scipy/derivacion-integracion.html">Derivación e Integración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../09-scipy/linalg.html">Linear Algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../09-scipy/sparse.html"><em>Sparse</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../09-scipy/stats.html">Stats</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../10-statsmodels/statsmodels-index.html">Statsmodels</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../10-statsmodels/statsmodels-api.html">API Principal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../10-statsmodels/statsmodels-tsa-api.html">API de Series de Tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../10-statsmodels/statsmodels-formula-api.html">API de Fórmulas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../10-statsmodels/graphics.html">Gráficos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../10-statsmodels/otras-clases.html">Otras clases</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../11-bokeh/bokeh-index.html">Bokeh</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../11-bokeh/io.html">IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../11-bokeh/layouts.html"><em>Layouts</em></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../11-bokeh/models/models-index.html"><em>Models</em></a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../11-bokeh/models/annotations.html">Anotaciones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../11-bokeh/models/axes.html">Ejes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../11-bokeh/models/callbacks.html">Callbacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../11-bokeh/models/formatters.html"><em>Formatters</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../11-bokeh/models/glyphs.html"><em>Glyphs</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../11-bokeh/models/sources.html"><em>Sources</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../11-bokeh/models/tools.html"><em>Tools</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../11-bokeh/models/widgets.html"><em>Widgets</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../11-bokeh/plotting.html">Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../11-bokeh/transform.html">transform</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../12-plotly/plotly-index.html">Plotly</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../12-plotly/express.html"><em>Express</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../12-plotly/figure-factory.html"><em>Figure Factory</em></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../12-plotly/go/go-index.html"><em>Graph Objects</em></a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../12-plotly/go/figure.html"><em>Figure</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../12-plotly/go/layout.html"><em>Layout</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../12-plotly/go/traces.html">Traces</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../12-plotly/io.html">IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../12-plotly/subplots.html">Subplots</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/beautifulsoup.html">BeautifulSoup</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Complementarios</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../appendix/appendix-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../appendix/IPython.html">IPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../appendix/jupyter.html">Jupyter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../appendix/pip.html">pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../appendix/conda.html"><em>conda</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../appendix/git.html">git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../appendix/shell.html">Shell</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/parts/07-sklearn/evaluation/metrics.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Metrics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clases-visualizacion">Clases - Visualización.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones">Funciones</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#biclustering">Biclustering</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clasificacion">Clasificación</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-accuracy-score">Notas de <em>accuracy_score</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-classification-report">Notas de <em>classification_report</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-confusion-matrix">Notas de <em>confusion_matrix</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Notas de <em>classification_report</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-roc-auc-score">Notas de <em>roc_auc_score</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-roc-curve">Notas de <em>roc_curve</em></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clusters">Clusters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distancias">Distancias</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interfaz-seleccion-de-modelo">Interfaz selección de modelo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pares-de-muestas">Pares de muestas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ranking-multilabel">Ranking <em>multilabel</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regresion">Regresión</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-mean-squared-error">Notas de <em>mean_squared_error</em></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="metrics">
+<h1>Metrics<a class="headerlink" href="#metrics" title="Link to this heading">#</a></h1>
+<p>Proporciona funciones para evaluar el rendimiento de modelos, como precisión, <em>recall</em>, <em>F1-score</em> y matrices de confusión. Para importar este módulo o una clase o función específica usar:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar módulo</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
+
+<span class="c1"># Importar clase específica</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">ClassName</span>
+
+<span class="c1"># Importar función específica</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">func_name</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><em>ClassName</em> o <em>func_name</em> es el nombre de la clase o función respectivamente.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Para más información de esta librería visitar la <a class="reference external" href="https://scikit-learn.org/stable/api/sklearn.metrics.html">documentación</a> de <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>.</p>
+</div>
+<br/>
+<section id="clases-visualizacion">
+<h2>Clases - Visualización.<a class="headerlink" href="#clases-visualizacion" title="Link to this heading">#</a></h2>
+<p>Clases implementadas en el módulo <code class="docutils literal notranslate"><span class="pre">metrics</span></code> para visualización. Incluye herramientas para visualizar métricas, como curvas <em>ROC</em>, curvas de precisión-recall y matrices de confusión.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.ConfusionMatrixDisplay.html">ConfusionMatrixDisplay</a>(confusion_matrix, …)</p></td>
+<td><p>Visualización de la matriz de confusión.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.DetCurveDisplay.html">DetCurveDisplay</a>(, …)</p></td>
+<td><p>Visualización de la curva DET.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.PrecisionRecallDisplay.html">PrecisionRecallDisplay</a>(precision, recall, …)</p></td>
+<td><p>Visualización <em>Precision-Recall</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.PredictionErrorDisplay.html">PredictionErrorDisplay</a>(, …)</p></td>
+<td><p>Visualización del error de predicción de un modelo de regresión.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.RocCurveDisplay.html">RocCurveDisplay</a>(, …)</p></td>
+<td><p>Visualización de la curva <em>ROC</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="funciones">
+<h2>Funciones<a class="headerlink" href="#funciones" title="Link to this heading">#</a></h2>
+<p>Funciones implementadas en el módulo <code class="docutils literal notranslate"><span class="pre">metrics</span></code>. A continuación se presena un pequeño resumen por sección:</p>
+<ul class="simple">
+<li><p><strong>Biclustering</strong>: Esta sección incluye métricas específicas para evaluar modelos de <em>biclustering</em>, que agrupan filas y columnas simultáneamente.</p></li>
+<li><p><strong>Clasificación</strong>: Contiene métricas para evaluar modelos de clasificación, como precisión, <em>recall</em>, <em>F1-score</em>, matriz de confusión y curva <em>ROC</em>. Estas métricas son esenciales para medir la efectividad de los clasificadores.</p></li>
+<li><p><strong>Clusters</strong>: Proporciona métricas para evaluar algoritmos de <em>clustering</em>, como el índice de silueta, el coeficiente de correlación de Rand ajustado y la homogeneidad. Estas métricas miden la calidad de los agrupamientos.</p></li>
+<li><p><strong>Distancias</strong>: Aquí se describen métricas de distancia utilizadas para medir la similitud o disimilitud entre muestras, como la distancia euclidiana, la distancia de Manhattan y la distancia de coseno. Son útiles en <em>clustering</em> y vecinos más cercanos (KNN).</p></li>
+<li><p><strong>Interfaz selección de modelo</strong>: Herramientas útiles para definir las reglas para evaluar un modelo.</p></li>
+<li><p><strong>Pares de muestras</strong>: Contiene funciones para calcular métricas de similitud o distancia entre pares de muestras, como la matriz de kernel y la matriz de distancias. Estas funciones son útiles en algoritmos que requieren comparaciones por pares.</p></li>
+<li><p><strong>Ranking <em>multilabel</em></strong>: Esta sección se enfoca en métricas para problemas de clasificación multietiqueta y ranking, como la precisión promedio (<em>average precision</em>) y la pérdida de ranking (<em>ranking loss</em>). Son útiles cuando cada muestra puede tener múltiples etiquetas.</p></li>
+<li><p><strong>Regresión</strong>: Aquí se encuentran métricas para evaluar modelos de regresión, como el error cuadrático medio (MSE), el error absoluto medio (MAE) y el coeficiente de determinación (<span class="math notranslate nohighlight">\(R^2\)</span>). Estas métricas miden la precisión de las predicciones en problemas de regresión.</p></li>
+</ul>
+<section id="biclustering">
+<h3>Biclustering<a class="headerlink" href="#biclustering" title="Link to this heading">#</a></h3>
+<p>Esta sección incluye métricas específicas para evaluar modelos de <em>biclustering</em>, que agrupan filas y columnas simultáneamente.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.consensus_score.html">consensus_score</a>(a, b, …)</p></td>
+<td><p>La similitud de dos conjuntos de <em>biclusters</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="clasificacion">
+<h3>Clasificación<a class="headerlink" href="#clasificacion" title="Link to this heading">#</a></h3>
+<p>Contiene métricas para evaluar modelos de clasificación, como precisión, <em>recall</em>, <em>F1-score</em>, matriz de confusión y curva <em>ROC</em>. Estas métricas son esenciales para medir la efectividad de los clasificadores.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html">accuracy_score</a>(y_true, y_pred, …)</p></td>
+<td><p>Puntuación de la clasificación de <em>accuracy</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.auc.html">auc</a>(x, y)</p></td>
+<td><p>Calcula el área bajo la curva (<em>AUC</em>) utilizando la regla trapezoidal.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html">average_precision_score</a>(y_true, y_score, …)</p></td>
+<td><p>Calcula la precisión media (AP) a partir de las puntuaciones de las predicciones.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.balanced_accuracy_score.html">balanced_accuracy_score</a>(y_true, y_pred, …)</p></td>
+<td><p>Calcula el <em>balanced accuracy</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.brier_score_loss.html">brier_score_loss</a>(y_true, y_proba=None, …)</p></td>
+<td><p>Calcula la pérdida de puntuación Brier.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.class_likelihood_ratios.html">class_likelihood_ratios</a>(y_true, y_pred, …)</p></td>
+<td><p>Calcula los <em>likelihood ratios</em> positivos y negativos de la clasificación binaria.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html">classification_report</a>(y_true, y_pred, …)</p></td>
+<td><p>Crea un informe de texto que muestre las principales métricas de clasificación.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.cohen_kappa_score.html">cohen_kappa_score</a>(y1, y2, …)</p></td>
+<td><p>Calcula la <em>kappa de Cohen</em>: una estadística que mide la concordancia <em>inter-annotator</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html">confusion_matrix</a>(y_true, y_pred, …)</p></td>
+<td><p>Calcula la matriz de confusión para evaluar la precisión de una clasificación.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.d2_log_loss_score.html">d2_log_loss_score</a>(y_true, y_pred, …)</p></td>
+<td><p>Función de puntuación <span class="math notranslate nohighlight">\(D^2\)</span>, fracción de pérdida logarítmica explicada.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.dcg_score.html">dcg_score</a>(y_true, y_score, …)</p></td>
+<td><p>Calcula la ganancia acumulada descontada (<em>Discounted Cumulative Gain</em>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.det_curve.html">det_curve</a>(y_true, y_score, pos_label=None, sample_weight=None)</p></td>
+<td><p>Calcula los porcentajes de error para distintos umbrales de probabilidad.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html">f1_score</a>(y_true, y_pred, …)</p></td>
+<td><p>Calcula la puntuación <em>F1</em>, también conocida como puntuación F equilibrada o medida F.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.fbeta_score.html">fbeta_score</a>(y_true, y_pred, …)</p></td>
+<td><p>Calcula la puntuación F-beta.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.hamming_loss.html">hamming_loss</a>(y_true, y_pred, …)</p></td>
+<td><p>Calcula la pérdida media de Hamming.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.hinge_loss.html">hinge_loss</a>(y_true, pred_decision, …)</p></td>
+<td><p>Pérdida media <em>hinge</em> (no regularizada).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.jaccard_score.html">jaccard_score</a>(y_true, y_pred, …)</p></td>
+<td><p>Puntuación del coeficiente de similitud de Jaccard.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html">log_loss</a>(y_true, y_pred, …)</p></td>
+<td><p>Pérdida logarítmica (<em>log loss</em>), también conocida como pérdida logística o pérdida de entropía cruzada.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.matthews_corrcoef.html">matthews_corrcoef</a>(y_true, y_pred, …)</p></td>
+<td><p>Calcula el coeficiente de correlación de Matthews (CCM).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.multilabel_confusion_matrix.html">multilabel_confusion_matrix</a>(y_true, y_pred, …)</p></td>
+<td><p>Calcula una matriz de confusión para cada clase o muestra.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.ndcg_score.html">ndcg_score</a>(y_true, y_score, …)</p></td>
+<td><p>Calcula la ganancia acumulada descontada normalizada (<em>Normalized Discounted Cumulative Gain</em>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_recall_curve.html">precision_recall_curve</a>(y_true, y_score=None, …)</p></td>
+<td><p>Calcula los pares <em>precision-recall</em> para diferentes <em>thresholds</em> de probabilidad.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_recall_fscore_support.html">precision_recall_fscore_support</a>(y_true, y_pred, …)</p></td>
+<td><p>Calcula la precisión, <em>recall</em>, la medida F y el soporte para cada clase.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html">precision_score</a>(y_true, y_pred, …)</p></td>
+<td><p>Calcula la precisión.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html">recall_score</a>(y_true, y_pred, …)</p></td>
+<td><p>Calcula el <em>recall</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html">roc_auc_score</a>(y_true, y_score, …)</p></td>
+<td><p>Calcula el área bajo la curva <em>ROC</em> (<em>Receiver Operating Characteristic Curve</em>) a partir de las puntuaciones de predicción.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_curve.html">roc_curve</a>(y_true, y_score, …)</p></td>
+<td><p>Calcula la característica operativa del receptor (ROC).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.top_k_accuracy_score.html">top_k_accuracy_score</a>(y_true, y_score, …)</p></td>
+<td><p>Puntuación de clasificación <em>Top-k Accuracy</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.zero_one_loss.html">zero_one_loss</a>(y_true, y_pred, …)</p></td>
+<td><p>Pérdida de clasificación cero-uno.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<section id="notas-de-accuracy-score">
+<h4>Notas de <em>accuracy_score</em><a class="headerlink" href="#notas-de-accuracy-score" title="Link to this heading">#</a></h4>
+<p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html">accuracy_score</a>: Proporción entre las predicciones correctas y las predicciones totales. Toma un valor entre 1 y 0, entre más alto mejor. No es un buen score en dataset no balanceados.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+<span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong>y_true</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code>: Valores del <em>target</em> reales. También puede ser <em>y_test</em>.</p></li>
+<li><p><strong>y_pred</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code>: Valores del <em>target</em> estimados.</p></li>
+<li><p><strong>normalize</strong> - <code class="docutils literal notranslate"><span class="pre">bool</span></code>: Para indicar que se retorne el número de muestras correctamente clasificadas en lugar de la proporción.</p></li>
+<li><p><strong>sample_weight</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code>: Ponderaciones de las muestras.</p></li>
+</ul>
+<br/>
+</section>
+<section id="notas-de-classification-report">
+<h4>Notas de <em>classification_report</em><a class="headerlink" href="#notas-de-classification-report" title="Link to this heading">#</a></h4>
+<p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html">classification_report</a>: Devuelve un reporte que muestra las principales métricas de clasificación (<em>precision</em>, <em>recall</em> y <em>f1-score</em>) además de <em>support</em> que básicamente indica el número de <em>samples</em> en cada etiqueta.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+<span class="n">classification_report</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">target_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+                      <span class="n">digits</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">output_dict</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">zero_division</span><span class="o">=</span><span class="s1">&#39;warn&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong>y_true</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code>: Valores del target reales.</p></li>
+<li><p><strong>y_pred</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code>: Valores del target estimados.</p></li>
+</ul>
+<br/>
+</section>
+<section id="notas-de-confusion-matrix">
+<h4>Notas de <em>confusion_matrix</em><a class="headerlink" href="#notas-de-confusion-matrix" title="Link to this heading">#</a></h4>
+<a class="reference internal image-reference" href="../../../_images/confussion-matrix.png" id="confussion-matrix"><img alt="../../../_images/confussion-matrix.png" class="align-center" id="confussion-matrix" src="../../../_images/confussion-matrix.png" style="width: 300px;" /></a>
+<p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html">confusion_matrix</a>: Calcula la matriz de confusión para evaluar la precisión de una clasificación.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+<span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong>y_true</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code>: Valores del <em>target</em> reales.</p></li>
+<li><p><strong>y_pred</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code>: Valores del <em>target</em> estimados.</p></li>
+<li><p><strong>labels</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code>: Lista de etiquetas para indexar la matriz. Por default es <code class="docutils literal notranslate"><span class="pre">0,</span> <span class="pre">1</span></code>, donde 0 es <code class="docutils literal notranslate"><span class="pre">False</span></code> y 1 es <code class="docutils literal notranslate"><span class="pre">True</span></code>, IMPORTATE: Si se modifica este atributo el <em>output</em> será diferente, por default el de la imagen que se muestra anteriormente.</p></li>
+<li><p><strong>sample_weight</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code>: Ponderaciones de las muestras.</p></li>
+<li><p><strong>normalize</strong> - {‘true’, ‘pred’, ‘all’}: Normaliza la matriz sobre los valores verdaderos (filas), valores estimados (columnas) o todas.</p></li>
+<li><p>En el caso de dos variables se puede extraer los valores de la siguiente manera: <br/> <code class="docutils literal notranslate"><span class="pre">tn,</span> <span class="pre">fp,</span> <span class="pre">fn,</span> <span class="pre">tp</span> <span class="pre">=</span> <span class="pre">confusion_matrix(y_true,</span> <span class="pre">y_pred).ravel()</span></code> <br/> Donde:</p>
+<ul>
+<li><p>tn: <em>true negatives</em>.</p></li>
+<li><p>fp: <em>false positives</em>.</p></li>
+<li><p>fn: <em>false ngatives</em>.</p></li>
+<li><p>tp: <em>true positives</em>.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ndarray</span></code>.</p></li>
+</ul>
+<br/>
+</section>
+<section id="id1">
+<h4>Notas de <em>classification_report</em><a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html">roc_auc_score</a>: Calcula el área bajo la curva <em>ROC</em>. Entre más grande mejor el modelo.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+<span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_score</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;macro&#39;</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_fpr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+              <span class="n">multi_class</span><span class="o">=</span><span class="s1">&#39;raise&#39;</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong>y_true</strong> - <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>: Etiquetas binarias reales.</p></li>
+<li><p><strong>y_score</strong> - <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>: <em>Scores</em> del <em>target</em>, podrían ser probabilidades estimadas de cada clase (método <code class="docutils literal notranslate"><span class="pre">.predict_proba()</span></code>), medidas del <em>non-thresholds</em> (del método <code class="docutils literal notranslate"><span class="pre">.decision_function()</span></code>). Si es con <code class="docutils literal notranslate"><span class="pre">.predict_proba()</span></code> se debe pasar solo la columna con las probabilidades de la clase 1, es decir, <code class="docutils literal notranslate"><span class="pre">X.predict_proba(X_test)[:,</span> <span class="pre">1]</span></code>.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ndarray</span></code>.</p></li>
+</ul>
+<br/>
+</section>
+<section id="notas-de-roc-auc-score">
+<h4>Notas de <em>roc_auc_score</em><a class="headerlink" href="#notas-de-roc-auc-score" title="Link to this heading">#</a></h4>
+<p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html">roc_auc_score</a>: : Calcula el área bajo la curva ROC.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+<span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_score</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;macro&#39;</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_fpr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">multi_class</span><span class="o">=</span><span class="s1">&#39;raise&#39;</span><span class="p">,</span> 
+              <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong>y_true</strong> - <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>: Etiquetas binarias reales.</p></li>
+<li><p><strong>y_score</strong> - <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>: Scores del target:</p>
+<ul>
+<li><p>Caso binario: Podrían ser probabilidades estimadas de cada clase (método <code class="docutils literal notranslate"><span class="pre">.predict_proba()</span></code>, evaluado en <em>X_new</em> y seleccionando únicamente la primer columna: <code class="docutils literal notranslate"><span class="pre">:</span> <span class="pre">X.predict_proba(X_test)[:,</span> <span class="pre">1]</span></code> o medidas del <em>non-thresholds</em> (del método <code class="docutils literal notranslate"><span class="pre">.decision_function()</span></code>).</p></li>
+<li><p>Otros casos revisar documentación.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ndarray</span></code>.</p></li>
+</ul>
+</section>
+<section id="notas-de-roc-curve">
+<h4>Notas de <em>roc_curve</em><a class="headerlink" href="#notas-de-roc-curve" title="Link to this heading">#</a></h4>
+<p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_curve.html">roc_curve</a>: Calcula el <em>receiver operating characteristic</em> (ROC). Se utiliza estricatamente en tareas de clasificación binaria. Para gráficar se utiliza <em>fpr</em> en el eje <em>x</em> y <em>tpr</em> en el eje <em>y</em>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+<span class="n">roc_curve</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_score</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">drop_intermediate</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong>y_true</strong> - <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>: Etiquetas binarias reales. Si las etiquetas no son <em>-1</em> y <em>1</em> o <em>0</em> y <em>1</em> entonces se deben de indicar explícitamente en <em>pos_label</em>.</p></li>
+<li><p><strong>y_score</strong> - <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>: <em>Scores</em> del <em>target</em>, podrían ser probabilidades estimadas de cada clase (método <code class="docutils literal notranslate"><span class="pre">.predict_proba()</span></code>), medidas del <em>non-thresholds</em> (del método <code class="docutils literal notranslate"><span class="pre">.decision_function()</span></code>). Si es con <code class="docutils literal notranslate"><span class="pre">.predict_proba()</span></code> se debe pasar solo la columna con las probabilidades de la clase 1, es decir, <code class="docutils literal notranslate"><span class="pre">X.predict_proba(X_test)[:,</span> <span class="pre">1]</span></code>.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><em>fpr</em>: <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>.</p></li>
+<li><p><em>tpr</em>: <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>.</p></li>
+<li><p><em>thresholds</em>: <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>.</p></li>
+</ul>
+<p>Uso básico:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar función</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">roc_curve</span>
+
+<span class="c1"># Usando probabilidades</span>
+<span class="n">y_pred_prob</span> <span class="o">=</span> <span class="n">est</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)[:,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">thresholds</span> <span class="o">=</span> <span class="n">roc_curve</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_prob</span><span class="p">)</span>
+
+<span class="c1"># Graficar</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;k--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;False Positive Rate&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;True Positive Rate&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;ROC Curve&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Una clasificación binaria podría ser regresión logística.</p></li>
+</ul>
+<br/>
+</section>
+</section>
+<section id="clusters">
+<h3>Clusters<a class="headerlink" href="#clusters" title="Link to this heading">#</a></h3>
+<p>Proporciona métricas para evaluar algoritmos de <em>clustering</em>, como el índice de silueta, el coeficiente de correlación de Rand ajustado y la homogeneidad. Estas métricas miden la calidad de los agrupamientos.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.adjusted_mutual_info_score.html">adjusted_mutual_info_score</a>(labels_true, labels_pred, …)</p></td>
+<td><p>Información mutua ajustada entre dos <em>clusters</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.adjusted_rand_score.html">adjusted_rand_score</a>(labels_true, labels_pred)</p></td>
+<td><p>Índice Rand ajustado al azar.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.calinski_harabasz_score.html">calinski_harabasz_score</a>(X, labels)</p></td>
+<td><p>Calcula la puntuación de Calinski y Harabasz.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.cluster.contingency_matrix.html">cluster.contingency_matrix</a>(labels_true, labels_pred, …)</p></td>
+<td><p>Construye una matriz de contingencia que describe la relación entre las etiquetas.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.cluster.pair_confusion_matrix.html">cluster.pair_confusion_matrix</a>(labels_true, labels_pred)</p></td>
+<td><p>Matriz de confusión de pares resultante de dos <em>clusters</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.completeness_score.html">completeness_score</a>(labels_true, labels_pred)</p></td>
+<td><p>Calcula la métrica de integridad de un etiquetado de <em>clusters</em> dada una verdad básica.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.davies_bouldin_score.html">davies_bouldin_score</a>(X, labels)</p></td>
+<td><p>Calcula la puntuación de Davies-Bouldin.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.fowlkes_mallows_score.html">fowlkes_mallows_score</a>(labels_true, labels_pred, …)</p></td>
+<td><p>Mide la similitud de dos <em>clusters</em> de un conjunto de puntos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.homogeneity_completeness_v_measure.html">homogeneity_completeness_v_measure</a>(labels_true, labels_pred, …)</p></td>
+<td><p>Calcula las puntuaciones de homogeneidad, exhaustividad y <em>V-Measure</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.homogeneity_score.html">homogeneity_score</a>(labels_true, labels_pred)</p></td>
+<td><p>Métrica de homogeneidad de un etiquetado de <em>clusters</em> dada una verdad básica.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mutual_info_score.html">mutual_info_score</a>(labels_true, labels_pred, …)</p></td>
+<td><p>Información mutua entre dos <em>clusters</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.normalized_mutual_info_score.html">normalized_mutual_info_score</a>(labels_true, labels_pred, …)</p></td>
+<td><p>Información mutua normalizada entre dos <em>clusters</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.rand_score.html">rand_score</a>(labels_true, labels_pred)</p></td>
+<td><p>Índice Rand.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.silhouette_samples.html">silhouette_samples</a>(X, labels, …)</p></td>
+<td><p>Calcula el coeficiente de silueta de cada muestra.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.silhouette_score.html">silhouette_score</a>(X, labels, …)</p></td>
+<td><p>Calcula el coeficiente de silueta medio de todas las muestras.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.v_measure_score.html">v_measure_score</a>(labels_true, labels_pred, …)</p></td>
+<td><p>Etiquetado de <em>clusters</em> con medida <em>V</em> dada una verdad básica.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="distancias">
+<h3>Distancias<a class="headerlink" href="#distancias" title="Link to this heading">#</a></h3>
+<p>Aquí se describen métricas de distancia utilizadas para medir la similitud o disimilitud entre muestras, como la distancia euclidiana, la distancia de Manhattan y la distancia de coseno. Son útiles en <em>clustering</em> y vecinos más cercanos (KNN).</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.DistanceMetric.html">DistanceMetric</a>()</p></td>
+<td><p>Interfaz uniforme para funciones métricas de distancia rápidas (euclidiana, la distancia de Manhattan, entre otras).</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="interfaz-seleccion-de-modelo">
+<h3>Interfaz selección de modelo<a class="headerlink" href="#interfaz-seleccion-de-modelo" title="Link to this heading">#</a></h3>
+<p>Herramientas útiles para definir las reglas para evaluar un modelo.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.check_scoring.html">check_scoring</a>(estimator=None, scoring=None, …)</p></td>
+<td><p>Determina el métrico a partir de las opciones del usuario.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.get_scorer.html">get_scorer</a>(scoring)</p></td>
+<td><p>Retorna un métrico de cadena.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.get_scorer_names.html">get_scorer_names</a>()</p></td>
+<td><p>Obtiene los nombres de todos los metricos disponibles.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.make_scorer.html">make_scorer</a>(score_func, …)</p></td>
+<td><p>Crea un métrico a partir de una métrica de rendimiento o una función de pérdida.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="pares-de-muestas">
+<h3>Pares de muestas<a class="headerlink" href="#pares-de-muestas" title="Link to this heading">#</a></h3>
+<p>Contiene funciones para calcular métricas de similitud o distancia entre pares de muestras, como la matriz de kernel y la matriz de distancias. Estas funciones son útiles en algoritmos que requieren comparaciones por pares.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Las métricas aquí presentadas son del módulo <em>pairwise</em>.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.additive_chi2_kernel.html">pairwise.additive_chi2_kernel</a>(X, Y=None)</p></td>
+<td><p>Calcula el kernel chi-cuadrado aditivo entre las observaciones en <em>X</em> y <em>Y</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.chi2_kernel.html">pairwise.chi2_kernel</a>(X, Y=None, gamma=1.0)</p></td>
+<td><p>Calcula el kernel exponencial chi-cuadrado entre <em>X</em> y <em>Y</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.cosine_distances.html">pairwise.cosine_distances</a>(X, Y=None)</p></td>
+<td><p>Calcula la distancia coseno entre las muestras en <em>X</em> y <em>Y</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.cosine_similarity.html">pairwise.cosine_similarity</a>(X, Y=None, dense_output=True)</p></td>
+<td><p>Calcula la similitud coseno entre las muestras en <em>X</em> y <em>Y</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.distance_metrics.html">pairwise.distance_metrics</a>()</p></td>
+<td><p>Métricas válidas para <em>pairwise_distances</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.euclidean_distances.html">pairwise.euclidean_distances</a>(X, Y=None, …)</p></td>
+<td><p>Calcula la matriz de distancia entre cada par de una matriz de vectores <em>X</em> y <em>Y</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.haversine_distances.html">pairwise.haversine_distances</a>(X, Y=None)</p></td>
+<td><p>Calcula la distancia Haversine entre las muestras en <em>X</em> y <em>Y</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.kernel_metrics.html">pairwise.kernel_metrics</a>()</p></td>
+<td><p>Métricas válidas para <em>pairwise_kernels</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.laplacian_kernel.html">pairwise.laplacian_kernel</a>(X, Y=None, gamma=None)</p></td>
+<td><p>Calcula el kernel laplaciano entre <em>X</em> y <em>Y</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.linear_kernel.html">pairwise.linear_kernel</a>(X, Y=None, dense_output=True)</p></td>
+<td><p>Calcula el kernel lineal entre <em>X</em> y <em>Y</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.manhattan_distances.html">pairwise.manhattan_distances</a>(X, Y=None)</p></td>
+<td><p>Calcula las distancias L1 entre los vectores en <em>X</em> y <em>Y</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.nan_euclidean_distances.html">pairwise.nan_euclidean_distances</a>(X, Y=None, …)</p></td>
+<td><p>Calcula las distancias euclidianas en presencia de valores perdidos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.paired_cosine_distances.html">pairwise.paired_cosine_distances</a>(X, Y)</p></td>
+<td><p>Calcula las distancias coseno emparejadas entre <em>X</em> y <em>Y</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.paired_distances.html">pairwise.paired_distances</a>(X, Y, …)</p></td>
+<td><p>Calcula las distancias emparejadas entre <em>X</em> y <em>Y</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.paired_euclidean_distances.html">pairwise.paired_euclidean_distances</a>(X, Y)</p></td>
+<td><p>Calcula las distancias euclídeas emparejadas entre <em>X</em> y <em>Y</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.paired_manhattan_distances.html">pairwise.paired_manhattan_distances</a>(X, Y)</p></td>
+<td><p>Calcula las distancias L1 emparejadas entre <em>X</em> y <em>Y</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.pairwise_kernels.html">pairwise.pairwise_kernels</a>(X, Y=None, metric=’linear’, …)</p></td>
+<td><p>Calcula el kernel entre las matrices <em>X</em> y la matriz opcional <em>Y</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.polynomial_kernel.html">pairwise.polynomial_kernel</a>(X, Y=None, degree=3, gamma=None, coef0=1)</p></td>
+<td><p>Calcula el kernel polinómico entre <em>X</em> y <em>Y</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.rbf_kernel.html">pairwise.rbf_kernel</a>(X, Y=None, gamma=None)</p></td>
+<td><p>Calcula el kernel rbf (gaussiano) entre <em>X</em> y <em>Y</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.sigmoid_kernel.html">pairwise.sigmoid_kernel</a>(X, Y=None, gamma=None, coef0=1)</p></td>
+<td><p>Calcula el kernel sigmoide entre <em>X</em> y <em>Y</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise_distances.html">pairwise_distances</a>(X, Y=None, metric=’euclidean’, …)</p></td>
+<td><p>Calcula la matriz de distancias a partir de una matriz de vectores <em>X</em> y <em>Y</em> opcional.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise_distances_argmin.html">pairwise_distances_argmin</a>(X, Y, …)</p></td>
+<td><p>Calcula distancias mínimas entre un punto y un conjunto de puntos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise_distances_argmin_min.html">pairwise_distances_argmin_min</a>(X, Y, …)</p></td>
+<td><p>Calcula distancias mínimas entre un punto y un conjunto de puntos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise_distances_chunked.html">pairwise_distances_chunked</a>(X, Y=None, …)</p></td>
+<td><p>Genera una matriz de distancia trozo a trozo con reducción opcional.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="ranking-multilabel">
+<h3>Ranking <em>multilabel</em><a class="headerlink" href="#ranking-multilabel" title="Link to this heading">#</a></h3>
+<p>Esta sección se enfoca en métricas para problemas de clasificación multietiqueta y ranking, como la precisión promedio (<em>average precision</em>) y la pérdida de ranking (<em>ranking loss</em>). Son útiles cuando cada muestra puede tener múltiples etiquetas.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.coverage_error.html">coverage_error</a>(y_true, y_score, …)</p></td>
+<td><p>Medida del error de cobertura.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.label_ranking_average_precision_score.html">label_ranking_average_precision_score</a>(y_true, y_score, …)</p></td>
+<td><p>Calcula la precisión media basada en la clasificación.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.label_ranking_loss.html">label_ranking_loss</a>(y_true, y_score, …)</p></td>
+<td><p>Calcula el ranking de la medida de pérdida.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="regresion">
+<h3>Regresión<a class="headerlink" href="#regresion" title="Link to this heading">#</a></h3>
+<p>Aquí se encuentran métricas para evaluar modelos de regresión, como el error cuadrático medio (MSE), el error absoluto medio (MAE) y el coeficiente de determinación (R²). Estas métricas miden la precisión de las predicciones en problemas de regresión.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.d2_absolute_error_score.html">d2_absolute_error_score</a>(y_true, y_pred, …)</p></td>
+<td><p><span class="math notranslate nohighlight">\(D^2\)</span> función de puntuación de regresión, fracción del error absoluto explicado.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.d2_pinball_score.html">d2_pinball_score</a>(y_true, y_pred, …)</p></td>
+<td><p><span class="math notranslate nohighlight">\(D^2\)</span> función de puntuación de regresión, fracción de pérdida de <em>pinball</em> explicada.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.d2_tweedie_score.html">d2_tweedie_score</a>(y_true, y_pred, …)</p></td>
+<td><p><span class="math notranslate nohighlight">\(D^2\)</span> función de puntuación de regresión, fracción de desviación de Tweedie explicada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html">explained_variance_score</a>(y_true, y_pred, …)</p></td>
+<td><p>Función de puntuación de regresión de la varianza explicada.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.max_error.html">max_error</a>(y_true, y_pred)</p></td>
+<td><p>Calcula el error residual máximo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html">mean_absolute_error</a>(y_true, y_pred, …)</p></td>
+<td><p>Error absoluto medio de pérdida por regresión.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_percentage_error.html">mean_absolute_percentage_error</a>(y_true, y_pred, …)</p></td>
+<td><p>Porcentaje medio de error absoluto (MAPE) de pérdida por regresión.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_gamma_deviance.html">mean_gamma_deviance</a>(y_true, y_pred, …)</p></td>
+<td><p>Pérdida por regresión de desviación Gamma media.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_pinball_loss.html">mean_pinball_loss</a>(y_true, y_pred, …)</p></td>
+<td><p>Pérdida de <em>pinball</em> para la regresión cuantílica.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_poisson_deviance.html">mean_poisson_deviance</a>(y_true, y_pred, …)</p></td>
+<td><p>Pérdida por regresión de la desviación media de Poisson.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html">mean_squared_error</a>(y_true, y_pred, …)</p></td>
+<td><p>Pérdida por regresión del error cuadrático medio.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html">mean_squared_log_error</a>(y_true, y_pred, …)</p></td>
+<td><p>Pérdida por regresión del error logarítmico cuadrático medio.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_tweedie_deviance.html">mean_tweedie_deviance</a>(y_true, y_pred, …)</p></td>
+<td><p>Pérdida por regresión de la desviación media de Tweedie.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html">median_absolute_error</a>(y_true, y_pred, …)</p></td>
+<td><p>Pérdida por regresión del error absoluto medio.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.r2_score.html">r2_score</a>(y_true, y_pred, …)</p></td>
+<td><p><span class="math notranslate nohighlight">\(R^2\)</span> (coeficiente de determinación) función de puntuación de regresión.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.root_mean_squared_error.html">root_mean_squared_error</a>(y_true, y_pred, …)</p></td>
+<td><p>Pérdida por regresión del error cuadrático medio.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.root_mean_squared_log_error.html">root_mean_squared_log_error</a>(y_true, y_pred, …)</p></td>
+<td><p>Pérdida por regresión del error logarítmico cuadrático medio.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="notas-de-mean-squared-error">
+<h3>Notas de <em>mean_squared_error</em><a class="headerlink" href="#notas-de-mean-squared-error" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html">mean_squared_error</a>: Calcula el MSE (promedio del cuadrado de las diferencias entre las valores reales y las prediciones) de un modelo de regresión. Entre más pequeño mejor (en relación con la escala de los datos).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+<span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">multioutput</span><span class="o">=</span><span class="s1">&#39;uniform_average&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong>y_true</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code>: Valores del target reales. También puede ser y_test.</p></li>
+<li><p><strong>y_pred</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code>: Valores del target estimados.</p></li>
+<li><p><strong>sample_weight</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code>: Ponderaciones de las muestras.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./parts/07-sklearn/evaluation"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="feature_selection.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Feature Selection</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="model_selection.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Model Selection</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clases-visualizacion">Clases - Visualización.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones">Funciones</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#biclustering">Biclustering</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clasificacion">Clasificación</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-accuracy-score">Notas de <em>accuracy_score</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-classification-report">Notas de <em>classification_report</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-confusion-matrix">Notas de <em>confusion_matrix</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Notas de <em>classification_report</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-roc-auc-score">Notas de <em>roc_auc_score</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-roc-curve">Notas de <em>roc_curve</em></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clusters">Clusters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distancias">Distancias</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interfaz-seleccion-de-modelo">Interfaz selección de modelo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pares-de-muestas">Pares de muestas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ranking-multilabel">Ranking <em>multilabel</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regresion">Regresión</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-mean-squared-error">Notas de <em>mean_squared_error</em></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nebok
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

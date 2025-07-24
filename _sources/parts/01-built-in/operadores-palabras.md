@@ -153,7 +153,7 @@ x not is None
 ```
 
 :::{warning}
-No se debe de usar el operador de igual (`==`) para verificar que una valor sea un valor nulo.
+No se debe de usar el operador de igual (`==`) para verificar que un valor sea un valor nulo.
 :::
 
 <br>
@@ -207,7 +207,7 @@ Otros usos del operador `*` incluye:
 (keywords)=
 ## Palabras reservadas
 
-Son palabras que tienen un significado especial para python.
+Son palabras que tienen un significado especial para Python.
 
 |Palabra|Significado|
 |:----------|:----------|
@@ -239,7 +239,7 @@ En la lista anterior no se incluyeron las siguientes _keywords_:
 - Otras constantes: `None`.
 - Estructuras lógicas: `if`, `else` y `elif`.
 - Estructuras cíclicas: `for` y `while`.
-- Estructura para manejo de error: `try`, `except`, `finally`.
+- Estructura para manejo de errores: `try`, `except`, `finally`.
 :::
 
 <br>
@@ -251,6 +251,7 @@ Verifica si una condición es `True` o `False`. Si es `False` retorna un error d
 
 Cuando se utiliza `assert`, se puede agregar un mensaje en caso de que la condición sea `False`:
 ```python
+# Uso básico de assert
 assert expression, message
 ```
 - `expression`: Cualquier expresión que retorne `bool`. 

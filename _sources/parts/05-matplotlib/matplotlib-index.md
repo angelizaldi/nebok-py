@@ -21,11 +21,26 @@ import numpy as np
 ```
 
 `matplotlib` es una librería que se utiliza principalmente para crear visualizaciones estáticas y dinámicas. La mayoría de las funcionalidades que se verán en esta sección están en el módulo `pyplot` que es útil para crear una variedad amplia de gráficas. Lo más común es importar la librería y el módulo `pyplot`, ya que este módulo provee de todo lo necesario para crear, personalizar y manipular gráficas.
+
+Para utilizar `matplotlib` es necesario instalarlo. Desde la terminal usar:
+```
+# Con pip
+pip install matplotlib
+
+# Con conda
+conda install matplotlib
+```
+
+Una vez instalado se debe de importar:
 ```python
 # Importar módulo
 import matplotlib.pyplot as plt
 ```
 - _plt_ es el nombre por convención, en este sitio se utilizará _plt_ para refererirse a `matplotlib.pyplot`.
+
+:::{note}
+Para más información de esta librería visitar la [documentación](https://matplotlib.org/stable/api/index.html) y [guía de usuario](https://matplotlib.org/stable/users/index.html#) de `matplotlib`.
+:::
 
 <br/>
 
@@ -333,3 +348,12 @@ plt.tight_layout()
 # Imprimir la figura
 plt.show()
 ```
+
+<br/>
+
+---
+## Tabla de contenido
+
+
+```{tableofcontents}
+````

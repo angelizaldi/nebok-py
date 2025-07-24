@@ -1,0 +1,824 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Tools &#8212; Manual de Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'parts/11-bokeh/models/tools';</script>
+    <link rel="icon" href="../../../_static/nebok-favicon.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Widgets" href="widgets.html" />
+    <link rel="prev" title="Sources" href="sources.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/nebok-logo.png" class="logo__image only-light" alt="Manual de Python - Home"/>
+    <script>document.write(`<img src="../../../_static/nebok-logo.png" class="logo__image only-dark" alt="Manual de Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Manual de Python para Data Science
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Built-in</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../01-built-in/built-in-index.html">Python Estándar</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/cli.html"><em>Command Line Interface</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/ayuda.html">Obtener ayuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/comentarios.html">Comentarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/tipos-datos.html">Tipos de Datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/variables-constantes.html">Variables y Constantes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/operadores-palabras.html">Operadores y palabras reservadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/entrada-salida.html">Impresión y solicitud de datos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../01-built-in/tipos-index.html">Tipos Built-In</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/none-bool-numericos.html"><em>None</em>, <em>bool</em> y Numéricos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/str.html">str</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/lists.html">list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/tuples.html">Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/sets.html">Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/dicts.html">dict</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../01-built-in/estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/if-else.html">If … Else</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/for-loop.html">For Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/do-while.html">Do While</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/udf.html">Funciones (UDF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/exceptions.html">Excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/context-managers.html">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/io.html">Lectura y escritura de archivos (IO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/modulos.html">Paquetes y Módulos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../01-built-in/avanzado-index.html">Temas avanzados</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/decorators.html">Decorators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/iterators.html">Iterators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/generators.html">Generators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../01-built-in/oop.html">Programación orientada a objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../01-built-in/func-built-in.html">Funciones built-in</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../02-modulos/modulos-index.html">Módulos built-in</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/csv.html">CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/datetime.html">Datetime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/itertools.html">Itertools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/json.html">JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/math.html">Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/os.html">Os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/os-path.html">Os.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/pickle.html">Pickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/random.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/regex.html">Regex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/statistics.html">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../02-modulos/urllib-request.html">urllib.request</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otras librerías</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../03-numpy/numpy-index.html">Numpy</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../03-numpy/arrays.html">Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../03-numpy/funciones-index.html">Funciones</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/ufuncs.html">Ufuncs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/buscar-contar-ordenar-unicos.html">Buscar, contar, ordenar y valores únicos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/creacion-arrays.html">Creación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/estadisticas.html">Estadísticas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/indices.html">Índices e iteración</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/informacion.html">Información</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/lectura-escritura.html">Lectura y escritura de datos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/manipulacion-arrays.html">Manipulación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/matematicas-numericas.html">Matemáticas y numéricas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../03-numpy/operadores.html">Operadores</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../03-numpy/algebra-lineal.html">Módulo linalg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../03-numpy/cadenas.html">Modulo char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../03-numpy/random.html">Módulo random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../03-numpy/patrones-numpy.html">Patrones útiles</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../04-pandas/pandas-index.html">Pandas</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../04-pandas/index.html">Index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-pandas/series.html">Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-pandas/dataframe.html">DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-pandas/escalares-arrays.html">Escalares y Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../04-pandas/otras-clases.html">Otras clases</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../04-pandas/groupby.html">GroupBy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../04-pandas/expanding-rolling-window.html"><em>Expanding, Rolling</em> y <em>Window</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../04-pandas/resampler.html">Resampler</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-pandas/funciones.html">Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-pandas/patrones-pandas.html">Patrones útiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../04-pandas/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../05-matplotlib/matplotlib-index.html">Matplotlib</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../05-matplotlib/pyplot.html">Pyplot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../05-matplotlib/figure.html">Figure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../05-matplotlib/axes.html">Axes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../05-matplotlib/otros.html">Otras Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../05-matplotlib/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../06-seaborn/seaborn-index.html">Seaborn</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../06-seaborn/funciones-clases.html">Funciones y Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../06-seaborn/objects-interface.html">Interface por objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../07-sklearn/sklearn-index.html">Scikit Learn</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../07-sklearn/supervised/supervised-index.html">Aprendizaje supervisado</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/supervised/ensamble.html">Ensamble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/supervised/linear_model.html">Linear model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/supervised/naive_bayes.html">Naive bayes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/supervised/neighbors.html">Neighbors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/supervised/svm.html">SVM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/supervised/tree.html">Tree</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../07-sklearn/unsupervised/unsupervised-index.html">Aprendizaje no supervisado</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/unsupervised/cluster.html">Cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/unsupervised/decomposition.html">Decomposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/unsupervised/mixture.html">Mixture</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../07-sklearn/transformations/tranformations-index.html">Transformaciones</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/transformations/feature_extraction.html">Feature Extraction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/transformations/impute.html">Impute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/transformations/manifold.html">Manifold</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/transformations/preprocessing.html">Preprocessing</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../07-sklearn/evaluation/evaluation-index.html">Evaluación y selección del modelo</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/evaluation/dummy.html">Dummy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/evaluation/feature_selection.html">Feature Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/evaluation/metrics.html">Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/evaluation/model_selection.html">Model Selection</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../07-sklearn/pipelines-and-compose/pipeline-compose-index.html">Pipelines y Modelos Compuestos</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/pipelines-and-compose/compose.html">Compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../07-sklearn/pipelines-and-compose/pipeline.html">Pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../07-sklearn/datasets.html">Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../07-sklearn/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../08-xgboost/xgboost-index.html">XGBoost</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../08-xgboost/core-data-structure.html">Core Data Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../08-xgboost/learning-api.html">Learning API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../08-xgboost/scikit-learn-api.html">Scikit-Learn API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../08-xgboost/plotting-api.html">Plotting API</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../09-scipy/scipy-index.html">Scipy</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../09-scipy/clusters.html">Clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../09-scipy/derivacion-integracion.html">Derivación e Integración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../09-scipy/linalg.html">Linear Algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../09-scipy/sparse.html"><em>Sparse</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../09-scipy/stats.html">Stats</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../10-statsmodels/statsmodels-index.html">Statsmodels</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../10-statsmodels/statsmodels-api.html">API Principal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../10-statsmodels/statsmodels-tsa-api.html">API de Series de Tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../10-statsmodels/statsmodels-formula-api.html">API de Fórmulas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../10-statsmodels/graphics.html">Gráficos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../10-statsmodels/otras-clases.html">Otras clases</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../bokeh-index.html">Bokeh</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../io.html">IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../layouts.html"><em>Layouts</em></a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="models-index.html"><em>Models</em></a><input checked="" class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="annotations.html">Anotaciones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="axes.html">Ejes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="callbacks.html">Callbacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="formatters.html"><em>Formatters</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="glyphs.html"><em>Glyphs</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sources.html"><em>Sources</em></a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#"><em>Tools</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="widgets.html"><em>Widgets</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotting.html">Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../transform.html">transform</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../12-plotly/plotly-index.html">Plotly</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../12-plotly/express.html"><em>Express</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../12-plotly/figure-factory.html"><em>Figure Factory</em></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../12-plotly/go/go-index.html"><em>Graph Objects</em></a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../12-plotly/go/figure.html"><em>Figure</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../12-plotly/go/layout.html"><em>Layout</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../12-plotly/go/traces.html">Traces</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../12-plotly/io.html">IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../12-plotly/subplots.html">Subplots</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/beautifulsoup.html">BeautifulSoup</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Complementarios</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../appendix/appendix-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../appendix/IPython.html">IPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../appendix/jupyter.html">Jupyter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../appendix/pip.html">pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../appendix/conda.html"><em>conda</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../appendix/git.html">git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../appendix/shell.html">Shell</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/parts/11-bokeh/models/tools.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Tools</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clases">Clases</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="tools">
+<h1><em>Tools</em><a class="headerlink" href="#tools" title="Link to this heading">#</a></h1>
+<p>Contiene herramientas interactivas para gráficos, como zoom, selección, guardado y <em>hover</em>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Para más información de esta sección visitar la <a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/models/tools.html">documentación</a> de <code class="docutils literal notranslate"><span class="pre">bokeh</span></code>.</p>
+</div>
+<section id="clases">
+<h2>Clases<a class="headerlink" href="#clases" title="Link to this heading">#</a></h2>
+<p>Clases implementadas en el módulo <em>models</em> del tipo <em>tools</em>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Constructor</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/models/tools.html#bokeh.models.ActionTool">ActionTool</a>(*args: Any,  id: ID | None = None, …)</p></td>
+<td><p>Una clase base para herramientas que son botones en la barra de herramientas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/models/tools.html#bokeh.models.BoxEditTool">BoxEditTool</a>(*args: Any,  id: ID | None = None, …)</p></td>
+<td><p>Permite dibujar, desplazar y eliminar <em>glyphs</em> en forma de caja (por ejemplo, <code class="docutils literal notranslate"><span class="pre">Block</span></code>, <code class="docutils literal notranslate"><span class="pre">Rect</span></code>, <code class="docutils literal notranslate"><span class="pre">HStrip</span></code>) en uno o más renderistas editando los datos subyacentes de <code class="docutils literal notranslate"><span class="pre">ColumnDataSource</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/models/tools.html#bokeh.models.BoxSelectTool">BoxSelectTool</a>(*args: Any,  id: ID | None = None, …)</p></td>
+<td><p>La herramienta de selección de cuadros permite a los usuarios hacer selecciones en una gráfica mostrando una región rectangular arrastrando el mouse o un dedo sobre el área de la parcela.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/models/tools.html#bokeh.models.BoxZoomTool">BoxZoomTool</a>(*args: Any,  id: ID | None = None, …)</p></td>
+<td><p>La herramienta de zoom de cuadros permite a los usuarios definir una región rectangular de una gráfica para hacer zoom arrastrando el mouse o un dedo sobre la región de la parcela.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/models/tools.html#bokeh.models.ClickPanTool">ClickPanTool</a>(*args: Any,  id: ID | None = None, …)</p></td>
+<td><p>Una herramienta que permite desplazarse dentro de una gráfica por una cantidad fija haciendo clic en un botón.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/models/tools.html#bokeh.models.CopyTool">CopyTool</a>(*args: Any,  id: ID | None = None, …)</p></td>
+<td><p>La herramienta <em>copy</em> es una herramienta de acción, que permite copiar el contenido de renderizador de una gráfica o una colección de gráficas para el portapapeles del sistema. Esta herramienta depende del navegador y puede no funcionar en ciertos navegadores, o requerir permisos adicionales para otorgarse a la página web.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/models/tools.html#bokeh.models.CrosshairTool">CrosshairTool</a>(*args: Any,  id: ID | None = None, …)</p></td>
+<td><p>La herramienta <em>crosshair</em> es una herramienta de inspector pasivo. Generalmente está encendido en todo momento, pero se puede configurar en el menú del inspector asociado con el icono de la barra de herramientas que se muestra arriba.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/models/tools.html#bokeh.models.CustomAction">CustomAction</a>(*args: Any,  id: ID | None = None, …)</p></td>
+<td><p>Ejecuta una acción personalizada, ejm. un <em>callback</em> <code class="docutils literal notranslate"><span class="pre">CustomJS</span></code> cuando se activa un icono de la barra de herramientas.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/models/tools.html#bokeh.models.CustomJSHover">CustomJSHover</a>(*args: Any,  id: ID | None = None, …)</p></td>
+<td><p>Defina un formateador personalizado para aplicar a un campo de herramientas <em>hover</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/models/tools.html#bokeh.models.Drag">Drag</a>(*args: Any,  id: ID | None = None, …)</p></td>
+<td><p>Una clase base para herramientas que responden a los eventos de arrastre.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/models/tools.html#bokeh.models.EditTool">EditTool</a>(*args: Any,  id: ID | None = None, …)</p></td>
+<td><p>Una clase base para todos los tipos de herramientas de dibujo interactivo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/models/tools.html#bokeh.models.ExamineTool">ExamineTool</a>(*args: Any,  id: ID | None = None, …)</p></td>
+<td><p>Una herramienta que permite inspeccionar y configurar un modelo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/models/tools.html#bokeh.models.FreehandDrawTool">FreehandDrawTool</a>(*args: Any,  id: ID | None = None, …)</p></td>
+<td><p>Permite el dibujo a mano alzada <em>patches</em> y <em>glyphs</em> multilíneas. El <em>glyph</em> para dibujar puede definirse a través de la propiedad <em>renderers</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/models/tools.html#bokeh.models.FullscreenTool">FullscreenTool</a>(*args: Any,  id: ID | None = None, …)</p></td>
+<td><p>Una herramienta que permite ampliar un elemento UI a la pantalla completa.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/models/tools.html#bokeh.models.GestureTool">GestureTool</a>(*args: Any,  id: ID | None = None, …)</p></td>
+<td><p>Una clase base para herramientas que responden a los eventos de arrastre.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/models/tools.html#bokeh.models.HelpTool">HelpTool</a>(*args: Any,  id: ID | None = None, …)</p></td>
+<td><p>Una herramienta de botón para proporcionar un enlace de “ayuda” a los usuarios.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/models/tools.html#bokeh.models.HoverTool">HoverTool</a>(*args: Any,  id: ID | None = None, …)</p></td>
+<td><p>La herramienta <em>hover</em> es una herramienta de inspector pasivo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/models/tools.html#bokeh.models.InspectTool">InspectTool</a>(*args: Any,  id: ID | None = None, …)</p></td>
+<td><p>Una clase base para herramientas que realizan “inspecciones”, ejm. <code class="docutils literal notranslate"><span class="pre">Hovertool</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/models/tools.html#bokeh.models.LassoSelectTool">LassoSelectTool</a>(*args: Any,  id: ID | None = None, …)</p></td>
+<td><p>La herramienta de selección de lazo permite a los usuarios hacer selecciones en una gráfica al indicar una región de “lazo” dibujada libre arrastrando el mouse o un dedo sobre la región de la gráfica.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/models/tools.html#bokeh.models.LineEditTool">LineEditTool</a>(*args: Any,  id: ID | None = None, …)</p></td>
+<td><p>Permite editar los puntos de intersección de uno o más <em>glyphs</em> de línea. Los <em>glyphs</em> que se editarán se definen a través de la propiedad <em>renderers</em> y un renderizador para las intersecciones se establece a través de la propiedad <em>intersection_renderer</em> (debe representar un <em>glyph</em> puntual (una subclase de <code class="docutils literal notranslate"><span class="pre">XYGlyph</span></code>).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/models/tools.html#bokeh.models.PanTool">PanTool</a>(*args: Any,  id: ID | None = None, …)</p></td>
+<td><p>La herramienta <em>pan</em> permite al usuario arrastar una gráfica con el click izquierdo del <em>mouse</em>, o en dispositivos táctiles arrastrando un dedo o lápiz óptico, a través de la región de la gráfica.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/models/tools.html#bokeh.models.PointDrawTool">PointDrawTool</a>(*args: Any,  id: ID | None = None, …)</p></td>
+<td><p>Permite agregar, desplazar y eliminar los <em>glyphs</em> puntuales (es decir, subclases de <code class="docutils literal notranslate"><span class="pre">XYGlyph</span></code>) en uno o más renderizadores editando los datos subyacentes de <code class="docutils literal notranslate"><span class="pre">ColumnDataSource</span></code>. Los renderizadores que se editarán deben suministrarse explícitamente como un ´list´.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/models/tools.html#bokeh.models.PolyDrawTool">PolyDrawTool</a>(*args: Any,  id: ID | None = None, …)</p></td>
+<td><p>Permite dibujar, seleccionar y eliminar <em>patches</em> y <em>glyphs</em> múltiples en uno o más renderizadores editando los datos subyacentes de <code class="docutils literal notranslate"><span class="pre">ColumnDataSource</span></code>. Los renderizadores que se editarán deben suministrarse explícitamente.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/models/tools.html#bokeh.models.PolyEditTool">PolyEditTool</a>(*args: Any,  id: ID | None = None, …)</p></td>
+<td><p>Permite editar los vértices de uno o más <em>patches</em> o <em>glyphs</em> multilíneas. Los <em>glyphs</em> que se editarán se definen a través de la propiedad <em>renderers</em> y un renderizador para los vértices se establece a través de la propiedad <em>vertex_renderer</em> (debe representar un <em>glyph</em> puntual (una subclase de <code class="docutils literal notranslate"><span class="pre">XYGlyph</span></code>).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/models/tools.html#bokeh.models.PolySelectTool">PolySelectTool</a>(*args: Any,  id: ID | None = None, …)</p></td>
+<td><p>La herramienta de selección de polígono permite a los usuarios hacer selecciones en un diagrama indicando una región poligonal con clics del mouse. Los clics únicos (o TAPS) agregan puntos sucesivos a la definición del polígono, y un clic (o toque) de presión indica que la región de selección está lista.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/models/tools.html#bokeh.models.RangeTool">RangeTool</a>(*args: Any,  id: ID | None = None, …)</p></td>
+<td><p>La herramienta de rango permite al usuario actualizar objetos de rango para cualquiera o ambas dimensiones <em>x</em> o <em>y</em> arrastrando una anotación sombreada correspondiente para moverlo o cambiar sus límites.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/models/tools.html#bokeh.models.RedoTool">RedoTool</a>(*args: Any,  id: ID | None = None, …)</p></td>
+<td><p>La herramienta de rehacer invierte la última acción realizada por la herramienta <em>undo</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/models/tools.html#bokeh.models.ResetTool">ResetTool</a>(*args: Any,  id: ID | None = None, …)</p></td>
+<td><p>La herramienta de reinicio es una acción. Cuando se activa en la barra de herramientas, la herramienta restablece los límites de datos de la gráfica a sus valores cuando se creó inicialmente el gráfico.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/models/tools.html#bokeh.models.SaveTool">SaveTool</a>(*args: Any,  id: ID | None = None, …)</p></td>
+<td><p>La herramienta <em>save</em> es una acción. Cuando se activa, la herramienta abre un cuadro de diálogo de descarga que permite guardar una reproducción de imagen del gráfico en formato PNG. Si la descarga automática no es compatible con un navegador web, la herramienta recurre a abrir la imagen generada en una nueva pestaña o ventana. El usuario puede guardarlo manualmente haciendo clic derecho en la imagen y eligiendo el elemento de menú “Guardar” (o similar).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/models/tools.html#bokeh.models.Scroll">Scroll</a>(*args: Any,  id: ID | None = None, …)</p></td>
+<td><p>Una clase base para herramientas que responden a los eventos de desplazamiento.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/models/tools.html#bokeh.models.Tap">Tap</a>(*args: Any,  id: ID | None = None, …)</p></td>
+<td><p>Una clase base para herramientas que responden a los eventos de toque/clic.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/models/tools.html#bokeh.models.TapTool">TapTool</a>(*args: Any,  id: ID | None = None, …)</p></td>
+<td><p>La herramienta de selección <em>tap</em> permite al usuario seleccionar en puntos individuales haciendo clic izquierdo en un mouse o golpeando con un dedo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/models/tools.html#bokeh.models.Tool">Tool</a>(*args: Any,  id: ID | None = None, …)</p></td>
+<td><p>Una clase base para todos los tipos de herramientas interactivas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/models/tools.html#bokeh.models.ToolProxy">ToolProxy</a>(*args: Any,  id: ID | None = None, …)</p></td>
+<td><p>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/models/tools.html#bokeh.models.Toolbar">Toolbar</a>(*args: Any,  id: ID | None = None, …)</p></td>
+<td><p>Recopila herramientas para mostrar para una sola gráfica.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/models/tools.html#bokeh.models.UndoTool">UndoTool</a>(*args: Any,  id: ID | None = None, …)</p></td>
+<td><p>La herramienta <em>undo</em> permite restaurar el estado anterior de la gráfica.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/models/tools.html#bokeh.models.WheelPanTool">WheelPanTool</a>(*args: Any,  id: ID | None = None, …)</p></td>
+<td><p>La herramienta de <em>wheel pan</em> permite al usuario desplazarse dentro de la gráfica a lo largo de la dimensión configurada utilizando la rueda de desplazamiento.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/models/tools.html#bokeh.models.WheelZoomTool">WheelZoomTool</a>(*args: Any,  id: ID | None = None, …)</p></td>
+<td><p>La herramienta <em>wheel zoom</em> acercará la gráfica dentro y fuera, centrada en la ubicación actual del mouse.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/models/tools.html#bokeh.models.ZoomInTool">ZoomInTool</a>(*args: Any,  id: ID | None = None, …)</p></td>
+<td><p>La herramienta de <em>zoom-in</em> permite a los usuarios hacer clic en un botón para acercarse en una cantidad fija.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/models/tools.html#bokeh.models.ZoomOutTool">ZoomOutTool</a>(*args: Any,  id: ID | None = None, …)</p></td>
+<td><p>La herramienta <em>zoom-out</em> permite a los usuarios hacer clic en un botón para alejarse en una cantidad fija.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./parts/11-bokeh/models"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="sources.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><em>Sources</em></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="widgets.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><em>Widgets</em></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clases">Clases</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nebok
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

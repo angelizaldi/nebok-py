@@ -865,6 +865,79 @@ s.plot(kind="bar", stacked=True)
 s.hist(bins)
 ```
 
+#### Notas de _plot_
+
+[Series.plot](https://pandas.pydata.org/docs/reference/api/pandas.Series.plot.html): Función general para crear gráficas con base a los datos del `Series`.
+
+:::{tip}
+Dependiendo del argumento de _kind_, se pueden usar otros argumentos para personalizar la gráfica. Revisar {doc}`../05-matplotlib/otros` de _matplotlib_.
+:::
+
+:::{tip}
+Tener en cuenta que esta función en esencia retorna un objeto _Axes_ de _matplotlib_, porque lo que se puede asignar a una variable y manipular el objeto con {doc}`La interfaz orientada a objetos<../05-matplotlib/axes>`.
+:::
+
+```python
+# Sintaxis de llamada
+Series.plot(*args, **kwargs)
+```
+**Parámetros:**
+- **x** \- `label` o `int`: Es el nombre o el índice de la columna que irá en el eje _x_.
+- **y** \- `label` o `int`: Es el nombre o el índice de la columna que irá en el eje _y_.
+- **kind** \- `str`: Es el tipo de gráfico. Otra forma de declarar la gráfica es: `X.plot.kind(*args, **kwargs)`.
+    - `'bar'`: Crea una gráfica de barras verticales.
+    - `'barh'`: Crea una gráfica de barras horizontales.
+    - `'line'`: Crea una gráfica línea. **Default**.
+    - `'scatter'`: Crea una diagrama de dispersión entre 2 variables.
+    - `'box'`: Crea un boxplot.
+    - `'hist'`: Crea un histograma.
+    - `'kde'`: Crea una estimación de la densidad de un Kernel.
+    - `'density'`: Crea una estimación de la densidad de un Kernel.
+    - `'area'`: Crea una gráfica de un área.
+    - `'pie'`: Crea una gráfica de pastel.
+    - `'hexbin'`: Crea una gráfica hexbin.
+- **ax** \- `Axes`: El objeto _ax_ de la figura.
+- **subplots** \- `bool`: Es para indicar que haga una subgráfica por cada columna, entonces hará cada gráfica en un recuadro diferente en lugar de hacerlo en el mismo. Checar argumentos _sharex_ y _sharey_, para compartir ejes entre gráficas si `subplots=True` y _layout_ para determinar cuántas filas y columnas de gráficas usar.
+- **layout** \- `2-tuple` de `int`: Filas y columnas para el layout de las subgráficas.
+- **figsize** \- `tuple` de `float`: Ancho y alto de la figura en pulgadas.
+- **useindex** \- `bool`: Para indicar si usar el índice como el eje _x_.
+- **title** \- `str` o `list`: Es el título que tendrá la gráfica. Si es una lista y `subplots=True` es para indicar los títulos de cada subgráfica.
+- **legend** \- `bool` o {'reverse'}: Mostrar una leyenda.
+- **style** \- `list` o `dict`: Tipo de línea de matplotlib por columna. Es similar al parámetro _fmt_.
+- **xticks**, **yticks** \- `sequence`: Valores a usar en el eje _x_ y _y_ respectivamente.
+- **xlim**, **ylim** \- `2-tuple` o `2-list`: Establece los límite de los ejes _x_ y _y_ respectivamente.
+- **xlabel**, **ylabel** \- `label`: Etiqueta a usar en el eje _x_ y _y_ respectivamente. Por default en `xlabel` se usan el nombre del índice o el nombre de la columna del eje _x_. En `ylabel` no se pone etiqueta por default o el nombre del eje _y_ para gráficas planas.
+- **stacked** \- `bool`: Es para indicar que se apilen las barras. Aplica en 'line', 'bar' y 'area'. Por default son `False`, `False` y `True` respectivamente.
+- **bins** \- `int`: Es para especificar la cantidad de barras. Aplica en 'hist'.
+- **secondary_y** \- `bool` o `secuencia`: Para indicar si debe incluir un eje _y_ secundario con otra escala. Si es `sequence` poner el/los `label` de la(s) columna(s) con los valores graficar con la otra escala.
+- **ax** \- `Axes`: Para indicar en cual axes agregar en caso de un _grid_ de gráficas.
+- **alpha** \- `float 0, 1`: Para indicart la transperiencia de las gráficas.
+- **sort_columns** \- `bool`: En caso de que `subplots=True`, es para indicar que las columnas se ordenen de manera alfabética, en lugar de manter el orden que ya tienen.
+- Otros argumentos útiles (todos opcionales), consultar `help()`:
+    - `sharex=True if ax is None else False` - `bool`: Indica si compartir eje _x_ entre las subgráficas.
+    - `sharey=False` - `bool`: Indica si compartir eje _y_ entre las subgráficas.
+    - `grid=None` - `bool`: Para indicar si mostrar una malla de líneas en la gráfica.
+    - `lgx=False` - `bool` o  {'sym'}: Escala log en _x_.
+    - `lgy=False` - `bool` o  {'sym'}: ' Escala log en _y_.
+    - `lglg=False` - `bool`  o  {'sym'}: Escala log en _x_ y _y_.
+    - `rt=None` - `int: [0, 360]`: Rotación de los ticks.
+    - `fntsize=None` - `int`: Tamaño de la fuente para los ticks.
+    - `clrmap=None` - `str`, `Clrmap`: Colores de la gráfica.
+    - `include_bl=False` - `bool`: Indica que los valores booleanos puedan ser graficados.
+    - `yerr`, `xerr` - `DataFrame`, `Series`, `array-like`, `dict`,  `str`: Para agregar _error bars_.
+
+**Retorna:**
+- `Axes` o `ndarray` de `Axes`.
+
+<br/>
+
+**Ejemplo**
+
+```
+# Crear gráfica de líneas
+s.plot(xlabel='Entero', ylabel='Cuadrado', title='Cuadrados de los primeros 5 números enteros')
+```
+
 <br/>
 
 ### Índice

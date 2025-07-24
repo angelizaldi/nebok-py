@@ -216,7 +216,7 @@ penguins = sns.load_dataset("penguins")
 # Crear gráfica de barras con agregación de la media
 p = (
     so.Plot(penguins, x="species", y="bill_length_mm")
-    .add(so.Bar(), so.Agg())
+    .add(so.Bar(color=azul), so.Agg())
 )
 
 # Mostrar gráfica

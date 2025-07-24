@@ -1,0 +1,104 @@
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/nbclient/client.py", line 1314, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/base_events.py", line 650, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 222, in __aexit__
+    await self.gen.athrow(typ, value, traceback)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/nbclient/client.py", line 654, in async_setup_kernel
+    yield
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# Importaciones
+from scipy.cluster.hierarchy import fcluster
+import pandas as pd
+
+# Asignar etiquetas a cada punto
+cluster_labels = fcluster(Z, t=3, criterion='maxclust')
+
+# Añadir el cluster al dataset
+iris['cluster'] = cluster_labels
+
+# Crear diagrama de dispersión
+plt.figure(figsize=(8, 6))
+sns.scatterplot(x='sepal_length', y='petal_length', hue='cluster', 
+                style='species', data=iris, palette='Dark2', s=70)
+plt.title('Clusters vs Actual Species')
+plt.show()
+
+# Opcionalmente crear crosstab de cluster vs species
+print(pd.crosstab(iris['cluster'], iris['species']))
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+Cell [0;32mIn[2], line 9[0m
+[1;32m      6[0m cluster_labels [38;5;241m=[39m fcluster(Z, t[38;5;241m=[39m[38;5;241m3[39m, criterion[38;5;241m=[39m[38;5;124m'[39m[38;5;124mmaxclust[39m[38;5;124m'[39m)
+[1;32m      8[0m [38;5;66;03m# Añadir el cluster al dataset[39;00m
+[0;32m----> 9[0m [43miris[49m[43m[[49m[38;5;124;43m'[39;49m[38;5;124;43mcluster[39;49m[38;5;124;43m'[39;49m[43m][49m [38;5;241m=[39m cluster_labels
+[1;32m     11[0m [38;5;66;03m# Crear diagrama de dispersión[39;00m
+[1;32m     12[0m plt[38;5;241m.[39mfigure(figsize[38;5;241m=[39m([38;5;241m8[39m, [38;5;241m6[39m))
+
+File [0;32m/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/pandas/core/frame.py:4299[0m, in [0;36mDataFrame.__setitem__[0;34m(self, key, value)[0m
+[1;32m   4296[0m     [38;5;28mself[39m[38;5;241m.[39m_setitem_array([key], value)
+[1;32m   4297[0m [38;5;28;01melse[39;00m:
+[1;32m   4298[0m     [38;5;66;03m# set column[39;00m
+[0;32m-> 4299[0m     [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_set_item[49m[43m([49m[43mkey[49m[43m,[49m[43m [49m[43mvalue[49m[43m)[49m
+
+File [0;32m/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/pandas/core/frame.py:4512[0m, in [0;36mDataFrame._set_item[0;34m(self, key, value)[0m
+[1;32m   4502[0m [38;5;28;01mdef[39;00m [38;5;21m_set_item[39m([38;5;28mself[39m, key, value) [38;5;241m-[39m[38;5;241m>[39m [38;5;28;01mNone[39;00m:
+[1;32m   4503[0m [38;5;250m    [39m[38;5;124;03m"""[39;00m
+[1;32m   4504[0m [38;5;124;03m    Add series to DataFrame in specified column.[39;00m
+[1;32m   4505[0m 
+[0;32m   (...)[0m
+[1;32m   4510[0m [38;5;124;03m    ensure homogeneity.[39;00m
+[1;32m   4511[0m [38;5;124;03m    """[39;00m
+[0;32m-> 4512[0m     value, refs [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_sanitize_column[49m[43m([49m[43mvalue[49m[43m)[49m
+[1;32m   4514[0m     [38;5;28;01mif[39;00m (
+[1;32m   4515[0m         key [38;5;129;01min[39;00m [38;5;28mself[39m[38;5;241m.[39mcolumns
+[1;32m   4516[0m         [38;5;129;01mand[39;00m value[38;5;241m.[39mndim [38;5;241m==[39m [38;5;241m1[39m
+[1;32m   4517[0m         [38;5;129;01mand[39;00m [38;5;129;01mnot[39;00m [38;5;28misinstance[39m(value[38;5;241m.[39mdtype, ExtensionDtype)
+[1;32m   4518[0m     ):
+[1;32m   4519[0m         [38;5;66;03m# broadcast across multiple columns if necessary[39;00m
+[1;32m   4520[0m         [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28mself[39m[38;5;241m.[39mcolumns[38;5;241m.[39mis_unique [38;5;129;01mor[39;00m [38;5;28misinstance[39m([38;5;28mself[39m[38;5;241m.[39mcolumns, MultiIndex):
+
+File [0;32m/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/pandas/core/frame.py:5253[0m, in [0;36mDataFrame._sanitize_column[0;34m(self, value)[0m
+[1;32m   5250[0m     [38;5;28;01mreturn[39;00m _reindex_for_setitem(value, [38;5;28mself[39m[38;5;241m.[39mindex)
+[1;32m   5252[0m [38;5;28;01mif[39;00m is_list_like(value):
+[0;32m-> 5253[0m     [43mcom[49m[38;5;241;43m.[39;49m[43mrequire_length_match[49m[43m([49m[43mvalue[49m[43m,[49m[43m [49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mindex[49m[43m)[49m
+[1;32m   5254[0m arr [38;5;241m=[39m sanitize_array(value, [38;5;28mself[39m[38;5;241m.[39mindex, copy[38;5;241m=[39m[38;5;28;01mTrue[39;00m, allow_2d[38;5;241m=[39m[38;5;28;01mTrue[39;00m)
+[1;32m   5255[0m [38;5;28;01mif[39;00m (
+[1;32m   5256[0m     [38;5;28misinstance[39m(value, Index)
+[1;32m   5257[0m     [38;5;129;01mand[39;00m value[38;5;241m.[39mdtype [38;5;241m==[39m [38;5;124m"[39m[38;5;124mobject[39m[38;5;124m"[39m
+[0;32m   (...)[0m
+[1;32m   5260[0m     [38;5;66;03m# TODO: Remove kludge in sanitize_array for string mode when enforcing[39;00m
+[1;32m   5261[0m     [38;5;66;03m# this deprecation[39;00m
+
+File [0;32m/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/pandas/core/common.py:571[0m, in [0;36mrequire_length_match[0;34m(data, index)[0m
+[1;32m    567[0m [38;5;250m[39m[38;5;124;03m"""[39;00m
+[1;32m    568[0m [38;5;124;03mCheck the length of data matches the length of the index.[39;00m
+[1;32m    569[0m [38;5;124;03m"""[39;00m
+[1;32m    570[0m [38;5;28;01mif[39;00m [38;5;28mlen[39m(data) [38;5;241m!=[39m [38;5;28mlen[39m(index):
+[0;32m--> 571[0m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m(
+[1;32m    572[0m         [38;5;124m"[39m[38;5;124mLength of values [39m[38;5;124m"[39m
+[1;32m    573[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;124m([39m[38;5;132;01m{[39;00m[38;5;28mlen[39m(data)[38;5;132;01m}[39;00m[38;5;124m) [39m[38;5;124m"[39m
+[1;32m    574[0m         [38;5;124m"[39m[38;5;124mdoes not match length of index [39m[38;5;124m"[39m
+[1;32m    575[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;124m([39m[38;5;132;01m{[39;00m[38;5;28mlen[39m(index)[38;5;132;01m}[39;00m[38;5;124m)[39m[38;5;124m"[39m
+[1;32m    576[0m     )
+
+[0;31mValueError[0m: Length of values (105) does not match length of index (150)
+

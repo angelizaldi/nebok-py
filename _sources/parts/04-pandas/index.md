@@ -937,6 +937,7 @@ Estrategias de selección de elementos:
 - **Slicing**:
     - Rangos considerando todas las unidades y que muestren todos las fechas que estén dentro de ese rango, ambos extremos son inclusivos: <br/> `X['YYYY-MM-DD':'YYYY-MM-DD']`
     - Rangos de solo algunas unidades parciles, que muestren todos las fechas que estén dentro de ese rango, ambos extremos son inclusivos: <br/> `X['YYYY':'YYYY'] # Rangos con base al año` <br/> `X['YYYY-MM':'YYYY-MM'] # Rangos con base al año y mes`
+    - **Importante**: Se puede omitir el _start_ o _end_ para indicar desde el inicio y hasta el final respectivamente, la parte que sí se indique es inclusiva: <br/> `X[:'YYYY'] # Desde el inicio` <br/> `X['YYYY':] # Hasta el final`
 - **Fancy indexing**:
     - Múltiples fechas específicas indicando todas las unidades: <br/> `X[['YYYY-MM-DD', 'YYYY-MM-DD', ...]]`
     - Múltiples fechas indicando solo algunas unidades parciales: <br/> `X[['YYYY', 'YYYY', ...]] # Elementos con base a múltiples años` <br/> `X[['YYYY-MM', 'YYYY-MM', ...]] # Elementos con base a múltiples años y meses`
@@ -956,6 +957,7 @@ Estrategias de selcción de elementos con el método `.loc[]`:
 - **Slicing**:
     - Rangos considerando todas las unidades y que muestren todos las fechas que estén dentro de ese rango, ambos extremos son inclusivos: <br/> `X.loc['YYYY-MM-DD':'YYYY-MM-DD', col]`
     - Rangos de solo algunas unidades parciales, que muestren todos las fechas que estén dentro de ese rango, ambos extremos son inclusivos: <br/> `X.loc['YYYY':'YYYY', col] # Rangos con base al año` <br/> `X.loc['YYYY-MM':'YYYY-MM', col] # Rangos con base al año y mes`
+    - **Importante**: Se puede omitir el _start_ o _end_ para indicar desde el inicio y hasta el final respectivamente, la parte que sí se indique es inclusiva: <br/> `X.loc[:'YYYY', col] # Desde el inicio` <br/> `X.loc['YYYY':, col] # Hasta el final`
 - **Fancy indexing**:
     - Múltiples fechas específicas indicando todas las unidades: <br/> `X.loc[['YYYY-MM-DD', 'YYYY-MM-DD', ...], col]`
     - Múltiples fechas indicando solo algunas unidades parciales: <br/> `X.loc[['YYYY', 'YYYY', ...], col] # Elementos con base a múltiples años` <br/> `Xloc[['YYYY-MM', 'YYYY-MM', ...], col] # Elementos con base a múltiples años y meses`

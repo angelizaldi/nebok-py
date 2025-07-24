@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -183,13 +183,14 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    Manual de Python para Data Science
+                    Manual de C
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Built-in</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../01-built-in/built-in-index.html">Python Estándar</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/cli.html"><em>Command Line Interface</em></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../01-built-in/ayuda.html">Obtener ayuda</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../01-built-in/comentarios.html">Comentarios</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../01-built-in/tipos-datos.html">Tipos de Datos</a></li>
@@ -295,12 +296,110 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../06-seaborn/objects-interface.html">Interface por objetos</a></li>
 </ul>
 </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../07-sklearn/sklearn-index.html">Scikit Learn</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/supervised/supervised-index.html">Aprendizaje supervisado</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/ensamble.html">Ensamble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/linear_model.html">Linear model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/naive_bayes.html">Naive bayes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/neighbors.html">Neighbors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/svm.html">SVM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/tree.html">Tree</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otros</span></p>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/unsupervised/unsupervised-index.html">Aprendizaje no supervisado</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/unsupervised/cluster.html">Cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/unsupervised/decomposition.html">Decomposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/unsupervised/mixture.html">Mixture</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/transformations/tranformations-index.html">Transformaciones</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/feature_extraction.html">Feature Extraction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/impute.html">Impute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/manifold.html">Manifold</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/preprocessing.html">Preprocessing</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/evaluation/evaluation-index.html">Evaluación y selección del modelo</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/dummy.html">Dummy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/feature_selection.html">Feature Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/metrics.html">Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/model_selection.html">Model Selection</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/pipelines-and-compose/pipeline-compose-index.html">Pipelines y Modelos Compuestos</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/pipelines-and-compose/compose.html">Compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/pipelines-and-compose/pipeline.html">Pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../07-sklearn/datasets.html">Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-sklearn/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-xgboost/xgboost-index.html">XGBoost</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08-xgboost/core-data-structure.html">Core Data Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-xgboost/learning-api.html">Learning API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-xgboost/scikit-learn-api.html">Scikit-Learn API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-xgboost/plotting-api.html">Plotting API</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../09-scipy/scipy-index.html">Scipy</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/clusters.html">Clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/derivacion-integracion.html">Derivación e Integración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/linalg.html">Linear Algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/sparse.html"><em>Sparse</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/stats.html">Stats</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../10-statsmodels/statsmodels-index.html">Statsmodels</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/statsmodels-api.html">API Principal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/statsmodels-tsa-api.html">API de Series de Tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/statsmodels-formula-api.html">API de Fórmulas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/graphics.html">Gráficos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/otras-clases.html">Otras clases</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../11-bokeh/bokeh-index.html">Bokeh</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/io.html">IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/layouts.html"><em>Layouts</em></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../11-bokeh/models/models-index.html"><em>Models</em></a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/annotations.html">Anotaciones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/axes.html">Ejes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/callbacks.html">Callbacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/formatters.html"><em>Formatters</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/glyphs.html"><em>Glyphs</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/sources.html"><em>Sources</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/tools.html"><em>Tools</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/widgets.html"><em>Widgets</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/plotting.html">Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/transform.html">transform</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../12-plotly/plotly-index.html">Plotly</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/express.html"><em>Express</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/figure-factory.html"><em>Figure Factory</em></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../12-plotly/go/go-index.html"><em>Graph Objects</em></a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../12-plotly/go/figure.html"><em>Figure</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../12-plotly/go/layout.html"><em>Layout</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../12-plotly/go/traces.html">Traces</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/io.html">IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/subplots.html">Subplots</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/beautifulsoup.html">BeautifulSoup</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Complementarios</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../08-otros/otros-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../08-otros/IPython.html">IPython</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../08-otros/beautifulsoup.html">Web Scraping</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../appendix/appendix-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/IPython.html">IPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/jupyter.html">Jupyter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/pip.html">pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/conda.html"><em>conda</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/git.html">git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/shell.html">Shell</a></li>
 </ul>
 </li>
 </ul>
@@ -969,8 +1068,9 @@ En este ejemplo se utiliza la función <code class="docutils literal notranslate
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">x</span><span class="p">],</span> <span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="n">fmt</span><span class="p">],</span> <span class="p">[</span><span class="n">x2</span><span class="p">],</span> <span class="n">y2</span><span class="p">,</span> <span class="p">[</span><span class="n">fmt2</span><span class="p">],</span> <span class="o">...</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><strong>Parámetros:</strong></p>
 <ul class="simple">
+<li><p><strong>Parámetros:</strong></p>
+<ul>
 <li><p><strong>x</strong>, <strong>y</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code> o <code class="docutils literal notranslate"><span class="pre">scalar</span></code>: Coordenadas de los puntos horizontales y verticales, respectivamente. Si no se especifica <em>x</em> será un rango de <em>0</em> a <code class="docutils literal notranslate"><span class="pre">len(y)</span> <span class="pre">-</span> <span class="pre">1</span></code>.</p></li>
 <li><p><strong>data</strong> - <code class="docutils literal notranslate"><span class="pre">indexable</span> <span class="pre">object</span></code>: Objeto que se pueda aplicar <code class="docutils literal notranslate"><span class="pre">obj['label']</span></code> y retorne un 1D <code class="docutils literal notranslate"><span class="pre">array-like</span></code>, lo más común que sea un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p></li>
 <li><p><strong>fmt</strong> - <code class="docutils literal notranslate"><span class="pre">str</span></code>: Es una cadena de formato, para indicar cierto formato que debe de tener la gráfica especificamente, el tipo de linea, tipo de marker y el color de los mismos. Ver <a class="reference internal" href="anexos.html#matplotlib-fmt"><span class="std std-ref">Cadenas de Formato (fmt)</span></a>.</p></li>
@@ -982,10 +1082,17 @@ En este ejemplo se utiliza la función <code class="docutils literal notranslate
 </ul>
 </li>
 </ul>
-<p><strong>Retorna:</strong></p>
-<ul class="simple">
+</li>
+<li><p><strong>Retorna:</strong></p>
+<ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">list</span></code> de <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D">Line2D</a>.</p></li>
 </ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Notar que también se pueden usar como argumentos propiedades de la clase <a class="reference external" href="https://matplotlib.org/stable/api/collections_api.html#matplotlib.collections.PatchCollection.set">PathCollection</a>.</p>
+</div>
 <p><strong>Ejemplo</strong>:
 En este ejemplo se utiliza directamente la función <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> para crear una figura con un <em>axes</em>, además se hacen llamadas a las funciones <code class="docutils literal notranslate"><span class="pre">plt.xlabel()</span></code>, <code class="docutils literal notranslate"><span class="pre">plt.ylabel()</span></code>, <code class="docutils literal notranslate"><span class="pre">plt.title()</span></code> y <code class="docutils literal notranslate"><span class="pre">plt.legend()</span></code> para añadir elementos a la gráfica.</p>
 <div class="cell docutils container">
@@ -998,13 +1105,18 @@ En este ejemplo se utiliza directamente la función <code class="docutils litera
         <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> 
         <span class="n">color</span><span class="o">=</span><span class="n">azul</span><span class="p">)</span>
 
+<span class="c1"># Agregar etiquetas y título</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Passengers per year&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Year&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Passengers&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+
 <span class="c1"># Imprimir la figura</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/8450c479d0b0bdd1583b019dce29c0d7802064f9bcb1d3a5e111cfe270ff0e31.png" src="../../_images/8450c479d0b0bdd1583b019dce29c0d7802064f9bcb1d3a5e111cfe270ff0e31.png" />
+<img alt="../../_images/566e5a253bad1e7155d9f8c4f4dc84b6d04a8f0938a332b77da4b198d7a6dc28.png" src="../../_images/566e5a253bad1e7155d9f8c4f4dc84b6d04a8f0938a332b77da4b198d7a6dc28.png" />
 </div>
 </div>
 <br/>
@@ -1018,36 +1130,34 @@ En este ejemplo se utiliza directamente la función <code class="docutils litera
              <span class="n">plotnonfinite</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><strong>Parámetros:</strong></p>
-<ul class="simple">
-<li><p><strong>x</strong>, <strong>y</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code> o <code class="docutils literal notranslate"><span class="pre">float</span></code>: Cordenadas de los puntos horizontales y verticales, respectivamente.</p></li>
-<li><p><strong>s</strong> - <code class="docutils literal notranslate"><span class="pre">float</span></code> o <code class="docutils literal notranslate"><span class="pre">array-like</span></code>: Tamaño de los markers en puntos, al cuadrado.</p></li>
-<li><p><strong>c</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code> de <code class="docutils literal notranslate"><span class="pre">color</span></code> o <code class="docutils literal notranslate"><span class="pre">color</span></code>: Color de los markers.</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">scalar</span></code> o <code class="docutils literal notranslate"><span class="pre">secuencia</span></code> de números: Esos números serán mapeados con <em>cmap</em>, dependiendo del valor se le asignará un color del mapa de color, los número se emparejarán por posición con los valores de <em>x</em> y <em>y</em>, para determinar qué color usar en cada coordenada. Por lo tanto la longitud de la secuencia debe de ser igual que la de <em>x</em> y <em>y</em>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">secuencia</span></code> de <code class="docutils literal notranslate"><span class="pre">color</span></code>: Colores a usar para cada valor de <em>x</em> y <em>y</em>, se empatan por posición y debe de tener la misma longitud que <em>x</em> y <em>y</em>. Ver <a class="reference internal" href="anexos.html#matplotlib-color"><span class="std std-ref">Colores</span></a>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">color</span></code>: Un solo color para usar en todos lo puntos. Ver <a class="reference internal" href="anexos.html#matplotlib-color"><span class="std std-ref">Colores</span></a>.</p></li>
-<li><p>Se puede usar los valores de una variable categórica para que cada uno tenga un valor diferente. Ver <a class="reference internal" href="anexos.html#matplotlib-colormap"><span class="std std-ref">ColorMap</span></a>.</p></li>
-</ul>
-</li>
-<li><p><strong>marker</strong> - <code class="docutils literal notranslate"><span class="pre">MarkeyStyle</span></code>: Revisar <a class="reference internal" href="anexos.html#matplotlib-markers"><span class="std std-ref">Markers</span></a>.</p></li>
-<li><p><strong>cmap</strong> - <code class="docutils literal notranslate"><span class="pre">str</span></code> o <code class="docutils literal notranslate"><span class="pre">ColorMap</span></code>: Mapa de color. Solo se usa si c es un <code class="docutils literal notranslate"><span class="pre">array-like</span></code> de <code class="docutils literal notranslate"><span class="pre">float</span></code>. Ver <a class="reference internal" href="anexos.html#matplotlib-colormap"><span class="std std-ref">ColorMap</span></a>.</p></li>
-<li><p><strong>alpha</strong> - <code class="docutils literal notranslate"><span class="pre">float</span></code>: Para indicar la opacidad de la gráfica. Es un valor entre 0 y 1, donde 0 es completamente transparente y 1 es completamente opaco.</p></li>
-<li><p><strong>linewidths</strong> - <code class="docutils literal notranslate"><span class="pre">float</span></code> o <code class="docutils literal notranslate"><span class="pre">array-like</span></code>: Grueso del borde de los markers.</p></li>
-<li><p><strong>edgecolors</strong> - {‘face’, ‘none’, None}, <code class="docutils literal notranslate"><span class="pre">color</span></code> o <code class="docutils literal notranslate"><span class="pre">secuencia</span></code> de <code class="docutils literal notranslate"><span class="pre">color</span></code>: Color del borde de los markers. Si es ‘face’ será el mismo que el fondo del marker, si es ‘none’ no tendrá color o se puede especificar el color. Ver Color.</p></li>
-<li><p><strong>**kwargs</strong>: Propiedades de los objetos <a class="reference external" href="https://matplotlib.org/stable/api/collections_api.html#matplotlib.collections.PathCollection">PathCollection</a>.</p></li>
-</ul>
-<p><strong>Retorna:</strong></p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://matplotlib.org/stable/api/collections_api.html#matplotlib.collections.PathCollection">PathCollection</a>.</p></li>
-</ul>
+<p><strong>Parámetros:</strong>
+- <strong>x</strong>, <strong>y</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code> o <code class="docutils literal notranslate"><span class="pre">float</span></code>: Cordenadas de los puntos horizontales y verticales, respectivamente.
+- <strong>s</strong> - <code class="docutils literal notranslate"><span class="pre">float</span></code> o <code class="docutils literal notranslate"><span class="pre">array-like</span></code>: Tamaño de los markers en puntos, al cuadrado.
+- <strong>c</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code> de <code class="docutils literal notranslate"><span class="pre">color</span></code> o <code class="docutils literal notranslate"><span class="pre">color</span></code>: Color de los markers.
+- <code class="docutils literal notranslate"><span class="pre">scalar</span></code> o <code class="docutils literal notranslate"><span class="pre">secuencia</span></code> de números: Esos números serán mapeados con <em>cmap</em>, dependiendo del valor se le asignará un color del mapa de color, los número se emparejarán por posición con los valores de <em>x</em> y <em>y</em>, para determinar qué color usar en cada coordenada. Por lo tanto la longitud de la secuencia debe de ser igual que la de <em>x</em> y <em>y</em>.
+- <code class="docutils literal notranslate"><span class="pre">secuencia</span></code> de <code class="docutils literal notranslate"><span class="pre">color</span></code>: Colores a usar para cada valor de <em>x</em> y <em>y</em>, se empatan por posición y debe de tener la misma longitud que <em>x</em> y <em>y</em>. Ver <a class="reference internal" href="anexos.html#matplotlib-color"><span class="std std-ref">Colores</span></a>.
+- <code class="docutils literal notranslate"><span class="pre">color</span></code>: Un solo color para usar en todos lo puntos. Ver <a class="reference internal" href="anexos.html#matplotlib-color"><span class="std std-ref">Colores</span></a>.
+- Se puede usar los valores de una variable categórica para que cada uno tenga un valor diferente. Ver <a class="reference internal" href="anexos.html#matplotlib-colormap"><span class="std std-ref">ColorMap</span></a>.
+- <strong>marker</strong> - <code class="docutils literal notranslate"><span class="pre">MarkeyStyle</span></code>: Revisar <a class="reference internal" href="anexos.html#matplotlib-markers"><span class="std std-ref">Markers</span></a>.
+- <strong>cmap</strong> - <code class="docutils literal notranslate"><span class="pre">str</span></code> o <code class="docutils literal notranslate"><span class="pre">ColorMap</span></code>: Mapa de color. Solo se usa si c es un <code class="docutils literal notranslate"><span class="pre">array-like</span></code> de <code class="docutils literal notranslate"><span class="pre">float</span></code>. Ver <a class="reference internal" href="anexos.html#matplotlib-colormap"><span class="std std-ref">ColorMap</span></a>.
+- <strong>alpha</strong> - <code class="docutils literal notranslate"><span class="pre">float</span></code>: Para indicar la opacidad de la gráfica. Es un valor entre 0 y 1, donde 0 es completamente transparente y 1 es completamente opaco.
+- <strong>linewidths</strong> - <code class="docutils literal notranslate"><span class="pre">float</span></code> o <code class="docutils literal notranslate"><span class="pre">array-like</span></code>: Grueso del borde de los markers.
+- <strong>edgecolors</strong> - {‘face’, ‘none’, None}, <code class="docutils literal notranslate"><span class="pre">color</span></code> o <code class="docutils literal notranslate"><span class="pre">secuencia</span></code> de <code class="docutils literal notranslate"><span class="pre">color</span></code>: Color del borde de los markers. Si es ‘face’ será el mismo que el fondo del marker, si es ‘none’ no tendrá color o se puede especificar el color. Ver Color.
+- <strong>**kwargs</strong>: Propiedades de los objetos <a class="reference external" href="https://matplotlib.org/stable/api/collections_api.html#matplotlib.collections.PatchCollection.set">PathCollection</a>.
+<strong>Retorna:</strong>
+- <a class="reference external" href="https://matplotlib.org/stable/api/collections_api.html#matplotlib.collections.PatchCollection">PathCollection</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Notar que también se pueden usar como argumentos propiedades de la clase <a class="reference external" href="https://matplotlib.org/stable/api/collections_api.html#matplotlib.collections.PatchCollection.set">PathCollection</a>.</p>
+</div>
+<p><strong>Ejemplo</strong>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar el dataset iris</span>
 <span class="n">data</span><span class="o">=</span><span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;iris&quot;</span><span class="p">)</span>
 
 <span class="c1"># Crear figura y axes</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 
 <span class="c1"># Crear scatterplot: petal length vs petal width</span>
 <span class="n">scatter</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
@@ -1055,7 +1165,7 @@ En este ejemplo se utiliza directamente la función <code class="docutils litera
     <span class="n">data</span><span class="p">[</span><span class="s2">&quot;petal_width&quot;</span><span class="p">],</span> 
     <span class="n">c</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;species&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">codes</span><span class="p">,</span>  <span class="c1"># Color por species</span>
     <span class="n">s</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;sepal_length&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">10</span><span class="p">,</span>  <span class="c1"># Tamaño proporcional a sepal length</span>
-    <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">,</span> 
+    <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Dark2&quot;</span><span class="p">,</span> 
     <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span>
 <span class="p">)</span>
 
@@ -1077,7 +1187,7 @@ En este ejemplo se utiliza directamente la función <code class="docutils litera
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f21669dc85b306e00023d62d2e8c00723dec88afa64d5d9b326065d32508befd.png" src="../../_images/f21669dc85b306e00023d62d2e8c00723dec88afa64d5d9b326065d32508befd.png" />
+<img alt="../../_images/019ffc231f98102e6dd3fa4712cb8e58b33df52f67b3841a0fd5c0c0eed4f3e0.png" src="../../_images/019ffc231f98102e6dd3fa4712cb8e58b33df52f67b3841a0fd5c0c0eed4f3e0.png" />
 </div>
 </div>
 <br/>
@@ -1193,6 +1303,10 @@ En este ejemplo se utiliza directamente la función <code class="docutils litera
 <li><p>Las rectas aquí presentadas son múltiples rectas en un intervalo. Para graficar una única recta revisar funciones en <a class="reference internal" href="pyplot.html#pyplot-funciones-spans"><span class="std std-ref">Rectas y Áreas</span></a>.</p></li>
 <li><p>Las áreas aquí presentadas son para rellenar áreas entre curvas o gráficas de áreas. Para generar <em>spans</em> (rectángulos para resaltar zonas en gráficas) ver funciones en <a class="reference internal" href="#axes-metodos-spans"><span class="std std-ref">Rectas y Áreas</span></a>.</p></li>
 </ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Los valores usados en estos métodos deben de coincidir con los valores del índice o de la columna que se use en el eje correspondiente. Por ejemplo, si uno de los ejes es de tipo fecha se debe de usar un valor que represente una fecha, por ejemplo <code class="docutils literal notranslate"><span class="pre">'2020-06-21'</span></code>.</p>
 </div>
 <table class="table">
 <thead>
@@ -1447,7 +1561,12 @@ En este ejemplo se utiliza directamente la función <code class="docutils litera
 <section id="notas-de-plt-boxplot">
 <h4>Notas de <em>plt.boxplot</em><a class="headerlink" href="#notas-de-plt-boxplot" title="Link to this heading">#</a></h4>
 <p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.boxplot.html">Axes.boxplot</a>: Crea un boxplot por cada columna que se le pase.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Axes</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">notch</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sym</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vert</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">,</span> <span class="n">whis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">positions</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">widths</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">patch_artist</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bootstrap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">usermedians</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">conf_intervals</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">meanline</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">showmeans</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">showcaps</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">showbox</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">showfliers</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">boxprops</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tick_labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">flierprops</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">medianprops</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">meanprops</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">capprops</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">whiskerprops</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">manage_ticks</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">autorange</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">capwidths</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Axes</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">notch</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sym</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vert</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">,</span> <span class="n">whis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">positions</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+             <span class="n">widths</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">patch_artist</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bootstrap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">usermedians</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">conf_intervals</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+             <span class="n">meanline</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">showmeans</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">showcaps</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">showbox</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">showfliers</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">boxprops</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+             <span class="n">tick_labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">flierprops</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">medianprops</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">meanprops</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">capprops</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+             <span class="n">whiskerprops</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">manage_ticks</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">autorange</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">capwidths</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+             <span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><strong>Parámetros:</strong></p>
@@ -1458,7 +1577,24 @@ En este ejemplo se utiliza directamente la función <code class="docutils litera
 </ul>
 <p><strong>Retorna:</strong></p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">dict</span></code>: Diccionario que contiene las siguientes keys: <em>boxes</em>, <em>medians</em>, <em>whiskers</em>, <em>caps</em>, <em>fliers</em>, <em>means</em>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dict</span></code>: Diccionario que contiene las siguientes keys: <em>boxes</em> (<code class="docutils literal notranslate"><span class="pre">list</span></code> de <code class="docutils literal notranslate"><span class="pre">PathPatch</span></code>), <em>medians</em> (<code class="docutils literal notranslate"><span class="pre">list</span></code> de <code class="docutils literal notranslate"><span class="pre">Line2D</span></code>), <em>whiskers</em> (<code class="docutils literal notranslate"><span class="pre">2-list</span></code> de <code class="docutils literal notranslate"><span class="pre">Line2D</span></code>), <em>caps</em> (<code class="docutils literal notranslate"><span class="pre">2-list</span></code> de <code class="docutils literal notranslate"><span class="pre">Line2D</span></code>), <em>fliers</em> (<code class="docutils literal notranslate"><span class="pre">list</span></code> de <code class="docutils literal notranslate"><span class="pre">Line2D</span></code>), <em>means</em> (opcional, <code class="docutils literal notranslate"><span class="pre">list</span></code> de <code class="docutils literal notranslate"><span class="pre">Line2D</span></code>).</p></li>
+</ul>
+<p>Patrones útles</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cambiar colores</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;col&#39;</span><span class="p">],</span> <span class="n">patch_artist</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">box</span> <span class="ow">in</span> <span class="n">_</span><span class="p">[</span><span class="s1">&#39;boxes&#39;</span><span class="p">]:</span>
+    <span class="n">box</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">facecolor</span><span class="p">,</span> <span class="n">edgecolor</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">median</span> <span class="ow">in</span> <span class="n">_</span><span class="p">[</span><span class="s1">&#39;medians&#39;</span><span class="p">]:</span>
+    <span class="n">median</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Colores:</p>
+<ul>
+<li><p>Asegurarse de usar <code class="docutils literal notranslate"><span class="pre">patch_artist=True</span></code> en <code class="docutils literal notranslate"><span class="pre">plt.boxplot()</span></code>.</p></li>
+<li><p>También se puede cambiar el color de cualquier otro elemento, simplemente usar los parámetros correctos para el tipo de dato del elemento.</p></li>
+</ul>
+</li>
 </ul>
 <p><strong>Ejemplo:</strong>
 En este ejemplo se gráfica el histograma de la columna <em>total_bill</em> del dataset <em>tips</em>.</p>
@@ -1468,7 +1604,15 @@ En este ejemplo se gráfica el histograma de la columna <em>total_bill</em> del 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 
 <span class="c1"># Graficar el histograma</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">tips</span><span class="p">[</span><span class="s1">&#39;total_bill&#39;</span><span class="p">])</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">tips</span><span class="p">[</span><span class="s1">&#39;total_bill&#39;</span><span class="p">],</span> <span class="n">patch_artist</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Cambiar colores</span>
+<span class="k">for</span> <span class="n">box</span> <span class="ow">in</span> <span class="n">_</span><span class="p">[</span><span class="s1">&#39;boxes&#39;</span><span class="p">]:</span>
+    <span class="n">box</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="n">azul</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">median</span> <span class="ow">in</span> <span class="n">_</span><span class="p">[</span><span class="s1">&#39;medians&#39;</span><span class="p">]:</span>
+    <span class="n">median</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">cafe</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Añadir título</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Boxplot of Total Bill&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 
 <span class="c1"># Imprimir la figura</span>
@@ -1477,7 +1621,7 @@ En este ejemplo se gráfica el histograma de la columna <em>total_bill</em> del 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2383d31df3daf73dd141ffa5f2f0e1440c31bab25eeee97350dec6ab586fc54a.png" src="../../_images/2383d31df3daf73dd141ffa5f2f0e1440c31bab25eeee97350dec6ab586fc54a.png" />
+<img alt="../../_images/13341dc7ca098e8f25a1b6b858c124ffb8b24787be671b41c4621d4599691e2f.png" src="../../_images/13341dc7ca098e8f25a1b6b858c124ffb8b24787be671b41c4621d4599691e2f.png" />
 </div>
 </div>
 <br/>
@@ -1521,6 +1665,14 @@ En este ejemplo se gráfica el histograma de la columna <em>total_bill</em> del 
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
 <p>Para añadir <em>n</em> rectas en un intervalo o agregar áreas entre curvas o áreas con formas más complejas (polígonos) revisar métodos de <a class="reference internal" href="#axes-rectas-areas"><span class="std std-ref">Rectas y áreas</span></a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Los valores usados en estos métodos deben de coincidir con los valores del índice o de la columna que se use en el eje correspondiente. Por ejemplo, si uno de los ejes es de tipo fecha se debe de usar un valor que represente una fecha, por ejemplo <code class="docutils literal notranslate"><span class="pre">'2020-06-21'</span></code>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Los métodos de abajo también pueden recibir como argumentos propiedades de los objetos retornados, ya sean <code class="docutils literal notranslate"><span class="pre">Line2D</span></code>, <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> (ver <a class="reference internal" href="otros.html"><span class="doc">Otras Clases</span></a>) o <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.AxLine.html#matplotlib.lines.AxLine.set">AxLine</a>.</p>
 </div>
 <table class="table">
 <thead>
@@ -2829,7 +2981,7 @@ By Nebok
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2025.
       <br/>
     
   </p>

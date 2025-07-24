@@ -367,9 +367,36 @@ Funciones para crear gráficas matriciales como mapas de calor.
   - Grafica datos rectangulares como una matriz que muestra la magnitud como colores.
 ```
 
-### Ejemplo de _heatmap_
+### Notas de _heatmap_
 
 [heatmap](https://seaborn.pydata.org/generated/seaborn.heatmap.html): Grafica datos rectangulares como una matriz que muestra la magnitud como colores.
+
+```python
+# Sintaxis de llamada
+sns.heatmap(data=None, vmin=None, vmax=None, cmap=None, center=None, annot=None, fmt='.2g', 
+            linewidths=0, linecolor='white', cbar=True, square=False, xticklabels='auto', 
+            yticklabels='auto', mask=None, ax=None, **kwargs)
+```
+- **Parámetros:**
+    - **data** - `DataFrame`, `ndarray`, `mapping` o `secuencia`: Estructura de datos de entrada. Necesita estar en un formato de grid (tabular), como el devuelto por `pd.crosstab()` o métodos de correlación.
+	- **vmin**, **vmax** - `float`: Los valores mínimos y máximos respectivamente de la barra de color.
+	- **cmap** - `color` o `list` de `color`: La paleta de colores del mapa de calor. Revisar {ref}`matplotlib-colormap`.
+	- **center** - `float`: El valor a ser considerado como el centro, cuando se grafican datos divergentes.
+	- **annot** - `bool`: Para indicar que se imprima el valor de cada celda en la matriz.
+	- **fmt** - `str`: Código del formato de la cadena cuando se usa _annot_. Revisar `matplotlib-fmt`.
+	- **linewidths** - `float`: Grosor de la línea para separar cada celda en la matriz.
+	- **linecolor** - `color`: Color de la línea para separar cada celda en la matriz.
+	- **cbar** - `bool`: Para indicar si poner la barra de color.
+	- **square** - `bool`: Es para que cada celda tenga la forma de un cuadrado.
+	- **xticklabels**, **yticklabels** - `bool`, `list-like`, `int`: Etiquetas de los ejes:
+    	- `bool`: Para indicar si poner los mismos nombres que las columnas o no poner nada.
+    	- `list-like`: Para poner unas etiquetas específicas.
+    	- `int`: Usa los nombres de las columnas, pero usa solo cada _n_ etiquetas.
+	- **mask** - `ndarray` de `bool` o `DataFrame`: Es un array o `DataFrame` con el mismo _shape_ que _data_, booleano, para indicar cuáles celdas sí mostrar (`False` o 0) y cuáles no (`True` o 1) (aunque sea contraintuitivo así es). Sirve para hacer matrices triángulares, etc. Ver patrones útiles.
+	- **annot_kws** - `dict`: Propiedades del texto cuando `annot = True`, key es el nombre de la propiedad y value su valor. Revisa Propiedades de {ref}`matplotlib-text`.
+	- **\*\*kwargs**: Argumentos adicionales de [plt.pcolormesh](https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.pcolormesh.html#matplotlib.axes.Axes.pcolormesh).
+- **Retorna:**
+    - `Axes`.
 
 :::{tip}
 Es común que para graficar mapas de calor se usen las siguientes funciones:
@@ -383,16 +410,26 @@ Patrones útiles
 # Añadir valor en cada celda
 sns.heatmap(data, annot=True)
 
-# Cambiar paleta y valor 0
-sns.heatmap(data, cmap='cmap', center=float)
+# Cambiar paleta
+sns.heatmap(data, cmap='cmap')
 
 # Desactivar barra de color
 sns.heatmap(data, cbar=False)
 
 # Modificar valores mínimo y máximo de la barra de color
 sns.heatmap(data, vmin=float, vmax=float)
-```
 
+# Modificar valor intermedio de la barra de color
+sns.heatmap(data, center=float)
+
+# Graficar solo la matriz triangular
+# Creando el mask
+mask = np.triu(np.ones_like(corr_matrix, dtype=bool))
+sns.heatmap(data, mask=mask)
+```
+- En lugar de usar `np.triu()` se podría usar `np.tril()`, dependiendo de cuál matriz triangular se quiera graficar.
+
+**Ejemplo**:
 En este ejemplo se calcula el mapa de calor de la correlación de las variables numéricas del dataset _penguins_.
 
 ```{code-cell} ipython3
@@ -951,7 +988,7 @@ g.set(xlabel="New X Label", ylabel="New Y Label")
 
 #### Uso
 
-Para usar esta clase es necesario indicar los datos y las variables categóricas sobre las cuales de creara el _grid_ en las columnas y/o filas con _col_ y _row_ respectivaemente. Posteriormente se debe usar el método `FacetGrid.map()` para añadir las gráficas, se debe indicar la función y pasar los argumentos de la misma.
+Para usar esta clase es necesario indicar los datos y las variables categóricas sobre las cuales se creará el _grid_ en las columnas y/o filas con _col_ y _row_ respectivaemente. Posteriormente se debe usar el método `FacetGrid.map()` para añadir las gráficas, se debe indicar la función y pasar los argumentos de la misma.
 
 ```python
 # Preparar FacetGrid
@@ -1171,7 +1208,7 @@ Matrices de gráficos bivariados entre todas las combinaciones de variables num�
 
 #### Uso
 
-Para usar esta clase es necesario indicar los datos y las variables categóricas sobre las cuales de creara el _grid_ en las columnas y filas con _vars_. Posteriormente se deben usar los métodos `PairGrid.map()`, `PairGrid.map_diag()` o `PairGrid.map_offdiag()` para añadir las gráficas.
+Para usar esta clase es necesario indicar los datos y las variables categóricas sobre las cuales se creará el _grid_ en las columnas y filas con _vars_. Posteriormente se deben usar los métodos `PairGrid.map()`, `PairGrid.map_diag()` o `PairGrid.map_offdiag()` para añadir las gráficas.
 
 ```python
 # Preparar PairGrid 

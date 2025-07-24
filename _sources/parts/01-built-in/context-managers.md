@@ -1,16 +1,16 @@
 # Context Managers
 
-Un “administrador de contextos” es una función especial, que permite establecer un contexto, ejecutar código y remover el contexto de manera automática, útil en casos como leer archivos o conectarse a bases de datos. Normalmente se utilizan con la palabra reservada `with`:
+Un “administrador de contextos” es una **función** especial, que permite establecer un contexto, ejecutar código y remover el contexto de manera automática, útil en casos como leer archivos o conectarse a bases de datos. Normalmente se utilizan con la palabra reservada `with`:
 ```python
-# Usando context_manager con with 
+# Usar context_manager con with 
 with context_manager(args) as variable-name:
     # with body
 ```
 - _context-manager_: Es una función, por ejemplo `open()`, que retorna un objeto que implementa los métodos `.__enter__()` y `.__exit__()`.
 - _args_: Son los argumentos del _context-manager_.
-- _variable-name_: Es el nombre con el que se hará referencia al objeto retornado por _context-manager_ en _expression_. No es obligatorio ponerlo, pero se recomienda si _context-manager_ retorna un objeto.
+- _variable-name_: Es el nombre con el que se hará referencia al objeto retornado por el _context manager_ en el cuerpo de `with`. No es obligatorio ponerlo, pero se recomienda si _context-manager_ retorna un objeto.
 - `with` gestiona automáticamente la entrada y la salida del contexto.
-- Algunos context managers comunes son: `open()`, `pandas.ReadExcel()`, etc.
+- Algunos _context managers_ comunes son: `open()`, `pandas.ReadExcel()`, etc.
 
 <br/>
 
@@ -20,7 +20,7 @@ with context_manager(args) as variable-name:
 Para crear un _context manager_ basado en una función, se debe de definir un _generator_ y usar el _decorator_ `@contextlib.contextmanager`:
 
 :::{note}
-Un administrador de contextos también se puede definir como una clase. Para ello simplemente se deben de definir los métodos `__enter__` y `__exit__`
+Un administrador de contextos también se puede definir como una clase. Para ello simplemente se deben de definir los métodos `__enter__` y `__exit__`. Ver plantilla más abajo.
 :::
 
 ```python
@@ -29,28 +29,28 @@ Un administrador de contextos también se puede definir como una clase. Para ell
 def my_context():
     # Agregar cualquier código para configurar el contexto.
     print("Entrando al contexto.")
-    expressions
+    # enter body
     
     yield object
     
     # Agregar cualquier código para finalizar el contexto.
     print("Saliendo del contexto.")
-    expressions
+    # exit body
 
 # Alternativamente se puede usar clases para definir el administrador de contextos
 class MyContext:
     def __enter__(self):
         # Agregar cualquier código para configurar el contexto.
         print("Entrando al contexto.")
-        expressions
+        # enter body
         return self
 
     def __exit__(self, exc_type, exc_value, traceback):
         # Agregar cualquier código para finalizar el contexto.
         print("Saliendo del contexto.")
-        expressions
+        # exit body
 ```
-- `@contextlib.contextmanager`: Es el decorator.
+- `@contextlib.contextmanager`: Es el _decorator_.
 - _my_context_: Nombre que tendrá el administrador de contextos.
 - Se puede agregar código para inicializar el contexto. Por ejemplo, establecer una conexión con un archivo.
 - `yield` se utiliza para retornar el control ya dentro del contexto y opcionalmente retornar un objeto que es el que se utiliza junto con `with ... as ...`.
@@ -80,7 +80,7 @@ with database(url) as my_db:
 
 **Ejemplo 2**
 
-En este ejemplo se define un administrador de contexto que no retorna ningún objetos, simplemente se cambia de directorio y al finalizar retornar al directorio original.
+En este ejemplo se define un administrador de contexto que no retorna ningún objeto, simplemente se cambia de directorio y al finalizar retorna al directorio original.
 
 ```python
 # Definir administador de contextos

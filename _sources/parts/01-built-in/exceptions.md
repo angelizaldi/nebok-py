@@ -1,6 +1,6 @@
 # Excepciones
 
-Una excepción es un evento que ocurre durante la ejecución de un programa y que interrumpe la ejecución del programa. Las excepciones indican que se generó un error que se puede manejar, en cambio los errores no se pueden manejar como los errores de sintaxis (`SyntaxError`) o de identación (`IndentationError`).
+Una excepción es un evento que ocurre durante la ejecución de un programa y que interrumpe la ejecución del programa. Las excepciones indican que se generó un error que se puede manejar, en comparación con errores que no se pueden manejar como los errores de sintaxis (`SyntaxError`) o de identación (`IndentationError`).
 
 Cuando ocurre una excepción, Python genera un objeto de excepción que contiene información sobre el error. Si no se maneja correctamente, el programa se detiene y se muestra un _traceback_.
 
@@ -12,7 +12,7 @@ try:
 except [exception_type] [as my_exception_name]:
     # except body
 ```
-- Se prueba _try body_, en caso de que suceda algun error, entonces se procederá a ejecutar _except body_, si no sucede ningún error, entonces _except body_ no se ejecutará.
+- Se prueba _try body_, en caso de que suceda algún error, entonces se procederá a ejecutar _except body_, si no sucede ningún error, entonces _except body_ no se ejecutará.
 - _error_type_: Es para específicar que hacer en caso de un error en específico, se pone tal cual el nombre del error. Para ver los tipos de errores revisar {ref}`excepciones-excepciones`. También se pueden poner excepciones personalizadas. Es posible poner más de un tipo de error dentro de un `tuple`.
 - Es posible indicar que el error se retorne como un objeto renombrándolo con la palabra reservada `as` para poder utilizar ese objeto, como imprimir su tipo.
 
@@ -38,10 +38,6 @@ except:
 - En este caso solo se ejecutará _error type 1 body_ si ocurre un error de tipo _error_type_1_.
 - Se puede especificar un bloque como el anterior múltiples veces para diferentes errores.
 - Se puede indicar un bloque general para todos lo demás errores.
-
-:::{note}
-Es posible anidar bloques `try` y `except`.
-:::
 
 <br/>
 
@@ -87,10 +83,11 @@ if condition:
 - _message_ \- `str`: Dentro de `Exception` se puede poner algún mensaje.
 - En lugar de `Exception()` se puede poner algún error en específico, por ejemplo:
 ```python
+# Arrojar ValueError
 if condition:
-	raise ValueError(message)
+    raise ValueError(message)
 ```
-- Para ver los tipos de errores revisar {ref}`excepciones`. También se pueden poner errores personalizados creados con clases.
+- Para ver los tipos de errores revisar {ref}`excepciones-excepciones`. También se pueden poner errores personalizados creados con clases, ver {ref}`excepciones`.
 
 <br>
 
@@ -105,7 +102,7 @@ assert expression, message
 - `expression`: Cualquier expresión que retorne `bool`. 
 - `message` \- `str`: Cualquier mensaje que se quiera retornar en caso de que `expression` sea `False`.
 
-:::{caution}
+:::{warning}
 Se recomienda usar `assert` durante la etapa de desarrollo y no durante producción.
 :::
 
@@ -125,7 +122,11 @@ MyException(Exception):
     pass
 ```
 - Lo más común es que la clase esté vacía.
-- También es posible definir un constructor con el método `__init__()` para definir un mensaje (una propiedad heredada de `Exception`): <br/> `def __init__(self, message):` <br/><pre><code>       self.message = message</code></pre>
+- También es posible definir un constructor con el método `__init__()` para definir un mensaje (una propiedad heredada de `Exception`):
+```
+def __init__(self, message):
+    self.message = message
+```
 - No estrictamente la clase padre tiene que ser `Exception`, puede ser cualquiera de sus subclases.
 
 <br>
@@ -137,7 +138,7 @@ MyException(Exception):
 Algunas excepciones _built-in_ en Python son:
 
 :::{caution}
-Todas las excepciones en Python derivan de la clase `BaseException`. Para más información de esta clase como sus métodos y clases visitar la [documentación](https://docs.python.org/3/library/exceptions.html#BaseException) de Python.
+Todas las excepciones en Python se derivan de la clase `BaseException`. Para más información de esta clase como sus métodos y atributos visitar la [documentación](https://docs.python.org/3/library/exceptions.html#BaseException) de Python.
 :::
 
 :::{caution}

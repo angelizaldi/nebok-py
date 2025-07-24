@@ -26,7 +26,7 @@ Los principales tipos de datos built-in de Python se resumen a continuación. Pa
 ---
 ## Clasificación de los Tipos de Datos
 
-Tener en cuenta la siguiente clasificación de tipos ya que constante se puede referir a un tipo o mas de acuerdo a las siguientes categorías:
+Tener en cuenta la siguiente clasificación de tipos ya que constante se puede referir a varios tipos de acuerdo a las siguientes categorías:
 
 - Mutabilidad:
     - Inmutables:

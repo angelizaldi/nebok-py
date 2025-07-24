@@ -1,0 +1,1511 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Plotting &#8212; Manual de Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'parts/11-bokeh/plotting';</script>
+    <link rel="icon" href="../../_static/nebok-favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="transform" href="transform.html" />
+    <link rel="prev" title="Widgets" href="models/widgets.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/nebok-logo.png" class="logo__image only-light" alt="Manual de Python - Home"/>
+    <script>document.write(`<img src="../../_static/nebok-logo.png" class="logo__image only-dark" alt="Manual de Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Manual de Python para Data Science
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Built-in</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01-built-in/built-in-index.html">Python Estándar</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/cli.html"><em>Command Line Interface</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/ayuda.html">Obtener ayuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/comentarios.html">Comentarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/tipos-datos.html">Tipos de Datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/variables-constantes.html">Variables y Constantes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/operadores-palabras.html">Operadores y palabras reservadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/entrada-salida.html">Impresión y solicitud de datos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/tipos-index.html">Tipos Built-In</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/none-bool-numericos.html"><em>None</em>, <em>bool</em> y Numéricos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/str.html">str</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/lists.html">list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/tuples.html">Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/sets.html">Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/dicts.html">dict</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/if-else.html">If … Else</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/for-loop.html">For Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/do-while.html">Do While</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/udf.html">Funciones (UDF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/exceptions.html">Excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/context-managers.html">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/io.html">Lectura y escritura de archivos (IO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/modulos.html">Paquetes y Módulos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/avanzado-index.html">Temas avanzados</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/decorators.html">Decorators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/iterators.html">Iterators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/generators.html">Generators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/oop.html">Programación orientada a objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/func-built-in.html">Funciones built-in</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-modulos/modulos-index.html">Módulos built-in</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/csv.html">CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/datetime.html">Datetime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/itertools.html">Itertools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/json.html">JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/math.html">Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os.html">Os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os-path.html">Os.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/pickle.html">Pickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/random.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/regex.html">Regex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/statistics.html">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/urllib-request.html">urllib.request</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otras librerías</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-numpy/numpy-index.html">Numpy</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/arrays.html">Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../03-numpy/funciones-index.html">Funciones</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/ufuncs.html">Ufuncs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/buscar-contar-ordenar-unicos.html">Buscar, contar, ordenar y valores únicos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/creacion-arrays.html">Creación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/estadisticas.html">Estadísticas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/indices.html">Índices e iteración</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/informacion.html">Información</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/lectura-escritura.html">Lectura y escritura de datos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/manipulacion-arrays.html">Manipulación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/matematicas-numericas.html">Matemáticas y numéricas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/operadores.html">Operadores</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/algebra-lineal.html">Módulo linalg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/cadenas.html">Modulo char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/random.html">Módulo random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/patrones-numpy.html">Patrones útiles</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04-pandas/pandas-index.html">Pandas</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/index.html">Index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/series.html">Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/dataframe.html">DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/escalares-arrays.html">Escalares y Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../04-pandas/otras-clases.html">Otras clases</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/groupby.html">GroupBy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/expanding-rolling-window.html"><em>Expanding, Rolling</em> y <em>Window</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/resampler.html">Resampler</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/funciones.html">Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/patrones-pandas.html">Patrones útiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05-matplotlib/matplotlib-index.html">Matplotlib</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/pyplot.html">Pyplot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/figure.html">Figure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/axes.html">Axes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/otros.html">Otras Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06-seaborn/seaborn-index.html">Seaborn</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06-seaborn/funciones-clases.html">Funciones y Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-seaborn/objects-interface.html">Interface por objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../07-sklearn/sklearn-index.html">Scikit Learn</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/supervised/supervised-index.html">Aprendizaje supervisado</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/ensamble.html">Ensamble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/linear_model.html">Linear model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/naive_bayes.html">Naive bayes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/neighbors.html">Neighbors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/svm.html">SVM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/tree.html">Tree</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/unsupervised/unsupervised-index.html">Aprendizaje no supervisado</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/unsupervised/cluster.html">Cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/unsupervised/decomposition.html">Decomposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/unsupervised/mixture.html">Mixture</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/transformations/tranformations-index.html">Transformaciones</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/feature_extraction.html">Feature Extraction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/impute.html">Impute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/manifold.html">Manifold</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/preprocessing.html">Preprocessing</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/evaluation/evaluation-index.html">Evaluación y selección del modelo</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/dummy.html">Dummy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/feature_selection.html">Feature Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/metrics.html">Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/model_selection.html">Model Selection</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/pipelines-and-compose/pipeline-compose-index.html">Pipelines y Modelos Compuestos</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/pipelines-and-compose/compose.html">Compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/pipelines-and-compose/pipeline.html">Pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../07-sklearn/datasets.html">Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-sklearn/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-xgboost/xgboost-index.html">XGBoost</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08-xgboost/core-data-structure.html">Core Data Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-xgboost/learning-api.html">Learning API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-xgboost/scikit-learn-api.html">Scikit-Learn API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-xgboost/plotting-api.html">Plotting API</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../09-scipy/scipy-index.html">Scipy</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/clusters.html">Clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/derivacion-integracion.html">Derivación e Integración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/linalg.html">Linear Algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/sparse.html"><em>Sparse</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/stats.html">Stats</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../10-statsmodels/statsmodels-index.html">Statsmodels</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/statsmodels-api.html">API Principal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/statsmodels-tsa-api.html">API de Series de Tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/statsmodels-formula-api.html">API de Fórmulas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/graphics.html">Gráficos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/otras-clases.html">Otras clases</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="bokeh-index.html">Bokeh</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="io.html">IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="layouts.html"><em>Layouts</em></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="models/models-index.html"><em>Models</em></a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="models/annotations.html">Anotaciones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/axes.html">Ejes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/callbacks.html">Callbacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/formatters.html"><em>Formatters</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/glyphs.html"><em>Glyphs</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/sources.html"><em>Sources</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/tools.html"><em>Tools</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models/widgets.html"><em>Widgets</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transform.html">transform</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../12-plotly/plotly-index.html">Plotly</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/express.html"><em>Express</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/figure-factory.html"><em>Figure Factory</em></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../12-plotly/go/go-index.html"><em>Graph Objects</em></a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../12-plotly/go/figure.html"><em>Figure</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../12-plotly/go/layout.html"><em>Layout</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../12-plotly/go/traces.html">Traces</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/io.html">IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/subplots.html">Subplots</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/beautifulsoup.html">BeautifulSoup</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Complementarios</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../appendix/appendix-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/IPython.html">IPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/jupyter.html">Jupyter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/pip.html">pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/conda.html"><em>conda</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/git.html">git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/shell.html">Shell</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/parts/11-bokeh/plotting.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Plotting</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figure">figure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos">Atributos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades">Propiedades</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-clase">Métodos de clase</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-instancia">Métodos de instancia</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#glyphs">Glyphs</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#stack">Stack</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#especiales">Especiales</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#otros">Otros</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="plotting">
+<h1>Plotting<a class="headerlink" href="#plotting" title="Link to this heading">#</a></h1>
+<p>La API <em>bokeh.plotting</em> es la interfaz principal de <em>Bokeh</em> y permite relacionar <em>glyphs</em> con datos. Reúne automáticamente gráficos con elementos predeterminados, como ejes, cuadrículas y herramientas. Proporciona herramientas para crear gráficos interactivos, como figuras, mapas y gráficos de contorno. En esta sección únicamente se revisa la clase <code class="docutils literal notranslate"><span class="pre">figure</span></code>. Es necesario importarla.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># importar figure</span>
+<span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">figure</span>
+</pre></div>
+</div>
+<p>Aparte de <em>figure</em> existen las siguientes funcionalidades en este módulo:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Sección</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/contour.html">contour</a></p></td>
+<td><p>Herramientas para crear gráficos de contorno, útiles para visualizar datos en 3D o mapas de densidad.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/gmap.html">gmap</a></p></td>
+<td><p>Funcionalidades para integrar mapas de Google Maps en visualizaciones interactivas.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html">figure</a></p></td>
+<td><p>Clase principal para crear figuras y gráficos personalizados, como líneas, barras y dispersiones.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/helpers.html">helpers</a></p></td>
+<td><p>Funciones auxiliares para personalizar y mejorar visualizaciones, como añadir herramientas o leyendas.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Para más información dirigirse a la documentación en el link del nombre de cada sección.</p>
+<br/>
+<section id="figure">
+<h2>figure<a class="headerlink" href="#figure" title="Link to this heading">#</a></h2>
+<p>Es una subclase de <a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/models/plots.html#bokeh.models.Plot">Plot</a>, es la clase principal para crear figuras y gráficos personalizados, como líneas, barras y dispersiones.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Constructor</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure">figure</a>(*args: Any, id: ID | None = None, **kwargs: Any)</p></td>
+<td><p>Crea una nueva figura para graficar.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong>x_axis_label</strong> - <code class="docutils literal notranslate"><span class="pre">str</span></code>: Etiqueta del eje <em>X</em>.</p></li>
+<li><p><strong>y_axis_label</strong> - <code class="docutils literal notranslate"><span class="pre">str</span></code>: Etiqueta del eje <em>Y</em>.</p></li>
+<li><p><strong>title</strong> - <code class="docutils literal notranslate"><span class="pre">str</span></code>: Título de la figura.</p></li>
+<li><p><strong>x_range</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code>: Rango del eje <em>X</em> o valores en caso de ser datos categóricos.</p></li>
+<li><p><strong>y_range</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code>: Rango del eje <em>Y</em> o valores en caso de ser datos categóricos.</p></li>
+<li><p><strong>x_axis_type</strong> - {‘auto’, ‘linear’, ‘log’, ‘datetime’, ‘mercator’}: Tipo de eje <em>X</em>.</p></li>
+<li><p><strong>y_axis_type</strong> - {‘auto’, ‘linear’, ‘log’, ‘datetime’, ‘mercator’}: Tipo de eje <em>Y</em>.</p></li>
+<li><p><strong>tools</strong> - <code class="docutils literal notranslate"><span class="pre">str</span></code> o <code class="docutils literal notranslate"><span class="pre">list-like</span></code> de <code class="docutils literal notranslate"><span class="pre">str</span></code> o <code class="docutils literal notranslate"><span class="pre">Tool</span></code>: Herramientas que tendrá la gráfica al inicializarse. Los nombres son los que aparecen entre paréntesis en la sección <em>tools</em> de <code class="docutils literal notranslate"><span class="pre">Models</span></code>. Al especificarse este argumento se borran las <em>tools</em> que vienen por default, para mantenerlos y agregar más <em>tools</em> usar el método <code class="docutils literal notranslate"><span class="pre">.add_tools()</span></code> de <code class="docutils literal notranslate"><span class="pre">figure</span></code>.</p></li>
+<li><p><strong>tooltips</strong> - <code class="docutils literal notranslate"><span class="pre">Template</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code> o <code class="docutils literal notranslate"><span class="pre">list</span></code> de <code class="docutils literal notranslate"><span class="pre">2-tuple</span></code>: Para configurar los <em>tooltips</em> de la gráfica. Son tuples <em>(‘Name’, field)</em> donde <em>Name</em> es el nombre del <em>tooltip</em>, un nombre arbitrario y <em>field</em> empieza con ‘<em>&#64;</em>’, que es una columna de <em>source</em>, por ejemplo ‘<em>&#64;temp</em>’ buscaría la columna ‘<em>temp</em>’ en <em>source</em> (argumento de los glyphs (gráficas)).</p></li>
+<li><p><strong>width</strong>, <strong>height</strong> - <code class="docutils literal notranslate"><span class="pre">int</span></code>: Ancho y alto de la figura en pixeles.</p></li>
+<li><p>Para más atributos revisar la lista de atributos de esta clase.</p></li>
+</ul>
+<p><strong>Retorna:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">figure</span></code>.</p></li>
+</ul>
+<section id="atributos">
+<h3>Atributos<a class="headerlink" href="#atributos" title="Link to this heading">#</a></h3>
+<p>Atributos de la clase <code class="docutils literal notranslate"><span class="pre">figure</span></code>. Todos estos atributos se pueden usar como parámetros del constructor <code class="docutils literal notranslate"><span class="pre">figure()</span></code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Las descripciones de los atributos en esta sección están en inglés.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>attribute</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.above">above</a></p></td>
+<td><p>A <code class="docutils literal notranslate"><span class="pre">list</span></code> of renderers to occupy the area above of the plot.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.align">align</a></p></td>
+<td><p>The alignment point within the parent container.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.aspect_ratio">aspect_ratio</a></p></td>
+<td><p>Describes the proportional relationship between component’s width and height.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.aspect_scale">aspect_scale</a></p></td>
+<td><p>A value to be given for increased aspect ratio control.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.attribution">attribution</a></p></td>
+<td><p>Allows to acknowledge or give credit to data, tile, etc. providers.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.background_fill_alpha">background_fill_alpha</a></p></td>
+<td><p>The fill alpha for the plot background style.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.background_fill_color">background_fill_color</a></p></td>
+<td><p>The fill color for the plot background style.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.below">below</a></p></td>
+<td><p>A <code class="docutils literal notranslate"><span class="pre">list</span></code> of renderers to occupy the area below of the plot.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.border_fill_alpha">border_fill_alpha</a></p></td>
+<td><p>The fill alpha for the plot border style.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.border_fill_color">border_fill_color</a></p></td>
+<td><p>The fill color for the plot border style.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.center">center</a></p></td>
+<td><p>A <code class="docutils literal notranslate"><span class="pre">list</span></code> of renderers to occupy the center area (frame) of the plot.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.context_menu">context_menu</a></p></td>
+<td><p>A menu to display when user right clicks on the component.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.css_classes">css_classes</a></p></td>
+<td><p>A <code class="docutils literal notranslate"><span class="pre">list</span></code> of additional CSS classes to add to the underlying DOM element.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.css_variables">css_variables</a></p></td>
+<td><p>Allows to define dynamically computed CSS variables.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.disabled">disabled</a></p></td>
+<td><p>Whether the widget will be disabled when rendered.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.elements">elements</a></p></td>
+<td><p>A collection of DOM-based UI elements attached to this pane.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.extra_x_ranges">extra_x_ranges</a></p></td>
+<td><p>Additional named ranges to make available for mapping x-coordinates.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.extra_x_scales">extra_x_scales</a></p></td>
+<td><p>Additional named scales to make available for mapping x-coordinates.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.extra_y_ranges">extra_y_ranges</a></p></td>
+<td><p>Additional named ranges to make available for mapping y-coordinates.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.extra_y_scales">extra_y_scales</a></p></td>
+<td><p>Additional named scales to make available for mapping y-coordinates.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.flow_mode">flow_mode</a></p></td>
+<td><p>Defines whether the layout will flow in the block or inline dimension.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.frame_align">frame_align</a></p></td>
+<td><p>Allows to specify which frame edges to align in multiple-plot layouts.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.frame_height">frame_height</a></p></td>
+<td><p>The height of a plot frame or the inner height of a plot, excluding any axes, titles, border padding, etc.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.frame_width">frame_width</a></p></td>
+<td><p>The width of a plot frame or the inner width of a plot, excluding any axes, titles, border padding, etc.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.height">height</a></p></td>
+<td><p>The height of the component (in pixels).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.height_policy">height_policy</a></p></td>
+<td><p>Describes how the component should maintain its height.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.hidpi">hidpi</a></p></td>
+<td><p>Whether to use HiDPI mode when available.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.hold_render">hold_render</a></p></td>
+<td><p>When set to <code class="docutils literal notranslate"><span class="pre">True</span></code> all requests to repaint the plot will be hold off.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.inner_height">inner_height</a></p></td>
+<td><p>This is the exact height of the plotting canvas, i.e. the height of the actual plot, without toolbars etc.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.inner_width">inner_width</a></p></td>
+<td><p>This is the exact width of the plotting canvas, i.e. the width of the actual plot, without toolbars etc.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.left">left</a></p></td>
+<td><p>A <code class="docutils literal notranslate"><span class="pre">list</span></code> of renderers to occupy the area to the left of the plot.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.lod_factor">lod_factor</a></p></td>
+<td><p>Decimation factor to use when applying level-of-detail decimation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.lod_interval">lod_interval</a></p></td>
+<td><p>Interval (in ms) during which an interactive tool event will enable level-of-detail downsampling.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.lod_threshold">lod_threshold</a></p></td>
+<td><p>A number of data points, above which level-of-detail downsampling may be performed by glyph renderers.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.lod_timeout">lod_timeout</a></p></td>
+<td><p>Timeout (in ms) for checking whether interactive tool events are still occurring.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.margin">margin</a></p></td>
+<td><p>Allows to create additional space around the component.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.match_aspect">match_aspect</a></p></td>
+<td><p>Specify the aspect ratio behavior of the plot. Aspect ratio is defined as the ratio of width over height.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.max_height">max_height</a></p></td>
+<td><p>Maximal height of the component (in pixels) if height is adjustable.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.max_width">max_width</a></p></td>
+<td><p>Maximal width of the component (in pixels) if width is adjustable.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.min_border">min_border</a></p></td>
+<td><p>A convenience property to set all all the min_border_X properties to the same value.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.min_border_bottom">min_border_bottom</a></p></td>
+<td><p>Minimum size in pixels of the padding region below the bottom of the central plot region.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.min_border_left">min_border_left</a></p></td>
+<td><p>Minimum size in pixels of the padding region to the left of the central plot region.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.min_border_right">min_border_right</a></p></td>
+<td><p>Minimum size in pixels of the padding region to the right of the central plot region.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.min_border_top">min_border_top</a></p></td>
+<td><p>Minimum size in pixels of the padding region above the top of the central plot region.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.min_height">min_height</a></p></td>
+<td><p>Minimal height of the component (in pixels) if height is adjustable.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.min_width">min_width</a></p></td>
+<td><p>Minimal width of the component (in pixels) if width is adjustable.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.name">name</a></p></td>
+<td><p>An arbitrary, user-supplied name for this model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.outer_height">outer_height</a></p></td>
+<td><p>This is the exact height of the layout, i.e. the height of the actual plot, with toolbars etc.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.outer_width">outer_width</a></p></td>
+<td><p>This is the exact width of the layout, i.e. the height of the actual plot, with toolbars etc.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.outline_line_alpha">outline_line_alpha</a></p></td>
+<td><p>The line alpha for the plot border outline.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.outline_line_cap">outline_line_cap</a></p></td>
+<td><p>The line cap for the plot border outline.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.outline_line_color">outline_line_color</a></p></td>
+<td><p>The line color for the plot border outline.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.outline_line_dash">outline_line_dash</a></p></td>
+<td><p>The line dash for the plot border outline.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.outline_line_dash_offset">outline_line_dash_offset</a></p></td>
+<td><p>The line dash offset for the plot border outline.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.outline_line_join">outline_line_join</a></p></td>
+<td><p>The line join for the plot border outline.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.outline_line_width">outline_line_width</a></p></td>
+<td><p>The line width for the plot border outline.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.output_backend">output_backend</a></p></td>
+<td><p>Specify the output backend for the plot area. Default is HTML5 Canvas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.renderers">renderers</a></p></td>
+<td><p>A <code class="docutils literal notranslate"><span class="pre">list</span></code> of all glyph renderers for this plot.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.reset_policy">reset_policy</a></p></td>
+<td><p>How a plot should respond to being reset.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.resizable">resizable</a></p></td>
+<td><p>Whether the layout is interactively resizable, and if so in which dimensions.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.right">right</a></p></td>
+<td><p>A <code class="docutils literal notranslate"><span class="pre">list</span></code> of renderers to occupy the area to the right of the plot.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.sizing_mode">sizing_mode</a></p></td>
+<td><p>How the component should size itself.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.styles">styles</a></p></td>
+<td><p>Inline CSS styles applied to the underlying DOM element.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.stylesheets">stylesheets</a></p></td>
+<td><p>Additional style-sheets to use for the underlying DOM element.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.syncable">syncable</a></p></td>
+<td><p>Indicates whether this model should be synchronized back to a Bokeh server when updated in a web browser.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.tags">tags</a></p></td>
+<td><p>An optional <code class="docutils literal notranslate"><span class="pre">list</span></code> of arbitrary, user-supplied values to attach to this model.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.title">title</a></p></td>
+<td><p>A title for the plot. Can be a text string or a Title annotation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.title_location">title_location</a></p></td>
+<td><p>Where the title will be located. Titles on the left or right side will be rotated.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.toolbar">toolbar</a></p></td>
+<td><p>The toolbar associated with this plot which holds all the tools. It is automatically created with the plot if necessary.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.toolbar_inner">toolbar_inner</a></p></td>
+<td><p>Locate the toolbar inside the frame. Setting this property to <code class="docutils literal notranslate"><span class="pre">True</span></code> makes most sense with auto-hidden toolbars.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.toolbar_location">toolbar_location</a></p></td>
+<td><p>Where the toolbar will be located. If set to <code class="docutils literal notranslate"><span class="pre">None</span></code>, no toolbar will be attached to the plot.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.toolbar_sticky">toolbar_sticky</a></p></td>
+<td><p>Stick the toolbar to the edge of the plot. Default: <code class="docutils literal notranslate"><span class="pre">True</span></code>. If <code class="docutils literal notranslate"><span class="pre">False</span></code>, the toolbar will be outside of the axes, titles etc.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.visible">visible</a></p></td>
+<td><p>Whether the component should be displayed on screen.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.width">width</a></p></td>
+<td><p>The width of the component (in pixels).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.width_policy">width_policy</a></p></td>
+<td><p>Describes how the component should maintain its width.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.x_range">x_range</a></p></td>
+<td><p>The (default) data range of the horizontal dimension of the plot.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.x_scale">x_scale</a></p></td>
+<td><p>What kind of scale to use to convert x-coordinates in data space into x-coordinates in screen space.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.y_range">y_range</a></p></td>
+<td><p>The (default) data range of the vertical dimension of the plot.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.y_scale">y_scale</a></p></td>
+<td><p>What kind of scale to use to convert y-coordinates in data space into y-coordinates in screen space.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="propiedades">
+<h3>Propiedades<a class="headerlink" href="#propiedades" title="Link to this heading">#</a></h3>
+<p>Propiedades de la clase <code class="docutils literal notranslate"><span class="pre">figure</span></code>. Estas propiedades no se usan como parámetros del constructor <code class="docutils literal notranslate"><span class="pre">figure()</span></code>, suelen ser heredadas de otras clases y algunas son de solo lectura, particularmente las que retornan <code class="docutils literal notranslate"><span class="pre">list</span></code> de objetos.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>property</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>axis</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">list</span></code> de objetos <code class="docutils literal notranslate"><span class="pre">Axis</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>background</p></td>
+<td><p>.</p></td>
+</tr>
+<tr class="row-even"><td><p>coordinates</p></td>
+<td><p>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>document</p></td>
+<td><p>El documento al que se adjunta este modelo (puede ser None).</p></td>
+</tr>
+<tr class="row-even"><td><p>grid</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">list</span></code> de objetos <code class="docutils literal notranslate"><span class="pre">Grid</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>hover</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">list</span></code> de objetos <code class="docutils literal notranslate"><span class="pre">HoverTool</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p>id</p></td>
+<td><p>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>legend</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">list</span></code> de objetos <code class="docutils literal notranslate"><span class="pre">Legend</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p>plot</p></td>
+<td><p>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ref</p></td>
+<td><p>.</p></td>
+</tr>
+<tr class="row-even"><td><p>tools</p></td>
+<td><p>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>xaxis</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">list</span></code> de objetos <code class="docutils literal notranslate"><span class="pre">Axis</span></code> para la dimensión <em>X</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p>xgrid</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">list</span></code> de objetos <code class="docutils literal notranslate"><span class="pre">Grid</span></code> para la dimensión <em>X</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>yaxis</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">list</span></code> de objetos <code class="docutils literal notranslate"><span class="pre">Axis</span></code> para la dimensión <em>Y</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p>ygrid</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">list</span></code> de objetos <code class="docutils literal notranslate"><span class="pre">Grid</span></code> para la dimensión <em>Y</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="metodos-de-clase">
+<h3>Métodos de clase<a class="headerlink" href="#metodos-de-clase" title="Link to this heading">#</a></h3>
+<p>Estos métodos se utilizan sobre la misma clase <code class="docutils literal notranslate"><span class="pre">figure</span></code>, no sobre sus instancias.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.clear_extensions">clear_extensions</a>()</p></td>
+<td><p>Borra las extensiones personalizadas actualmente definidas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.dataspecs">dataspecs</a>()</p></td>
+<td><p>Recopila los nombres de todas las propiedades de <em>DataSpec</em> en esta clase.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.descriptors">descriptors</a>()</p></td>
+<td><p>Lista de descriptores de propiedades en el orden de definición.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.lookup">lookup</a>(name: str, …)</p></td>
+<td><p>Encuentra el <em>PropertyDescriptor</em> para una propiedad de bokeh en una clase, dado el nombre de la propiedad.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.parameters">parameters</a>()</p></td>
+<td><p>Genera valores de parámetros de Python adecuados para funciones que se derivan del <em>glyph</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.properties">properties</a>(, …)</p></td>
+<td><p>Recopila los nombres de las propiedades en esta clase.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.properties_with_refs">properties_with_refs</a>()</p></td>
+<td><p>Recopila los nombres de todas las propiedades en esta clase que también tienen referencias.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="metodos-de-instancia">
+<h3>Métodos de instancia<a class="headerlink" href="#metodos-de-instancia" title="Link to this heading">#</a></h3>
+<p>Métodos de la clase <code class="docutils literal notranslate"><span class="pre">figure</span></code>.</p>
+<section id="glyphs">
+<h4>Glyphs<a class="headerlink" href="#glyphs" title="Link to this heading">#</a></h4>
+<p>Los objetos de figura tienen muchos métodos de <em>glyphs</em> que se pueden usar para dibujar <em>glyphs</em> gráficos vectorizados.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Las descripciones de los métodos en esta sección están en inglés.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.add_glyph">add_glyph</a>(…)</p></td>
+<td><p>Adds a glyph to the plot with associated data sources and ranges.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.annular_wedge">annular_wedge</a>(x=Field(…), y=Field(…), …)</p></td>
+<td><p>Configure and add AnnularWedge glyphs to this figure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.annulus">annulus</a>(x=Field(…), y=Field(…), …)</p></td>
+<td><p>Configure and add Annulus glyphs to this figure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.arc">arc</a>(x=Field(…), y=Field(…), …)</p></td>
+<td><p>Configure and add Arc glyphs to this figure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.asterisk">asterisk</a>(x=Field(…), y=Field(…), size=4, …)</p></td>
+<td><p>Configure and add Scatter glyphs to this figure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.bezier">bezier</a>(x0=Field(…), y0=Field(…), …)</p></td>
+<td><p>Configure and add Bezier glyphs to this figure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.block">block</a>(x=Field(…), y=Field(…), …)</p></td>
+<td><p>Configure and add Block glyphs to this figure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.circle">circle</a>(*args: Any, **kwargs: Any)</p></td>
+<td><p>Configure and add Circle glyphs to this figure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.circle_cross">circle_cross</a>(x=Field(…), y=Field(…), size=4, …)</p></td>
+<td><p>Configure and add Scatter glyphs to this figure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.circle_dot">circle_dot</a>(x=Field(…), y=Field(…), size=4, …)</p></td>
+<td><p>Configure and add Scatter glyphs to this figure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.circle_x">circle_x</a>(x=Field(…), y=Field(…), size=4, …)</p></td>
+<td><p>Configure and add Scatter glyphs to this figure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.circle_y">circle_y</a>(x=Field(…), y=Field(…), size=4, …)</p></td>
+<td><p>Configure and add Scatter glyphs to this figure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.cross">cross</a>(x=Field(…), y=Field(…), size=4, …)</p></td>
+<td><p>Configure and add Scatter glyphs to this figure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.dash">dash</a>(x=Field(…), y=Field(…), size=4, …)</p></td>
+<td><p>Configure and add Scatter glyphs to this figure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.diamond">diamond</a>(x=Field(…), y=Field(…), size=4, …)</p></td>
+<td><p>Configure and add Scatter glyphs to this figure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.diamond_cross">diamond_cross</a>(x=Field(…), y=Field(…), size=4, …)</p></td>
+<td><p>Configure and add Scatter glyphs to this figure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.diamond_dot">diamond_dot</a>(x=Field(…), y=Field(…), size=4, …)</p></td>
+<td><p>Configure and add Scatter glyphs to this figure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.dot">dot</a>(x=Field(…), y=Field(…), size=4, …)</p></td>
+<td><p>Configure and add Scatter glyphs to this figure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.ellipse">ellipse</a>(x=Field(…), y=Field(…), …)</p></td>
+<td><p>Configure and add Ellipse glyphs to this figure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.harea">harea</a>(x1=Field(…), x2=Field(…), …)</p></td>
+<td><p>Configure and add HArea glyphs to this figure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.harea_step">harea_step</a>(x1=Field(…), x2=Field(…), …)</p></td>
+<td><p>Configure and add HAreaStep glyphs to this figure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.hbar">hbar</a>(y=Field(…), height=1, …)</p></td>
+<td><p>Configure and add HBar glyphs to this figure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.hex">hex</a>(x=Field(…), y=Field(…), size=4, …)</p></td>
+<td><p>Configure and add Scatter glyphs to this figure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.hex_dot">hex_dot</a>(x=Field(…), y=Field(…), size=4, …)</p></td>
+<td><p>Configure and add Scatter glyphs to this figure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.hex_tile">hex_tile</a>(q=Field(…), r=Field(…), …)</p></td>
+<td><p>Configure and add HexTile glyphs to this figure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.hspan">hspan</a>(y=Field(…), …)</p></td>
+<td><p>Configure and add HSpan glyphs to this figure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.hstrip">hstrip</a>(y0=Field(…), y1=Field(…), …)</p></td>
+<td><p>Configure and add HStrip glyphs to this figure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.image">image</a>(image=Field(…), x=Field(…), …)</p></td>
+<td><p>Configure and add Image glyphs to this figure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.image_rgba">image_rgba</a>(image=Field(…), x=Field(…), …)</p></td>
+<td><p>Configure and add ImageRGBA glyphs to this figure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.image_stack">image_stack</a>(image=Field(…), x=Field(…), …)</p></td>
+<td><p>Configure and add ImageStack glyphs to this figure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.image_url">image_url</a>(url, x, y, w, h, angle=0, …)</p></td>
+<td><p>Configure and add ImageURL glyphs to this figure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.inverted_triangle">inverted_triangle</a>(x=Field(…), y=Field(…), size=4, …)</p></td>
+<td><p>Configure and add Scatter glyphs to this figure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.line">line</a>(x=Field(…), y=Field(…), …)</p></td>
+<td><p>Configure and add Line glyphs to this figure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.mathml">mathml</a>(x=Field(…), y=Field(…), …)</p></td>
+<td><p>Configure and add MathMLGlyph glyphs to this figure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.multi_line">multi_line</a>(xs=Field(…), ys=Field(…), …)</p></td>
+<td><p>Configure and add MultiLine glyphs to this figure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.multi_polygons">multi_polygons</a>(xs=Field(…), ys=Field(…), …)</p></td>
+<td><p>Configure and add MultiPolygons glyphs to this figure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.ngon">ngon</a>(x=Field(…), y=Field(…), …)</p></td>
+<td><p>Configure and add Ngon glyphs to this figure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.patch">patch</a>(x=Field(…), y=Field(…), …)</p></td>
+<td><p>Configure and add Patch glyphs to this figure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.patches">patches</a>(xs=Field(…), ys=Field(…), …)</p></td>
+<td><p>Configure and add Patches glyphs to this figure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.plus">plus</a>(x=Field(…), y=Field(…), size=4, …)</p></td>
+<td><p>Configure and add Scatter glyphs to this figure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.quad">quad</a>(left=Field(…), right=Field(…), …)</p></td>
+<td><p>Configure and add Quad glyphs to this figure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.quadratic">quadratic</a>(x0=Field(…), y0=Field(…), …)</p></td>
+<td><p>Configure and add Quadratic glyphs to this figure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.ray">ray</a>(x=Field(…), y=Field(…), …)</p></td>
+<td><p>Configure and add Ray glyphs to this figure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.rect">rect</a>(x=Field(…), y=Field(…), …)</p></td>
+<td><p>Configure and add Rect glyphs to this figure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.segment">segment</a>(x0=Field(…), y0=Field(…), …)</p></td>
+<td><p>Configure and add Segment glyphs to this figure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.square">square</a>(x=Field(…), y=Field(…), size=4, …)</p></td>
+<td><p>Configure and add Scatter glyphs to this figure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.square_cross">square_cross</a>(x=Field(…), y=Field(…), size=4, …)</p></td>
+<td><p>Configure and add Scatter glyphs to this figure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.square_dot">square_dot</a>(x=Field(…), y=Field(…), size=4, …)</p></td>
+<td><p>Configure and add Scatter glyphs to this figure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.square_pin">square_pin</a>(x=Field(…), y=Field(…), size=4, …)</p></td>
+<td><p>Configure and add Scatter glyphs to this figure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.square_x">square_x</a>(x=Field(…), y=Field(…), size=4, …)</p></td>
+<td><p>Configure and add Scatter glyphs to this figure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.star">star</a>(x=Field(…), y=Field(…), size=4, …)</p></td>
+<td><p>Configure and add Scatter glyphs to this figure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.star_dot">star_dot</a>(x=Field(…), y=Field(…), size=4, …)</p></td>
+<td><p>Configure and add Scatter glyphs to this figure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.step">step</a>(x=Field(…), y=Field(…), …)</p></td>
+<td><p>Configure and add Step glyphs to this figure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.tex">tex</a>(x=Field(…), y=Field(…), …)</p></td>
+<td><p>Configure and add TeXGlyph glyphs to this figure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.text">text</a>(x=Field(…), y=Field(…), …)</p></td>
+<td><p>Configure and add Text glyphs to this figure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.triangle">triangle</a>(x=Field(…), y=Field(…), size=4, …)</p></td>
+<td><p>Configure and add Scatter glyphs to this figure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.triangle_dot">triangle_dot</a>(x=Field(…), y=Field(…), size=4, …)</p></td>
+<td><p>Configure and add Scatter glyphs to this figure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.triangle_pin">triangle_pin</a>(x=Field(…), y=Field(…), size=4, …)</p></td>
+<td><p>Configure and add Scatter glyphs to this figure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.varea">varea</a>(x=Field(…), y1=Field(…), …)</p></td>
+<td><p>Configure and add VArea glyphs to this figure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.varea_step">varea_step</a>(x=Field(…), y1=Field(…), …)</p></td>
+<td><p>Configure and add VAreaStep glyphs to this figure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.vbar">vbar</a>(x=Field(…), width=1, …)</p></td>
+<td><p>Configure and add VBar glyphs to this figure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.vspan">vspan</a>(x=Field(…), …)</p></td>
+<td><p>Configure and add VSpan glyphs to this figure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.vstrip">vstrip</a>(x0=Field(…), x1=Field(…), …)</p></td>
+<td><p>Configure and add VStrip glyphs to this figure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.wedge">wedge</a>(x=Field(…), y=Field(…), …)</p></td>
+<td><p>Configure and add Wedge glyphs to this figure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.x">x</a>(x=Field(…), y=Field(…), size=4, …)</p></td>
+<td><p>Configure and add Scatter glyphs to this figure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.y">y</a>(x=Field(…), y=Field(…), size=4, …)</p></td>
+<td><p>Configure and add Scatter glyphs to this figure.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="stack">
+<h4>Stack<a class="headerlink" href="#stack" title="Link to this heading">#</a></h4>
+<p>Métodos especializados para apilar barras.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Las descripciones de los métodos en esta sección están en inglés.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.harea_stack">harea_stack</a>(stackers, **kw)</p></td>
+<td><p>Generate multiple HArea renderers for levels stacked left to right.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.hbar_stack">hbar_stack</a>(stackers, **kw)</p></td>
+<td><p>Generate multiple HBar renderers for levels stacked left to right.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.hline_stack">hline_stack</a>(stackers, **kw)</p></td>
+<td><p>Generate multiple Line renderers for lines stacked horizontally.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.varea_stack">varea_stack</a>(stackers, **kw)</p></td>
+<td><p>Generate multiple VArea renderers for levels stacked bottom to top.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.vbar_stack">vbar_stack</a>(stackers, **kw)</p></td>
+<td><p>Generate multiple VBar renderers for levels stacked bottom to top.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.vline_stack">vline_stack</a>(stackers, **kw)</p></td>
+<td><p>Generate multiple Line renderers for lines stacked vertically.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="especiales">
+<h4>Especiales<a class="headerlink" href="#especiales" title="Link to this heading">#</a></h4>
+<p>Otros métodos especiales.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.scatter">scatter</a>(*args: Any, **kwargs: Any)</p></td>
+<td><p>Creates a scatter plot of the given x and y items.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.contour">contour</a>(x: ArrayLike | None = None, …)</p></td>
+<td><p>Creates a contour plot of filled polygons and/or contour lines.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.hexbin">hexbin</a>(x, y, size, …)</p></td>
+<td><p>Perform a simple equal-weight hexagonal binning.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="otros">
+<h4>Otros<a class="headerlink" href="#otros" title="Link to this heading">#</a></h4>
+<p>Otros métodos con diversas utilidades.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Las descripciones de los métodos en esta sección están en inglés.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.add_layout">add_layout</a>(obj: Renderer, …)</p></td>
+<td><p>Adds an object to the plot in a specified place.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.add_tile">add_tile</a>(…)</p></td>
+<td><p>Adds new TileRenderer into Plot.renderers.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.add_tools">add_tools</a>(*tools: Tool | str)</p></td>
+<td><p>Adds tools to the plot.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.apply_theme">apply_theme</a>(property_values: dict[str, Any])</p></td>
+<td><p>Apply a set of theme values which will be used rather than defaults, but will not override application-set values.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.clone">clone</a>(**overrides: Any)</p></td>
+<td><p>Duplicate a HasProps object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.column">column</a>(col, gridplot)</p></td>
+<td><p>Return whether this plot is in a given column of a GridPlot.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.destroy">destroy</a>()</p></td>
+<td><p>Clean up references to the document and property.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.equals">equals</a>(other: HasProps)</p></td>
+<td><p>Structural equality of models.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.graph">graph</a>(node_source: ColumnDataSource, …)</p></td>
+<td><p>Creates a network graph using the given node, edge and layout provider.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.hold">hold</a>(, …)</p></td>
+<td><p>Takes care of turning a property on and off within a scope.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.js_link">js_link</a>(attr: str, other: Model, …)</p></td>
+<td><p>Link two Bokeh model properties using JavaScript.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.js_on_change">js_on_change</a>(event: str, …)</p></td>
+<td><p>Attach a CustomJS callback to an arbitrary BokehJS model event.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.js_on_event">js_on_event</a>(event: str | type[Event], …)</p></td>
+<td><p>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.on_change">on_change</a>(attr: str, …)</p></td>
+<td><p>Add a callback on this object to trigger when attr changes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.on_event">on_event</a>(event: str | type[Event], …)</p></td>
+<td><p>Run callbacks when the specified event occurs on this Model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.properties_with_values">properties_with_values</a>(, …)</p></td>
+<td><p>Collect a <code class="docutils literal notranslate"><span class="pre">dict</span></code> mapping property names to their values.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.query_properties_with_values">query_properties_with_values</a>(…)</p></td>
+<td><p>Query the properties values of HasProps instances with a predicate.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.references">references</a>()</p></td>
+<td><p>Returns all Models that this object has references to.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.remove_on_change">remove_on_change</a>(attr: str, …)</p></td>
+<td><p>Remove a callback from this object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.remove_tools">remove_tools</a>(*tools: Tool)</p></td>
+<td><p>Removes tools from the plot.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.row">row</a>(row, gridplot)</p></td>
+<td><p>Return whether this plot is in a given row of a GridPlot.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.select">select</a>(*args, **kwargs)</p></td>
+<td><p>Query this object and all of its references for objects that match the given selector.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.select_one">select_one</a>(selector: SelectorType)</p></td>
+<td><p>Query this object and all of its references for objects that match the given selector.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.set_from_json">set_from_json</a>(name: str, value: Any, …)</p></td>
+<td><p>Set a property value on this object from JSON.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.set_select">set_select</a>(…)</p></td>
+<td><p>Update objects that match a given selector with the specified attribute/value updates.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.subplot">subplot</a>(, …)</p></td>
+<td><p>Create a new sub-coordinate system and expose a plotting API.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.themed_values">themed_values</a>()</p></td>
+<td><p>Get any theme-provided overrides.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.to_serializable">to_serializable</a>(serializer: Serializer)</p></td>
+<td><p>Converts this object to a serializable representation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.trigger">trigger</a>(attr: str, old: Any, new: Any, …)</p></td>
+<td><p>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.unapply_theme">unapply_theme</a>()</p></td>
+<td><p>Remove any themed values and restore defaults.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.bokeh.org/en/latest/docs/reference/plotting/figure.html#bokeh.plotting.figure.update">update</a>(**kwargs: Any)</p></td>
+<td><p>Updates the object’s properties from the given keyword arguments.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./parts/11-bokeh"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="models/widgets.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><em>Widgets</em></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="transform.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">transform</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figure">figure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos">Atributos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades">Propiedades</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-clase">Métodos de clase</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-instancia">Métodos de instancia</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#glyphs">Glyphs</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#stack">Stack</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#especiales">Especiales</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#otros">Otros</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nebok
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

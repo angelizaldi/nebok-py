@@ -1,0 +1,1673 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Jupyter &#8212; Manual de Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'parts/appendix/jupyter';</script>
+    <link rel="icon" href="../../_static/nebok-favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="pip" href="pip.html" />
+    <link rel="prev" title="IPython" href="IPython.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/nebok-logo.png" class="logo__image only-light" alt="Manual de Python - Home"/>
+    <script>document.write(`<img src="../../_static/nebok-logo.png" class="logo__image only-dark" alt="Manual de Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Manual de Python para Data Science
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Built-in</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01-built-in/built-in-index.html">Python Estándar</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/cli.html"><em>Command Line Interface</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/ayuda.html">Obtener ayuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/comentarios.html">Comentarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/tipos-datos.html">Tipos de Datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/variables-constantes.html">Variables y Constantes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/operadores-palabras.html">Operadores y palabras reservadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/entrada-salida.html">Impresión y solicitud de datos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/tipos-index.html">Tipos Built-In</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/none-bool-numericos.html"><em>None</em>, <em>bool</em> y Numéricos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/str.html">str</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/lists.html">list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/tuples.html">Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/sets.html">Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/dicts.html">dict</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/if-else.html">If … Else</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/for-loop.html">For Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/do-while.html">Do While</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/udf.html">Funciones (UDF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/exceptions.html">Excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/context-managers.html">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/io.html">Lectura y escritura de archivos (IO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/modulos.html">Paquetes y Módulos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/avanzado-index.html">Temas avanzados</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/decorators.html">Decorators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/iterators.html">Iterators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/generators.html">Generators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/oop.html">Programación orientada a objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/func-built-in.html">Funciones built-in</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-modulos/modulos-index.html">Módulos built-in</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/csv.html">CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/datetime.html">Datetime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/itertools.html">Itertools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/json.html">JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/math.html">Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os.html">Os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os-path.html">Os.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/pickle.html">Pickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/random.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/regex.html">Regex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/statistics.html">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/urllib-request.html">urllib.request</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otras librerías</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-numpy/numpy-index.html">Numpy</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/arrays.html">Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../03-numpy/funciones-index.html">Funciones</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/ufuncs.html">Ufuncs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/buscar-contar-ordenar-unicos.html">Buscar, contar, ordenar y valores únicos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/creacion-arrays.html">Creación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/estadisticas.html">Estadísticas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/indices.html">Índices e iteración</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/informacion.html">Información</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/lectura-escritura.html">Lectura y escritura de datos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/manipulacion-arrays.html">Manipulación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/matematicas-numericas.html">Matemáticas y numéricas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/operadores.html">Operadores</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/algebra-lineal.html">Módulo linalg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/cadenas.html">Modulo char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/random.html">Módulo random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/patrones-numpy.html">Patrones útiles</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04-pandas/pandas-index.html">Pandas</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/index.html">Index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/series.html">Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/dataframe.html">DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/escalares-arrays.html">Escalares y Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../04-pandas/otras-clases.html">Otras clases</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/groupby.html">GroupBy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/expanding-rolling-window.html"><em>Expanding, Rolling</em> y <em>Window</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/resampler.html">Resampler</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/funciones.html">Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/patrones-pandas.html">Patrones útiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05-matplotlib/matplotlib-index.html">Matplotlib</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/pyplot.html">Pyplot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/figure.html">Figure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/axes.html">Axes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/otros.html">Otras Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06-seaborn/seaborn-index.html">Seaborn</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06-seaborn/funciones-clases.html">Funciones y Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-seaborn/objects-interface.html">Interface por objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../07-sklearn/sklearn-index.html">Scikit Learn</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/supervised/supervised-index.html">Aprendizaje supervisado</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/ensamble.html">Ensamble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/linear_model.html">Linear model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/naive_bayes.html">Naive bayes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/neighbors.html">Neighbors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/svm.html">SVM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/tree.html">Tree</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/unsupervised/unsupervised-index.html">Aprendizaje no supervisado</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/unsupervised/cluster.html">Cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/unsupervised/decomposition.html">Decomposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/unsupervised/mixture.html">Mixture</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/transformations/tranformations-index.html">Transformaciones</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/feature_extraction.html">Feature Extraction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/impute.html">Impute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/manifold.html">Manifold</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/preprocessing.html">Preprocessing</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/evaluation/evaluation-index.html">Evaluación y selección del modelo</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/dummy.html">Dummy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/feature_selection.html">Feature Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/metrics.html">Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/model_selection.html">Model Selection</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/pipelines-and-compose/pipeline-compose-index.html">Pipelines y Modelos Compuestos</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/pipelines-and-compose/compose.html">Compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/pipelines-and-compose/pipeline.html">Pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../07-sklearn/datasets.html">Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-sklearn/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-xgboost/xgboost-index.html">XGBoost</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08-xgboost/core-data-structure.html">Core Data Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-xgboost/learning-api.html">Learning API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-xgboost/scikit-learn-api.html">Scikit-Learn API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-xgboost/plotting-api.html">Plotting API</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../09-scipy/scipy-index.html">Scipy</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/clusters.html">Clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/derivacion-integracion.html">Derivación e Integración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/linalg.html">Linear Algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/sparse.html"><em>Sparse</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/stats.html">Stats</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../10-statsmodels/statsmodels-index.html">Statsmodels</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/statsmodels-api.html">API Principal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/statsmodels-tsa-api.html">API de Series de Tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/statsmodels-formula-api.html">API de Fórmulas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/graphics.html">Gráficos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/otras-clases.html">Otras clases</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../11-bokeh/bokeh-index.html">Bokeh</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/io.html">IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/layouts.html"><em>Layouts</em></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../11-bokeh/models/models-index.html"><em>Models</em></a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/annotations.html">Anotaciones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/axes.html">Ejes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/callbacks.html">Callbacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/formatters.html"><em>Formatters</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/glyphs.html"><em>Glyphs</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/sources.html"><em>Sources</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/tools.html"><em>Tools</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/widgets.html"><em>Widgets</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/plotting.html">Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/transform.html">transform</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../12-plotly/plotly-index.html">Plotly</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/express.html"><em>Express</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/figure-factory.html"><em>Figure Factory</em></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../12-plotly/go/go-index.html"><em>Graph Objects</em></a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../12-plotly/go/figure.html"><em>Figure</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../12-plotly/go/layout.html"><em>Layout</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../12-plotly/go/traces.html">Traces</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/io.html">IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/subplots.html">Subplots</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="beautifulsoup.html">BeautifulSoup</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Complementarios</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="appendix-index.html">Otros</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="IPython.html">IPython</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Jupyter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pip.html">pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conda.html"><em>conda</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="git.html">git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shell.html">Shell</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/parts/appendix/jupyter.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Jupyter</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comandos">Comandos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subcomandos">Subcomandos</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-book"><em>jupyter-book</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-lab"><em>jupyter lab</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-nbconvert"><em>jupyter nbconvert</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebook"><em>jupyter notebook</em></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shortcuts">Shortcuts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#archivos-y-guardado">Archivos y Guardado</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#busqueda-y-comandos">Búsqueda y Comandos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cambio-de-tipo-de-celda">Cambio de Tipo de Celda</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#control-del-kernel">Control del Kernel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#depuracion">Depuración</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#edicion-y-control-de-celdas">Edición y Control de Celdas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejecutar-celdas">Ejecutar Celdas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#encabezados-y-colapsado-de-contenidos">Encabezados y Colapsado de Contenidos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interfaz-y-configuracion">Interfaz y Configuración</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#navegacion-en-jupyterlab">Navegación en JupyterLab</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccion-y-navegacion-de-celdas">Selección y Navegación de Celdas</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="jupyter">
+<h1>Jupyter<a class="headerlink" href="#jupyter" title="Link to this heading">#</a></h1>
+<p><em>Jupyter</em> es un proyecto que abarca diferentes softwares que ofrecen diversas herramientas, entre los que destacan <em>Jupyter Notebooks</em> y <em>Jupyter Lab</em>. En esta sección se presenta brevemente la interacción con estos softwares como <em>shortcuts</em> y comandos de consola, entro otros.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Para más información consultar la <a class="reference external" href="https://docs.jupyter.org/en/latest/">documentación</a> de <em>Jupyter</em>.</p>
+</div>
+<p>Para usar <em>Jupyter</em> es necesario instarlo:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><em>Jupyter Notebooks</em> se instala automáticamente al instalarse <em>Anaconda</em>, por lo que no es necesario instalarlo manualmente.</p>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Instalar Jupyter Notebook con pip</span>
+pip<span class="w"> </span>install<span class="w"> </span>jupyter
+
+<span class="c1"># Instalar Jupyter Lab con pip</span>
+pip<span class="w"> </span>install<span class="w"> </span>jupyterlab
+
+<span class="c1"># Instalar Jupyter Lab con conda</span>
+conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>jupyterlab
+</pre></div>
+</div>
+<p>Una vez instalada para abrir los software utilizar:</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Asegurarse de entrar primero al ambiente virtual en caso de que se haya instalado los <em>softwares</em> en algún ambiente virtual específico (de <em>conda</em> o de <em>python</em>).</p>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>En caso de usar <em>conda</em> es posible que sea necesario primero activar <em>conda</em>, ya sea el <em>environment</em> base o alguno en particular. Esto va a depender de cómo se instaló el <em>software</em> de <em>Jupyter</em> y <em>conda</em>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Dependiendo del directorio desde donde se haya ejecutado el comando en la terminal, será el directorio base de <em>Jupyter</em> (en cada sesión).</p>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1">## Jupyter Notebook</span>
+<span class="c1"># Si se instaló con pip</span>
+jupyter<span class="w"> </span>notebook
+
+<span class="c1"># Si se instaló con conda</span>
+conda<span class="w"> </span>activate<span class="w"> </span><span class="c1"># Opcionalmente primero activar conda (ejm con base)</span>
+jupyter<span class="w"> </span>notebook
+
+<span class="c1">#-------------------------</span>
+<span class="c1">## Jupyter Lab</span>
+<span class="c1"># Si se instaló con pip</span>
+jupyter<span class="w"> </span>lab
+
+<span class="c1"># Si se instaló con conda</span>
+conda<span class="w"> </span>activate<span class="w"> </span><span class="c1"># Opcionalmente primero activar conda (ejm con base)</span>
+jupyter<span class="w"> </span>lab
+</pre></div>
+</div>
+<br/>
+<section id="comandos">
+<h2>Comandos<a class="headerlink" href="#comandos" title="Link to this heading">#</a></h2>
+<p>El comando <code class="docutils literal notranslate"><span class="pre">jupyer</span></code> es el comando principal para ejecutar aplicaciones del proyecto <em>Jupyter</em>. Este comando se ejecuta desde la terminal:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+jupyter<span class="w"> </span><span class="o">[</span>-h<span class="o">]</span><span class="w"> </span><span class="o">[</span>--version<span class="o">]</span><span class="w"> </span><span class="o">[</span>--config-dir<span class="o">]</span><span class="w"> </span><span class="o">[</span>--data-dir<span class="o">]</span><span class="w"> </span><span class="o">[</span>--runtime-dir<span class="o">]</span>
+<span class="w">               </span><span class="o">[</span>--paths<span class="o">]</span><span class="w"> </span><span class="o">[</span>--json<span class="o">]</span><span class="w"> </span><span class="o">[</span>--debug<span class="o">]</span>
+<span class="w">               </span><span class="o">[</span>subcommand<span class="o">]</span>
+</pre></div>
+</div>
+<p>A continuación se enlistan las opciones del comando:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Opción</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">-h,</span> <span class="pre">--help</span></code></p></td>
+<td><p>Muestra información y ayuda de los comandos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">--version</span></code></p></td>
+<td><p>Muestra la versión de los paquetes <em>core</em> de Jupyter.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">--config-dir</span></code></p></td>
+<td><p>Muestra la locación de la carpeta <em>config</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">--data-dir</span></code></p></td>
+<td><p>Muestra la locación de la carpeta <em>data</em></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">--runtime-dir</span></code></p></td>
+<td><p>Muestra la locación de la carpeta <em>runtime</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">--paths</span></code></p></td>
+<td><p>Muestra todas las <em>search paths</em>. Opcionalmente añadir <code class="docutils literal notranslate"><span class="pre">--json</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">--json</span></code></p></td>
+<td><p>Imprime las <em>search paths</em> en formato de JSON.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">--debug</span></code></p></td>
+<td><p>Imprime información de depuración sobre las <em>paths</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<section id="subcomandos">
+<h3>Subcomandos<a class="headerlink" href="#subcomandos" title="Link to this heading">#</a></h3>
+<p>Los subcomandos son comandos secundarios de <em>Jupyter</em> asociados con alguna funcionalidad específica de <em>Jupyter</em> como <em>notebooks</em>, <em>lab</em> o <em>console</em>, a continuación se enlistas todos los subcomandos:</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Algunos subcomandos son necesarios instalarlos manualmente, mientras que otros suelen venir incluidos al instalar <em>Jupyter</em> o <em>Jupyter Lab</em>.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Subcomando</p></th>
+<th class="head"><p>Descripción breve</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">book</span></code></p></td>
+<td><p>Crea y gestiona libros Jupyter usando Jupyter Book.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">console</span></code></p></td>
+<td><p>Inicia una consola interactiva de Jupyter.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">dejavu</span></code></p></td>
+<td><p>Herramienta experimental para depuración y reproducción de sesiones.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">events</span></code></p></td>
+<td><p>Muestra eventos registrados en Jupyter.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">execute</span></code></p></td>
+<td><p>Ejecuta un <em>notebook</em> Jupyter desde la línea de comandos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">kernel</span></code></p></td>
+<td><p>Administra procesos de kernel de Jupyter.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">kernelspec</span></code></p></td>
+<td><p>Gestiona las especificaciones de los kernels de Jupyter.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">lab</span></code></p></td>
+<td><p>Inicia JupyterLab, la interfaz de usuario basada en web.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">labextension</span></code></p></td>
+<td><p>Gestiona extensiones para JupyterLab.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">labhub</span></code></p></td>
+<td><p>Inicia JupyterHub en modo JupyterLab.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">migrate</span></code></p></td>
+<td><p>Migra configuraciones y datos entre versiones de Jupyter.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">nbconvert</span></code></p></td>
+<td><p>Convierte <em>notebooks</em> Jupyter a diferentes formatos (HTML, PDF, etc.).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">notebook</span></code></p></td>
+<td><p>Inicia la interfaz clásica de Jupyter Notebook.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">qtconsole</span></code></p></td>
+<td><p>Inicia una consola basada en Qt para Jupyter.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">run</span></code></p></td>
+<td><p>Ejecuta scripts y notebooks Jupyter desde la línea de comandos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">server</span></code></p></td>
+<td><p>Gestiona servidores de Jupyter.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">troubleshoot</span></code></p></td>
+<td><p>Proporciona información para diagnosticar problemas en Jupyter.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">trust</span></code></p></td>
+<td><p>Firma <em>notebooks</em> Jupyter para ejecutar celdas sin advertencias.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<section id="jupyter-book">
+<h4><em>jupyter-book</em><a class="headerlink" href="#jupyter-book" title="Link to this heading">#</a></h4>
+<p>Construye y administra libros de <em>Jupyter</em>.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+jupyter-book<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>COMMAND<span class="w"> </span><span class="o">[</span>ARGS<span class="o">]</span>...
+
+<span class="c1"># Alternativamente se puede usar solo jb</span>
+jb<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>COMMAND<span class="w"> </span><span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<p><strong>Opciones</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--version</span></code>: Muestra la versión.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-h</span></code>, <code class="docutils literal notranslate"><span class="pre">--help</span></code>: Muestra ayuda de este subcomando.</p></li>
+</ul>
+<p><strong>Comandos</strong></p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Comando</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">build</span></code></p></td>
+<td><p>Convierte el contenido del libro o página a HTML o un PDF.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">clean</span></code></p></td>
+<td><p>Elimina el directorio <em>_build</em> excepto <em>jupyter_cache</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">config</span></code></p></td>
+<td><p>Inspecciona el archivo <em>_config.yml</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">create</span></code></p></td>
+<td><p>Crea una plantilla de libro Jupyter que pueda personalizar.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">myst</span></code></p></td>
+<td><p>Manipula los archivos de <em>Myst markdown</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">toc</span></code></p></td>
+<td><p>Línea de comandos para <em>sphinx-external-toc</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="jupyter-lab">
+<h4><em>jupyter lab</em><a class="headerlink" href="#jupyter-lab" title="Link to this heading">#</a></h4>
+<p>Inicia JupyterLab, la interfaz de usuario basada en web.</p>
+<p>JupyterLab tiene tres modos de ejecución diferentes:</p>
+<ul class="simple">
+<li><p>Modo principal (<code class="docutils literal notranslate"><span class="pre">--core-mode</span></code>): En este modo, JupyterLab se ejecutará utilizando los recursos de JavaScript contenidos en el paquete Python <code class="docutils literal notranslate"><span class="pre">jupyterlab</span></code> instalado. En el modo principal, no se habilitan extensiones. Este es el valor predeterminado en una versión estable de JupyterLab si no tiene extensiones instaladas.</p></li>
+<li><p>Modo de desarrollo (<code class="docutils literal notranslate"><span class="pre">--dev-mode</span></code>): utiliza los paquetes de JavaScript locales no publicados en la carpeta <code class="docutils literal notranslate"><span class="pre">dev_mode</span></code>. En este caso, JupyterLab mostrará una franja roja en la parte superior de la página. Solo se puede utilizar si JupyterLab está instalado como <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code>.</p></li>
+<li><p>Modo de aplicación: JupyterLab permite que el usuario cree varias “aplicaciones” de JupyterLab con diferentes combinaciones de extensiones. El <code class="docutils literal notranslate"><span class="pre">--app-dir</span></code> se puede utilizar para establecer un directorio para diferentes aplicaciones. La ruta de la aplicación predeterminada se puede encontrar usando <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span> <span class="pre">path</span></code>.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>El comando <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span></code> tiene subcomandos los cuales no se documentan aquí. Consultar <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span> <span class="pre">--help</span></code>.</p>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+jupyter<span class="w"> </span>lab<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>...
+</pre></div>
+</div>
+<p>Listado de opciones:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Para más información sobre cada opción consultar <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span> <span class="pre">--help</span></code>.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Opción</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--debug</span></code></p></td>
+<td><p>Establece el nivel de depuración para la extensión y las aplicaciones del servidor subyacente.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--show-config</span></code></p></td>
+<td><p>Muestra la configuración de la aplicación (formato legible por humanos).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--show-config-json</span></code></p></td>
+<td><p>Muestra la configuración de la aplicación (formato JSON).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--generate-config</span></code></p></td>
+<td><p>Genera el archivo <em>config</em> predeterminado.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-y</span></code></p></td>
+<td><p>Responde sí a cualquier pregunta en lugar de solicitar.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--allow-root</span></code></p></td>
+<td><p>Permite que el servidor se ejecute desde <em>Root User</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--no-browser</span></code></p></td>
+<td><p>Evita la apertura de la URL predeterminada en el navegador.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--autoreload</span></code></p></td>
+<td><p>Auto recarga la aplicación web.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--script</span></code></p></td>
+<td><p>Obsoleto, ignorado.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--no-script</span></code></p></td>
+<td><p>Obsoleto, ignorado.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--core-mode</span></code></p></td>
+<td><p>Inicia la aplicación en modo <em>core</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--dev-mode</span></code></p></td>
+<td><p>Inicia la aplicación en modo <em>dev</em> para que se ejecute desde la fuente.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--skip-dev-build</span></code></p></td>
+<td><p>Omite la instalación inicial y la compilación JS de la aplicación en modo <em>dev</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--watch</span></code></p></td>
+<td><p>Inicia la aplicación en modo <em>watch</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--splice-source</span></code></p></td>
+<td><p>Empalma los paquetes fuente en el directorio de la aplicación.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--expose-app-in-browser</span></code></p></td>
+<td><p>Exponga la instancia de la aplicación global al navegador a través de <em>window.jupyterapp</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--extensions-in-dev-mode</span></code></p></td>
+<td><p>Carga extensiones pre-construidas en el modo <em>dev</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--collaborative</span></code></p></td>
+<td><p>Para habilitar la colaboración en tiempo real, debe instalar la extensión <code class="docutils literal notranslate"><span class="pre">jupyter_collaboration</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--custom-css</span></code></p></td>
+<td><p>Carga CSS personalizados en los archivos HTML de plantilla. El valor predeterminado es falso.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--log-level=&lt;Enum&gt;</span></code></p></td>
+<td><p>Establece el nivel de registro por valor o nombre.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--config=&lt;Unicode&gt;</span></code></p></td>
+<td><p>Ruta completa del archivo <em>config</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--ip=&lt;Unicode&gt;</span></code></p></td>
+<td><p>La dirección IP del servidor Jupyter.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--port=&lt;Int&gt;</span></code></p></td>
+<td><p>El puerto del servidor (env: jupyter_port).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--port-retries=&lt;Int&gt;</span></code></p></td>
+<td><p>El número de puertos adicionales para probar si el puerto especificado no está disponible.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--keyfile=&lt;Unicode&gt;</span></code></p></td>
+<td><p>La ruta completa a un archivo <em>key</em> privado para su uso con SSL/TLS.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--certfile=&lt;Unicode&gt;</span></code></p></td>
+<td><p>La ruta completa a un archivo de certificado SSL/TLS.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--client-ca=&lt;Unicode&gt;</span></code></p></td>
+<td><p>La ruta completa a un certificado de autoridad de certificado para la autenticación del cliente SSL/TLS.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--notebook-dir=&lt;Unicode&gt;</span></code></p></td>
+<td><p>El directorio para usar para <em>notebooks</em> y <em>kernels</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--browser=&lt;Unicode&gt;</span></code></p></td>
+<td><p>Especifica qué comando usar para invocar un navegador web al iniciar el servidor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--pylab=&lt;Unicode&gt;</span></code></p></td>
+<td><p>Obsoleto: use <code class="docutils literal notranslate"><span class="pre">%pylab</span></code> o <code class="docutils literal notranslate"><span class="pre">%matplotlib</span></code> en el <em>notebook</em> para habilitar <em>matplotlib</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--watch=&lt;Bool&gt;</span></code></p></td>
+<td><p>Indica si el servidor de la aplicación está en modo de <em>watch</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--app-dir=&lt;Unicode&gt;</span></code></p></td>
+<td><p>El directorio de aplicaciones para desde el cual iniciar JupyterLab.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="jupyter-nbconvert">
+<h4><em>jupyter nbconvert</em><a class="headerlink" href="#jupyter-nbconvert" title="Link to this heading">#</a></h4>
+<p>Convierte <em>notebooks</em> Jupyter a diferentes formatos (HTML, PDF, etc.).</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+jupyter<span class="w"> </span>nbconvert<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>...
+
+<span class="c1"># A HTML</span>
+jupyter<span class="w"> </span>nbconvert<span class="w"> </span>mynotebook.ipynb<span class="w"> </span>--to<span class="w"> </span>html
+
+<span class="c1"># A markdown</span>
+jupyter<span class="w"> </span>nbconvert<span class="w"> </span>mynotebook.ipynb<span class="w"> </span>--to<span class="w"> </span>markdown
+
+<span class="c1"># A PDF</span>
+jupyter<span class="w"> </span>nbconvert<span class="w"> </span>mynotebook.ipynb<span class="w"> </span>--to<span class="w"> </span>pdf
+</pre></div>
+</div>
+<p>Listado de opciones:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Para más información sobre cada opción consultar <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">nbconvert</span> <span class="pre">--help</span></code>.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Comando</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--debug</span></code></p></td>
+<td><p>Establezca el nivel de registro en <em>logging.DEBUG</em> (maximiza la salida de registro).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--show-config</span></code></p></td>
+<td><p>Muestra la configuración de la aplicación (formato legible por humanos).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--show-config-json</span></code></p></td>
+<td><p>Muestra la configuración de la aplicación (formato JSON).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--generate-config</span></code></p></td>
+<td><p>Genera el archivo <em>config</em> predeterminado.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--execute</span></code></p></td>
+<td><p>Ejecuta el <em>notebook</em> antes de la exportación.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--allow-errors</span></code></p></td>
+<td><p>Continua la ejecución del <em>notebook</em> incluso si una de las celdas arroja un error e incluye el mensaje de error en la salida de la celda (el comportamiento predeterminado es abortar la conversión). Esta bandera solo es relevante si <code class="docutils literal notranslate"><span class="pre">--execute</span></code> también se especificó.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--stdin</span></code></p></td>
+<td><p>Lee un solo archivo de <em>notebook</em> de <em>stdin</em>. Escribe el <em>notebook</em> resultante con el nombre predeterminado ‘notebook.*’.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--stdout</span></code></p></td>
+<td><p>Escribe la salida de <em>notebook</em> a <em>stdout</em> en lugar de los archivos.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--inplace</span></code></p></td>
+<td><p>Ejecuta <em>nbconvert</em> <em>in-place</em>, sobrescribiendo el <em>notebook</em> existente (solo relevante al convertir en formato de <em>notebook</em>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--clear-output</span></code></p></td>
+<td><p>Borra la salida del archivo actual y guarda <em>in-place</em>, sobrescribiendo el <em>notebook</em> existente.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--coalesce-streams</span></code></p></td>
+<td><p>Fusiona los resultados consecutivos de <em>stdout</em> y <em>stderr</em> en un <em>stream</em> (dentro de cada celda).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--no-prompt</span></code></p></td>
+<td><p>Excluye las indicaciones de entrada y salida del documento convertido.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--no-input</span></code></p></td>
+<td><p>Excluye celdas de entrada e indicaciones de salida del documento convertido.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--allow-chromium-download</span></code></p></td>
+<td><p>Indica si permitir la descarga de <em>chromium</em> si no se encuentra una versión adecuada en el sistema.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--disable-chromium-sandbox</span></code></p></td>
+<td><p>Deshabilita el <em>sandbox</em> de seguridad de <em>chromium</em> al convertir a PDF.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--show-input</span></code></p></td>
+<td><p>Muestra la entrada del código. Esta bandera solo es útil para los usuarios de <em>dejavu</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--embed-images</span></code></p></td>
+<td><p>Incrusta las imágenes como <em>base64 dataurls</em> en la salida. Este indicador solo es útil para las exportaciones HTML/WebPDF/Slides.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--sanitize-html</span></code></p></td>
+<td><p>Indica si el HTML en las células de Markdown y las salidas de las celdas debe “sanitizarse”.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--log-level=&lt;Enum&gt;</span></code></p></td>
+<td><p>Establece el nivel de registro por valor o nombre.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--config=&lt;Unicode&gt;</span></code></p></td>
+<td><p>Ruta completa del archivo <em>path</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--to=&lt;Unicode&gt;</span></code></p></td>
+<td><p>El formato de exportación que se utilizará: ‘asciidoc’, ‘personalizado’, ‘html’, ‘latex’, ‘markdown’, ‘notebook’, ‘pdf’, ‘python’, ‘qtpdf’, ‘qtpng’, ‘rst’, ‘script’, y ‘webpdf’.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--template=&lt;Unicode&gt;</span></code></p></td>
+<td><p>Nombre de la plantilla para usar.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--template-file=&lt;Unicode&gt;</span></code></p></td>
+<td><p>Nombre del archivo de plantilla para usar.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--theme=&lt;Unicode&gt;</span></code></p></td>
+<td><p>Tema específico de la plantilla (por ejemplo, el nombre de un tema Jupyterlab CSS distribuido como extensión <em>prebuilt</em> para la plantilla de <em>lab</em>).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--sanitize_html=&lt;Bool&gt;</span></code></p></td>
+<td><p>Indica si se debe “sanitizar” el HTML en las células de Markdown y las salidas de las células. Esto debe ser establecido en <em>True</em> por <em>nbviewer</em> o herramientas similares.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--writer=&lt;DottedObjectName&gt;</span></code></p></td>
+<td><p>Clase <em>Writer</em> usada para escribir los resultados de la conversión.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--post=&lt;DottedOrNone&gt;</span></code></p></td>
+<td><p>Clase <em>PostProcessor</em> utilizada para escribir los resultados de la conversión.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--output=&lt;Unicode&gt;</span></code></p></td>
+<td><p>Sobrescribe el uso del nombre base para los archivos de salida. Admite reemplazos de patrones ‘{notebook_name}’.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--output-dir=&lt;Unicode&gt;</span></code></p></td>
+<td><p>Directorio a utilizar para escribir salidas. El valor predeterminado se emite al directorio de cada <em>notebook</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--reveal-prefix=&lt;Unicode&gt;</span></code></p></td>
+<td><p>El prefijo de URL para <em>reveal.js</em> (versión 3.x).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--nbformat=&lt;Enum&gt;</span></code></p></td>
+<td><p>La versión <em>nbformat</em> para escribir.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="jupyter-notebook">
+<h4><em>jupyter notebook</em><a class="headerlink" href="#jupyter-notebook" title="Link to this heading">#</a></h4>
+<p>Inicia la interfaz clásica de Jupyter Notebook.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+jupyter<span class="w"> </span>notebook<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>...
+</pre></div>
+</div>
+<p>Listado de opciones:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Para más información sobre cada opción consultar <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span> <span class="pre">--help</span></code>.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Opción</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--debug</span></code></p></td>
+<td><p>Establece el nivel de depuración para la extensión y las aplicaciones del servidor subyacente.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--show-config</span></code></p></td>
+<td><p>Muestra la configuración de la aplicación (formato legible por humanos).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--show-config-json</span></code></p></td>
+<td><p>Muestra la configuración de la aplicación (formato JSON).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--generate-config</span></code></p></td>
+<td><p>Genera el archivo <em>config</em> predeterminado.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-y</span></code></p></td>
+<td><p>Responde sí a cualquier pregunta en lugar de solicitar.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--allow-root</span></code></p></td>
+<td><p>Permite que el servidor se ejecute desde <em>Root User</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--no-browser</span></code></p></td>
+<td><p>Evita la apertura de la URL predeterminada en el navegador.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--autoreload</span></code></p></td>
+<td><p>Auto recarga la aplicación web.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--script</span></code></p></td>
+<td><p>Obsoleto, ignorado.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--no-script</span></code></p></td>
+<td><p>Obsoleto, ignorado.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--expose-app-in-browser</span></code></p></td>
+<td><p>Exponga la instancia de la aplicación global al navegador a través de <em>window.jupyterapp</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--custom-css</span></code></p></td>
+<td><p>Carga CSS personalizados en los archivos HTML de plantilla. El valor predeterminado es falso.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--log-level=&lt;Enum&gt;</span></code></p></td>
+<td><p>Establece el nivel de registro por valor o nombre.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--config=&lt;Unicode&gt;</span></code></p></td>
+<td><p>Ruta completa del archivo <em>config</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="shortcuts">
+<h2>Shortcuts<a class="headerlink" href="#shortcuts" title="Link to this heading">#</a></h2>
+<p>Atajos disponibles en <em>jupyter notebooks</em> y <em>jupyter lab</em>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Se pueden consultar los atajos directamente en <em>Jupyter</em> con el atajo <code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Cmd</span> <span class="pre">+</span> <span class="pre">H</span></code>.</p>
+</div>
+<br/>
+<section id="archivos-y-guardado">
+<h3>Archivos y Guardado<a class="headerlink" href="#archivos-y-guardado" title="Link to this heading">#</a></h3>
+<p>Comandos para guardar, imprimir y cerrar notebooks.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Acción</p></th>
+<th class="head"><p>Atajo</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Guardar notebook</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Cmd</span> <span class="pre">+</span> <span class="pre">S</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Guardar notebook como</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Cmd</span> <span class="pre">+</span> <span class="pre">S</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Imprimir</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Cmd</span> <span class="pre">+</span> <span class="pre">P</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Cerrar y apagar notebook</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Q</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="busqueda-y-comandos">
+<h3>Búsqueda y Comandos<a class="headerlink" href="#busqueda-y-comandos" title="Link to this heading">#</a></h3>
+<p>Atajos para buscar texto, activar la paleta de comandos y ver los atajos de teclado.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Acción</p></th>
+<th class="head"><p>Atajo</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Buscar</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Cmd</span> <span class="pre">+</span> <span class="pre">F</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Buscar siguiente</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Cmd</span> <span class="pre">+</span> <span class="pre">G</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Buscar anterior</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Cmd</span> <span class="pre">+</span> <span class="pre">G</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Finalizar búsqueda</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Escape</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Activar Command Palette</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Cmd</span> <span class="pre">+</span> <span class="pre">C</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Mostrar atajos de teclado</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Cmd</span> <span class="pre">+</span> <span class="pre">H</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="cambio-de-tipo-de-celda">
+<h3>Cambio de Tipo de Celda<a class="headerlink" href="#cambio-de-tipo-de-celda" title="Link to this heading">#</a></h3>
+<p>Atajos para cambiar entre celdas de código, <em>Markdown</em>, <em>Raw</em> y encabezados.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>En la mayoría de estos atajos se debe estar en <em>select mode</em>.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Acción</p></th>
+<th class="head"><p>Atajo</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Cambiar de <em>edit mode</em> a <em>select mode</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Escape</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Cambiar de <em>select mode</em> a <em>edit mode</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Enter</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Cambiar a celda de código</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Y</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Cambiar a celda de código</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Y</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Cambiar a celda de Markdown</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">M</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Cambiar a celda de texto sin formato (Raw)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">R</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Cambiar a encabezado nivel 1</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Cambiar a encabezado nivel 2</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Cambiar a encabezado nivel 3</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">3</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Cambiar a encabezado nivel 4</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">4</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Cambiar a encabezado nivel 5</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Cambiar a encabezado nivel 6</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">6</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="control-del-kernel">
+<h3>Control del Kernel<a class="headerlink" href="#control-del-kernel" title="Link to this heading">#</a></h3>
+<p>Comandos para interrumpir, reiniciar o gestionar el <em>kernel</em>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Acción</p></th>
+<th class="head"><p>Atajo</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Interrumpir kernel</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">I</span> <span class="pre">+</span> <span class="pre">I</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Reiniciar kernel</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">+</span> <span class="pre">0</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="depuracion">
+<h3>Depuración<a class="headerlink" href="#depuracion" title="Link to this heading">#</a></h3>
+<p>Atajos específicos para el depurador de código en <em>JupyterLab</em>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Acción</p></th>
+<th class="head"><p>Atajo</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Panel de Depuración</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Cmd</span> <span class="pre">+</span> <span class="pre">E</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Pausar</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">F9</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Siguiente</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">F10</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Entrar en función (Step In)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">F11</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Salir de función (Step Out)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">F11</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Terminar</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">F9</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="edicion-y-control-de-celdas">
+<h3>Edición y Control de Celdas<a class="headerlink" href="#edicion-y-control-de-celdas" title="Link to this heading">#</a></h3>
+<p>Atajos para modificar, copiar, cortar, eliminar, fusionar y deshacer cambios en celdas.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>En estos atajos se debe estar en <em>select mode</em>.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Acción</p></th>
+<th class="head"><p>Atajo</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Redo</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Cmd</span> <span class="pre">+</span> <span class="pre">Z</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Undo</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Cmd</span> <span class="pre">+</span> <span class="pre">Z</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Copiar celda</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">C</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Cortar celda</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">X</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Eliminar celda</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">D</span> <span class="pre">+</span> <span class="pre">D</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Pegar celda debajo</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">V</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Insertar celda arriba</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">A</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Insertar celda debajo</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">B</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Fusionar celda arriba</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">Backspace</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Fusionar celda debajo</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">M</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Fusionar celdas seleccionadas</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">M</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="ejecutar-celdas">
+<h3>Ejecutar Celdas<a class="headerlink" href="#ejecutar-celdas" title="Link to this heading">#</a></h3>
+<p>Comandos para ejecutar una celda y definir cómo avanzar después de la ejecución.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>En estos atajos se debe estar en <em>select mode</em>.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Acción</p></th>
+<th class="head"><p>Atajo</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Ejecutar celda y avanzar</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Enter</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Ejecutar celda sin avanzar</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">Enter</span> <span class="pre">/</span> <span class="pre">Cmd</span> <span class="pre">+</span> <span class="pre">Enter</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Ejecutar celda e insertar debajo</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Alt</span> <span class="pre">+</span> <span class="pre">Enter</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="encabezados-y-colapsado-de-contenidos">
+<h3>Encabezados y Colapsado de Contenidos<a class="headerlink" href="#encabezados-y-colapsado-de-contenidos" title="Link to this heading">#</a></h3>
+<p>Atajos para manejar encabezados y estructurar el contenido del notebook.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>En estos atajos se debe estar en <em>select mode</em>.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Acción</p></th>
+<th class="head"><p>Atajo</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Insertar encabezado arriba</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">A</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Insertar encabezado abajo</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">B</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Colapsar todos los encabezados</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">ArrowLeft</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Expandir todos los encabezados</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">ArrowRight</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Seleccionar encabezado arriba / colapsar</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ArrowLeft</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Seleccionar encabezado abajo / expandir</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ArrowRight</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="interfaz-y-configuracion">
+<h3>Interfaz y Configuración<a class="headerlink" href="#interfaz-y-configuracion" title="Link to this heading">#</a></h3>
+<p>Controles para administrar la interfaz, extensiones, configuraciones y paneles auxiliares.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Acción</p></th>
+<th class="head"><p>Atajo</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Mostrar barra lateral izquierda</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Cmd</span> <span class="pre">+</span> <span class="pre">B</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Alternar interfaz simple</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Cmd</span> <span class="pre">+</span> <span class="pre">D</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Mostrar Administrador de Extensiones</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Cmd</span> <span class="pre">+</span> <span class="pre">X</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Abrir Explorador de Archivos</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Cmd</span> <span class="pre">+</span> <span class="pre">F</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Mostrar Ayuda Contextual</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Cmd</span> <span class="pre">+</span> <span class="pre">I</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Abrir nuevo Launcher</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Cmd</span> <span class="pre">+</span> <span class="pre">L</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Abrir Inspector de Propiedades</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Cmd</span> <span class="pre">+</span> <span class="pre">U</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Abrir Sesiones y Pestañas</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Cmd</span> <span class="pre">+</span> <span class="pre">B</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Abrir Editor de Configuración</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Cmd</span> <span class="pre">+</span> <span class="pre">,</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Mostrar Tabla de Contenidos</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Cmd</span> <span class="pre">+</span> <span class="pre">K</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="navegacion-en-jupyterlab">
+<h3>Navegación en JupyterLab<a class="headerlink" href="#navegacion-en-jupyterlab" title="Link to this heading">#</a></h3>
+<p>Comandos para cambiar entre pestañas y administrar la interfaz de JupyterLab.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Acción</p></th>
+<th class="head"><p>Atajo</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Cerrar pestaña</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Alt</span> <span class="pre">+</span> <span class="pre">W</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Activar siguiente pestaña</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">]</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Activar pestaña anterior</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">[</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Activar siguiente barra de pestañas</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">.</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Activar barra de pestañas anterior</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">,</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Activar pestaña usada previamente</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Cmd</span> <span class="pre">+</span> <span class="pre">'</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="seleccion-y-navegacion-de-celdas">
+<h3>Selección y Navegación de Celdas<a class="headerlink" href="#seleccion-y-navegacion-de-celdas" title="Link to this heading">#</a></h3>
+<p>Permite moverse entre celdas, seleccionar múltiples celdas y reorganizarlas.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>En estos atajos se debe estar en <em>select mode</em>.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Acción</p></th>
+<th class="head"><p>Atajo</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Seleccionar celda abajo</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ArrowDown</span> <span class="pre">/</span> <span class="pre">J</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Seleccionar celda arriba</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ArrowUp</span> <span class="pre">/</span> <span class="pre">K</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Extender selección arriba</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">ArrowUp</span> <span class="pre">/</span> <span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">K</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Extender selección abajo</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">ArrowDown</span> <span class="pre">/</span> <span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">J</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Extender selección hasta arriba</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Home</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Extender selección hasta abajo</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">End</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Seleccionar todas las celdas</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Cmd</span> <span class="pre">+</span> <span class="pre">A</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Mover celda arriba</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">ArrowUp</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Mover celda abajo</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">ArrowDown</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./parts/appendix"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="IPython.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">IPython</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="pip.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">pip</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comandos">Comandos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subcomandos">Subcomandos</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-book"><em>jupyter-book</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-lab"><em>jupyter lab</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-nbconvert"><em>jupyter nbconvert</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebook"><em>jupyter notebook</em></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shortcuts">Shortcuts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#archivos-y-guardado">Archivos y Guardado</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#busqueda-y-comandos">Búsqueda y Comandos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cambio-de-tipo-de-celda">Cambio de Tipo de Celda</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#control-del-kernel">Control del Kernel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#depuracion">Depuración</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#edicion-y-control-de-celdas">Edición y Control de Celdas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejecutar-celdas">Ejecutar Celdas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#encabezados-y-colapsado-de-contenidos">Encabezados y Colapsado de Contenidos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interfaz-y-configuracion">Interfaz y Configuración</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#navegacion-en-jupyterlab">Navegación en JupyterLab</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccion-y-navegacion-de-celdas">Selección y Navegación de Celdas</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nebok
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

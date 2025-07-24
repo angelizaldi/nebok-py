@@ -27,7 +27,7 @@ En Python las funciones se consideran un objeto.
 ---
 ## Crear una función
 
-La sintaxis para crear una función es la siguiente:
+La sintaxis básica para crear una función es la siguiente:
 ```python
 # Plantilla básica de una función
 def function_name(param1=val1, param2=val2, [...]):
@@ -132,7 +132,7 @@ Para recuperar el docstring de una función usar cualquiera de los siguientes m�
 
 ### Estilo Google
 
-El formato general para una descripción siguiendo el estilo _google_ es:
+El formato general para una descripción siguiendo el estilo _google_ es el siguiente:
 
 ```
 """
@@ -159,7 +159,7 @@ Notes:
 
 ### Estilo Numpy
 
-El formato general para una descripción siguiendo el estilo _numpy_ es:
+El formato general para una descripción siguiendo el estilo _numpy_ es el siguiente:
 
 ```
 """
@@ -221,7 +221,7 @@ def my_function(params, *, keyword_params, ...):
 ---
 ### Valores por default
 
-Los parámetros de las funciones pueden tener valores por default que se difinen al momento de definir la función:
+Los parámetros de las funciones pueden tener valores por default que se definen al momento de definir la función:
 
 :::{warning}
 Los valores por default deben ser tipos inmutables para evitar comportamientos inesperados en la función. Los tipos inmutables son:
@@ -244,7 +244,7 @@ def function_name(param1=val1, param2=val2):
 ```
 - En este ejemplo, ambos parámetros tienen valores por default
 - Al momento de llamar la función es posible indicar valores distintos a los valores por default.
-- Si se omite algún parámetro al llamar la función, se usa su valor por default en caso de que tenga.
+- Si se omite algún parámetro al llamar la función, se usa su valor por default en caso de que tenga, en caso contrario se arrojará un error.
 
 <br/>
 
@@ -371,6 +371,16 @@ def my_function():
     pass
 ```
 
+:::{tip}
+También se puede usar la constante `Ellipsis` o la literal `...` para definir funciones vacías:
+
+```
+# Definir función vacía
+def my_function():
+    ...
+```
+:::
+
 <br/>
 
 ---
@@ -381,8 +391,8 @@ Para llamar a un función simplemente se usa su nombre y entre paréntesis los v
 # Llamar a la función "function_name"
 function_name(val1, val2, ...)
 ```
-- Si la función no tiene parámetros no poner nada dentro de los paréntesis, pero sí debe de llevar los paréntesis.
-- Se debe de pasar la misma cantidad de parámetros que aquellos que la función espera (parámetros obligatorios),  y en el mismo orden que en la manera como están definidos en la función en caso de que se no se usen los keywords, en caso contrario se pueden poner en un orden distinto.
+- Si la función no tiene parámetros no poner nada dentro de los paréntesis, pero sí debe de llevar los paréntesis. Si no se ponen los paréntesis se retornará la función como objeto.
+- Se debe de pasar la misma cantidad de parámetros que aquellos que la función espera (parámetros obligatorios),  y en el mismo orden que en la manera como están definidos en la función en caso de que se no se usen las _keywords_, en caso contrario se pueden poner en un orden distinto.
 ```python
 # Llamar a una funcion por keywords
 function_name(param2=val2, param1=val1, ...)
@@ -432,17 +442,17 @@ def outer(outer_params):
 - Las funciones internas pueden acceder a las objetos y parámetros de la función externa siempre y cuando el nombre no entre en conflicto con una variable definida localmente. Tener en cuenta el siguiente orden al momento de determinar en valor de una variable en una función interna:
     1. **Ámbito Local**: Primero se verifica si la variable está definida en el ámbito local.
     2. **Ámbito Contenedor**: Si la variable no se encuentra en el ámbito local, se buscan en el ámbito contenedor, es decir, en la función o funciones padres de la función hija.
-    3. **Ámbito Global**: En caso de que la variable siga sin encontrarse en el ámbito contenedor entonces se buscará en el ámbito global, que son las objetos definidas en el _script_ principal.
+    3. **Ámbito Global**: En caso de que la variable siga sin encontrarse en el ámbito contenedor entonces se buscará en el ámbito global, que son las variables definidas en el _script_ principal.
     4. **Ámbito Built-in**: Finalmente se busca la variable en el módulo built-in de Python. 
 
-:::{caution}
+:::{warning}
 En los ámbito locales las variables de los ámbitos contenedores y globales solo son accesibles para lectura, pero no para escritura, a menos de que se usen las _keywords_ `nonlocal` y `global`, como se revisa en la siguiente sección.
 :::
 
 Es común que la función padre retorne la llamada a la función hija.
 
 ```python
-# Estructura básica de una función anidada
+# Función padre que retorna a su función hija
 def outer(outer_params):
     # outer function body
     
@@ -466,7 +476,8 @@ def outer():
 ```
 - En este ejemplo es importante que la función _inner_ no utilice ninguna variable del ámbito contenedor, ya que en ese caso probablemente se trataría de un {ref}`Closure <functions-closures>`.
 
-**Ejemplo**
+**Ejemplo**:
+En este ejemplo se define una función que crea y retorna otra función, que calcula el cuadrado de un número que recibe (_x_).
 
 ```python
 # Definir función padre
@@ -507,11 +518,11 @@ def outer(outer_params):
 Para verificar que una función sea un _closure_ se puede usar el atributo `.__closure__`, si la función no es un _closure_ retorna `None`, en caso contrario retorna un `tuple`.
 :::
 
-Un closure “recuerda” el entorno en el que fue creado, permitiendo que una función anidada siga accediendo a variables locales de su función contenedora incluso después de que la función contenedora haya terminado su ejecución..
+Un _closure_ “recuerda” el entorno en el que fue creado, permitiendo que una función anidada siga accediendo a variables locales de su función contenedora incluso después de que la función contenedora haya terminado su ejecución.
 
 **Ejemplo**
 
-A continuación se presenta un ejemplo de un _closure_
+A continuación se presenta un ejemplo de un _closure_:
 
 ```{code-cell} ipython3
 def raise_val(n):
@@ -590,10 +601,11 @@ print("global: ", x)
 
 La recursión sucede cuando dentró de una función, la función se llama a sí misma. Se debe de tener cuidado de que la función termine en algún momento y de que no se consuma demasiada memoria para procesarla.
 ```python
-def my_function(...):
+# Sintaxis básica de función recursiva
+def my_function([args]):
     # function body
         
-    my_function(...)
+    return my_function([args])
         
     # function body
 ```

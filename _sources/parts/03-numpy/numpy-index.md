@@ -11,13 +11,17 @@ pip install numpy
 conda install numpy
 ```
 
-Una vez instalado se debe de importar
+Una vez instalado se debe de importar:
 ```python
 # Importar numpy a la sesión activa
 import numpy as np
 ```
 - `np` es el nombre por convención.
 - En este sitio se utilizará `np` como alias.
+
+:::{note}
+Para más información de esta librería visitar la [documentación](https://numpy.org/doc/stable/reference/#) y [guía de usuario](https://numpy.org/doc/stable/user/index.html) de `numpy`.
+:::
 
 Para conocer la versión de `numpy` instalada usar:
 ```python

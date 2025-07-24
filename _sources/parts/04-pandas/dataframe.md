@@ -1058,7 +1058,16 @@ df.plot(subplots=True) # line por default
 
 #### Notas de _plot_
 
-`DataFrame.plot()`: Crea gráficas con base a los datos de un `DataFrame` o `Series`. Por deafult creará una gráfica por cada columna, utilizará los nombres de las mismas para crear una leyenda, utilizará la escala de las mismas para el eje _y_ y el índice para el eje _x_.
+[DataFrame.plot](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.plot.html): Crea gráficas con base a los datos de un `DataFrame` o `Series`. Por deafult creará una gráfica por cada columna, utilizará los nombres de las mismas para crear una leyenda, utilizará la escala de las mismas para el eje _y_ y el índice para el eje _x_.
+
+:::{tip}
+Dependiendo del argumento de _kind_, se pueden usar otros argumentos para personalizar la gráfica. Revisar {doc}`../05-matplotlib/otros` de _matplotlib_.
+:::
+
+:::{tip}
+Tener en cuenta que esta función en esencia retorna un objeto _Axes_ de _matplotlib_, porque lo que se puede asignar a una variable y manipular el objeto con {doc}`La interfaz orientada a objetos<../05-matplotlib/axes>`.
+:::
+
 ```python
 # Sintaxis de llamada
 DataFrame.plot(x=None, y=None, kind='line', ax=None, subplots=False, layout=None, 
@@ -1068,9 +1077,9 @@ DataFrame.plot(x=None, y=None, kind='line', ax=None, subplots=False, layout=None
                *args, **kwargs)
 ```
 **Parámetros:**
-- **x** \- `label` o `int`: Es el nombre o el índice de la columna que irá en el eje x. Aplica en _kind_ 2 y 3.
-- **y** \- `label` o `int`: Es el nombre o el índice de la columna que irá en el eje y. Aplica en _kind_ 2 y 3.
-- **kind** \- `str`: es el tipo de gráfico. Otra forma de declarar la gráfica es: `X.plot.kind(*args, **kwargs)`.
+- **x** \- `label` o `int`: Es el nombre o el índice de la columna que irá en el eje _x_.
+- **y** \- `label` o `int`: Es el nombre o el índice de la columna que irá en el eje _y_.
+- **kind** \- `str`: Es el tipo de gráfico. Otra forma de declarar la gráfica es: `X.plot.kind(*args, **kwargs)`.
     - `'bar'`: Crea una gráfica de barras verticales.
     - `'barh'`: Crea una gráfica de barras horizontales.
     - `'line'`: Crea una gráfica línea. Default.
@@ -1116,6 +1125,13 @@ DataFrame.plot(x=None, y=None, kind='line', ax=None, subplots=False, layout=None
 - `Axes` o `ndarray` de `Axes`.
 
 <br/>
+
+**Ejemplo**
+
+```
+# Crear gráfica de barras
+df.plot(x='Capital', y='Population', kind='bar')
+```
 
 ---
 ### Información

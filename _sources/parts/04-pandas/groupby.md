@@ -148,14 +148,14 @@ penguins.groupby('species')[['bill_length_mm', 'body_mass_g']].mean()
 
 ### 1 _label_, múltiples columnas y múltiples cálculos
 
-Corresponde a agrupar por una variable categórica y aplicar más de un cálculo a múltiples columnas. Retorna un `DataFrame` con `MultiIndex` es las columnas.
+Corresponde a agrupar por una variable categórica y aplicar más de un cálculo a múltiples columnas. Retorna un `DataFrame` con `MultiIndex` en las columnas.
 
 ```{code-cell} ipython3
 # Realizar el agrupamiento y aplicar funciones de agregación
 penguins.groupby('species')[['bill_length_mm', 'body_mass_g']].agg(['count', 'mean'])
 ```
 
-### Múltiples _label_, 1 columna y 1 cálculo
+### Múltiples _labels_, 1 columna y 1 cálculo
 
 Corresponde a agrupar por más de una variable categórica y aplicar un cálculo a una sola columna. Retorna un `Series` con `MultiIndex`.
 
@@ -164,25 +164,25 @@ Corresponde a agrupar por más de una variable categórica y aplicar un cálculo
 penguins.groupby(['island', 'sex'])['bill_length_mm'].mean()
 ```
 
-### 1 _label_, 1 columna y múltiples cálculos
+### Múltiples _labels_, 1 columna y múltiples cálculos
 
-Corresponde a agrupar por más de una variable categórica y aplicar más de un cálculo a una sola columna. Retorna un `DataFrame` con `MultiIndex` es las filas.
+Corresponde a agrupar por más de una variable categórica y aplicar más de un cálculo a una sola columna. Retorna un `DataFrame` con `MultiIndex` en las filas.
 
 ```{code-cell} ipython3
 # Realizar el agrupamiento y aplicar funciones de agregación
 penguins.groupby(['island', 'sex'])['bill_length_mm'].agg(['count', 'mean'])
 ```
 
-### 1 _label_, múltiples columnas y 1 cálculo
+### Múltiples _labels_, múltiples columnas y 1 cálculo
 
-Corresponde a agrupar por más de una variable categórica y aplicar un cálculo a múltiples columnas. Retorna un `DataFrame` con `MultiIndex` es las filas.
+Corresponde a agrupar por más de una variable categórica y aplicar un cálculo a múltiples columnas. Retorna un `DataFrame` con `MultiIndex` en las filas.
 
 ```{code-cell} ipython3
 # Realizar el agrupamiento y aplicar función de agregación
 penguins.groupby(['island', 'sex'])[['bill_length_mm', 'body_mass_g']].mean()
 ```
 
-### 1 _label_, múltiples columnas y múltiples cálculos
+### Múltiples _labels_, múltiples columnas y múltiples cálculos
 
 Corresponde a agrupar por más de una variable categórica y aplicar más de un cálculo a múltiples columnas. Retorna un `DataFrame` con `MultiIndex` tanto en las filas como en las columnas.
 

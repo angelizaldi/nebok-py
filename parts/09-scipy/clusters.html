@@ -1,0 +1,1297 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Clusters &#8212; Manual de Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'parts/09-scipy/clusters';</script>
+    <link rel="icon" href="../../_static/nebok-favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Derivación e Integración" href="derivacion-integracion.html" />
+    <link rel="prev" title="Scipy" href="scipy-index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/nebok-logo.png" class="logo__image only-light" alt="Manual de Python - Home"/>
+    <script>document.write(`<img src="../../_static/nebok-logo.png" class="logo__image only-dark" alt="Manual de Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Manual de C
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Built-in</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01-built-in/built-in-index.html">Python Estándar</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/cli.html"><em>Command Line Interface</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/ayuda.html">Obtener ayuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/comentarios.html">Comentarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/tipos-datos.html">Tipos de Datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/variables-constantes.html">Variables y Constantes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/operadores-palabras.html">Operadores y palabras reservadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/entrada-salida.html">Impresión y solicitud de datos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/tipos-index.html">Tipos Built-In</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/none-bool-numericos.html"><em>None</em>, <em>bool</em> y Numéricos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/str.html">str</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/lists.html">list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/tuples.html">Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/sets.html">Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/dicts.html">dict</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/if-else.html">If … Else</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/for-loop.html">For Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/do-while.html">Do While</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/udf.html">Funciones (UDF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/exceptions.html">Excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/context-managers.html">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/io.html">Lectura y escritura de archivos (IO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/modulos.html">Paquetes y Módulos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/avanzado-index.html">Temas avanzados</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/decorators.html">Decorators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/iterators.html">Iterators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/generators.html">Generators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/oop.html">Programación orientada a objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/func-built-in.html">Funciones built-in</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-modulos/modulos-index.html">Módulos built-in</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/csv.html">CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/datetime.html">Datetime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/itertools.html">Itertools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/json.html">JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/math.html">Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os.html">Os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os-path.html">Os.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/pickle.html">Pickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/random.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/regex.html">Regex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/statistics.html">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/urllib-request.html">urllib.request</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otras librerías</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-numpy/numpy-index.html">Numpy</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/arrays.html">Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../03-numpy/funciones-index.html">Funciones</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/ufuncs.html">Ufuncs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/buscar-contar-ordenar-unicos.html">Buscar, contar, ordenar y valores únicos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/creacion-arrays.html">Creación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/estadisticas.html">Estadísticas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/indices.html">Índices e iteración</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/informacion.html">Información</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/lectura-escritura.html">Lectura y escritura de datos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/manipulacion-arrays.html">Manipulación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/matematicas-numericas.html">Matemáticas y numéricas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/operadores.html">Operadores</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/algebra-lineal.html">Módulo linalg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/cadenas.html">Modulo char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/random.html">Módulo random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/patrones-numpy.html">Patrones útiles</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04-pandas/pandas-index.html">Pandas</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/index.html">Index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/series.html">Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/dataframe.html">DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/escalares-arrays.html">Escalares y Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../04-pandas/otras-clases.html">Otras clases</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/groupby.html">GroupBy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/expanding-rolling-window.html"><em>Expanding, Rolling</em> y <em>Window</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/resampler.html">Resampler</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/funciones.html">Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/patrones-pandas.html">Patrones útiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05-matplotlib/matplotlib-index.html">Matplotlib</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/pyplot.html">Pyplot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/figure.html">Figure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/axes.html">Axes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/otros.html">Otras Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06-seaborn/seaborn-index.html">Seaborn</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06-seaborn/funciones-clases.html">Funciones y Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-seaborn/objects-interface.html">Interface por objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../07-sklearn/sklearn-index.html">Scikit Learn</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/supervised/supervised-index.html">Aprendizaje supervisado</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/ensamble.html">Ensamble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/linear_model.html">Linear model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/naive_bayes.html">Naive bayes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/neighbors.html">Neighbors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/svm.html">SVM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/tree.html">Tree</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/unsupervised/unsupervised-index.html">Aprendizaje no supervisado</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/unsupervised/cluster.html">Cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/unsupervised/decomposition.html">Decomposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/unsupervised/mixture.html">Mixture</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/transformations/tranformations-index.html">Transformaciones</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/feature_extraction.html">Feature Extraction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/impute.html">Impute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/manifold.html">Manifold</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/preprocessing.html">Preprocessing</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/evaluation/evaluation-index.html">Evaluación y selección del modelo</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/dummy.html">Dummy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/feature_selection.html">Feature Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/metrics.html">Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/model_selection.html">Model Selection</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/pipelines-and-compose/pipeline-compose-index.html">Pipelines y Modelos Compuestos</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/pipelines-and-compose/compose.html">Compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/pipelines-and-compose/pipeline.html">Pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../07-sklearn/datasets.html">Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-sklearn/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-xgboost/xgboost-index.html">XGBoost</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08-xgboost/core-data-structure.html">Core Data Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-xgboost/learning-api.html">Learning API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-xgboost/scikit-learn-api.html">Scikit-Learn API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-xgboost/plotting-api.html">Plotting API</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="scipy-index.html">Scipy</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="derivacion-integracion.html">Derivación e Integración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linalg.html">Linear Algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sparse.html"><em>Sparse</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="stats.html">Stats</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../10-statsmodels/statsmodels-index.html">Statsmodels</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/statsmodels-api.html">API Principal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/statsmodels-tsa-api.html">API de Series de Tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/statsmodels-formula-api.html">API de Fórmulas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/graphics.html">Gráficos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/otras-clases.html">Otras clases</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../11-bokeh/bokeh-index.html">Bokeh</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/io.html">IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/layouts.html"><em>Layouts</em></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../11-bokeh/models/models-index.html"><em>Models</em></a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/annotations.html">Anotaciones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/axes.html">Ejes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/callbacks.html">Callbacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/formatters.html"><em>Formatters</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/glyphs.html"><em>Glyphs</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/sources.html"><em>Sources</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/tools.html"><em>Tools</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/widgets.html"><em>Widgets</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/plotting.html">Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/transform.html">transform</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../12-plotly/plotly-index.html">Plotly</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/express.html"><em>Express</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/figure-factory.html"><em>Figure Factory</em></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../12-plotly/go/go-index.html"><em>Graph Objects</em></a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../12-plotly/go/figure.html"><em>Figure</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../12-plotly/go/layout.html"><em>Layout</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../12-plotly/go/traces.html">Traces</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/io.html">IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/subplots.html">Subplots</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/beautifulsoup.html">BeautifulSoup</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Complementarios</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../appendix/appendix-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/IPython.html">IPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/jupyter.html">Jupyter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/pip.html">pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/conda.html"><em>conda</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/git.html">git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/shell.html">Shell</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/parts/09-scipy/clusters.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Clusters</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodulo-vq">Submódulo <em>vq</em></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-de-vq">Funciones de <em>vq</em></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-kmeans">Notas de <em>kmeans</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-vq">Notas de <em>vq</em></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodulo-hierarchy">Submódulo <em>hierarchy</em></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clases-de-hierarchy">Clases de <em>hierarchy</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-de-hierarchy">Funciones de <em>hierarchy</em></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-dendrogram">Notas de <em>dendrogram</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-fcluster">Notas de <em>fcluster</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-linkage">Notas de <em>linkage</em></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="clusters">
+<h1>Clusters<a class="headerlink" href="#clusters" title="Link to this heading">#</a></h1>
+<p>Este módulo implementa algoritmos para <em>clustering</em>. Esta dividido en dos submódulos.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Para más información visitar la <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/cluster.html">documentación</a> de <em>scipy</em>.</p>
+</div>
+<section id="submodulo-vq">
+<h2>Submódulo <em>vq</em><a class="headerlink" href="#submodulo-vq" title="Link to this heading">#</a></h2>
+<p>Este submódulo se enfoca en la cuantización vectorial (<em>vectorial quantization</em>), que es una técnica para asignar vectores a un conjunto finito de “centros” o “códigos” predefinidos. Es útil para agrupar datos en <em>clusters</em> basados en distancias. Algunos casos de usos son:</p>
+<ul class="simple">
+<li><p>Compresión de datos (por ejemplo, reducir colores en una imagen).</p></li>
+<li><p>Agrupamiento de datos en <em>clusters</em> (por ejemplo, segmentación de clientes).</p></li>
+<li><p>Análisis de patrones en datos multidimensionales.</p></li>
+</ul>
+<p>Para usar este submódulo es necesario importarlo</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar vq</span>
+<span class="kn">from</span> <span class="nn">scipy.clusters</span> <span class="kn">import</span> <span class="n">vq</span>
+
+<span class="c1"># Importar función específica</span>
+<span class="kn">from</span> <span class="nn">scipy.clusters.vq</span> <span class="kn">import</span> <span class="n">function_name</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><em>function_name</em> es el nombre de la función que se desea importar.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Para más información visitar la <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/cluster.vq.html#module-scipy.cluster.vq">documentación</a> de <em>scipy</em>.</p>
+</div>
+<br/>
+<section id="funciones-de-vq">
+<h3>Funciones de <em>vq</em><a class="headerlink" href="#funciones-de-vq" title="Link to this heading">#</a></h3>
+<p>Funciones implementadas en el submódulo <code class="docutils literal notranslate"><span class="pre">vq</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.vq.kmeans.html">kmeans</a>(obs, k_or_guess, …)</p></td>
+<td><p>Realiza <em>K-means</em> en un conjunto de vectores de observación que forman <em>K</em> clústeres. Genera los centros de los clusters.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.vq.kmeans2.html">kmeans2</a>(data, k, …)</p></td>
+<td><p>Clasifica un conjunto de observaciones en los grupos <em>K</em> <em>clusters</em> utilizando el algoritmo <em>K-Means</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.vq.vq.html">vq</a>(obs, code_book, …)</p></td>
+<td><p>Asigna códigos de un libro de códigos a observaciones, (asigna a las observaciones el cluster al que pertenece cada observación).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.vq.whiten.html">whiten</a>(obs, …)</p></td>
+<td><p>Normaliza un grupo de observaciones por función por <em>feature</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<section id="notas-de-kmeans">
+<h4>Notas de <em>kmeans</em><a class="headerlink" href="#notas-de-kmeans" title="Link to this heading">#</a></h4>
+<p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.vq.kmeans.html">kmeans</a>: Realiza <em>K-means</em> en un conjunto de vectores de observación que forman <em>K</em> clústeres. Genera los centros de los clusters.
+<code class="docutils literal notranslate"><span class="pre">scipy.cluster.vq.kmeans()</span></code>: Realiza un agrupamiento k-means en k grupos en un <code class="docutils literal notranslate"><span class="pre">set</span></code> de vector de observaciones. Genera los centros de los clusters.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+<span class="n">vq</span><span class="o">.</span><span class="n">kmeans</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span> <span class="n">k_or_guess</span><span class="p">,</span> <span class="nb">iter</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">thresh</span><span class="o">=</span><span class="mf">1e-05</span><span class="p">,</span> <span class="n">check_finite</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">rng</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Principales Parámetros:</strong></p>
+<ul>
+<li><p><strong>obs</strong> - <code class="docutils literal notranslate"><span class="pre">ndarray</span> </code>: Cada fila es un vector de observaciones. Las columnas son los feature. Debe de estar estandarizado con scipy.cluster.vq.whiten().</p></li>
+<li><p><strong>k_or_guess</strong> - <code class="docutils literal notranslate"><span class="pre">int</span></code> o <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>: Número de centroides a generar.</p></li>
+<li><p><strong>iter</strong> - <code class="docutils literal notranslate"><span class="pre">int</span></code>: Número de veces a correr el k-means.</p></li>
+<li><p><strong>thresh</strong> - <code class="docutils literal notranslate"><span class="pre">float</span></code>: Umbral para indicar que se detenga el modelo si en cada iteración el mejorarmiento en el modelo es menor a este argumento.</p></li>
+<li><p><strong>check_finite</strong> - <code class="docutils literal notranslate"><span class="pre">bool</span></code>: Para indicar que se revise que las matrices de entrada solo tienen elementos finitos.</p></li>
+<li><p><strong>seed</strong> - <code class="docutils literal notranslate"><span class="pre">None</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">np.random.generator</span></code>: Semilla para inicializar el generador de números aletorios.</p></li>
+</ul>
+</li>
+<li><p><strong>Retorna:</strong></p>
+<ul>
+<li><p><strong>codebook</strong> - <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>: Una matriz de <em>k</em> por <em>N</em> de <em>k</em> centroides.</p></li>
+<li><p><strong>distortion</strong> - <code class="docutils literal notranslate"><span class="pre">float</span></code>: La distancia euclidiana media (no cuadrada) entre las observaciones pasadas y los centroides generados.</p></li>
+</ul>
+</li>
+</ul>
+<p>Patrones útiles:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Graficar &quot;elbow plot&quot; para seleccionar número de clusters</span>
+<span class="n">distortions</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">num_clusters</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span> <span class="c1"># Número de clusters a probar</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">num_clusters</span><span class="p">:</span>
+    <span class="n">cluster_centers</span><span class="p">,</span> <span class="n">distortion</span> <span class="o">=</span> <span class="n">kmeans</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;x_scaled&#39;</span><span class="p">,</span> <span class="s1">&#39;y_scaled&#39;</span><span class="p">]],</span> <span class="n">i</span><span class="p">)</span>
+    <span class="n">distortions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">distortion</span><span class="p">)</span>
+
+<span class="n">elbow_plot</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;num_clusters&#39;</span><span class="p">:</span> <span class="n">num_clusters</span><span class="p">,</span> <span class="s1">&#39;distortions&#39;</span><span class="p">:</span> <span class="n">distortions</span><span class="p">})</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;num_clusters&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;distortions&#39;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">elbow_plot</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">num_clusters</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Uso</strong>:</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>En <em>clustering</em> es recomendado normalizar los datos antes de aplicar <code class="docutils literal notranslate"><span class="pre">kmeans()</span></code>, para ello se puede usar la función <code class="docutils literal notranslate"><span class="pre">whiten</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar función</span>
+<span class="kn">from</span> <span class="nn">scipy.cluster.vq</span> <span class="kn">import</span> <span class="n">whiten</span>
+
+<span class="c1"># Normalizar datos</span>
+<span class="n">obs</span> <span class="o">=</span> <span class="n">whiten</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar funciones</span>
+<span class="kn">from</span> <span class="nn">scipy.cluster.vq</span> <span class="kn">import</span> <span class="n">kmeans</span>
+
+<span class="c1"># Generar centroides</span>
+<span class="n">centroids</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">kmeans</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span> <span class="n">k_or_guess</span><span class="p">)</span>
+</pre></div>
+</div>
+<br/>
+</section>
+<section id="notas-de-vq">
+<h4>Notas de <em>vq</em><a class="headerlink" href="#notas-de-vq" title="Link to this heading">#</a></h4>
+<p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.vq.vq.html">vq</a>: Asigna códigos de un libro de códigos a observaciones, (asigna a las observaciones el cluster al que pertenece cada observación).</p>
+<p><code class="docutils literal notranslate"><span class="pre">scipy.cluster.vq.vq()</span></code>: Asigna códigos desde un libro de códigos a las observaciones. (Asigna a las observaciones el cluster al que pertenece cada observación).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+<span class="n">vq</span><span class="o">.</span><span class="n">vq</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span> <span class="n">code_book</span><span class="p">,</span> <span class="n">check_finite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Principales Parámetros:</strong></p>
+<ul>
+<li><p><strong>obs</strong> - <code class="docutils literal notranslate"><span class="pre">ndarray</span> </code>: Cada fila es un vector de observaciones. Las columnas son los feature. Debe de estar estandarizado con scipy.cluster.vq.whiten().</p></li>
+<li><p><strong>code_book</strong> - <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>: Centro de los clusters. Generalmente es un array creado con scipy.cluster.vq.kmeans().</p></li>
+<li><p><strong>check_finite</strong> - <code class="docutils literal notranslate"><span class="pre">bool</span></code>: Para indicar que se revise que las matrices de entrada solo tienen elementos finitos.</p></li>
+</ul>
+</li>
+<li><p><strong>Retorna:</strong></p>
+<ul>
+<li><p><strong>code</strong> - <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>: Una matriz de longitud <em>M</em> que contiene el índice del libro de códigos para cada observación.</p></li>
+<li><p><strong>dist</strong> - <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>: La distorsión (distancia) entre la observación y su código más cercano.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Uso</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar funciones</span>
+<span class="kn">from</span> <span class="nn">scipy.cluster.vq</span> <span class="kn">import</span> <span class="n">vq</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="c1"># Generar cluster para cada datapoint</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;cluster_labels&#39;</span><span class="p">],</span> <span class="n">_</span> <span class="o">=</span> <span class="n">vq</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">centroids</span><span class="p">)</span>
+
+<span class="c1"># Graficar datos y el cluster</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;x_coordinate&#39;</span><span class="p">,</span> 
+                <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y_coordinate&#39;</span><span class="p">,</span>
+                <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;cluster_labels&#39;</span><span class="p">,</span> 
+                <span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Previamente se tuvo que haber generado los centroides <em>centroids</em> con <code class="docutils literal notranslate"><span class="pre">kmeans()</span></code>.</p></li>
+<li><p>No necesariamente se tiene que generar una columna nueva, se puede asignar un objeto y hacer las manipulaciones correspondientes, pero esta es una forma muy fácil de indentificar el <em>cluster</em> de cada punto, además que es útil para visualizar los datos.</p></li>
+</ul>
+<br/>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="submodulo-hierarchy">
+<h2>Submódulo <em>hierarchy</em><a class="headerlink" href="#submodulo-hierarchy" title="Link to this heading">#</a></h2>
+<p>Este submódulo proporciona funciones para agrupación jerárquica y aglomerativa. Sus características incluyen generar grupos jerárquicos a partir de matrices de distancia, calcular estadísticas sobre grupos, y visualizar grupos con dendrogramas. Algunos casos de uso son:</p>
+<ul class="simple">
+<li><p>Visualización de relaciones jerárquicas en datos (por ejemplo, biología para agrupar genes o especies).</p></li>
+<li><p>Análisis de <em>clusters</em> en datos donde no se conoce el número óptimo de grupos.</p></li>
+<li><p>Segmentación de datos en grupos naturales basados en similitudes.</p></li>
+</ul>
+<p>Para usar este submódulo es necesario importarlo</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar hierarchy</span>
+<span class="kn">from</span> <span class="nn">scipy.clusters</span> <span class="kn">import</span> <span class="n">hierarchy</span>
+
+<span class="c1"># Importar función específica</span>
+<span class="kn">from</span> <span class="nn">scipy.clusters.hierarchy</span> <span class="kn">import</span> <span class="n">function_name</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><em>function_name</em> es el nombre de la función que se desea importar.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Para más información visitar la <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/cluster.hierarchy.html">documentación</a> de <em>scipy</em>.</p>
+</div>
+<br/>
+<section id="clases-de-hierarchy">
+<h3>Clases de <em>hierarchy</em><a class="headerlink" href="#clases-de-hierarchy" title="Link to this heading">#</a></h3>
+<p>Clases implementadas en el submódulo <code class="docutils literal notranslate"><span class="pre">hierarchy</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.ClusterNode.html">ClusterNode</a>(id, …)</p></td>
+<td><p>Una clase de nodo de árbol para representar un clúster.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.DisjointSet.html">DisjointSet</a>([elements])</p></td>
+<td><p>La estructura de datos <code class="docutils literal notranslate"><span class="pre">DisjointSet</span></code> para consultas de conectividad incremental.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="funciones-de-hierarchy">
+<span id="hierarchy-functions"></span><h3>Funciones de <em>hierarchy</em><a class="headerlink" href="#funciones-de-hierarchy" title="Link to this heading">#</a></h3>
+<p>Funciones implementadas en el submódulo <code class="docutils literal notranslate"><span class="pre">hierarchy</span></code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Alternativamente revisar <a class="reference internal" href="../07-sklearn/unsupervised/cluster.html#cluster-classes"><span class="std std-ref">Clases</span></a>, particularmente <code class="docutils literal notranslate"><span class="pre">KMeans()</span></code>.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Principales funciones</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.cut_tree.html">cut_tree</a>(Z, …)</p></td>
+<td><p>Dada una <em>linkage matrix</em> <em>z</em>, devuelve el <em>cut tree</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.dendrogram.html">dendrogram</a>(Z, …)</p></td>
+<td><p>Grafica la agrupación jerárquica como un dendrograma.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.linkage.html">linkage</a>(y, …)</p></td>
+<td><p>Realiza agrupación jerárquica/aglomerativa. Calcula las distancias entre los <em>clusters</em> en cada <em>stage</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.fcluster.html">fcluster</a>(Z, t, …)</p></td>
+<td><p>Forma grupos planos de la agrupación jerárquica definidas por la <em>linkage matrix</em> dada. Crea la estiquetas sobre a cual cluster pertenece cada dato.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Agrupación aglomerativa</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.average.html">average</a>(y)</p></td>
+<td><p>Realiza un <em>linkage average/UPGMA</em> en una <em>distance matrix</em> condensada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.centroid.html">centroid</a>(y)</p></td>
+<td><p>Realiza un <em>linkage centroid/UPGMC</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.complete.html">complete</a>(y)</p></td>
+<td><p>Realiza un <em>linkage complete/max/farthest</em> en una <em>distance matrix</em> condensada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.linkage.html">linkage</a>(y, …)</p></td>
+<td><p>Realizar agrupación jerárquica/aglomerativa. Calcula las distancias entre los <em>clusters</em> en cada <em>stage</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.median.html">median</a>(y)</p></td>
+<td><p>Realiza un <em>linkage median/WPGMC</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.single.html">single</a>(y)</p></td>
+<td><p>Realiza un <em>linkage single/min/nearest</em> en la <em>distance matrix</em> condensada <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.ward.html">ward</a>(y)</p></td>
+<td><p>Realiza el <em>linkage</em> de Ward en una <em>distance matrix</em> condensada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.weighted.html">weighted</a>(y)</p></td>
+<td><p>Realiza un <em>linkage weighted/WPGMA</em> en la <em>distance matrix</em> condensada.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Agrupación jeráquica a plana</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.fcluster.html">fcluster</a>(Z, t, …)</p></td>
+<td><p>Forma grupos planos de la agrupación jerárquica definidas por la <em>linkage matrix</em> dada. Crea la estiquetas sobre a cual cluster pertenece cada dato.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.fclusterdata.html">fclusterdata</a>(X, t, …)</p></td>
+<td><p>Datos de observación de clúster utilizando una métrica dada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.leaders.html">leaders</a>(Z, T)</p></td>
+<td><p>Retorna los nodos raíz en una agrupación jerárquica.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Estadísticas en jerarquías</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.cophenet.html">cophenet</a>(Z, …)</p></td>
+<td><p>Calcula las distancias cofenéticas entre cada observación en la agrupación jerárquica definida por el <em>linkage</em> <code class="docutils literal notranslate"><span class="pre">Z</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.from_mlab_linkage.html">from_mlab_linkage</a>(Z)</p></td>
+<td><p>Convierte una <em>linkage matrix</em> generada por MATLAB (TM) a una nueva <em>linkage matrix</em> compatible con este módulo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.inconsistent.html">inconsistent</a>(Z, …)</p></td>
+<td><p>Calcula las estadísticas de inconsistencia en una <em>linkage matrix</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.maxRstat.html">maxRstat</a>(Z, R, i)</p></td>
+<td><p>Retorna la estadística máxima para cada grupo de cluster <em>non-singleton</em> y sus hijos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.maxdists.html">maxdists</a>(Z)</p></td>
+<td><p>Retorna la distancia máxima entre cualquier clúster que no sea <em>singleton</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.maxinconsts.html">maxinconsts</a>(Z, R)</p></td>
+<td><p>Retorna el coeficiente de inconsistencia máxima para cada grupo no <em>singleton</em> y sus hijos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Jerarquías a árboles</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.cut_tree.html">cut_tree</a>(Z, …)</p></td>
+<td><p>Dada una <em>linkage matrix</em> <em>z</em>, devuelve el <em>cut tree</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.leaves_list.html">leaves_list</a>(Z)</p></td>
+<td><p>Retorna un <code class="docutils literal notranslate"><span class="pre">list</span></code> de ids de los nodos de hojas.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.optimal_leaf_ordering.html">optimal_leaf_ordering</a>(Z, y, …)</p></td>
+<td><p>Dada una <em>linkage matrix</em> <em>Z</em> y una distancia, reordena el <em>cut tree</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.to_tree.html">to_tree</a>(Z, …)</p></td>
+<td><p>Convierte una <em>linkage matrix</em> en un objeto de árbol fácil de usar.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Validaciones</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.correspond.html">correspond</a>(Z, Y)</p></td>
+<td><p>Verifica la correspondencia entre matrices de <em>linkage</em> y distancia condensada.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.is_isomorphic.html">is_isomorphic</a>(T1, T2)</p></td>
+<td><p>Determina si dos asignaciones de clúster diferentes son equivalentes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.is_monotonic.html">is_monotonic</a>(Z)</p></td>
+<td><p>Retorna <code class="docutils literal notranslate"><span class="pre">True</span></code> si el <em>linkage</em> aprobado es monotónico.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.is_valid_im.html">is_valid_im</a>(R, …)</p></td>
+<td><p>Retorna <code class="docutils literal notranslate"><span class="pre">True</span></code> si la matriz de inconsistencia pasada es válida.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.is_valid_linkage.html">is_valid_linkage</a>(Z, …)</p></td>
+<td><p>Verifica la validez de una <em>linkage matrix</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.num_obs_linkage.html">num_obs_linkage</a>(Z)</p></td>
+<td><p>Retorna el número de observaciones originales de la <em>linkage matrix</em> aprobada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Utilidades</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.set_link_color_palette.html">set_link_color_palette</a>(palette)</p></td>
+<td><p>Esteblece una <code class="docutils literal notranslate"><span class="pre">list</span></code> de códigos de color <em>matplotlib</em> para su uso en un dendrograma.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.to_mlab_linkage.html">to_mlab_linkage</a>(Z)</p></td>
+<td><p>Convierte una <em>linkage matrix</em> a una MATLAB (TM) compatible.</p></td>
+</tr>
+</tbody>
+</table>
+<section id="notas-de-dendrogram">
+<h4>Notas de <em>dendrogram</em><a class="headerlink" href="#notas-de-dendrogram" title="Link to this heading">#</a></h4>
+<p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.dendrogram.html">dendrogram</a>: Grafica el agrupamiento jerárquico. Es necesario usar <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+<span class="n">hierarchy</span><span class="o">.</span><span class="n">dendrogram</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">truncate_mode</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">color_threshold</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">get_leaves</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+                     <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">count_sort</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">distance_sort</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+                     <span class="n">show_leaf_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">no_plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">no_labels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">leaf_font_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+                     <span class="n">leaf_rotation</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">leaf_label_func</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">show_contracted</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+                     <span class="n">link_color_func</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">above_threshold_color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Parámetros:</strong></p>
+<ul>
+<li><p><strong>Z</strong> - <code class="docutils literal notranslate"><span class="pre">ndarray</span> </code>: Objeto retornado de la función <code class="docutils literal notranslate"><span class="pre">scipy.cluster.hierachy.linkage</span></code>.</p></li>
+</ul>
+</li>
+<li><p><strong>Retorna:</strong></p>
+<ul>
+<li><p><strong>R</strong>: <code class="docutils literal notranslate"><span class="pre">dict</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Uso</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar funciones</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">scipy.cluster.hierarchy</span> <span class="kn">import</span> <span class="n">linkage</span><span class="p">,</span> <span class="n">dendrogram</span>
+<span class="kn">from</span> <span class="nn">scipy.cluster.vq</span> <span class="kn">import</span> <span class="n">whiten</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="c1"># Cargar dataset</span>
+<span class="n">iris</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;iris&#39;</span><span class="p">)</span>
+
+<span class="c1"># Extraer features y labels</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">y</span><span class="o">=</span><span class="n">iris</span><span class="o">.</span><span class="n">species</span><span class="o">.</span><span class="n">values</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">21</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># Normalizar datos</span>
+<span class="n">X_scaled</span> <span class="o">=</span> <span class="n">whiten</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+
+<span class="c1"># Calcular mergings</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">linkage</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;complete&#39;</span><span class="p">)</span>
+
+<span class="c1"># Graficar dendrograma</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">dendrogram</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span>
+           <span class="n">labels</span><span class="o">=</span><span class="n">y_train</span><span class="p">,</span>
+           <span class="n">leaf_rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span>
+           <span class="n">leaf_font_size</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Ejemplo</strong>:</p>
+<p>En este ejemplo se crea un dendrograma del <em>dataset</em> <em>iris</em>. Notar que para una mejor visualización se tomó solo una muestra de los datos y además de normalizaron con la función <code class="docutils literal notranslate"><span class="pre">whiten()</span></code>.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>En este ejemplo se está usando un <em>dataset</em> que ya tiene etiquetas, por lo que de antemano ya se conoce la etiqueta real de cada <em>datapoint</em>, sin embargo en <em>unsupervised learning</em> se trabaja con datos no etiquetados. Este ejemplo es solo con fines ilustrativos de cómo usar la función, pero lo común es no conocer la etiqueta real de los datos.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar funciones</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">scipy.cluster.hierarchy</span> <span class="kn">import</span> <span class="n">linkage</span><span class="p">,</span> <span class="n">dendrogram</span>
+<span class="kn">from</span> <span class="nn">scipy.cluster.vq</span> <span class="kn">import</span> <span class="n">whiten</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="c1"># Cargar dataset</span>
+<span class="n">iris</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;iris&#39;</span><span class="p">)</span>
+
+<span class="c1"># Extraer features y labels</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">y</span><span class="o">=</span><span class="n">iris</span><span class="o">.</span><span class="n">species</span><span class="o">.</span><span class="n">values</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">21</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># Normalizar datos</span>
+<span class="n">X_scaled</span> <span class="o">=</span> <span class="n">whiten</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+
+<span class="c1"># Calcular mergings</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">linkage</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;complete&#39;</span><span class="p">)</span>
+
+<span class="c1"># Graficar dendrograma</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">dendrogram</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span>
+           <span class="n">labels</span><span class="o">=</span><span class="n">y_train</span><span class="p">,</span>
+           <span class="n">leaf_rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span>
+           <span class="n">leaf_font_size</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/3330c6c81577d07d2ffa9db52427336d6d954987aa57b5df1dc2e51cea8d180d.png" src="../../_images/3330c6c81577d07d2ffa9db52427336d6d954987aa57b5df1dc2e51cea8d180d.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>Notar que la gráfica se lee de abajo hacia arriba, empezando desde abajo cada punto es su propio <em>cluster</em> y eventualmente comienzan a agruparse para formar <em>clusters</em> más amplios.</p></li>
+<li><p>El eje <em>y</em> indica la distancias entre las agrupaciones de los <em>clusters</em>.</p></li>
+</ul>
+<br/>
+</section>
+<section id="notas-de-fcluster">
+<h4>Notas de <em>fcluster</em><a class="headerlink" href="#notas-de-fcluster" title="Link to this heading">#</a></h4>
+<p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.fcluster.html">fcluster</a>: Crea la estiquetas sobre a cuál <em>cluster</em> pertenece cada dato desde el agrupamiento jeráquico definido en la matriz <em>linkage</em>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+<span class="n">hierarchy</span><span class="o">.</span><span class="n">fcluster</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">criterion</span><span class="o">=</span><span class="s1">&#39;inconsistent&#39;</span><span class="p">,</span> <span class="n">depth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">R</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">monocrit</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Parámetros:</strong></p>
+<ul>
+<li><p><strong>Z</strong> - <code class="docutils literal notranslate"><span class="pre">ndarray</span> </code>: Objeto retornado por <code class="docutils literal notranslate"><span class="pre">scipy.cluster.hierachy.linkage</span></code>.</p></li>
+<li><p><strong>t</strong> - <code class="docutils literal notranslate"><span class="pre">scalar</span></code>: .</p>
+<ul>
+<li><p>Si <em>criterion</em> = {‘inconsistent’, ‘distance’, ‘monocrit’}: Un <em>threshold</em> a aplicar cuando se formen los <em>clusters</em> planos.</p></li>
+<li><p>Si <em>criterion</em> = {‘maxclust’, ‘max_monocrit’}: Número máximo de <em>clusters</em>.</p></li>
+</ul>
+</li>
+<li><p><strong>criterion</strong> - {‘inconsistent’, ‘distance’, ‘maxclust’, ‘monocrit’, ‘maxclust_monocrit’}: Criterio a usar para formar los <em>clusters</em> planos.</p></li>
+<li><p><strong>depth</strong> - <code class="docutils literal notranslate"><span class="pre">int</span></code>: Profundidad máxima para calcular la inconsistencia.</p></li>
+<li><p><strong>R</strong> - <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>: Matriz de inconsistencias a usar cundo <code class="docutils literal notranslate"><span class="pre">criterion='inconsistent'</span></code>.</p></li>
+</ul>
+</li>
+<li><p><strong>Retorna:</strong></p>
+<ul>
+<li><p><strong>f_cluster</strong>: <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Uso</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar funciones</span>
+<span class="kn">from</span> <span class="nn">scipy.cluster.hierarchy</span> <span class="kn">import</span> <span class="n">fcluster</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="c1"># Generar cluster para cada datapoint</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;cluster_labels&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fcluster</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">criterion</span><span class="p">)</span>
+
+<span class="c1"># Graficar datos y el cluster</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;x_coordinate&#39;</span><span class="p">,</span> 
+                <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y_coordinate&#39;</span><span class="p">,</span>
+                <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;cluster_labels&#39;</span><span class="p">,</span> 
+                <span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Previamente se tuvo que haber generado la matriz <em>Z</em> con <code class="docutils literal notranslate"><span class="pre">linkage()</span></code>.</p></li>
+<li><p>No necesariamente se tiene que generar una columna nueva, se puede asignar un objeto y hacer las manipulaciones correspondientes, pero esta es una forma muy fácil de indentificar el <em>cluster</em> de cada punto, además que es útil para visualizar los datos.</p></li>
+</ul>
+<p><strong>Ejemplo</strong>:</p>
+<p>En este ejemplo se crean 3 <em>clusters</em> y se gráfica un diagrama de dispersión que indica el <em>cluster</em> asignado y su etiqueta real.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>En este ejemplo se está usando un <em>dataset</em> que ya tiene etiquetas, por lo que de antemano ya se conoce la etiqueta real de cada <em>datapoint</em>, sin embargo en <em>unsupervised learning</em> se trabaja con datos no etiquetados. Este ejemplo es solo con fines ilustrativos de cómo usar la función, pero lo común es no conocer la etiqueta real de los datos.</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importaciones</span>
+<span class="kn">from</span> <span class="nn">scipy.cluster.hierarchy</span> <span class="kn">import</span> <span class="n">fcluster</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Asignar etiquetas a cada punto</span>
+<span class="n">cluster_labels</span> <span class="o">=</span> <span class="n">fcluster</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">criterion</span><span class="o">=</span><span class="s1">&#39;maxclust&#39;</span><span class="p">)</span>
+
+<span class="c1"># Añadir el cluster al dataset</span>
+<span class="n">iris</span><span class="p">[</span><span class="s1">&#39;cluster&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cluster_labels</span>
+
+<span class="c1"># Crear diagrama de dispersión</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;sepal_length&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;petal_length&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;cluster&#39;</span><span class="p">,</span> 
+                <span class="n">style</span><span class="o">=</span><span class="s1">&#39;species&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">iris</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s1">&#39;Dark2&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">70</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Clusters vs Actual Species&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Opcionalmente crear crosstab de cluster vs species</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">iris</span><span class="p">[</span><span class="s1">&#39;cluster&#39;</span><span class="p">],</span> <span class="n">iris</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]))</span>
+</pre></div>
+</div>
+<br/>
+</section>
+<section id="notas-de-linkage">
+<h4>Notas de <em>linkage</em><a class="headerlink" href="#notas-de-linkage" title="Link to this heading">#</a></h4>
+<p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.linkage.html">linkage</a>: Realiza una agrupamiento jerárquico o aglomerativo. Calcula las distancias entre los <em>clusters</em> en cada <em>stage</em> y va agrupando los <em>clusers</em> con base a esas distancias entre los puntos.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Esta función puede ser computacionalmente costosa en <em>datasets</em> grandes. En ese caso se recomienda usar <code class="docutils literal notranslate"><span class="pre">kmeans()</span></code>.</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+<span class="n">hierarchy</span><span class="o">.</span><span class="n">linkage</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;single&#39;</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;euclidean&#39;</span><span class="p">,</span> <span class="n">optimal_ordering</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Parámetros:</strong></p>
+<ul>
+<li><p><strong>y</strong> - <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> o <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>: Matriz de distancia condensada. Alternativamente una matriz de <em>m</em> vectores de observaciones en <em>n</em> dimensiones, <em>shape (m, n)</em>. Debe de contener únicamente valores numéricos y finitos.</p></li>
+<li><p><strong>method</strong> - <code class="docutils literal notranslate"><span class="pre">str</span></code>: Algoritmo de <em>linkage</em> a usar.</p>
+<ul>
+<li><p>‘single’: Calcula la proximidad de los <em>clusters</em> basado en los dos objetos más cercanos.</p></li>
+<li><p>‘complete’: Calcula la proximidad de los <em>clusters</em> basado en los dos objetos más alejados.</p></li>
+<li><p>‘mean’: Calcula la proximidad de los <em>clusters</em> basado en la media aritmética de todos los objetos.</p></li>
+<li><p>‘centroid: Calcula la proximidad de los <em>clusters</em> basado en la media geométrica de todos los objetos.</p></li>
+<li><p>‘median’: Utiliza la media de los objetos cluster.</p></li>
+<li><p>‘ward’: Calcula la proximidad de los <em>clusters</em> usando la diferencia entre la suma de los cuadrados de los <em>joint clusters</em> menos la suma de los cuadrados individuales.</p></li>
+</ul>
+</li>
+<li><p><strong>metric</strong> - <code class="docutils literal notranslate"><span class="pre">str</span></code> o <code class="docutils literal notranslate"><span class="pre">function</span></code>: Métrica de distancia a usar en caso de de y sea una colección de vectores de observaciones.</p></li>
+<li><p><strong>optimal_ordering</strong> - <code class="docutils literal notranslate"><span class="pre">bool</span></code>: La matriz linkage será reordenada de manera que distancia entre ‘hojas’ consecutivas sea mínima.</p></li>
+</ul>
+</li>
+<li><p><strong>Retorna:</strong></p>
+<ul>
+<li><p><strong>Z</strong>: <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Uso</strong>:</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Es recomendado que <em>y</em> esté normalizado de alguna manera. Una opción es usar la función <code class="docutils literal notranslate"><span class="pre">scipy.cluster.vq.whiten()</span></code>, pero se podrían usar otras funciones de normalización.</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar función</span>
+<span class="kn">from</span> <span class="nn">scipy.cluster.hierarchy</span> <span class="kn">import</span> <span class="n">linkage</span>
+
+<span class="c1"># Generar matriz Z</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">linkage</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">method</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./parts/09-scipy"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="scipy-index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Scipy</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="derivacion-integracion.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Derivación e Integración</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodulo-vq">Submódulo <em>vq</em></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-de-vq">Funciones de <em>vq</em></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-kmeans">Notas de <em>kmeans</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-vq">Notas de <em>vq</em></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodulo-hierarchy">Submódulo <em>hierarchy</em></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clases-de-hierarchy">Clases de <em>hierarchy</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-de-hierarchy">Funciones de <em>hierarchy</em></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-dendrogram">Notas de <em>dendrogram</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-fcluster">Notas de <em>fcluster</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-linkage">Notas de <em>linkage</em></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nebok
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

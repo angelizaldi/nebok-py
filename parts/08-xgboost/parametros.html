@@ -1,0 +1,1099 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Parámetros &#8212; Manual de Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'parts/08-xgboost/parametros';</script>
+    <link rel="icon" href="../../_static/nebok-favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/nebok-logo.png" class="logo__image only-light" alt="Manual de Python - Home"/>
+    <script>document.write(`<img src="../../_static/nebok-logo.png" class="logo__image only-dark" alt="Manual de Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Manual de C
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Built-in</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01-built-in/built-in-index.html">Python Estándar</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/cli.html"><em>Command Line Interface</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/ayuda.html">Obtener ayuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/comentarios.html">Comentarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/tipos-datos.html">Tipos de Datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/variables-constantes.html">Variables y Constantes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/operadores-palabras.html">Operadores y palabras reservadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/entrada-salida.html">Impresión y solicitud de datos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/tipos-index.html">Tipos Built-In</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/none-bool-numericos.html"><em>None</em>, <em>bool</em> y Numéricos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/str.html">str</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/lists.html">list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/tuples.html">Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/sets.html">Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/dicts.html">dict</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/if-else.html">If … Else</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/for-loop.html">For Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/do-while.html">Do While</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/udf.html">Funciones (UDF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/exceptions.html">Excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/context-managers.html">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/io.html">Lectura y escritura de archivos (IO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/modulos.html">Paquetes y Módulos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/avanzado-index.html">Temas avanzados</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/decorators.html">Decorators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/iterators.html">Iterators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/generators.html">Generators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/oop.html">Programación orientada a objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/func-built-in.html">Funciones built-in</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-modulos/modulos-index.html">Módulos built-in</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/csv.html">CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/datetime.html">Datetime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/itertools.html">Itertools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/json.html">JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/math.html">Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os.html">Os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os-path.html">Os.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/pickle.html">Pickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/random.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/regex.html">Regex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/statistics.html">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/urllib-request.html">urllib.request</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otras librerías</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-numpy/numpy-index.html">Numpy</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/arrays.html">Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../03-numpy/funciones-index.html">Funciones</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/ufuncs.html">Ufuncs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/buscar-contar-ordenar-unicos.html">Buscar, contar, ordenar y valores únicos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/creacion-arrays.html">Creación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/estadisticas.html">Estadísticas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/indices.html">Índices e iteración</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/informacion.html">Información</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/lectura-escritura.html">Lectura y escritura de datos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/manipulacion-arrays.html">Manipulación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/matematicas-numericas.html">Matemáticas y numéricas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/operadores.html">Operadores</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/algebra-lineal.html">Módulo linalg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/cadenas.html">Modulo char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/random.html">Módulo random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/patrones-numpy.html">Patrones útiles</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04-pandas/pandas-index.html">Pandas</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/index.html">Index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/series.html">Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/dataframe.html">DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/escalares-arrays.html">Escalares y Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../04-pandas/otras-clases.html">Otras clases</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/groupby.html">GroupBy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/expanding-rolling-window.html"><em>Expanding, Rolling</em> y <em>Window</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/resampler.html">Resampler</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/funciones.html">Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/patrones-pandas.html">Patrones útiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05-matplotlib/matplotlib-index.html">Matplotlib</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/pyplot.html">Pyplot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/figure.html">Figure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/axes.html">Axes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/otros.html">Otras Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06-seaborn/seaborn-index.html">Seaborn</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06-seaborn/funciones-clases.html">Funciones y Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-seaborn/objects-interface.html">Interface por objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../07-sklearn/sklearn-index.html">Scikit Learn</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/supervised/supervised-index.html">Aprendizaje supervisado</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/ensamble.html">Ensamble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/linear_model.html">Linear model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/naive_bayes.html">Naive bayes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/neighbors.html">Neighbors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/svm.html">SVM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/tree.html">Tree</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/unsupervised/unsupervised-index.html">Aprendizaje no supervisado</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/unsupervised/cluster.html">Cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/unsupervised/decomposition.html">Decomposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/unsupervised/mixture.html">Mixture</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/transformations/tranformations-index.html">Transformaciones</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/feature_extraction.html">Feature Extraction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/impute.html">Impute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/manifold.html">Manifold</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/preprocessing.html">Preprocessing</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/evaluation/evaluation-index.html">Evaluación y selección del modelo</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/dummy.html">Dummy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/feature_selection.html">Feature Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/metrics.html">Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/model_selection.html">Model Selection</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/pipelines-and-compose/pipeline-compose-index.html">Pipelines y Modelos Compuestos</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/pipelines-and-compose/compose.html">Compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/pipelines-and-compose/pipeline.html">Pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../07-sklearn/datasets.html">Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-sklearn/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="xgboost-index.html">XGBoost</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="core-data-structure.html">Core Data Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learning-api.html">Learning API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scikit-learn-api.html">Scikit-Learn API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotting-api.html">Plotting API</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../09-scipy/scipy-index.html">Scipy</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/clusters.html">Clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/derivacion-integracion.html">Derivación e Integración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/linalg.html">Linear Algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/sparse.html"><em>Sparse</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/stats.html">Stats</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../10-statsmodels/statsmodels-index.html">Statsmodels</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/statsmodels-api.html">API Principal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/statsmodels-tsa-api.html">API de Series de Tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/statsmodels-formula-api.html">API de Fórmulas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/graphics.html">Gráficos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/otras-clases.html">Otras clases</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../11-bokeh/bokeh-index.html">Bokeh</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/io.html">IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/layouts.html"><em>Layouts</em></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../11-bokeh/models/models-index.html"><em>Models</em></a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/annotations.html">Anotaciones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/axes.html">Ejes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/callbacks.html">Callbacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/formatters.html"><em>Formatters</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/glyphs.html"><em>Glyphs</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/sources.html"><em>Sources</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/tools.html"><em>Tools</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/widgets.html"><em>Widgets</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/plotting.html">Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/transform.html">transform</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../12-plotly/plotly-index.html">Plotly</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/express.html"><em>Express</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/figure-factory.html"><em>Figure Factory</em></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../12-plotly/go/go-index.html"><em>Graph Objects</em></a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../12-plotly/go/figure.html"><em>Figure</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../12-plotly/go/layout.html"><em>Layout</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../12-plotly/go/traces.html">Traces</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/io.html">IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/subplots.html">Subplots</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/beautifulsoup.html">BeautifulSoup</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Complementarios</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../appendix/appendix-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/IPython.html">IPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/jupyter.html">Jupyter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/pip.html">pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/conda.html"><em>conda</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/git.html">git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/shell.html">Shell</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/parts/08-xgboost/parametros.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Parámetros</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametros-generales">Parámetros generales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametros-del-booster">Parámetros del <em>Booster</em></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tree-booster"><em>Tree Booster</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#darttree-booster"><em>DartTree Booster</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lineartree-booster"><em>LinearTree Booster</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tarea-de-aprendizaje">Tarea de aprendizaje</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivo">Objetivo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metrica-de-evaluacion">Métrica de evaluación</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="parametros">
+<h1>Parámetros<a class="headerlink" href="#parametros" title="Link to this heading">#</a></h1>
+<p>En esta sección se enlistan parámetros de <em>XGBoost</em>.</p>
+<section id="parametros-generales">
+<h2>Parámetros generales<a class="headerlink" href="#parametros-generales" title="Link to this heading">#</a></h2>
+<p>Los parámetros generales en <em>XGBoost</em> configuran aspectos fundamentales del modelo y su ejecución. Estos parámetros permiten ajustar el comportamiento del algoritmo para adaptarse mejor a diferentes entornos y necesidades.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Para más información visitar la <a class="reference external" href="https://xgboost.readthedocs.io/en/stable/parameter.html#general-parameters">documentación</a> de <em>XGBoost</em>.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Parámetro</p></th>
+<th class="head text-left"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">booster</span></code> - [default= <code class="docutils literal notranslate"><span class="pre">gbtree</span></code>]</p></td>
+<td class="text-left"><p>Define el tipo de modelo a usar. Puede ser <code class="docutils literal notranslate"><span class="pre">gbtree</span></code>, <code class="docutils literal notranslate"><span class="pre">gblinear</span></code> o <code class="docutils literal notranslate"><span class="pre">dart</span></code>; <code class="docutils literal notranslate"><span class="pre">gbtree</span></code> y <code class="docutils literal notranslate"><span class="pre">dart</span></code> utilizan modelos basados en árboles, mientras que <code class="docutils literal notranslate"><span class="pre">gblinear</span></code> utiliza funciones lineales.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">device</span></code> - [default= <code class="docutils literal notranslate"><span class="pre">cpu</span></code>]</p></td>
+<td class="text-left"><p>Especifica el hardware en el que se ejecutará el modelo. <br/> • <code class="docutils literal notranslate"><span class="pre">cpu</span></code>: Utiliza la CPU. <br/> • <code class="docutils literal notranslate"><span class="pre">cuda</span></code>: Utiliza una GPU (dispositivo CUDA). <br/> • <code class="docutils literal notranslate"><span class="pre">cuda</span> <span class="pre">&lt;ordinal&gt;</span></code>: <em>&lt;ordinal&gt;</em> es un número entero que especifica el ordinal de la GPU (qué GPU desea usar si se tiene más de un dispositivo). <br/> • <code class="docutils literal notranslate"><span class="pre">gpu</span></code>: Selección predeterminada de dispositivos GPU de la lista de dispositivos disponibles y compatibles. <br/> • <code class="docutils literal notranslate"><span class="pre">gpu</span></code>: <ordinal>: Selección predeterminada de dispositivos GPU de la lista de dispositivos disponibles y compatibles.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">verbosity</span></code> - [default=<code class="docutils literal notranslate"><span class="pre">1</span></code>]</p></td>
+<td class="text-left"><p>Verbosidad de la impresión de mensajes. Los valores válidos son 0 (silencio), 1 (advertencia), 2 (información), 3 (depuración).</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">validate_parameters</span></code> - [default to <code class="docutils literal notranslate"><span class="pre">True</span></code>]</p></td>
+<td class="text-left"><p>Cuando se establece en <code class="docutils literal notranslate"><span class="pre">True</span></code>, XGBoost realizará la validación de los parámetros de entrada para comprobar si se utiliza un parámetro o no.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">nthread</span></code> - [default al número máximo de subprocesos disponibles]</p></td>
+<td class="text-left"><p>Número de subprocesos paralelos utilizados para ejecutar XGBoost.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">disable_default_eval_metric</span></code> - [default= <code class="docutils literal notranslate"><span class="pre">False</span></code>]</p></td>
+<td class="text-left"><p><em>Flag</em> para deshabilitar la métrica predeterminada. Establézcalo en 1 o <code class="docutils literal notranslate"><span class="pre">True</span></code> para deshabilitarlo.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="parametros-del-booster">
+<span id="xgb-parameters"></span><h2>Parámetros del <em>Booster</em><a class="headerlink" href="#parametros-del-booster" title="Link to this heading">#</a></h2>
+<section id="tree-booster">
+<h3><em>Tree Booster</em><a class="headerlink" href="#tree-booster" title="Link to this heading">#</a></h3>
+<p>Parámetros cuando <code class="docutils literal notranslate"><span class="pre">booster=gbtree</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Para más información visitar la <a class="reference external" href="https://xgboost.readthedocs.io/en/stable/parameter.html#parameters-for-tree-booster">documentación</a> de <em>XGBoost</em>.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Parámetro</p></th>
+<th class="head text-left"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">eta</span></code> - [default=<code class="docutils literal notranslate"><span class="pre">0.3</span></code>, range: <code class="docutils literal notranslate"><span class="pre">[0,1]</span></code>, alias: <code class="docutils literal notranslate"><span class="pre">learning_rate</span></code>]</p></td>
+<td class="text-left"><p>Contracción del tamaño del paso utilizada en la actualización para evitar el sobreajuste.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">gamma</span></code> - [default=<code class="docutils literal notranslate"><span class="pre">0</span></code>, range: <code class="docutils literal notranslate"><span class="pre">[0,∞]</span></code>, alias: <code class="docutils literal notranslate"><span class="pre">min_split_loss</span></code>]</p></td>
+<td class="text-left"><p>Reducción mínima de la pérdida requerida para hacer una partición adicional en un nodo hoja del árbol. Cuanto mayor sea <code class="docutils literal notranslate"><span class="pre">gamma</span></code>, más conservador será el algoritmo.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">max_depth</span></code> - [default=<code class="docutils literal notranslate"><span class="pre">6</span></code>, range: <code class="docutils literal notranslate"><span class="pre">[0,∞]</span></code>, type=<code class="docutils literal notranslate"><span class="pre">int32</span></code>]</p></td>
+<td class="text-left"><p>Profundidad máxima de un árbol. El aumento de este valor hará que el modelo sea más complejo y más propenso a sobreajustarse. <code class="docutils literal notranslate"><span class="pre">0</span></code> indica que no hay límite de profundidad.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">min_child_weight</span></code> - [default=<code class="docutils literal notranslate"><span class="pre">1</span></code>, range: <code class="docutils literal notranslate"><span class="pre">[0,∞]</span></code>]</p></td>
+<td class="text-left"><p>Suma mínima del peso de la instancia (hessiana) necesaria en un elemento hijo.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">max_delta_step</span></code> - [default=<code class="docutils literal notranslate"><span class="pre">0</span></code>, range: <code class="docutils literal notranslate"><span class="pre">[0,∞]</span></code>]</p></td>
+<td class="text-left"><p>Paso delta máximo que se permite que sea la salida de cada hoja. Si el valor se establece en 0, significa que no hay ninguna restricción. Si se establece en un valor positivo, puede ayudar a que el paso de actualización sea más conservador.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">subsample</span></code> - [default=<code class="docutils literal notranslate"><span class="pre">1</span></code>, range: <code class="docutils literal notranslate"><span class="pre">(0,1]</span></code>]</p></td>
+<td class="text-left"><p>Proporción de submuestras de las instancias de entrenamiento. Establecerlo en 0,5 significa que XGBoost muestrearía aleatoriamente la mitad de los datos de entrenamiento antes de entrenar el árbol. Y esto evitará el sobreajuste.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">sampling_method</span></code> - [default= <code class="docutils literal notranslate"><span class="pre">uniform</span></code>]</p></td>
+<td class="text-left"><p>Método que se va a utilizar para muestrear las instancias de entrenamiento. <br/> • <code class="docutils literal notranslate"><span class="pre">uniform</span></code>: Cada instancia de entrenamiento tiene la misma probabilidad de ser seleccionada. Por lo general, establecer la <code class="docutils literal notranslate"><span class="pre">subsample</span> <span class="pre">&gt;</span> <span class="pre">=</span> <span class="pre">0.5</span></code> para obtener buenos resultados. <br/> • <code class="docutils literal notranslate"><span class="pre">gradient_based</span></code>: La probabilidad de selección para cada instancia de entrenamiento es proporcional al valor absoluto regularizado de los gradientes</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">colsample_bytree</span></code> - [default=<code class="docutils literal notranslate"><span class="pre">1</span></code>, range: <code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">1]</span></code>]</p></td>
+<td class="text-left"><p>Es la proporción de submuestras de las columnas al construir cada árbol. El submuestreo se produce una vez por cada árbol construido.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">ccolsample_bylevel</span></code> - [default=<code class="docutils literal notranslate"><span class="pre">1</span></code>, range: <code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">1]</span></code>]</p></td>
+<td class="text-left"><p>Es la proporción de submuestras de columnas para cada nivel. El submuestreo se produce una vez por cada nuevo nivel de profundidad alcanzado en un árbol.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">colsample_bynode</span></code> - [default=<code class="docutils literal notranslate"><span class="pre">1</span></code>, range: <code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">1]</span></code>]</p></td>
+<td class="text-left"><p>Es la proporción de submuestras de columnas para cada nodo (división). El submuestreo se produce una vez cada vez que se evalúa una nueva división.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">lambda</span></code> - [default=<code class="docutils literal notranslate"><span class="pre">1</span></code>, range: <code class="docutils literal notranslate"><span class="pre">[0,∞]</span></code>, alias: <code class="docutils literal notranslate"><span class="pre">reg_lambda</span></code>]</p></td>
+<td class="text-left"><p>Término L2 de regularización de pesos. El aumento de este valor hará que el modelo sea más conservador.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">alpha</span></code> - [default=<code class="docutils literal notranslate"><span class="pre">0</span></code>, range: <code class="docutils literal notranslate"><span class="pre">[0,∞]</span></code>, alias: <code class="docutils literal notranslate"><span class="pre">reg_alpha</span></code>]</p></td>
+<td class="text-left"><p>Término L1 de regularización de pesos. El aumento de este valor hará que el modelo sea más conservador.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">tree_method</span></code> - [default= <code class="docutils literal notranslate"><span class="pre">auto</span></code>, type=<code class="docutils literal notranslate"><span class="pre">string</span></code>]</p></td>
+<td class="text-left"><p>El algoritmo de construcción de árbol utilizado en XGBoost. <br/> • <code class="docutils literal notranslate"><span class="pre">auto</span></code>: Igual que el método del árbol <code class="docutils literal notranslate"><span class="pre">hist</span></code>. <br/> • <code class="docutils literal notranslate"><span class="pre">exact</span></code>: Algoritmo <em>greedy</em> exacto. Enumera todos los candidatos divididos. <br/> • <code class="docutils literal notranslate"><span class="pre">approx</span></code>: Algoritmo expansivo aproximado utilizando boceto de cuantiles e histograma de gradiente. <br/> • <code class="docutils literal notranslate"><span class="pre">hist</span></code>: Histograma más rápido, optimizado, algoritmo <em>greedy</em> aproximado.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">scale_pos_weight</span></code> - [default=<code class="docutils literal notranslate"><span class="pre">1</span></code>]</p></td>
+<td class="text-left"><p>Controla el equilibrio de pesos positivos y negativos, útil para clases desequilibradas.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">updater</span></code></p></td>
+<td class="text-left"><p>Una cadena separada por comas que define la secuencia de actualizadores de árboles que se van a ejecutar, lo que proporciona una forma modular de construir y modificar los árboles. <br/> • <code class="docutils literal notranslate"><span class="pre">grow_colmaker</span></code>: Construcción de árboles basada en columnas no distribuidas. <br/> • <code class="docutils literal notranslate"><span class="pre">grow_histmaker</span></code>: Construcción de árboles distribuidos con división de datos basada en filas basada en una propuesta global de conteo de histogramas. <br/> • <code class="docutils literal notranslate"><span class="pre">grow_quantile_histmaker</span></code>: Árbol de crecimiento usando histograma cuantificado. <br/> • <code class="docutils literal notranslate"><span class="pre">grow_gpu_hist</span></code>: Habilitado cuando <code class="docutils literal notranslate"><span class="pre">tree_method</span></code> se establece en <code class="docutils literal notranslate"><span class="pre">hist</span></code> junto con <code class="docutils literal notranslate"><span class="pre">device=cuda</span></code>. <br/> • <code class="docutils literal notranslate"><span class="pre">grow_gpu_approx</span></code>: Habilitado cuando <code class="docutils literal notranslate"><span class="pre">tree_method</span></code> se establece en <code class="docutils literal notranslate"><span class="pre">approx</span></code> junto con <code class="docutils literal notranslate"><span class="pre">device=cuda</span></code>. <br/> • <code class="docutils literal notranslate"><span class="pre">sync</span></code>: Sincroniza los árboles en todos los nodos distribuidos. <br/> • <code class="docutils literal notranslate"><span class="pre">refresh</span></code>: Actualiza las estadísticas del árbol y/o los valores de las hojas en función de los datos actuales. Tenga en cuenta que no se realiza ningún submuestreo aleatorio de filas de datos. <br/> • <code class="docutils literal notranslate"><span class="pre">prune</span></code>: Poda las divisiones donde la pérdida &lt; <em>min_split_loss</em> (o gamma) y los nodos que tienen una profundidad superior a <code class="docutils literal notranslate"><span class="pre">max_depth</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">refresh_leaf</span></code> - [default=<code class="docutils literal notranslate"><span class="pre">1</span></code>]</p></td>
+<td class="text-left"><p>Este es un parámetro del actualizador de <code class="docutils literal notranslate"><span class="pre">refresh</span></code>. Cuando este indicador es 1, se actualizan las hojas de los árboles y las estadísticas de los nodos de los árboles. Cuando es 0, solo se actualizan las estadísticas del nodo.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">process_type</span></code> - [default= <code class="docutils literal notranslate"><span class="pre">default</span></code>]</p></td>
+<td class="text-left"><p>Un tipo de proceso de impulso que se va a ejecutar. <br/> • <code class="docutils literal notranslate"><span class="pre">default</span></code>: El proceso normal de impulso que crea nuevos árboles. <br/> • <code class="docutils literal notranslate"><span class="pre">update</span></code>: Comienza a partir de un modelo existente y solo actualiza sus árboles. En cada iteración de <em>boosting</em>, se toma un árbol del modelo inicial, se ejecuta una secuencia especificada de actualizadores para ese árbol y se agrega un árbol modificado al nuevo modelo. El nuevo modelo tendría el mismo número de árboles o uno menor, dependiendo del número de iteraciones de impulso realizadas.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">grow_policy</span></code> - [default= <code class="docutils literal notranslate"><span class="pre">depthwise</span></code>]</p></td>
+<td class="text-left"><p>Controla la forma en que se agregan nuevos nodos al árbol. Actualmente solo se admite si <code class="docutils literal notranslate"><span class="pre">tree_method=hist</span></code> o <code class="docutils literal notranslate"><span class="pre">tree_method=approx</span></code> . <br/> • <code class="docutils literal notranslate"><span class="pre">depthwise</span></code>: Dividir en los nodos más cercanos a la raíz. <br/> • <code class="docutils literal notranslate"><span class="pre">lossguide</span></code>: División en los nodos con mayor cambio de pérdida.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">max_leaves</span></code> - [default=<code class="docutils literal notranslate"><span class="pre">0</span></code>, type=<code class="docutils literal notranslate"><span class="pre">int32</span></code>]</p></td>
+<td class="text-left"><p>Número máximo de nodos que se van a agregar. No se utiliza por el método del árbol <code class="docutils literal notranslate"><span class="pre">exact</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">max_bin</span></code> - [default=<code class="docutils literal notranslate"><span class="pre">256</span></code>, type=<code class="docutils literal notranslate"><span class="pre">int32</span></code>]</p></td>
+<td class="text-left"><p>Solo se usa si <code class="docutils literal notranslate"><span class="pre">tree_method</span></code> está establecido en <code class="docutils literal notranslate"><span class="pre">hist</span></code> o <code class="docutils literal notranslate"><span class="pre">approx</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">num_parallel_tree</span></code> - [default=<code class="docutils literal notranslate"><span class="pre">1</span></code>]</p></td>
+<td class="text-left"><p>Número de árboles paralelos construidos durante cada iteración. Esta opción se utiliza para admitir el bosque aleatorio potenciado.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">monotone_constraints</span></code></p></td>
+<td class="text-left"><p>Restricción de la monotonicidad variable.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">interaction_constraints</span></code></p></td>
+<td class="text-left"><p>Restricciones para la interacción que representan interacciones permitidas.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">multi_strategy</span></code> - [default = <code class="docutils literal notranslate"><span class="pre">one_output_per_tree</span></code>]</p></td>
+<td class="text-left"><p>La estrategia utilizada para entrenar modelos de varios objetivos, incluida la regresión de varios objetivos y la clasificación de varias clases. <br/> • <code class="docutils literal notranslate"><span class="pre">one_output_per_tree</span></code>: Un modelo para cada objetivo. <br/> • <code class="docutils literal notranslate"><span class="pre">multi_output_tree</span></code>: Utilize árboles de varios objetivos.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="darttree-booster">
+<h3><em>DartTree Booster</em><a class="headerlink" href="#darttree-booster" title="Link to this heading">#</a></h3>
+<p>Parámetros cuando <code class="docutils literal notranslate"><span class="pre">booster=dart</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Para más información visitar la <a class="reference external" href="https://xgboost.readthedocs.io/en/stable/parameter.html#additional-parameters-for-dart-booster-booster-dart">documentación</a> de <em>XGBoost</em>.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Parámetro</p></th>
+<th class="head text-left"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">sample_type</span></code> - [default= <code class="docutils literal notranslate"><span class="pre">uniform</span></code>]</p></td>
+<td class="text-left"><p>Tipo de algoritmo de muestreo. <br/> • <code class="docutils literal notranslate"><span class="pre">uniform</span></code>: Los árboles eliminados se seleccionan de manera uniforme. <br/> • <code class="docutils literal notranslate"><span class="pre">weighted</span></code>: Los árboles eliminados se seleccionan en proporción al peso.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">normalize_type</span></code> - [default= <code class="docutils literal notranslate"><span class="pre">tree</span></code>]</p></td>
+<td class="text-left"><p>Tipo de algoritmo de normalización. <br/> • <code class="docutils literal notranslate"><span class="pre">tree</span></code>: Los árboles nuevos tienen el mismo peso que cada uno de los árboles caídos. El peso de los árboles nuevos es <em>1 / (k + learning_rate)</em>. <br/> • <code class="docutils literal notranslate"><span class="pre">forest</span></code>: Los árboles nuevos tienen el mismo peso que la suma de los árboles eliminados (bosque). El peso de los árboles nuevos es <em>1 / (1 + learning_rate)</em>.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">rate_drop</span></code> - [default=<code class="docutils literal notranslate"><span class="pre">0.0</span></code>, range: <code class="docutils literal notranslate"><span class="pre">[0.0,</span> <span class="pre">1.0]</span></code>]</p></td>
+<td class="text-left"><p>Tasa de deserción (una fracción de los árboles anteriores que eliminan durante la deserción).</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">one_drop</span></code> - [default=<code class="docutils literal notranslate"><span class="pre">0</span></code>]</p></td>
+<td class="text-left"><p>Cuando esta marca está habilitada, siempre se elimina al menos un árbol durante la eliminación (permite la eliminación de binomio más uno o épsilon del documento DART original).</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">skip_drop</span></code> - [default=<code class="docutils literal notranslate"><span class="pre">0.0</span></code>, range: <code class="docutils literal notranslate"><span class="pre">[0.0,</span> <span class="pre">1.0]</span></code>]</p></td>
+<td class="text-left"><p>Probabilidad de omitir el procedimiento de eliminación durante una iteración de <em>boosting</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="lineartree-booster">
+<h3><em>LinearTree Booster</em><a class="headerlink" href="#lineartree-booster" title="Link to this heading">#</a></h3>
+<p>Parámetros cuando <code class="docutils literal notranslate"><span class="pre">booster=gblinear</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Para más información visitar la <a class="reference external" href="https://xgboost.readthedocs.io/en/stable/parameter.html#parameters-for-linear-booster-booster-gblinear">documentación</a> de <em>XGBoost</em>.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Parámetro</p></th>
+<th class="head text-left"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">lambda</span></code> - [default=<code class="docutils literal notranslate"><span class="pre">0</span></code>, alias: <code class="docutils literal notranslate"><span class="pre">reg_lambda</span></code>]</p></td>
+<td class="text-left"><p>Término L2 de regularización de pesos. El aumento de este valor hará que el modelo sea más conservador. Normalizado al número de ejemplos de entrenamiento.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">alpha</span></code> - [default=<code class="docutils literal notranslate"><span class="pre">0</span></code>, alias: <code class="docutils literal notranslate"><span class="pre">reg_alpha</span></code>]</p></td>
+<td class="text-left"><p>Término L1 de regularización de pesos. El aumento de este valor hará que el modelo sea más conservador. Normalizado al número de ejemplos de entrenamiento.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">eta</span></code> - [default=<code class="docutils literal notranslate"><span class="pre">0.5</span></code>, alias: <code class="docutils literal notranslate"><span class="pre">learning_rate</span></code>, range: <code class="docutils literal notranslate"><span class="pre">[0,1]</span></code>]</p></td>
+<td class="text-left"><p>Contracción del tamaño del paso utilizada en la actualización para evitar el sobreajuste.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">updater</span></code> - [default= <code class="docutils literal notranslate"><span class="pre">shotgun</span></code>]</p></td>
+<td class="text-left"><p>Elección del algoritmo para adaptarse al modelo lineal. <br/> • <code class="docutils literal notranslate"><span class="pre">shotgun</span></code>: Algoritmo de descenso de coordenadas paralelas basado en el algoritmo de <em>shotgun</em>. Utiliza el paralelismo ‘<em>hogwild</em>’ y, por lo tanto, produce una solución no determinista en cada ejecución. <br/> • <code class="docutils literal notranslate"><span class="pre">coord_descent</span></code>: Algoritmo de descenso de coordenadas ordinario. También multiproceso, pero aún así produce una solución determinista. Cuando el parámetro del dispositivo se establece en cuda o gpu, se usaría una variante de GPU.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">feature_selector</span></code> - [default= <code class="docutils literal notranslate"><span class="pre">cyclic</span></code>]</p></td>
+<td class="text-left"><p>Selección de características y método de ordenado. <br/> • <code class="docutils literal notranslate"><span class="pre">cyclic</span></code>: Selección determinista mediante el ciclo de una en una de las características. <br/> • <code class="docutils literal notranslate"><span class="pre">shuffle</span></code>: Similar al cíclico, pero con un barajado aleatorio de funciones antes de cada actualización. <br/> • <code class="docutils literal notranslate"><span class="pre">random</span></code>: Un selector de coordenadas aleatorio (con reemplazo). <br/> • <code class="docutils literal notranslate"><span class="pre">greedy</span></code>: Selecciona la coordenada con la mayor magnitud de gradiente. Tiene una complejidad O(num_feature^2). Es totalmente determinista. <br/> • <code class="docutils literal notranslate"><span class="pre">thrifty</span></code>: Selector de características ahorrativo y aproximadamente <em>greedy</em>. Antes de las actualizaciones cíclicas, los reordenamientos de las características en magnitud descendente de sus cambios de peso univariados. Esta operación es multiproceso y es una aproximación de complejidad lineal de la selección expansiva cuadrática.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">top_k</span></code> - [default=<code class="docutils literal notranslate"><span class="pre">0</span></code>]</p></td>
+<td class="text-left"><p>El número de características principales que se van a seleccionar en el selector de características <em>greedy</em> y <em><code class="docutils literal notranslate"><span class="pre">thrifty</span></code></em>. El valor de <em>0</em> significa usar todas las características.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+<section id="tarea-de-aprendizaje">
+<h2>Tarea de aprendizaje<a class="headerlink" href="#tarea-de-aprendizaje" title="Link to this heading">#</a></h2>
+<p>Especifican la tarea de aprendizaje y el objetivo de aprendizaje correspondiente.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Para más información visitar la <a class="reference external" href="https://xgboost.readthedocs.io/en/stable/parameter.html#learning-task-parameters">documentación</a> de <em>XGBoost</em>.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Parámetro</p></th>
+<th class="head text-left"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">objective</span></code> - [default=<code class="docutils literal notranslate"><span class="pre">reg:squarederror</span></code>]</p></td>
+<td class="text-left"><p>Define la función de pérdida que el modelo optimiza. Ver <a class="reference internal" href="#parameters-objective"><span class="std std-ref">Objetivo</span></a>.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">base_score</span></code></p></td>
+<td class="text-left"><p>La puntuación de predicción inicial de todas las instancias, sesgo global. El parámetro se estima automáticamente para los objetivos seleccionados antes del entrenamiento. Para deshabilitar la estimación, especifique un argumento de número real.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">eval_metric</span></code> - [default de acuerdo a <code class="docutils literal notranslate"><span class="pre">objective</span></code>]</p></td>
+<td class="text-left"><p>Métricas de evaluación para los datos de validación, se asignará una métrica predeterminada de acuerdo con el objetivo (<em>rmse</em> para la regresión y <em>logloss</em> para la clasificación, <em>precisión promedio media</em> para <code class="docutils literal notranslate"><span class="pre">rank:map</span></code>, etc.). Ver <a class="reference internal" href="#parameters-eval-metric"><span class="std std-ref">Métrica de evaluación</span></a>.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">seed</span></code> - [default=<code class="docutils literal notranslate"><span class="pre">0</span></code>]</p></td>
+<td class="text-left"><p>Semilla de número aleatorio.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">seed_per_iteration</span></code> - [default= <code class="docutils literal notranslate"><span class="pre">false</span></code>]</p></td>
+<td class="text-left"><p>Semilla PRNG determnísticamente a través del número de iterador.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<section id="objetivo">
+<span id="parameters-objective"></span><h3>Objetivo<a class="headerlink" href="#objetivo" title="Link to this heading">#</a></h3>
+<p>Define la función de pérdida que el modelo optimiza. La función de pérdida cuantifica la diferencia entre un valor predicho y su verdadero valor. El objetivo de los modelos es minimizar la función de pérdida.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Objective</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">reg:squarederror</span></code></p></td>
+<td><p>Regresión con error cuadrático medio (MSE), estándar para tareas de regresión.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">reg:squaredlogerror</span></code></p></td>
+<td><p>Regresión con error cuadrático logarítmico (MSLE), útil cuando los errores relativos importan más que los absolutos.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">reg:logistic</span></code></p></td>
+<td><p>Regresión logística para clasificación binaria, devuelve valores entre 0 y 1.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">reg:pseudohubererror</span></code></p></td>
+<td><p>Regresión robusta basada en la función pseudo-Huber, tolerante a valores atípicos.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">reg:absoluteerror</span></code></p></td>
+<td><p>Regresión con error absoluto medio (MAE), menos sensible a outliers.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">reg:quantileerror</span></code></p></td>
+<td><p>Regresión cuantílica, permite predecir cuantiles específicos como la mediana.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">reg:gamma</span></code></p></td>
+<td><p>Regresión con función de pérdida basada en la distribución gamma, útil para datos sesgados positivamente.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">reg:tweedie</span></code></p></td>
+<td><p>Regresión Tweedie, útil para modelos que combinan propiedades de Poisson y Gamma (como seguros o energía).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">binary:logistic</span></code></p></td>
+<td><p>Clasificación binaria con salida probabilística (entre 0 y 1).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">binary:logitraw</span></code></p></td>
+<td><p>Clasificación binaria con salida cruda del logit (antes de aplicar sigmoid).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">binary:hinge</span></code></p></td>
+<td><p>Clasificación binaria con función de pérdida tipo SVM (hinge loss), útil para márgenes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">count:poisson</span></code></p></td>
+<td><p>Regresión para conteo de eventos usando distribución de Poisson.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">survival:cox</span></code></p></td>
+<td><p>Modelo de supervivencia basado en la función de riesgo proporcional de Cox.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">survival:aft</span></code></p></td>
+<td><p>Modelo de supervivencia <em>Accelerated Failure Time</em> (AFT), útil para modelar tiempos de vida.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">multi:softmax</span></code></p></td>
+<td><p>Clasificación multiclase con salida de clase predicha (índice entero). Requiere <code class="docutils literal notranslate"><span class="pre">num_class</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">multi:softprob</span></code></p></td>
+<td><p>Clasificación multiclase con salida de probabilidades por clase. Requiere <code class="docutils literal notranslate"><span class="pre">num_class</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">rank:ndcg</span></code></p></td>
+<td><p>Optimización de ranking basada en la métrica NDCG (<em>Normalized Discounted Cumulative Gain</em>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">rank:map</span></code></p></td>
+<td><p>Optimización de ranking según la métrica MAP (<em>Mean Average Precision</em>).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">rank:pairwise</span></code></p></td>
+<td><p>Ranking basado en comparación por pares, útil para tareas de ordenamiento.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="metrica-de-evaluacion">
+<span id="parameters-eval-metric"></span><h3>Métrica de evaluación<a class="headerlink" href="#metrica-de-evaluacion" title="Link to this heading">#</a></h3>
+<p>Especifica la métrica de evaluación utilizada para medir el rendimiento del modelo, que varía según el objetivo definido.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Métrica</p></th>
+<th class="head"><p>Descripción</p></th>
+<th class="head"><p>Tipo de problema</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">auc</span></code></p></td>
+<td><p>Área bajo la curva ROC (AUC), métrica estándar para clasificación binaria.</p></td>
+<td><p>Clasificación binaria</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">aucpr</span></code></p></td>
+<td><p>Área bajo la curva de <em>precisión-recall</em>, útil cuando hay desbalance de clases.</p></td>
+<td><p>Clasificación binaria</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">error</span></code></p></td>
+<td><p>Tasa de error (<em>error rate</em>), proporción de predicciones incorrectas en clasificación.</p></td>
+<td><p>Clasificación binaria</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">error&#64;t</span></code></p></td>
+<td><p>Tasa de error considerando el top <code class="docutils literal notranslate"><span class="pre">t</span></code> de clases con mayor probabilidad.</p></td>
+<td><p>Clasificación binaria</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">logloss</span></code></p></td>
+<td><p>Log loss o pérdida logística, métrica estándar para clasificación binaria probabilística.</p></td>
+<td><p>Clasificación binaria</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">merror</span></code></p></td>
+<td><p>Tasa de error en clasificación multiclase (multiclass error).</p></td>
+<td><p>Clasificación multiclase</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mlogloss</span></code></p></td>
+<td><p>Pérdida logística para clasificación multiclase (<em>multiclass log loss</em>).</p></td>
+<td><p>Clasificación multiclase</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">map</span></code></p></td>
+<td><p>MAP (<em>Mean Average Precision</em>), otra métrica clave en ranking y búsqueda.</p></td>
+<td><p>Ranking</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">map&#64;n</span></code>, <code class="docutils literal notranslate"><span class="pre">ndcg&#64;n</span></code>, <code class="docutils literal notranslate"><span class="pre">pre&#64;n</span></code></p></td>
+<td><p>Versiones truncadas de <code class="docutils literal notranslate"><span class="pre">map</span></code>, <code class="docutils literal notranslate"><span class="pre">ndcg</span></code> y precisión, evaluadas hasta la posición <code class="docutils literal notranslate"><span class="pre">n</span></code> del ranking.</p></td>
+<td><p>Ranking</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">map-</span></code>, <code class="docutils literal notranslate"><span class="pre">ndcg-</span></code>, <code class="docutils literal notranslate"><span class="pre">map&#64;n-</span></code>, <code class="docutils literal notranslate"><span class="pre">ndcg&#64;n-</span></code></p></td>
+<td><p>Variantes de ranking que penalizan errores por debajo del ideal.</p></td>
+<td><p>Ranking</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ndcg</span></code></p></td>
+<td><p>NDCG (<em>Normalized Discounted Cumulative Gain</em>), métrica común en tareas de ranking.</p></td>
+<td><p>Ranking</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">gamma-deviance</span></code></p></td>
+<td><p>Desviación gamma, métrica basada en la función de pérdida gamma.</p></td>
+<td><p>Regresión</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">gamma-nloglik</span></code></p></td>
+<td><p>Log-verosimilitud negativa para regresión basada en distribución gamma.</p></td>
+<td><p>Regresión</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">mae</span></code></p></td>
+<td><p>Error absoluto medio (<em>Mean Absolute Error</em>), menos sensible a valores atípicos que <code class="docutils literal notranslate"><span class="pre">rmse</span></code>.</p></td>
+<td><p>Regresión</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mape</span></code></p></td>
+<td><p>Error porcentual absoluto medio (<em>Mean Absolute Percentage Error</em>), expresa el error como porcentaje.</p></td>
+<td><p>Regresión</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">mphe</span></code></p></td>
+<td><p>Error porcentual absoluto medio negativo (<em>Mean Pseudo Huber Error</em>), más robusto frente a outliers.</p></td>
+<td><p>Regresión</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">poisson-nloglik</span></code></p></td>
+<td><p>Log-verosimilitud negativa para regresión de conteos usando distribución de Poisson.</p></td>
+<td><p>Regresión</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">rmse</span></code></p></td>
+<td><p>Raíz del error cuadrático medio (<em>Root Mean Squared Error</em>), métrica estándar para regresión.</p></td>
+<td><p>Regresión</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">rmsle</span></code></p></td>
+<td><p>Raíz del error cuadrático logarítmico (<em>Root Mean Squared Log Error</em>), útil cuando importan los errores relativos.</p></td>
+<td><p>Regresión</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">tweedie-nloglik</span></code></p></td>
+<td><p>Log-verosimilitud negativa para regresión Tweedie.</p></td>
+<td><p>Regresión</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">aft-nloglik</span></code></p></td>
+<td><p>Log-verosimilitud negativa para modelos AFT en supervivencia.</p></td>
+<td><p>Supervivencia</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cox-nloglik</span></code></p></td>
+<td><p>Log-verosimilitud negativa para el modelo de Cox en análisis de supervivencia.</p></td>
+<td><p>Supervivencia</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">interval-regression-accuracy</span></code></p></td>
+<td><p>Exactitud de regresión por intervalo, evalúa si la predicción cae dentro del intervalo objetivo.</p></td>
+<td><p>Supervivencia</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./parts/08-xgboost"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametros-generales">Parámetros generales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametros-del-booster">Parámetros del <em>Booster</em></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tree-booster"><em>Tree Booster</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#darttree-booster"><em>DartTree Booster</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lineartree-booster"><em>LinearTree Booster</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tarea-de-aprendizaje">Tarea de aprendizaje</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivo">Objetivo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metrica-de-evaluacion">Métrica de evaluación</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nebok
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

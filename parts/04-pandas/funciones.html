@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -181,13 +181,14 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    Manual de Python para Data Science
+                    Manual de C
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Built-in</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../01-built-in/built-in-index.html">Python Estándar</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/cli.html"><em>Command Line Interface</em></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../01-built-in/ayuda.html">Obtener ayuda</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../01-built-in/comentarios.html">Comentarios</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../01-built-in/tipos-datos.html">Tipos de Datos</a></li>
@@ -293,12 +294,110 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../06-seaborn/objects-interface.html">Interface por objetos</a></li>
 </ul>
 </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../07-sklearn/sklearn-index.html">Scikit Learn</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/supervised/supervised-index.html">Aprendizaje supervisado</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/ensamble.html">Ensamble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/linear_model.html">Linear model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/naive_bayes.html">Naive bayes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/neighbors.html">Neighbors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/svm.html">SVM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/tree.html">Tree</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otros</span></p>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/unsupervised/unsupervised-index.html">Aprendizaje no supervisado</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/unsupervised/cluster.html">Cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/unsupervised/decomposition.html">Decomposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/unsupervised/mixture.html">Mixture</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/transformations/tranformations-index.html">Transformaciones</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/feature_extraction.html">Feature Extraction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/impute.html">Impute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/manifold.html">Manifold</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/preprocessing.html">Preprocessing</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/evaluation/evaluation-index.html">Evaluación y selección del modelo</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/dummy.html">Dummy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/feature_selection.html">Feature Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/metrics.html">Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/model_selection.html">Model Selection</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/pipelines-and-compose/pipeline-compose-index.html">Pipelines y Modelos Compuestos</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/pipelines-and-compose/compose.html">Compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/pipelines-and-compose/pipeline.html">Pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../07-sklearn/datasets.html">Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-sklearn/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-xgboost/xgboost-index.html">XGBoost</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08-xgboost/core-data-structure.html">Core Data Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-xgboost/learning-api.html">Learning API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-xgboost/scikit-learn-api.html">Scikit-Learn API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-xgboost/plotting-api.html">Plotting API</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../09-scipy/scipy-index.html">Scipy</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/clusters.html">Clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/derivacion-integracion.html">Derivación e Integración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/linalg.html">Linear Algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/sparse.html"><em>Sparse</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/stats.html">Stats</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../10-statsmodels/statsmodels-index.html">Statsmodels</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/statsmodels-api.html">API Principal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/statsmodels-tsa-api.html">API de Series de Tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/statsmodels-formula-api.html">API de Fórmulas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/graphics.html">Gráficos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/otras-clases.html">Otras clases</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../11-bokeh/bokeh-index.html">Bokeh</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/io.html">IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/layouts.html"><em>Layouts</em></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../11-bokeh/models/models-index.html"><em>Models</em></a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/annotations.html">Anotaciones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/axes.html">Ejes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/callbacks.html">Callbacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/formatters.html"><em>Formatters</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/glyphs.html"><em>Glyphs</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/sources.html"><em>Sources</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/tools.html"><em>Tools</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/widgets.html"><em>Widgets</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/plotting.html">Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/transform.html">transform</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../12-plotly/plotly-index.html">Plotly</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/express.html"><em>Express</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/figure-factory.html"><em>Figure Factory</em></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../12-plotly/go/go-index.html"><em>Graph Objects</em></a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../12-plotly/go/figure.html"><em>Figure</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../12-plotly/go/layout.html"><em>Layout</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../12-plotly/go/traces.html">Traces</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/io.html">IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/subplots.html">Subplots</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/beautifulsoup.html">BeautifulSoup</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Complementarios</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../08-otros/otros-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../08-otros/IPython.html">IPython</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../08-otros/beautifulsoup.html">Web Scraping</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../appendix/appendix-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/IPython.html">IPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/jupyter.html">Jupyter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/pip.html">pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/conda.html"><em>conda</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/git.html">git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/shell.html">Shell</a></li>
 </ul>
 </li>
 </ul>
@@ -544,7 +643,11 @@ document.write(`
 </section>
 <section id="fechas-y-tiempo">
 <h3>Fechas y tiempo<a class="headerlink" href="#fechas-y-tiempo" title="Link to this heading">#</a></h3>
-<p>Funciones que generar o convierten objetos a tipos <code class="docutils literal notranslate"><span class="pre">datetime-like</span></code>.</p>
+<p>Funciones que generan o convierten objetos a tipos <code class="docutils literal notranslate"><span class="pre">datetime-like</span></code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Revisar <a class="reference internal" href="anexos.html"><span class="doc">Anexos</span></a> para ver posibles valores del parámetro <em>freq</em>.</p>
+</div>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Función</p></th>
@@ -568,7 +671,7 @@ document.write(`
 <td><p>Retorna un <code class="docutils literal notranslate"><span class="pre">TimedeltaIndex</span></code> de frecuencia fija con el día como valor predeterminado.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.to_datetime.html">to_datetime</a>(arg[, errors, dayfirst, …])</p></td>
-<td><p>Convierte el argumento a <code class="docutils literal notranslate"><span class="pre">datetime64</span></code>. Es posible indicar el formato en el está las fechas usando <a class="reference internal" href="../02-modulos/datetime.html#codigos-formatos-fechas"><span class="std std-ref">Códigos de fechas</span></a>.</p></td>
+<td><p>Convierte el argumento a <code class="docutils literal notranslate"><span class="pre">datetime64</span></code>. Es posible indicar el formato en el están las fechas usando <a class="reference internal" href="../02-modulos/datetime.html#codigos-formatos-fechas"><span class="std std-ref">Códigos de fechas</span></a>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.to_timedelta.html">to_timedelta</a>(arg[, unit, errors])</p></td>
 <td><p>Convierte el argumento a <code class="docutils literal notranslate"><span class="pre">timedelta64</span></code>.</p></td>
@@ -704,7 +807,7 @@ document.write(`
 <br/>
 </section>
 <section id="manipulacion-de-datos">
-<h2>Manipulación De Datos<a class="headerlink" href="#manipulacion-de-datos" title="Link to this heading">#</a></h2>
+<span id="pd-function-data-manipulation"></span><h2>Manipulación De Datos<a class="headerlink" href="#manipulacion-de-datos" title="Link to this heading">#</a></h2>
 <section id="categorizacion">
 <h3>Categorización<a class="headerlink" href="#categorizacion" title="Link to this heading">#</a></h3>
 <table class="table">
@@ -747,7 +850,7 @@ document.write(`
 <td><p>Crea una columna categórica a partie de un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> con <em>dummy variables</em>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.get_dummies.html">get_dummies</a>(data[, prefix, prefix_sep, …])</p></td>
-<td><p>Convierte variables categóricas en <em>dummy variables</em>. Básicamentecada valor único de una columna categórica la convierte en una nueva columna, cuyos valores contendrán unos y ceros indicando si cada fila tenía ese valor categórico.</p></td>
+<td><p>Convierte variables categóricas en <em>dummy variables</em>. Básicamente cada valor único de una columna categórica la convierte en una nueva columna, cuyos valores contendrán unos y ceros indicando si cada fila tenía ese valor categórico.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.unique.html">unique</a>(values)</p></td>
 <td><p>Retorna los valores únicos basados ​​en una tabla <em>hash</em>.</p></td>
@@ -1049,7 +1152,7 @@ employee_id
 <li><p>Si es un diccionario es para especificar valores <code class="docutils literal notranslate"><span class="pre">NaN</span></code> para cada columna, los <em>keys</em> son los nombres (<code class="docutils literal notranslate"><span class="pre">str</span></code>) de las columnas y los <em>values</em> (<code class="docutils literal notranslate"><span class="pre">list</span></code> de <code class="docutils literal notranslate"><span class="pre">str</span></code>) los valores a considerar <em>NA</em>.</p></li>
 </ul>
 </li>
-<li><p><strong>parse_dates</strong> - <code class="docutils literal notranslate"><span class="pre">bool</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code> de <code class="docutils literal notranslate"><span class="pre">int</span></code> o <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code> de <code class="docutils literal notranslate"><span class="pre">list</span></code> o <code class="docutils literal notranslate"><span class="pre">dict</span></code>: Es para indicar si alguna columna se debe de importar en formato de fecha. La columna debe de estar en algún formato estándar, si no es el caso, importa el archivo y despues convertir la columna con <code class="docutils literal notranslate"><span class="pre">to_datetime()</span></code> de <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. También revisa el argumento <em>dayfirst</em>.</p>
+<li><p><strong>parse_dates</strong> - <code class="docutils literal notranslate"><span class="pre">bool</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code> de <code class="docutils literal notranslate"><span class="pre">int</span></code> o <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code> de <code class="docutils literal notranslate"><span class="pre">list</span></code> o <code class="docutils literal notranslate"><span class="pre">dict</span></code>: Es para indicar si alguna columna se debe de importar en formato de fecha. La columna debe de estar en algún formato estándar, si no es el caso, importa el archivo y despues convertir la columna con <code class="docutils literal notranslate"><span class="pre">to_datetime()</span></code> de <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. También revisa el argumento <em>dayfirst</em> y <em>date_format</em>.</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">bool</span></code>: Si es <code class="docutils literal notranslate"><span class="pre">True</span></code> entonces el índice se convertirá en fecha.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">list</span></code> de <code class="docutils literal notranslate"><span class="pre">int</span></code> o <code class="docutils literal notranslate"><span class="pre">str</span></code>: Si es una lista de enteros o de cadenas entonces se pasan los índices o los nombres de las columnas que se deben de convertir en fecha.</p></li>
@@ -1058,6 +1161,7 @@ employee_id
 </ul>
 </li>
 <li><p><strong>dayfirst</strong> - <code class="docutils literal notranslate"><span class="pre">bool</span></code>: Es para indicar que las columnas de fechas están en formato <em>DD/MM/YYYY</em>.</p></li>
+<li><p><strong>date_format</strong> - <code class="docutils literal notranslate"><span class="pre">str</span></code> o <code class="docutils literal notranslate"><span class="pre">dict</span></code>: Es el formato en el que están las fechas, se puede indicar el formato de múltiples columnas con un diccionario. Ver <a class="reference internal" href="../02-modulos/datetime.html#codigos-formatos-fechas"><span class="std std-ref">Códigos de fechas</span></a>.</p></li>
 <li><p><strong>chunksize</strong> - <code class="docutils literal notranslate"><span class="pre">int</span></code>: Para indicar el número de filas a retornar en un objeto <code class="docutils literal notranslate"><span class="pre">TextFileReader</span></code> para iteración. Sirve para importar el contenido del archivo por partes en lugar de todo completo.</p></li>
 <li><p><strong>thousands</strong> - <code class="docutils literal notranslate"><span class="pre">str</span></code>: Para indicar el separados de miles, como <em>‘,’</em> o <em>‘.’</em>.</p></li>
 <li><p><strong>on_bad_lines</strong> - {‘error’, ‘warn’, ‘skip’}: Específica qué se debe se hacer en caso de que exista una línea ‘corrupta’.</p>
@@ -1595,17 +1699,17 @@ En este ejemplo se lee un archivo de 1,000 líneas por iteración, en cada itera
 </div>
 <ul class="simple">
 <li><p>Se puede omitir la constraseña simplemente asignado <code class="docutils literal notranslate"><span class="pre">password_db=&quot;&quot;</span></code>.</p></li>
-<li><p>En Postgre también se podría usar: <code class="docutils literal notranslate"><span class="pre">&quot;postgresql+psycopg2://{user_db}:{password_db}&#64;{url_db}/{name_db}&quot;</span></code></p>
+<li><p>En Postgre también se podría usar: <code class="docutils literal notranslate"><span class="pre">f&quot;postgresql+psycopg2://{user_db}:{password_db}&#64;{url_db}/{name_db}&quot;</span></code></p>
 <ul>
 <li><p>Es necesario tener instalado <code class="docutils literal notranslate"><span class="pre">psycopg2</span></code>.</p></li>
 </ul>
 </li>
-<li><p>En MySQL: <code class="docutils literal notranslate"><span class="pre">&quot;mysql+pymysql://{user_db}:{password_db}&#64;{url_db}/{name_db}&quot;</span></code></p>
+<li><p>En MySQL: <code class="docutils literal notranslate"><span class="pre">f&quot;mysql+pymysql://{user_db}:{password_db}&#64;{url_db}/{name_db}&quot;</span></code></p>
 <ul>
 <li><p>Es necesario tener instalado <code class="docutils literal notranslate"><span class="pre">pymysql</span></code>.</p></li>
 </ul>
 </li>
-<li><p>En SQLite: <code class="docutils literal notranslate"><span class="pre">&quot;sqlite:///{name_db}&quot;</span></code></p>
+<li><p>En SQLite: <code class="docutils literal notranslate"><span class="pre">f&quot;sqlite:///{name_db}&quot;</span></code></p>
 <ul>
 <li><p><em>name_db</em> debe tener extensión <em>.db</em> y debe estar en el directorio activo: <code class="docutils literal notranslate"><span class="pre">name_db=&quot;your_database.db&quot;</span></code></p></li>
 <li><p>Si no está en el directorio activo se debe de indicar la ruta al archivo: <code class="docutils literal notranslate"><span class="pre">name_db=&quot;path/to/your_database.db&quot;</span></code></p></li>
@@ -1827,7 +1931,7 @@ By Nebok
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2025.
       <br/>
     
   </p>

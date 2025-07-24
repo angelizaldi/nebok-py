@@ -1,6 +1,6 @@
 # Obtener ayuda
 
-Para obtener ayuda sobre algún objeto usar la función `help()` o desde {doc}`../08-otros/IPython` también se puede usar el operador `?`. 
+Para obtener ayuda sobre algún objeto usar la función `help()` o desde {doc}`../appendix/IPython` también se puede usar el operador `?`. 
 
 Se puede consultar ayuda sobre diversos objetos y elementos:
 - Paquetes y Módulos.
@@ -9,30 +9,30 @@ Se puede consultar ayuda sobre diversos objetos y elementos:
 - Métodos y atributos de clases.
 - Instancias de clases.
 - Métodos y atributos de instancias de clases.
-- Keywords, como por ejemplo `'if'`, `'for'`, `'def'`, etc. Notar que se deben de poner como una cadena.
+- _Keywords_, como por ejemplo `'if'`, `'for'`, `'def'`, etc. Notar que se deben de poner como una cadena.
 - Excepciones.
 - Documentación interactiva: Existe ayuda para determinados temas (notar que se deben de poner como una cadena) enlistando los distintos elementos del tema, que a su vez se puede obtener más información sobre cada uno de los elementos ya sea llamando de nuevo a la función o si se está en una sesión interactiva escribiendo directamente el elemento (ver tip):
     - _'keywords'_: Enlistará las palabras reservadas en Python.
-    - _'topics'_: Enlitará algunos temas de interés como _Assertion_, _Looping_, _Types_, entre muchos otros.
+    - _'topics'_: Enlistará algunos temas de interés como _Assertion_, _Looping_, _Types_, entre muchos otros.
     - _'modules'_: Enlistará los módulos disponibles en la sesión actual.
     - _'builtins'_: Enlistará y mostrará información sobre funciones, exepciones y otros objetos integrados en Python.
     - _'types'_: Enlistará y mostrará información sobre los tipos de datos de Python.
  
 :::{tip}
-Si se usa en la consola la función sin argumentos se iniciará una sesión interactiva de la ayuda de Python, que permitirá explorar los divertos temas anteriormente enlistados de una manera más interactiva y sin necesidad de tener que estar escribiendo `help()` en cada ocasión.
+Si se usa en la consola la función sin argumentos se iniciará una sesión interactiva de la ayuda de Python, que permitirá explorar los diversos temas anteriormente enlistados de una manera más interactiva y sin necesidad de tener que estar escribiendo `help()` en cada ocasión.
 
-<code> help() <code/> <br/>
+<code> help() </code> </br>
 - Para salir de la sesión escribir `quit`.
 :::
 
-*+Ejemplos**:
+**Ejemplos**:
 ```python
 # Importar algunos paquetes y módulos
 import math
 import pandas as pd
 from numpy import random
 
-# Obtener ayuda de un paquete importada
+# Obtener ayuda de un paquete importado
 help(math) # En IPython ?math
 
 # Obtener ayuda de de un paquete importado con un alias
@@ -58,10 +58,10 @@ help(zip) # ?zip
 help(math.cos) # ?math.cos
 
 # Ayuda sobre una palabra reservada
-help('for') # ?math.cos
+help('for')
 
 # Ayuda sobre los tipos de datos
-help('types') # ?math.cos
+help('types')
 ```
 
 

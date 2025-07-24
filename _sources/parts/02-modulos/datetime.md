@@ -1051,8 +1051,6 @@ Este método solo es válido con objetos `datetime.datetime`.
 dt.astimezone(tz=ZoneInfo("America/Mexico_City "))
 ```
 
-
-
 <br/>
 
 ---

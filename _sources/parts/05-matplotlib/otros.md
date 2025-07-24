@@ -4,7 +4,7 @@ En esta sección se presentan los atributos de otras clases comúnes, que aunque
 
 ## Artist
 
-Es la clase base para todos los elementos visuales en `Matplotlib`.
+[Artist](https://matplotlib.org/stable/api/artist_api.html#artist-class) es la clase base para todos los elementos visuales en `Matplotlib`.
 
 ```{list-table}
 :header-rows: 1
@@ -59,7 +59,7 @@ Es la clase base para todos los elementos visuales en `Matplotlib`.
 (matplotlib-line2d)=
 ## Line2D
 
-Es una clase contenida en el módulo `matplotlib.lines`, y es retornada por diversas funciones como `plt.plot()`. Representa líneas 2D en las gráficas.
+[Line2D](https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html) es una clase contenida en el módulo `matplotlib.lines`, y es retornada por diversas funciones como `plt.plot()`. Representa líneas 2D en las gráficas.
 
 ```{list-table}
 :header-rows: 1
@@ -69,7 +69,7 @@ Es una clase contenida en el módulo `matplotlib.lines`, y es retornada por dive
 * - [antialiased | aa](https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_antialiased)
   - `bool`. Indica si se debe usar _antialiased rendering_.
 * - [color | c](https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_color)
-  - _color_. {ref}`matplotlib-color` de las líneas.
+  - {ref}`matplotlib-color`. Color de las líneas.
 * - [dash_capstyle](https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_dash_capstyle)
   - `CapStyle` o `{'butt', 'projecting', 'round'}`. Indica como dibujar las últimas _caps_ si la línea es _is_dashed_.
 * - [dash_joinstyle](https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_dash_joinstyle)
@@ -83,23 +83,23 @@ Es una clase contenida en el módulo `matplotlib.lines`, y es retornada por dive
 * - [fillstyle](https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_fillstyle)
   - {'full', 'left', 'right', 'bottom', 'top', 'none'}. Indica el estilo de relleno de los marcadores.
 * - [gapcolor](https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_gapcolor)
-  - _color_ o `None`. Establece cómo rellenar los espacios en una línea intermitente.
+  - {ref}`matplotlib-color` o `None`. Establece cómo rellenar los espacios en una línea intermitente.
 * - [gid](https://matplotlib.org/stable/api/_as_gen/matplotlib.artist.Artist.set_gid.html)
   - `str`. "id" del grupo del _artist_.
 * - [linestyle | ls](https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_linestyle)
-  - {'-', '--', '-.', ':', '', (offset, on-off-seq), ...}. Estilo de la {ref}`matplotlib-lines`. Para no imprimir líneas usar una cadena vacía `''` o `None`. También se úede usar líneas con nombre. 
+  - {'-', '--', '-.', ':', '', (offset, on-off-seq), ...}. Estilo de las {ref}`matplotlib-lines`. Para no imprimir líneas usar una cadena vacía `''` o `None`. También se puede usar líneas con nombre. 
 * - [linewidth | lw](https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_linewidth)
   - `float`. Especifica el grueso de la línea en puntos.
 * - [marker](https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_marker)
   - _marker style string_, `Path` or `MarkerStyle`. Tipo de {ref}`matplotlib-markers` en la gráfica.
 * - [markeredgecolor | mec](https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_markeredgecolor)
-  - _color_: Color del borde del marker. 
+  - {ref}`matplotlib-color`: Color del borde del marker. 
 * - [markeredgewidth | mew](https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_markeredgewidth)
   - `float`. Ancho del borde del marker en puntos
 * - [markerfacecolor | mfc](https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_markerfacecolor)
-  - _color_. Color del interior del marker.
+  - {ref}`matplotlib-color`. Color del interior del marker.
 * - [markerfacecoloralt | mfcalt](https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_markerfacecoloralt)
-  - _color_. Color alternativo del interior del marker.
+  - {ref}`matplotlib-color`. Color alternativo del interior del marker.
 * - [markersize | ms](https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_markersize)
   - `float`. Tamaño del marker en puntos.
 * - [markevery](https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_markevery)
@@ -124,7 +124,7 @@ Es una clase contenida en el módulo `matplotlib.lines`, y es retornada por dive
 (matplotlib-text)=
 ## Text
 
-Es una clase contenida en el módulo `matplotlib.text`, y es retornada por diversas funciones como `plt.title()`, `plt.xlabel()`, `plt.ylabel()`, etc. Representa texto en las gráficas.
+[Text](https://matplotlib.org/stable/api/text_api.html) es una clase contenida en el módulo `matplotlib.text`, y es retornada por diversas funciones como `plt.title()`, `plt.xlabel()`, `plt.ylabel()`, etc. Representa texto en las gráficas.
 
 ```{list-table}
 :header-rows: 1
@@ -134,13 +134,13 @@ Es una clase contenida en el módulo `matplotlib.text`, y es retornada por diver
 * - [antialiased](https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text.set_antialiased)
   - `bool`. Indica si se debe usar _antialiased rendering_.
 * - [backgroundcolor](https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text.set_backgroundcolor)
-  - _color_. Color de fondo del texto. 
+  - {ref}`matplotlib-color`. Color de fondo del texto. 
 * - [bbox](https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text.set_bbox)
   - `dict` con propiedades para `patches.FancyBboxPatch`. Rectángulo contenedor del texto.
 * - [color | c](https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text.set_color)
-  - _color_. Color del texto.
+  - {ref}`matplotlib-color`. Color del texto.
 * - [fontfamily | family | fontname](https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text.set_fontfamily)
-  - {FONTNAME, 'serif', 'sans-serif', 'cursive', 'fantasy', 'monospace'}. Familia del texto
+  - {_fontname_, 'serif', 'sans-serif', 'cursive', 'fantasy', 'monospace'}. Familia del texto
 * - [fontproperties 1 font 1 font_properties](https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text.set_fontproperties)
   - `font_manager.FontProperties`, `str` o `pathlib.Path`. Propiedades de la fuente.
 * - [fontsize | size](https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text.set_fontsize)
@@ -191,7 +191,7 @@ Es una clase contenida en el módulo `matplotlib.text`, y es retornada por diver
 (matplotlib-patch)=
 ## Patch
 
-Es una clase contenida en el módulo `matplotlib.patches`, y sus propiedades se pueden utilizar en el objeto retornado por `plt.arrow()`. Representa figuras geométricas en las gráficas.
+[Patch](https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Patch.html#matplotlib.patches.Patch) es una clase contenida en el módulo `matplotlib.patches`, y sus propiedades se pueden utilizar en el objeto retornado por `plt.arrow()`. Representa figuras geométricas en las gráficas.
 
 ```{list-table}
 :header-rows: 1
@@ -203,19 +203,19 @@ Es una clase contenida en el módulo `matplotlib.patches`, y sus propiedades se 
 * - [capstyle](https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Patch.html#matplotlib.patches.Patch.set_capstyle)
   - `CapStyle` o {'butt', 'projecting', 'round'}. Establece el _capstyle_
 * - [color](https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Patch.html#matplotlib.patches.Patch.set_color)
-  - color. Color del borde y relleno.
-* - [edgecolor or ec](https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Patch.html#matplotlib.patches.Patch.set_edgecolor)
-  - color o `None`. Color del borde.
-* - [facecolor or fc](https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Patch.html#matplotlib.patches.Patch.set_facecolor)
-  - color o `None`. Color del relleno
+  - {ref}`matplotlib-color`. Color del borde y relleno.
+* - [edgecolor | ec](https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Patch.html#matplotlib.patches.Patch.set_edgecolor)
+  - {ref}`matplotlib-color` o `None`. Color del borde.
+* - [facecolor | fc](https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Patch.html#matplotlib.patches.Patch.set_facecolor)
+  - {ref}`matplotlib-color` o `None`. Color del relleno
 * - [fill](https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Patch.html#matplotlib.patches.Patch.set_fill)
   - `bool`. Indica si se debe de rellenar.
 * - [hatch](https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Patch.html#matplotlib.patches.Patch.set_hatch)
   - {'/', '\', '|', '-', '+', 'x', 'o', 'O', '.', '*'}. Establece el patrón _hatching_.
 * - [joinstyle](https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Patch.html#matplotlib.patches.Patch.set_joinstyle)
   - `JoinStyle` o {'miter', 'round', 'bevel'}. Establece el _JoinStyle_.
-* - [linestyle or ls](https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Patch.html#matplotlib.patches.Patch.set_linestyle)
-  - {'-', '--', '-.', ':', '', (offset, on-off-seq), ...}. Establece el patrón del _patch_.
+* - [linestyle | ls](https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Patch.html#matplotlib.patches.Patch.set_linestyle)
+  - {'-', '--', '-.', ':', '', (offset, on-off-seq), ...}. Estilo de las {ref}`matplotlib-lines`.
 * - [linewidth or lw](https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Patch.html#matplotlib.patches.Patch.set_linewidth)
   - `float` o `None`. Ancho del _patch_ en puntos.
 ```
@@ -226,7 +226,7 @@ Es una clase contenida en el módulo `matplotlib.patches`, y sus propiedades se 
 (matplotlib-rectangle)=
 ## Rectangle
 
-Es una clase contenida en el módulo `matplotlib.patches`, y es retornada por diversas funciones como `plt.hist()`, `plt.bar()`, etc. Es una subclase de `Patch` y representa un rectángulo
+[Rectangle](https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Rectangle.html) es una clase contenida en el módulo `matplotlib.patches`, y es retornada por diversas funciones como `plt.hist()`, `plt.bar()`, etc. Es una subclase de `Patch` y representa un rectángulo
 
 ```{list-table}
 :header-rows: 1
@@ -236,21 +236,21 @@ Es una clase contenida en el módulo `matplotlib.patches`, y es retornada por di
 * - [antialiased or aa](https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Patch.html)
   - `bool` o `None`.. `bool` or `None`.
 * - [capstyle](https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Patch.html)
-  - `CapStyle` o {'trasero', 'proyectando', 'redondo'}.. `CapStyle` or {'butt', 'projecting', 'round'}.
+  - `CapStyle` o {'trasero', 'proyectando', 'redondo'}.
 * - [color](https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Patch.html)
-  - color.. color.
+  - {ref}`matplotlib-color`.
 * - [edgecolor or ec](https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Patch.html)
-  - color o `None`.. color or `None`.
+  - {ref}`matplotlib-color` o `None`.
 * - [facecolor or fc](https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Patch.html)
-  - color o `None`.. color or `None`.
+  - {ref}`matplotlib-color` o `None`.
 * - [fill](https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Patch.html)
   - `bool`.. `bool`.
 * - [hatch](https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Patch.html)
-  - {'/', '\', '|', '-', '+', 'x', 'o', 'O', '.', '*'}.. {'/', '\', '|', '-', '+', 'x', 'o', 'O', '.', '*'}.
+  - {'/', '\', '|', '-', '+', 'x', 'o', 'O', '.', '*'}.
 * - [joinstyle](https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Patch.html)
   - `JoinStyle` o {'inglete', 'redondo', 'bisel'}.. `JoinStyle` or {'miter', 'round', 'bevel'}.
-* - [linestyle or ls](https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Patch.html)
-  - {'-', '--', '-.', ':', '', (desplazamiento, secuencia de encendido-apagado), ...}.. {'-', '--', '-.', ':', '', (offset, on-off-seq), ...}.
-* - [linewidth or lw](https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Patch.html)
-  - `float` o `None`.. `float` or `None`.
+* - [linestyle | ls](https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Patch.html)
+  - {'-', '--', '-.', ':', '', _(offset, on-off-seq)_, ...}. Estilo de las {ref}`matplotlib-lines`.
+* - [linewidth | lw](https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Patch.html)
+  - `float` o `None`.
 ```

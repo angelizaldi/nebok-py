@@ -24,18 +24,32 @@ cafe="#ba6a30"
 cafe_claro="#cf9975"
 ```
 
-Es una librería que se utiliza para realizar gráficas. Está construida sobre `matplotlib` por lo que muchas funciones de esa librería también funcionan con `seaborn`, incluso muchas funciones retornan objetos de la clase `matplotlib.Axes`. Es necesario importar la librería.
+Es una librería que se utiliza para realizar gráficas. Está construida sobre `matplotlib` por lo que muchas funciones de esa librería también funcionan con `seaborn`, incluso muchas funciones retornan objetos de la clase `matplotlib.Axes`.
 
+Para utilizar `seaborn` es necesario instalarlo. Desde la terminal usar:
+```
+# Con pip
+pip install seaborn
+
+# Con conda
+conda install seaborn
+```
+
+Una vez instalado se debe de importar:
 ```python
 # importar librería
 import seaborn as sns
 ```
--	_sns_ es el nombre por convención.
+- _sns_ es el nombre por convención.
+
+:::{note}
+Para más información de esta librería visitar la [documentación](https://seaborn.pydata.org/api.html) y [guía de usuario](https://seaborn.pydata.org/api.html) de `seaborn`.
+:::
 
 ```{attention}
 Tener en cuenta lo siguiente al trabajar con la librería `seaborn`
 - También es necesario que se importe  `matplotlib.pyplot`. <br> `import matplotlib.pyplot as plt`
-- Para mostar las gráficas se tiene que usar `plt.tshow()`. Aunque esto no es necesario cuando se trabaja en {doc}`../08-otros/IPython`.
+- Para mostar las gráficas se tiene que usar `plt.tshow()`. Aunque esto no es necesario cuando se trabaja en {doc}`../appendix/IPython`.
 ```
 
 ## Interfaces
@@ -208,3 +222,12 @@ Las funciones a nivel de _ejes_ se pueden crear en un _Axes_ especificado, con e
 - A nivel de _ejes_ utilizar las funciones de `matplotlib` para definir el tamaño de la figura (como `plt.subplots()` y/o el argumento _figsize_).
 - A nivel de figura utilizar los argumentos _heigh_ y _aspect_.
 - Con la interfaz basada en objeros usar el método _.layout_ y el parámetro _size_: `g.layout(size=(width, height))`
+
+<br/>
+
+---
+## Tabla de contenido
+
+
+```{tableofcontents}
+````

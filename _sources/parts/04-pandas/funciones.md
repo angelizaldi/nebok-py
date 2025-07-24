@@ -36,7 +36,11 @@ Funciones que convierten objetos a tipos numéricos.
 
 ### Fechas y tiempo
 
-Funciones que generar o convierten objetos a tipos `datetime-like`.
+Funciones que generan o convierten objetos a tipos `datetime-like`.
+
+:::{tip}
+Revisar {doc}`./anexos` para ver posibles valores del parámetro _freq_.
+:::
 
 ```{list-table}
 :header-rows: 1
@@ -54,7 +58,7 @@ Funciones que generar o convierten objetos a tipos `datetime-like`.
 * - [timedelta_range](https://pandas.pydata.org/docs/reference/api/pandas.timedelta_range.html)([start, end, periods, freq, ...])
   - Retorna un `TimedeltaIndex` de frecuencia fija con el día como valor predeterminado.
 * - [to_datetime](https://pandas.pydata.org/docs/reference/api/pandas.to_datetime.html)(arg[, errors, dayfirst, ...])
-  - Convierte el argumento a `datetime64`. Es posible indicar el formato en el está las fechas usando {ref}`codigos-formatos-fechas`.
+  - Convierte el argumento a `datetime64`. Es posible indicar el formato en el están las fechas usando {ref}`codigos-formatos-fechas`.
 * - [to_timedelta](https://pandas.pydata.org/docs/reference/api/pandas.to_timedelta.html)(arg[, unit, errors])
   - Convierte el argumento a `timedelta64`.
 ```
@@ -163,6 +167,7 @@ Funciones útiles para inferir frecuencias o formatos en datos que representan f
 
 <br/>
 
+(pd-function-data-manipulation)=
 ## Manipulación De Datos
 
 ### Categorización
@@ -198,7 +203,7 @@ Funciones con diversas utilidades.
 * - [from_dummies](https://pandas.pydata.org/docs/reference/api/pandas.from_dummies.html)(data[, sep, default_category])
   - Crea una columna categórica a partie de un `DataFrame` con _dummy variables_.
 * - [get_dummies](https://pandas.pydata.org/docs/reference/api/pandas.get_dummies.html)(data[, prefix, prefix_sep, ...])
-  - Convierte variables categóricas en _dummy variables_. Básicamentecada valor único de una columna categórica la convierte en una nueva columna, cuyos valores contendrán unos y ceros indicando si cada fila tenía ese valor categórico.
+  - Convierte variables categóricas en _dummy variables_. Básicamente cada valor único de una columna categórica la convierte en una nueva columna, cuyos valores contendrán unos y ceros indicando si cada fila tenía ese valor categórico.
 * - [unique](https://pandas.pydata.org/docs/reference/api/pandas.unique.html)(values)
   - Retorna los valores únicos basados ​​en una tabla _hash_.
 ```
@@ -433,12 +438,13 @@ pd.read_csv(filepath, sep=',', header='infer', names=None, index_col=None,
 - **nrows** - `int`: Es para indicar cuántas filas importar.
 - **na_values** - `scalar`, `str`, `list-like` o `dict`: Es para indicar qué cadenas se deben de considerar como _NA_. Por default se considerán: _'', '#N/A', '#N/A N/A', '#NA', '-1.#IND', '-1.#QNAN', '-NaN', '-nan', '1.#IND', '1.#QNAN', '\`NA`', 'N/A', 'NA', 'NULL', 'NaN', 'n/a', 'nan', 'null'_.
     - Si es un diccionario es para especificar valores `NaN` para cada columna, los _keys_ son los nombres (`str`) de las columnas y los _values_ (`list` de `str`) los valores a considerar _NA_.
-- **parse_dates** - `bool`, `list` de `int` o `str`, `list` de `list` o `dict`: Es para indicar si alguna columna se debe de importar en formato de fecha. La columna debe de estar en algún formato estándar, si no es el caso, importa el archivo y despues convertir la columna con `to_datetime()` de `pandas`. También revisa el argumento _dayfirst_.
+- **parse_dates** - `bool`, `list` de `int` o `str`, `list` de `list` o `dict`: Es para indicar si alguna columna se debe de importar en formato de fecha. La columna debe de estar en algún formato estándar, si no es el caso, importa el archivo y despues convertir la columna con `to_datetime()` de `pandas`. También revisa el argumento _dayfirst_ y _date_format_.
     - `bool`: Si es `True` entonces el índice se convertirá en fecha.
     - `list` de `int` o `str`: Si es una lista de enteros o de cadenas entonces se pasan los índices o los nombres de las columnas que se deben de convertir en fecha.
     - `list` de `list`: Si es una lista de listas, los valores de las listas interiores deben de tener índices o nombres de columnas y esas columnas se unirán y las convierte fecha en una sola columna.
     - `dict`: Si es un diccionario, las llaves serán los nombres de la nuevas columnas con fechas y los valores son los índices/nommbre de las columnas a convertir en fecha, pueden ser una lista con más de un índice/nombre que se combinarán en una sola. Los nombres de keys no pueden ser igual a ningún nombre en el archivo.
 - **dayfirst** - `bool`: Es para indicar que las columnas de fechas están en formato _DD/MM/YYYY_.
+- **date_format** - `str` o `dict`: Es el formato en el que están las fechas, se puede indicar el formato de múltiples columnas con un diccionario. Ver {ref}`codigos-formatos-fechas`.
 - **chunksize** - `int`: Para indicar el número de filas a retornar en un objeto `TextFileReader` para iteración. Sirve para importar el contenido del archivo por partes en lugar de todo completo.
 - **thousands** - `str`: Para indicar el separados de miles, como _','_ o _'.'_.
 - **on_bad_lines** - {'error', 'warn', 'skip'}: Específica qué se debe se hacer en caso de que exista una línea 'corrupta'.
@@ -899,11 +905,11 @@ postgres_url=f"postgresql://{user_db}:{password_db}@{url_db}/{name_db}"
 engine=create_engine(postgres_url)
 ```
 - Se puede omitir la constraseña simplemente asignado `password_db=""`.
-- En Postgre también se podría usar: `"postgresql+psycopg2://{user_db}:{password_db}@{url_db}/{name_db}"`
+- En Postgre también se podría usar: `f"postgresql+psycopg2://{user_db}:{password_db}@{url_db}/{name_db}"`
     - Es necesario tener instalado `psycopg2`. 
-- En MySQL: `"mysql+pymysql://{user_db}:{password_db}@{url_db}/{name_db}"`
+- En MySQL: `f"mysql+pymysql://{user_db}:{password_db}@{url_db}/{name_db}"`
     - Es necesario tener instalado `pymysql`. 
-- En SQLite: `"sqlite:///{name_db}"`
+- En SQLite: `f"sqlite:///{name_db}"`
     - _name_db_ debe tener extensión _.db_ y debe estar en el directorio activo: `name_db="your_database.db"`
     - Si no está en el directorio activo se debe de indicar la ruta al archivo: `name_db="path/to/your_database.db"`
 

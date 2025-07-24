@@ -1,0 +1,1250 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>API Principal &#8212; Manual de Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'parts/10-statsmodels/statsmodels-api';</script>
+    <link rel="icon" href="../../_static/nebok-favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="API de Series de Tiempo" href="statsmodels-tsa-api.html" />
+    <link rel="prev" title="Statsmodels" href="statsmodels-index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/nebok-logo.png" class="logo__image only-light" alt="Manual de Python - Home"/>
+    <script>document.write(`<img src="../../_static/nebok-logo.png" class="logo__image only-dark" alt="Manual de Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Manual de C
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Built-in</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01-built-in/built-in-index.html">Python Estándar</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/cli.html"><em>Command Line Interface</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/ayuda.html">Obtener ayuda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/comentarios.html">Comentarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/tipos-datos.html">Tipos de Datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/variables-constantes.html">Variables y Constantes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/operadores-palabras.html">Operadores y palabras reservadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/entrada-salida.html">Impresión y solicitud de datos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/tipos-index.html">Tipos Built-In</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/none-bool-numericos.html"><em>None</em>, <em>bool</em> y Numéricos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/str.html">str</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/lists.html">list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/tuples.html">Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/sets.html">Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/dicts.html">dict</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/estructuras-index.html">Estructuras de control</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/if-else.html">If … Else</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/for-loop.html">For Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/do-while.html">Do While</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/udf.html">Funciones (UDF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/exceptions.html">Excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/context-managers.html">Context Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/io.html">Lectura y escritura de archivos (IO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/modulos.html">Paquetes y Módulos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-built-in/avanzado-index.html">Temas avanzados</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/decorators.html">Decorators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/iterators.html">Iterators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/generators.html">Generators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-built-in/oop.html">Programación orientada a objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../01-built-in/func-built-in.html">Funciones built-in</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-modulos/modulos-index.html">Módulos built-in</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/collections.html">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/csv.html">CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/datetime.html">Datetime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/itertools.html">Itertools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/json.html">JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/math.html">Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os.html">Os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/os-path.html">Os.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/pickle.html">Pickle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/random.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/regex.html">Regex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/statistics.html">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-modulos/urllib-request.html">urllib.request</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otras librerías</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-numpy/numpy-index.html">Numpy</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/arrays.html">Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../03-numpy/funciones-index.html">Funciones</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/ufuncs.html">Ufuncs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/buscar-contar-ordenar-unicos.html">Buscar, contar, ordenar y valores únicos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/creacion-arrays.html">Creación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/estadisticas.html">Estadísticas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/indices.html">Índices e iteración</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/informacion.html">Información</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/lectura-escritura.html">Lectura y escritura de datos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/manipulacion-arrays.html">Manipulación de arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/matematicas-numericas.html">Matemáticas y numéricas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-numpy/operadores.html">Operadores</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/algebra-lineal.html">Módulo linalg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/cadenas.html">Modulo char</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/random.html">Módulo random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-numpy/patrones-numpy.html">Patrones útiles</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04-pandas/pandas-index.html">Pandas</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/index.html">Index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/series.html">Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/dataframe.html">DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/escalares-arrays.html">Escalares y Arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../04-pandas/otras-clases.html">Otras clases</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/groupby.html">GroupBy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/expanding-rolling-window.html"><em>Expanding, Rolling</em> y <em>Window</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-pandas/resampler.html">Resampler</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/funciones.html">Funciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/patrones-pandas.html">Patrones útiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04-pandas/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../05-matplotlib/matplotlib-index.html">Matplotlib</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/pyplot.html">Pyplot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/figure.html">Figure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/axes.html">Axes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/otros.html">Otras Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05-matplotlib/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06-seaborn/seaborn-index.html">Seaborn</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06-seaborn/funciones-clases.html">Funciones y Clases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-seaborn/objects-interface.html">Interface por objetos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../07-sklearn/sklearn-index.html">Scikit Learn</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/supervised/supervised-index.html">Aprendizaje supervisado</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/ensamble.html">Ensamble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/linear_model.html">Linear model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/naive_bayes.html">Naive bayes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/neighbors.html">Neighbors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/svm.html">SVM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/tree.html">Tree</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/unsupervised/unsupervised-index.html">Aprendizaje no supervisado</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/unsupervised/cluster.html">Cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/unsupervised/decomposition.html">Decomposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/unsupervised/mixture.html">Mixture</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/transformations/tranformations-index.html">Transformaciones</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/feature_extraction.html">Feature Extraction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/impute.html">Impute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/manifold.html">Manifold</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/preprocessing.html">Preprocessing</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/evaluation/evaluation-index.html">Evaluación y selección del modelo</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/dummy.html">Dummy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/feature_selection.html">Feature Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/metrics.html">Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/model_selection.html">Model Selection</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/pipelines-and-compose/pipeline-compose-index.html">Pipelines y Modelos Compuestos</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/pipelines-and-compose/compose.html">Compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/pipelines-and-compose/pipeline.html">Pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../07-sklearn/datasets.html">Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-sklearn/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-xgboost/xgboost-index.html">XGBoost</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08-xgboost/core-data-structure.html">Core Data Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-xgboost/learning-api.html">Learning API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-xgboost/scikit-learn-api.html">Scikit-Learn API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-xgboost/plotting-api.html">Plotting API</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../09-scipy/scipy-index.html">Scipy</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/clusters.html">Clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/derivacion-integracion.html">Derivación e Integración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/linalg.html">Linear Algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/sparse.html"><em>Sparse</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/stats.html">Stats</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="statsmodels-index.html">Statsmodels</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">API Principal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="statsmodels-tsa-api.html">API de Series de Tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="statsmodels-formula-api.html">API de Fórmulas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphics.html">Gráficos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otras-clases.html">Otras clases</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../11-bokeh/bokeh-index.html">Bokeh</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/io.html">IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/layouts.html"><em>Layouts</em></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../11-bokeh/models/models-index.html"><em>Models</em></a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/annotations.html">Anotaciones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/axes.html">Ejes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/callbacks.html">Callbacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/formatters.html"><em>Formatters</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/glyphs.html"><em>Glyphs</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/sources.html"><em>Sources</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/tools.html"><em>Tools</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/widgets.html"><em>Widgets</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/plotting.html">Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/transform.html">transform</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../12-plotly/plotly-index.html">Plotly</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/express.html"><em>Express</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/figure-factory.html"><em>Figure Factory</em></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../12-plotly/go/go-index.html"><em>Graph Objects</em></a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../12-plotly/go/figure.html"><em>Figure</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../12-plotly/go/layout.html"><em>Layout</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../12-plotly/go/traces.html">Traces</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/io.html">IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/subplots.html">Subplots</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/beautifulsoup.html">BeautifulSoup</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Complementarios</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../appendix/appendix-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/IPython.html">IPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/jupyter.html">Jupyter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/pip.html">pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/conda.html"><em>conda</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/git.html">git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/shell.html">Shell</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/parts/10-statsmodels/statsmodels-api.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>API Principal</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-discretos-y-de-conteo">Modelos Discretos y de Conteo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuaciones-de-estimacion-generalizadas-gee">Ecuaciones de Estimación Generalizadas (GEE)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-lineales-generalizados-glm">Modelos Lineales Generalizados (GLM)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graficos">Gráficos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clases">Clases</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones">Funciones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imputacion">Imputación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-multivariados">Modelos Multivariados</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#otros-modelos">Otros Modelos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regresion">Regresión</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-ols">Notas de OLS</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#uso">Uso</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos">Atributos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos">Métodos</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estadisticas">Estadísticas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#herramientas">Herramientas</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="api-principal">
+<h1>API Principal<a class="headerlink" href="#api-principal" title="Link to this heading">#</a></h1>
+<p>Es la interfaz principal de <em>statsmodels</em>, que proporciona acceso a una amplia gama de modelos estadísticos y herramientas de análisis. Entre las funcionalidades principales están:</p>
+<ul class="simple">
+<li><p>Modelos lineales (<em>OLS</em>, regresión lineal generalizada).</p></li>
+<li><p>Modelos de datos panel y modelos mixtos.</p></li>
+<li><p>Pruebas estadísticas y diagnósticos.</p></li>
+</ul>
+<p>Es necesario importar el módulo:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar api</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+
+<span class="c1"># Importar clase específica</span>
+<span class="kn">from</span> <span class="nn">statsmodels.api</span> <span class="kn">import</span> <span class="n">ClassName</span>
+
+<span class="c1"># Importar función específica</span>
+<span class="kn">from</span> <span class="nn">statsmodels.api</span> <span class="kn">import</span> <span class="n">func_name</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><em>sm</em> es el nombre por convención.</p></li>
+<li><p><em>ClassName</em> o <em>func_name</em> es el nombre de la clase o función respectivamente.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Para más información visitar la <a class="reference external" href="https://www.statsmodels.org/stable/api.html#statsmodels-api">documentación</a> de <em>statsmodels</em>.</p>
+</div>
+<p>A continuación se presenta un resumen de cada una de las secciones:</p>
+<ul class="simple">
+<li><p><strong>Modelos Discretos y de Conteo</strong>: Modelos estadísticos para datos discretos o de conteo, como regresión Poisson, binomial negativa y logit.</p></li>
+<li><p><strong>Ecuaciones de Estimación Generalizadas (GEE)</strong>: Métodos para modelar datos correlacionados o agrupados, como en estudios longitudinales o clínicos.</p></li>
+<li><p><strong>Modelos Lineales Generalizados (GLM)</strong>: Extensión de los modelos lineales para trabajar con distribuciones no normales, como binomial, Poisson o gamma.</p></li>
+<li><p><strong>Gráficos</strong>: Herramientas para visualización de datos y diagnósticos de modelos.</p></li>
+<li><p><strong>Imputación</strong>: Métodos para manejar datos faltantes, como la imputación múltiple o por regresión.</p></li>
+<li><p><strong>Modelos Multivariados</strong>: Técnicas para analizar múltiples variables dependientes, como <em>MANOVA</em> o análisis de componentes principales (<em>PCA</em>).</p></li>
+<li><p><strong>Otros Modelos</strong>: Incluye modelos especializados, como modelos de duración (<em>survival analysis</em>) o modelos no paramétricos.</p></li>
+<li><p><strong>Regresión</strong>: Modelos de regresión clásicos, como regresión lineal (<em>OLS</em>), regresión robusta y regresión ponderada.</p></li>
+<li><p><strong>Estadísticas</strong>: Funciones para pruebas estadísticas, análisis descriptivo y cálculo de medidas resumidas.</p></li>
+<li><p><strong>Herramientas</strong>: Utilidades generales para el análisis de datos, como manipulación de fórmulas, validación de modelos y generación de datos sintéticos.</p></li>
+</ul>
+<br/>
+<section id="modelos-discretos-y-de-conteo">
+<h2>Modelos Discretos y de Conteo<a class="headerlink" href="#modelos-discretos-y-de-conteo" title="Link to this heading">#</a></h2>
+<p>Modelos estadísticos para datos discretos o de conteo, como regresión Poisson, binomial negativa y _logit—.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Notar que todas son clases.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Constructor</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.discrete.conditional_models.ConditionalLogit.html">ConditionalLogit</a>(endog, exog, …)</p></td>
+<td><p>Ajusta un modelo de regresión logística condicional a datos agrupados.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.discrete.conditional_models.ConditionalMNLogit.html">ConditionalMNLogit</a>(endog, exog, …)</p></td>
+<td><p>Ajusta un modelo logit multinomial condicional a los datos agrupados.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.discrete.conditional_models.ConditionalPoisson.html">ConditionalPoisson</a>(endog, exog, …)</p></td>
+<td><p>Ajusta un modelo de regresión de Poisson condicional a datos agrupados.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.discrete.discrete_model.GeneralizedPoisson.html">GeneralizedPoisson</a>(endog, exog, …)</p></td>
+<td><p>Modelo de Poisson generalizado.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.discrete.discrete_model.Logit.html">Logit</a>(endog, exog, …)</p></td>
+<td><p>Modelo logit.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.discrete.discrete_model.MNLogit.html">MNLogit</a>(endog, exog, …)</p></td>
+<td><p>Modelo logit multinomial.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.discrete.discrete_model.NegativeBinomial.html">NegativeBinomial</a>(endog, exog, …)</p></td>
+<td><p>Modelo binomial negativo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.discrete.discrete_model.NegativeBinomialP.html">NegativeBinomialP</a>(endog, exog, …)</p></td>
+<td><p>Modelo binomial negativo generalizado (NB-P).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.miscmodels.ordinal_model.OrderedModel.html">OrderedModel</a>(endog, exog, …)</p></td>
+<td><p>Modelo ordinal basado en la distribución logística o normal.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.discrete.discrete_model.Poisson.html">Poisson</a>(endog, exog, …)</p></td>
+<td><p>Modelo de Poisson.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.discrete.discrete_model.Probit.html">Probit</a>(endog, exog, …)</p></td>
+<td><p>Modelo probit.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.discrete.count_model.ZeroInflatedGeneralizedPoisson.html">ZeroInflatedGeneralizedPoisson</a>(endog, exog)</p></td>
+<td><p>Modelo de Poisson generalizado inflado cero.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.discrete.count_model.ZeroInflatedNegativeBinomialP.html">ZeroInflatedNegativeBinomialP</a>(endog, exog, …)</p></td>
+<td><p>Modelo binomial negativo generalizado inflado cero.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.discrete.count_model.ZeroInflatedPoisson.html">ZeroInflatedPoisson</a>(endog, exog, …)</p></td>
+<td><p>Modelo de Poisson inflado  Zero.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="ecuaciones-de-estimacion-generalizadas-gee">
+<h2>Ecuaciones de Estimación Generalizadas (GEE)<a class="headerlink" href="#ecuaciones-de-estimacion-generalizadas-gee" title="Link to this heading">#</a></h2>
+<p>Métodos para modelar datos correlacionados o agrupados, como en estudios longitudinales o clínicos.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Notar que todas son clases.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Constructor</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.genmod.generalized_estimating_equations.GEE.html">GEE</a>(endog, exog, groups, …)</p></td>
+<td><p>Modelo de regresión marginal utilizando ecuaciones de estimación generalizadas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.genmod.generalized_estimating_equations.NominalGEE.html">NominalGEE</a>(endog, exog, groups, …)</p></td>
+<td><p><em>Nominal Response Marginal Regression Model</em> usando GEE.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.genmod.generalized_estimating_equations.OrdinalGEE.html">OrdinalGEE</a>(endog, exog, groups, …)</p></td>
+<td><p><em>Ordinal Response Marginal Regression Model</em> usando GEE.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="modelos-lineales-generalizados-glm">
+<h2>Modelos Lineales Generalizados (GLM)<a class="headerlink" href="#modelos-lineales-generalizados-glm" title="Link to this heading">#</a></h2>
+<p>Extensión de los modelos lineales para trabajar con distribuciones no normales, como binomial, Poisson o gamma.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Notar que todas son clases.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Constructor</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.genmod.bayes_mixed_glm.BinomialBayesMixedGLM.html">BinomialBayesMixedGLM</a>(endog, exog, exog_vc, …)</p></td>
+<td><p>Modelo mixto lineal generalizado con estimación bayesiana.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.genmod.generalized_linear_model.GLM.html">GLM</a>(endog, exog, …)</p></td>
+<td><p>Modelos lineales generalizados.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.gam.generalized_additive_model.GLMGam.html">GLMGam</a>(endog, …)</p></td>
+<td><p>Modelos aditivos generalizados (GAM).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.genmod.bayes_mixed_glm.PoissonBayesMixedGLM.html">PoissonBayesMixedGLM</a>(endog, exog, exog_vc, ident)</p></td>
+<td><p>Modelo mixto lineal generalizado con estimación bayesiana.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="graficos">
+<h2>Gráficos<a class="headerlink" href="#graficos" title="Link to this heading">#</a></h2>
+<p>Herramientas para visualización de datos y diagnósticos de modelos.</p>
+<section id="clases">
+<h3>Clases<a class="headerlink" href="#clases" title="Link to this heading">#</a></h3>
+<p>Clases para visualización de datos</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Constructor</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.graphics.gofplots.ProbPlot.html">ProbPlot</a>(data, …)</p></td>
+<td><p>Gráficos de probabilidad <em>Q-Q</em> y <em>P-P</em>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="funciones">
+<h3>Funciones<a class="headerlink" href="#funciones" title="Link to this heading">#</a></h3>
+<p>Funciones para visualización de datos y diagnósticos de modelos.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.graphics.gofplots.qqline.html">qqline</a>(ax, line, …)</p></td>
+<td><p>Grafica una línea de referencia para un <em>Qqplot</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.graphics.gofplots.qqplot.html">qqplot</a>(data, …)</p></td>
+<td><p>Gráfico <em>Q-Q</em> de los cuantiles de <em>x</em> versus los cuantiles/ppf de una distribución.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.graphics.gofplots.qqplot_2samples.html">qqplot_2samples</a>(data1, data2, …)</p></td>
+<td><p>Gráfico <em>Q-Q</em> de cuantiles de dos muestras.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+<section id="imputacion">
+<h2>Imputación<a class="headerlink" href="#imputacion" title="Link to this heading">#</a></h2>
+<p>Métodos para manejar datos faltantes, como la imputación múltiple o por regresión.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Notar que todas son clases.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Constructor</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.imputation.bayes_mi.BayesGaussMI.html">BayesGaussMI</a>(data, …)</p></td>
+<td><p>Imputación bayesiana utilizando un modelo gaussiano.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.imputation.bayes_mi.MI.html">MI</a>(imp, model, …)</p></td>
+<td><p><em>MI</em> realiza una imputación múltiple utilizando un objeto imputador proporcionado.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.imputation.mice.MICE.html">MICE</a>(model_formula, model_class, data, …)</p></td>
+<td><p>Imputación múltiple con ecuaciones encadenadas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.imputation.mice.MICEData.html">MICEData</a>(data, …)</p></td>
+<td><p>Envuelva un conjunto de datos para permitir el manejo de datos faltante con <em>MICE</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="modelos-multivariados">
+<h2>Modelos Multivariados<a class="headerlink" href="#modelos-multivariados" title="Link to this heading">#</a></h2>
+<p>Técnicas para analizar múltiples variables dependientes, como MANOVA o análisis de componentes principales (PCA).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Notar que todas son clases.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Constructor</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.multivariate.factor.Factor.html">Factor</a>(…)</p></td>
+<td><p>Análisis factorial.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.multivariate.manova.MANOVA.html">MANOVA</a>(endog, exog, …)</p></td>
+<td><p>Análisis de varianza multivariado.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.multivariate.pca.PCA.html">PCA</a>(data, …)</p></td>
+<td><p>Análisis de componentes principales.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="otros-modelos">
+<h2>Otros Modelos<a class="headerlink" href="#otros-modelos" title="Link to this heading">#</a></h2>
+<p>Incluye modelos especializados, como modelos de duración (survival analysis) o modelos no paramétricos.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Notar que todas son clases.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Constructor</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.othermod.betareg.BetaModel.html">BetaModel</a>(endog, exog, …)</p></td>
+<td><p>Regresión beta.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.regression.mixed_linear_model.MixedLM.html">MixedLM</a>(endog, exog, groups, …)</p></td>
+<td><p>Modelo de efectos mixtos lineales.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.duration.hazard_regression.PHReg.html">PHReg</a>(endog, exog, …)</p></td>
+<td><p>Modelo de regresión de riesgos proporcionales de Cox.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.regression.quantile_regression.QuantReg.html">QuantReg</a>(endog, exog, **kwargs)</p></td>
+<td><p>Regresión cuantil.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.robust.robust_linear_model.RLM.html">RLM</a>(endog, exog, …)</p></td>
+<td><p>Modelo lineal robusto.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.duration.survfunc.SurvfuncRight.html">SurvfuncRight</a>(time, status, …)</p></td>
+<td><p>Estimación e inferencia para una función de supervivencia.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="regresion">
+<h2>Regresión<a class="headerlink" href="#regresion" title="Link to this heading">#</a></h2>
+<p>Modelos de regresión clásicos, como regresión lineal (<em>OLS</em>), regresión robusta y regresión ponderada.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Notar que todas son clases.</p>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Constructor</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.regression.linear_model.GLS.html">GLS</a>(endog, exog, …)</p></td>
+<td><p>Mínimos cuadrados generalizados.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.regression.linear_model.GLSAR.html">GLSAR</a>(endog, …)</p></td>
+<td><p>Mínimos cuadrados generalizados con estructura de covarianza AR.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.regression.linear_model.OLS.html">OLS</a>(endog, …)</p></td>
+<td><p>Mínimos cuadrados ordinarios.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.regression.recursive_ls.RecursiveLS.html">RecursiveLS</a>(endog, exog, …)</p></td>
+<td><p>Mínimos cuadrados recursivos.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.regression.rolling.RollingOLS.html">RollingOLS</a>(endog, exog, …)</p></td>
+<td><p><em>Rolling Ordinary Least Squares</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.regression.rolling.RollingWLS.html">RollingWLS</a>(endog, exog, …)</p></td>
+<td><p><em>Rolling Weighted Least Squares</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.regression.linear_model.WLS.html">WLS</a>(endog, exog, …)</p></td>
+<td><p>Mínimos cuadrados ponderados.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<section id="notas-de-ols">
+<h3>Notas de OLS<a class="headerlink" href="#notas-de-ols" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.regression.linear_model.OLS.html">OLS</a>: Crea una modelo de regresión por el método de mínimos cuadrados, desde dos vectores.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis de llamada</span>
+<span class="n">sm</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">hasconst</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><strong>endog</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span> <span class="pre">1D</span></code>: Variable dependiente (Y).</p></li>
+<li><p><strong>exog</strong> - <code class="docutils literal notranslate"><span class="pre">array-like</span></code>: Variable(s) independiente(s) (X). La intercepción no está incluida por default y debe ser proveída por el usuario manualmente con la función <code class="docutils literal notranslate"><span class="pre">statsmodels.api.add_constant</span></code>, esto es si quieres la regresión líneal con una intercepción, entonces debes de proveer una columna constante de 1s como primer columna.</p></li>
+<li><p><strong>missing</strong> - <code class="docutils literal notranslate"><span class="pre">Str</span></code>: Para indicar como manejar los valores perdidos:</p>
+<ul>
+<li><p><em>‘none’</em>: No se revisa si hay valores perdidos.</p></li>
+<li><p><em>‘drop’</em>: Cualquier observación con <code class="docutils literal notranslate"><span class="pre">NaN</span></code> se elimina.</p></li>
+<li><p><em>‘raise’</em>: Se arroja un error si hay valores perdidos.</p></li>
+</ul>
+</li>
+<li><p><strong>hasconst</strong> - <code class="docutils literal notranslate"><span class="pre">None</span></code> o <code class="docutils literal notranslate"><span class="pre">Bool</span></code>: Indica si el RHS incluye una constante proveída por el usuario.</p></li>
+</ul>
+<br/>
+<section id="uso">
+<h4>Uso<a class="headerlink" href="#uso" title="Link to this heading">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># Importación</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+
+<span class="c1"># Añadir constante (intercepción) a las variables independientes</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>  <span class="c1"># Opcional</span>
+
+<span class="c1"># Inicializar y ajustar el modelo OLS</span>
+<span class="n">modelo_ols</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span>
+    <span class="n">endog</span><span class="o">=</span><span class="n">y</span><span class="p">,</span>  <span class="c1"># Variable dependiente (y)</span>
+    <span class="n">exog</span><span class="o">=</span><span class="n">X</span><span class="p">,</span>   <span class="c1"># Variables independientes (X, con constante si es necesario)</span>
+<span class="p">)</span>
+<span class="n">resultados</span> <span class="o">=</span> <span class="n">modelo_ols</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>  <span class="c1"># Ajustar el modelo a los datos</span>
+
+<span class="c1"># Resumen completo del modelo (coeficientes, p-valores, R², etc.)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">resultados</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+
+<span class="c1"># Obtener coeficientes del modelo</span>
+<span class="n">coeficientes</span> <span class="o">=</span> <span class="n">resultados</span><span class="o">.</span><span class="n">params</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Coeficientes:&quot;</span><span class="p">,</span> <span class="n">coeficientes</span><span class="p">)</span>
+
+<span class="c1"># Obtener predicciones</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">resultados</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_new</span><span class="p">)</span>  <span class="c1"># Predicciones para nuevos datos</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Predicciones:&quot;</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+
+<span class="c1"># Obtener residuos (errores)</span>
+<span class="n">residuos</span> <span class="o">=</span> <span class="n">resultados</span><span class="o">.</span><span class="n">resid</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Residuos:&quot;</span><span class="p">,</span> <span class="n">residuos</span><span class="p">)</span>
+
+<span class="c1"># Pruebas de hipótesis (ej: t-test para un coeficiente específico)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor t del intercepto:&quot;</span><span class="p">,</span> <span class="n">resultados</span><span class="o">.</span><span class="n">tvalues</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># Atributos importantes del objeto resultados (opcional)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R²:&quot;</span><span class="p">,</span> <span class="n">resultados</span><span class="o">.</span><span class="n">rsquared</span><span class="p">)</span>  <span class="c1"># Coeficiente de determinación</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R² ajustado:&quot;</span><span class="p">,</span> <span class="n">resultados</span><span class="o">.</span><span class="n">rsquared_adj</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Número de observaciones:&quot;</span><span class="p">,</span> <span class="n">resultados</span><span class="o">.</span><span class="n">nobs</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sm.add_constant(X)</span></code>: Si la variable independiente <em>X</em> no tiene una columna de constantes se agrega en este paso.</p></li>
+</ul>
+<br/>
+</section>
+<section id="atributos">
+<h4>Atributos<a class="headerlink" href="#atributos" title="Link to this heading">#</a></h4>
+<p>Atributos de la clase <code class="docutils literal notranslate"><span class="pre">OLS</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.regression.linear_model.OLS.df_model.html">df_model</a></p></td>
+<td><p>El grado de libertad del modelo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.regression.linear_model.OLS.df_resid.html">df_resid</a></p></td>
+<td><p>El grado de libertad del residual.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.regression.linear_model.OLS.endog_names.html">endog_names</a></p></td>
+<td><p>Nombres de variables endógenas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.regression.linear_model.OLS.exog_names.html">exog_names</a></p></td>
+<td><p>Nombres de variables exógenas.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="metodos">
+<h4>Métodos<a class="headerlink" href="#metodos" title="Link to this heading">#</a></h4>
+<p>Métodos de la clase <code class="docutils literal notranslate"><span class="pre">OLS</span></code>.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Método</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.regression.linear_model.OLS.fit.html">fit</a>(…)</p></td>
+<td><p>Ajuste completo del modelo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.regression.linear_model.OLS.fit_regularized.html">fit_regularized</a>(…)</p></td>
+<td><p>Retorna un ajuste regularizado a un modelo de regresión lineal.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.regression.linear_model.OLS.from_formula.html">from_formula</a>(formula, data, …)</p></td>
+<td><p>Crea un modelo a partir de una fórmula y <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.regression.linear_model.OLS.get_distribution.html">get_distribution</a>(params, scale, …)</p></td>
+<td><p>Construye un generador de números aleatorios para la distribución predictiva.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.regression.linear_model.OLS.hessian.html">hessian</a>(params, …)</p></td>
+<td><p>Evalúa la función <em>Hessiana</em> en un punto dado.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.regression.linear_model.OLS.hessian_factor.html">hessian_factor</a>(params, …)</p></td>
+<td><p>Calcula los pesos para el Hessiano.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.regression.linear_model.OLS.information.html">information</a>(params)</p></td>
+<td><p>Matriz de información de <em>Fisher</em> del modelo.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.regression.linear_model.OLS.initialize.html">initialize</a>()</p></td>
+<td><p>Inicializa los componentes del modelo.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.regression.linear_model.OLS.loglike.html">loglike</a>(params, …)</p></td>
+<td><p>La función de probabilidad para el modelo <em>OLS</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.regression.linear_model.OLS.predict.html">predict</a>(params, …)</p></td>
+<td><p>Retorna valores linealmente predichos de una matriz.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.regression.linear_model.OLS.score.html">score</a>(params, …)</p></td>
+<td><p>Evalúa la función de puntaje en un punto dado.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.regression.linear_model.OLS.whiten.html">whiten</a>(x)</p></td>
+<td><p>El modelo <em>OLS</em> Whitener no hace nada.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+</section>
+<section id="estadisticas">
+<h2>Estadísticas<a class="headerlink" href="#estadisticas" title="Link to this heading">#</a></h2>
+<p>Funciones para pruebas estadísticas, análisis descriptivo y cálculo de medidas resumidas.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.stats.descriptivestats.Description.html">Description</a>(data, …)</p></td>
+<td><p>(Clase) Estadísticas descriptivas extendidas para datos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.stats.descriptivestats.describe.html">describe</a>(data, …)</p></td>
+<td><p>Estadísticas descriptivas extendidas para datos.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="herramientas">
+<h2>Herramientas<a class="headerlink" href="#herramientas" title="Link to this heading">#</a></h2>
+<p>Utilidades generales para el análisis de datos, como manipulación de fórmulas, validación de modelos y generación de datos sintéticos.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Función</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tools.tools.add_constant.html">add_constant</a>(data, …)</p></td>
+<td><p>Agrega una columna de unos a una matriz.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.iolib.smpickle.load_pickle.html">load_pickle</a>(fname)</p></td>
+<td><p>Carga un objeto previamente guardado.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tools.print_version.show_versions.html">show_versions</a>(…)</p></td>
+<td><p>Enlista las versiones de <em>statsmodels</em> y cualquier dependencia instalada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/dev/generated/statsmodels.__init__.test.html">test</a>(…)</p></td>
+<td><p>Ejecuta la suite de prueba.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.tools.web.webdoc.html">webdoc</a>(…)</p></td>
+<td><p>Abre un navegador y muestra documentación en línea.</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./parts/10-statsmodels"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="statsmodels-index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Statsmodels</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="statsmodels-tsa-api.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">API de Series de Tiempo</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-discretos-y-de-conteo">Modelos Discretos y de Conteo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuaciones-de-estimacion-generalizadas-gee">Ecuaciones de Estimación Generalizadas (GEE)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-lineales-generalizados-glm">Modelos Lineales Generalizados (GLM)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graficos">Gráficos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clases">Clases</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones">Funciones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imputacion">Imputación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-multivariados">Modelos Multivariados</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#otros-modelos">Otros Modelos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regresion">Regresión</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notas-de-ols">Notas de OLS</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#uso">Uso</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos">Atributos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos">Métodos</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estadisticas">Estadísticas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#herramientas">Herramientas</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nebok
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

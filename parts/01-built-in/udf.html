@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -183,13 +183,14 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    Manual de Python para Data Science
+                    Manual de C
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Built-in</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="built-in-index.html">Python Estándar</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cli.html"><em>Command Line Interface</em></a></li>
 <li class="toctree-l2"><a class="reference internal" href="ayuda.html">Obtener ayuda</a></li>
 <li class="toctree-l2"><a class="reference internal" href="comentarios.html">Comentarios</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tipos-datos.html">Tipos de Datos</a></li>
@@ -295,12 +296,110 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../06-seaborn/objects-interface.html">Interface por objetos</a></li>
 </ul>
 </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../07-sklearn/sklearn-index.html">Scikit Learn</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/supervised/supervised-index.html">Aprendizaje supervisado</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/ensamble.html">Ensamble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/linear_model.html">Linear model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/naive_bayes.html">Naive bayes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/neighbors.html">Neighbors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/svm.html">SVM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/supervised/tree.html">Tree</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Otros</span></p>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/unsupervised/unsupervised-index.html">Aprendizaje no supervisado</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/unsupervised/cluster.html">Cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/unsupervised/decomposition.html">Decomposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/unsupervised/mixture.html">Mixture</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/transformations/tranformations-index.html">Transformaciones</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/feature_extraction.html">Feature Extraction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/impute.html">Impute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/manifold.html">Manifold</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/transformations/preprocessing.html">Preprocessing</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/evaluation/evaluation-index.html">Evaluación y selección del modelo</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/dummy.html">Dummy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/feature_selection.html">Feature Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/metrics.html">Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/evaluation/model_selection.html">Model Selection</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../07-sklearn/pipelines-and-compose/pipeline-compose-index.html">Pipelines y Modelos Compuestos</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/pipelines-and-compose/compose.html">Compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07-sklearn/pipelines-and-compose/pipeline.html">Pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../07-sklearn/datasets.html">Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07-sklearn/anexos.html">Anexos</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../08-xgboost/xgboost-index.html">XGBoost</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08-xgboost/core-data-structure.html">Core Data Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-xgboost/learning-api.html">Learning API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-xgboost/scikit-learn-api.html">Scikit-Learn API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08-xgboost/plotting-api.html">Plotting API</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../09-scipy/scipy-index.html">Scipy</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/clusters.html">Clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/derivacion-integracion.html">Derivación e Integración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/linalg.html">Linear Algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/sparse.html"><em>Sparse</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09-scipy/stats.html">Stats</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../10-statsmodels/statsmodels-index.html">Statsmodels</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/statsmodels-api.html">API Principal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/statsmodels-tsa-api.html">API de Series de Tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/statsmodels-formula-api.html">API de Fórmulas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/graphics.html">Gráficos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-statsmodels/otras-clases.html">Otras clases</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../11-bokeh/bokeh-index.html">Bokeh</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/io.html">IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/layouts.html"><em>Layouts</em></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../11-bokeh/models/models-index.html"><em>Models</em></a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/annotations.html">Anotaciones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/axes.html">Ejes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/callbacks.html">Callbacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/formatters.html"><em>Formatters</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/glyphs.html"><em>Glyphs</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/sources.html"><em>Sources</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/tools.html"><em>Tools</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11-bokeh/models/widgets.html"><em>Widgets</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/plotting.html">Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11-bokeh/transform.html">transform</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../12-plotly/plotly-index.html">Plotly</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/express.html"><em>Express</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/figure-factory.html"><em>Figure Factory</em></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../12-plotly/go/go-index.html"><em>Graph Objects</em></a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../12-plotly/go/figure.html"><em>Figure</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../12-plotly/go/layout.html"><em>Layout</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../12-plotly/go/traces.html">Traces</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/io.html">IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12-plotly/subplots.html">Subplots</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/beautifulsoup.html">BeautifulSoup</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Complementarios</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../08-otros/otros-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../08-otros/IPython.html">IPython</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../08-otros/beautifulsoup.html">Web Scraping</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../appendix/appendix-index.html">Otros</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/IPython.html">IPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/jupyter.html">Jupyter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/pip.html">pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/conda.html"><em>conda</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/git.html">git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/shell.html">Shell</a></li>
 </ul>
 </li>
 </ul>
@@ -507,7 +606,7 @@ document.write(`
 <hr class="docutils" />
 <section id="crear-una-funcion">
 <h2>Crear una función<a class="headerlink" href="#crear-una-funcion" title="Link to this heading">#</a></h2>
-<p>La sintaxis para crear una función es la siguiente:</p>
+<p>La sintaxis básica para crear una función es la siguiente:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plantilla básica de una función</span>
 <span class="k">def</span> <span class="nf">function_name</span><span class="p">(</span><span class="n">param1</span><span class="o">=</span><span class="n">val1</span><span class="p">,</span> <span class="n">param2</span><span class="o">=</span><span class="n">val2</span><span class="p">,</span> <span class="p">[</span><span class="o">...</span><span class="p">]):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;docstring&quot;&quot;&quot;</span>
@@ -621,7 +720,7 @@ document.write(`
 <br/>
 <section id="estilo-google">
 <h3>Estilo Google<a class="headerlink" href="#estilo-google" title="Link to this heading">#</a></h3>
-<p>El formato general para una descripción siguiendo el estilo <em>google</em> es:</p>
+<p>El formato general para una descripción siguiendo el estilo <em>google</em> es el siguiente:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Descripción de la función</span>
 
@@ -646,7 +745,7 @@ document.write(`
 </section>
 <section id="estilo-numpy">
 <h3>Estilo Numpy<a class="headerlink" href="#estilo-numpy" title="Link to this heading">#</a></h3>
-<p>El formato general para una descripción siguiendo el estilo <em>numpy</em> es:</p>
+<p>El formato general para una descripción siguiendo el estilo <em>numpy</em> es el siguiente:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Descripción de la función</span>
 
@@ -703,7 +802,7 @@ document.write(`
 <hr class="docutils" />
 <section id="valores-por-default">
 <h3>Valores por default<a class="headerlink" href="#valores-por-default" title="Link to this heading">#</a></h3>
-<p>Los parámetros de las funciones pueden tener valores por default que se difinen al momento de definir la función:</p>
+<p>Los parámetros de las funciones pueden tener valores por default que se definen al momento de definir la función:</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Los valores por default deben ser tipos inmutables para evitar comportamientos inesperados en la función. Los tipos inmutables son:</p>
@@ -728,7 +827,7 @@ document.write(`
 <ul class="simple">
 <li><p>En este ejemplo, ambos parámetros tienen valores por default</p></li>
 <li><p>Al momento de llamar la función es posible indicar valores distintos a los valores por default.</p></li>
-<li><p>Si se omite algún parámetro al llamar la función, se usa su valor por default en caso de que tenga.</p></li>
+<li><p>Si se omite algún parámetro al llamar la función, se usa su valor por default en caso de que tenga, en caso contrario se arrojará un error.</p></li>
 </ul>
 <br/>
 <hr class="docutils" />
@@ -876,6 +975,15 @@ bar
     <span class="k">pass</span>
 </pre></div>
 </div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>También se puede usar la constante <code class="docutils literal notranslate"><span class="pre">Ellipsis</span></code> o la literal <code class="docutils literal notranslate"><span class="pre">...</span></code> para definir funciones vacías:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definir función vacía</span>
+<span class="k">def</span> <span class="nf">my_function</span><span class="p">():</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</div>
 <br/>
 </section>
 <hr class="docutils" />
@@ -887,8 +995,8 @@ bar
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>Si la función no tiene parámetros no poner nada dentro de los paréntesis, pero sí debe de llevar los paréntesis.</p></li>
-<li><p>Se debe de pasar la misma cantidad de parámetros que aquellos que la función espera (parámetros obligatorios),  y en el mismo orden que en la manera como están definidos en la función en caso de que se no se usen los keywords, en caso contrario se pueden poner en un orden distinto.</p></li>
+<li><p>Si la función no tiene parámetros no poner nada dentro de los paréntesis, pero sí debe de llevar los paréntesis. Si no se ponen los paréntesis se retornará la función como objeto.</p></li>
+<li><p>Se debe de pasar la misma cantidad de parámetros que aquellos que la función espera (parámetros obligatorios),  y en el mismo orden que en la manera como están definidos en la función en caso de que se no se usen las <em>keywords</em>, en caso contrario se pueden poner en un orden distinto.</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Llamar a una funcion por keywords</span>
 <span class="n">function_name</span><span class="p">(</span><span class="n">param2</span><span class="o">=</span><span class="n">val2</span><span class="p">,</span> <span class="n">param1</span><span class="o">=</span><span class="n">val1</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
@@ -936,17 +1044,17 @@ bar
 <ol class="arabic simple">
 <li><p><strong>Ámbito Local</strong>: Primero se verifica si la variable está definida en el ámbito local.</p></li>
 <li><p><strong>Ámbito Contenedor</strong>: Si la variable no se encuentra en el ámbito local, se buscan en el ámbito contenedor, es decir, en la función o funciones padres de la función hija.</p></li>
-<li><p><strong>Ámbito Global</strong>: En caso de que la variable siga sin encontrarse en el ámbito contenedor entonces se buscará en el ámbito global, que son las objetos definidas en el <em>script</em> principal.</p></li>
+<li><p><strong>Ámbito Global</strong>: En caso de que la variable siga sin encontrarse en el ámbito contenedor entonces se buscará en el ámbito global, que son las variables definidas en el <em>script</em> principal.</p></li>
 <li><p><strong>Ámbito Built-in</strong>: Finalmente se busca la variable en el módulo built-in de Python.</p></li>
 </ol>
 </li>
 </ul>
-<div class="admonition caution">
-<p class="admonition-title">Caution</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
 <p>En los ámbito locales las variables de los ámbitos contenedores y globales solo son accesibles para lectura, pero no para escritura, a menos de que se usen las <em>keywords</em> <code class="docutils literal notranslate"><span class="pre">nonlocal</span></code> y <code class="docutils literal notranslate"><span class="pre">global</span></code>, como se revisa en la siguiente sección.</p>
 </div>
 <p>Es común que la función padre retorne la llamada a la función hija.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Estructura básica de una función anidada</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Función padre que retorna a su función hija</span>
 <span class="k">def</span> <span class="nf">outer</span><span class="p">(</span><span class="n">outer_params</span><span class="p">):</span>
     <span class="c1"># outer function body</span>
     
@@ -970,7 +1078,8 @@ bar
 <ul class="simple">
 <li><p>En este ejemplo es importante que la función <em>inner</em> no utilice ninguna variable del ámbito contenedor, ya que en ese caso probablemente se trataría de un <a class="reference internal" href="#functions-closures"><span class="std std-ref">Closure</span></a>.</p></li>
 </ul>
-<p><strong>Ejemplo</strong></p>
+<p><strong>Ejemplo</strong>:
+En este ejemplo se define una función que crea y retorna otra función, que calcula el cuadrado de un número que recibe (<em>x</em>).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definir función padre</span>
 <span class="k">def</span> <span class="nf">raise_val</span><span class="p">():</span>
     <span class="c1"># Definir función hija</span>
@@ -1011,9 +1120,9 @@ bar
 <p class="admonition-title">Tip</p>
 <p>Para verificar que una función sea un <em>closure</em> se puede usar el atributo <code class="docutils literal notranslate"><span class="pre">.__closure__</span></code>, si la función no es un <em>closure</em> retorna <code class="docutils literal notranslate"><span class="pre">None</span></code>, en caso contrario retorna un <code class="docutils literal notranslate"><span class="pre">tuple</span></code>.</p>
 </div>
-<p>Un closure “recuerda” el entorno en el que fue creado, permitiendo que una función anidada siga accediendo a variables locales de su función contenedora incluso después de que la función contenedora haya terminado su ejecución..</p>
+<p>Un <em>closure</em> “recuerda” el entorno en el que fue creado, permitiendo que una función anidada siga accediendo a variables locales de su función contenedora incluso después de que la función contenedora haya terminado su ejecución.</p>
 <p><strong>Ejemplo</strong></p>
-<p>A continuación se presenta un ejemplo de un <em>closure</em></p>
+<p>A continuación se presenta un ejemplo de un <em>closure</em>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">raise_val</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -1111,10 +1220,11 @@ global:  15
 <section id="recursion">
 <h2>Recursión<a class="headerlink" href="#recursion" title="Link to this heading">#</a></h2>
 <p>La recursión sucede cuando dentró de una función, la función se llama a sí misma. Se debe de tener cuidado de que la función termine en algún momento y de que no se consuma demasiada memoria para procesarla.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_function</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sintaxis básica de función recursiva</span>
+<span class="k">def</span> <span class="nf">my_function</span><span class="p">([</span><span class="n">args</span><span class="p">]):</span>
     <span class="c1"># function body</span>
         
-    <span class="n">my_function</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">my_function</span><span class="p">([</span><span class="n">args</span><span class="p">])</span>
         
     <span class="c1"># function body</span>
 </pre></div>
@@ -1318,7 +1428,7 @@ By Nebok
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2025.
       <br/>
     
   </p>
